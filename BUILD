@@ -1,0 +1,2 @@
+g++ -std=c++11 -pthread -I include/ -w -o bin/DBServer DBServer/main.cpp DBServer/Socket/CMainSocket.cpp include/Socket/CSocket.cpp
+g++ -std=c++11 -pthread -I include/ -w -o bin/MainServer MainServer/main.cpp MainServer/Socket/CClientSocket.cpp include/Socket/CSocket.cpp MainServer/Socket/CDBSocket.cpp MainServer/CClient.cpp MainServer/CServer.cpp 
