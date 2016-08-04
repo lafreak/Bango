@@ -71,8 +71,10 @@ PVOID CDBSocket::Process(PVOID param)
 			CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			//if (pClient)
-			//	pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
+			if (pClient) {
+				printf("Found client.\nS2C_ANS_LOGIN sent.\n");
+				pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
+			}
 		}
 	}
 

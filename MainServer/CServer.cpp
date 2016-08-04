@@ -4,7 +4,7 @@ std::map<SOCKET, CClient*> CServer::g_mClient;
 
 void CServer::Add(CClient *pClient)
 {
-	if (g_mClient.find(pClient->GetSocket()) == g_mClient.end())
+	if (g_mClient.find(pClient->GetSocket()) != g_mClient.end())
 		return;
 
 	g_mClient[pClient->GetSocket()] = pClient;
