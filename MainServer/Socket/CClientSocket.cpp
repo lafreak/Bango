@@ -70,6 +70,7 @@ PVOID CClientSocket::Await(PVOID param)
 		int nLen = recv(pClient->GetSocket(), &packet, MAX_PACKET_LENGTH + (packet.data-(char*)&packet), 0);
 		if (nLen <= 0 || packet.wSize <=0) {
 			printf("Client[%d] disconnected.\n", pClient->GetSocket());
+			CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetSocket());
 			CServer::Remove(pClient);
 			break;
 		}
@@ -88,7 +89,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 {
 	switch (packet.byType)
 	{
-	case C2S_CONNECT:
+		case C2S_CONNECT:
 		{
 			DWORD dwSeedL[4] = {0,};
 			int nAppTime=0;
@@ -105,13 +106,14 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			DWORD dwEvent=0;
 			BYTE byServerID=0;
 			BYTE byAge=0;
-			BYTE byCountry=30;
+			BYTE byCountry=0;
+
 			pClient->Write(S2C_CODE, "dbdddIbbb", dwProtocolVersion, byCode, nTimeStamp, nTimeStart, dwSystem, dwEvent, byServerID, byAge, byCountry);
 			printf("S2C_CODE sent.\n");
 			break;
 		}
 
-	case C2S_ANS_CODE:
+		case C2S_ANS_CODE:
 		{
 			BYTE byUnknown=0;
 			DWORD dwProtocolVersion=0;
@@ -121,7 +123,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			break;
 		}
 
-	case C2S_LOGIN:
+		case C2S_LOGIN:
 		{
 			char* szLogin=NULL;
 			char* szPassword=NULL;
@@ -131,16 +133,11 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			printf("Login: %s\nPassword: %s\nMac: %s\n", szLogin, szPassword, szMac);
 
 			CDBSocket::Write(S2D_LOGIN, "dss", pClient->GetSocket(), szLogin, szPassword);
-
-			/*
-			BYTE byAnswer = 1;
-			pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
-			printf("S2C_ANS_LOGIN sent.\n");
-			*/
+			printf("S2D_LOGIN sent.\n");
 			break;
 		}
 
-	case C2S_SECOND_LOGIN:
+		case C2S_SECOND_LOGIN:
 		{
 			BYTE byType=0;
 
@@ -169,18 +166,13 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 
 					if (bQuit) break;
 
-					if (std::string(szPassword) != pClient->GetPassword()) {
-						pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, MSL_WRONG_PWD);
-						break;
-					}
-
 					printf("OnCreate PW: %s\nSecondary: %s\n", szPassword, szSecondaryPW);
 
-					CDBSocket::Write(S2D_CREATE_SECONDARY, "dsss", pClient->GetSocket(), pClient->GetLogin().c_str(), szPassword, szSecondaryPW);
+					CDBSocket::Write(S2D_CREATE_SECONDARY, "dss", pClient->GetSocket(), szPassword, szSecondaryPW);
 					break;
 				}
 
-				case SL_CHANGE_PASSWORD: // Password change request
+				case SL_CHANGE_PASSWORD:
 				{
 					char *szOldPassword=NULL;
 					char *szNewPassword=NULL;
@@ -204,7 +196,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 
 					printf("Old password: %s\nNew password: %s\n", szOldPassword, szNewPassword);
 
-					CDBSocket::Write(S2D_CHANGE_SECONDARY, "dsss", pClient->GetSocket(), pClient->GetLogin().c_str(), szOldPassword, szNewPassword);
+					CDBSocket::Write(S2D_CHANGE_SECONDARY, "dss", pClient->GetSocket(), szOldPassword, szNewPassword);
 					break;
 				}
 
@@ -230,7 +222,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 
 					if (bQuit) break;
 
-					CDBSocket::Write(S2D_SECONDARY_LOGIN, "dss", pClient->GetSocket(), pClient->GetLogin().c_str(), szPassword);
+					CDBSocket::Write(S2D_SECONDARY_LOGIN, "ds", pClient->GetSocket(), szPassword);
 
 					break;
 

@@ -1,11 +1,13 @@
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CSocket.o include/Socket/CSocket.cpp
 
 # DBServer
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CAccount.o DBServer/CAccount.cpp
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CServer.o DBServer/CServer.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMainSocket.o DBServer/Socket/CMainSocket.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CDatabase.o DBServer/Database/CDatabase.cpp 
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/main.o DBServer/main.cpp
 
-g++ --std=c++11 -pthread -o bin/DBServer bin/obj/CSocket.o bin/obj/CDatabase.o bin/obj/CMainSocket.o bin/obj/main.o -lmysqlcppconn
+g++ --std=c++11 -pthread -o bin/DBServer bin/obj/CSocket.o bin/obj/CAccount.o bin/obj/CServer.o bin/obj/CDatabase.o bin/obj/CMainSocket.o bin/obj/main.o -lmysqlcppconn
 
 # MainServer
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClient.o MainServer/CClient.cpp

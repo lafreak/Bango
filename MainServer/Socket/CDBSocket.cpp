@@ -68,31 +68,22 @@ PVOID CDBSocket::Process(PVOID param)
 		{
 			BYTE byAnswer=0;
 			int nClientID=0;
-			CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
+			char *p = CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			if (pClient) {
-				printf("Found client.\nS2C_ANS_LOGIN sent.\n");
-				pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
+			if (!pClient) break;
+
+			if (byAnswer == LA_SAMEUSER) {
+				int nClientExID=0;
+				CSocket::ReadPacket(p, "d", &nClientExID);
+
+				auto pClientEx = CServer::FindClient(nClientExID);
+				if (pClientEx)
+					pClientEx->Write(S2C_CLOSE, "b", CC_SAMEUSER);
 			}
 
-			break;
-		}
-
-		case D2S_ACCEPT_CRED:
-		{
-			int nClientID=0;
-			char *szLogin=NULL;
-			char *szPassword=NULL;
-			BYTE byAnswer=0;
-			CSocket::ReadPacket(packet->data, "dssb", &nClientID, &szLogin, &szPassword, &byAnswer);
-
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (pClient) {
-				pClient->SetLogin(std::string(szLogin));
-				pClient->SetPassword(std::string(szPassword));
-				pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
-			}
+			pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
+			printf("S2C_ANS_LOGIN sent.\n");
 
 			break;
 		}

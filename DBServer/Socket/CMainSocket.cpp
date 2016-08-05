@@ -114,14 +114,23 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 			}
 
-			if (!rs->getBoolean("bIsCreate2nd")) {
-				//CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
-				CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_OK);
+			auto pAccount = CServer::FindAccount(std::string(szLogin));
+			if (pAccount) {
+				CMainSocket::Write(D2S_LOGIN, "bdd", LA_SAMEUSER, nClientID, pAccount->GetSocket());
+				CServer::Remove(pAccount);
 				break;
 			}
 
-			//CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
-			CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
+			CServer::Add(new CAccount(nClientID, std::string(szLogin), std::string(szPassword)));
+
+			if (!rs->getBoolean("bIsCreate2nd")) {
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+				//CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_OK);
+				break;
+			}
+
+			CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
+			//CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
 
 			break;
 		}
@@ -131,24 +140,26 @@ PVOID CMainSocket::Process(PVOID param)
 			printf("S2D_CREATE_SECONDARY.\n");
 
 			int nClientID=0;
-			char *szLogin=NULL;
 			char *szPassword=NULL;
 			char *szSecondaryPW=NULL;
 
-			CSocket::ReadPacket(packet->data, "dsss", &nClientID, &szLogin, &szPassword, &szSecondaryPW);
+			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szPassword, &szSecondaryPW);
 
-			printf("ClientID: %d, Login: %s, Password: %s, Secondary Password: %s\n", nClientID, szLogin, szPassword, szSecondaryPW);
+			printf("ClientID: %d, Password: %s, Secondary Password: %s\n", nClientID, szPassword, szSecondaryPW);
+
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (!pAccount) break;
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"UPDATE account SET secondary=? WHERE login=? AND password=?"));
 			pPStmt->setString(1, szSecondaryPW);
-			pPStmt->setString(2, szLogin);
+			pPStmt->setString(2, pAccount->GetLogin().c_str());
 			pPStmt->setString(3, szPassword);
 
 			if (pPStmt->executeUpdate() > 0)
 				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
 			else
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGPWD, nClientID);
+				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
 
 			break;
 		}
@@ -158,24 +169,26 @@ PVOID CMainSocket::Process(PVOID param)
 			printf("S2D_CHANGE_SECONDARY.\n");
 
 			int nClientID=0;
-			char *szLogin=NULL;
 			char *szOldPassword=NULL;
 			char *szNewPassword=NULL;
 
-			CSocket::ReadPacket(packet->data, "dsss", &nClientID, &szLogin, &szOldPassword, &szNewPassword);
+			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szOldPassword, &szNewPassword);
 			
-			printf("ClientID: %d, Login: %s, OldPassword: %s, NewPassword: %s\n", nClientID, szLogin, szOldPassword, szNewPassword);
+			printf("ClientID: %d, OldPassword: %s, NewPassword: %s\n", nClientID, szOldPassword, szNewPassword);
+
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (!pAccount) break;
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"UPDATE account SET secondary=? WHERE login=? AND secondary=?"));
 			pPStmt->setString(1, szNewPassword);
-			pPStmt->setString(2, szLogin);
+			pPStmt->setString(2, pAccount->GetLogin().c_str());
 			pPStmt->setString(3, szOldPassword);
 
 			if (pPStmt->executeUpdate() > 0)
 				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
 			else
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGPWD, nClientID);
+				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
 
 			break;
 		}
@@ -185,17 +198,19 @@ PVOID CMainSocket::Process(PVOID param)
 			printf("S2D_SECONDARY_LOGIN.\n");
 
 			int nClientID=0;
-			char *szLogin=NULL;
 			char *szPassword=NULL;
 
-			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szLogin, &szPassword);
+			CSocket::ReadPacket(packet->data, "ds", &nClientID, &szPassword);
 			
-			printf("ClientID: %d, Login: %s, SecondaryPW: %s\n", nClientID, szLogin, szPassword);
+			printf("ClientID: %d, SecondaryPW: %s\n", nClientID, szPassword);
+
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (!pAccount) break;
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"SELECT "
 				"EXISTS(SELECT 1 FROM account WHERE login=? AND secondary=?) as bIsOK"));
-			pPStmt->setString(1, szLogin);
+			pPStmt->setString(1, pAccount->GetLogin().c_str());
 			pPStmt->setString(2, szPassword);
 			rs_ptr rs(pPStmt->executeQuery());
 			rs->next();
@@ -208,6 +223,19 @@ PVOID CMainSocket::Process(PVOID param)
 			//CMainSocket::Write(D2S_PLAYER_INFO, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
 
 			break;
+		}
+
+		case S2D_DISCONNECT:
+		{
+			printf("S2D_DISCONNECT.\n");
+
+			int nClientID=0;
+
+			CSocket::ReadPacket(packet->data, "d", &nClientID);
+
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (pAccount)
+				CServer::Remove(pAccount);
 		}
 	}
 

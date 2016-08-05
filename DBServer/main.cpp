@@ -4,7 +4,7 @@
 int main()
 {
 
-	if (!CDatabase::Connect("127.0.0.1", "3306", "root", "password"))
+	if (!CDatabase::Connect("127.0.0.1", "3306", "root", "iostream;"))
 		return 1;
 
 	CDatabase::SetSchema("kalonline");

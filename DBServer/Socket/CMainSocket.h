@@ -15,6 +15,8 @@
 
 #include <Socket/CSocket.h>
 
+#include "../CServer.h"
+
 class CMainSocket
 {
 	static SOCKET g_pDBSocket;
