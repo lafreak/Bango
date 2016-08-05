@@ -1,5 +1,7 @@
 #include "CMainSocket.h"
 
+#include "../Database/CDatabase.h"
+
 SOCKET CMainSocket::g_pDBSocket = INVALID_SOCKET;
 SOCKET CMainSocket::g_pMainSocket = INVALID_SOCKET;
 
@@ -77,7 +79,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 	switch (packet->byType)
 	{
-	case S2D_LOGIN:
+		case S2D_LOGIN:
 		{
 			printf("S2D_LOGIN.\n");
 
@@ -89,7 +91,121 @@ PVOID CMainSocket::Process(PVOID param)
 
 			printf("ClientID: %d, Login: %s, Password: %s\n", nClientID, szLogin, szPassword);
 
-			CMainSocket::Write(D2S_LOGIN, "bd", 1, nClientID);
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"SELECT "
+				"EXISTS(SELECT 1 FROM account WHERE login=?) as bIsLogin, "
+				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=?) as bIsPW, "
+				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=? AND secondary IS NULL) as bIsCreate2nd"));
+			pPStmt->setString(1, szLogin);
+			pPStmt->setString(2, szLogin);
+			pPStmt->setString(3, szPassword);
+			pPStmt->setString(4, szLogin);
+			pPStmt->setString(5, szPassword);
+			rs_ptr rs(pPStmt->executeQuery());
+			rs->next();
+
+			if (!rs->getBoolean("bIsLogin")) {
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGID, nClientID);
+				break;
+			}
+
+			if (!rs->getBoolean("bIsPW")) {
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGPWD, nClientID);
+				break;
+			}
+
+			if (!rs->getBoolean("bIsCreate2nd")) {
+				//CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+				CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_OK);
+				break;
+			}
+
+			//CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
+			CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
+
+			break;
+		}
+
+		case S2D_CREATE_SECONDARY:
+		{
+			printf("S2D_CREATE_SECONDARY.\n");
+
+			int nClientID=0;
+			char *szLogin=NULL;
+			char *szPassword=NULL;
+			char *szSecondaryPW=NULL;
+
+			CSocket::ReadPacket(packet->data, "dsss", &nClientID, &szLogin, &szPassword, &szSecondaryPW);
+
+			printf("ClientID: %d, Login: %s, Password: %s, Secondary Password: %s\n", nClientID, szLogin, szPassword, szSecondaryPW);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE account SET secondary=? WHERE login=? AND password=?"));
+			pPStmt->setString(1, szSecondaryPW);
+			pPStmt->setString(2, szLogin);
+			pPStmt->setString(3, szPassword);
+
+			if (pPStmt->executeUpdate() > 0)
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+			else
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGPWD, nClientID);
+
+			break;
+		}
+
+		case S2D_CHANGE_SECONDARY:
+		{
+			printf("S2D_CHANGE_SECONDARY.\n");
+
+			int nClientID=0;
+			char *szLogin=NULL;
+			char *szOldPassword=NULL;
+			char *szNewPassword=NULL;
+
+			CSocket::ReadPacket(packet->data, "dsss", &nClientID, &szLogin, &szOldPassword, &szNewPassword);
+			
+			printf("ClientID: %d, Login: %s, OldPassword: %s, NewPassword: %s\n", nClientID, szLogin, szOldPassword, szNewPassword);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE account SET secondary=? WHERE login=? AND secondary=?"));
+			pPStmt->setString(1, szNewPassword);
+			pPStmt->setString(2, szLogin);
+			pPStmt->setString(3, szOldPassword);
+
+			if (pPStmt->executeUpdate() > 0)
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+			else
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGPWD, nClientID);
+
+			break;
+		}
+
+		case S2D_SECONDARY_LOGIN:
+		{
+			printf("S2D_SECONDARY_LOGIN.\n");
+
+			int nClientID=0;
+			char *szLogin=NULL;
+			char *szPassword=NULL;
+
+			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szLogin, &szPassword);
+			
+			printf("ClientID: %d, Login: %s, SecondaryPW: %s\n", nClientID, szLogin, szPassword);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"SELECT "
+				"EXISTS(SELECT 1 FROM account WHERE login=? AND secondary=?) as bIsOK"));
+			pPStmt->setString(1, szLogin);
+			pPStmt->setString(2, szPassword);
+			rs_ptr rs(pPStmt->executeQuery());
+			rs->next();
+
+			if (!rs->getBoolean("bIsOK")) {
+				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
+				break;
+			}
+
+			//CMainSocket::Write(D2S_PLAYER_INFO, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
 
 			break;
 		}

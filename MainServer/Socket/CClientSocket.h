@@ -10,8 +10,7 @@
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
 #include <minwindef.h>
-
-#include <Socket/CSocket.h>
+#include <common.h>
 
 #include "../CServer.h"
 

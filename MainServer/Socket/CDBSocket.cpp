@@ -75,6 +75,39 @@ PVOID CDBSocket::Process(PVOID param)
 				printf("Found client.\nS2C_ANS_LOGIN sent.\n");
 				pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
 			}
+
+			break;
+		}
+
+		case D2S_ACCEPT_CRED:
+		{
+			int nClientID=0;
+			char *szLogin=NULL;
+			char *szPassword=NULL;
+			BYTE byAnswer=0;
+			CSocket::ReadPacket(packet->data, "dssb", &nClientID, &szLogin, &szPassword, &byAnswer);
+
+			CClient *pClient = CServer::FindClient(nClientID);
+			if (pClient) {
+				pClient->SetLogin(std::string(szLogin));
+				pClient->SetPassword(std::string(szPassword));
+				pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
+			}
+
+			break;
+		}
+
+		case D2S_SEC_LOGIN:
+		{
+			int nClientID=0;
+			BYTE byAnswer=0;
+			CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
+
+			CClient *pClient = CServer::FindClient(nClientID);
+			if (pClient)
+				pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, byAnswer);
+
+			break;
 		}
 	}
 

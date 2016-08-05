@@ -1,10 +1,11 @@
-#ifndef _CSOCKET_
-#define _CSOCKET_
+//#ifndef _CSOCKET_
+//#define _CSOCKET_
 
 #include <stdarg.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
@@ -18,4 +19,4 @@ public:
 	static char* ReadPacket(char* packet, const char* format, ...);
 };
 
-#endif _CSOCKET_
+//#endif _CSOCKET_

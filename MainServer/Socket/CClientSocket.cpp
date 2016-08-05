@@ -33,6 +33,7 @@ bool CClientSocket::Start(WORD wPort)
 
 bool CClientSocket::Close()
 {
+	shutdown(CClientSocket::g_pSocket, SHUT_RDWR);
 	return true;
 }
 
@@ -94,7 +95,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			BYTE byUnknown=0;
 
 			CSocket::ReadPacket(packet.data, "dddddb", &nAppTime, &dwSeedL[0], &dwSeedL[1], &dwSeedL[2], &dwSeedL[3], &byUnknown);
-			printf("nAppTime: %i\ndwSeedL: %d %d %d %d\nbyUnknown: %d\n", nAppTime, dwSeedL[0], dwSeedL[1], dwSeedL[2], dwSeedL[3], byUnknown);
+			printf("nAppTime: %i\ndwSeedL: %lu %lu %lu %lu\nbyUnknown: %u\n", nAppTime, dwSeedL[0], dwSeedL[1], dwSeedL[2], dwSeedL[3], byUnknown);
 
 			DWORD dwProtocolVersion=0;
 			BYTE byCode=0;
@@ -116,7 +117,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			DWORD dwProtocolVersion=0;
 
 			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &dwProtocolVersion);
-			printf("byUnknown: %d\ndwProtocolVersion: %d\n", byUnknown, dwProtocolVersion);
+			printf("byUnknown: %u\ndwProtocolVersion: %lu\n", byUnknown, dwProtocolVersion);
 			break;
 		}
 
@@ -147,13 +148,93 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 
 			switch (byType)
 			{
-			case 0: // Login
+				case SL_CREATE_PASSWORD:
+				{
+					char *szPassword=NULL;
+					char *szSecondaryPW=NULL;
+					CSocket::ReadPacket(p, "ss", &szPassword, &szSecondaryPW);
+
+					if (strlen(szSecondaryPW) != 8) {
+						pClient->Write(S2C_CLOSE, "b", CC_KICK);
+						break;
+					}
+
+					bool bQuit=false;
+					for (char i = 0; i < 8; i++) {
+						if (szSecondaryPW[i] < '0' || szSecondaryPW[i] > '9') {
+							pClient->Write(S2C_CLOSE, "b", CC_KICK);
+							bQuit=true; break;
+						}
+					}
+
+					if (bQuit) break;
+
+					if (std::string(szPassword) != pClient->GetPassword()) {
+						pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, MSL_WRONG_PWD);
+						break;
+					}
+
+					printf("OnCreate PW: %s\nSecondary: %s\n", szPassword, szSecondaryPW);
+
+					CDBSocket::Write(S2D_CREATE_SECONDARY, "dsss", pClient->GetSocket(), pClient->GetLogin().c_str(), szPassword, szSecondaryPW);
+					break;
+				}
+
+				case SL_CHANGE_PASSWORD: // Password change request
+				{
+					char *szOldPassword=NULL;
+					char *szNewPassword=NULL;
+
+					CSocket::ReadPacket(p, "ss", &szOldPassword, &szNewPassword);
+
+					if (strlen(szOldPassword) != 8 || strlen(szNewPassword) != 8) {
+						pClient->Write(S2C_CLOSE, "b", CC_KICK);
+						break;
+					}
+
+					bool bQuit=false;
+					for (char i = 0; i < 8; i++) {
+						if (szOldPassword[i] < '0' || szOldPassword[i] > '9' || szNewPassword[i] < '0' || szNewPassword[i] > '9') {
+							pClient->Write(S2C_CLOSE, "b", CC_KICK);
+							bQuit=true; break;
+						}
+					}
+
+					if (bQuit) break;
+
+					printf("Old password: %s\nNew password: %s\n", szOldPassword, szNewPassword);
+
+					CDBSocket::Write(S2D_CHANGE_SECONDARY, "dsss", pClient->GetSocket(), pClient->GetLogin().c_str(), szOldPassword, szNewPassword);
+					break;
+				}
+
+				case SL_LOGIN: // Login
 				{
 					char *szPassword=NULL;
 					CSocket::ReadPacket(p, "s", &szPassword);
 
 					printf("Secondary password: %s\n", szPassword);
 
+					if (strlen(szPassword) != 8) {
+						pClient->Write(S2C_CLOSE, "b", CC_KICK);
+						break;
+					}
+
+					bool bQuit=false;
+					for (char i = 0; i < 8; i++) {
+						if (szPassword[i] < '0' || szPassword[i] > '9') {
+							pClient->Write(S2C_CLOSE, "b", CC_KICK);
+							bQuit=true; break;
+						}
+					}
+
+					if (bQuit) break;
+
+					CDBSocket::Write(S2D_SECONDARY_LOGIN, "dss", pClient->GetSocket(), pClient->GetLogin().c_str(), szPassword);
+
+					break;
+
+/*
 					BYTE byAuth=0;
 					int nExpTime=0;
 					BYTE byUnknwon=0;
@@ -161,7 +242,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 					BYTE byCount=1;
 
 					int nPID = 16;
-					char* pName = "lafreak";
+					const char* pName = "lafreak";
 					BYTE byJob=1;
 					BYTE byClass=1;
 					BYTE byLevel=100;
@@ -182,33 +263,15 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 					WORD wChest=1138;
 					WORD wStick=668;
 
-					/*
+					
 								p = ReadPacket( p, "bbd b dsbbdwwwwwbb b www...."
-					*/
+					
 
 					pClient->Write(S2C_PLAYERINFO, "bbdbdsbbbdwwwwwbbbwwwwww", byAuth, byUnknwon, nExpTime, byCount,
 						nPID, pName, byJob, byClass, byLevel, nGID, wStr, wHth, wInt, wWis, wDex, byFace, byHair, byWearItemCount,
 						wGloves, wBoots, wHelm, wShorts, wChest, wStick);
 					printf("S2C_PLAYERINFO sent.\n");
-
-					break;
-				}
-
-			case 2: // Password change request
-				{
-					char *szOldPassword=NULL;
-					char *szNewPassword=NULL;
-
-					CSocket::ReadPacket(p, "ss", &szOldPassword, &szNewPassword);
-
-					printf("Old password: %s\nNew password: %s\n", szOldPassword, szNewPassword);
-
-					BYTE byAnswer=3;
-					BYTE byMessage=7;
-
-					pClient->Write(S2C_SECOND_LOGIN, "bb", byAnswer, byMessage);
-					printf("S2C_SECOND_LOGIN sent.\n");
-
+*/
 					break;
 				}
 			}
@@ -228,7 +291,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			//"bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd"
 			//"bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd"
 			BYTE byGrade=1;
-			char *pGuildName = "bestGuild";
+			const char *pGuildName = "bestGuild";
 			BYTE byGRole=1;
 			WORD wContribute=13;
 			WORD wStr=14;
@@ -283,7 +346,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			printf("byUnknown: %d, nHeight: %d\n", byUnknown, nHeight);
 
 			int nID=300;
-			char *szName = "lafreak";
+			const char *szName = "lafreak";
 			BYTE byJob=0; byJob |= 0x80;
 			int nX=232687;
 			int nY=294749;
@@ -300,8 +363,8 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			BYTE byFace=1;
 			BYTE byHair=1;
 			__int64 n64MState=0;
-			char *szGuildClass = "guild";
-			char *szGuildName = "name";
+			const char *szGuildClass = "guild";
+			const char *szGuildName = "name";
 			int nGuildID=0;
 			BYTE byFlag=0;
 			int nFlagItem=0;
