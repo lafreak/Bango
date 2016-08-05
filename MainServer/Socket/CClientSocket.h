@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>

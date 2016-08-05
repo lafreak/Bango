@@ -20,6 +20,7 @@ bool CClientSocket::Start(WORD wPort)
 
     if (bind(CClientSocket::g_pSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
     	printf("Bind failed.\n");
+			CClientSocket::Close();
     	return false;
     }
 
@@ -33,7 +34,8 @@ bool CClientSocket::Start(WORD wPort)
 
 bool CClientSocket::Close()
 {
-	shutdown(CClientSocket::g_pSocket, SHUT_RDWR);
+	close(CClientSocket::g_pSocket);
+	//shutdown(CClientSocket::g_pSocket, SHUT_RDWR);
 	return true;
 }
 
@@ -43,7 +45,7 @@ void CClientSocket::Accept()
 		return;
 
 	while (true) {
-		SOCKET client = INVALID_SOCKET;
+		intptr_t client = INVALID_SOCKET;
 
 		while (client == INVALID_SOCKET)
 			client = accept(CClientSocket::g_pSocket, NULL, NULL);
@@ -55,7 +57,7 @@ void CClientSocket::Accept()
 
 PVOID CClientSocket::Await(PVOID param)
 {
-	CClient *pClient = new CClient((SOCKET)param);
+	CClient *pClient = new CClient((intptr_t)param);
 
 	printf("Client[%d] connected.\n", pClient->GetSocket());
 
@@ -255,9 +257,9 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 					WORD wChest=1138;
 					WORD wStick=668;
 
-					
+
 								p = ReadPacket( p, "bbd b dsbbdwwwwwbb b www...."
-					
+
 
 					pClient->Write(S2C_PLAYERINFO, "bbdbdsbbbdwwwwwbbbwwwwww", byAuth, byUnknwon, nExpTime, byCount,
 						nPID, pName, byJob, byClass, byLevel, nGID, wStr, wHth, wInt, wWis, wDex, byFace, byHair, byWearItemCount,
@@ -391,7 +393,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 
 	case 48:
 		{
-			
+
 		}
 	}
 }
@@ -426,4 +428,3 @@ void CClientSocket::DebugRawPacket(Packet packet)
 		printf("%d ", ((char*)&packet)[i]);
 	printf("\n");
 }
-
