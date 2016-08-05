@@ -16,7 +16,3 @@ INSERT INTO account (login, password)
 VALUES
 	('qwe', 'asd');
 
-	SELECT 
-				EXISTS(SELECT 1 FROM account WHERE login='qwe') as bIsLogin, 
-				EXISTS(SELECT 1 FROM account WHERE login='qwe' AND password='asd') as bIsPW,
-				EXISTS(SELECT 1 FROM account WHERE login='qwe' AND password='asd' AND secondary IS NULL) as bIsCreate2ND;

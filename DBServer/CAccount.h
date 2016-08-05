@@ -16,9 +16,7 @@ public:
 		m_pSocket(pSocket), m_szLogin(szLogin), m_szPassword(szPassword) {}
 	~CAccount() {}
 
-	void 		SetLogin(std::string szLogin) { m_szLogin = szLogin; }
 	std::string GetLogin() const { return m_szLogin; }
-	void 		SetPassword(std::string szPassword) { m_szPassword = szPassword; }
 	std::string GetPassword() const { return m_szPassword; }
 
 	SOCKET 		GetSocket() const { return m_pSocket; }

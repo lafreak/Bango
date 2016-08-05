@@ -123,14 +123,12 @@ PVOID CMainSocket::Process(PVOID param)
 
 			CServer::Add(new CAccount(nClientID, std::string(szLogin), std::string(szPassword)));
 
-			if (!rs->getBoolean("bIsCreate2nd")) {
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
-				//CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_OK);
+			if (rs->getBoolean("bIsCreate2nd")) {
+				CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
 				break;
 			}
 
-			CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
-			//CMainSocket::Write(D2S_ACCEPT_CRED, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
+			CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
 
 			break;
 		}
@@ -219,8 +217,6 @@ PVOID CMainSocket::Process(PVOID param)
 				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
 				break;
 			}
-
-			//CMainSocket::Write(D2S_PLAYER_INFO, "dssb", nClientID, szLogin, szPassword, LA_CREATE_SECONDARY);
 
 			break;
 		}
