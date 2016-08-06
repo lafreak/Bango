@@ -1,5 +1,5 @@
 # Bango
-KalOnline Server Emulator written in C++ for Linux 64bit system.
+KalOnline Server Emulator written in C++ for Linux 64bit OS.
 
 # Installation
 Install MySQL Server: `sudo apt-get install mysql-server`  
