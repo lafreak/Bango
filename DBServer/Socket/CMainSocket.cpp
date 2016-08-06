@@ -96,8 +96,8 @@ PVOID CMainSocket::Process(PVOID param)
 				"SELECT "
 				"EXISTS(SELECT 1 FROM account WHERE login=?) as bIsLogin, "
 				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=?) as bIsPW, "
-				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=? AND secondary IS NULL) as bIsCreate2nd ,"
-				"(SELECT idaccount FROM account WHERE login=? AND password=?) as nAccountID"));
+				"(SELECT idaccount FROM account WHERE login=? AND password=?) as nAccountID, "
+				"(SELECT secondary FROM account WHERE login=? AND password=?) as szSecondary"));
 			pPStmt->setString(1, szLogin);
 			pPStmt->setString(2, szLogin);
 			pPStmt->setString(3, szPassword);
@@ -107,8 +107,6 @@ PVOID CMainSocket::Process(PVOID param)
 			pPStmt->setString(7, szPassword);
 			rs_ptr rs(pPStmt->executeQuery());
 			rs->next();
-
-			int nAccountID = rs->getInt("nAccountID");
 
 			if (!rs->getBoolean("bIsLogin")) {
 				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGID, nClientID);
@@ -120,16 +118,19 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 			}
 
+			int nAccountID = rs->getInt("nAccountID");
+			std::string szSecondary = rs->getString("szSecondary");
+
 			auto pAccount = CServer::FindAccountByAID(nAccountID);
 			if (pAccount) {
-				CMainSocket::Write(D2S_LOGIN, "bdd", LA_SAMEUSER, nClientID, pAccount->GetSocket());
+				CMainSocket::Write(D2S_LOGIN, "bdd", LA_SAMEUSER, nClientID, pAccount->GetCID());
 				CServer::Remove(pAccount);
 				break;
 			}
 
-			CServer::Add(new CAccount(nClientID, nAccountID, std::string(szLogin), std::string(szPassword)));
+			CServer::Add(new CAccount(nClientID, nAccountID, std::string(szLogin), std::string(szPassword), szSecondary));
 
-			if (rs->getBoolean("bIsCreate2nd")) {
+			if (szSecondary.empty()) {
 				CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
 				break;
 			}
@@ -154,17 +155,20 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
+			if (pAccount->GetPassword() != std::string(szPassword)) {
+				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
+				break;
+			}
+
+			pAccount->SetSecondary(std::string(szSecondaryPW));
+
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-				"UPDATE account SET secondary=? WHERE idaccount=? AND password=?"));
+				"UPDATE account SET secondary=? WHERE idaccount=?"));
 			pPStmt->setString(1, szSecondaryPW);
 			pPStmt->setInt(2, pAccount->GetAID());
-			pPStmt->setString(3, szPassword);
 
-			if (pPStmt->executeUpdate() > 0)
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
-			else
-				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
-
+			pPStmt->executeUpdate();
+			CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
 			break;
 		}
 
@@ -183,17 +187,20 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
+			if (pAccount->GetSecondary() != std::string(szOldPassword)) {
+				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
+				break;
+			}
+
+			pAccount->SetSecondary(std::string(szNewPassword));
+
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-				"UPDATE account SET secondary=? WHERE idaccount=? AND secondary=?"));
+				"UPDATE account SET secondary=? WHERE idaccount=?"));
 			pPStmt->setString(1, szNewPassword);
 			pPStmt->setInt(2, pAccount->GetAID());
-			pPStmt->setString(3, szOldPassword);
 
-			if (pPStmt->executeUpdate() > 0)
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
-			else
-				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
-
+			pPStmt->executeUpdate();
+			CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
 			break;
 		}
 
@@ -211,49 +218,12 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
-			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-				"SELECT "
-				"EXISTS(SELECT 1 FROM account WHERE idaccount=? AND secondary=?) as bIsOK"));
-			pPStmt->setInt(1, pAccount->GetAID());
-			pPStmt->setString(2, szPassword);
-			rs_ptr rs(pPStmt->executeQuery());
-			rs->next();
-
-			if (!rs->getBoolean("bIsOK")) {
+			if (pAccount->GetSecondary() != std::string(szPassword)) {
 				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
 				break;
 			}
 
 			pAccount->SendPlayerInfo();
-/*
-			// PLAYER_INFO
-			pPStmt.reset(CDatabase::g_pConnection->prepareStatement(
-				"SELECT * FROM player WHERE idaccount=? AND deleted=0"));
-			pPStmt->setInt(1, pAccount->GetAID());
-			rs.reset(pPStmt->executeQuery());
-
-			BYTE byCount = rs->rowsCount();
-
-			PACKETBUFFER buffer;
-			char* pBegin = (char*)&buffer;
-			char* p = pBegin;
-			
-			p = CSocket::WritePacket(p, "b", byCount);
-
-			while (rs->next()) {
-				BYTE byWearAmount=0;
-				int nGID=0;
-				p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", rs->getInt("idplayer"),
-					rs->getString("name").c_str(),
-					rs->getInt("class"), rs->getInt("job"), rs->getInt("level"), nGID,
-					rs->getInt("strength"), rs->getInt("health"), rs->getInt("inteligence"),
-					rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
-			}
-
-			CMainSocket::Write(D2S_PLAYER_INFO, "dm", nClientID, pBegin, p - pBegin);
-
-			printf("D2S_PLAYER_INFO sent.\n");
-			*/
 			break;
 		}
 
@@ -293,6 +263,62 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 
 			pAccount->SendPlayerInfo();
+			break;
+		}
+
+		case S2D_NEWPLAYER:
+		{
+			printf("S2D_NEWPLAYER.\n");
+
+			int nClientID=0;
+
+			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (!pAccount) break;
+
+			char* szName=NULL;
+			BYTE byJob=0;
+			WORD wStats[5]={0,};
+			BYTE byShape[2]={0,};
+
+			CSocket::ReadPacket(p, "sbwwwwwbb", &szName, &byJob, &wStats[0], &wStats[1], &wStats[2], &wStats[3], &wStats[4], &byShape[0], &byShape[1]);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"SELECT "
+				"EXISTS(SELECT 1 FROM player WHERE name=?) as bIsDuplicate, "
+				"(SELECT COUNT(*) FROM player WHERE idaccount=? AND deleted=0) as byCount"));
+			pPStmt->setString(1, std::string(szName));
+			pPStmt->setInt(2, pAccount->GetAID());
+			rs_ptr rs(pPStmt->executeQuery());
+			rs->next();
+
+			if (rs->getBoolean("bIsDuplicate")) {
+				CMainSocket::Write(D2S_ANS_NEWPLAYER, "db", nClientID, NA_OCCUPIEDID);
+				break;
+			}
+
+			if (rs->getInt("byCount") >= MAX_CHARACTER) {
+				CMainSocket::Write(D2S_ANS_NEWPLAYER, "db", nClientID, NA_OVERPLAYERNUM);
+				break;
+			}
+
+			pPStmt.reset(CDatabase::g_pConnection->prepareStatement(
+				"INSERT INTO player (idaccount, name, class, strength, health, inteligence, wisdom, dexterity, face, hair) "
+				" VALUES (?,?,?,?,?,?,?,?,?,?)"));
+			pPStmt->setInt(1, pAccount->GetAID());
+			pPStmt->setString(2, szName);
+			pPStmt->setInt(3, byJob);
+			pPStmt->setInt(4, g_baseproperty[byJob].prty[STAT_STR] + wStats[STAT_STR]);
+			pPStmt->setInt(5, g_baseproperty[byJob].prty[STAT_HTH] + wStats[STAT_HTH]);
+			pPStmt->setInt(6, g_baseproperty[byJob].prty[STAT_INT] + wStats[STAT_INT]);
+			pPStmt->setInt(7, g_baseproperty[byJob].prty[STAT_WIS] + wStats[STAT_WIS]);
+			pPStmt->setInt(8, g_baseproperty[byJob].prty[STAT_AGI] + wStats[STAT_AGI]);
+			pPStmt->setInt(9, byShape[0]);
+			pPStmt->setInt(10, byShape[1]);
+			pPStmt->execute();
+			
+			pAccount->SendPlayerInfo();
+			break;
 		}
 	}
 

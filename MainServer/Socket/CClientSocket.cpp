@@ -287,6 +287,39 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			break;
 		}
 
+	case C2S_NEWPLAYER:
+		{
+			char* szName=NULL;
+			BYTE byJob=0;
+			WORD wStats[5]={0,};
+			BYTE byShape[2]={0,};
+
+			CSocket::ReadPacket(packet.data, "sbwwwwwbb", &szName, &byJob, &wStats[0], &wStats[1], &wStats[2], &wStats[3], &wStats[4], &byShape[0], &byShape[1]);
+			
+			if (std::string(szName).empty() || std::string(szName).length() > 14) {
+				pClient->Write(S2C_ANS_NEWPLAYER, "b", NA_ERROR);
+				break;
+			}
+
+			if (byJob < 0 || byJob > CLASS_NUM) {
+				pClient->Write(S2C_ANS_NEWPLAYER, "b", NA_WRONGCLASS);
+				break;
+			}
+
+			if (wStats[0] + wStats[1] + wStats[2] + wStats[3] + wStats[4] != 5) {
+				pClient->Write(S2C_ANS_NEWPLAYER, "b", NA_WRONGPROPERTY);
+				break;
+			}
+
+			if (byShape[0] < 0 || byShape[1] < 0 || byShape[0] > 6 || byShape[1] > 6) {
+				pClient->Write(S2C_ANS_NEWPLAYER, "b", NA_WRONGPROPERTY);
+				break;
+			}
+
+			CDBSocket::Write(S2D_NEWPLAYER, "dm", pClient->GetSocket(), packet.data, packet.wSize - (packet.data - (char*)&packet));
+			break;
+		}
+
 	case C2S_LOADPLAYER:
 		{
 			int nPID=0;

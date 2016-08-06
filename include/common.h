@@ -41,7 +41,8 @@ struct DATE_TIME
 	int second;
 };
 
-#if defined( MAINSVR) || defined( DBSVR)
+//#if defined( MAINSVR) || defined( DBSVR)
+
 struct BASEPROPERTY
 {
 	int prty[5];	// Str, Hth, Int, Wis, Dex
@@ -49,12 +50,22 @@ struct BASEPROPERTY
 	int nMP;
 };
 
+enum STAT
+{
+	STAT_STR,
+	STAT_HTH,
+	STAT_INT,
+	STAT_WIS,
+	STAT_AGI,
+};
+
 static BASEPROPERTY g_baseproperty[] = {
 	18, 16, 8, 8, 10, 180, 120,		// knight
 		8, 10, 18, 16, 8, 170, 140,		// mage
 		14, 10, 8, 10, 18, 160, 160,	// archer
+		14, 10, 8, 10, 18, 160, 160,	// thief
 };
-#endif
+//#endif
 
 // (define) /////////////////////////////////////////////////////////
 #define COUNTRY(country) (country == g_nCountry)

@@ -5,7 +5,7 @@
 void CAccount::SendPlayerInfo()
 {
 	pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-		"SELECT * FROM player WHERE idaccount=? AND deleted=0"));
+		"SELECT * FROM player WHERE idaccount=? AND deleted=0 ORDER BY level DESC"));
 	pPStmt->setInt(1, GetAID());
 	rs_ptr rs(pPStmt->executeQuery());
 
@@ -27,7 +27,7 @@ void CAccount::SendPlayerInfo()
 			rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
 	}
 
-	CMainSocket::Write(D2S_PLAYER_INFO, "dm", GetSocket(), pBegin, p - pBegin);
+	CMainSocket::Write(D2S_PLAYER_INFO, "dm", m_nClientID, pBegin, p - pBegin);
 
 	printf("D2S_PLAYER_INFO sent.\n");
 }
