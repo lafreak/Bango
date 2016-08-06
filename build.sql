@@ -30,16 +30,23 @@ CREATE TABLE player (
 
 	PRIMARY KEY (idplayer),
 	FOREIGN KEY (idaccount) 
-		REFERENCES account (idaccount)
+		REFERENCES account (idaccount),
+	UNIQUE(name)
 );
 
-INSERT INTO account (login, password)
+INSERT INTO account (login, password, secondary)
 	VALUES
-	('qwe', 'asd');
+	('qwe', 'asd', '00000000')
+;
 
 INSERT INTO player (idaccount, name, job, class, level, strength,
 				health, inteligence, wisdom, dexterity, face, hair)
 	VALUES
-	(1, 'lafreak', 3, 3, 100, 50, 60, 70, 80, 90, 1, 1);
+	(1, 'lafreak1', 23, 3, 100, 50, 60, 70, 80, 90, 1, 1),
+	(1, 'lafreak2', 11, 0, 60, 50, 60, 70, 80, 90, 1, 1),
+	(1, 'lafreak3', 11, 1, 60, 50, 60, 70, 80, 90, 1, 1),
+	(1, 'lafreak4', 11, 2, 60, 50, 60, 70, 80, 90, 1, 1),
+	(1, 'lafreak5', 11, 0, 60, 50, 60, 70, 80, 90, 1, 1)
+;
 
 	

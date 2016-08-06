@@ -258,7 +258,7 @@ PVOID CMainSocket::Process(PVOID param)
 				int nGID=0;
 				p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", rs->getInt("idplayer"),
 					rs->getString("name").c_str(),
-					rs->getInt("class"), rs->getInt("job"), rs->getInt("level"), nGID,
+					rs->getInt("job"), rs->getInt("class"), rs->getInt("level"), nGID,
 					rs->getInt("strength"), rs->getInt("health"), rs->getInt("inteligence"),
 					rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
 			}
