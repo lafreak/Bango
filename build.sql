@@ -27,6 +27,7 @@ CREATE TABLE player (
 	dexterity SMALLINT NOT NULL,
 	face TINYINT NOT NULL,
 	hair TINYINT NOT NULL,
+	deleted TINYINT NOT NULL DEFAULT 0,
 
 	PRIMARY KEY (idplayer),
 	FOREIGN KEY (idaccount) 

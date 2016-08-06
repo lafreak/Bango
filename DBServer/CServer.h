@@ -16,6 +16,7 @@ public:
 	static void Remove(CAccount* pAccount);
 	static CAccount* FindAccount(SOCKET socket);
 	static CAccount* FindAccount(std::string szLogin);
+	static CAccount* FindAccountByAID(int nAccountID);
 	static void EmptyAccount();
 };
 

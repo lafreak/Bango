@@ -276,6 +276,17 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			break;
 		}
 
+	case C2S_DELPLAYER:
+		{
+			int nPID=0;
+
+			CSocket::ReadPacket(packet.data, "d", &nPID);
+
+			CDBSocket::Write(S2D_DELPLAYER, "dd", pClient->GetSocket(), nPID);
+
+			break;
+		}
+
 	case C2S_LOADPLAYER:
 		{
 			int nPID=0;
@@ -427,8 +438,8 @@ bool CClientSocket::Write(SOCKET client, BYTE byType, ...)
 
 void CClientSocket::DebugRawPacket(Packet packet)
 {
-	printf("Incoming C2S packet: [%d]\n", (unsigned char)packet.byType);
+	printf("Incoming C2S packet: [%u]\n", (BYTE)packet.byType);
 	for (int i = 0; i < packet.wSize; i++)
-		printf("%d ", ((char*)&packet)[i]);
+		printf("%u ", (BYTE)((char*)&packet)[i]);
 	printf("\n");
 }

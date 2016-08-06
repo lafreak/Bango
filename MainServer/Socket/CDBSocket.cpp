@@ -189,9 +189,9 @@ bool CDBSocket::Write(BYTE byType, ...)
 
 void CDBSocket::DebugRawPacket(Packet *packet)
 {
-	printf("Incoming D2S packet: [%d]\n", (unsigned char)packet->byType);
+	printf("Incoming D2S packet: [%u]\n", (BYTE)packet->byType);
 	for (int i = 0; i < packet->wSize; i++)
-		printf("%d ", ((char*)packet)[i]);
+		printf("%u ", (BYTE)((char*)packet)[i]);
 	printf("\n");
 }
 

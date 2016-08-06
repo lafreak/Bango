@@ -96,14 +96,19 @@ PVOID CMainSocket::Process(PVOID param)
 				"SELECT "
 				"EXISTS(SELECT 1 FROM account WHERE login=?) as bIsLogin, "
 				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=?) as bIsPW, "
-				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=? AND secondary IS NULL) as bIsCreate2nd"));
+				"EXISTS(SELECT 1 FROM account WHERE login=? AND password=? AND secondary IS NULL) as bIsCreate2nd ,"
+				"(SELECT idaccount FROM account WHERE login=? AND password=?) as nAccountID"));
 			pPStmt->setString(1, szLogin);
 			pPStmt->setString(2, szLogin);
 			pPStmt->setString(3, szPassword);
 			pPStmt->setString(4, szLogin);
 			pPStmt->setString(5, szPassword);
+			pPStmt->setString(6, szLogin);
+			pPStmt->setString(7, szPassword);
 			rs_ptr rs(pPStmt->executeQuery());
 			rs->next();
+
+			int nAccountID = rs->getInt("nAccountID");
 
 			if (!rs->getBoolean("bIsLogin")) {
 				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGID, nClientID);
@@ -115,14 +120,14 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 			}
 
-			auto pAccount = CServer::FindAccount(std::string(szLogin));
+			auto pAccount = CServer::FindAccountByAID(nAccountID);
 			if (pAccount) {
 				CMainSocket::Write(D2S_LOGIN, "bdd", LA_SAMEUSER, nClientID, pAccount->GetSocket());
 				CServer::Remove(pAccount);
 				break;
 			}
 
-			CServer::Add(new CAccount(nClientID, std::string(szLogin), std::string(szPassword)));
+			CServer::Add(new CAccount(nClientID, nAccountID, std::string(szLogin), std::string(szPassword)));
 
 			if (rs->getBoolean("bIsCreate2nd")) {
 				CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
@@ -150,9 +155,9 @@ PVOID CMainSocket::Process(PVOID param)
 			if (!pAccount) break;
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-				"UPDATE account SET secondary=? WHERE login=? AND password=?"));
+				"UPDATE account SET secondary=? WHERE idaccount=? AND password=?"));
 			pPStmt->setString(1, szSecondaryPW);
-			pPStmt->setString(2, pAccount->GetLogin().c_str());
+			pPStmt->setInt(2, pAccount->GetAID());
 			pPStmt->setString(3, szPassword);
 
 			if (pPStmt->executeUpdate() > 0)
@@ -179,9 +184,9 @@ PVOID CMainSocket::Process(PVOID param)
 			if (!pAccount) break;
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-				"UPDATE account SET secondary=? WHERE login=? AND secondary=?"));
+				"UPDATE account SET secondary=? WHERE idaccount=? AND secondary=?"));
 			pPStmt->setString(1, szNewPassword);
-			pPStmt->setString(2, pAccount->GetLogin().c_str());
+			pPStmt->setInt(2, pAccount->GetAID());
 			pPStmt->setString(3, szOldPassword);
 
 			if (pPStmt->executeUpdate() > 0)
@@ -208,11 +213,9 @@ PVOID CMainSocket::Process(PVOID param)
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"SELECT "
-				"EXISTS(SELECT 1 FROM account WHERE login=? AND secondary=?) as bIsOK, "
-				"(SELECT idaccount FROM account WHERE login=?) as nAccountID"));
-			pPStmt->setString(1, pAccount->GetLogin().c_str());
+				"EXISTS(SELECT 1 FROM account WHERE idaccount=? AND secondary=?) as bIsOK"));
+			pPStmt->setInt(1, pAccount->GetAID());
 			pPStmt->setString(2, szPassword);
-			pPStmt->setString(3, pAccount->GetLogin().c_str());
 			rs_ptr rs(pPStmt->executeQuery());
 			rs->next();
 
@@ -221,12 +224,12 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 			}
 
-			int nAccountID = rs->getInt("nAccountID");
-
+			pAccount->SendPlayerInfo();
+/*
 			// PLAYER_INFO
 			pPStmt.reset(CDatabase::g_pConnection->prepareStatement(
-				"SELECT * FROM player WHERE idaccount=?"));
-			pPStmt->setInt(1, nAccountID);
+				"SELECT * FROM player WHERE idaccount=? AND deleted=0"));
+			pPStmt->setInt(1, pAccount->GetAID());
 			rs.reset(pPStmt->executeQuery());
 
 			BYTE byCount = rs->rowsCount();
@@ -238,27 +241,11 @@ PVOID CMainSocket::Process(PVOID param)
 			p = CSocket::WritePacket(p, "b", byCount);
 
 			while (rs->next()) {
-/*
-	idplayer int AUTO_INCREMENT,
-	idaccount int NOT NULL,
-	name VARCHAR(30) NOT NULL,
-	job TINYINT NOT NULL,
-	class TINYINT NOT NULL,
-	level TINYINT NOT NULL,
-	strength SMALLINT NOT NULL,
-	health SMALLINT NOT NULL,
-	inteligence SMALLINT NOT NULL,
-	wisdom SMALLINT NOT NULL,
-	dexterity SMALLINT NOT NULL,
-	face TINYINT NOT NULL,
-	hair TINYINT NOT NULL,
-*/
-
-				BYTE byWearAmount=0;//       dsbbbdwwwwwbbb
+				BYTE byWearAmount=0;
 				int nGID=0;
 				p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", rs->getInt("idplayer"),
 					rs->getString("name").c_str(),
-					rs->getInt("job"), rs->getInt("class"), rs->getInt("level"), nGID,
+					rs->getInt("class"), rs->getInt("job"), rs->getInt("level"), nGID,
 					rs->getInt("strength"), rs->getInt("health"), rs->getInt("inteligence"),
 					rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
 			}
@@ -266,6 +253,7 @@ PVOID CMainSocket::Process(PVOID param)
 			CMainSocket::Write(D2S_PLAYER_INFO, "dm", nClientID, pBegin, p - pBegin);
 
 			printf("D2S_PLAYER_INFO sent.\n");
+			*/
 			break;
 		}
 
@@ -280,6 +268,31 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (pAccount)
 				CServer::Remove(pAccount);
+
+			break;
+		}
+
+		case S2D_DELPLAYER:
+		{
+			printf("S2D_DISCONNECT.\n");
+
+			int nClientID=0;
+			int nPID=0;
+
+			CSocket::ReadPacket(packet->data, "dd", &nClientID, &nPID);
+
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (!pAccount) break;
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE player SET deleted=1 WHERE idaccount=? AND idplayer=?"));
+			pPStmt->setInt(1, pAccount->GetAID());
+			pPStmt->setInt(2, nPID);
+
+			if (pPStmt->executeUpdate() < 0)
+				break;
+
+			pAccount->SendPlayerInfo();
 		}
 	}
 
@@ -321,9 +334,9 @@ bool CMainSocket::WritePacket(Packet packet)
 
 void CMainSocket::DebugRawPacket(Packet *packet)
 {
-	printf("Incoming S2D packet: [%d]\n", (unsigned char)packet->byType);
+	printf("Incoming S2D packet: [%u]\n", (BYTE)packet->byType);
 	for (int i = 0; i < packet->wSize; i++)
-		printf("%d ", ((char*)packet)[i]);
+		printf("%u ", (BYTE)((char*)packet)[i]);
 	printf("\n");
 }
 

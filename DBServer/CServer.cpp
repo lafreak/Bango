@@ -37,6 +37,16 @@ CAccount* CServer::FindAccount(std::string szLogin)
 	return NULL;
 }
 
+CAccount* CServer::FindAccountByAID(int nAccountID)
+{
+	for (auto const &a: g_mAccount) {
+		if (a.second->GetAID() == nAccountID)
+			return a.second;
+	}
+
+	return NULL;
+}
+
 void CServer::EmptyAccount()
 {
 	for (auto a: g_mAccount)
