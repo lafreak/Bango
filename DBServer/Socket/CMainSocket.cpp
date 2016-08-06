@@ -208,9 +208,11 @@ PVOID CMainSocket::Process(PVOID param)
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"SELECT "
-				"EXISTS(SELECT 1 FROM account WHERE login=? AND secondary=?) as bIsOK"));
+				"EXISTS(SELECT 1 FROM account WHERE login=? AND secondary=?) as bIsOK, "
+				"(SELECT idaccount FROM account WHERE login=?) as nAccountID"));
 			pPStmt->setString(1, pAccount->GetLogin().c_str());
 			pPStmt->setString(2, szPassword);
+			pPStmt->setString(3, pAccount->GetLogin().c_str());
 			rs_ptr rs(pPStmt->executeQuery());
 			rs->next();
 
@@ -219,6 +221,51 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 			}
 
+			int nAccountID = rs->getInt("nAccountID");
+
+			// PLAYER_INFO
+			pPStmt.reset(CDatabase::g_pConnection->prepareStatement(
+				"SELECT * FROM player WHERE idaccount=?"));
+			pPStmt->setInt(1, nAccountID);
+			rs.reset(pPStmt->executeQuery());
+
+			BYTE byCount = rs->rowsCount();
+
+			PACKETBUFFER buffer;
+			char* pBegin = (char*)&buffer;
+			char* p = pBegin;
+			
+			p = CSocket::WritePacket(p, "b", byCount);
+
+			while (rs->next()) {
+/*
+	idplayer int AUTO_INCREMENT,
+	idaccount int NOT NULL,
+	name VARCHAR(30) NOT NULL,
+	job TINYINT NOT NULL,
+	class TINYINT NOT NULL,
+	level TINYINT NOT NULL,
+	strength SMALLINT NOT NULL,
+	health SMALLINT NOT NULL,
+	inteligence SMALLINT NOT NULL,
+	wisdom SMALLINT NOT NULL,
+	dexterity SMALLINT NOT NULL,
+	face TINYINT NOT NULL,
+	hair TINYINT NOT NULL,
+*/
+
+				BYTE byWearAmount=0;//       dsbbbdwwwwwbbb
+				int nGID=0;
+				p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", rs->getInt("idplayer"),
+					rs->getString("name").c_str(),
+					rs->getInt("class"), rs->getInt("job"), rs->getInt("level"), nGID,
+					rs->getInt("strength"), rs->getInt("health"), rs->getInt("inteligence"),
+					rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
+			}
+
+			CMainSocket::Write(D2S_PLAYER_INFO, "dm", nClientID, pBegin, p - pBegin);
+
+			printf("D2S_PLAYER_INFO sent.\n");
 			break;
 		}
 
@@ -258,6 +305,15 @@ bool CMainSocket::Write(BYTE byType, ...)
 	va_end(va);
 
 	packet.wSize = end - (char*)&packet;
+
+	return WritePacket(packet);
+}
+
+bool CMainSocket::WritePacket(Packet packet)
+{
+	if (CMainSocket::g_pMainSocket == INVALID_SOCKET)
+		return false;
+
 	send(CMainSocket::g_pMainSocket, (char*)&packet, packet.wSize, 0);
 
 	return true;

@@ -5,6 +5,11 @@
 
 #define MAX_PACKET_LENGTH		8000
 
+struct PACKETBUFFER
+{
+	char data[MAX_PACKET_LENGTH];
+};
+
 struct Packet
 {
 	WORD wSize;

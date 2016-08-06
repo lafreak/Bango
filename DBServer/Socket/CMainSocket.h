@@ -29,6 +29,7 @@ public:
 	static PVOID Process(PVOID packet);
 
 	static bool Write(BYTE byType, ...);
+	static bool WritePacket(Packet packet);
 
 	static void DebugRawPacket(Packet *packet);
 };

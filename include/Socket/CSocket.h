@@ -18,7 +18,8 @@ public:
 	static bool g_bDebug;
 
 	static char* WriteV(char* packet, va_list va);
-
+	
+	static char* WritePacket(char* packet, const char* format, ...);
 	static char* ReadPacket(char* packet, const char* format, ...);
 };
 

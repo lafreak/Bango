@@ -231,8 +231,8 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 					CDBSocket::Write(S2D_SECONDARY_LOGIN, "ds", pClient->GetSocket(), szPassword);
 
 					break;
-
 /*
+
 					BYTE byAuth=0;
 					int nExpTime=0;
 					BYTE byUnknwon=0;
@@ -262,7 +262,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 					WORD wStick=668;
 
 
-								p = ReadPacket( p, "bbd b dsbbdwwwwwbb b www...."
+					//			p = ReadPacket( p, "bbd b dsbbdwwwwwbb b www...."
 
 
 					pClient->Write(S2C_PLAYERINFO, "bbdbdsbbbdwwwwwbbbwwwwww", byAuth, byUnknwon, nExpTime, byCount,

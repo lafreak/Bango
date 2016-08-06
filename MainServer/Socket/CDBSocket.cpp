@@ -100,6 +100,64 @@ PVOID CDBSocket::Process(PVOID param)
 
 			break;
 		}
+
+		case D2S_PLAYER_INFO:
+		{
+			int nClientID=0;
+			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+
+			CClient *pClient = CServer::FindClient(nClientID);
+			if (!pClient) break;
+
+			BYTE byAuth=0;
+			int nExpTime=0;
+			BYTE byUnknwon=0;
+
+			pClient->Write(S2C_PLAYERINFO, "bbdm", byAuth, byUnknwon, nExpTime, 
+				p, ((char*)packet + packet->wSize) - p);
+			printf("S2C_PLAYERINFO sent.\n");
+
+			break;
+			/*
+
+					BYTE byAuth=0;
+					int nExpTime=0;
+					BYTE byUnknwon=0;
+
+					BYTE byCount=1;
+
+					int nPID = 16;
+					const char* pName = "lafreak";
+					BYTE byJob=1;
+					BYTE byClass=1;
+					BYTE byLevel=100;
+					int  nGID=0;
+					WORD wStr=105;
+					WORD wHth=106;
+					WORD wInt=107;
+					WORD wWis=108;
+					WORD wDex=109;
+					BYTE byFace=0;
+					BYTE byHair=0;
+
+					BYTE byWearItemCount=6;
+					WORD wGloves=1134;
+					WORD wBoots=1135;
+					WORD wHelm=1136;
+					WORD wShorts=1137;
+					WORD wChest=1138;
+					WORD wStick=668;
+
+
+					//			p = ReadPacket( p, "bbd b dsbbdwwwwwbb b www...."
+
+
+					pClient->Write(S2C_PLAYERINFO, "bbdbdsbbbdwwwwwbbbwwwwww", byAuth, byUnknwon, nExpTime, byCount,
+						nPID, pName, byJob, byClass, byLevel, nGID, wStr, wHth, wInt, wWis, wDex, byFace, byHair, byWearItemCount,
+						wGloves, wBoots, wHelm, wShorts, wChest, wStick);
+					printf("S2C_PLAYERINFO sent.\n");
+			*/
+		}
 	}
 
 	delete packet;
