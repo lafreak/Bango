@@ -59,6 +59,7 @@ void CMainSocket::Accept()
 
 			int nLen = recv(CMainSocket::g_pMainSocket, packet, MAX_PACKET_LENGTH + (packet->data-(char*)packet), 0);
 			if (nLen <= 0 || packet->wSize <=0) {
+				CServer::EmptyAccount();
 				printf("MainServer disconnected.\n");
 				break;
 			}

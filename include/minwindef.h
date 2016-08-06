@@ -2,7 +2,8 @@
 #define _MINWINDEF_
 #pragma once
 
-typedef unsigned long       DWORD;
+//typedef unsigned long       DWORD;
+typedef unsigned int 		DWORD;
 typedef int                 BOOL;
 typedef unsigned char       BYTE;
 typedef unsigned short      WORD;

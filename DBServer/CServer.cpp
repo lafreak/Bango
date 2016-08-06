@@ -36,3 +36,11 @@ CAccount* CServer::FindAccount(std::string szLogin)
 
 	return NULL;
 }
+
+void CServer::EmptyAccount()
+{
+	for (auto a: g_mAccount)
+		delete a.second;
+	
+	g_mAccount.empty();
+}

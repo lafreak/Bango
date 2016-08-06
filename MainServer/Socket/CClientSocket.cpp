@@ -45,19 +45,23 @@ void CClientSocket::Accept()
 		return;
 
 	while (true) {
-		intptr_t client = INVALID_SOCKET;
+		SOCKET *client = new SOCKET;
+		*client = INVALID_SOCKET;
 
-		while (client == INVALID_SOCKET)
-			client = accept(CClientSocket::g_pSocket, NULL, NULL);
+		while (*client == INVALID_SOCKET)
+			*client = accept(CClientSocket::g_pSocket, NULL, NULL);
 
 		pthread_t t;
-		pthread_create(&t, NULL, &CClientSocket::Await, (PVOID)client);
+
+		if (pthread_create(&t, NULL, &CClientSocket::Await, (PVOID)client))
+			delete client;
 	}
 }
 
 PVOID CClientSocket::Await(PVOID param)
 {
-	CClient *pClient = new CClient((intptr_t)param);
+	CClient *pClient = new CClient(*(SOCKET*)param);
+	delete (SOCKET*)param;
 
 	printf("Client[%d] connected.\n", pClient->GetSocket());
 
@@ -98,7 +102,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			BYTE byUnknown=0;
 
 			CSocket::ReadPacket(packet.data, "dddddb", &nAppTime, &dwSeedL[0], &dwSeedL[1], &dwSeedL[2], &dwSeedL[3], &byUnknown);
-			printf("nAppTime: %i\ndwSeedL: %lu %lu %lu %lu\nbyUnknown: %u\n", nAppTime, dwSeedL[0], dwSeedL[1], dwSeedL[2], dwSeedL[3], byUnknown);
+			printf("nAppTime: %i\ndwSeedL: %u %u %u %u\nbyUnknown: %u\n", nAppTime, dwSeedL[0], dwSeedL[1], dwSeedL[2], dwSeedL[3], byUnknown);
 
 			DWORD dwProtocolVersion=0;
 			BYTE byCode=0;
@@ -121,7 +125,7 @@ void CClientSocket::Process(CClient * pClient, Packet packet)
 			DWORD dwProtocolVersion=0;
 
 			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &dwProtocolVersion);
-			printf("byUnknown: %u\ndwProtocolVersion: %lu\n", byUnknown, dwProtocolVersion);
+			printf("byUnknown: %u\ndwProtocolVersion: %u\n", byUnknown, dwProtocolVersion);
 			break;
 		}
 

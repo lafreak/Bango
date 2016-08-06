@@ -1,5 +1,7 @@
 #include "CSocket.h"
 
+bool CSocket::g_bDebug = false;
+
 char* CSocket::WriteV(char* packet, va_list va)
 {
 	char* format = va_arg(va, char*);
@@ -73,6 +75,12 @@ char* CSocket::ReadPacket(char* packet, const char* format, ...)
 			packet++;
 			break;
 		case 'd':
+			if (CSocket::g_bDebug) {
+				printf("I was about to read 'd'.\n");
+				printf("Meanwhile, the value was: %u.\n", *(DWORD*)packet);
+				packet += sizeof(DWORD);
+				break;
+			}
 			*va_arg(va, DWORD*) = *(DWORD*)packet;
 			packet += sizeof(DWORD);
 			break;
