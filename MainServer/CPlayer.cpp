@@ -180,12 +180,10 @@ void CPlayer::SendCreateHero()
 	int nUn5=0;
 	BYTE byUn6=0;
 	*/
-	int nUn2=3412;
-	int nUn3=32768;
+	int nUn2=0;
+	int nUn3=0;
 	BYTE byUn4=0;
-	//270498 268285
-	printf("nID %d\n szName %s\n", m_nID, m_szName.c_str());
-
+	
   //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
 	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
