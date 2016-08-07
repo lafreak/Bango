@@ -7,7 +7,7 @@ bool CDBSocket::Connect(WORD wPort)
 {
 	CDBSocket::g_pDBSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if (CDBSocket::g_pDBSocket <= INVALID_SOCKET) {
-		printf("Error creating socket.\n");
+		printf(KRED "Error creating socket.\n" KNRM);
 		return false;
 	}
 
@@ -19,7 +19,7 @@ bool CDBSocket::Connect(WORD wPort)
     serv_addr.sin_port = htons(wPort);
 
     if (connect(CDBSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
-    	printf("Failed to connect to DB Server.\n");
+    	printf(KRED "Failed to connect to DB Server.\n" KNRM);
     	return false;
     }
     
@@ -46,7 +46,7 @@ PVOID CDBSocket::ProcessDB(PVOID param)
 
 		int nLen = recv(CDBSocket::g_pDBSocket, packet, MAX_PACKET_LENGTH + (packet->data-(char*)packet), 0);
 		if (nLen <= 0 || packet->wSize <=0) {
-			printf("DBServer disconnected.\n");
+			printf(KRED "DBServer disconnected.\n" KNRM);
 			break;
 		}
 
@@ -55,7 +55,10 @@ PVOID CDBSocket::ProcessDB(PVOID param)
 		DebugRawPacket(packet);
 
 		pthread_t t;
-		pthread_create(&t, NULL, &CDBSocket::Process, (PVOID)packet);
+		if (pthread_create(&t, NULL, &CDBSocket::Process, (PVOID)packet) != THREAD_SUCCESS) {
+			printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
+			delete packet;
+		}
 	}
 }
 

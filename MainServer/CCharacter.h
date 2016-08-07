@@ -2,6 +2,7 @@
 #define _CCHARACTER_
 
 #include <string>
+#include <mutex>
 
 #include <cstdarg>
 #include <string.h>
@@ -17,6 +18,8 @@
 
 class CCharacter
 {
+	std::mutex m_mxThis;
+
 protected:
 	int m_nID;
 
@@ -62,6 +65,9 @@ public:
 	static int g_nID;
 
 	CCharacter();
+
+	void Lock() { m_mxThis.lock(); }
+	void Unlock() { m_mxThis.unlock(); }
 
 	int  GetID() const { return m_nID; }
 	WORD GetStr() const { return m_wStr; }

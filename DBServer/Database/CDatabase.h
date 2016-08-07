@@ -8,6 +8,9 @@
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 
+#include <minwindef.h>
+#include <common.h>
+
 typedef std::shared_ptr<sql::PreparedStatement> pstmt_ptr;
 typedef std::shared_ptr<sql::ResultSet> rs_ptr;
 

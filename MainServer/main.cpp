@@ -10,7 +10,7 @@ int main()
 	if (!CClientSocket::Start(3000))
 		return 1;
 
-	printf("MainServer started on port 3000.\n");
+	printf(KGRN "MainServer started on port 3000.\n" KNRM);
 
 	CClientSocket::Accept();
 

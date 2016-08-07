@@ -2,6 +2,7 @@
 #define _CCLIENT_
 
 #include <string>
+#include <mutex>
 
 #include <cstdarg>
 #include <string.h>
@@ -19,6 +20,8 @@
 
 class CClient
 {
+	std::mutex m_mxThis;
+
 	int m_nCID;
 	
 	std::string m_szMac;
@@ -34,6 +37,9 @@ public:
 	bool Write(BYTE byType, ...);
 
 	void Process(Packet packet);
+
+	void Lock() { m_mxThis.lock(); }
+	void Unlock() { m_mxThis.unlock(); }
 
 	void 		SetMAC(std::string szMac) { m_szMac = szMac; }
 	std::string GetMAC() const { return m_szMac; }

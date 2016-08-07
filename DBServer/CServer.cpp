@@ -1,46 +1,72 @@
 #include "CServer.h"
 
-std::map<SOCKET, CAccount*> CServer::g_mAccount;
+AccountMap CServer::g_mAccount;
+
+std::mutex CServer::g_mxAccount;
 
 void CServer::Add(CAccount *pAccount)
 {
-	if (g_mAccount.find(pAccount->GetCID()) != g_mAccount.end())
-		return;
+	g_mxAccount.lock();
 
-	g_mAccount[pAccount->GetCID()] = pAccount;
+	if (g_mAccount.find(pAccount->GetCID()) == g_mAccount.end())
+		g_mAccount[pAccount->GetCID()] = pAccount;
+
+	g_mxAccount.unlock();
 }
 
 void CServer::Remove(CAccount *pAccount)
 {
-	std::map<SOCKET, CAccount*>::iterator it = g_mAccount.find(pAccount->GetCID());
+	g_mxAccount.lock();
+
+	AccountMap::iterator it = g_mAccount.find(pAccount->GetCID());
 	if (it != g_mAccount.end()) {
 		g_mAccount.erase(it);
-		delete pAccount;
+		delete pAccount; // ??
 	}
+
+	g_mxAccount.unlock();
 }
 
 CAccount* CServer::FindAccount(int nClientID)
 {
-	if (g_mAccount.find(nClientID) == g_mAccount.end())
-		return NULL;
+	g_mxAccount.lock();
 
-	return g_mAccount[nClientID];
+	CAccount* pAccount=NULL;
+
+	if (g_mAccount.find(nClientID) != g_mAccount.end())
+		pAccount = g_mAccount[nClientID];
+
+	g_mxAccount.unlock();
+
+	return pAccount;
 }
 
 CAccount* CServer::FindAccountByAID(int nAccountID)
 {
+	g_mxAccount.lock();
+
+	CAccount* pAccount=NULL;
+
 	for (auto const &a: g_mAccount) {
-		if (a.second->GetAID() == nAccountID)
-			return a.second;
+		if (a.second->GetAID() == nAccountID) {
+			pAccount = a.second;
+			break;
+		}
 	}
 
-	return NULL;
+	g_mxAccount.unlock();
+
+	return pAccount;
 }
 
 void CServer::EmptyAccount()
 {
+	g_mxAccount.lock();
+
 	for (auto a: g_mAccount)
-		delete a.second;
+		delete a.second; // ??
 	
 	g_mAccount.empty();
+
+	g_mxAccount.unlock();
 }

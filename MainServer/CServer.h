@@ -2,25 +2,24 @@
 #define _CSERVER_
 
 #include <map>
+#include <mutex>
 
 #include <minwindef.h>
 
 #include "CClient.h"
 #include "CPlayer.h"
 
+typedef std::map<int, CClient*> ClientMap;
+
 class CServer
 {
 public:
-	static std::map<int, CClient*> g_mClient;
-	static std::map<int, CPlayer*> g_mPlayer;
-	
+	static ClientMap  g_mClient;
+	static std::mutex g_mxClient;
+
 	static void Add(CClient* pClient);
 	static void Remove(CClient* pClient);
 	static CClient* FindClient(int nCID);
-
-	static void Add(CPlayer* pPlayer);
-	static void Remove(CPlayer* pPlayer);
-	static CPlayer* FindPlayer(int nID);
 };
 
 #endif

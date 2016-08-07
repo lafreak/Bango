@@ -34,12 +34,12 @@ bool CClient::Write(BYTE byType, ...)
 void CClient::Process(Packet packet)
 {
 	if (packet.byType >= C2S_START && !m_pPlayer) {
-		printf("ERROR: Packet manipulation - player packet sent on not logged account.\n");
+		printf(KRED "ERROR: Packet manipulation - player packet sent on not logged account.\n" KNRM);
 		return;
 	}
 
 	if (packet.byType < C2S_START && m_pPlayer) {
-		printf("ERROR: Packet manipulation - client packet sent on logged account.\n");
+		printf(KRED "ERROR: Packet manipulation - client packet sent on logged account.\n" KNRM);
 		return;
 	}
 
@@ -261,6 +261,7 @@ void CClient::Process(Packet packet)
 		case C2S_GAMEEXIT:
 		case C2S_CHATTING:
 		{
+			// lock?
 			m_pPlayer->Process(packet);
 			break;
 		}

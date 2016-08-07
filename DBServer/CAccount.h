@@ -2,11 +2,14 @@
 #define _CACCOUNT_
 
 #include <string>
+#include <mutex>
 
 #include <minwindef.h>
 
 class CAccount
 {
+	std::mutex m_mxThis;
+
 	int m_nClientID;
 	int m_nAccountID;
 	std::string m_szLogin;
@@ -20,6 +23,9 @@ public:
 	~CAccount() {}
 
 	static WORD g_wDebugItems[4][8];
+
+	void Lock() { m_mxThis.lock(); }
+	void Unlock() { m_mxThis.unlock(); }
 
 	int 		GetAID() const { return m_nAccountID; }
 	int 		GetCID() const { return m_nClientID; }

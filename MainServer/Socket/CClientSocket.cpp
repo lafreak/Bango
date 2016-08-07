@@ -7,7 +7,7 @@ bool CClientSocket::Start(WORD wPort)
 {
 	CClientSocket::g_pSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if (CClientSocket::g_pSocket <= INVALID_SOCKET) {
-		printf("Error creating socket.\n");
+		printf(KRED "Error creating socket.\n" KNRM);
 		return false;
 	}
 
@@ -19,12 +19,12 @@ bool CClientSocket::Start(WORD wPort)
     serv_addr.sin_port = htons(wPort);
 
     if (bind(CClientSocket::g_pSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
-    	printf("Bind failed.\n");
+    	printf(KRED "Bind failed.\n" KNRM);
     	return false;
     }
 
     if (listen(CClientSocket::g_pSocket, 5) <= SOCKET_ERROR) {
-    	printf("Error listening on socket.\n");
+    	printf(KRED "Error listening on socket.\n" KNRM);
     	return false;
     }
 
@@ -39,7 +39,6 @@ bool CClientSocket::Start(WORD wPort)
 
 void CClientSocket::Close(int)
 {
-	printf("\nMainServer closed.\n");
 	close(CClientSocket::g_pSocket);
 	exit(1);
 }
@@ -58,8 +57,10 @@ void CClientSocket::Accept()
 
 		pthread_t t;
 
-		if (pthread_create(&t, NULL, &CClientSocket::Await, (PVOID)client))
+		if (pthread_create(&t, NULL, &CClientSocket::Await, (PVOID)client) != THREAD_SUCCESS) {
+			printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
 			delete client;
+		}
 	}
 }
 

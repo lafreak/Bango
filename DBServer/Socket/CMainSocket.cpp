@@ -9,7 +9,7 @@ bool CMainSocket::Start(WORD wPort)
 {
 	CMainSocket::g_pDBSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if (CMainSocket::g_pDBSocket <= INVALID_SOCKET) {
-		printf("Error creating socket.\n");
+		printf(KRED "Error creating socket.\n" KNRM);
 		return false;
 	}
 
@@ -21,12 +21,12 @@ bool CMainSocket::Start(WORD wPort)
     serv_addr.sin_port = htons(wPort);
 
     if (bind(CMainSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
-    	printf("Bind failed.\n");
+    	printf(KRED "Bind failed.\n" KNRM);
     	return false;
     }
 
     if (listen(CMainSocket::g_pDBSocket, 5) <= SOCKET_ERROR) {
-    	printf("Error listening on socket.\n");
+    	printf(KRED "Error listening on socket.\n" KNRM);
     	return false;
     }
 
@@ -41,7 +41,6 @@ bool CMainSocket::Start(WORD wPort)
 
 void CMainSocket::Close(int)
 {
-	printf("\nDBServer closed.\n");
 	CDatabase::Close();
 	close(CMainSocket::g_pDBSocket);
 	exit(1);

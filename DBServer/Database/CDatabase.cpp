@@ -9,13 +9,13 @@ bool CDatabase::Connect(std::string szHostname, std::string szPort, std::string 
 {
 	CDatabase::g_pDriver = get_driver_instance();
 	if (!CDatabase::g_pDriver) {
-		printf("Can't get driver instance.\n");
+		printf(KRED "Can't get driver instance.\n" KNRM);
 		return false;
 	}
 
 	CDatabase::g_pConnection = CDatabase::g_pDriver->connect("tcp://"+szHostname+":"+szPort, szUsername, szPassword);
 	if (!CDatabase::g_pConnection) {
-		printf("Can't connect to database.\n");
+		printf(KRED "Can't connect to database.\n" KNRM);
 		return false;
 	}
 
@@ -25,8 +25,10 @@ bool CDatabase::Connect(std::string szHostname, std::string szPort, std::string 
 void CDatabase::Close()
 {
 	Lock();
+
 	if (CDatabase::g_pConnection)
 		delete CDatabase::g_pConnection;
+
 	Unlock();
 }
 

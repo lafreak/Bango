@@ -7,10 +7,13 @@
 
 #include "CAccount.h"
 
+typedef std::map<SOCKET, CAccount*> AccountMap;
+
 class CServer
 {
 public:
-	static std::map<SOCKET, CAccount*> g_mAccount;
+	static AccountMap g_mAccount;
+	static std::mutex g_mxAccount;
 	
 	static void Add(CAccount* pAccount);
 	static void Remove(CAccount* pAccount);
