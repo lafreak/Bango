@@ -113,6 +113,29 @@ void CPlayer::Process(Packet packet)
 			Write(S2C_ANS_GAMEEXIT, "b", 1);
 			break;	
 		}
+
+		// debug
+		case C2S_CHATTING:
+		{
+			char* szMsg=NULL;
+
+			CSocket::ReadPacket(packet.data, "s", &szMsg);
+
+
+
+			int pkt = atoi(szMsg);
+
+
+
+			BYTE byMode=0;
+			int nID=m_nID;
+			int nIndex=3416;
+
+
+			Write(198, "bdd", byMode, nID, pkt);
+			printf("%d sent.\n", pkt);
+			break;
+		}
 	}
 }
 
@@ -158,16 +181,22 @@ void CPlayer::SendCreateHero()
 
 	BYTE byUnknownV=0;
 
-	BYTE byUn1=0;
+	BYTE byUn1=0; // num ?
+	/*
 	int nUn2=0;
 	BYTE byUn3=0;
 	int nUn4=0;
 	int nUn5=0;
 	BYTE byUn6=0;
-
+	*/
+	int nUn2=3412;
+	int nUn3=32768;
+	BYTE byUn4=0;
+	//270498 268285
 	printf("nID %d\n szName %s\n", m_nID, m_szName.c_str());
 
-	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
+  //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
+	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		m_byClass | GAME_HERO, 
@@ -200,14 +229,20 @@ void CPlayer::SendCreateHero()
 		m_n64MStateEx, 
 		byUnknownV,
 		byUn1, 
+		/*
 		nUn2, 
 		byUn3, 
 		nUn4, 
 		nUn5, 
 		byUn6);
+		*/
+		nUn2,
+		nUn3,
+		byUn4);
 
 
-	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
+  //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
+	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		m_byClass, 
@@ -240,11 +275,16 @@ void CPlayer::SendCreateHero()
 		m_n64MStateEx, 
 		byUnknownV,
 		byUn1, 
+		/*
 		nUn2, 
 		byUn3, 
 		nUn4, 
 		nUn5, 
 		byUn6);
+		*/
+		nUn2,
+		nUn3,
+		byUn4);
 
 	printf("S2C_CREATEPLAYER sent.\n");
 }

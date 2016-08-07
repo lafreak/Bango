@@ -259,6 +259,7 @@ void CClient::Process(Packet packet)
 
 		case C2S_START:
 		case C2S_GAMEEXIT:
+		case C2S_CHATTING:
 		{
 			m_pPlayer->Process(packet);
 			break;

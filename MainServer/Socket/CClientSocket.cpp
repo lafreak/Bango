@@ -20,7 +20,7 @@ bool CClientSocket::Start(WORD wPort)
 
     if (bind(CClientSocket::g_pSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
     	printf("Bind failed.\n");
-			CClientSocket::Close();
+			//CClientSocket::Close();
     	return false;
     }
 
