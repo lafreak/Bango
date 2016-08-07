@@ -39,7 +39,7 @@ bool CClientSocket::Start(WORD wPort)
 
 void CClientSocket::Close(int)
 {
-	printf("MainServer closed.\n");
+	printf("\nMainServer closed.\n");
 	close(CClientSocket::g_pSocket);
 	exit(1);
 }

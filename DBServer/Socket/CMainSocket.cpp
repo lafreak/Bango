@@ -41,7 +41,8 @@ bool CMainSocket::Start(WORD wPort)
 
 void CMainSocket::Close(int)
 {
-	printf("DBServer closed.\n");
+	printf("\nDBServer closed.\n");
+	CDatabase::Close();
 	close(CMainSocket::g_pDBSocket);
 	exit(1);
 }
@@ -85,6 +86,7 @@ void CMainSocket::Accept()
 PVOID CMainSocket::Process(PVOID param)
 {
 	Packet* packet = (Packet*)param;
+	CDatabase::Lock();
 
 	switch (packet->byType)
 	{
@@ -397,6 +399,7 @@ PVOID CMainSocket::Process(PVOID param)
 		}
 	}
 
+	CDatabase::Unlock();
 	delete packet;
 	return NULL;
 }
