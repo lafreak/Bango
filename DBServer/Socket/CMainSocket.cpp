@@ -303,8 +303,8 @@ PVOID CMainSocket::Process(PVOID param)
 			}
 
 			pPStmt.reset(CDatabase::g_pConnection->prepareStatement(
-				"INSERT INTO player (idaccount, name, class, strength, health, inteligence, wisdom, dexterity, face, hair) "
-				" VALUES (?,?,?,?,?,?,?,?,?,?)"));
+				"INSERT INTO player (idaccount, name, class, strength, health, inteligence, wisdom, dexterity, curhp, curmp, face, hair) "
+				" VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"));
 			pPStmt->setInt(1, pAccount->GetAID());
 			pPStmt->setString(2, szName);
 			pPStmt->setInt(3, byJob);
@@ -313,11 +313,78 @@ PVOID CMainSocket::Process(PVOID param)
 			pPStmt->setInt(6, g_baseproperty[byJob].prty[STAT_INT] + wStats[STAT_INT]);
 			pPStmt->setInt(7, g_baseproperty[byJob].prty[STAT_WIS] + wStats[STAT_WIS]);
 			pPStmt->setInt(8, g_baseproperty[byJob].prty[STAT_AGI] + wStats[STAT_AGI]);
-			pPStmt->setInt(9, byShape[0]);
-			pPStmt->setInt(10, byShape[1]);
+			pPStmt->setInt(9, g_denoHP[byJob] *(g_baseproperty[byJob].prty[STAT_HTH] + wStats[STAT_HTH]));
+			pPStmt->setInt(10, g_denoMP[byJob] *(g_baseproperty[byJob].prty[STAT_WIS] + wStats[STAT_WIS]));
+			pPStmt->setInt(11, byShape[0]);
+			pPStmt->setInt(12, byShape[1]);
 			pPStmt->execute();
-			
+
 			pAccount->SendPlayerInfo();
+			break;
+		}
+
+		case S2D_LOADPLAYER:
+		{
+			printf("S2D_LOADPLAYER.\n");
+			int nPID=0;
+			int nClientID=0;
+
+			CSocket::ReadPacket(packet->data, "dd", &nClientID, &nPID);
+
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (!pAccount) break;
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"SELECT * FROM player WHERE idplayer=? AND idaccount=? AND deleted=0"));
+			pPStmt->setInt(1, nPID);
+			pPStmt->setInt(2, pAccount->GetAID());
+			rs_ptr rs(pPStmt->executeQuery());
+			rs->next();
+
+			if (rs->rowsCount() <= 0) {
+				// TODO: Send proper error message?
+				break;
+			}
+
+			CMainSocket::Write(D2S_LOADPLAYER, "dddsbbbwwwwwwwIwwwddddbb", nClientID, 
+				rs->getInt("idaccount"), 
+				rs->getInt("idplayer"), 
+				rs->getString("name").c_str(),
+				rs->getInt("class"), 
+				rs->getInt("job"), 
+				rs->getInt("level"),
+				rs->getInt("strength"), 
+				rs->getInt("health"), 
+				rs->getInt("inteligence"), 
+				rs->getInt("wisdom"), 
+				rs->getInt("dexterity"),
+				rs->getInt("curhp"), 
+				rs->getInt("curmp"), 
+				rs->getUInt64("exp"), 
+				rs->getInt("pupoint"), 
+				rs->getInt("supoint"), 
+				rs->getInt("contribute"), 
+				rs->getInt("anger"),
+				rs->getInt("x"), 
+				rs->getInt("y"), 
+				rs->getInt("z"),
+				rs->getInt("face"),
+				rs->getInt("hair"));
+
+			break;
+		}
+
+		case S2D_SELECT_CHARACTER:
+		{
+			printf("S2D_SELECT_CHARACTER.\n");
+
+			int nClientID=0;
+
+			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			CAccount *pAccount = CServer::FindAccount(nClientID);
+			if (pAccount)
+				pAccount->SendPlayerInfo();
+
 			break;
 		}
 	}

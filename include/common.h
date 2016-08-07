@@ -27,8 +27,8 @@ static __int64 g_nNeedExp[] = {
 		94544496618 ,113453543683 ,136144403815 ,163373439683 ,196048286480 ,
 };
 
-static int g_denoHP[] = { 10, 14, 13, };
-static int g_denoMP[] = { 13, 10, 12, };
+static int g_denoHP[] = { 10, 14, 13, 13 };
+static int g_denoMP[] = { 13, 10, 12, 12 };
 
 // (struct) /////////////////////////////////////////////////////////
 struct DATE_TIME
@@ -39,6 +39,19 @@ struct DATE_TIME
 	int hour;
 	int minute;
 	int second;
+};
+
+struct D2S_LOADPLAYER_DESC
+{
+	int nAID, nPID;
+	WORD wStats[5];
+	WORD wCurHP, wCurMP;
+	__int64 n64Exp;
+	WORD wPUPoint, wSUPoint, wContribute;
+	int nAnger, nX, nY, nZ;
+	BYTE byLevel, byClass, byJob;
+	BYTE byFace, byHair;
+	const char* szName;
 };
 
 //#if defined( MAINSVR) || defined( DBSVR)
@@ -58,6 +71,8 @@ enum STAT
 	STAT_WIS,
 	STAT_AGI,
 };
+
+#define GAME_HERO 0x80
 
 static BASEPROPERTY g_baseproperty[] = {
 	18, 16, 8, 8, 10, 180, 120,		// knight

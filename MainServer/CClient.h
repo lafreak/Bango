@@ -3,25 +3,37 @@
 
 #include <string>
 
+#include <cstdarg>
+#include <string.h>
+
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
-#include <minwindef.h>
 
 #include <Socket/CSocket.h>
+
 #include <minwindef.h>
+#include <common.h>
+
+#include "Socket/CDBSocket.h"
+#include "CPlayer.h"
 
 class CClient
 {
-	SOCKET m_pSocket;
+	int m_nCID;
+	
 	std::string m_szMac;
 	std::string m_szLogin;
 	std::string m_szPassword;
 
+	CPlayer* m_pPlayer;
+
 public:
-	CClient(SOCKET pSocket): m_pSocket(pSocket) {}
-	~CClient() {}
+	CClient(int nCID): m_nCID(nCID), m_pPlayer(NULL) {}
+	~CClient();
 
 	bool Write(BYTE byType, ...);
+
+	void Process(Packet packet);
 
 	void 		SetMAC(std::string szMac) { m_szMac = szMac; }
 	std::string GetMAC() const { return m_szMac; }
@@ -30,7 +42,10 @@ public:
 	void 		SetPassword(std::string szPassword) { m_szPassword = szPassword; }
 	std::string GetPassword() const { return m_szPassword; }
 
-	SOCKET 		GetSocket() const { return m_pSocket; }
+	int 		GetCID() const { return m_nCID; }
+
+	void 		SetPlayer(CPlayer *pPlayer) { if (m_pPlayer) delete m_pPlayer; m_pPlayer = pPlayer; }
+	CPlayer* 	GetPlayer() const { return m_pPlayer; }
 };
 
 #endif

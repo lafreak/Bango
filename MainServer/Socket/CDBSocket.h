@@ -1,3 +1,6 @@
+#ifndef _CDBSOCKET_
+#define _CDBSOCKET_
+
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -12,7 +15,8 @@
 #include <minwindef.h>
 #include <common.h>
 
-#include "../CServer.h"
+#include "../CClient.h"
+#include "../CPlayer.h"
 
 class CDBSocket
 {
@@ -28,3 +32,5 @@ public:
 
 	static void DebugRawPacket(Packet *packet);
 };
+
+#endif

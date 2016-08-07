@@ -1,4 +1,5 @@
 #include "CDBSocket.h"
+#include "../CServer.h"
 
 SOCKET CDBSocket::g_pDBSocket = INVALID_SOCKET;
 
@@ -129,6 +130,56 @@ PVOID CDBSocket::Process(PVOID param)
 			if (!pClient) break;
 
 			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)packet + packet->wSize) - p);
+			break;
+		}
+
+		case D2S_LOADPLAYER:
+		{
+			int nClientID;
+			char* p= CSocket::ReadPacket(packet->data, "d", &nClientID);
+
+			CClient *pClient = CServer::FindClient(nClientID);
+			if (!pClient) break;
+
+			D2S_LOADPLAYER_DESC desc;
+			memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
+
+			CSocket::ReadPacket(p, "ddsbbbwwwwwwwIwwwddddbb", 
+				&desc.nAID, 
+				&desc.nPID,
+				&desc.szName,
+				&desc.byClass,
+				&desc.byJob,
+				&desc.byLevel,
+				&desc.wStats[STAT_STR], 
+				&desc.wStats[STAT_HTH],
+				&desc.wStats[STAT_INT],
+				&desc.wStats[STAT_WIS], 
+				&desc.wStats[STAT_AGI],
+				&desc.wCurHP, 
+				&desc.wCurMP, 
+				&desc.n64Exp, 
+				&desc.wPUPoint, 
+				&desc.wSUPoint, 
+				&desc.wContribute, 
+				&desc.nAnger, 
+				&desc.nX, 
+				&desc.nY, 
+				&desc.nZ,
+				&desc.byFace,
+				&desc.byHair);
+
+			auto pPlayer = new CPlayer(nClientID, desc);
+			pClient->SetPlayer(pPlayer);
+
+			pPlayer->SendProperty();
+
+			WORD wTime=1200;
+
+			pClient->Write(S2C_ANS_LOAD, "wdd", wTime, pPlayer->GetX(), pPlayer->GetY());
+			printf("S2C_ANS_LOAD sent.\n");
+
+			break;
 		}
 	}
 

@@ -1,5 +1,5 @@
-//#ifndef _CSOCKET_
-//#define _CSOCKET_
+#ifndef _CSOCKET_
+#define _CSOCKET_
 
 #include <stdarg.h>
 #include <string.h>
@@ -23,4 +23,4 @@ public:
 	static char* ReadPacket(char* packet, const char* format, ...);
 };
 
-//#endif _CSOCKET_
+#endif

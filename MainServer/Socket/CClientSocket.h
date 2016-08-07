@@ -1,3 +1,6 @@
+#ifndef _CCLIENTSOCKET_
+#define _CCLIENTSOCKET_
+
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -24,9 +27,8 @@ public:
 	static bool Close();
 	static void Accept();
 	static PVOID Await(PVOID client);
-	static void Process(CClient *pClient, Packet packet);
-
-	static bool Write(SOCKET client, BYTE byType, ...);
 
 	static void DebugRawPacket(Packet packet);
 };
+
+#endif
