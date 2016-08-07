@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <signal.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
@@ -24,7 +25,7 @@ class CClientSocket
 
 public:
 	static bool Start(WORD wPort);
-	static bool Close();
+	static void Close(int);
 	static void Accept();
 	static PVOID Await(PVOID client);
 

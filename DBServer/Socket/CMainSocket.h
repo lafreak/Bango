@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <memory>
+#include <signal.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
@@ -24,7 +25,7 @@ class CMainSocket
 
 public:
 	static bool Start(WORD wPort);
-	static bool Close();
+	static void Close(int);
 	static void Accept();
 	static PVOID Process(PVOID packet);
 

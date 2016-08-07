@@ -20,7 +20,6 @@ bool CClientSocket::Start(WORD wPort)
 
     if (bind(CClientSocket::g_pSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
     	printf("Bind failed.\n");
-			//CClientSocket::Close();
     	return false;
     }
 
@@ -29,14 +28,20 @@ bool CClientSocket::Start(WORD wPort)
     	return false;
     }
 
+    struct sigaction sigIntHandler;
+    sigIntHandler.sa_handler = CClientSocket::Close;
+    sigemptyset(&sigIntHandler.sa_mask);
+    sigIntHandler.sa_flags = 0;
+    sigaction(SIGINT, &sigIntHandler, NULL);
+ 
 	return true;
 }
 
-bool CClientSocket::Close()
+void CClientSocket::Close(int)
 {
+	printf("MainServer closed.\n");
 	close(CClientSocket::g_pSocket);
-	//shutdown(CClientSocket::g_pSocket, SHUT_RDWR);
-	return true;
+	exit(1);
 }
 
 void CClientSocket::Accept()

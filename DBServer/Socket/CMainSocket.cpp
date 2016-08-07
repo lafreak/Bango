@@ -30,12 +30,20 @@ bool CMainSocket::Start(WORD wPort)
     	return false;
     }
 
+    struct sigaction sigIntHandler;
+    sigIntHandler.sa_handler = CMainSocket::Close;
+    sigemptyset(&sigIntHandler.sa_mask);
+    sigIntHandler.sa_flags = 0;
+    sigaction(SIGINT, &sigIntHandler, NULL);
+
 	return true;
 }
 
-bool CMainSocket::Close()
+void CMainSocket::Close(int)
 {
-	return true;
+	printf("DBServer closed.\n");
+	close(CMainSocket::g_pDBSocket);
+	exit(1);
 }
 
 void CMainSocket::Accept()

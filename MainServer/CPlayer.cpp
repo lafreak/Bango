@@ -114,26 +114,17 @@ void CPlayer::Process(Packet packet)
 			break;	
 		}
 
-		// debug
 		case C2S_CHATTING:
 		{
 			char* szMsg=NULL;
 
 			CSocket::ReadPacket(packet.data, "s", &szMsg);
 
-
-
-			int pkt = atoi(szMsg);
-
-
-
+			int nRideID = atoi(szMsg);
 			BYTE byMode=0;
-			int nID=m_nID;
-			int nIndex=3416;
 
-
-			Write(198, "bdd", byMode, nID, pkt);
-			printf("%d sent.\n", pkt);
+			Write(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
+			printf("2C_RIDING sent.\n");
 			break;
 		}
 	}
