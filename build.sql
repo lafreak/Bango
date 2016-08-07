@@ -47,7 +47,8 @@ CREATE TABLE player (
 
 INSERT INTO account (login, password, secondary)
 	VALUES
-	('qwe', 'asd', '00000000')
+	('qwe', 'asd', '00000000'),
+	('qwe1', 'asd', '00000000')
 ;
 
 INSERT INTO player (idaccount, name, job, class, level, strength,

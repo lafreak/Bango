@@ -19,6 +19,8 @@ public:
 		m_szSecondary(szSecondary) {}
 	~CAccount() {}
 
+	static WORD g_wDebugItems[4][8];
+
 	int 		GetAID() const { return m_nAccountID; }
 	int 		GetCID() const { return m_nClientID; }
 	std::string GetLogin() const { return m_szLogin; }
