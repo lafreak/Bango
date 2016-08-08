@@ -169,7 +169,9 @@ PVOID CMainSocket::Process(PVOID param)
 				break;
 			}
 
+			pAccount->Lock();
 			pAccount->SetSecondary(std::string(szSecondaryPW));
+			pAccount->Unlock();
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"UPDATE account SET secondary=? WHERE idaccount=?"));

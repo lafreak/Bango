@@ -4,6 +4,11 @@
 
 CClient::~CClient()
 {
+	while (m_Access.IsBusy()) {
+		printf("Client is in use, can't delete! Retrying in 1s...\n");
+		usleep(10000);
+	}
+
 	if (m_pPlayer)
 		delete m_pPlayer;
 }

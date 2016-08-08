@@ -6,6 +6,7 @@
 
 #include <cstdarg>
 #include <string.h>
+#include <unistd.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
@@ -14,6 +15,8 @@
 
 #include <minwindef.h>
 #include <common.h>
+
+#include <access.h>
 
 #include "Socket/CDBSocket.h"
 #include "CPlayer.h"
@@ -31,8 +34,10 @@ class CClient
 	CPlayer* m_pPlayer;
 
 public:
-	CClient(int nCID): m_nCID(nCID), m_pPlayer(NULL) {}
+	CClient(int nCID): m_nCID(nCID), m_pPlayer(NULL), m_Access() {}
 	~CClient();
+
+	Access m_Access;
 
 	bool Write(BYTE byType, ...);
 

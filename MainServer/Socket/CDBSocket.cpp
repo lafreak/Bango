@@ -77,6 +77,8 @@ PVOID CDBSocket::Process(PVOID param)
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
+			pClient->m_Access.Grant();
+
 			if (byAnswer == LA_SAMEUSER) {
 				int nClientExID=0;
 				CSocket::ReadPacket(p, "d", &nClientExID);
@@ -89,6 +91,8 @@ PVOID CDBSocket::Process(PVOID param)
 			pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
 			printf("S2C_ANS_LOGIN sent.\n");
 
+			pClient->m_Access.Free();
+
 			break;
 		}
 
@@ -99,8 +103,11 @@ PVOID CDBSocket::Process(PVOID param)
 			CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			if (pClient)
+			if (pClient) {
+				pClient->m_Access.Grant();
 				pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, byAnswer);
+				pClient->m_Access.Free();
+			}
 
 			break;
 		}
@@ -113,6 +120,8 @@ PVOID CDBSocket::Process(PVOID param)
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
+			pClient->m_Access.Grant();
+
 			BYTE byAuth=0;
 			int nExpTime=0;
 			BYTE byUnknwon=0;
@@ -120,6 +129,8 @@ PVOID CDBSocket::Process(PVOID param)
 			pClient->Write(S2C_PLAYERINFO, "bbdm", byAuth, byUnknwon, nExpTime, 
 				p, ((char*)packet + packet->wSize) - p);
 			printf("S2C_PLAYERINFO sent.\n");
+
+			pClient->m_Access.Free();
 
 			break;
 		}
@@ -132,7 +143,11 @@ PVOID CDBSocket::Process(PVOID param)
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
+			pClient->m_Access.Grant();
+
 			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)packet + packet->wSize) - p);
+
+			pClient->m_Access.Free();
 			break;
 		}
 
@@ -143,6 +158,8 @@ PVOID CDBSocket::Process(PVOID param)
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
+
+			pClient->m_Access.Grant();
 
 			D2S_LOADPLAYER_DESC desc;
 			memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
@@ -181,6 +198,8 @@ PVOID CDBSocket::Process(PVOID param)
 
 			pClient->Write(S2C_ANS_LOAD, "wdd", wTime, pPlayer->GetX(), pPlayer->GetY());
 			printf("S2C_ANS_LOAD sent.\n");
+			
+			pClient->m_Access.Free();
 
 			break;
 		}
