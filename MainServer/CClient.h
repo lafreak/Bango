@@ -55,8 +55,10 @@ public:
 
 	int 		GetCID() const { return m_nCID; }
 
-	void 		SetPlayer(CPlayer *pPlayer) { if (m_pPlayer) delete m_pPlayer; m_pPlayer = pPlayer; }
-	CPlayer* 	GetPlayer() const { return m_pPlayer; }
+	void		RemovePlayer() { m_pPlayer=NULL; }
+
+	void OnLogin(char *p);
+	void OnLoadPlayer(char *p);
 };
 
 #endif

@@ -1,16 +1,16 @@
-
-
 #include "CClient.h"
+#include "CServer.h"
+
 
 CClient::~CClient()
 {
-	while (m_Access.IsBusy()) {
-		printf("Client is in use, can't delete! Retrying in 1s...\n");
-		usleep(10000);
-	}
-
 	if (m_pPlayer)
 		delete m_pPlayer;
+
+	while (m_Access.IsBusy()) {
+		printf("CClient::~CClient: Client is in use, can't delete! Retrying in 10ms...\n");
+		usleep(10000);
+	}
 }
 
 bool CClient::Write(BYTE byType, ...)
@@ -38,13 +38,24 @@ bool CClient::Write(BYTE byType, ...)
 
 void CClient::Process(Packet packet)
 {
-	if (packet.byType >= C2S_START && !m_pPlayer) {
-		printf(KRED "ERROR: Packet manipulation - player packet sent on not logged account.\n" KNRM);
+	if (packet.byType >= C2S_START) 
+	{
+		if (m_pPlayer) {
+			m_pPlayer->m_Access.Grant();
+			m_pPlayer->Process(packet);
+
+			// Double check in case player was deleted in CPlayer::Process.
+			if(m_pPlayer)
+				m_pPlayer->m_Access.Release();
+		}
+		else
+			printf(KRED "CClient::Process: ERROR: Packet manipulation - player packet sent on not logged account.\n" KNRM);
+
 		return;
 	}
 
-	if (packet.byType < C2S_START && m_pPlayer) {
-		printf(KRED "ERROR: Packet manipulation - client packet sent on logged account.\n" KNRM);
+	if (m_pPlayer) {
+		printf(KRED "CClient::Process: ERROR: Packet manipulation - client packet sent on logged account.\n" KNRM);
 		return;
 	}
 
@@ -247,28 +258,70 @@ void CClient::Process(Packet packet)
 			CDBSocket::Write(S2D_LOADPLAYER, "dd", m_nCID, nPID);
 			break;
 		}
+	}
+}
 
-		case C2S_RESTART:
-		{
-			BYTE byMessage=0;
-			CSocket::ReadPacket(packet.data, "b", &byMessage);
+void CClient::OnLogin(char *p)
+{
+	BYTE byAnswer=0;
 
-			if (byMessage)
-				m_pPlayer->Write(S2C_ANS_RESTART, "b", 1);
-			else {
-				SetPlayer(NULL);
-				CDBSocket::Write(S2D_SELECT_CHARACTER, "d", m_nCID);
-			}
-			break;
-		}
+	p = CSocket::ReadPacket(p, "b", &byAnswer);
 
-		case C2S_START:
-		case C2S_GAMEEXIT:
-		case C2S_CHATTING:
-		{
-			// lock?
-			m_pPlayer->Process(packet);
-			break;
+	if (byAnswer == LA_SAMEUSER) {
+		int nClientExID=0;
+		CSocket::ReadPacket(p, "d", &nClientExID);
+
+		auto pClientEx = CServer::FindClient(nClientExID);
+		if (pClientEx) {
+			pClientEx->Write(S2C_CLOSE, "b", CC_SAMEUSER);
+			pClientEx->m_Access.Release();
 		}
 	}
+
+	Write(S2C_ANS_LOGIN, "b", byAnswer);
+
+	printf("S2C_ANS_LOGIN sent.\n");
+}
+
+void CClient::OnLoadPlayer(char *p)
+{
+	D2S_LOADPLAYER_DESC desc;
+	memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
+
+	CSocket::ReadPacket(p, "ddsbbbwwwwwwwIwwwddddbb", 
+		&desc.nAID, 
+		&desc.nPID,
+		&desc.szName,
+		&desc.byClass,
+		&desc.byJob,
+		&desc.byLevel,
+		&desc.wStats[STAT_STR], 
+		&desc.wStats[STAT_HTH],
+		&desc.wStats[STAT_INT],
+		&desc.wStats[STAT_WIS], 
+		&desc.wStats[STAT_AGI],
+		&desc.wCurHP, 
+		&desc.wCurMP, 
+		&desc.n64Exp, 
+		&desc.wPUPoint, 
+		&desc.wSUPoint, 
+		&desc.wContribute, 
+		&desc.nAnger, 
+		&desc.nX, 
+		&desc.nY, 
+		&desc.nZ,
+		&desc.byFace,
+		&desc.byHair);
+
+	Lock();
+
+	m_pPlayer = new CPlayer(m_nCID, desc);
+
+	m_pPlayer->m_Access.Grant();
+
+	Unlock();
+
+	m_pPlayer->OnLoadPlayer();
+
+	m_pPlayer->m_Access.Release();
 }

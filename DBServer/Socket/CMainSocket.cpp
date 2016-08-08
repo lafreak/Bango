@@ -118,12 +118,12 @@ PVOID CMainSocket::Process(PVOID param)
 			rs->next();
 
 			if (!rs->getBoolean("bIsLogin")) {
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGID, nClientID);
+				CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_WRONGID);
 				break;
 			}
 
 			if (!rs->getBoolean("bIsPW")) {
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_WRONGPWD, nClientID);
+				CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_WRONGPWD);
 				break;
 			}
 
@@ -132,7 +132,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 			auto pAccount = CServer::FindAccountByAID(nAccountID);
 			if (pAccount) {
-				CMainSocket::Write(D2S_LOGIN, "bdd", LA_SAMEUSER, nClientID, pAccount->GetCID());
+				CMainSocket::Write(D2S_LOGIN, "dbd", nClientID, LA_SAMEUSER, pAccount->GetCID());
 				CServer::Remove(pAccount);
 				break;
 			}
@@ -140,11 +140,11 @@ PVOID CMainSocket::Process(PVOID param)
 			CServer::Add(new CAccount(nClientID, nAccountID, std::string(szLogin), std::string(szPassword), szSecondary));
 
 			if (szSecondary.empty()) {
-				CMainSocket::Write(D2S_LOGIN, "bd", LA_CREATE_SECONDARY, nClientID);
+				CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_CREATE_SECONDARY);
 				break;
 			}
 
-			CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
 
 			break;
 		}
@@ -165,13 +165,11 @@ PVOID CMainSocket::Process(PVOID param)
 			if (!pAccount) break;
 
 			if (pAccount->GetPassword() != std::string(szPassword)) {
-				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
+				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
 				break;
 			}
 
-			pAccount->Lock();
 			pAccount->SetSecondary(std::string(szSecondaryPW));
-			pAccount->Unlock();
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"UPDATE account SET secondary=? WHERE idaccount=?"));
@@ -179,7 +177,7 @@ PVOID CMainSocket::Process(PVOID param)
 			pPStmt->setInt(2, pAccount->GetAID());
 
 			pPStmt->executeUpdate();
-			CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
 			break;
 		}
 
@@ -199,7 +197,7 @@ PVOID CMainSocket::Process(PVOID param)
 			if (!pAccount) break;
 
 			if (pAccount->GetSecondary() != std::string(szOldPassword)) {
-				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
+				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
 				break;
 			}
 
@@ -211,7 +209,7 @@ PVOID CMainSocket::Process(PVOID param)
 			pPStmt->setInt(2, pAccount->GetAID());
 
 			pPStmt->executeUpdate();
-			CMainSocket::Write(D2S_LOGIN, "bd", LA_OK, nClientID);
+			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
 			break;
 		}
 
@@ -230,7 +228,7 @@ PVOID CMainSocket::Process(PVOID param)
 			if (!pAccount) break;
 
 			if (pAccount->GetSecondary() != std::string(szPassword)) {
-				CMainSocket::Write(D2S_SEC_LOGIN, "bd", MSL_WRONG_PWD, nClientID);
+				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
 				break;
 			}
 
@@ -352,12 +350,15 @@ PVOID CMainSocket::Process(PVOID param)
 			rs_ptr rs(pPStmt->executeQuery());
 			rs->next();
 
+			BYTE byMessage=0;
+
 			if (rs->rowsCount() <= 0) {
-				// TODO: Send proper error message?
+				byMessage=1;
+				CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
 				break;
 			}
 
-			CMainSocket::Write(D2S_LOADPLAYER, "dddsbbbwwwwwwwIwwwddddbb", nClientID, 
+			CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
 				rs->getInt("idaccount"), 
 				rs->getInt("idplayer"), 
 				rs->getString("name").c_str(),

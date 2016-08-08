@@ -6,13 +6,14 @@
 
 #include <string.h>
 
+#include <access.h>
 
 #include "CCharacter.h"
 
 
 class CPlayer: public CCharacter
 {
-	SOCKET m_pSocket;
+	int m_nCID;
 
 	int m_nAID;
 	int m_nPID;
@@ -39,9 +40,12 @@ class CPlayer: public CCharacter
 	int m_nHonorOption;
 
 public:
-	CPlayer(SOCKET pSocket, D2S_LOADPLAYER_DESC desc);
+	CPlayer(int nCID, D2S_LOADPLAYER_DESC desc);
+	~CPlayer();
 
 	static WORD g_wDebugItems[4][8];
+
+	Access m_Access;
 
 	int  GetAID() const { return m_nAID; }
 	int  GetPID() const { return m_nPID; }
@@ -61,7 +65,10 @@ public:
 
 	void Process(Packet packet);
 
-	void SendProperty();
+	void OnLoadPlayer();
+	void GameStart();
+	void GameRestart();
+
 	void SendCreateHero();
 };
 

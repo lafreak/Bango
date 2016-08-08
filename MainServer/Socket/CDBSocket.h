@@ -26,7 +26,7 @@ class CDBSocket
 public:
 	static bool Connect(WORD wPort);
 	static bool Close();
-	static PVOID ProcessDB(PVOID packet);
+	static PVOID Await(PVOID packet);
 	static PVOID Process(PVOID packet);
 
 	static bool Write(BYTE byType, ...);

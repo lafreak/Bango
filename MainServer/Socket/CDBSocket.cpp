@@ -26,7 +26,7 @@ bool CDBSocket::Connect(WORD wPort)
 	printf("Connected to DBServer.\n");
 
 	pthread_t t;
-	pthread_create(&t, NULL, &CDBSocket::ProcessDB, NULL);
+	pthread_create(&t, NULL, &CDBSocket::Await, NULL);
 
 	return true;
 }
@@ -36,7 +36,7 @@ bool CDBSocket::Close()
 	return true;
 }
 
-PVOID CDBSocket::ProcessDB(PVOID param)
+PVOID CDBSocket::Await(PVOID param)
 {
 	while (true)
 	{
@@ -72,27 +72,13 @@ PVOID CDBSocket::Process(PVOID param)
 		{
 			BYTE byAnswer=0;
 			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
+			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			pClient->m_Access.Grant();
-
-			if (byAnswer == LA_SAMEUSER) {
-				int nClientExID=0;
-				CSocket::ReadPacket(p, "d", &nClientExID);
-
-				auto pClientEx = CServer::FindClient(nClientExID);
-				if (pClientEx)
-					pClientEx->Write(S2C_CLOSE, "b", CC_SAMEUSER);
-			}
-
-			pClient->Write(S2C_ANS_LOGIN, "b", byAnswer);
-			printf("S2C_ANS_LOGIN sent.\n");
-
-			pClient->m_Access.Free();
-
+			pClient->OnLogin(p);
+			pClient->m_Access.Release();
 			break;
 		}
 
@@ -100,13 +86,12 @@ PVOID CDBSocket::Process(PVOID param)
 		{
 			int nClientID=0;
 			BYTE byAnswer=0;
-			CSocket::ReadPacket(packet->data, "bd", &byAnswer, &nClientID);
+			CSocket::ReadPacket(packet->data, "db", &nClientID, &byAnswer);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (pClient) {
-				pClient->m_Access.Grant();
 				pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, byAnswer);
-				pClient->m_Access.Free();
+				pClient->m_Access.Release();
 			}
 
 			break;
@@ -120,8 +105,6 @@ PVOID CDBSocket::Process(PVOID param)
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			pClient->m_Access.Grant();
-
 			BYTE byAuth=0;
 			int nExpTime=0;
 			BYTE byUnknwon=0;
@@ -130,7 +113,7 @@ PVOID CDBSocket::Process(PVOID param)
 				p, ((char*)packet + packet->wSize) - p);
 			printf("S2C_PLAYERINFO sent.\n");
 
-			pClient->m_Access.Free();
+			pClient->m_Access.Release();
 
 			break;
 		}
@@ -143,24 +126,29 @@ PVOID CDBSocket::Process(PVOID param)
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			pClient->m_Access.Grant();
-
 			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)packet + packet->wSize) - p);
 
-			pClient->m_Access.Free();
+			pClient->m_Access.Release();
 			break;
 		}
 
 		case D2S_LOADPLAYER:
 		{
-			int nClientID;
-			char* p= CSocket::ReadPacket(packet->data, "d", &nClientID);
+			int nClientID=0;
+			BYTE byMessage=0;
+			char* p= CSocket::ReadPacket(packet->data, "db", &nClientID, &byMessage);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			pClient->m_Access.Grant();
+			if (byMessage == 1) {
+				pClient->Write(S2C_MESSAGE, "b", MSG_NOTEXISTPLAYER);
+				pClient->m_Access.Release();
+				break;
+			}
 
+			pClient->OnLoadPlayer(p);
+			/*
 			D2S_LOADPLAYER_DESC desc;
 			memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
 
@@ -198,8 +186,8 @@ PVOID CDBSocket::Process(PVOID param)
 
 			pClient->Write(S2C_ANS_LOAD, "wdd", wTime, pPlayer->GetX(), pPlayer->GetY());
 			printf("S2C_ANS_LOAD sent.\n");
-			
-			pClient->m_Access.Free();
+			*/
+			pClient->m_Access.Release();
 
 			break;
 		}

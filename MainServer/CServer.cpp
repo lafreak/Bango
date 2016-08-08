@@ -33,8 +33,10 @@ CClient* CServer::FindClient(int nCID)
 
 	g_mxClient.lock();
 
-	if (g_mClient.find(nCID) != g_mClient.end())
+	if (g_mClient.find(nCID) != g_mClient.end()) {
 		pClient = g_mClient[nCID];
+		pClient->m_Access.Grant();
+	}
 
 	g_mxClient.unlock();
 

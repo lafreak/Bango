@@ -4,6 +4,8 @@
 
 #include "CPlayer.h"
 
+#include "CServer.h"
+
 WORD CPlayer::g_wDebugItems[4][8] = {
 	1632, 1479, 1480, 1481, 1633, 799, 0, 0,
 	1640, 1489, 1490, 1491, 1641, 801, 0, 0,
@@ -11,9 +13,9 @@ WORD CPlayer::g_wDebugItems[4][8] = {
 	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
 };
 
-CPlayer::CPlayer(SOCKET pSocket, D2S_LOADPLAYER_DESC desc): CCharacter()
+CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC desc): CCharacter(), m_Access()
 {
-	m_pSocket = pSocket;
+	m_nCID = nCID;
 
 	m_nAID = desc.nAID;
 	m_nPID = desc.nPID;
@@ -36,8 +38,96 @@ CPlayer::CPlayer(SOCKET pSocket, D2S_LOADPLAYER_DESC desc): CCharacter()
 	m_nX = desc.nX;
 	m_nY = desc.nY;
 	m_nZ = desc.nZ;
+}
 
-	// temp defaults
+CPlayer::~CPlayer()
+{
+	while (m_Access.IsBusy()) {
+		printf("CPlayer::~CPlayer: Player is in use, can't delete! Retrying in 10ms...\n");
+		usleep(10000);
+	}
+}
+
+bool CPlayer::Write(BYTE byType, ...)
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = byType;
+
+	va_list va;
+	va_start(va, byType);
+
+	char* end = CSocket::WriteV(packet.data, va);
+
+	va_end(va);
+
+	packet.wSize = end - (char*)&packet;
+	send(m_nCID, (char*)&packet, packet.wSize, 0);
+
+	return true;
+}
+
+void CPlayer::Process(Packet packet)
+{
+	switch (packet.byType)
+	{
+		case C2S_START:
+		{
+			BYTE byUnknown=0;
+			int nHeight=0;
+
+			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &nHeight);
+			printf("byUnknown: %d, nHeight: %d\n", byUnknown, nHeight);
+
+			if (nHeight != m_nZ)
+				printf(KRED "Client map height[%d] differs from player Z[%d].\n" KNRM, nHeight, m_nZ);
+
+			GameStart();
+
+			break;
+		}
+
+		case C2S_RESTART:
+		{
+			BYTE byMessage=0;
+			CSocket::ReadPacket(packet.data, "b", &byMessage);
+
+			if (byMessage)
+				Write(S2C_ANS_RESTART, "b", 1);
+			else
+				GameRestart();
+
+			break;
+		}
+
+		case C2S_GAMEEXIT:
+		{
+			Write(S2C_ANS_GAMEEXIT, "b", 1);
+			break;
+		}
+
+		case C2S_CHATTING:
+		{
+			char* szMsg=NULL;
+
+			CSocket::ReadPacket(packet.data, "s", &szMsg);
+
+			int nRideID = atoi(szMsg);
+			BYTE byMode=0;
+
+			Write(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
+			printf("S2C_RIDING sent.\n");
+
+			break;
+		}
+	}
+}
+
+void CPlayer::OnLoadPlayer()
+{
+	Lock();
+
 	m_byGrade = 1;
 	m_szGuildName = "gname";
 	m_byGRole = 1;
@@ -69,107 +159,52 @@ CPlayer::CPlayer(SOCKET pSocket, D2S_LOADPLAYER_DESC desc): CCharacter()
 	m_n64MState = 0;
 	m_n64GStateEx = 0;
 	m_n64MStateEx = 0;
-}
 
-bool CPlayer::Write(BYTE byType, ...)
-{
-	Packet packet;
-	memset(&packet, 0, sizeof(Packet));
-
-	packet.byType = byType;
-
-	va_list va;
-	va_start(va, byType);
-
-	char* end = CSocket::WriteV(packet.data, va);
-
-	va_end(va);
-
-	packet.wSize = end - (char*)&packet;
-	send(m_pSocket, (char*)&packet, packet.wSize, 0);
-
-	return true;
-}
-
-void CPlayer::Process(Packet packet)
-{
-	switch (packet.byType)
-	{
-		case C2S_START:
-		{
-			BYTE byUnknown=0;
-			int nHeight=0;
-
-			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &nHeight);
-			printf("byUnknown: %d, nHeight: %d\n", byUnknown, nHeight);
-
-			SendCreateHero();
-
-			break;
-		}
-
-		case C2S_GAMEEXIT:
-		{
-			Write(S2C_ANS_GAMEEXIT, "b", 1);
-			break;	
-		}
-
-		case C2S_CHATTING:
-		{
-			char* szMsg=NULL;
-
-			CSocket::ReadPacket(packet.data, "s", &szMsg);
-
-			int nRideID = atoi(szMsg);
-			BYTE byMode=0;
-
-			Write(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
-			printf("2C_RIDING sent.\n");
-			break;
-		}
-	}
-}
-
-void CPlayer::SendProperty()
-{
 	Write(S2C_PROPERTY, "bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd", 
-				m_byGrade, 
-				m_szGuildName.c_str(), 
-				m_byGRole, 
-				m_wContribute, 
-				m_wStr, 
-				m_wHth, 
-				m_wInt, 
-				m_wWis, 
-				m_wDex,
-				m_wCurHP, 
-				m_wMaxHP, 
-				m_wCurMP, 
-				m_wMaxMP, 
-				m_wHit, 
-				m_wDodge, 
-				m_wDefense, 
-				m_byAbsorb,
-				m_n64Exp, 
-				m_wMinAttack, 
-				m_wMaxAttack, 
-				m_wMinMagic, 
-				m_wMaxMagic, 
-				m_wPUPoint, 
-				m_wSUPoint, 
-				m_byFire, 
-				m_byIce,
-				m_byLightning, 
-				m_byCurse, 
-				m_byPalsy, 
-				m_nAnger);
+			m_byGrade, 
+			m_szGuildName.c_str(), 
+			m_byGRole, 
+			m_wContribute, 
+			m_wStr, 
+			m_wHth, 
+			m_wInt, 
+			m_wWis, 
+			m_wDex,
+			m_wCurHP, 
+			m_wMaxHP, 
+			m_wCurMP, 
+			m_wMaxMP, 
+			m_wHit, 
+			m_wDodge, 
+			m_wDefense, 
+			m_byAbsorb,
+			m_n64Exp, 
+			m_wMinAttack, 
+			m_wMaxAttack, 
+			m_wMinMagic, 
+			m_wMaxMagic, 
+			m_wPUPoint, 
+			m_wSUPoint, 
+			m_byFire, 
+			m_byIce,
+			m_byLightning, 
+			m_byCurse, 
+			m_byPalsy, 
+			m_nAnger);
 
 	printf("S2C_PROPERTY sent.\n");
+
+	WORD wTime=1200;
+
+	Write(S2C_ANS_LOAD, "wdd", wTime, m_nX, m_nY);
+
+	printf("S2C_ANS_LOAD sent.\n");
+
+	Unlock();
 }
 
-void CPlayer::SendCreateHero()
+void CPlayer::GameStart()
 {
-
 	BYTE byUnknownV=0;
 
 	BYTE byUn1=0; // num ?
@@ -276,4 +311,25 @@ void CPlayer::SendCreateHero()
 		byUn4);
 
 	printf("S2C_CREATEPLAYER sent.\n");
+}
+
+void CPlayer::GameRestart()
+{
+	auto pClient = CServer::FindClient(m_nCID);
+	if (!pClient) {
+		printf(KRED "CPlayer::GameRestart: Player cannot find its client.\n" KNRM);
+		return;
+	}
+
+	m_Access.Release();
+
+	delete this;
+
+	pClient->Lock();
+	pClient->RemovePlayer();
+	pClient->Unlock();
+
+	CDBSocket::Write(S2D_SELECT_CHARACTER, "d", pClient->GetCID());
+	
+	pClient->m_Access.Release();
 }

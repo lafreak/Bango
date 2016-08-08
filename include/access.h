@@ -25,10 +25,10 @@ public:
 		++m_nAccess; 
 	}
 
-	void Free() 
+	void Release() 
 	{
 		if (!IsBusy()) {
-			printf(KRED "Trying to free non busy Access.\n" KNRM);
+			printf(KRED "Trying to release non busy Access.\n" KNRM);
 			return;
 		}
 		

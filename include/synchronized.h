@@ -29,15 +29,6 @@ public:
 		m_mutex.unlock();
 	}
 
-	/*
-
-	synchronized& operator=(T & newval)
-	{
-		m_mutex.lock();
-		m_value = newval;
-		m_mutex.unlock();
-	}
-	*/
 	operator T()
 	{
 		m_mutex.lock();
