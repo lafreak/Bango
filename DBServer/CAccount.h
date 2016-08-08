@@ -3,6 +3,7 @@
 
 #include <string>
 #include <mutex>
+#include <unistd.h>
 
 #include <access.h>
 
@@ -23,7 +24,7 @@ public:
 		m_nClientID(nClientID), m_nAccountID(nAccountID), m_szLogin(szLogin), m_szPassword(szPassword), m_szSecondary(szSecondary),
 		m_Access()
 		{ }
-	~CAccount() {}
+	~CAccount();
 
 	static WORD g_wDebugItems[4][8];
 

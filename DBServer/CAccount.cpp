@@ -9,6 +9,14 @@ WORD CAccount::g_wDebugItems[4][8] = {
 	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
 };
 
+CAccount::~CAccount()
+{
+	while (m_Access.IsBusy()) {
+		printf("CAccount::~CAccount: Account is in use, can't delete! Retrying in 10ms...\n");
+		usleep(10000);
+	}
+}
+
 void CAccount::SendPlayerInfo()
 {
 	pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
