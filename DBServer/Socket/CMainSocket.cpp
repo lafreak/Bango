@@ -133,6 +133,7 @@ PVOID CMainSocket::Process(PVOID param)
 			auto pAccount = CServer::FindAccountByAID(nAccountID);
 			if (pAccount) {
 				CMainSocket::Write(D2S_LOGIN, "dbd", nClientID, LA_SAMEUSER, pAccount->GetCID());
+				pAccount->m_Access.Release();
 				CServer::Remove(pAccount);
 				break;
 			}
@@ -166,10 +167,13 @@ PVOID CMainSocket::Process(PVOID param)
 
 			if (pAccount->GetPassword() != std::string(szPassword)) {
 				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
+				pAccount->m_Access.Release();
 				break;
 			}
 
+			pAccount->Lock();
 			pAccount->SetSecondary(std::string(szSecondaryPW));
+			pAccount->Unlock();
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"UPDATE account SET secondary=? WHERE idaccount=?"));
@@ -178,6 +182,8 @@ PVOID CMainSocket::Process(PVOID param)
 
 			pPStmt->executeUpdate();
 			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
+
+			pAccount->m_Access.Release();
 			break;
 		}
 
@@ -198,10 +204,13 @@ PVOID CMainSocket::Process(PVOID param)
 
 			if (pAccount->GetSecondary() != std::string(szOldPassword)) {
 				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
+				pAccount->m_Access.Release();
 				break;
 			}
 
+			pAccount->Lock();
 			pAccount->SetSecondary(std::string(szNewPassword));
+			pAccount->Unlock();
 
 			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
 				"UPDATE account SET secondary=? WHERE idaccount=?"));
@@ -210,6 +219,8 @@ PVOID CMainSocket::Process(PVOID param)
 
 			pPStmt->executeUpdate();
 			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
+
+			pAccount->m_Access.Release();
 			break;
 		}
 
@@ -227,12 +238,12 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
-			if (pAccount->GetSecondary() != std::string(szPassword)) {
+			if (pAccount->GetSecondary() != std::string(szPassword))
 				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
-				break;
-			}
+			else
+				pAccount->SendPlayerInfo();
 
-			pAccount->SendPlayerInfo();
+			pAccount->m_Access.Release();
 			break;
 		}
 
@@ -245,8 +256,10 @@ PVOID CMainSocket::Process(PVOID param)
 			CSocket::ReadPacket(packet->data, "d", &nClientID);
 
 			CAccount *pAccount = CServer::FindAccount(nClientID);
-			if (pAccount)
+			if (pAccount) {
+				pAccount->m_Access.Release();
 				CServer::Remove(pAccount);
+			}
 
 			break;
 		}
@@ -268,10 +281,10 @@ PVOID CMainSocket::Process(PVOID param)
 			pPStmt->setInt(1, pAccount->GetAID());
 			pPStmt->setInt(2, nPID);
 
-			if (pPStmt->executeUpdate() < 0)
-				break;
+			if (pPStmt->executeUpdate() > 0)
+				pAccount->SendPlayerInfo();
 
-			pAccount->SendPlayerInfo();
+			pAccount->m_Access.Release();
 			break;
 		}
 
@@ -303,11 +316,13 @@ PVOID CMainSocket::Process(PVOID param)
 
 			if (rs->getBoolean("bIsDuplicate")) {
 				CMainSocket::Write(D2S_ANS_NEWPLAYER, "db", nClientID, NA_OCCUPIEDID);
+				pAccount->m_Access.Release();
 				break;
 			}
 
 			if (rs->getInt("byCount") >= MAX_CHARACTER) {
 				CMainSocket::Write(D2S_ANS_NEWPLAYER, "db", nClientID, NA_OVERPLAYERNUM);
+				pAccount->m_Access.Release();
 				break;
 			}
 
@@ -329,6 +344,7 @@ PVOID CMainSocket::Process(PVOID param)
 			pPStmt->execute();
 
 			pAccount->SendPlayerInfo();
+			pAccount->m_Access.Release();
 			break;
 		}
 
@@ -355,6 +371,7 @@ PVOID CMainSocket::Process(PVOID param)
 			if (rs->rowsCount() <= 0) {
 				byMessage=1;
 				CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
+				pAccount->m_Access.Release();
 				break;
 			}
 
@@ -383,6 +400,7 @@ PVOID CMainSocket::Process(PVOID param)
 				rs->getInt("face"),
 				rs->getInt("hair"));
 
+			pAccount->m_Access.Release();
 			break;
 		}
 
@@ -394,8 +412,10 @@ PVOID CMainSocket::Process(PVOID param)
 
 			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
 			CAccount *pAccount = CServer::FindAccount(nClientID);
-			if (pAccount)
+			if (pAccount) {
 				pAccount->SendPlayerInfo();
+				pAccount->m_Access.Release();
+			}
 
 			break;
 		}

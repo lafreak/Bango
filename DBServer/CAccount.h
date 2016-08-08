@@ -4,6 +4,8 @@
 #include <string>
 #include <mutex>
 
+#include <access.h>
+
 #include <minwindef.h>
 
 class CAccount
@@ -18,11 +20,14 @@ class CAccount
 
 public:
 	CAccount(int nClientID, int nAccountID, std::string szLogin, std::string szPassword, std::string szSecondary): 
-		m_nClientID(nClientID), m_nAccountID(nAccountID), m_szLogin(szLogin), m_szPassword(szPassword), m_szSecondary(szSecondary)
+		m_nClientID(nClientID), m_nAccountID(nAccountID), m_szLogin(szLogin), m_szPassword(szPassword), m_szSecondary(szSecondary),
+		m_Access()
 		{ }
 	~CAccount() {}
 
 	static WORD g_wDebugItems[4][8];
+
+	Access m_Access;
 
 	void Lock() { m_mxThis.lock(); }
 	void Unlock() { m_mxThis.unlock(); }

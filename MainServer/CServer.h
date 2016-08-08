@@ -19,6 +19,8 @@ public:
 
 	static void Add(CClient* pClient);
 	static void Remove(CClient* pClient);
+
+	// Remember to call m_Access.Release() after work on client is done.
 	static CClient* FindClient(int nCID);
 };
 

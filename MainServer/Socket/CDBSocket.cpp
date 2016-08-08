@@ -148,47 +148,8 @@ PVOID CDBSocket::Process(PVOID param)
 			}
 
 			pClient->OnLoadPlayer(p);
-			/*
-			D2S_LOADPLAYER_DESC desc;
-			memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
 
-			CSocket::ReadPacket(p, "ddsbbbwwwwwwwIwwwddddbb", 
-				&desc.nAID, 
-				&desc.nPID,
-				&desc.szName,
-				&desc.byClass,
-				&desc.byJob,
-				&desc.byLevel,
-				&desc.wStats[STAT_STR], 
-				&desc.wStats[STAT_HTH],
-				&desc.wStats[STAT_INT],
-				&desc.wStats[STAT_WIS], 
-				&desc.wStats[STAT_AGI],
-				&desc.wCurHP, 
-				&desc.wCurMP, 
-				&desc.n64Exp, 
-				&desc.wPUPoint, 
-				&desc.wSUPoint, 
-				&desc.wContribute, 
-				&desc.nAnger, 
-				&desc.nX, 
-				&desc.nY, 
-				&desc.nZ,
-				&desc.byFace,
-				&desc.byHair);
-
-			auto pPlayer = new CPlayer(nClientID, desc);
-			pClient->SetPlayer(pPlayer);
-
-			pPlayer->SendProperty();
-
-			WORD wTime=1200;
-
-			pClient->Write(S2C_ANS_LOAD, "wdd", wTime, pPlayer->GetX(), pPlayer->GetY());
-			printf("S2C_ANS_LOAD sent.\n");
-			*/
 			pClient->m_Access.Release();
-
 			break;
 		}
 	}

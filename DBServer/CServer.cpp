@@ -21,7 +21,7 @@ void CServer::Remove(CAccount *pAccount)
 	AccountMap::iterator it = g_mAccount.find(pAccount->GetCID());
 	if (it != g_mAccount.end()) {
 		g_mAccount.erase(it);
-		delete pAccount; // ??
+		delete pAccount;
 	}
 
 	g_mxAccount.unlock();
@@ -33,8 +33,10 @@ CAccount* CServer::FindAccount(int nClientID)
 
 	CAccount* pAccount=NULL;
 
-	if (g_mAccount.find(nClientID) != g_mAccount.end())
+	if (g_mAccount.find(nClientID) != g_mAccount.end()){
 		pAccount = g_mAccount[nClientID];
+		pAccount->m_Access.Grant();
+	}
 
 	g_mxAccount.unlock();
 
@@ -50,6 +52,7 @@ CAccount* CServer::FindAccountByAID(int nAccountID)
 	for (auto const &a: g_mAccount) {
 		if (a.second->GetAID() == nAccountID) {
 			pAccount = a.second;
+			pAccount->m_Access.Grant();
 			break;
 		}
 	}
