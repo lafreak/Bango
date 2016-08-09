@@ -13,7 +13,7 @@ WORD CPlayer::g_wDebugItems[4][8] = {
 	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
 };
 
-CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC desc): CCharacter(), m_Access()
+CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC desc): CCharacter()
 {
 	m_nCID = nCID;
 
@@ -42,6 +42,8 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC desc): CCharacter(), m_Access()
 
 CPlayer::~CPlayer()
 {
+	CMap::Remove(CMap::GetMapInfo(m_nX, m_nY), m_nID);
+
 	while (m_Access.IsBusy()) {
 		printf("CPlayer::~CPlayer: Player is in use, can't delete! Retrying in 10ms...\n");
 		usleep(10000);
@@ -66,6 +68,32 @@ bool CPlayer::Write(BYTE byType, ...)
 	send(m_nCID, (char*)&packet, packet.wSize, 0);
 
 	return true;
+}
+
+bool CPlayer::WriteInSight(BYTE byType, ...)
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = byType;
+
+	va_list va;
+	va_start(va, byType);
+
+	char* end = CSocket::WriteV(packet.data, va);
+
+	va_end(va);
+
+	packet.wSize = end - (char*)&packet;
+	//send(m_nCID, (char*)&packet, packet.wSize, 0);
+	CMap::SendPacket(m_nX, m_nY, packet);
+
+	return true;
+}
+
+void CPlayer::SendPacket(Packet& packet)
+{
+	send(m_nCID, (char*)&packet, packet.wSize, 0);
 }
 
 void CPlayer::Process(Packet packet)
@@ -107,6 +135,32 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
+		case C2S_MOVE_ON:
+		{
+			char byX=0;
+			char byY=0;
+			char byZ=0;
+			CSocket::ReadPacket(packet.data, "bbb", &byX, &byY, &byZ);
+
+			Lock();
+			OnMove(byX, byY, byZ, 0);
+			Unlock();
+			break;
+		}
+
+		case C2S_MOVE_END:
+		{
+			char byX=0;
+			char byY=0;
+			char byZ=0;
+			CSocket::ReadPacket(packet.data, "bbb", &byX, &byY, &byZ);
+
+			Lock();
+			OnMove(byX, byY, byZ, 1);
+			Unlock();
+			break;
+		}
+
 		case C2S_CHATTING:
 		{
 			char* szMsg=NULL;
@@ -116,7 +170,7 @@ void CPlayer::Process(Packet packet)
 			int nRideID = atoi(szMsg);
 			BYTE byMode=0;
 
-			Write(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
+			WriteInSight(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
 			printf("S2C_RIDING sent.\n");
 
 			break;
@@ -127,6 +181,8 @@ void CPlayer::Process(Packet packet)
 void CPlayer::OnLoadPlayer()
 {
 	Lock();
+
+	m_byKind = CK_PLAYER;
 
 	m_byGrade = 1;
 	m_szGuildName = "gname";
@@ -196,6 +252,8 @@ void CPlayer::OnLoadPlayer()
 
 	WORD wTime=1200;
 
+	CMap::Add(CMap::GetMapInfo(m_nX, m_nY), this);
+
 	Write(S2C_ANS_LOAD, "wdd", wTime, m_nX, m_nY);
 
 	printf("S2C_ANS_LOAD sent.\n");
@@ -217,7 +275,7 @@ void CPlayer::GameStart()
 	*/
 	int nUn2=0;
 	int nUn3=0;
-	BYTE byUn4=0;
+	BYTE byUn4=6;//0;
 	
   //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
 	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
@@ -332,4 +390,24 @@ void CPlayer::GameRestart()
 	CDBSocket::Write(S2D_SELECT_CHARACTER, "d", pClient->GetCID());
 	
 	pClient->m_Access.Release();
+}
+
+void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
+{
+	MapInfo mapInfoCur = CMap::GetMapInfo(m_nX, m_nY);
+	MapInfo mapInfoDest = CMap::GetMapInfo(m_nX + byX, m_nY + byY);
+
+	if (!mapInfoCur.equalTile(mapInfoDest)) 
+	{
+		printf("Player tile changed.\n[%d %d]->[%d %d]\n",
+			mapInfoCur.wTileX, mapInfoCur.wTileY,
+			mapInfoDest.wTileX, mapInfoDest.wTileY);
+
+		CMap::Remove(mapInfoCur, m_nID);
+		CMap::Add(mapInfoDest, this);
+	}
+
+	m_nX += byX;
+	m_nY += byY;
+	m_nZ += byZ;
 }

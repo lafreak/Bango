@@ -4,6 +4,8 @@
 #include <string>
 #include <mutex>
 
+#include <access.h>
+
 #include <cstdarg>
 #include <string.h>
 
@@ -60,16 +62,21 @@ protected:
 	 		m_n64MState,
 	 		m_n64GStateEx,
 	 		m_n64MStateEx;
+
+	 BYTE m_byKind;
 public:
 
 	static int g_nID;
 
 	CCharacter();
 
+	Access m_Access;
+
 	void Lock() { m_mxThis.lock(); }
 	void Unlock() { m_mxThis.unlock(); }
 
 	int  GetID() const { return m_nID; }
+	BYTE GetKind() const { return m_byKind; }
 	WORD GetStr() const { return m_wStr; }
 	WORD GetHth() const { return m_wHth; }
 	WORD GetInt() const { return m_wInt; }

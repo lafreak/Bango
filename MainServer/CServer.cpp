@@ -1,7 +1,6 @@
 #include "CServer.h"
 
 ClientMap CServer::g_mClient;
-
 std::mutex CServer::g_mxClient;
 
 void CServer::Add(CClient *pClient)

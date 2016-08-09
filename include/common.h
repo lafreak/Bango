@@ -423,6 +423,32 @@ static BASEPROPERTY g_baseproperty[] = {
 #define ITEM_STORAGEMASK	( ITEM_OWNMASK | ITEM_TRANSFORM | ITEM_PROTECTED)
 #define ITEM_MIX			( ITEM_MIX_DARK | ITEM_MIX_SAINT | ITEM_MIX_FLAME | ITEM_MIX_ICE | ITEM_MIX_LIGHT | ITEM_MIX_POISON | ITEM_MIX_PARAL | ITEM_MIX_POWER | ITEM_MIX_TECH | ITEM_MIX_FANTA | ITEM_MIX_BLOOD | ITEM_MIX_FIREBALL)
 
+#define SVMAP_VERSION				1
+#define SVMAP_SIZE					(SVMAP_TILE_SIZE * SVMAP_TILE_COUNT) // 8192
+#define SVMAP_CELL_COUNT			(SVMAP_TILE_COUNT * SVMAP_CELL_COUNT_PER_TILE) // 1024
+#define SVMAP_CELL_COUNT_PER_TILE	(SVMAP_TILE_SIZE / SVMAP_CELL_SIZE)	// 4
+#define SVMAP_CELL_SIZE				8
+#define SVMAP_TILE_COUNT			256
+#define SVMAP_TILE_SIZE				32
+
+#define MAX_PLAYER_SIGHT			500
+
+enum eSeverMapAttr
+{
+	SMA_NOTMOVEABLE = 0,	// ¸ř°ˇ´Â°÷
+	SMA_PORTAL,				// Ć÷Ĺ»ÁöżŞ
+	SMA_VILLAGE,			// ¸¶Ŕ»ĽÓĽş
+	SMA_SAFETY,				// ľČŔüÁöżŞ
+	SMA_ATTACK_CASTLE,		// °řĽşÁöżŞ
+	SMA_DEFENCE_CASTLE,		// ĽöĽşÁöżŞ
+	SMA_OBJECT				// żŔşęÁ§Ć®ÁöżŞ
+
+	/*
+	´řŔü°ú ÇĘµĺŔÇ Ľ­ąö¸Ę ŔĐ´Â ĽřĽ­°ˇ Ć˛¸®´Ů.
+	´řŔüżˇĽ­´Â ±âĹ¸ ¸¶Ŕ», ľČŔü, °řĽş, ĽöĽş °ü·ĂÇŃ ĽÓĽşŔ» ľ˛Áö ľĘľĆĽ­ ±×µżľČ ą®Á¦°ˇ ľřľú´ř°Ĺ °°´Ů.
+	*/
+};
+
 // Class Specialty
 
 // (enum) /////////////////////////////////////////////////////////
@@ -1648,5 +1674,11 @@ enum MSL_SECONDARY_MSG
 	MSL_ALREADY_PWD,
 	MSL_CREATE_PWD,
 	MSL_SUCCESS,
+};
+
+enum MOVE_TYPE
+{
+	MOVE_ON,
+	MOVE_STOP,
 };
 #endif

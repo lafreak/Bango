@@ -6,8 +6,6 @@
 
 #include <string.h>
 
-#include <access.h>
-
 #include "CCharacter.h"
 
 
@@ -45,8 +43,6 @@ public:
 
 	static WORD g_wDebugItems[4][8];
 
-	Access m_Access;
-
 	int  GetAID() const { return m_nAID; }
 	int  GetPID() const { return m_nPID; }
 	WORD GetPUPoint() const { return m_wPUPoint; }
@@ -62,12 +58,15 @@ public:
 	BYTE GetClass() const { return m_byClass; }
 
 	bool Write(BYTE byType, ...);
+	bool WriteInSight(BYTE byType, ...);
+	void SendPacket(Packet& packet);
 
 	void Process(Packet packet);
 
 	void OnLoadPlayer();
 	void GameStart();
 	void GameRestart();
+	void OnMove(char byX, char byY, char byZ, char byType);
 
 	void SendCreateHero();
 };
