@@ -21,6 +21,23 @@ void CTile::Remove(int nID)
 	Unlock();
 }
 
+void CTile::GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list)
+{
+	Lock();
+
+	for (auto& a: m_mCharacter) {
+		a.second->m_Access.Grant();
+		auto pTarget = a.second;
+
+		if (pCharacter->GetDistance(pTarget) <= nDistance)
+			list.push_back(pTarget);
+		else 
+			pTarget->m_Access.Release();
+	}
+
+	Unlock();
+}
+
 void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 {
 	Lock();

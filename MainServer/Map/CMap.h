@@ -30,6 +30,9 @@ public:
 	static void Remove(MapInfo mapInfo, int nID);
 	static void SendPacket(CCharacter *pCharacter, Packet& packet);
 
+	// Remember to run m_Access.Release on each used object in the list.
+	static void GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list);
+
 	static CTile* GetTile(int nTileX, int nTileY);
 	static MapInfo GetMapInfo(int nX, int nY); 
 };

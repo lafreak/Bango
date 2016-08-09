@@ -43,6 +43,19 @@ void CMap::Remove(MapInfo mapInfo, int nID)
 	Remove(mapInfo.wTileX, mapInfo.wTileY, nID);
 }
 
+void CMap::GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list)
+{
+	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
+
+	for (int i = m.wTileX-1; i <= m.wTileX+1; i++) {
+		for (int j = m.wTileY-1; j <= m.wTileY+1; j++) {
+			auto pTile = GetTile(i, j);
+			if (pTile)
+				pTile->GetObjectListAround(pCharacter, nDistance, list);
+		}
+	}
+}
+
 MapInfo CMap::GetMapInfo(int nX, int nY)
 {
 	MapInfo mapInfo;

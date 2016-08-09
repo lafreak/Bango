@@ -29,7 +29,7 @@ public:
 	static void Accept();
 	static PVOID Await(PVOID client);
 
-	static void DebugRawPacket(Packet packet);
+	static void DebugRawPacket(Packet& packet);
 };
 
 #endif

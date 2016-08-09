@@ -90,6 +90,7 @@ public:
 	int  GetX() const { return m_nX; }
 	int  GetY() const { return m_nY; }
 	int  GetZ() const { return m_nZ; }
+	WORD GetDir() const { return m_wDir; }
 	BYTE GetLevel() const { return m_byLevel; }
 	WORD GetHit() const { return m_wHit; }
 	WORD GetDodge() const { return m_wDodge; }
@@ -105,7 +106,13 @@ public:
 	BYTE GetCurse() const { return m_byCurse; }
 	BYTE GetPalsy() const { return m_byPalsy; }
 
+	__int64 GetGState() const { return m_n64GState; }
+	__int64 GetMState() const { return m_n64MState; }
+	__int64 GetGStateEx() const { return m_n64GStateEx; }
+	__int64 GetMStateEx() const { return m_n64MStateEx; }
+
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
+	int  GetDistance(CCharacter *pCharacter);
 };
 
 #endif

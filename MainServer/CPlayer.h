@@ -52,16 +52,24 @@ public:
 	__int64 GetExp() const { return m_n64Exp; }
 	BYTE GetGrade() const { return m_byGrade; }
 	std::string GetGuildName() const { return m_szGuildName; }
+	std::string GetGuildClass() const { return m_szGuildClass; }
+	int  GetGID() const { return m_nGID; }
 	BYTE GetGRole() const { return m_byGRole; }
 	std::string GetName() const { return m_szName; }
 	BYTE GetSpecialty() const { return m_byJob; }
 	BYTE GetClass() const { return m_byClass; }
+	BYTE GetHair() const { return m_byHair; }
+	BYTE GetFace() const { return m_byFace; }
+	BYTE GetFlag() const { return m_byFlag; }
+	int  GetFlagItem() const { return m_nFlagItem; }
+	int  GetHonorGrade() const { return m_nHonorGrade; }
+	int  GetHonorOption() const { return m_nHonorOption; }
 
 	bool Write(BYTE byType, ...);
 	bool WriteInSight(BYTE byType, ...);
 	void SendPacket(Packet& packet);
 
-	Packet GenerateCreatePacket();
+	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GenerateDeletePacket();
 
 	void Process(Packet packet);

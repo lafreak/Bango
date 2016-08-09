@@ -97,7 +97,7 @@ PVOID CClientSocket::Await(PVOID param)
 	return NULL;
 }
 
-void CClientSocket::DebugRawPacket(Packet packet)
+void CClientSocket::DebugRawPacket(Packet& packet)
 {
 	printf("Incoming C2S packet: [%u]\n", (BYTE)packet.byType);
 	for (int i = 0; i < packet.wSize; i++)

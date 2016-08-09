@@ -44,6 +44,8 @@ CPlayer::~CPlayer()
 {
 	CMap::Remove(CMap::GetMapInfo(m_nX, m_nY), m_nID);
 
+	WriteInSight(S2C_REMOVEPLAYER, "d", m_nID);
+
 	while (m_Access.IsBusy()) {
 		printf("CPlayer::~CPlayer: Player is in use, can't delete! Retrying in 10ms...\n");
 		usleep(10000);
@@ -96,7 +98,7 @@ void CPlayer::SendPacket(Packet& packet)
 	send(m_nCID, (char*)&packet, packet.wSize, 0);
 }
 
-Packet CPlayer::GenerateCreatePacket()
+Packet CPlayer::GenerateCreatePacket(bool bHero)
 {
 	Packet packet;
 	memset(&packet, 0, sizeof(Packet));
@@ -107,11 +109,16 @@ Packet CPlayer::GenerateCreatePacket()
 	int nUn3=0;
 	BYTE byUn4=0;
 
+	BYTE byClass=m_byClass;
+
+	if (bHero)
+		byClass |= GAME_HERO;
+
 	packet.byType = S2C_CREATEPLAYER;
 	char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
 		m_szName.c_str(), 
-		m_byClass, 
+		byClass, 
 		m_nX, 
 		m_nY, 
 		m_nZ, 
@@ -339,9 +346,8 @@ void CPlayer::GameStart()
 	int nUn2=0;
 	int nUn3=0;
 	BYTE byUn4=0;
-	
-  //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
-	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
+
+	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		m_byClass | GAME_HERO, 
@@ -374,18 +380,71 @@ void CPlayer::GameStart()
 		m_n64MStateEx, 
 		byUnknownV,
 		byUn1, 
-		/*
-		nUn2, 
-		byUn3, 
-		nUn4, 
-		nUn5, 
-		byUn6);
-		*/
 		nUn2,
 		nUn3,
 		byUn4);
+	
 
-	WriteInSight(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
+	ObjectList list;
+	CMap::GetObjectListAround(this, MAX_PLAYER_SIGHT, list);
+
+	for (ObjectList::iterator it = list.begin(); it != list.end(); it++) {
+		if ((*it)->GetKind() != CK_PLAYER || (*it)->GetID() == m_nID) {
+			(*it)->m_Access.Release();
+			continue;
+		}
+
+		auto pPlayer = (CPlayer*)(*it);
+
+		//printf("Sending info about %s to %s.\n", pPlayer->GetName().c_str(), m_szName.c_str());
+
+		//Packet p = pPlayer->GenerateCreatePacket();
+		//SendPacket(p);
+
+		//for (int i = 0; i < 2; i++)
+		//Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
+		Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
+			pPlayer->GetID(), 
+			pPlayer->GetName().c_str(), 
+			pPlayer->GetClass(), 
+			pPlayer->GetX(), 
+			pPlayer->GetY(), 
+			pPlayer->GetZ(), 
+			pPlayer->GetDir(), 
+			pPlayer->GetGState(),
+			
+			g_wDebugItems[pPlayer->GetClass()][0], 
+			g_wDebugItems[pPlayer->GetClass()][1],
+			g_wDebugItems[pPlayer->GetClass()][2], 
+			g_wDebugItems[pPlayer->GetClass()][3], 
+			g_wDebugItems[pPlayer->GetClass()][4], 
+			g_wDebugItems[pPlayer->GetClass()][5], 
+			g_wDebugItems[pPlayer->GetClass()][6], 
+			g_wDebugItems[pPlayer->GetClass()][7], 
+			
+			pPlayer->GetFace(), 
+			pPlayer->GetHair(), 
+			pPlayer->GetMState(), 
+			pPlayer->GetGuildClass().c_str(), 
+			pPlayer->GetGuildName().c_str(), 
+			pPlayer->GetGID(), 
+			pPlayer->GetFlag(), 
+			pPlayer->GetFlagItem(), 
+			pPlayer->GetHonorGrade(), 
+			pPlayer->GetHonorOption(), 
+			pPlayer->GetGStateEx(), 
+			pPlayer->GetMStateEx(), 
+			byUnknownV,
+			byUn1, 
+			nUn2,
+			nUn3,
+			byUn4);	
+		
+
+		pPlayer->m_Access.Release();
+	}
+
+	WriteInSight(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		m_byClass, 
@@ -418,13 +477,6 @@ void CPlayer::GameStart()
 		m_n64MStateEx, 
 		byUnknownV,
 		byUn1, 
-		/*
-		nUn2, 
-		byUn3, 
-		nUn4, 
-		nUn5, 
-		byUn6);
-		*/
 		nUn2,
 		nUn3,
 		byUn4);

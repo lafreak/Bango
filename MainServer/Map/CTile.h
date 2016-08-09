@@ -2,12 +2,14 @@
 #define _CTILE_
 
 #include <map>
+#include <list>
 #include <mutex>
 #include <math.h>
 
 #include "../CPlayer.h"
 
 typedef std::map<int, CCharacter*> CharacterMap;
+typedef std::list<CCharacter*> ObjectList;
 
 class CTile
 {
@@ -23,6 +25,9 @@ public:
 
 	void Lock() { m_mxThis.lock(); }
 	void Unlock() { m_mxThis.unlock(); }
+
+	// Remember to run m_Access.Release on each used object in the list.
+	void GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list);
 
 	void SendPacket(CCharacter *pCharacter, Packet& packet);
 
