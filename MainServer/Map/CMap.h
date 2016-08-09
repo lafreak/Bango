@@ -29,6 +29,7 @@ public:
 	static void Remove(int nTileX, int nTileY, int nID);
 	static void Remove(MapInfo mapInfo, int nID);
 	static void SendPacket(int nX, int nY, Packet& packet);
+	static void SendPacket(CCharacter *pCharacter, Packet& packet);
 
 	static CTile* GetTile(int nTileX, int nTileY);
 	static MapInfo GetMapInfo(int nX, int nY); 

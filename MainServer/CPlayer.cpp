@@ -91,9 +91,93 @@ bool CPlayer::WriteInSight(BYTE byType, ...)
 	return true;
 }
 
+bool CPlayer::WriteInSightEx(BYTE byType, ...)
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = byType;
+
+	va_list va;
+	va_start(va, byType);
+
+	char* end = CSocket::WriteV(packet.data, va);
+
+	va_end(va);
+
+	packet.wSize = end - (char*)&packet;
+	//send(m_nCID, (char*)&packet, packet.wSize, 0);
+	CMap::SendPacket(this, packet);
+
+	return true;
+}
+
 void CPlayer::SendPacket(Packet& packet)
 {
 	send(m_nCID, (char*)&packet, packet.wSize, 0);
+}
+
+Packet CPlayer::GenerateCreatePacket()
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	BYTE byUnknownV=0;
+	BYTE byUn1=0;
+	int nUn2=0;
+	int nUn3=0;
+	BYTE byUn4=0;
+
+	packet.byType = S2C_CREATEPLAYER;
+	char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
+		m_nID, 
+		m_szName.c_str(), 
+		m_byClass, 
+		m_nX, 
+		m_nY, 
+		m_nZ, 
+		m_wDir, 
+		m_n64GState,
+		g_wDebugItems[m_byClass][0], 
+		g_wDebugItems[m_byClass][1],
+		g_wDebugItems[m_byClass][2], 
+		g_wDebugItems[m_byClass][3], 
+		g_wDebugItems[m_byClass][4], 
+		g_wDebugItems[m_byClass][5], 
+		g_wDebugItems[m_byClass][6], 
+		g_wDebugItems[m_byClass][7], 
+		m_byFace, 
+		m_byHair, 
+		m_n64MState, 
+		m_szGuildClass.c_str(), 
+		m_szGuildName.c_str(), 
+		m_nGID, 
+		m_byFlag, 
+		m_nFlagItem, 
+		m_nHonorGrade, 
+		m_nHonorOption, 
+		m_n64GStateEx, 
+		m_n64MStateEx, 
+		byUnknownV,
+		byUn1,
+		nUn2,
+		nUn3,
+		byUn4);
+	packet.wSize = end - ((char*)&packet);
+
+	return packet;
+}
+
+Packet CPlayer::GenerateDeletePacket()
+{
+	Packet packet;
+
+	memset(&packet, 0, sizeof(Packet));
+	packet.byType = S2C_REMOVEPLAYER;
+	char *end = CSocket::WritePacket(packet.data, "d", m_nID);
+	packet.wSize = end - ((char*)&packet);
+
+	return packet;
 }
 
 void CPlayer::Process(Packet packet)
@@ -275,7 +359,7 @@ void CPlayer::GameStart()
 	*/
 	int nUn2=0;
 	int nUn3=0;
-	BYTE byUn4=6;//0;
+	BYTE byUn4=0;
 	
   //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
 	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
@@ -324,7 +408,7 @@ void CPlayer::GameStart()
 
 
   //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
-	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
+	WriteInSight(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		m_byClass, 
@@ -410,4 +494,90 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 	m_nX += byX;
 	m_nY += byY;
 	m_nZ += byZ;
+
+	char* end=NULL;
+
+	Packet createPacket = GenerateCreatePacket();
+	Packet deletePacket = GenerateDeletePacket();
+	Packet movePacket;
+
+	// Move
+	memset(&movePacket, 0, sizeof(Packet));
+	movePacket.byType = byType ? S2C_MOVEPLAYER_END : S2C_MOVEPLAYER_ON;
+	end = CSocket::WritePacket(movePacket.data, "dbbb", m_nID, byX, byY, byZ);
+	movePacket.wSize = end - ((char*)&movePacket);
+
+	MapInfo& m = mapInfoDest;
+
+	CTile *pTile=NULL;
+
+	// Main
+	pTile = CMap::GetTile(m.wTileX, m.wTileY);
+	if (pTile)
+		pTile->SendMoveAction(this, byX, byY,
+			createPacket, deletePacket, movePacket);
+
+	// Right
+	if (m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX+1, m.wTileY);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Left
+	if (m.wOffsetX < MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX-1, m.wTileY);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Top
+	if (m.wOffsetY < MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX, m.wTileY-1);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Bottom
+	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX, m.wTileY+1);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Upper-right
+	if (m.wOffsetY < MAX_PLAYER_SIGHT && m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX+1, m.wTileY-1);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Upper-left
+	if (m.wOffsetY < MAX_PLAYER_SIGHT && m.wOffsetX < MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX-1, m.wTileY-1);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Bottom-right
+	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT && m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX+1, m.wTileY+1);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
+
+	// Bottom-left
+	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT && m.wOffsetX < MAX_PLAYER_SIGHT) {
+		pTile = CMap::GetTile(m.wTileX-1, m.wTileY+1);
+		if (pTile)
+			pTile->SendMoveAction(this, byX, byY,
+				createPacket, deletePacket, movePacket);
+	}
 }

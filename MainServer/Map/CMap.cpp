@@ -123,3 +123,71 @@ void CMap::SendPacket(int nX, int nY, Packet& packet)
 			pTile->SendPacket(nX, nY, packet);
 	}
 }
+
+void CMap::SendPacket(CCharacter *pCharacter, Packet& packet)
+{
+	auto m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
+
+	CTile *pTile=NULL;
+
+	// Main
+	pTile = GetTile(m.wTileX, m.wTileY);
+	if (pTile)
+		pTile->SendPacket(pCharacter, packet);
+
+	// Right
+	if (m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX+1, m.wTileY);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Left
+	if (m.wOffsetX < MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX-1, m.wTileY);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Top
+	if (m.wOffsetY < MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX, m.wTileY-1);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Bottom
+	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX, m.wTileY+1);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Upper-right
+	if (m.wOffsetY < MAX_PLAYER_SIGHT && m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX+1, m.wTileY-1);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Upper-left
+	if (m.wOffsetY < MAX_PLAYER_SIGHT && m.wOffsetX < MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX-1, m.wTileY-1);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Bottom-right
+	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT && m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX+1, m.wTileY+1);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+
+	// Bottom-left
+	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT && m.wOffsetX < MAX_PLAYER_SIGHT) {
+		pTile = GetTile(m.wTileX-1, m.wTileY+1);
+		if (pTile)
+			pTile->SendPacket(pCharacter, packet);
+	}
+}

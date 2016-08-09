@@ -432,6 +432,15 @@ static BASEPROPERTY g_baseproperty[] = {
 #define SVMAP_TILE_SIZE				32
 
 #define MAX_PLAYER_SIGHT			500
+#define MAX_PLAYER_STEP				128
+
+enum MOVE_ACTION_TYPE
+{
+	MV_AC_CREATE,
+	MV_AC_DELETE,
+	MV_AC_MOVE,
+	MV_AC_NONE,
+};
 
 enum eSeverMapAttr
 {

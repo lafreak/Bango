@@ -3,6 +3,7 @@
 
 #include <string>
 #include <mutex>
+#include <math.h>
 
 #include <access.h>
 
@@ -103,6 +104,8 @@ public:
 	BYTE GetLightning() const { return m_byLightning; }
 	BYTE GetCurse() const { return m_byCurse; }
 	BYTE GetPalsy() const { return m_byPalsy; }
+
+	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
 };
 
 #endif
