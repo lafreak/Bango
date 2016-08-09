@@ -24,7 +24,6 @@ public:
 	void Lock() { m_mxThis.lock(); }
 	void Unlock() { m_mxThis.unlock(); }
 
-	void SendPacket(int nX, int nY, Packet& packet);
 	void SendPacket(CCharacter *pCharacter, Packet& packet);
 
 	void SendMoveAction(CCharacter *pCharacter, char byX, char byY, 

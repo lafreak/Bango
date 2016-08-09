@@ -59,7 +59,6 @@ public:
 
 	bool Write(BYTE byType, ...);
 	bool WriteInSight(BYTE byType, ...);
-	bool WriteInSightEx(BYTE byType, ...);
 	void SendPacket(Packet& packet);
 
 	Packet GenerateCreatePacket();

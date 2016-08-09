@@ -21,29 +21,6 @@ void CTile::Remove(int nID)
 	Unlock();
 }
 
-void CTile::SendPacket(int nX, int nY, Packet &packet)
-{
-	Lock();
-
-	for (auto& a: m_mCharacter) {
-		a.second->m_Access.Grant();
-
-		if (a.second->GetKind() == CK_PLAYER) {
-			CPlayer *pPlayer = (CPlayer*)a.second;
-
-			//if (abs(pPlayer->GetX() - nX) < MAX_PLAYER_SIGHT && abs(pPlayer->GetY() - nY) < MAX_PLAYER_SIGHT) {
-			if (sqrt(pow(pPlayer->GetX() - nX, 2) + pow(pPlayer->GetY() - nY, 2)) < MAX_PLAYER_SIGHT) {
-				printf("Sent to %d.\n", pPlayer->GetID());
-				pPlayer->SendPacket(packet);
-			}
-		}
-
-		a.second->m_Access.Release();
-	}
-
-	Unlock();
-}
-
 void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 {
 	Lock();
@@ -51,7 +28,7 @@ void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 	for (auto& a: m_mCharacter) {
 		a.second->m_Access.Grant();
 
-		if (a.second->GetKind() == CK_PLAYER && a.second->GetID() != pCharacter->GetID()) {
+		if (a.second->GetKind() == CK_PLAYER) {
 			CPlayer *pPlayer = (CPlayer*)a.second;
 
 			//if (abs(pPlayer->GetX() - nX) < MAX_PLAYER_SIGHT && abs(pPlayer->GetY() - nY) < MAX_PLAYER_SIGHT) {

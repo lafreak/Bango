@@ -431,7 +431,7 @@ static BASEPROPERTY g_baseproperty[] = {
 #define SVMAP_TILE_COUNT			256
 #define SVMAP_TILE_SIZE				32
 
-#define MAX_PLAYER_SIGHT			500
+#define MAX_PLAYER_SIGHT			1024
 #define MAX_PLAYER_STEP				128
 
 enum MOVE_ACTION_TYPE

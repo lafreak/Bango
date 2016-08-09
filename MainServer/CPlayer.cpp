@@ -86,27 +86,6 @@ bool CPlayer::WriteInSight(BYTE byType, ...)
 
 	packet.wSize = end - (char*)&packet;
 	//send(m_nCID, (char*)&packet, packet.wSize, 0);
-	CMap::SendPacket(m_nX, m_nY, packet);
-
-	return true;
-}
-
-bool CPlayer::WriteInSightEx(BYTE byType, ...)
-{
-	Packet packet;
-	memset(&packet, 0, sizeof(Packet));
-
-	packet.byType = byType;
-
-	va_list va;
-	va_start(va, byType);
-
-	char* end = CSocket::WriteV(packet.data, va);
-
-	va_end(va);
-
-	packet.wSize = end - (char*)&packet;
-	//send(m_nCID, (char*)&packet, packet.wSize, 0);
 	CMap::SendPacket(this, packet);
 
 	return true;
@@ -406,8 +385,6 @@ void CPlayer::GameStart()
 		nUn3,
 		byUn4);
 
-
-  //Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbdbddb", 
 	WriteInSight(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
 		m_szName.c_str(), 
@@ -451,8 +428,6 @@ void CPlayer::GameStart()
 		nUn2,
 		nUn3,
 		byUn4);
-
-	printf("S2C_CREATEPLAYER sent.\n");
 }
 
 void CPlayer::GameRestart()
@@ -507,77 +482,12 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 	end = CSocket::WritePacket(movePacket.data, "dbbb", m_nID, byX, byY, byZ);
 	movePacket.wSize = end - ((char*)&movePacket);
 
-	MapInfo& m = mapInfoDest;
 
-	CTile *pTile=NULL;
-
-	// Main
-	pTile = CMap::GetTile(m.wTileX, m.wTileY);
-	if (pTile)
-		pTile->SendMoveAction(this, byX, byY,
-			createPacket, deletePacket, movePacket);
-
-	// Right
-	if (m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX+1, m.wTileY);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Left
-	if (m.wOffsetX < MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX-1, m.wTileY);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Top
-	if (m.wOffsetY < MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX, m.wTileY-1);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Bottom
-	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX, m.wTileY+1);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Upper-right
-	if (m.wOffsetY < MAX_PLAYER_SIGHT && m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX+1, m.wTileY-1);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Upper-left
-	if (m.wOffsetY < MAX_PLAYER_SIGHT && m.wOffsetX < MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX-1, m.wTileY-1);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Bottom-right
-	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT && m.wOffsetX > 1024 - MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX+1, m.wTileY+1);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
-	}
-
-	// Bottom-left
-	if (m.wOffsetY > 1024 - MAX_PLAYER_SIGHT && m.wOffsetX < MAX_PLAYER_SIGHT) {
-		pTile = CMap::GetTile(m.wTileX-1, m.wTileY+1);
-		if (pTile)
-			pTile->SendMoveAction(this, byX, byY,
-				createPacket, deletePacket, movePacket);
+	for (int i = mapInfoDest.wTileX-1; i <= mapInfoDest.wTileX+1; i++) {
+		for (int j = mapInfoDest.wTileY-1; j <= mapInfoDest.wTileY+1; j++) {
+			auto pTile = CMap::GetTile(i, j);
+			if (pTile)
+				pTile->SendMoveAction(this, byX, byY, createPacket, deletePacket, movePacket);
+		}
 	}
 }
