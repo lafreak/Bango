@@ -237,11 +237,13 @@ void CPlayer::Process(Packet packet)
 
 			CSocket::ReadPacket(packet.data, "s", &szMsg);
 
-			int nRideID = atoi(szMsg);
-			BYTE byMode=0;
+			//int nRideID = atoi(szMsg);
+			//BYTE byMode=0;
 
-			WriteInSight(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
-			printf("S2C_RIDING sent.\n");
+			//WriteInSight(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
+			//printf("S2C_RIDING sent.\n");
+
+			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
 
 			break;
 		}
@@ -396,13 +398,6 @@ void CPlayer::GameStart()
 
 		auto pPlayer = (CPlayer*)(*it);
 
-		//printf("Sending info about %s to %s.\n", pPlayer->GetName().c_str(), m_szName.c_str());
-
-		//Packet p = pPlayer->GenerateCreatePacket();
-		//SendPacket(p);
-
-		//for (int i = 0; i < 2; i++)
-		//Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
 			pPlayer->GetID(), 
 			pPlayer->GetName().c_str(), 
