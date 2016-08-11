@@ -98,6 +98,11 @@ void CPlayer::SendPacket(Packet& packet)
 	send(m_nCID, (char*)&packet, packet.wSize, 0);
 }
 
+void CPlayer::SendPacketInSight(Packet& packet)
+{
+	CMap::SendPacket(this, packet);
+}
+
 Packet CPlayer::GenerateCreatePacket(bool bHero)
 {
 	Packet packet;
@@ -161,6 +166,18 @@ Packet CPlayer::GenerateDeletePacket()
 	memset(&packet, 0, sizeof(Packet));
 	packet.byType = S2C_REMOVEPLAYER;
 	char *end = CSocket::WritePacket(packet.data, "d", m_nID);
+	packet.wSize = end - ((char*)&packet);
+
+	return packet;
+}
+
+Packet CPlayer::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
+{
+	Packet packet;
+
+	memset(&packet, 0, sizeof(Packet));
+	packet.byType = byType == C2S_MOVE_ON ? S2C_MOVEPLAYER_ON : S2C_MOVEPLAYER_END;
+	char *end = CSocket::WritePacket(packet.data, "dbbb", m_nID, byX, byY, byZ);
 	packet.wSize = end - ((char*)&packet);
 
 	return packet;
@@ -236,12 +253,6 @@ void CPlayer::Process(Packet packet)
 			char* szMsg=NULL;
 
 			CSocket::ReadPacket(packet.data, "s", &szMsg);
-
-			//int nRideID = atoi(szMsg);
-			//BYTE byMode=0;
-
-			//WriteInSight(S2C_RIDING, "bdd", byMode, m_nID, nRideID);
-			//printf("S2C_RIDING sent.\n");
 
 			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
 
@@ -335,146 +346,31 @@ void CPlayer::OnLoadPlayer()
 
 void CPlayer::GameStart()
 {
-	BYTE byUnknownV=0;
+	Packet createPacket 	= GenerateCreatePacket();
+	Packet createHeroPacket = GenerateCreatePacket(true);
 
-	BYTE byUn1=0; // num ?
-	/*
-	int nUn2=0;
-	BYTE byUn3=0;
-	int nUn4=0;
-	int nUn5=0;
-	BYTE byUn6=0;
-	*/
-	int nUn2=0;
-	int nUn3=0;
-	BYTE byUn4=0;
-
-	Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
-		m_nID, 
-		m_szName.c_str(), 
-		m_byClass | GAME_HERO, 
-		m_nX, 
-		m_nY, 
-		m_nZ, 
-		m_wDir, 
-		m_n64GState,
-		
-		g_wDebugItems[m_byClass][0], 
-		g_wDebugItems[m_byClass][1],
-		g_wDebugItems[m_byClass][2], 
-		g_wDebugItems[m_byClass][3], 
-		g_wDebugItems[m_byClass][4], 
-		g_wDebugItems[m_byClass][5], 
-		g_wDebugItems[m_byClass][6], 
-		g_wDebugItems[m_byClass][7], 
-		
-		m_byFace, 
-		m_byHair, 
-		m_n64MState, 
-		m_szGuildClass.c_str(), 
-		m_szGuildName.c_str(), 
-		m_nGID, 
-		m_byFlag, 
-		m_nFlagItem, 
-		m_nHonorGrade, 
-		m_nHonorOption, 
-		m_n64GStateEx, 
-		m_n64MStateEx, 
-		byUnknownV,
-		byUn1, 
-		nUn2,
-		nUn3,
-		byUn4);
-	
+	SendPacket(createHeroPacket);
 
 	ObjectList list;
 	CMap::GetObjectListAround(this, MAX_PLAYER_SIGHT, list);
 
-	for (ObjectList::iterator it = list.begin(); it != list.end(); it++) {
-		if ((*it)->GetKind() != CK_PLAYER || (*it)->GetID() == m_nID) {
+	for (ObjectList::iterator it = list.begin(); it != list.end(); it++)
+	{
+		if ((*it)->GetKind() != CK_PLAYER)
+		{
 			(*it)->m_Access.Release();
 			continue;
 		}
 
-		auto pPlayer = (CPlayer*)(*it);
+		Packet createPacketEx = ((CPlayer*)(*it))->GenerateCreatePacket();
 
-		Write(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
-			pPlayer->GetID(), 
-			pPlayer->GetName().c_str(), 
-			pPlayer->GetClass(), 
-			pPlayer->GetX(), 
-			pPlayer->GetY(), 
-			pPlayer->GetZ(), 
-			pPlayer->GetDir(), 
-			pPlayer->GetGState(),
-			
-			g_wDebugItems[pPlayer->GetClass()][0], 
-			g_wDebugItems[pPlayer->GetClass()][1],
-			g_wDebugItems[pPlayer->GetClass()][2], 
-			g_wDebugItems[pPlayer->GetClass()][3], 
-			g_wDebugItems[pPlayer->GetClass()][4], 
-			g_wDebugItems[pPlayer->GetClass()][5], 
-			g_wDebugItems[pPlayer->GetClass()][6], 
-			g_wDebugItems[pPlayer->GetClass()][7], 
-			
-			pPlayer->GetFace(), 
-			pPlayer->GetHair(), 
-			pPlayer->GetMState(), 
-			pPlayer->GetGuildClass().c_str(), 
-			pPlayer->GetGuildName().c_str(), 
-			pPlayer->GetGID(), 
-			pPlayer->GetFlag(), 
-			pPlayer->GetFlagItem(), 
-			pPlayer->GetHonorGrade(), 
-			pPlayer->GetHonorOption(), 
-			pPlayer->GetGStateEx(), 
-			pPlayer->GetMStateEx(), 
-			byUnknownV,
-			byUn1, 
-			nUn2,
-			nUn3,
-			byUn4);	
-		
+		SendPacket(createPacketEx);
 
-		pPlayer->m_Access.Release();
+		(*it)->m_Access.Release();
 	}
 
-	WriteInSight(S2C_CREATEPLAYER, "dsbdddwIwwwwwwwwbbIssdbdddIIbbddb", 
-		m_nID, 
-		m_szName.c_str(), 
-		m_byClass, 
-		m_nX, 
-		m_nY, 
-		m_nZ, 
-		m_wDir, 
-		m_n64GState,
-		
-		g_wDebugItems[m_byClass][0], 
-		g_wDebugItems[m_byClass][1],
-		g_wDebugItems[m_byClass][2], 
-		g_wDebugItems[m_byClass][3], 
-		g_wDebugItems[m_byClass][4], 
-		g_wDebugItems[m_byClass][5], 
-		g_wDebugItems[m_byClass][6], 
-		g_wDebugItems[m_byClass][7], 
-		
-		m_byFace, 
-		m_byHair, 
-		m_n64MState, 
-		m_szGuildClass.c_str(), 
-		m_szGuildName.c_str(), 
-		m_nGID, 
-		m_byFlag, 
-		m_nFlagItem, 
-		m_nHonorGrade, 
-		m_nHonorOption, 
-		m_n64GStateEx, 
-		m_n64MStateEx, 
-		byUnknownV,
-		byUn1, 
-		nUn2,
-		nUn3,
-		byUn4);
+	// Send info about new player to all players around
+	SendPacketInSight(createPacket);
 }
 
 void CPlayer::GameRestart()
@@ -517,18 +413,9 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 	m_nY += byY;
 	m_nZ += byZ;
 
-	char* end=NULL;
-
 	Packet createPacket = GenerateCreatePacket();
 	Packet deletePacket = GenerateDeletePacket();
-	Packet movePacket;
-
-	// Move
-	memset(&movePacket, 0, sizeof(Packet));
-	movePacket.byType = byType ? S2C_MOVEPLAYER_END : S2C_MOVEPLAYER_ON;
-	end = CSocket::WritePacket(movePacket.data, "dbbb", m_nID, byX, byY, byZ);
-	movePacket.wSize = end - ((char*)&movePacket);
-
+	Packet movePacket =   GenerateMovePacket(byType, byX, byY, byZ);
 
 	for (int i = mapInfoDest.wTileX-1; i <= mapInfoDest.wTileX+1; i++) {
 		for (int j = mapInfoDest.wTileY-1; j <= mapInfoDest.wTileY+1; j++) {

@@ -68,9 +68,11 @@ public:
 	bool Write(BYTE byType, ...);
 	bool WriteInSight(BYTE byType, ...);
 	void SendPacket(Packet& packet);
+	void SendPacketInSight(Packet& packet);
 
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GenerateDeletePacket();
+	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ);
 
 	void Process(Packet packet);
 
@@ -78,8 +80,6 @@ public:
 	void GameStart();
 	void GameRestart();
 	void OnMove(char byX, char byY, char byZ, char byType);
-
-	void SendCreateHero();
 };
 
 #endif

@@ -9,6 +9,7 @@
 #include "../CPlayer.h"
 
 typedef std::map<int, CCharacter*> CharacterMap;
+typedef std::map<int, CPlayer*> PlayerMap;
 typedef std::list<CCharacter*> ObjectList;
 
 class CTile

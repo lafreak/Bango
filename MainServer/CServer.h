@@ -24,8 +24,6 @@ public:
 
 	// Remember to call m_Access.Release() after work on client is done.
 	static CClient* FindClient(int nCID);
-
-	static void LoadMaps();
 };
 
 #endif
