@@ -79,8 +79,10 @@ public:
 	void OnLoadPlayer();
 	void GameStart();
 	void GameRestart();
+	bool CanMove();
 	void OnMove(char byX, char byY, char byZ, char byType);
 	void Rest(BYTE byType);
+
 };
 
 #endif

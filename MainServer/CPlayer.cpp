@@ -223,18 +223,6 @@ void CPlayer::Process(Packet packet)
 		}
 
 		case C2S_MOVE_ON:
-		{
-			char byX=0;
-			char byY=0;
-			char byZ=0;
-			CSocket::ReadPacket(packet.data, "bbb", &byX, &byY, &byZ);
-
-			Lock();
-			OnMove(byX, byY, byZ, 0);
-			Unlock();
-			break;
-		}
-
 		case C2S_MOVE_END:
 		{
 			char byX=0;
@@ -243,7 +231,8 @@ void CPlayer::Process(Packet packet)
 			CSocket::ReadPacket(packet.data, "bbb", &byX, &byY, &byZ);
 
 			Lock();
-			OnMove(byX, byY, byZ, 1);
+			if (CanMove())
+				OnMove(byX, byY, byZ, C2S_MOVE_ON ? 0 : 1);
 			Unlock();
 			break;
 		}
@@ -403,6 +392,19 @@ void CPlayer::GameRestart()
 	pClient->m_Access.Release();
 }
 
+bool CPlayer::CanMove()
+{
+	if (IsGState(CGS_REST | CGS_KO | CGS_FISH))
+	{
+		Write(S2C_MOVEBEFORE, "ddddw", m_nID, m_nX, m_nY, m_nZ, m_wDir);
+		return false;
+	}
+
+	// CGS_INVISIBLE/CGS_ONPORTAL
+
+	return true;
+}
+
 void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 {
 	MapInfo mapInfoCur = CMap::GetMapInfo(m_nX, m_nY);
@@ -437,16 +439,13 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 
 void CPlayer::Rest(BYTE byType)
 {
-	printf("I'm in Rest.\n");
 	if (byType)
 	{
-		printf("byType is true.\n");
 		if (IsGState(CGS_REST))
 			return;
 
 		AddGState(CGS_REST);
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
-		printf("S2C_ACTION sent.\n");
 	}
 	else
 	{
