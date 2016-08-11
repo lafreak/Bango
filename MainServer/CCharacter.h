@@ -111,6 +111,19 @@ public:
 	__int64 GetGStateEx() const { return m_n64GStateEx; }
 	__int64 GetMStateEx() const { return m_n64MStateEx; }
 
+	void AddGState(__int64 n64GState);
+	void AddMState(__int64 n64MState);
+	void AddGStateEx(__int64 n64GStateEx);
+	void AddMStateEx(__int64 n64MStateEx);
+	void SubGState(__int64 n64GState);
+	void SubMState(__int64 n64MState);
+	void SubGStateEx(__int64 n64GStateEx);
+	void SubMStateEx(__int64 n64MStateEx);
+	bool IsGState(__int64 n64GState);
+	bool IsMState(__int64 n64MState);
+	bool IsGStateEx(__int64 n64GStateEx);
+	bool IsMStateEx(__int64 n64MStateEx);
+
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
 	int  GetDistance(CCharacter *pCharacter);
 };

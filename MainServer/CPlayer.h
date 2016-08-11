@@ -80,6 +80,7 @@ public:
 	void GameStart();
 	void GameRestart();
 	void OnMove(char byX, char byY, char byZ, char byType);
+	void Rest(BYTE byType);
 };
 
 #endif

@@ -258,6 +258,16 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		case C2S_REST:
+		{
+			BYTE byType=0;
+			CSocket::ReadPacket(packet.data, "b", &byType);
+
+			Rest(byType);
+
+			break;
+		}
 	}
 }
 
@@ -369,7 +379,6 @@ void CPlayer::GameStart()
 		(*it)->m_Access.Release();
 	}
 
-	// Send info about new player to all players around
 	SendPacketInSight(createPacket);
 }
 
@@ -423,5 +432,28 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 			if (pTile)
 				pTile->SendMoveAction(this, byX, byY, createPacket, deletePacket, movePacket);
 		}
+	}
+}
+
+void CPlayer::Rest(BYTE byType)
+{
+	printf("I'm in Rest.\n");
+	if (byType)
+	{
+		printf("byType is true.\n");
+		if (IsGState(CGS_REST))
+			return;
+
+		AddGState(CGS_REST);
+		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
+		printf("S2C_ACTION sent.\n");
+	}
+	else
+	{
+		if (!IsGState(CGS_REST))
+			return;
+
+		SubGState(CGS_REST);
+		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 }
