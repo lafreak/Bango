@@ -3,6 +3,7 @@
 #define _CPLAYER_
 
 #include <string>
+#include <cstring>
 
 #include <string.h>
 
@@ -82,7 +83,8 @@ public:
 	bool CanMove();
 	void OnMove(char byX, char byY, char byZ, char byType);
 	void Rest(BYTE byType);
-
+	void ProcessMsg(char* szMsg);
+	void ChatCommand(char* szCommand);
 };
 
 #endif

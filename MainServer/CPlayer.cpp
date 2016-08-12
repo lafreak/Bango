@@ -109,10 +109,9 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 	memset(&packet, 0, sizeof(Packet));
 
 	BYTE byUnknownV=0;
-	BYTE byUn1=0;
 	int nUn2=0;
 	int nUn3=0;
-	BYTE byUn4=0;
+	BYTE byUn4=0; // level?
 
 	BYTE byClass=m_byClass;
 
@@ -149,11 +148,12 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		m_nHonorOption, 
 		m_n64GStateEx, 
 		m_n64MStateEx, 
+		
 		byUnknownV,
-		byUn1,
 		nUn2,
 		nUn3,
 		byUn4);
+
 	packet.wSize = end - ((char*)&packet);
 
 	return packet;
@@ -241,8 +241,8 @@ void CPlayer::Process(Packet packet)
 			char* szMsg=NULL;
 			CSocket::ReadPacket(packet.data, "s", &szMsg);
 
-			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
-
+			ProcessMsg(szMsg);
+			
 			break;
 		}
 
@@ -460,5 +460,36 @@ void CPlayer::Rest(BYTE byType)
 		SubGState(CGS_REST);
 		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
+	}
+}
+
+void CPlayer::ProcessMsg(char* szMsg)
+{
+	if (strlen(szMsg) <= 0) return;
+
+	switch (szMsg[0])
+	{
+		case '/':
+			ChatCommand(szMsg);
+			break;
+
+		default:
+			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
+			break;
+	}
+}
+
+void CPlayer::ChatCommand(char* szCommand)
+{
+	char *token = std::strtok(szCommand, " ");
+
+	if (!strcmp(token, "/ride")) {
+		token = std::strtok(NULL, " ");
+
+		int nIndex=0;
+		if (token)
+			nIndex = atoi(token);
+
+		WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
 	}
 }

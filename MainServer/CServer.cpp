@@ -20,7 +20,7 @@ void CServer::Remove(CClient *pClient)
 	ClientMap::iterator it = g_mClient.find(pClient->GetCID());
 	if (it != g_mClient.end()) {
 		g_mClient.erase(it);
-		delete pClient; // delete client/player that is still present in another thread?
+		delete pClient;
  	}
 
  	g_mxClient.unlock();
