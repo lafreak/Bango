@@ -9,58 +9,42 @@ CCharacter::CCharacter(): m_Access()
 
 void CCharacter::AddGState(__int64 n64GState)
 {
-	Lock();
 	m_n64GState |= n64GState;
-	Unlock();
 }
 
 void CCharacter::AddMState(__int64 n64MState)
 {
-	Lock();
 	m_n64MState |= n64MState;
-	Unlock();
 }
 
 void CCharacter::AddGStateEx(__int64 n64GStateEx)
 {
-	Lock();
 	m_n64GStateEx |= n64GStateEx;
-	Unlock();
 }
 
 void CCharacter::AddMStateEx(__int64 n64MStateEx)
 {
-	Lock();
 	m_n64MStateEx |= n64MStateEx;
-	Unlock();
 }
 
 void CCharacter::SubGState(__int64 n64GState)
 {
-	Lock();
 	m_n64GState &= ~n64GState;
-	Unlock();
 }
 
 void CCharacter::SubMState(__int64 n64MState)
 {
-	Lock();
 	m_n64MState &= ~n64MState;
-	Unlock();
 }
 
 void CCharacter::SubGStateEx(__int64 n64GStateEx)
 {
-	Lock();
 	m_n64GStateEx &= ~n64GStateEx;
-	Unlock();
 }
 
 void CCharacter::SubMStateEx(__int64 n64MStateEx)
 {
-	Lock();
 	m_n64MStateEx &= ~n64MStateEx;
-	Unlock();
 }
 
 bool CCharacter::IsGState(__int64 n64GState)
@@ -81,6 +65,27 @@ bool CCharacter::IsGStateEx(__int64 n64GStateEx)
 bool CCharacter::IsMStateEx(__int64 n64MStateEx)
 {
 	return m_n64MStateEx & n64MStateEx;
+}
+
+void CCharacter::SetDirection(int nX, int nY)
+{
+	if (!nX && !nY) return;
+
+	float absX = abs(nX);
+	float absY = abs(nY);
+
+	if (absX >= absY && absX > 127)
+	{
+		nY = 127 * nY / absX;
+		nX = (((nX <= 0) - 1) & 0xFE) - 127;
+	}
+	else if (absX < absY && absY > 127)
+	{
+		nX = 127 * nX / absY;
+		nY = (((nY <= 0) - 1) & 0xFE) - 127;
+	}
+
+	m_wDir = nY + ((nX << 8) & 0xFF00);
 }
 
 BYTE CCharacter::GetMoveAction(CCharacter *pCharacter, char byX, char byY)

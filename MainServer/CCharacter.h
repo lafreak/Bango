@@ -124,6 +124,8 @@ public:
 	bool IsGStateEx(__int64 n64GStateEx);
 	bool IsMStateEx(__int64 n64MStateEx);
 
+	void SetDirection(int nX, int nY);
+
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
 	int  GetDistance(CCharacter *pCharacter);
 };

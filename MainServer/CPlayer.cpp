@@ -176,7 +176,7 @@ Packet CPlayer::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 	Packet packet;
 
 	memset(&packet, 0, sizeof(Packet));
-	packet.byType = byType == C2S_MOVE_ON ? S2C_MOVEPLAYER_ON : S2C_MOVEPLAYER_END;
+	packet.byType = byType == 0 ? S2C_MOVEPLAYER_ON : S2C_MOVEPLAYER_END;
 	char *end = CSocket::WritePacket(packet.data, "dbbb", m_nID, byX, byY, byZ);
 	packet.wSize = end - ((char*)&packet);
 
@@ -191,7 +191,6 @@ void CPlayer::Process(Packet packet)
 		{
 			BYTE byUnknown=0;
 			int nHeight=0;
-
 			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &nHeight);
 			printf("byUnknown: %d, nHeight: %d\n", byUnknown, nHeight);
 
@@ -232,7 +231,7 @@ void CPlayer::Process(Packet packet)
 
 			Lock();
 			if (CanMove())
-				OnMove(byX, byY, byZ, C2S_MOVE_ON ? 0 : 1);
+				OnMove(byX, byY, byZ, packet.byType == C2S_MOVE_ON ? 0 : 1);
 			Unlock();
 			break;
 		}
@@ -240,7 +239,6 @@ void CPlayer::Process(Packet packet)
 		case C2S_CHATTING:
 		{
 			char* szMsg=NULL;
-
 			CSocket::ReadPacket(packet.data, "s", &szMsg);
 
 			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
@@ -396,6 +394,8 @@ bool CPlayer::CanMove()
 {
 	if (IsGState(CGS_REST | CGS_KO | CGS_FISH))
 	{
+		printf("Can't move.\n");
+
 		Write(S2C_MOVEBEFORE, "ddddw", m_nID, m_nX, m_nY, m_nZ, m_wDir);
 		return false;
 	}
@@ -424,6 +424,8 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 	m_nY += byY;
 	m_nZ += byZ;
 
+	SetDirection(byX, byY);
+
 	Packet createPacket = GenerateCreatePacket();
 	Packet deletePacket = GenerateDeletePacket();
 	Packet movePacket =   GenerateMovePacket(byType, byX, byY, byZ);
@@ -444,7 +446,9 @@ void CPlayer::Rest(BYTE byType)
 		if (IsGState(CGS_REST))
 			return;
 
+		Lock();
 		AddGState(CGS_REST);
+		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 	else
@@ -452,7 +456,9 @@ void CPlayer::Rest(BYTE byType)
 		if (!IsGState(CGS_REST))
 			return;
 
+		Lock();
 		SubGState(CGS_REST);
+		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 }
