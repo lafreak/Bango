@@ -2,6 +2,38 @@
 
 int CCharacter::g_nID = 1;
 
+WORD CCharacter::GetMaxHP() const
+{
+	return ((m_byLevel >= 96 ? 195 : 
+			(m_byLevel >= 91 ? 141.8147 : 
+			(m_byLevel >= 86 ? 111.426 : 
+			(m_byLevel >= 81 ? 91.758 : 
+			(m_byLevel >= 76 ? 78 : 
+			(m_byLevel >= 72 ? 67.8162 : 
+								52 )))))) * m_byLevel / 3) + 115 + 2 * m_wHth * m_wHth / g_denoHP[m_byClass];
+}
+
+WORD CCharacter::GetMaxMP() const
+{
+	return ((m_byLevel >= 96 ? 20 : 
+			(m_byLevel >= 91 ? 18 : 
+			(m_byLevel >= 86 ? 16 : 
+			(m_byLevel >= 81 ? 14 : 
+			(m_byLevel >= 76 ? 12 : 
+			(m_byLevel >= 72 ? 10 : 
+								8 )))))) * m_byLevel) + 140 + m_wWis + 2 * m_wWis * m_wWis / g_denoMP[m_byClass];
+}
+
+WORD CCharacter::GetHit() const
+{
+	return m_wDex / 8 + 15 * m_wStr / 54;
+}
+
+WORD CCharacter::GetDodge() const
+{
+	return m_wDex / 3;
+}
+
 CCharacter::CCharacter(): m_Access()
 {
 	m_nID = CCharacter::g_nID++;

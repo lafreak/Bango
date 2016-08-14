@@ -72,7 +72,7 @@ void CClient::Process(Packet packet)
 
 			DWORD dwProtocolVersion=0;
 			BYTE byCode=0;
-			int nTimeStamp=0;
+			int nTimeStamp=604800;// 1 week ;//0;
 			int nTimeStart=0;
 			DWORD dwSystem=0;
 			DWORD dwEvent=0;

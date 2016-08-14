@@ -28,7 +28,6 @@ class CPlayer: public CCharacter
 
 	std::string m_szName;
 	BYTE m_byJob;
-	BYTE m_byClass;
 	BYTE m_byFace,
 	 	 m_byHair;
 	std::string m_szGuildClass;
@@ -58,7 +57,6 @@ public:
 	BYTE GetGRole() const { return m_byGRole; }
 	std::string GetName() const { return m_szName; }
 	BYTE GetSpecialty() const { return m_byJob; }
-	BYTE GetClass() const { return m_byClass; }
 	BYTE GetHair() const { return m_byHair; }
 	BYTE GetFace() const { return m_byFace; }
 	BYTE GetFlag() const { return m_byFlag; }

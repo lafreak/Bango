@@ -40,12 +40,13 @@ protected:
 		m_nZ;
 
 	BYTE m_byLevel;
+	BYTE m_byClass;
 
-	WORD m_wMaxHP, 
-		 m_wMaxMP, 
-		 m_wHit, 
-		 m_wDodge, 
-		 m_wDefense;
+	//WORD m_wMaxHP, 
+		 //m_wMaxMP, 
+	//WORD m_wHit, 
+		 //m_wDodge, 
+	WORD m_wDefense;
 	BYTE m_byAbsorb;
 	WORD m_wMinAttack, 
 		 m_wMaxAttack, 
@@ -78,6 +79,7 @@ public:
 
 	int  GetID() const { return m_nID; }
 	BYTE GetKind() const { return m_byKind; }
+	BYTE GetClass() const { return m_byClass; }
 	WORD GetStr() const { return m_wStr; }
 	WORD GetHth() const { return m_wHth; }
 	WORD GetInt() const { return m_wInt; }
@@ -85,17 +87,17 @@ public:
 	WORD GetAgi() const { return m_wDex; }
 	WORD GetCurHP() const { return m_wCurHP; }
 	WORD GetCurMP() const { return m_wCurMP; }
-	WORD GetMaxHP() const { return m_wMaxHP; }
-	WORD GetMaxMP() const { return m_wMaxMP; }
+	WORD GetMaxHP() const;// { return m_wMaxHP; }
+	WORD GetMaxMP() const;// { return m_wMaxMP; }
 	int  GetX() const { return m_nX; }
 	int  GetY() const { return m_nY; }
 	int  GetZ() const { return m_nZ; }
 	WORD GetDir() const { return m_wDir; }
 	BYTE GetLevel() const { return m_byLevel; }
-	WORD GetHit() const { return m_wHit; }
-	WORD GetDodge() const { return m_wDodge; }
+	WORD GetHit() const;// { return m_wHit; }
+	WORD GetDodge() const;// { return m_wDodge; }
 	WORD GetDefense() const { return m_wDefense; }
-	BYTE GetAborb() const { return m_byAbsorb; }
+	BYTE GetAbsorb() const { return m_byAbsorb; }
 	WORD GetMinAttack() const { return m_wMinAttack; }
 	WORD GetMaxAttack() const { return m_wMaxAttack; }
 	WORD GetMinMagic() const { return m_wMinMagic; }

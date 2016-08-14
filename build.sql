@@ -19,7 +19,7 @@ CREATE TABLE player (
 	name VARCHAR(30) NOT NULL,
 	job TINYINT NOT NULL DEFAULT 1,
 	class TINYINT NOT NULL,
-	level TINYINT NOT NULL DEFAULT 1,
+	level TINYINT NOT NULL DEFAULT 70,
 	x INT NOT NULL DEFAULT 360931, #map 44 
 	y INT NOT NULL DEFAULT 187024, #map 22
 	z INT NOT NULL DEFAULT 42140,
@@ -32,8 +32,8 @@ CREATE TABLE player (
 	curhp SMALLINT NOT NULL,
 	curmp SMALLINT NOT NULL,
 	exp BIGINT NOT NULL DEFAULT 0,
-	pupoint SMALLINT NOT NULL DEFAULT 0,
-	supoint SMALLINT NOT NULL DEFAULT 0,
+	pupoint SMALLINT NOT NULL DEFAULT 345,
+	supoint SMALLINT NOT NULL DEFAULT 69,
 	anger INT NOT NULL DEFAULT 0,
 	face TINYINT NOT NULL,
 	hair TINYINT NOT NULL,
@@ -49,16 +49,6 @@ INSERT INTO account (login, password, secondary)
 	VALUES
 	('qwe', 'asd', '00000000'),
 	('qwe1', 'asd', '00000000')
-;
-
-INSERT INTO player (idaccount, name, job, class, level, strength,
-				health, inteligence, wisdom, dexterity, curhp, curmp, face, hair)
-	VALUES
-	(1, 'lafreak1', 23, 3, 100, 50, 60, 70, 80, 90, 100, 80, 1, 1),
-	(1, 'lafreak2', 11, 0, 60, 50, 60, 70, 80, 90, 100, 80, 1, 1),
-	(1, 'lafreak3', 11, 1, 60, 50, 60, 70, 80, 90, 100, 80, 1, 1),
-	(1, 'lafreak4', 11, 2, 60, 50, 60, 70, 80, 90, 100, 80, 1, 1),
-	(1, 'lafreak5', 11, 0, 60, 50, 60, 70, 80, 90, 100, 80, 1, 1)
 ;
 
 	

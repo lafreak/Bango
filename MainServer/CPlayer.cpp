@@ -23,11 +23,11 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC desc): CCharacter()
 	m_byClass = desc.byClass;
 	m_byJob = desc.byJob;
 	m_byLevel = desc.byLevel;
-	m_wStr = desc.wStats[STAT_STR];
-	m_wHth = desc.wStats[STAT_HTH];
-	m_wInt = desc.wStats[STAT_INT];
-	m_wWis = desc.wStats[STAT_WIS];
-	m_wDex = desc.wStats[STAT_AGI];
+	m_wStr = desc.wStats[P_STR];
+	m_wHth = desc.wStats[P_HTH];
+	m_wInt = desc.wStats[P_INT];
+	m_wWis = desc.wStats[P_WIS];
+	m_wDex = desc.wStats[P_DEX];
 	m_wCurHP = desc.wCurHP;
 	m_wCurMP = desc.wCurMP;
 	m_n64Exp = desc.n64Exp;
@@ -267,10 +267,10 @@ void CPlayer::OnLoadPlayer()
 	m_byGrade = 1;
 	m_szGuildName = "gname";
 	m_byGRole = 1;
-	m_wMaxHP = 1000;
-	m_wMaxMP = 800;
-	m_wHit = 120; 
-	m_wDodge = 105;
+	//m_wMaxHP = 1000;
+	//m_wMaxMP = 800;
+	//m_wHit = 120; 
+	//m_wDodge = 105;
 	m_wDefense = 90;
 	m_byAbsorb = 5;
 	m_wMinAttack = 650;
@@ -307,11 +307,11 @@ void CPlayer::OnLoadPlayer()
 			m_wWis, 
 			m_wDex,
 			m_wCurHP, 
-			m_wMaxHP, 
+			GetMaxHP(),//m_wMaxHP, 
 			m_wCurMP, 
-			m_wMaxMP, 
-			m_wHit, 
-			m_wDodge, 
+			GetMaxMP(),//m_wMaxMP, 
+			GetHit(),//m_wHit, 
+			GetDodge(),//m_wDodge, 
 			m_wDefense, 
 			m_byAbsorb,
 			m_n64Exp, 
