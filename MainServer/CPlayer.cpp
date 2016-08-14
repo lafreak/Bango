@@ -282,6 +282,7 @@ void CPlayer::Process(Packet packet)
 			Unlock();
 
 			CPlayer::Write(S2C_UPDATEPROPERTY, "bw", P_PUPOINT, m_wPUPoint);
+			CDBSocket::Write(S2D_UPDATEPROPERTY, "dwwwwww", m_nPID, m_wStr, m_wHth, m_wInt, m_wWis, m_wDex, m_wPUPoint);
 
 			break;
 		}
@@ -297,21 +298,8 @@ void CPlayer::OnLoadPlayer()
 	m_byGrade = 1;
 	m_szGuildName = "gname";
 	m_byGRole = 1;
-	//m_wMaxHP = 1000;
-	//m_wMaxMP = 800;
-	//m_wHit = 120; 
-	//m_wDodge = 105;
 	m_wDefense = 90;
 	m_byAbsorb = 5;
-	//m_wMinAttack = 650;
-	//m_wMaxAttack = 710; 
-	//m_wMinMagic = 425;
-	//m_wMaxMagic = 412;
-	//m_byFire = 1;
-	//m_byIce = 2; 
-	//m_byLightning = 3;
-	//m_byCurse = 4;
-	//m_byPalsy = 5;
 
 	m_szGuildClass = "gclass";
 	m_nGID = 0;
@@ -337,25 +325,25 @@ void CPlayer::OnLoadPlayer()
 			m_wWis, 
 			m_wDex,
 			m_wCurHP, 
-			GetMaxHP(),//m_wMaxHP, 
+			GetMaxHP(),
 			m_wCurMP, 
-			GetMaxMP(),//m_wMaxMP, 
-			GetHit(),//m_wHit, 
-			GetDodge(),//m_wDodge, 
+			GetMaxMP(),
+			GetHit(),
+			GetDodge(),
 			m_wDefense, 
 			m_byAbsorb,
 			m_n64Exp, 
-			GetMinAttack(),//m_wMinAttack, 
-			GetMaxAttack(),//m_wMaxAttack, 
-			GetMinMagic(),//m_wMinMagic, 
-			GetMaxMagic(),//m_wMaxMagic, 
+			GetMinAttack(),
+			GetMaxAttack(),
+			GetMinMagic(),
+			GetMaxMagic(),
 			m_wPUPoint, 
 			m_wSUPoint, 
-			GetResist(RT_FIRE),//m_byFire, 
-			GetResist(RT_ICE),//,m_byIce,
-			GetResist(RT_LITNING),//,m_byLightning, 
-			GetResist(RT_CURSE),//,m_byCurse, 
-			GetResist(RT_PALSY),//m_byPalsy, 
+			GetResist(RT_FIRE),
+			GetResist(RT_ICE),
+			GetResist(RT_LITNING),
+			GetResist(RT_CURSE), 
+			GetResist(RT_PALSY),
 			m_nAnger);
 
 	printf("S2C_PROPERTY sent.\n");
@@ -578,7 +566,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			if (m_wCurMP > wMaxMP)
 				m_wCurMP = wMaxMP;
 
-			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwww", P_WIS, m_wWis, m_wCurMP, wMaxMP, GetResist(RT_CURSE));
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwwwww", P_WIS, m_wWis, m_wCurMP, wMaxMP, GetMinMagic(), GetMaxMagic(), GetResist(RT_CURSE));
 			break;
 		}
 

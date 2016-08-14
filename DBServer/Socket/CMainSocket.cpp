@@ -419,6 +419,31 @@ PVOID CMainSocket::Process(PVOID param)
 
 			break;
 		}
+
+		case S2D_UPDATEPROPERTY:
+		{
+			printf("S2D_UPDATEPROPERTY.\n");
+
+			int nPID=0;
+			WORD wStats[5]={0,};
+			WORD wPUPoint=0;
+
+			CSocket::ReadPacket(packet->data, "dwwwwww", &nPID, &wStats[P_STR], &wStats[P_HTH], &wStats[P_INT], &wStats[P_WIS], &wStats[P_DEX], &wPUPoint);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE player SET strength=?, health=?, inteligence=?, wisdom=?, dexterity=?, pupoint=? WHERE idplayer=?"));
+			pPStmt->setInt(1, wStats[P_STR]);
+			pPStmt->setInt(2, wStats[P_HTH]);
+			pPStmt->setInt(3, wStats[P_INT]);
+			pPStmt->setInt(4, wStats[P_WIS]);
+			pPStmt->setInt(5, wStats[P_DEX]);
+			pPStmt->setInt(6, wPUPoint);
+			pPStmt->setInt(7, nPID);
+
+			pPStmt->executeQuery();
+
+			break;
+		}
 	}
 
 	CDatabase::Unlock();

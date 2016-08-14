@@ -77,6 +77,7 @@ enum S2D_PROTOCOL
 	S2D_SELECT_CHARACTER,
 
 	// Non-account packets
+	S2D_UPDATEPROPERTY,
 };
 
 enum D2S_PROTOCOL

@@ -46,12 +46,12 @@ WORD CCharacter::GetMaxAttack() const
 
 WORD CCharacter::GetMinMagic() const
 {
-	return (7 * m_wInt - 20) / 12;
+	return (7 * m_wInt - 20) / 12 + m_wWis / 7;
 }
 
 WORD CCharacter::GetMaxMagic() const
 {
-	return 7 * m_wInt / 12;
+	return 7 * m_wInt / 12 + 14 * m_wWis / 45;
 }
 
 WORD CCharacter::GetResist(BYTE byResist) const
@@ -65,7 +65,6 @@ WORD CCharacter::GetResist(BYTE byResist) const
 		case RT_PALSY:
 			return m_wHth / 9;
 		case RT_CURSE:
-		default:
 			return m_wWis / 9;
 	}
 }
