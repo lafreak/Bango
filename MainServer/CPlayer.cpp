@@ -255,6 +255,36 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		case C2S_UPDATEPROPERTY:
+		{
+			BYTE byStats[5]={0,};
+			CSocket::ReadPacket(packet.data, "bbbbb", &byStats[P_STR], &byStats[P_HTH], &byStats[P_INT], &byStats[P_WIS], &byStats[P_DEX]);
+
+			WORD wTotalReqPU = FIND_NEED_PU(m_wStr, byStats[P_STR]) + FIND_NEED_PU(m_wHth, byStats[P_HTH]) + FIND_NEED_PU_EX(m_wInt, byStats[P_INT])
+							 + FIND_NEED_PU(m_wWis, byStats[P_WIS]) + FIND_NEED_PU(m_wDex, byStats[P_DEX]);
+
+			printf("wTotalReqPU: %d PUPoint: %d\n", wTotalReqPU, m_wPUPoint);
+
+			if (wTotalReqPU > m_wPUPoint || wTotalReqPU <= 0)
+				break;
+
+			Lock();
+
+			UpdateProperty(P_STR, byStats[P_STR]);
+			UpdateProperty(P_HTH, byStats[P_HTH]);
+			UpdateProperty(P_INT, byStats[P_INT]);
+			UpdateProperty(P_WIS, byStats[P_WIS]);
+			UpdateProperty(P_DEX, byStats[P_DEX]);
+
+			m_wPUPoint -= wTotalReqPU;
+
+			Unlock();
+
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bw", P_PUPOINT, m_wPUPoint);
+
+			break;
+		}
 	}
 }
 
@@ -273,15 +303,15 @@ void CPlayer::OnLoadPlayer()
 	//m_wDodge = 105;
 	m_wDefense = 90;
 	m_byAbsorb = 5;
-	m_wMinAttack = 650;
-	m_wMaxAttack = 710; 
-	m_wMinMagic = 425;
-	m_wMaxMagic = 412;
-	m_byFire = 1;
-	m_byIce = 2; 
-	m_byLightning = 3;
-	m_byCurse = 4;
-	m_byPalsy = 5;
+	//m_wMinAttack = 650;
+	//m_wMaxAttack = 710; 
+	//m_wMinMagic = 425;
+	//m_wMaxMagic = 412;
+	//m_byFire = 1;
+	//m_byIce = 2; 
+	//m_byLightning = 3;
+	//m_byCurse = 4;
+	//m_byPalsy = 5;
 
 	m_szGuildClass = "gclass";
 	m_nGID = 0;
@@ -315,17 +345,17 @@ void CPlayer::OnLoadPlayer()
 			m_wDefense, 
 			m_byAbsorb,
 			m_n64Exp, 
-			m_wMinAttack, 
-			m_wMaxAttack, 
-			m_wMinMagic, 
-			m_wMaxMagic, 
+			GetMinAttack(),//m_wMinAttack, 
+			GetMaxAttack(),//m_wMaxAttack, 
+			GetMinMagic(),//m_wMinMagic, 
+			GetMaxMagic(),//m_wMaxMagic, 
 			m_wPUPoint, 
 			m_wSUPoint, 
-			m_byFire, 
-			m_byIce,
-			m_byLightning, 
-			m_byCurse, 
-			m_byPalsy, 
+			GetResist(RT_FIRE),//m_byFire, 
+			GetResist(RT_ICE),//,m_byIce,
+			GetResist(RT_LITNING),//,m_byLightning, 
+			GetResist(RT_CURSE),//,m_byCurse, 
+			GetResist(RT_PALSY),//m_byPalsy, 
 			m_nAnger);
 
 	printf("S2C_PROPERTY sent.\n");
@@ -491,5 +521,76 @@ void CPlayer::ChatCommand(char* szCommand)
 			nIndex = atoi(token);
 
 		WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
+	}
+}
+
+void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
+{
+	if (!n64Amount) return;
+
+	switch (byProperty)
+	{
+		case P_STR:
+		{
+			if ((-n64Amount) > m_wStr)
+				n64Amount = m_wStr;
+
+			m_wStr += n64Amount;
+
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwww", P_STR, m_wStr, GetHit(), GetMinAttack(), GetMaxAttack());
+			break;
+		}
+
+		case P_HTH:
+		{
+			if ((-n64Amount) > m_wHth)
+				n64Amount = m_wHth;
+
+			m_wHth += n64Amount;
+
+			WORD wMaxHP = GetMaxHP();
+			if (m_wCurHP > wMaxHP)
+				m_wCurHP = wMaxHP;
+
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwww", P_HTH, m_wHth, m_wCurHP, wMaxHP, GetResist(RT_PALSY));
+			break;
+		}
+
+		case P_INT:
+		{
+			if ((-n64Amount) > m_wInt)
+				n64Amount = m_wInt;
+
+			m_wInt += n64Amount;
+
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwwwww", P_INT, m_wInt, GetMinMagic(), GetMaxMagic(), GetResist(RT_FIRE), GetResist(RT_ICE), GetResist(RT_LITNING));
+			break;
+		}
+
+		case P_WIS:
+		{
+			if ((-n64Amount) > m_wWis)
+				n64Amount = m_wWis;
+
+			m_wWis += n64Amount;
+
+			WORD wMaxMP = GetMaxMP();
+			if (m_wCurMP > wMaxMP)
+				m_wCurMP = wMaxMP;
+
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwww", P_WIS, m_wWis, m_wCurMP, wMaxMP, GetResist(RT_CURSE));
+			break;
+		}
+
+		case P_DEX:
+		{
+			if ((-n64Amount) > m_wDex)
+				n64Amount = m_wDex;
+
+			m_wDex += n64Amount;
+
+			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwwwww", P_DEX, m_wDex, GetHit(), GetDodge(), GetDodge(), GetMinAttack(), GetMaxAttack());
+			break;
+		}
 	}
 }

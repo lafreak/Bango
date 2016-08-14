@@ -34,6 +34,42 @@ WORD CCharacter::GetDodge() const
 	return m_wDex / 3;
 }
 
+WORD CCharacter::GetMinAttack() const
+{
+	return 1 + ((11 * m_wStr - 80) / 30) + ((m_wDex - 5) / 11) + (7 * m_byLevel / 10);
+}
+
+WORD CCharacter::GetMaxAttack() const
+{
+	return ((8 * m_wStr - 25) / 15) + (18 * m_wDex / 77) + m_byLevel;
+}
+
+WORD CCharacter::GetMinMagic() const
+{
+	return (7 * m_wInt - 20) / 12;
+}
+
+WORD CCharacter::GetMaxMagic() const
+{
+	return 7 * m_wInt / 12;
+}
+
+WORD CCharacter::GetResist(BYTE byResist) const
+{
+	switch (byResist)
+	{
+		case RT_FIRE:
+		case RT_ICE:
+		case RT_LITNING:
+			return m_wInt / 9;
+		case RT_PALSY:
+			return m_wHth / 9;
+		case RT_CURSE:
+		default:
+			return m_wWis / 9;
+	}
+}
+
 CCharacter::CCharacter(): m_Access()
 {
 	m_nID = CCharacter::g_nID++;

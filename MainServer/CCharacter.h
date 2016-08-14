@@ -48,15 +48,15 @@ protected:
 		 //m_wDodge, 
 	WORD m_wDefense;
 	BYTE m_byAbsorb;
-	WORD m_wMinAttack, 
-		 m_wMaxAttack, 
-		 m_wMinMagic, 
-		 m_wMaxMagic;
-	BYTE m_byFire, 
-		 m_byIce, 
-		 m_byLightning, 
-		 m_byCurse, 
-		 m_byPalsy;
+	//WORD m_wMinAttack, 
+	//	 m_wMaxAttack, 
+	//WORD m_wMinMagic, 
+	//WORD m_wMaxMagic;
+	//BYTE m_byFire, 
+	//	 m_byIce, 
+	//	 m_byLightning, 
+	//	 m_byCurse, 
+	//	 m_byPalsy;
 
 	WORD m_wDir;
 
@@ -98,15 +98,11 @@ public:
 	WORD GetDodge() const;// { return m_wDodge; }
 	WORD GetDefense() const { return m_wDefense; }
 	BYTE GetAbsorb() const { return m_byAbsorb; }
-	WORD GetMinAttack() const { return m_wMinAttack; }
-	WORD GetMaxAttack() const { return m_wMaxAttack; }
-	WORD GetMinMagic() const { return m_wMinMagic; }
-	WORD GetMaxMagic() const { return m_wMaxMagic; }
-	BYTE GetFire() const { return m_byFire; }
-	BYTE GetIce() const { return m_byIce; }
-	BYTE GetLightning() const { return m_byLightning; }
-	BYTE GetCurse() const { return m_byCurse; }
-	BYTE GetPalsy() const { return m_byPalsy; }
+	WORD GetMinAttack() const;// { return m_wMinAttack; }
+	WORD GetMaxAttack() const;// { return m_wMaxAttack; }
+	WORD GetMinMagic() const;// { return m_wMinMagic; }
+	WORD GetMaxMagic() const;// { return m_wMaxMagic; }
+	WORD GetResist(BYTE byResist) const;
 
 	__int64 GetGState() const { return m_n64GState; }
 	__int64 GetMState() const { return m_n64MState; }

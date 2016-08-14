@@ -83,6 +83,7 @@ public:
 	void Rest(BYTE byType);
 	void ProcessMsg(char* szMsg);
 	void ChatCommand(char* szCommand);
+	void UpdateProperty(BYTE byProperty, __int64 n64Amount);
 };
 
 #endif
