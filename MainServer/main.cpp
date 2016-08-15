@@ -1,6 +1,8 @@
 #include "Socket/CClientSocket.h"
 #include "Socket/CDBSocket.h"
+
 #include "Map/CMap.h"
+#include "CNPC.h"
 
 int main()
 {
@@ -12,6 +14,10 @@ int main()
 
 	printf("Loading Maps...\n");
 	CMap::LoadMaps();
+
+	printf("Loading NPC...\n");
+	if (!CNPC::LoadNPC())
+		return 1;
 
 	printf(KGRN "MainServer started on port 3000.\n" KNRM);
 

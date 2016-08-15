@@ -2,6 +2,16 @@
 
 int CCharacter::g_nID = 1;
 
+CCharacter::CCharacter(): m_Access()
+{
+	m_nID = CCharacter::g_nID++;
+
+	m_n64GState = 0;
+	m_n64MState = 0;
+	m_n64GStateEx = 0;
+	m_n64MStateEx = 0;
+}
+
 WORD CCharacter::GetMaxHP() const
 {
 	return ((m_byLevel >= 96 ? 195 : 
@@ -67,11 +77,6 @@ WORD CCharacter::GetResist(BYTE byResist) const
 		case RT_CURSE:
 			return m_wWis / 9;
 	}
-}
-
-CCharacter::CCharacter(): m_Access()
-{
-	m_nID = CCharacter::g_nID++;
 }
 
 void CCharacter::AddGState(__int64 n64GState)

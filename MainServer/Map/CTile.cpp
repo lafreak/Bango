@@ -69,6 +69,50 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 	for (auto& a: m_mCharacter) {
 		a.second->m_Access.Grant();
 
+		if (a.second->GetID() != pCharacter->GetID()) {
+			auto pCharacterEx = a.second;
+
+			switch (pCharacter->GetMoveAction(pCharacterEx, byX, byY))
+			{
+				case MV_AC_CREATE:
+				{
+					pCharacterEx->SendPacket(createPacket);
+					if (pCharacter->GetKind() == CK_PLAYER) {
+						Packet p=pCharacterEx->GenerateCreatePacket();
+						pCharacter->SendPacket(p);
+					}
+					break;
+				}
+				case MV_AC_DELETE:
+				{
+					pCharacterEx->SendPacket(deletePacket);
+					if (pCharacter->GetKind() == CK_PLAYER) {
+						Packet p=pCharacterEx->GenerateDeletePacket();
+						pCharacter->SendPacket(p);
+					}
+					break;
+				}
+				case MV_AC_MOVE:
+					pCharacterEx->SendPacket(movePacket);
+					break;
+			}
+		}
+
+		a.second->m_Access.Release();
+	}
+
+	Unlock();
+}
+
+/*
+void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
+	Packet &createPacket, Packet& deletePacket, Packet& movePacket)
+{
+	Lock();
+
+	for (auto& a: m_mCharacter) {
+		a.second->m_Access.Grant();
+
 		if (a.second->GetKind() == CK_PLAYER && a.second->GetID() != pCharacter->GetID()) {
 			CPlayer *pPlayer = (CPlayer*)a.second;
 
@@ -103,3 +147,4 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 
 	Unlock();
 }
+*/

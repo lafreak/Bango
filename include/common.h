@@ -114,6 +114,15 @@ struct DATE_TIME
 	int second;
 };
 
+struct NPC_DESC
+{
+	WORD wIndex;
+	int nShape;
+	int nHtml;
+	int nX, nY, nZ;
+	int nDirX, nDirY;
+};
+
 struct D2S_LOADPLAYER_DESC
 {
 	int nAID, nPID;

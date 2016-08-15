@@ -38,7 +38,7 @@ class CPlayer: public CCharacter
 	int m_nHonorOption;
 
 public:
-	CPlayer(int nCID, D2S_LOADPLAYER_DESC desc);
+	CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc);
 	~CPlayer();
 
 	static WORD g_wDebugItems[4][8];

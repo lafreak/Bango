@@ -13,7 +13,7 @@ WORD CPlayer::g_wDebugItems[4][8] = {
 	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
 };
 
-CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC desc): CCharacter()
+CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 {
 	m_nCID = nCID;
 
@@ -187,10 +187,12 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 Packet CPlayer::GenerateDeletePacket()
 {
 	Packet packet;
-
 	memset(&packet, 0, sizeof(Packet));
+
 	packet.byType = S2C_REMOVEPLAYER;
+
 	char *end = CSocket::WritePacket(packet.data, "d", m_nID);
+
 	packet.wSize = end - ((char*)&packet);
 
 	return packet;
@@ -199,10 +201,12 @@ Packet CPlayer::GenerateDeletePacket()
 Packet CPlayer::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 {
 	Packet packet;
-
 	memset(&packet, 0, sizeof(Packet));
+
 	packet.byType = byType == 0 ? S2C_MOVEPLAYER_ON : S2C_MOVEPLAYER_END;
+
 	char *end = CSocket::WritePacket(packet.data, "dbbb", m_nID, byX, byY, byZ);
+
 	packet.wSize = end - ((char*)&packet);
 
 	return packet;
@@ -333,10 +337,6 @@ void CPlayer::OnLoadPlayer()
 	m_nHonorOption = 0;
 
 	m_wDir = 0;
-	m_n64GState = 0;
-	m_n64MState = 0;
-	m_n64GStateEx = 0;
-	m_n64MStateEx = 0;
 
 	Write(S2C_PROPERTY, "bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd", 
 			m_byGrade, 
@@ -528,11 +528,28 @@ void CPlayer::ChatCommand(char* szCommand)
 	if (!strcmp(token, "/ride")) {
 		token = std::strtok(NULL, " ");
 
-		int nIndex=0;
-		if (token)
-			nIndex = atoi(token);
+		if (token) {
+			int nIndex = atoi(token);
 
-		WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
+			WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
+		}
+	}
+
+	if (!strcmp(token, "/npc")) {
+		token = std::strtok(NULL, " ");
+
+		int PACKET=0;
+		int nShape=78;
+
+		if (token) {
+			PACKET = atoi(token);
+			token = std::strtok(NULL, " ");
+
+			if (token)
+				nShape = atoi(token);
+		}
+
+		WriteInSight(PACKET, "dwbdddwId", 900, 1, nShape, m_nX, m_nY, m_nZ, m_wDir, (__int64)0, (int)0);
 	}
 }
 
@@ -545,7 +562,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 		case P_STR:
 		{
 			if ((-n64Amount) > m_wStr)
-				n64Amount = m_wStr;
+				n64Amount = -m_wStr;
 
 			m_wStr += n64Amount;
 
@@ -556,7 +573,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 		case P_HTH:
 		{
 			if ((-n64Amount) > m_wHth)
-				n64Amount = m_wHth;
+				n64Amount = -m_wHth;
 
 			m_wHth += n64Amount;
 
@@ -571,7 +588,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 		case P_INT:
 		{
 			if ((-n64Amount) > m_wInt)
-				n64Amount = m_wInt;
+				n64Amount = -m_wInt;
 
 			m_wInt += n64Amount;
 
@@ -582,7 +599,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 		case P_WIS:
 		{
 			if ((-n64Amount) > m_wWis)
-				n64Amount = m_wWis;
+				n64Amount = -m_wWis;
 
 			m_wWis += n64Amount;
 
@@ -597,7 +614,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 		case P_DEX:
 		{
 			if ((-n64Amount) > m_wDex)
-				n64Amount = m_wDex;
+				n64Amount = -m_wDex;
 
 			m_wDex += n64Amount;
 
