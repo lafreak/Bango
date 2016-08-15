@@ -261,8 +261,11 @@ void CPlayer::Process(Packet packet)
 			BYTE byStats[5]={0,};
 			CSocket::ReadPacket(packet.data, "bbbbb", &byStats[P_STR], &byStats[P_HTH], &byStats[P_INT], &byStats[P_WIS], &byStats[P_DEX]);
 
-			WORD wTotalReqPU = FIND_NEED_PU(m_wStr, byStats[P_STR]) + FIND_NEED_PU(m_wHth, byStats[P_HTH]) + FIND_NEED_PU_EX(m_wInt, byStats[P_INT])
-							 + FIND_NEED_PU(m_wWis, byStats[P_WIS]) + FIND_NEED_PU(m_wDex, byStats[P_DEX]);
+			WORD wTotalReqPU = 	(m_byClass == PC_KNIGHT ? FIND_NEED_PU_EX(m_wStr, byStats[P_STR]) : FIND_NEED_PU(m_wStr, byStats[P_STR])) + 
+								FIND_NEED_PU(m_wHth, byStats[P_HTH]) +
+								(m_byClass == PC_MAGE ? FIND_NEED_PU_EX(m_wInt, byStats[P_INT]) : FIND_NEED_PU(m_wInt, byStats[P_INT])) +
+								FIND_NEED_PU(m_wWis, byStats[P_WIS]) +
+								((m_byClass == PC_THIEF || m_byClass == PC_ARCHER) ? FIND_NEED_PU_EX(m_wDex, byStats[P_DEX]) : FIND_NEED_PU(m_wDex, byStats[P_DEX]));
 
 			printf("wTotalReqPU: %d PUPoint: %d\n", wTotalReqPU, m_wPUPoint);
 
