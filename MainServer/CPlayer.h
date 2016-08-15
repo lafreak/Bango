@@ -64,6 +64,8 @@ public:
 	int  GetHonorGrade() const { return m_nHonorGrade; }
 	int  GetHonorOption() const { return m_nHonorOption; }
 
+	WORD GetReqPU(BYTE *byStats);
+
 	bool Write(BYTE byType, ...);
 	bool WriteInSight(BYTE byType, ...);
 	void SendPacket(Packet& packet);
