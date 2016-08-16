@@ -16,7 +16,7 @@ CNPC::CNPC(NPC_DESC& desc): CCharacter()
 	m_nY = desc.nY;
 	m_nZ = desc.nZ;
 
-	SetDirection(desc.nDirX, desc.nDirY);
+	SetDirection(desc.nDirX - desc.nX, desc.nDirY - desc.nY);
 }
 
 Packet CNPC::GenerateCreatePacket(bool bHero)
@@ -92,7 +92,7 @@ bool CNPC::LoadNPC()
 		desc.nDirY = pNPC->IntAttribute("diry");
 
 		auto pNPCEx = new CNPC(desc);
-		CMap::Add(CMap::GetMapInfo(desc.nX, desc.nY), pNPCEx);
+		CMap::Add(pNPCEx);
 
 		pNPC = pNPC->NextSiblingElement("npc");
 	}

@@ -26,8 +26,10 @@ public:
 	static void LoadMaps();
 	static void Add(int nTileX, int nTileY, CCharacter *pCharacter);
 	static void Add(MapInfo mapInfo, CCharacter *pCharacter);
+	static void Add(CCharacter *pCharacter);
 	static void Remove(int nTileX, int nTileY, int nID);
 	static void Remove(MapInfo mapInfo, int nID);
+	static void Remove(CCharacter *pCharacter);
 	static void SendPacket(CCharacter *pCharacter, Packet& packet);
 
 	// Remember to run m_Access.Release on each used object in the list.

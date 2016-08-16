@@ -42,7 +42,7 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 
 CPlayer::~CPlayer()
 {
-	CMap::Remove(CMap::GetMapInfo(m_nX, m_nY), m_nID);
+	CMap::Remove(this);
 
 	WriteInSight(S2C_REMOVEPLAYER, "d", m_nID);
 
@@ -374,7 +374,7 @@ void CPlayer::OnLoadPlayer()
 
 	WORD wTime=1200;
 
-	CMap::Add(CMap::GetMapInfo(m_nX, m_nY), this);
+	CMap::Add(this);
 
 	Write(S2C_ANS_LOAD, "wdd", wTime, m_nX, m_nY);
 

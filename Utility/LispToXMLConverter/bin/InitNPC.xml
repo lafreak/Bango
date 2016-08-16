@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <world>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
     <npc index="1" shape="3" html="1" x="257491" y="258584" z="16120" dirx="254491" diry="257584"/>
     <npc index="2" shape="3" html="3" x="257016" y="258556" z="16140" dirx="260016" diry="250556"/>
     <npc index="3" shape="3" html="7" x="257556" y="258207" z="16140" dirx="256556" diry="258207"/>

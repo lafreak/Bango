@@ -31,6 +31,11 @@ void CMap::Add(MapInfo mapInfo, CCharacter* pCharacter)
 	Add(mapInfo.wTileX, mapInfo.wTileY, pCharacter);
 }
 
+void CMap::Add(CCharacter* pCharacter)
+{
+	Add(GetMapInfo(pCharacter->GetX(), pCharacter->GetY()), pCharacter);
+}
+
 void CMap::Remove(int nTileX, int nTileY, int nID)
 {
 	auto pTile = GetTile(nTileX, nTileY);
@@ -41,6 +46,11 @@ void CMap::Remove(int nTileX, int nTileY, int nID)
 void CMap::Remove(MapInfo mapInfo, int nID)
 {
 	Remove(mapInfo.wTileX, mapInfo.wTileY, nID);
+}
+
+void CMap::Remove(CCharacter *pCharacter)
+{
+	Remove(GetMapInfo(pCharacter->GetX(), pCharacter->GetY()), pCharacter->GetID());
 }
 
 void CMap::GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list)
