@@ -7,7 +7,7 @@
 #include <minwindef.h>
 
 #include "CClient.h"
-#include "CPlayer.h"
+#include "GameCharacter/CPlayer.h"
 #include "Map/CMap.h"
 
 typedef std::map<int, CClient*> ClientMap;

@@ -2,7 +2,7 @@
 #include "Socket/CDBSocket.h"
 
 #include "Map/CMap.h"
-#include "CNPC.h"
+#include "GameCharacter/CNPC.h"
 
 int main()
 {

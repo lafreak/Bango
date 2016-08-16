@@ -1,10 +1,10 @@
 #include <Socket/CSocket.h>
 
-#include "Socket/CDBSocket.h"
+#include "../Socket/CDBSocket.h"
 
 #include "CPlayer.h"
 
-#include "CServer.h"
+#include "../CServer.h"
 
 WORD CPlayer::g_wDebugItems[4][8] = {
 	1632, 1479, 1480, 1481, 1633, 799, 0, 0,
@@ -38,6 +38,8 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nX = desc.nX;
 	m_nY = desc.nY;
 	m_nZ = desc.nZ;
+
+	m_byKind = CK_PLAYER;
 }
 
 CPlayer::~CPlayer()
@@ -321,8 +323,6 @@ void CPlayer::OnLoadPlayer()
 {
 	Lock();
 
-	m_byKind = CK_PLAYER;
-
 	m_byGrade = 1;
 	m_szGuildName = "gname";
 	m_byGRole = 1;
@@ -390,18 +390,12 @@ void CPlayer::GameStart()
 
 	SendPacket(createHeroPacket);
 
-	ObjectList list;
-	CMap::GetObjectListAround(this, MAX_PLAYER_SIGHT, list);
+	CharacterList list;
+	CMap::GetCharacterListAround(this, MAX_PLAYER_SIGHT, list);
 
-	for (ObjectList::iterator it = list.begin(); it != list.end(); it++)
+	for (CharacterList::iterator it = list.begin(); it != list.end(); it++)
 	{
-		if ((*it)->GetKind() != CK_PLAYER)
-		{
-			(*it)->m_Access.Release();
-			continue;
-		}
-
-		Packet createPacketEx = ((CPlayer*)(*it))->GenerateCreatePacket();
+		Packet createPacketEx = (*it)->GenerateCreatePacket();
 
 		SendPacket(createPacketEx);
 
@@ -458,7 +452,7 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 			mapInfoCur.wTileX, mapInfoCur.wTileY,
 			mapInfoDest.wTileX, mapInfoDest.wTileY);
 
-		CMap::Remove(mapInfoCur, m_nID);
+		CMap::Remove(mapInfoCur, this);
 		CMap::Add(mapInfoDest, this);
 	}
 

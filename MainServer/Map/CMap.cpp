@@ -36,24 +36,24 @@ void CMap::Add(CCharacter* pCharacter)
 	Add(GetMapInfo(pCharacter->GetX(), pCharacter->GetY()), pCharacter);
 }
 
-void CMap::Remove(int nTileX, int nTileY, int nID)
+void CMap::Remove(int nTileX, int nTileY, CCharacter *pCharacter)
 {
 	auto pTile = GetTile(nTileX, nTileY);
 	if (pTile)
-		pTile->Remove(nID);
+		pTile->Remove(pCharacter);
 }
 
-void CMap::Remove(MapInfo mapInfo, int nID)
+void CMap::Remove(MapInfo mapInfo, CCharacter *pCharacter)
 {
-	Remove(mapInfo.wTileX, mapInfo.wTileY, nID);
+	Remove(mapInfo.wTileX, mapInfo.wTileY, pCharacter);
 }
 
 void CMap::Remove(CCharacter *pCharacter)
 {
-	Remove(GetMapInfo(pCharacter->GetX(), pCharacter->GetY()), pCharacter->GetID());
+	Remove(GetMapInfo(pCharacter->GetX(), pCharacter->GetY()), pCharacter);
 }
 
-void CMap::GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list)
+void CMap::GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list)
 {
 	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
 
@@ -61,7 +61,7 @@ void CMap::GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList
 		for (int j = m.wTileY-1; j <= m.wTileY+1; j++) {
 			auto pTile = GetTile(i, j);
 			if (pTile)
-				pTile->GetObjectListAround(pCharacter, nDistance, list);
+				pTile->GetCharacterListAround(pCharacter, nDistance, list);
 		}
 	}
 }
@@ -70,11 +70,11 @@ MapInfo CMap::GetMapInfo(int nX, int nY)
 {
 	MapInfo mapInfo;
 
-	mapInfo.wTileX = nX / 1024;//(nX - (mapInfo.byMapX << 13)) >> 10;
-	mapInfo.wTileY = nY / 1024;//(nY - (mapInfo.byMapY << 13)) >> 10;
+	mapInfo.wTileX = nX / 1024;
+	mapInfo.wTileY = nY / 1024;
 
-	mapInfo.wOffsetX = nX % 1024;//nX - ((mapInfo.byMapX << 13) + (mapInfo.byTileX >> 10));
-	mapInfo.wOffsetY = nY % 1024;//nY - ((mapInfo.byMapY << 13) + (mapInfo.byTileY >> 10));
+	mapInfo.wOffsetX = nX % 1024;
+	mapInfo.wOffsetY = nY % 1024;
 
 	return mapInfo;
 }

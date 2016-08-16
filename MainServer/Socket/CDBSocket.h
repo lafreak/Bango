@@ -17,7 +17,7 @@
 #include <common.h>
 
 #include "../CClient.h"
-#include "../CPlayer.h"
+#include "../GameCharacter/CPlayer.h"
 
 class CDBSocket
 {

@@ -27,13 +27,13 @@ public:
 	static void Add(int nTileX, int nTileY, CCharacter *pCharacter);
 	static void Add(MapInfo mapInfo, CCharacter *pCharacter);
 	static void Add(CCharacter *pCharacter);
-	static void Remove(int nTileX, int nTileY, int nID);
-	static void Remove(MapInfo mapInfo, int nID);
+	static void Remove(int nTileX, int nTileY, CCharacter *pCharacter);
+	static void Remove(MapInfo mapInfo, CCharacter *pCharacter);
 	static void Remove(CCharacter *pCharacter);
 	static void SendPacket(CCharacter *pCharacter, Packet& packet);
 
 	// Remember to run m_Access.Release on each used object in the list.
-	static void GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list);
+	static void GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list);
 
 	static CTile* GetTile(int nTileX, int nTileY);
 	static MapInfo GetMapInfo(int nX, int nY); 

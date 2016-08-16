@@ -1,5 +1,3 @@
-;NPC MADE BY ZIG
-
 ;06-03-2007 Version  beta
 
 
@@ -23,13 +21,13 @@
 (gennpc (index 3) (country 2) (kind 0) (shape 3) (html 7) (map 0) (xy 257556 258207 16140) (dir 256556 258207))
 
 ; Knightage Go-Gyunok
-(gennpc (index 4) (country 2) (kind 1) (shape 5) (html 9) (map 0) (xy 256571 257913 16505) (dir 257571 257913))
+(gennpc (index 4) (country 2) (kind 1) (shape 84) (html 9) (map 0) (xy 256571 257913 16505) (dir 257571 257913))
 
 ; Bow Master, Chi-Rang
-(gennpc (index 5) (country 2) (kind 1) (shape 6) (html 15) (map 0) (xy 256542 257999 16505) (dir 257542 258999))
+(gennpc (index 5) (country 2) (kind 1) (shape 84) (html 15) (map 0) (xy 256542 257999 16505) (dir 257542 258999))
 
 ; Magic Master, Baek-Ohn
-(gennpc (index 6) (country 2) (kind 1) (shape 7) (html 19) (map 0) (xy 256459 258025 16505) (dir 256459 259025))
+(gennpc (index 6) (country 2) (kind 1) (shape 84) (html 19) (map 0) (xy 256459 258025 16505) (dir 256459 259025))
 
 ; Farmer
 ;(gennpc (index 7) (country 2) (kind 1) (shape 1) (html 20) (map 0) (xy 256459 258025 16505) (dir 256473 258055))
@@ -245,7 +243,7 @@
 (gennpc (index 78) (country 2) (kind 3) (shape 1) (quest 0 17) (map 0) (xy 257190 258988 16090) (dir 277190 259988))
 
 ; Chief Guard [Joo-Jimin]
-(gennpc (index 79) (country 2) (kind 3) (shape 9) (quest 0 18) (map 0) (xy 256928 258156 16160) (dir 257928 258156))
+(gennpc (index 79) (country 2) (kind 3) (shape 9) (quest 0 18) (map 0) (xy 256786 258150 16101) (dir 256815 258159))
 
 ; Farmer [Nu-Woong]
 (gennpc (index 80) (country 2) (kind 3) (shape 1) (quest 0 4) (map 0) (xy 265131 261996 16180) (dir 266131 262996))
@@ -333,6 +331,9 @@
 
 ; Magic Master [Yae-Saryung]
 (gennpc (index 108) (country 2) (kind 0) (shape 7) (html 124) (map 0) (xy 268193 242608 19630) (dir 267193 246608))
+
+; Soldier at Fort of Geum-Ohee Castle [Jae-Ga]
+(gennpc (index 109) (country 2) (kind 3) (shape 9) (quest 9006 1) (map 0) (xy 268851 243506 19620) (dir 267851 242506))
 
 ; Fort Guard
 (gennpc (index 110) (country 2) (kind 1) (shape 8) (html 134) (map 0) (xy 267263 242344 19619) (dir 267250 242341))
@@ -478,6 +479,8 @@
 ; Fort Guard [Soo-Sung]
 (gennpc (index 162) (country 2) (kind 3) (shape 8) (quest 33 1) (map 0) (xy 267999 243311 19630) (dir 268999 242311))
 
+; Soldier from Troop of Jae-Ga [Yoo-Sang]
+(gennpc (index 163) (country 2) (kind 3) (shape 8) (quest 34 1) (map 0) (xy 268844 243518 19620) (dir 267844 242518))
 
 ; Soldier from Troop of Jae-Ga [Lim-Gang]
 (gennpc (index 164) (country 2) (kind 3) (shape 8) (quest 35 1) (map 0) (xy 268192 243963 19630) (dir 269192 244963))
@@ -716,6 +719,12 @@
 ; Manager
 (gennpc (index 258) (country 2) (kind 3) (shape 3) (quest 53 1) (map 0) (xy 265893 275953 23260) (dir 265893 274953))
 
+; [Ja-Sang]
+(gennpc (index 259) (country 2) (kind 3) (shape 3) (quest 58 1) (map 0) (xy 269407 243333 19630) (dir 268407 244333))
+
+; Tomb Keeper [Gang-Man]
+(gennpc (index 260) (country 2) (kind 3) (shape 3) (quest 0 19) (map 0) (xy 256068 289118 27050) (dir 255068 290118))
+
 ; Agent
 (gennpc (index 261) (country 2) (kind 1) (shape 3) (html 191) (map 0) (xy 257369 259296 16112) (dir 257369 258296))
 
@@ -797,6 +806,8 @@
 ; Priest [Ahn-Hyunsoo]
 (gennpc (index 287) (country 2) (kind 1) (shape 7) (html 213) (map 0) (xy 231715 294703 45300) (dir 232056 294712))
 
+; High priest [Sur-An]
+(gennpc (index 288) (country 2) (kind 1) (shape 7) (html 214) (map 0) (xy 231603 294696 45300) (dir 231272 294673))
 
 ; Religious Officer
 (gennpc (index 289) (country 2) (kind 1) (shape 7) (html 215) (map 0) (xy 231649 294905 45300) (dir 231656 294699))
@@ -811,28 +822,28 @@
 (gennpc (index 292) (country 2) (kind 1) (shape 7) (html 218) (map 0) (xy 231502 294344 45330) (dir 231656 294699))
 
 ; Master of General[Sur-Pil]
-(gennpc (index 293) (country 2) (kind 1) (shape 7) (html 500) (map 0) (xy 231329 294508 45327) (dir 231656 294699))
+(gennpc (index 293) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231329 294508 45327) (dir 231656 294699))
 
 ; Master of G.Sword[Im-Bee]
-(gennpc (index 294) (country 2) (kind 1) (shape 7) (html 501) (map 0) (xy 231283 294742 45354) (dir 231656 294699))
+(gennpc (index 294) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231283 294742 45354) (dir 231656 294699))
 
 ; Master of I.General[Don-Joong]
-(gennpc (index 295) (country 2) (kind 1) (shape 7) (html 502) (map 0) (xy 231382 294957 45335) (dir 231656 294699))
+(gennpc (index 295) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231382 294957 45335) (dir 231656 294699))
 
 ; Master of G.Bow[Bong-Hack]
-(gennpc (index 296) (country 2) (kind 1) (shape 7) (html 503) (map 0) (xy 231591 295072 45300) (dir 231656 294699))
+(gennpc (index 296) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231591 295072 45300) (dir 231656 294699))
 
 ; Master of M.Adviser[Bong-Yo]
-(gennpc (index 297) (country 2) (kind 1) (shape 7) (html 504) (map 0) (xy 231822 295037 45300) (dir 231656 294699))
+(gennpc (index 297) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231822 295037 45300) (dir 231656 294699))
 
 ; Master of Ascetic[Bool-Lo]
-(gennpc (index 298) (country 2) (kind 1) (shape 7) (html 505) (map 0) (xy 231994 294877 45300) (dir 231656 294699))
+(gennpc (index 298) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231994 294877 45300) (dir 231656 294699))
 
-; Dark Shadow Master [Duk sung]
-(gennpc (index 299) (country 2) (kind 1) (shape 7) (html 525) (map 0) (xy 232038 294645 45300) (dir 231656 294699))
+; Religious Officer
+(gennpc (index 299) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 232038 294645 45300) (dir 231656 294699))
 
-; Unearthly Ghost Master [Dea gon]
-(gennpc (index 300) (country 2) (kind 1) (shape 7) (html 526) (map 0) (xy 231936 294433 45300) (dir 231656 294699))
+; Religious Officer
+(gennpc (index 300) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231936 294433 45300) (dir 231656 294699))
 
 ; Religious Officer
 (gennpc (index 307) (country 2) (kind 1) (shape 7) (html 230) (map 0) (xy 233022 293298 45290) (dir 232022 293298))
@@ -1094,7 +1105,7 @@
 ;(gennpc (index 395) (country 2) (kind 1) (shape 19) (html 257) (map 0) (xy 232563 295435 45290) (dir 232563 295425))
 
 ; Teleport Monument
-(gennpc (index 396) (country 2) (kind 5) (shape 20) (html 259) (map 3) (xy 57370 7727 29999) (dir 57370 7758)) 
+(gennpc (index 396) (country 2) (kind 5) (shape 20) (html 259) (teleport 3 57366 10034) (map 3) (xy 57370 7727 29999) (dir 57370 7758)) 
 
 ; Teleport Monument
 (gennpc (index 397) (country 2) (kind 5) (shape 20) (html 260) (teleport 3 57358 10427) (map 3) (xy 57365 8134 30799) (dir 57365 8178))
@@ -1126,6 +1137,8 @@
 ; Fishing Grounds Manager
 (gennpc (index 432) (country 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 236234 294677 45416) (dir 236234 293677))
 
+; Fishing Grounds Manager
+(gennpc (index 433) (country 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 232699 291121 45307) (dir 234440 290814))
 
 ; Fishing Grounds Keeper
 (gennpc (index 434) (country 2) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 255904 254609 15759) (dir 255891 254605))
@@ -1260,7 +1273,7 @@
 (gennpc (index 561) (country 2) (kind 3) (shape 67) (quest 9000 1 ) (map 21) (xy 117338 35712 27399) (dir 117336 36797))
 
 ;Managerial officer for Tower of Priest [Moon-yong]
-(gennpc (index 652) (country 2) (kind 1) (shape 5) (html 527) (map 21) (xy 117415 35509 27399) (dir 117415 35500))
+(gennpc (index 652) (country 2) (kind 5) (shape 5) (html ) (map 21) (xy 117415 35509 27399) (dir 117415 35500))
 
 ; Position Stone
 (gennpc (index 658) (country 2) (kind 5) (shape 68) (html ) (map 11) (xy 70176 51360 24094) (dir 70176 51360))
@@ -1279,197 +1292,4 @@
 
 ; Position Stone
 (gennpc (index 663) (country 2) (kind 5) (shape 68) (html ) (map 18) (xy 102665 39378 21436) (dir 102665 39378))
-
-;--------NEW SERVER--------
-;--------Basic Naroouth Shit--------
-; Narootuh Assistant
-(gennpc (index 1050) (country 2) (kind 1) (shape 3) (html 300008) (map 0) (xy 257376 259180 16080) (dir 257374 259135))
-; Teleporter
-;(gennpc (index 1051) (country 2) (kind 1) (shape 73) (html 100102) (map 0) (xy 257197 259119 16090) (dir 257227 259144))
-; Mission Announcer
-(gennpc (index 1058) (country 2) (kind 1) (shape 3) (html 300082) (map 0) (xy 257577 259143 16072) (dir 257566 259160))
-; Duel Tournament Desk
-(gennpc (index 1059) (country 2) (kind 1) (shape 27) (html 326) (map 0) (xy ) (dir 257669 259169))
-; Manager of Triangular Battle
-(gennpc (index 1060) (country 2) (kind 1) (shape 5) (html 300133) (map 0) (xy 257740 259151 16080) (dir 257736 259190))
-; Seohak
-(gennpc (index 1061) (country 2) (kind 1) (shape 5) (html 767) (map 0) (xy 257189 259589 16131) (dir 257197 259536))
-; Specialist of King's Troop
-(gennpc (index 1062) (country 2) (kind 1) (shape 9) (html 305) (map 0) (xy 257306 258125 16150) (dir 257286 258151))
-; Sergeant of King's Troop
-(gennpc (index 1063) (country 2) (kind 1) (shape 9) (html 322) (map 0) (xy 257330 258128 16150) (dir 257334 258161))
-; Honor Item Collector
-(gennpc (index 1064) (country 2) (kind 1) (shape 3) (html 533) (map 0) (xy 257356 258113 16150) (dir 257391 258128))
-; Emok
-(gennpc (index 1081) (country 2) (kind 1) (shape 8) (html 330) (map 0) (xy 255845 257334 15929) (dir 255863 257354))
-;(gennpc (index 1081) (country 2) (kind 1) (shape 8) (quest 701 1) (map 0) (xy 255845 257334 15929) (dir 255863 257354))
-
-
-;Thief skilz
-(gennpc (index 1082) (country 2) (kind 1) (shape 5) (html 516) (map 0) (xy 256538 257837 16505)(dir 256565 257811))
-;Thief Weapons NPC
-(gennpc (index 1085) (country 2) (kind 1) (shape 3) (html 506) (map 0) (xy 257016 258474 16150) (dir 257052 258489))
-
-;--------Basic Cargo Shit--------
-; Seohak
-(gennpc (index 1065) (country 2) (kind 1) (shape 5) (html 767) (map 0) (xy 264767 262049 16089) (dir 264801 262054))
-
-;--------Basic Mine Shit--------
-; Seohak
-(gennpc (index 1066) (country 2) (kind 1) (shape 5) (html 767) (map 0) (xy 265751 285234 22650) (dir 265728 285256))
-; Mission Announcer
-(gennpc (index 1067) (country 2) (kind 1) (shape 3) (html 300082) (map 0) (xy 265282 285279 22657) (dir 265311 285254))
-; Picture of Hell (No Real NPC)
-(gennpc (index 1068) (country 2) (kind 1) (shape 85) (html ) (map 0) (xy 266179 285505 22650) (dir 266175 285483))
-; Picture of Hell (Person to Talk to - Jeong-yiguk)
-(gennpc (index 1069) (country 2) (kind 1) (shape 84) (html 528) (map 0) (xy 266160 285491 22650) (dir 266156 285459))
-;Thief Weapons NPC
-(gennpc (index 1086) (country 2) (kind 1) (shape 3) (html 508) (map 0) (xy 265319 285076 22650) (dir 265314 285115))
-;Thief Armors NPC
-(gennpc (index 1087) (country 2) (kind 1) (shape 3) (html 507) (map 0) (xy 264978 285215 22650) (dir 264985 285271))
-; D1 Teleporter
-(gennpc (index 1096) (country 2) (kind 1) (shape 14) (html 817) (map 0) (xy 265983 285571 22640) (dir 265925 285542))
-
-;--------Basic Bird Shit--------
-;Hitman
-(gennpc (index 1070) (country 2) (kind 1) (shape 5) (html 518) (map 0) (xy 255617 289300 27071) (dir 255637 289325))
-;I. Swordsman
-(gennpc (index 1071) (country 2) (kind 1) (shape 5) (html 519) (map 0) (xy 255604 289339 27070) (dir 255665 289342))
-; Seohak
-(gennpc (index 1072) (country 2) (kind 1) (shape 5) (html 767) (map 0) (xy 256564 289117 27131) (dir 256500 288974))
-; D2 Teleporter
-(gennpc (index 1079) (country 2) (kind 1) (shape 14) (html 815) (map 0) (xy 256746 288627 27086) (dir 256685 288632))
-;Pet SHOP
-(gennpc (index 1094) (country 2) (kind 1) (shape 3) (html 641) (map 0) (xy 256254 289079 27060) (dir 256296 289094))
-;Donation
-;(gennpc (index 1095) (country 2) (kind 1) (shape 75) (html 300103) (map 0) (xy 256273 289049 27054) (dir 256321 289077));300010
-;(gennpc (index 1095) (country 2) (kind 1) (shape 75) (html 300102) (map 0) (xy 256273 289049 27054) (dir 256321 289077));300010
-; Tomb Keeper [Gang-Man]
-(gennpc (index 260) (country 2) (kind 3) (shape 76) (quest 0 19) (map 0) (xy 256068 289118 27050) (dir 255068 290118))
-; Tomb Keeper [Young-Seoak]
-(gennpc (index 1119) (country 2) (kind 1) (shape 77) (html 300028) (map 0) (xy 256079 289137 27049) (dir 256044 289163))
-
-;--------Basic Fort Shit--------
-; Mission Announcer
-(gennpc (index 1073) (country 2) (kind 1) (shape 3) (html 300082) (map 0) (xy 268151 242540 19630) (dir 268108 242521))
-; Duel Tournament Desk
-(gennpc (index 1074) (country 2) (kind 1) (shape 27) (html 326) (map 0) (xy 268012 242988 19630) (dir 267980 242958))
-; 1st Job Change npc
-(gennpc (index 1090) (country 2) (kind 1) (shape 79) (html 300002) (map 0) (xy 268834 243518 19620) (dir 268800 243475))
-; 2nd Job Change npc
-(gennpc (index 1075) (country 2) (kind 1) (shape 9) (html 300001) (map 0) (xy 268851 243506 19620) (dir 267851 242506))
-;Thief
-(gennpc (index 1076) (country 2) (kind 1) (shape 5) (html 516) (map 0) (xy 268851 243426 19620)(dir 268824 243386))
-;Thief Guild member
-(gennpc (index 1077) (country 2) (kind 1) (shape 5) (html 517) (map 0) (xy 268882 243414 19628) (dir 268859 243385))
-;Thief Armors NPC
-(gennpc (index 1083) (country 2) (kind 1) (shape 3) (html 509) (map 0) (xy 269042 242856 19630) (dir 269003 242842))
-;Thief Weapons NPC
-(gennpc (index 1084) (country 2) (kind 1) (shape 3) (html 510) (map 0) (xy 269125 242983 19630) (dir 269072 242988))
-; D3 Teleporter
-(gennpc (index 1097) (country 2) (kind 1) (shape 14) (html 818) (map 0) (xy 269423 243327 19634) (dir 269371 243317))
-; Bango Event 2
-;(gennpc (index 1104) (country 2) (kind 0) (shape 14) (html 300049) (map 0) (xy 267676 242631 19630) (dir 267669 242664))
-; Xmass tree
-;(gennpc (index 1106) (country 2) (kind 1) (shape 54) (html ) (map 0) (xy 267864 242680 19630) (dir 254491 257584))
-; Snowman
-;(gennpc (index 1107) (country 2) (kind 1) (shape 119) (html 300101) (map 0) (xy 267774 242646 19630) (dir 267733 242629))
-; Santa
-;(gennpc (index 1108) (country 2) (kind 1) (shape 120) (html 300102) (map 0) (xy 267838 242780 19630) (dir 267832 242834))
-; Daily Quest [Kyoung-Seo]
-(gennpc (index 1118) (country 2) (kind 1) (shape 3) (html 300023) (map 0) (xy 268081 242926 19630) (dir 268072 242906))
-; Manager of Guild Wars
-(gennpc (index 1120) (country 2) (kind 1) (shape 5) (html 300032) (map 0) (xy 267424 242679 19642) (dir 267445 242685))
-;--------Basic Priest Shit--------
-; High priest [Sur-An]
-(gennpc (index 1057) (country 2) (kind 1) (shape 7) (html 300003) (map 0) (xy 231603 294696 45300) (dir 231272 294673))
-; [Eun-Seon] Master out of office
-(gennpc (index 704) (country 2) (kind 1) (shape 7) (html 300056) (map 0) (xy 231655 294756 45310) (dir 231648 294855))
-; D4 Teleporter
-(gennpc (index 1080) (country 2) (kind 1) (shape 14) (html 816) (map 0) (xy 236824 296230 45390) (dir 236800 296209))
-;Thief Armors NPC
-(gennpc (index 1088) (country 2) (kind 1) (shape 3) (html 511) (map 0) (xy 234038 294211 45380) (dir 234039 294271))
-;Thief Weapons NPC
-(gennpc (index 1089) (country 2) (kind 1) (shape 3) (html 512) (map 0) (xy 234030 295178 45365) (dir 234032 295131))
-; Imperfect collector
-(gennpc (index 1099) (country 2) (kind 1) (shape 7) (html 300038) (map 0) (xy 232789 294695 45300) (dir 232844 294779))
-; POUW collector
-(gennpc (index 1100) (country 2) (kind 1) (shape 7) (html 300041) (map 0) (xy 232803 294649 45300) (dir 232805 294631))
-; POH manager
-(gennpc (index 1102) (country 2) (kind 1) (shape 85) (html ) (map 0) (xy 232111 294486 45325) (dir 232519 294163))
-(gennpc (index 1101) (country 2) (kind 0) (shape 84) (html 300042) (map 0) (xy 232091 294463 45310) (dir 232519 294163))
-; 81 82 Dailys
-;(gennpc (index 1115) (country 2) (kind 1) (shape 3) (html 300022) (map 0) (xy 230386 294864 45300) (dir 230430 294853))
-; FOE/D5 Teleporter
-(gennpc (index 1128) (country 2) (kind 1) (shape 7) (html 819) (map 0) (xy 232938 292933 45283) (dir 232922 293021 45278))
-
-;--------D3 Outside--------
-;Blue Doggebi Register NPC
-;(gennpc (index 1091) (country 2) (kind 1) (shape 46) (html 284) (map 0) (xy 282480 248338 16351) (dir 282441 248363))
-
-;--------PVP 3.1--------
-;Red TEAM Teleport - BLUE SIDE ON MAP
-(gennpc (index 1092) (country 2) (kind 1) (shape 46) (html 290) (map 0) (xy 288839 351137 25700) (dir 288845 351086))
-;Blue TEAM Teleport - RED SIDE ON MAP
-(gennpc (index 1093) (country 2) (kind 1) (shape 46) (html 291) (map 0) (xy 284777 350898 26040) (dir 284783 350953))
-
-;------ PVP BATTLEFIELD -----
-; Island of Battlefield manager
-(gennpc (index 1098) (country 2) (kind 1) (shape 9) (html 300037) (map 0) (xy 256612 257515 16505) (dir 256584 257577))
-
-;---------- POH ------------
-(gennpc (index 1103) (country 2) (kind 0) (shape 84) (html 300048) (map 0) (xy 286959 318677 27783) (dir 286963 318639))
-
-
-;---------- VOD -----------
-; Statue of Eagle in Cheonji-Yun
-(gennpc (index 1012) (country 2) (kind 1) (shape 10) (html 300035) (map 27) (xy 360891 187175 42140) (dir 264918 263111))
-; Storage Keeper [Ji-Myung]
-(gennpc (index 1035) (country 2) (kind 1) (shape 84) (html 175) (map 27) (xy 360424 187334 42102) (dir 360477 187335))
-; Repeat Quest [Soon-Oak]
-(gennpc (index 1036) (country 2) (kind 1) (shape 4) (html 300053) (map 27) (xy 360830 187240 42140) (dir 360797 187242))
-; Daily Quest [Kyoung-Mi]
-(gennpc (index 1037) (country 2) (kind 1) (shape 79) (html 300052) (map 27) (xy 360769 186790 42034) (dir 360742 186789))
-; Merchant [Yoo-Ran]
-(gennpc (index 1029) (country 2) (kind 1) (shape 78) (html 300050) (map 27) (xy 360895 186819 42063) (dir 360899 186909))
-; Soo-Ryun
-(gennpc (index 1000) (country 2) (kind 1) (shape 70) (html ) (map 27) (xy 361658 187368 42381) (dir 361635 187367))
-; Beom-Soo
-(gennpc (index 1006) (country 2) (kind 1) (shape 81) (html ) (map 27) (xy 360887 188040 42254) (dir 360886 188010))
-; outside d5 Priest Tower [Il Ja]
-(gennpc (index 653) (country 2) (kind 1) (shape 7) (html 300055) (map 0) (xy 235958 279757 44693) (dir 235980 279620))
-; Specialist of King's Troop
-(gennpc (index 1116) (country 2) (kind 1) (shape 9) (html 305) (map 0) (xy 360693 187467 42140) (dir 360717 186967))
-; Sergeant of King's Troop
-(gennpc (index 1117) (country 2) (kind 1) (shape 9) (html 322) (map 0) (xy 360744 187470 42140) (dir 360717 186967))
-
-
-;--------- HONDEL ---------
-; Statue of Black Crow in Hondel
-(gennpc (index 1028) (country 2) (kind 1) (shape 10) (html 300034) (map 27) (xy 359609 233774 28722) (dir 264918 263111))
-; Merchant [Yoo-Hwa]
-(gennpc (index 1020) (country 2) (kind 1) (shape 81) (html 300050) (map 27) (xy 359543 233578 28590) (dir 359531 233593))
-; Daily Quest [Kyoung-Mi]
-(gennpc (index 1023) (country 2) (kind 1) (shape 77) (html 300025) (map 27) (xy 360242 234097 29470) (dir 360237 234067))
-; Repeatable Quest [Jade]
-(gennpc (index 1026) (country 2) (kind 1) (shape 76) (html 300026) (map 27) (xy 359701 233959 28844) (dir 359718 233945))
-; Storage Keeper [Gwon-Chul]
-(gennpc (index 1024) (country 2) (kind 1) (shape 84) (html 175) (map 27) (xy 359976 233995 29336) (dir 359968 233967))
-
-
-
-;Special Buffs
-;(gennpc (index 1105) (country 2) (kind 1) (shape 75) (html 300100) (map 0) (xy 268165 242500 19630) (dir 268154 242496))
-;Pray Statue
-(gennpc (index 1121) (country 2) (kind 3) (shape 33) (quest 716 1) (map 0) (xy 309450 288116 17932) (dir 309446 288029))
-
-; Hourglass 
-(gennpc (index 1122) (country 2) (kind 3) (shape 241) (quest 720 1) (map 5) (xy 243177 243578 18500) (dir 359968 233967))
-(gennpc (index 1123) (country 2) (kind 3) (shape 241) (quest 720 1) (map 6) (xy 243177 243578 18500) (dir 359968 233967))
-(gennpc (index 1124) (country 2) (kind 3) (shape 241) (quest 720 1) (map 7) (xy 243177 243578 18500) (dir 359968 233967))
-
-; Sand
-(gennpc (index 1125) (country 2) (kind 3) (shape 240) (quest 719 1) (map 5) (xy 242702 243994 19405) (dir 242647 244062))
-(gennpc (index 1126) (country 2) (kind 3) (shape 240) (quest 719 1) (map 6) (xy 242702 243994 19405) (dir 242647 244062))
-(gennpc (index 1127) (country 2) (kind 3) (shape 240) (quest 719 1)( map 7) (xy 242702 243994 19405) (dir 242647 244062))
 

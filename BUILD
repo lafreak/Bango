@@ -15,9 +15,9 @@ g++ --std=c++11 -pthread -o bin/DBServer bin/obj/CSocket.o bin/obj/CAccount.o bi
 
 # MainServer
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClient.o MainServer/CClient.cpp
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CCharacter.o MainServer/CCharacter.cpp
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CPlayer.o MainServer/CPlayer.cpp
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CNPC.o MainServer/CNPC.cpp
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CCharacter.o MainServer/GameCharacter/CCharacter.cpp
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CPlayer.o MainServer/GameCharacter/CPlayer.cpp
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CNPC.o MainServer/GameCharacter/CNPC.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CTile.o MainServer/Map/CTile.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMap.o MainServer/Map/CMap.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CServer.o MainServer/CServer.cpp

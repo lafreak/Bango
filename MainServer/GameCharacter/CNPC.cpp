@@ -1,7 +1,7 @@
 #include <Socket/CSocket.h>
 
 #include "CNPC.h"
-#include "Map/CMap.h"
+#include "../Map/CMap.h"
 
 #include <TinyXML2/tinyxml2.h>
 
@@ -17,6 +17,8 @@ CNPC::CNPC(NPC_DESC& desc): CCharacter()
 	m_nZ = desc.nZ;
 
 	SetDirection(desc.nDirX - desc.nX, desc.nDirY - desc.nY);
+
+	m_byKind = CK_NPC;
 }
 
 Packet CNPC::GenerateCreatePacket(bool bHero)

@@ -4,28 +4,63 @@ void CTile::Add(CCharacter *pCharacter)
 {
 	Lock();
 
-	if (m_mCharacter.find(pCharacter->GetID()) == m_mCharacter.end())
-		m_mCharacter[pCharacter->GetID()] = pCharacter;
+	switch (pCharacter->GetKind())
+	{
+		case CK_PLAYER:
+			if (m_mPlayer.find(pCharacter->GetID()) == m_mPlayer.end())
+				m_mPlayer[pCharacter->GetID()] = (CPlayer*)pCharacter;
+			break;
+
+		case CK_NPC:
+			if (m_mNPC.find(pCharacter->GetID()) == m_mNPC.end())
+				m_mNPC[pCharacter->GetID()] = (CNPC*)pCharacter;
+			break;
+	}
 
 	Unlock();
 }
 
-void CTile::Remove(int nID)
+void CTile::Remove(CCharacter *pCharacter)
 {
 	Lock();
 
-	CharacterMap::iterator it = m_mCharacter.find(nID);
-	if (it != m_mCharacter.end())
-		m_mCharacter.erase(it);
+	switch (pCharacter->GetKind())
+	{
+		case CK_PLAYER:
+		{
+			PlayerMap::iterator it = m_mPlayer.find(pCharacter->GetID());
+			if (it != m_mPlayer.end())
+				m_mPlayer.erase(it);
+			break;
+		}
+
+		case CK_NPC:
+		{
+			NPCMap::iterator it = m_mNPC.find(pCharacter->GetID());
+			if (it != m_mNPC.end())
+				m_mNPC.erase(it);
+			break;
+		}
+	}
 
 	Unlock();
 }
 
-void CTile::GetObjectListAround(CCharacter *pCharacter, int nDistance, ObjectList& list)
+void CTile::GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list)
 {
 	Lock();
 
-	for (auto& a: m_mCharacter) {
+	for (auto& a: m_mPlayer) {
+		a.second->m_Access.Grant();
+		auto pTarget = a.second;
+
+		if (pCharacter->GetDistance(pTarget) <= nDistance)
+			list.push_back(pTarget);
+		else 
+			pTarget->m_Access.Release();
+	}
+
+	for (auto& a: m_mNPC) {
 		a.second->m_Access.Grant();
 		auto pTarget = a.second;
 
@@ -42,17 +77,14 @@ void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 {
 	Lock();
 
-	for (auto& a: m_mCharacter) {
+	for (auto& a: m_mPlayer) {
 		a.second->m_Access.Grant();
 
-		if (a.second->GetKind() == CK_PLAYER) {
-			CPlayer *pPlayer = (CPlayer*)a.second;
+		CPlayer *pPlayer = (CPlayer*)a.second;
 
-			//if (abs(pPlayer->GetX() - nX) < MAX_PLAYER_SIGHT && abs(pPlayer->GetY() - nY) < MAX_PLAYER_SIGHT) {
-			if (sqrt(pow(pPlayer->GetX() - pCharacter->GetX(), 2) + pow(pPlayer->GetY() - pCharacter->GetY(), 2)) < MAX_PLAYER_SIGHT) {
-				printf("Sent to %d.\n", pPlayer->GetID());
-				pPlayer->SendPacket(packet);
-			}
+		if (sqrt(pow(pPlayer->GetX() - pCharacter->GetX(), 2) + pow(pPlayer->GetY() - pCharacter->GetY(), 2)) < MAX_PLAYER_SIGHT) {
+			printf("Sent to %d.\n", pPlayer->GetID());
+			pPlayer->SendPacket(packet);
 		}
 
 		a.second->m_Access.Release();
@@ -66,7 +98,42 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 {
 	Lock();
 
-	for (auto& a: m_mCharacter) {
+	for (auto& a: m_mPlayer) {
+		a.second->m_Access.Grant();
+
+		if (a.second->GetID() != pCharacter->GetID()) {
+			auto pCharacterEx = a.second;
+
+			switch (pCharacter->GetMoveAction(pCharacterEx, byX, byY))
+			{
+				case MV_AC_CREATE:
+				{
+					pCharacterEx->SendPacket(createPacket);
+					if (pCharacter->GetKind() == CK_PLAYER) {
+						Packet p=pCharacterEx->GenerateCreatePacket();
+						pCharacter->SendPacket(p);
+					}
+					break;
+				}
+				case MV_AC_DELETE:
+				{
+					pCharacterEx->SendPacket(deletePacket);
+					if (pCharacter->GetKind() == CK_PLAYER) {
+						Packet p=pCharacterEx->GenerateDeletePacket();
+						pCharacter->SendPacket(p);
+					}
+					break;
+				}
+				case MV_AC_MOVE:
+					pCharacterEx->SendPacket(movePacket);
+					break;
+			}
+		}
+
+		a.second->m_Access.Release();
+	}
+
+	for (auto& a: m_mNPC) {
 		a.second->m_Access.Grant();
 
 		if (a.second->GetID() != pCharacter->GetID()) {
@@ -103,48 +170,3 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 
 	Unlock();
 }
-
-/*
-void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
-	Packet &createPacket, Packet& deletePacket, Packet& movePacket)
-{
-	Lock();
-
-	for (auto& a: m_mCharacter) {
-		a.second->m_Access.Grant();
-
-		if (a.second->GetKind() == CK_PLAYER && a.second->GetID() != pCharacter->GetID()) {
-			CPlayer *pPlayer = (CPlayer*)a.second;
-
-			switch (pCharacter->GetMoveAction(pPlayer, byX, byY))
-			{
-				case MV_AC_CREATE:
-				{
-					pPlayer->SendPacket(createPacket);
-					if (pCharacter->GetKind() == CK_PLAYER) {
-						Packet p=pPlayer->GenerateCreatePacket();
-						((CPlayer*)pCharacter)->SendPacket(p);
-					}
-					break;
-				}
-				case MV_AC_DELETE:
-				{
-					pPlayer->SendPacket(deletePacket);
-					if (pCharacter->GetKind() == CK_PLAYER) {
-						Packet p=pPlayer->GenerateDeletePacket();
-						((CPlayer*)pCharacter)->SendPacket(p);
-					}
-					break;
-				}
-				case MV_AC_MOVE:
-					pPlayer->SendPacket(movePacket);
-					break;
-			}
-		}
-
-		a.second->m_Access.Release();
-	}
-
-	Unlock();
-}
-*/

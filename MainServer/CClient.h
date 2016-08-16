@@ -19,7 +19,7 @@
 #include <access.h>
 
 #include "Socket/CDBSocket.h"
-#include "CPlayer.h"
+#include "GameCharacter/CPlayer.h"
 
 class CClient
 {

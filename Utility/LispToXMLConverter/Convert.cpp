@@ -23,13 +23,17 @@ char *file_to_data(FILE *fp)
 {
 	long length=0;
 	char c=0;
-	short isInString=0, isInName=0, lastWasNum=0;
+	short isInString=0, isInName=0, lastWasNum=0, isCommentLine=0;
 
 	fseek(fp, 0, SEEK_SET);
 
 	while ((c = (char)fgetc(fp)) != EOF)
 	{
 		if (c == '"') isInString = ~isInString;
+
+		if (c == ';') isCommentLine=1;
+		if (isCommentLine && c == '\n') isCommentLine=0;
+		if (isCommentLine) continue;
 
 		if (!isInString && !lastWasNum && (c == ' '|| c == '\n' || c == '\r' || c == '\t')) continue;
 
@@ -42,10 +46,14 @@ char *file_to_data(FILE *fp)
 	fseek(fp, 0, SEEK_SET);
 	char* data = (char*)malloc(length+1);
 
-	c=0, length=0, isInString=0, lastWasNum=0;
+	c=0, length=0, isInString=0, lastWasNum=0, isCommentLine=0;
 	while ((c = (char)fgetc(fp)) != EOF)
 	{
 		if (c == '"') isInString = ~isInString;
+
+		if (c == ';') isCommentLine=1;
+		if (isCommentLine && c == '\n') isCommentLine=0;
+		if (isCommentLine) continue;
 
 		if (!isInString && !lastWasNum && (c == ' '|| c == '\n' || c == '\r' || c == '\t')) continue;
 
