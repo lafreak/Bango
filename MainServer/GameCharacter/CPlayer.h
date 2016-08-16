@@ -37,6 +37,9 @@ class CPlayer: public CCharacter
 	int m_nHonorGrade;
 	int m_nHonorOption;
 
+	int m_nOnTeleportX;
+	int m_nOnTeleportY;
+
 public:
 	CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc);
 	~CPlayer();
@@ -86,6 +89,8 @@ public:
 	void ProcessMsg(char* szMsg);
 	void ChatCommand(char* szCommand);
 	void UpdateProperty(BYTE byProperty, __int64 n64Amount);
+	void Teleport(int nX, int , int nZ=0);
+	void OnTeleport(BYTE byAnswer, int nZ);
 };
 
 #endif

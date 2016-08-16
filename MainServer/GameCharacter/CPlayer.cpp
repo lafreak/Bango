@@ -316,6 +316,16 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		case C2S_TELEPORT:
+		{
+			BYTE byAnswer=0;
+			int nZ=0;
+			CSocket::ReadPacket(packet.data, "bd", &byAnswer, &nZ);
+
+			OnTeleport(byAnswer, nZ);
+			break;
+		}
 	}
 }
 
@@ -529,21 +539,36 @@ void CPlayer::ChatCommand(char* szCommand)
 		}
 	}
 
-	if (!strcmp(token, "/npc")) {
+	else if (!strcmp(token, "/npc")) {
 		token = std::strtok(NULL, " ");
 
-		int PACKET=0;
-		int nShape=78;
+		int nShape=0;
 
+		if (token)
+			nShape = atoi(token);
+
+		WriteInSight(S2C_REMOVENPC, "d", 150000);
+		WriteInSight(S2C_CREATENPC, "dwbdddwId", 150000, 1, nShape, m_nX, m_nY, m_nZ, m_wDir, (__int64)0, (int)0);
+	}
+
+	else if (!strcmp(token, "/tp")) {
+		token = std::strtok(NULL, " ");
+
+		int nX=0, nY=0, nZ=0;
 		if (token) {
-			PACKET = atoi(token);
+			nX = atoi(token);
 			token = std::strtok(NULL, " ");
 
-			if (token)
-				nShape = atoi(token);
-		}
+			if (token) {
+				nY = atoi(token);
+				token = std::strtok(NULL, " ");
 
-		WriteInSight(PACKET, "dwbdddwId", 900, 1, nShape, m_nX, m_nY, m_nZ, m_wDir, (__int64)0, (int)0);
+				if (token)
+					nZ = atoi(token);
+
+				Teleport(nX, nY, nZ);
+			}
+		}
 	}
 }
 
@@ -616,4 +641,64 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			break;
 		}
 	}
+}
+
+void CPlayer::Teleport(int nX, int nY, int nZ)
+{
+	Lock();
+	m_nOnTeleportX = nX;
+	m_nOnTeleportY = nY;
+	Unlock();
+
+	BYTE byMap=0;
+	BYTE byCheat=0;
+	Write(S2C_TELEPORT, "bdddb", byMap, nX, nY, nZ, byCheat);
+}
+
+void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
+{
+	if (!byAnswer) {
+		printf(KRED "CPlayer::OnTeleport: Client response: cannot teleport.\n" KNRM);
+		return;
+	}
+
+	PlayerList plist;
+	CMap::GetPlayerListAround(this, MAX_PLAYER_SIGHT, plist);
+
+	Packet deletePacket = GenerateDeletePacket();
+
+	for (PlayerList::iterator it = plist.begin(); it != plist.end(); it++)
+	{
+		if ((*it)->GetID() != m_nID)
+			(*it)->SendPacket(deletePacket);
+
+		(*it)->m_Access.Release();
+	}
+
+	CMap::Remove(this);
+
+	Lock();
+
+	m_nX = m_nOnTeleportX;
+	m_nY = m_nOnTeleportY;
+	m_nZ = nZ;
+
+	Unlock();
+
+	CMap::Add(this);
+
+	CharacterList clist;
+	CMap::GetCharacterListAround(this, MAX_PLAYER_SIGHT, clist);
+
+	for (CharacterList::iterator it = clist.begin(); it != clist.end(); it++)
+	{
+		Packet createPacketEx = (*it)->GenerateCreatePacket();
+
+		SendPacket(createPacketEx);
+
+		(*it)->m_Access.Release();
+	}
+
+	Packet createPacket = GenerateCreatePacket();
+	SendPacketInSight(createPacket);
 }

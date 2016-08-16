@@ -36,6 +36,7 @@ public:
 
 	// Remember to run m_Access.Release on each used object in the list.
 	void GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list);
+	void GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list);
 
 	void SendPacket(CCharacter *pCharacter, Packet& packet);
 

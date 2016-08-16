@@ -73,6 +73,23 @@ void CTile::GetCharacterListAround(CCharacter *pCharacter, int nDistance, Charac
 	Unlock();
 }
 
+void CTile::GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list)
+{
+	Lock();
+
+	for (auto& a: m_mPlayer) {
+		a.second->m_Access.Grant();
+		auto pTarget = a.second;
+
+		if (pCharacter->GetDistance(pTarget) <= nDistance)
+			list.push_back(pTarget);
+		else 
+			pTarget->m_Access.Release();
+	}
+
+	Unlock();
+}
+
 void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 {
 	Lock();

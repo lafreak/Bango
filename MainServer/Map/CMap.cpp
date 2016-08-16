@@ -66,6 +66,19 @@ void CMap::GetCharacterListAround(CCharacter *pCharacter, int nDistance, Charact
 	}
 }
 
+void CMap::GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list)
+{
+	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
+
+	for (int i = m.wTileX-1; i <= m.wTileX+1; i++) {
+		for (int j = m.wTileY-1; j <= m.wTileY+1; j++) {
+			auto pTile = GetTile(i, j);
+			if (pTile)
+				pTile->GetPlayerListAround(pCharacter, nDistance, list);
+		}
+	}
+}
+
 MapInfo CMap::GetMapInfo(int nX, int nY)
 {
 	MapInfo mapInfo;
