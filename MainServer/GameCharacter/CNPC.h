@@ -11,10 +11,20 @@ class CNPC: public CCharacter
 	int m_nShape;
 	int m_nHtml;
 
+	static std::map<int, CNPC*> g_mNPC;
+	static std::mutex g_mxNPC;
+
 public:
 	CNPC(NPC_DESC& desc);
 
+	int GetHTML() { return m_nHtml; }
+
 	static bool LoadNPC();
+	static void Add(CNPC* pNPC);
+	static void Remove(CNPC* pNPC);
+
+	// Remember to call m_Access.Release() on found NPC.
+	static CNPC* FindNPC(int nID);
 
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GenerateDeletePacket();
@@ -22,5 +32,8 @@ public:
 
 	void SendPacket(Packet& packet) {}
 };
+
+typedef std::map<int, CNPC*> NPCMap;
+typedef std::list<CNPC*> NPCList;
 
 #endif

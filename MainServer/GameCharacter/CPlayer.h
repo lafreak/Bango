@@ -93,4 +93,7 @@ public:
 	void OnTeleport(BYTE byAnswer, int nZ);
 };
 
+typedef std::map<int, CPlayer*> PlayerMap;
+typedef std::list<CPlayer*> PlayerList;
+
 #endif

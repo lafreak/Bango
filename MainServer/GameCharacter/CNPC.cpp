@@ -5,6 +5,9 @@
 
 #include <TinyXML2/tinyxml2.h>
 
+NPCMap CNPC::g_mNPC;
+std::mutex CNPC::g_mxNPC;
+
 CNPC::CNPC(NPC_DESC& desc): CCharacter()
 {
 	m_wIndex = desc.wIndex;
@@ -77,27 +80,65 @@ bool CNPC::LoadNPC()
 		return false;
 	}
 
-	XMLElement *pNPC = pRoot->FirstChildElement("npc");
+	XMLElement *pNPCInfo = pRoot->FirstChildElement("npc");
 
-	while (pNPC != NULL)
+	while (pNPCInfo != NULL)
 	{
 		NPC_DESC desc;
 		memset(&desc, 0, sizeof(NPC_DESC));
 
-		desc.wIndex = pNPC->IntAttribute("index");
-		desc.nShape = pNPC->IntAttribute("shape");
-		desc.nHtml = pNPC->IntAttribute("html");
-		desc.nX = pNPC->IntAttribute("x");
-		desc.nY = pNPC->IntAttribute("y");
-		desc.nZ = pNPC->IntAttribute("z");
-		desc.nDirX = pNPC->IntAttribute("dirx");
-		desc.nDirY = pNPC->IntAttribute("diry");
+		desc.wIndex = pNPCInfo->IntAttribute("index");
+		desc.nShape = pNPCInfo->IntAttribute("shape");
+		desc.nHtml = pNPCInfo->IntAttribute("html");
+		desc.nX = pNPCInfo->IntAttribute("x");
+		desc.nY = pNPCInfo->IntAttribute("y");
+		desc.nZ = pNPCInfo->IntAttribute("z");
+		desc.nDirX = pNPCInfo->IntAttribute("dirx");
+		desc.nDirY = pNPCInfo->IntAttribute("diry");
 
-		auto pNPCEx = new CNPC(desc);
-		CMap::Add(pNPCEx);
+		auto pNPC = new CNPC(desc);
+		CMap::Add(pNPC);
+		CNPC::Add(pNPC);
 
-		pNPC = pNPC->NextSiblingElement("npc");
+		pNPCInfo = pNPCInfo->NextSiblingElement("npc");
 	}
 
 	return true;
+}
+
+void CNPC::Add(CNPC* pNPC)
+{
+	g_mxNPC.lock();
+
+	if (g_mNPC.find(pNPC->GetID()) == g_mNPC.end())
+		g_mNPC[pNPC->GetID()] = pNPC;
+
+	g_mxNPC.unlock();
+}
+
+void CNPC::Remove(CNPC* pNPC)
+{
+	g_mxNPC.lock();
+
+	NPCMap::iterator it = g_mNPC.find(pNPC->GetID());
+	if (it != g_mNPC.end())
+		g_mNPC.erase(it);
+
+	g_mxNPC.unlock();
+}
+
+CNPC* CNPC::FindNPC(int nID)
+{
+	CNPC *pNPC=NULL;
+
+	g_mxNPC.lock();
+
+	if (g_mNPC.find(nID) != g_mNPC.end()) {
+		pNPC = g_mNPC[nID];
+		pNPC->m_Access.Grant();
+	}
+
+	g_mxNPC.unlock();
+
+	return pNPC;
 }

@@ -326,6 +326,21 @@ void CPlayer::Process(Packet packet)
 			OnTeleport(byAnswer, nZ);
 			break;
 		}
+
+		case C2S_ASKNPC:
+		{
+			int nID=0;
+			CSocket::ReadPacket(packet.data, "d", &nID);
+
+			auto pNPC = CNPC::FindNPC(nID);
+			if (!pNPC) break;
+
+			Write(S2C_SENDHTML, "d", pNPC->GetHTML());
+
+			pNPC->m_Access.Release();
+
+			break;
+		}
 	}
 }
 

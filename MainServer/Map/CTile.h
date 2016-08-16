@@ -1,20 +1,12 @@
 #ifndef _CTILE_
 #define _CTILE_
 
-#include <map>
-#include <list>
 #include <mutex>
 #include <math.h>
 
 #include "../GameCharacter/CPlayer.h"
 #include "../GameCharacter/CNPC.h"
 
-typedef std::map<int, CCharacter*> CharacterMap;
-typedef std::map<int, CPlayer*> PlayerMap;
-typedef std::map<int, CNPC*> NPCMap;
-typedef std::list<CCharacter*> CharacterList;
-typedef std::list<CPlayer*> PlayerList;
-typedef std::list<CNPC*> NPCList;
 
 class CTile
 {

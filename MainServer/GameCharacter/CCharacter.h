@@ -4,6 +4,8 @@
 #include <string>
 #include <mutex>
 #include <math.h>
+#include <list>
+#include <map>
 
 #include <access.h>
 
@@ -133,5 +135,9 @@ public:
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
 	int  GetDistance(CCharacter *pCharacter);
 };
+
+typedef std::map<int, CCharacter*> CharacterMap;
+typedef std::list<CCharacter*> CharacterList;
+
 
 #endif
