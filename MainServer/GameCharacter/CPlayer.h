@@ -40,11 +40,20 @@ class CPlayer: public CCharacter
 	int m_nOnTeleportX;
 	int m_nOnTeleportY;
 
+	static std::map<int, CPlayer*> g_mPlayer;
+	static std::mutex g_mxPlayer;
+
 public:
 	CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc);
 	~CPlayer();
 
 	static WORD g_wDebugItems[4][8];
+
+	static void Add(CPlayer *pPlayer);
+	static void Remove(CPlayer *pPlayer);
+
+	// Remember to call m_Access.Release() after usage
+	static CPlayer* FindPlayer(int nID);
 
 	int  GetAID() const { return m_nAID; }
 	int  GetPID() const { return m_nPID; }

@@ -13,6 +13,9 @@ WORD CPlayer::g_wDebugItems[4][8] = {
 	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
 };
 
+PlayerMap CPlayer::g_mPlayer;
+std::mutex CPlayer::g_mxPlayer;
+
 CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 {
 	m_nCID = nCID;
@@ -45,6 +48,7 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 CPlayer::~CPlayer()
 {
 	CMap::Remove(this);
+	CPlayer::Remove(this);
 
 	WriteInSight(S2C_REMOVEPLAYER, "d", m_nID);
 
@@ -212,6 +216,43 @@ Packet CPlayer::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 	packet.wSize = end - ((char*)&packet);
 
 	return packet;
+}
+
+void CPlayer::Add(CPlayer *pPlayer)
+{
+	g_mxPlayer.lock();
+
+	if (g_mPlayer.find(pPlayer->GetID()) == g_mPlayer.end())
+		g_mPlayer[pPlayer->GetID()] = pPlayer;
+
+	g_mxPlayer.unlock();
+}
+
+void CPlayer::Remove(CPlayer *pPlayer)
+{
+	g_mxPlayer.lock();
+
+	PlayerMap::iterator it = g_mPlayer.find(pPlayer->GetID());
+	if (it != g_mPlayer.end())
+		g_mPlayer.erase(it);
+
+	g_mxPlayer.unlock();
+}
+
+CPlayer* CPlayer::FindPlayer(int nID)
+{
+	CPlayer *pPlayer=NULL;
+
+	g_mxPlayer.lock();
+
+	if (g_mPlayer.find(nID) != g_mPlayer.end()) {
+		pPlayer = g_mPlayer[nID];
+		pPlayer->m_Access.Grant();
+	}
+
+	g_mxPlayer.unlock();
+
+	return pPlayer;
 }
 
 void CPlayer::Process(Packet packet)
@@ -400,6 +441,7 @@ void CPlayer::OnLoadPlayer()
 	WORD wTime=1200;
 
 	CMap::Add(this);
+	CPlayer::Add(this);
 
 	Write(S2C_ANS_LOAD, "wdd", wTime, m_nX, m_nY);
 
