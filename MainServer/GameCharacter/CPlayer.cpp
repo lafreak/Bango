@@ -477,7 +477,38 @@ void CPlayer::OnLoadItems(char *p)
 		D2S_ITEMINFO_DESC desc;
 		memset(&desc, 0, sizeof(D2S_ITEMINFO_DESC));
 
-		p = CSocket::ReadPacket(p, "m", &desc, 52);
+		p = CSocket::ReadPacket(p, "dwddbbbbbbbbbbwwwwbbbbbbbbbbwdd",
+			&desc.nIID,
+			&desc.wIndex,
+			&desc.nNum,
+			&desc.nInfo,
+			&desc.byPrefix,
+			&desc.byCurEnd,
+			&desc.byMaxEnd,
+			&desc.byXAttack,
+			&desc.byXMagic,
+			&desc.byXDefense,
+			&desc.byXHit,
+			&desc.byXDodge,
+			&desc.byExplosiveBlow,
+			&desc.fuse.byLevel,
+			&desc.fuse.wMeele,
+			&desc.fuse.wMagic,
+			&desc.fuse.wDefense,
+			&desc.fuse.wAbsorb,
+			&desc.fuse.byDodge,
+			&desc.fuse.byHit,
+			&desc.fuse.byHP,
+			&desc.fuse.byMP,
+			&desc.fuse.byStats[P_STR],
+			&desc.fuse.byStats[P_HTH],
+			&desc.fuse.byStats[P_INT],
+			&desc.fuse.byStats[P_WIS],
+			&desc.fuse.byStats[P_DEX],
+			&desc.byShot,
+			&desc.wPerforation,
+			&desc.nGongLeft,
+			&desc.nGongRight);
 
 		pEnd = CSocket::WritePacket(pEnd, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
 				desc.wIndex,
@@ -500,6 +531,7 @@ void CPlayer::OnLoadItems(char *p)
 				(BYTE)0, // byRemainingSeconds??
 				(BYTE)0, // byRemainingMinutes??
 				(DWORD)0, // byRemainingHours??
+
 				desc.fuse.byLevel,
 				desc.fuse.wMeele,
 				desc.fuse.wMagic,
@@ -514,6 +546,7 @@ void CPlayer::OnLoadItems(char *p)
 				desc.fuse.byStats[P_INT],
 				desc.fuse.byStats[P_WIS],
 				desc.fuse.byStats[P_DEX],
+
 				desc.byShot,
 				desc.wPerforation,
 				desc.nGongLeft,
