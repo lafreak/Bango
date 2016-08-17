@@ -46,7 +46,7 @@ w 0
 w 0
 ;wAbsorbPercent
 w 0
-;byEvasion
+;byDodge
 b 0
 ;byHit
 b 0

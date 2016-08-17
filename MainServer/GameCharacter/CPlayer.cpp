@@ -460,6 +460,71 @@ void CPlayer::OnLoadPlayer()
 	Unlock();
 }
 
+void CPlayer::OnLoadItems(char *p)
+{
+	BYTE byCount=0;
+	p = CSocket::ReadPacket(p, "b", &byCount);
+
+	PACKETBUFFER buffer;
+	memset(&buffer, 0, sizeof(PACKETBUFFER));
+	char* pBegin = (char*)&buffer;
+	char* pEnd = pBegin;
+
+	pEnd = CSocket::WritePacket(pEnd, "b", byCount);
+
+	for (BYTE i = 0; i < byCount; i++)
+	{
+		D2S_ITEMINFO_DESC desc;
+		memset(&desc, 0, sizeof(D2S_ITEMINFO_DESC));
+
+		p = CSocket::ReadPacket(p, "m", &desc, 52);
+
+		pEnd = CSocket::WritePacket(pEnd, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
+				desc.wIndex,
+				desc.nIID,
+				desc.byPrefix,
+				desc.nInfo,
+				desc.nNum,
+				desc.byMaxEnd,
+				desc.byCurEnd,
+				(BYTE)0, // bySetGem
+				desc.byXAttack,
+				desc.byXMagic,
+				desc.byXDefense,
+				desc.byXHit,
+				desc.byXDodge,
+				(WORD)0, // wProtectNum
+				desc.byExplosiveBlow,
+				(BYTE)0, // byCorrectionAddNum
+				(BYTE)0, // 
+				(BYTE)0, // byRemainingSeconds??
+				(BYTE)0, // byRemainingMinutes??
+				(DWORD)0, // byRemainingHours??
+				desc.fuse.byLevel,
+				desc.fuse.wMeele,
+				desc.fuse.wMagic,
+				desc.fuse.wDefense,
+				desc.fuse.wAbsorb,
+				desc.fuse.byDodge,
+				desc.fuse.byHit,
+				desc.fuse.byHP,
+				desc.fuse.byMP,
+				desc.fuse.byStats[P_STR],
+				desc.fuse.byStats[P_HTH],
+				desc.fuse.byStats[P_INT],
+				desc.fuse.byStats[P_WIS],
+				desc.fuse.byStats[P_DEX],
+				desc.byShot,
+				desc.wPerforation,
+				desc.nGongLeft,
+				desc.nGongRight);
+	}
+
+	Write(S2C_ITEMINFO, "m", pBegin, pEnd - pBegin);
+
+	printf("Items loaded.\n");
+}
+
 void CPlayer::GameStart()
 {
 	Packet createPacket 	= GenerateCreatePacket();
@@ -646,23 +711,6 @@ void CPlayer::ChatCommand(char* szCommand)
 			wIndex = atoi(token);
 
 		int nIID = rand() % 30000;
-		BYTE byPrefix=86;
-		int nInfo = 128;
-		int nNum=2;
-		BYTE bySetGem=0;
-		BYTE byMaxEnd=80;
-		BYTE byCurEnd=78;
-		BYTE byXAttack=13;
-		BYTE byXMagic=14;
-		BYTE byXDefense=3;
-		BYTE byXHit=4;
-		BYTE byXDodge=1;
-		WORD wProtectNum=0;
-		BYTE byWeaponLevel=8;
-		BYTE byCorrectionAddNum=0;
-		int nItemPassNum=0;
-		DWORD dwStealthLimitTime=0;
-		DWORD dwStealthLimitTimeCount=0;
 
 		printf("About to send S2C_INSERTITEM.\n");
 		/*

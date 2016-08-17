@@ -41,6 +41,7 @@ public:
 	void 		SetSecondary(std::string szSecondary) { m_szSecondary = szSecondary; }
 
 	void SendPlayerInfo();
+	void SendItemInfo(int nPID);
 };
 
 #endif

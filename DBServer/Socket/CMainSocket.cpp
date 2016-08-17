@@ -377,7 +377,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 			CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
 				rs->getInt("idaccount"), 
-				rs->getInt("idplayer"), 
+				nPID, 
 				rs->getString("name").c_str(),
 				rs->getInt("class"), 
 				rs->getInt("job"), 
@@ -399,6 +399,8 @@ PVOID CMainSocket::Process(PVOID param)
 				rs->getInt("z"),
 				rs->getInt("face"),
 				rs->getInt("hair"));
+
+			pAccount->SendItemInfo(nPID);
 
 			pAccount->m_Access.Release();
 			break;

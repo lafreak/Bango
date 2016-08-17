@@ -27,6 +27,7 @@ void CAccount::SendPlayerInfo()
 	BYTE byCount = rs->rowsCount();
 
 	PACKETBUFFER buffer;
+	memset(&buffer, 0, sizeof(PACKETBUFFER));
 	char* pBegin = (char*)&buffer;
 	char* p = pBegin;
 	
@@ -48,4 +49,69 @@ void CAccount::SendPlayerInfo()
 	CMainSocket::Write(D2S_PLAYER_INFO, "dm", m_nClientID, pBegin, p - pBegin);
 
 	printf("D2S_PLAYER_INFO sent.\n");
+}
+
+void CAccount::SendItemInfo(int nPID)
+{
+	pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+		"SELECT * FROM item WHERE idplayer=?"));
+	pPStmt->setInt(1, nPID);
+	rs_ptr rs(pPStmt->executeQuery());
+
+	printf("About to send %li item rows.\n", rs->rowsCount());
+
+	PACKETBUFFER buffer;
+	memset(&buffer, 0, sizeof(PACKETBUFFER));
+	char* pBegin = (char*)&buffer;
+	char* p = pBegin;
+
+	p = CSocket::WritePacket(p, "b", rs->rowsCount());
+
+	BYTE byLimit = MAX_INVENTORYEX;
+	while (rs->next())
+	{
+		if (byLimit-- <= 0) {
+			printf(KRED "Player inventory exceeded.\n" KNRM);
+			break;
+		}
+
+		// 52 BYTE
+		p = CSocket::WritePacket(p, "dwddbbbbbbbbbbwwwwbbbbbbbbbbwdd",
+			rs->getInt("iditem"),
+			rs->getInt("index"),
+			rs->getInt("num"),
+			rs->getInt("info"),
+			rs->getInt("prefix"),
+			rs->getInt("curend"),
+			rs->getInt("maxend"),
+			rs->getInt("xattack"),
+			rs->getInt("xmagic"),
+			rs->getInt("xdefense"),
+			rs->getInt("xhit"),
+			rs->getInt("xdodge"),
+			rs->getInt("explosiveblow"),
+			rs->getInt("fusion"),
+			rs->getInt("fmeele"),
+			rs->getInt("fmagic"),
+			rs->getInt("fdefense"),
+			rs->getInt("fabsorb"),
+			rs->getInt("fevasion"),
+			rs->getInt("fhit"),
+			rs->getInt("fhp"),
+			rs->getInt("fmp"),
+			rs->getInt("fstr"),
+			rs->getInt("fhth"),
+			rs->getInt("fint"),
+			rs->getInt("fwis"),
+			rs->getInt("fdex"),
+			rs->getInt("shot"),
+			rs->getInt("perforation"),
+			rs->getInt("gongleft"),
+			rs->getInt("gongright"));
+	}
+
+	// 52 * 72 + 3 + 4 + 1 = 3752 BYTE MAX
+	CMainSocket::Write(D2S_LOADITEMS, "dm", m_nClientID, pBegin, p - pBegin);
+
+	printf("D2S_LOADITEMS sent.\n");
 }

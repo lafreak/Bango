@@ -60,7 +60,6 @@ CREATE TABLE item (
 	xhit TINYINT NOT NULL DEFAULT 0,
 	xdodge TINYINT NOT NULL DEFAULT 0,
 	explosiveblow TINYINT NOT NULL DEFAULT 0,
-	password VARCHAR(30),
 	fusion TINYINT NOT NULL DEFAULT 0,
 	fmeele SMALLINT NOT NULL DEFAULT 0,
 	fmagic SMALLINT NOT NULL DEFAULT 0,
@@ -76,7 +75,7 @@ CREATE TABLE item (
 	fwis TINYINT NOT NULL DEFAULT 0,
 	fdex TINYINT NOT NULL DEFAULT 0,
 	shot TINYINT NOT NULL DEFAULT 0,
-	perforation TINYINT NOT NULL DEFAULT 0,
+	perforation SMALLINT NOT NULL DEFAULT 0,
 	gongleft INT NOT NULL DEFAULT 0,
 	gongright INT NOT NULL DEFAULT 0,
 
@@ -91,4 +90,88 @@ INSERT INTO account (login, password, secondary)
 	('qwe1', 'asd', '00000000')
 ;
 
-	
+INSERT INTO player (idaccount, name, class, strength, health, inteligence, wisdom, dexterity, curhp, curmp, face, hair)
+	VALUES
+	(1, 'test', 0, 18, 21, 8, 8, 10, 200, 200, 1, 1);
+
+INSERT INTO item (idplayer, `index`)
+	VALUES
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+	(1, 1124),
+
+	(1, 1124),
+	(1, 1124);

@@ -1,6 +1,6 @@
 #include "CDBSocket.h"
 #include "../CServer.h"
-#include "../CItem.h"
+#include "../Item/CItem.h"
 
 SOCKET CDBSocket::g_pDBSocket = INVALID_SOCKET;
 
@@ -156,9 +156,27 @@ PVOID CDBSocket::Process(PVOID param)
 			break;
 		}
 
+		case D2S_LOADITEMS:
+		{
+			int nClientID=0;
+
+			char* p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+
+			CClient *pClient = CServer::FindClient(nClientID);
+			if (!pClient) break;
+
+			printf("Packet LOADITEMS received, size: %d\n", packet->wSize);
+			pClient->OnLoadItems(p);
+
+			pClient->m_Access.Release();
+
+			break;
+		}
+
 		case D2S_MAX_IID:
 		{
 			CSocket::ReadPacket(packet->data, "d", &CItem::g_nMaxIID);
+			break;
 		}
 	}
 

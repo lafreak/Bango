@@ -325,3 +325,12 @@ void CClient::OnLoadPlayer(char *p)
 
 	m_pPlayer->m_Access.Release();
 }
+
+void CClient::OnLoadItems(char *p)
+{
+	if (!m_pPlayer) return;
+
+	m_pPlayer->m_Access.Grant();
+	m_pPlayer->OnLoadItems(p);
+	m_pPlayer->m_Access.Release();
+}

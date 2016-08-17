@@ -59,6 +59,7 @@ public:
 
 	void OnLogin(char *p);
 	void OnLoadPlayer(char *p);
+	void OnLoadItems(char *p);
 };
 
 #endif

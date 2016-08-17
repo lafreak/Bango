@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include "CCharacter.h"
+#include "../Item/CItem.h"
 
 
 class CPlayer: public CCharacter
@@ -91,6 +92,7 @@ public:
 	void Process(Packet packet);
 
 	void OnLoadPlayer();
+	void OnLoadItems(char *p);
 	void GameStart();
 	void GameRestart();
 	bool CanMove();

@@ -136,6 +136,26 @@ struct D2S_LOADPLAYER_DESC
 	const char* szName;
 };
 
+struct FUSION_DESC
+{
+	BYTE byLevel;
+	WORD wMeele, wMagic, wDefense, wAbsorb;
+	BYTE byDodge, byHit, byHP, byMP;
+	BYTE byStats[5];
+};
+
+struct D2S_ITEMINFO_DESC
+{
+	int nIID;
+	WORD wIndex;
+	int nNum, nInfo;
+	BYTE byPrefix, byCurEnd, byMaxEnd, byXAttack, byXMagic, byXDefense, byXHit, byXDodge, byExplosiveBlow;
+	FUSION_DESC fuse;
+	BYTE byShot;
+	WORD wPerforation;
+	int nGongLeft, nGongRight;
+};
+
 //#if defined( MAINSVR) || defined( DBSVR)
 
 struct BASEPROPERTY
