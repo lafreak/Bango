@@ -122,6 +122,27 @@ char* CSocket::WritePacket(char* packet, const char* format, ...)
 	return packet;
 }
 
+char* CSocket::WritePacketFromFile(char* packet, const char* fileName)
+{
+	std::ifstream f(fileName);
+	char *p = packet;
+
+	std::string line;
+	while (std::getline(f, line))
+	{
+		if (line.empty() || line[0] == ';') continue;
+
+		std::istringstream iss(line);
+
+		char format[2]={0,};
+		__int64 value=0;
+		if (!(iss >> format[0] >> value)) continue;
+
+		p = WritePacket(p, format, value);
+	}
+
+	return p;
+}
 
 char* CSocket::ReadPacket(char* packet, const char* format, ...)
 {

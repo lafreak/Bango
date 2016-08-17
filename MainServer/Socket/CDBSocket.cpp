@@ -1,5 +1,6 @@
 #include "CDBSocket.h"
 #include "../CServer.h"
+#include "../CItem.h"
 
 SOCKET CDBSocket::g_pDBSocket = INVALID_SOCKET;
 
@@ -27,6 +28,8 @@ bool CDBSocket::Connect(WORD wPort)
 
 	pthread_t t;
 	pthread_create(&t, NULL, &CDBSocket::Await, NULL);
+
+	CDBSocket::Write(S2D_MAX_IID, "");
 
 	return true;
 }
@@ -151,6 +154,11 @@ PVOID CDBSocket::Process(PVOID param)
 
 			pClient->m_Access.Release();
 			break;
+		}
+
+		case D2S_MAX_IID:
+		{
+			CSocket::ReadPacket(packet->data, "d", &CItem::g_nMaxIID);
 		}
 	}
 

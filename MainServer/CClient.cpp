@@ -78,7 +78,7 @@ void CClient::Process(Packet packet)
 			DWORD dwEvent=0;
 			BYTE byServerID=0;
 			BYTE byAge=0;
-			BYTE byCountry=0;
+			BYTE byCountry=N_EN;
 
 			Write(S2C_CODE, "dbdddIbbb", dwProtocolVersion, byCode, nTimeStamp, nTimeStart, dwSystem, dwEvent, byServerID, byAge, byCountry);
 			printf("S2C_CODE sent.\n");

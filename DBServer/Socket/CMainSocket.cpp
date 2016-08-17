@@ -444,6 +444,23 @@ PVOID CMainSocket::Process(PVOID param)
 
 			break;
 		}
+
+		case S2D_MAX_IID:
+		{
+			printf("S2D_MAX_IID.\n");
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"SELECT COALESCE(MAX(iditem), -2147483648) AS max_id FROM item"));
+
+			rs_ptr rs(pPStmt->executeQuery());
+			rs->next();
+
+			int nMaxIID = rs->getInt("max_id");
+			
+			CMainSocket::Write(D2S_MAX_IID, "d", nMaxIID);
+
+			break;
+		}
 	}
 
 	CDatabase::Unlock();

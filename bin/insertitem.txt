@@ -1,0 +1,92 @@
+;byPrefix
+b 0
+;nInfo
+d 0
+;nNum
+d 1
+;byMaxEnd
+b 31
+;byCurEnd
+b 29
+;bySetGem
+b 0
+;byXAttack
+b 0
+;byXMagic
+b 0
+;byXDefense
+b 0
+;byXHit
+b 0
+;byXDodge
+b 0
+;wProtectNum
+w 0
+;byWeaponLevel
+b 0
+;byCorrectionAddNum
+b 0
+
+b 1
+
+;byRemainingSeconds??
+b 1
+;byRemainingMinutes??
+b 1
+;byRemainingHours??
+d 1
+
+;byFusionGrade
+b 0
+;wMeele
+w 0
+;wMagic
+w 0
+;wDefensePercent
+w 0
+;wAbsorbPercent
+w 0
+;byEvasion
+b 0
+;byHit
+b 0
+;byHP
+b 0
+;byMP
+b 0
+;byStr
+b 0
+;byHth
+b 0
+;byInt
+b 0
+;byWis
+b 0
+;byDex
+b 0
+
+;byShots
+b 0
+
+;wPerfState
+w 0
+;nLeftGong
+d 0
+;nRightGong
+d 0
+
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0
+w 0

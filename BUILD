@@ -14,6 +14,7 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/main.o DBServer/main.cpp
 g++ --std=c++11 -pthread -o bin/DBServer bin/obj/CSocket.o bin/obj/CAccount.o bin/obj/CServer.o bin/obj/CDatabase.o bin/obj/CMainSocket.o bin/obj/main.o -lmysqlcppconn
 
 # MainServer
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CItem.o MainServer/CItem.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClient.o MainServer/CClient.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CCharacter.o MainServer/GameCharacter/CCharacter.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CPlayer.o MainServer/GameCharacter/CPlayer.cpp
@@ -25,4 +26,4 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CDBSocket.o MainServer/Socket
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClientSocket.o MainServer/Socket/CClientSocket.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/main.o MainServer/main.cpp
 
-g++ --std=c++11 -pthread -o bin/MainServer bin/obj/tinyxml2.o bin/obj/CSocket.o bin/obj/CClient.o bin/obj/CCharacter.o bin/obj/CPlayer.o bin/obj/CNPC.o bin/obj/CTile.o bin/obj/CMap.o bin/obj/CServer.o bin/obj/CDBSocket.o bin/obj/CClientSocket.o bin/obj/main.o
+g++ --std=c++11 -pthread -o bin/MainServer bin/obj/tinyxml2.o bin/obj/CSocket.o bin/obj/CItem.o bin/obj/CClient.o bin/obj/CCharacter.o bin/obj/CPlayer.o bin/obj/CNPC.o bin/obj/CTile.o bin/obj/CMap.o bin/obj/CServer.o bin/obj/CDBSocket.o bin/obj/CClientSocket.o bin/obj/main.o

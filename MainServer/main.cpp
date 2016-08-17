@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "Socket/CClientSocket.h"
 #include "Socket/CDBSocket.h"
 
@@ -6,6 +8,8 @@
 
 int main()
 {
+	srand(time(NULL));
+
 	if (!CDBSocket::Connect(2999))
 		return 1;
 

@@ -382,6 +382,16 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		case C2S_TRASHITEM:
+		{
+			int nIID=0;
+			CSocket::ReadPacket(packet.data, "d", &nIID);
+
+			Write(S2C_TRASHITEM, "d", nIID);
+
+			break;
+		}
 	}
 }
 
@@ -626,6 +636,52 @@ void CPlayer::ChatCommand(char* szCommand)
 				Teleport(nX, nY, nZ);
 			}
 		}
+	}
+
+	else if (!strcmp(token, "/item")) {
+		token = std::strtok(NULL, " ");
+
+		WORD wIndex=447;
+		if (token) 
+			wIndex = atoi(token);
+
+		int nIID = rand() % 30000;
+		BYTE byPrefix=86;
+		int nInfo = 128;
+		int nNum=2;
+		BYTE bySetGem=0;
+		BYTE byMaxEnd=80;
+		BYTE byCurEnd=78;
+		BYTE byXAttack=13;
+		BYTE byXMagic=14;
+		BYTE byXDefense=3;
+		BYTE byXHit=4;
+		BYTE byXDodge=1;
+		WORD wProtectNum=0;
+		BYTE byWeaponLevel=8;
+		BYTE byCorrectionAddNum=0;
+		int nItemPassNum=0;
+		DWORD dwStealthLimitTime=0;
+		DWORD dwStealthLimitTimeCount=0;
+
+		printf("About to send S2C_INSERTITEM.\n");
+		/*
+		Write(S2C_INSERTITEM, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd", wIndex, nIID, byPrefix, nInfo, nNum,
+			bySetGem, byMaxEnd, byCurEnd, byXAttack, byXMagic, byXDefense, byXHit, byXDodge, wProtectNum,
+			byWeaponLevel, byCorrectionAddNum, (BYTE)0, (BYTE)0, (BYTE)0, (DWORD)0, (BYTE)0,
+			(WORD)0, (WORD)0, (WORD)0, (WORD)0,
+			(BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0,
+			(WORD)0, (DWORD)0, (DWORD)0);
+		*/
+
+		Packet packet;
+		packet.byType = S2C_INSERTITEM;
+
+		char *end = CSocket::WritePacket(packet.data, "wd", wIndex, nIID);
+		end = CSocket::WritePacketFromFile(end, "insertitem.txt");
+
+		packet.wSize = end - ((char*)&packet);
+		SendPacket(packet);
 	}
 }
 
