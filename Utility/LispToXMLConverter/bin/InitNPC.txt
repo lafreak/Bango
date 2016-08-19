@@ -1,16 +1,5 @@
 ;06-03-2007 Version  beta
 
-
-(npc (kind 0) (move 0))
-(npc (kind 1) (move 1))
-(npc (kind 2) (move 1))
-(npc (kind 3) (move 0))
-(npc (kind 4) (move 0))
-(npc (kind 5) (move 0))
-(npc (kind 6) (move 0))
-(npc (kind 7) (move 0))
-(npc (kind 8) (move 0))
-
 ; Weapon Merchant, Goo-Deuk
 (gennpc (index 1) (country 2) (kind 0) (shape 3) (html 1) (map 0) (xy 257491 258584 16120) (dir 254491 257584))
 
@@ -1268,28 +1257,3 @@
 
 ; Mixmaster 
 (gennpc (index 477) (country 2) (kind 5) (shape 36) (html 277) (map 0) (xy 256346 288898 27059) (dir 256377 288899))
-
-; ToP f10 gate
-(gennpc (index 561) (country 2) (kind 3) (shape 67) (quest 9000 1 ) (map 21) (xy 117338 35712 27399) (dir 117336 36797))
-
-;Managerial officer for Tower of Priest [Moon-yong]
-(gennpc (index 652) (country 2) (kind 5) (shape 5) (html ) (map 21) (xy 117415 35509 27399) (dir 117415 35500))
-
-; Position Stone
-(gennpc (index 658) (country 2) (kind 5) (shape 68) (html ) (map 11) (xy 70176 51360 24094) (dir 70176 51360))
-
-; Position Stone
-(gennpc (index 659) (country 2) (kind 5) (shape 68) (html ) (map 22) (xy 118153 51856 22589) (dir 118153 51856))
-
-; Position Stone
-(gennpc (index 660) (country 2) (kind 5) (shape 68) (html ) (map 24) (xy 150674 52056 23603) (dir 150803 51927))
-
-; Position Stone
-(gennpc (index 661) (country 2) (kind 5) (shape 68) (html ) (map 17) (xy 71161 37752 39462) (dir 71161 37752))
-
-; Position Stone
-(gennpc (index 662) (country 2) (kind 5) (shape 68) (html ) (map 15) (xy 87545 39745 39460) (dir 87545 39745))
-
-; Position Stone
-(gennpc (index 663) (country 2) (kind 5) (shape 68) (html ) (map 18) (xy 102665 39378 21436) (dir 102665 39378))
-

@@ -2,7 +2,7 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CSocket.o include/Socket/CSoc
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/tinyxml2.o include/TinyXML2/tinyxml2.cpp
 
 # LispToXMLConverter
-g++ --std=c++11 -I include/ -o Utility/LispToXMLConverter/bin/Convert bin/obj/tinyxml2.o Utility/LispToXMLConverter/Convert.cpp
+g++ --std=c++11 -I include/ -o Utility/LispToXMLConverter/bin/Convert bin/obj/tinyxml2.o Utility/LispToXMLConverter/ConvertC++.cpp
 
 # DBServer
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CAccount.o DBServer/CAccount.cpp

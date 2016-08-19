@@ -125,7 +125,7 @@ Node* parse_data(char *data, const char *name)
 				
 				memcpy(node_name, data+start, len-strlen(node_start));
 
-				//printf("Parsing node name <%s>: [%s]\n", node_name, node+len-strlen(node_start));
+				printf("Parsing node name <%s>: [%s]\n", node_name, node+len-strlen(node_start));
 				Node *child = parse_data(node+len-strlen(node_start), node_name);
 
 				if (n->child)
@@ -200,7 +200,7 @@ short parse_init_file(FILE *fp, Node *root)
 	char *data = file_to_data(fp);
 	if (!data) return -1;
 
-	//printf("Data:\n%s\n", data);
+	printf("Data:\n%s\n", data);
 	Node *newroot = parse_data(data, "root");
 	memcpy(root, newroot, sizeof(struct node));
 
@@ -320,6 +320,87 @@ void initnpc_to_xml(Node *n, const char* outputPath)
 	printf("Converting succeeded.\n");
 }
 
+void inititem_to_xml(Node *n, const char* outputPath)
+{
+	FILE *fp = fopen(outputPath, "w+");
+	if (!fp) {
+		printf("Cannot create %s.\n", outputPath);
+		return;
+	}
+
+	fprintf(fp, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><itemlist></itemlist>");
+
+	fclose(fp);
+
+	XMLDocument doc;
+
+	if (doc.LoadFile(outputPath) != XML_SUCCESS)
+	{
+		printf("Cannot open %s. (%s)\n", outputPath, doc.ErrorName());
+		return;
+	}
+	
+	XMLElement *pRoot = doc.RootElement();
+	if (!pRoot)
+	{
+		printf("Can't find root.\n");
+		return;
+	}
+
+	pRoot->DeleteChildren();
+
+	Node *temp = n->child;
+
+	while (temp != NULL)
+	{
+		if (temp->child) {
+			Node *tmpprop = temp->child;
+
+			XMLElement *pEle = doc.NewElement("npc")->ToElement();
+
+			while (tmpprop != NULL)
+			{
+				if (!strcmp(tmpprop->name, "index")) {
+					pEle->SetAttribute("index", tmpprop->num);
+				}
+				else if (!strcmp(tmpprop->name, "shape"))
+					pEle->SetAttribute("shape", tmpprop->num);
+				else if (!strcmp(tmpprop->name, "html"))
+					pEle->SetAttribute("html", tmpprop->num);
+				else if (!strcmp(tmpprop->name, "xy")) {
+					char *token = std::strtok(tmpprop->data, " ");
+					if (token) {
+						pEle->SetAttribute("x", atoi(token));
+						token = std::strtok(NULL, " ");
+						if (token) {
+							pEle->SetAttribute("y", atoi(token));
+							token = std::strtok(NULL, " ");
+							if (token) pEle->SetAttribute("z", atoi(token));
+						}
+					}
+				}
+				else if (!strcmp(tmpprop->name, "dir")) {
+					char *token = std::strtok(tmpprop->data, " ");
+					if (token) {
+						pEle->SetAttribute("dirx", atoi(token));
+						token = std::strtok(NULL, " ");
+						if (token) pEle->SetAttribute("diry", atoi(token));
+					}
+				}
+
+				tmpprop = tmpprop->right;
+			}
+
+			pRoot->InsertEndChild(pEle);
+		}
+
+		temp = temp->right;
+	}
+
+	doc.SaveFile(outputPath);
+	printf("Converting succeeded.\n");
+}
+
 int main(int argc, char** argv)
 {
 	if (argc < 4) {
@@ -334,8 +415,12 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
+	printf("Loaded.\n");
+
 	if (!strcmp(argv[1], "InitNPC"))
 		initnpc_to_xml(&root, argv[3]);
+	//else if (!strcmp(argv[1], "InitItem"))
+	//	inititem_to_xml(&root, argv[3]);
 	else
 		printf("%s is not available.\n", argv[1]);
 

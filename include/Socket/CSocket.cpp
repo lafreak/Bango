@@ -184,14 +184,6 @@ char* CSocket::ReadPacket(char* packet, const char* format, ...)
                 while (*packet++) {}
             }
             break;
-        case 'm':
-        	{
-        		char *ptr = va_arg(va, char *);
-				int	size = va_arg(va, int);
-				memcpy(ptr, packet, size);
-				packet += size;
-        	}
-        	break;
 		case 0:
 		default:
 			return packet;

@@ -42,6 +42,9 @@ class CPlayer: public CCharacter
 	int m_nOnTeleportX;
 	int m_nOnTeleportY;
 
+	ItemMap m_mItem;
+	std::mutex m_mxItem;
+
 	static std::map<int, CPlayer*> g_mPlayer;
 	static std::mutex g_mxPlayer;
 
