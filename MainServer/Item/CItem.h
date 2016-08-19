@@ -6,6 +6,8 @@
 #include <minwindef.h>
 #include <common.h>
 
+#include "../Macro/CMacroDB.h"
+
 class CItem
 {
 protected:

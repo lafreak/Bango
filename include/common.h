@@ -1079,6 +1079,7 @@ enum PLAYER_CLASS
 	//PC_TALISMAN,
 	//PC_SPIRITKNIGHT,
 	//PC_MONK,
+	PC_ALL = 20, // ex
 };
 
 // Item Class
@@ -1091,6 +1092,7 @@ enum ITEM_CLASS
 	IC_QUEST,
 	IC_MONEY,
 	IC_TRANSFORM,
+	IC_PET, // =?
 };
 
 enum ITEM_SUBCLASS
@@ -1117,7 +1119,10 @@ enum ITEM_SUBCLASS
 	ISC_COCOON,
 	ISC_MASK,
 	ISC_SWORD2HAND,
-	ISC_STANDARD,	
+	ISC_STANDARD,
+
+	ISC_DAGGER = 27,
+	ISC_FISH, // =?
 };
 
 // Resist Type

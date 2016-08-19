@@ -764,6 +764,24 @@ void CPlayer::ChatCommand(char* szCommand)
 		packet.wSize = end - ((char*)&packet);
 		SendPacket(packet);
 	}
+
+	else if (!strcmp(token, "/macro")) {
+		token = std::strtok(NULL, " ");
+
+		WORD wIndex=447;
+		if (token) 
+			wIndex = atoi(token);
+
+		CItemInfo* pItemInfo = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, wIndex);
+		if (pItemInfo)
+			printf("Index: %d, Item Class: %d, Item Sub Class: %d, Player Class: %d, Sell Price %d\n", 
+				pItemInfo->m_wIndex,
+				pItemInfo->m_byClass,
+				pItemInfo->m_bySubClass,
+				pItemInfo->m_byReqClass,
+				pItemInfo->m_nSell);
+		else printf("Can't find iteminfo.\n");
+	}
 }
 
 void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)

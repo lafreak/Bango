@@ -5,6 +5,7 @@
 
 #include "Map/CMap.h"
 #include "GameCharacter/CNPC.h"
+#include "Macro/CMacroDB.h"
 
 int main()
 {
@@ -14,6 +15,9 @@ int main()
 		return 1;
 
 	if (!CClientSocket::Start(3000))
+		return 1;
+
+	if (!CMacroDB::Initialize())
 		return 1;
 
 	printf("Loading Maps...\n");
