@@ -463,6 +463,123 @@ PVOID CMainSocket::Process(PVOID param)
 
 			break;
 		}
+
+		case S2D_INSERTITEM:
+		{
+			printf("S2D_INSERTITEM.\n");
+
+			int nPID=0;
+			int unkn;
+			WORD wIndex=0;
+			int nIID=0;
+			BYTE byPrefix=0;
+			int nInfo=0, nNum=0;
+			BYTE byMaxEnd=0, byCurEnd=0;
+			BYTE byXAttack=0, byXMagic=0, byXDefense=0, byXHit=0, byXDodge=0, byExplosiveBlow=0;
+			BYTE byFLevel=0;
+			WORD wFMeele=0, wFMagic=0, wFDefense=0, wFAbsorb=0;
+			BYTE byFDodge=0, byFHit=0, byFHP=0, byFMP=0;
+			BYTE byFStats[5] = {0,};
+			BYTE byShot=0;
+			WORD wPerforation=0;
+			int nGongLeft=0, nGongRight=0;
+
+			CSocket::ReadPacket(packet->data, "dwdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd", &nPID,
+				&wIndex,
+				&nIID,
+				&byPrefix,
+				&nInfo,
+				&nNum,
+				&byMaxEnd,
+				&byCurEnd,
+				&unkn,
+				&byXAttack,
+				&byXMagic,
+				&byXDefense,
+				&byXHit,
+				&byXDodge,
+				&unkn,
+				&byExplosiveBlow,
+				&unkn, &unkn, &unkn, &unkn, &unkn,
+				&byFLevel,
+				&wFMeele,
+				&wFMagic,
+				&wFDefense,
+				&wFAbsorb,
+				&byFDodge,
+				&byFHit,
+				&byFHP,
+				&byFMP,
+				&byFStats[P_STR],
+				&byFStats[P_HTH],
+				&byFStats[P_INT],
+				&byFStats[P_WIS],
+				&byFStats[P_DEX],
+				&byShot,
+				&wPerforation,
+				&nGongLeft,
+				&nGongRight);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"INSERT INTO item (idplayer, `index`, prefix, info, num, maxend, curend, xattack, xmagic, xdefense, xhit, xdodge, explosiveblow, "
+				"fusion, fmeele, fmagic, fdefense, fabsorb, fevasion, fhit, fhp, fmp, fstr, fhth, fint, fwis, fdex, shot, perforation, gongleft, gongright, iditem) "
+				"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"));
+			pPStmt->setInt(1, nPID);
+			pPStmt->setInt(2, wIndex);
+			pPStmt->setInt(3, byPrefix);
+			pPStmt->setInt(4, nInfo);
+			pPStmt->setInt(5, nNum);
+			pPStmt->setInt(6, byMaxEnd);
+			pPStmt->setInt(7, byCurEnd);
+			pPStmt->setInt(8, byXAttack);
+			pPStmt->setInt(9, byXMagic);
+			pPStmt->setInt(10, byXDefense);
+			pPStmt->setInt(11, byXHit);
+			pPStmt->setInt(12, byXDodge);
+			pPStmt->setInt(13, byExplosiveBlow);
+			pPStmt->setInt(14, byFLevel);
+			pPStmt->setInt(15, wFMeele);
+			pPStmt->setInt(16, wFMagic);
+			pPStmt->setInt(17, wFDefense);
+			pPStmt->setInt(18, wFAbsorb);
+			pPStmt->setInt(19, byFDodge);
+			pPStmt->setInt(20, byFHit);
+			pPStmt->setInt(21, byFHP);
+			pPStmt->setInt(22, byFMP);
+			pPStmt->setInt(23, byFStats[P_STR]);
+			pPStmt->setInt(24, byFStats[P_HTH]);
+			pPStmt->setInt(25, byFStats[P_INT]);
+			pPStmt->setInt(26, byFStats[P_WIS]);
+			pPStmt->setInt(27, byFStats[P_DEX]);
+			pPStmt->setInt(28, byShot);
+			pPStmt->setInt(29, wPerforation);
+			pPStmt->setInt(30, nGongLeft);
+			pPStmt->setInt(31, nGongRight);
+			pPStmt->setInt(32, nIID);
+
+			pPStmt->execute();
+
+			break;
+		}
+
+		case S2D_UPDATEITEMNUM:
+		{
+			printf("S2D_UPDATEITEMNUM.\n");
+
+			int nIID=0, nNum=0;
+			BYTE byLogType=0;
+
+			CSocket::ReadPacket(packet->data, "ddb", &nIID, &nNum, &byLogType);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE item SET num=? WHERE iditem=?"));
+			pPStmt->setInt(1, nNum);
+			pPStmt->setInt(2, nIID);
+
+			pPStmt->execute();
+
+			break;
+		}
 	}
 
 	CDatabase::Unlock();

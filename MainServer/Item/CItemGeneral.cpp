@@ -1,6 +1,5 @@
 #include "CItemGeneral.h"
 
-CItemGeneral::CItemGeneral(D2S_ITEMINFO_DESC& desc)
+CItemGeneral::CItemGeneral(ITEMINFO_DESC& desc): CItem(desc)
 {
-	m_byKind = IC_GENERAL;
 }

@@ -2,26 +2,44 @@
 #define _CITEM_
 
 #include <map>
+#include <unistd.h>
+#include <mutex>
 
 #include <minwindef.h>
 #include <common.h>
+
+#include <access.h>
 
 #include "../Macro/CMacroDB.h"
 
 class CItem
 {
 protected:
-	int m_nIID;
-	int m_nInfo;
+	ITEMINFO_DESC m_desc;
+	CItemInfo* m_pMacro;
 
-	BYTE m_byKind;
+	std::mutex m_mxThis;
 
 public:
 	static int g_nMaxIID;
+	static std::mutex g_mxMaxIID;
+	static int NewIID();
 
-	int GetIID() { return m_nIID; }
-	int GetInfo() { return m_nInfo; }
-	BYTE GetKind() { return m_byKind; }
+	Access m_Access;
+
+	CItem(ITEMINFO_DESC& desc);
+	~CItem();
+
+	int GetIID() { return m_desc.nIID; }
+	int GetInfo() { return m_desc.nInfo; }
+	int GetNum() { return m_desc.nNum; }
+	void SetNum(int nNum) { m_desc.nNum = nNum; }
+	WORD GetIndex() { return m_desc.wIndex; }
+
+	void Lock() { m_mxThis.lock(); }
+	void Unlock() { m_mxThis.unlock(); }
+
+	static CItem* CreateItem(ITEMINFO_DESC& desc);
 };
 
 typedef std::map<int, CItem*> ItemMap;

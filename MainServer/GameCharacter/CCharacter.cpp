@@ -1,15 +1,27 @@
 #include "CCharacter.h"
 
 int CCharacter::g_nID = 1;
+std::mutex CCharacter::g_mxID;
 
 CCharacter::CCharacter(): m_Access()
 {
-	m_nID = CCharacter::g_nID++;
+	m_nID = NewID();//CCharacter::g_nID++;
 
 	m_n64GState = 0;
 	m_n64MState = 0;
 	m_n64GStateEx = 0;
 	m_n64MStateEx = 0;
+}
+
+int CCharacter::NewID()
+{
+	g_mxID.lock();
+
+	int nID = g_nID++;
+	
+	g_mxID.unlock();
+
+	return nID;
 }
 
 WORD CCharacter::GetMaxHP() const

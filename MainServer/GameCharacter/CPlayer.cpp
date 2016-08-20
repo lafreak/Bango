@@ -47,6 +47,8 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 
 CPlayer::~CPlayer()
 {
+	FreeItems();
+
 	CMap::Remove(this);
 	CPlayer::Remove(this);
 
@@ -56,6 +58,78 @@ CPlayer::~CPlayer()
 		printf("CPlayer::~CPlayer: Player is in use, can't delete! Retrying in 10ms...\n");
 		usleep(10000);
 	}
+}
+
+void CPlayer::Add(CItem* pItem)
+{
+	m_mxItem.lock();
+
+	if (m_mItem.find(pItem->GetIID()) == m_mItem.end())
+		m_mItem[pItem->GetIID()] = pItem;
+
+	m_mxItem.unlock();
+}
+
+void CPlayer::Remove(CItem *pItem)
+{
+	m_mxItem.lock();
+
+	ItemMap::iterator it = m_mItem.find(pItem->GetIID());
+	if (it != m_mItem.end())
+		m_mItem.erase(it);
+
+	m_mxItem.unlock();
+}
+
+CItem* CPlayer::FindItem(WORD wIndex, BYTE byOwnership)
+{
+	CItem *pItem=NULL;
+
+	m_mxItem.lock();
+
+	for (ItemMap::iterator it = m_mItem.begin(); it != m_mItem.end(); it++)
+	{
+		bool isOwnership = byOwnership == IFO_ANY ? true : 
+						((it->second->GetInfo() & ITEM_OWN) && byOwnership == IFO_MUSTOWN ? true : 
+						(!(it->second->GetInfo() & ITEM_OWN) && byOwnership == IFO_CANTOWN ? true : false));
+
+
+		if (isOwnership && it->second->GetIndex() == wIndex) {
+			pItem = it->second;
+			pItem->m_Access.Grant();
+			break;
+		}
+	}
+
+	m_mxItem.unlock();
+
+	return pItem;
+}
+
+CItem* CPlayer::FindItemByIID(int nIID)
+{
+	CItem *pItem=NULL;
+
+	m_mxItem.lock();
+
+	if (m_mItem.find(nIID) != m_mItem.end()) {
+		pItem = m_mItem[nIID];
+		pItem->m_Access.Grant();
+	}
+
+	m_mxItem.unlock();
+
+	return pItem;
+}
+
+void CPlayer::FreeItems()
+{
+	m_mxItem.lock();
+
+	for (auto& a: m_mItem)
+		delete a.second;
+
+	m_mxItem.unlock();
 }
 
 WORD CPlayer::GetReqPU(BYTE *byStats)
@@ -474,8 +548,8 @@ void CPlayer::OnLoadItems(char *p)
 
 	for (BYTE i = 0; i < byCount; i++)
 	{
-		D2S_ITEMINFO_DESC desc;
-		memset(&desc, 0, sizeof(D2S_ITEMINFO_DESC));
+		ITEMINFO_DESC desc;
+		memset(&desc, 0, sizeof(ITEMINFO_DESC));
 
 		p = CSocket::ReadPacket(p, "dwddbbbbbbbbbbwwwwbbbbbbbbbbwdd",
 			&desc.nIID,
@@ -551,6 +625,10 @@ void CPlayer::OnLoadItems(char *p)
 				desc.wPerforation,
 				desc.nGongLeft,
 				desc.nGongRight);
+
+		CItem *pItem = CItem::CreateItem(desc);
+		if (pItem)
+			Add(pItem);
 	}
 
 	Write(S2C_ITEMINFO, "m", pBegin, pEnd - pBegin);
@@ -736,51 +814,20 @@ void CPlayer::ChatCommand(char* szCommand)
 		}
 	}
 
-	else if (!strcmp(token, "/item")) {
+	else if (!strcmp(token, "/get")) {
 		token = std::strtok(NULL, " ");
 
-		WORD wIndex=447;
-		if (token) 
+		WORD wIndex=0;
+		if (token) {
 			wIndex = atoi(token);
 
-		int nIID = rand() % 30000;
+			int nNum=1;
+			token = std::strtok(NULL, " ");
+			if (token)
+				nNum = atoi(token);
 
-		printf("About to send S2C_INSERTITEM.\n");
-		/*
-		Write(S2C_INSERTITEM, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd", wIndex, nIID, byPrefix, nInfo, nNum,
-			bySetGem, byMaxEnd, byCurEnd, byXAttack, byXMagic, byXDefense, byXHit, byXDodge, wProtectNum,
-			byWeaponLevel, byCorrectionAddNum, (BYTE)0, (BYTE)0, (BYTE)0, (DWORD)0, (BYTE)0,
-			(WORD)0, (WORD)0, (WORD)0, (WORD)0,
-			(BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0, (BYTE)0,
-			(WORD)0, (DWORD)0, (DWORD)0);
-		*/
-
-		Packet packet;
-		packet.byType = S2C_INSERTITEM;
-
-		char *end = CSocket::WritePacket(packet.data, "wd", wIndex, nIID);
-		end = CSocket::WritePacketFromFile(end, "insertitem.txt");
-
-		packet.wSize = end - ((char*)&packet);
-		SendPacket(packet);
-	}
-
-	else if (!strcmp(token, "/macro")) {
-		token = std::strtok(NULL, " ");
-
-		WORD wIndex=447;
-		if (token) 
-			wIndex = atoi(token);
-
-		CItemInfo* pItemInfo = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, wIndex);
-		if (pItemInfo)
-			printf("Index: %d, Item Class: %d, Item Sub Class: %d, Player Class: %d, Sell Price %d\n", 
-				pItemInfo->m_wIndex,
-				pItemInfo->m_byClass,
-				pItemInfo->m_bySubClass,
-				pItemInfo->m_byReqClass,
-				pItemInfo->m_nSell);
-		else printf("Can't find iteminfo.\n");
+			InsertItem(wIndex, nNum);
+		}
 	}
 }
 
@@ -913,4 +960,120 @@ void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 
 	Packet createPacket = GenerateCreatePacket();
 	SendPacketInSight(createPacket);
+}
+
+void CPlayer::InsertItem(WORD wIndex, int nNum, bool bOwn, bool bForceSingular, BYTE byPrefix, BYTE byXAttack, BYTE byXMagic, BYTE byXHit, BYTE byEBlow, int nInfo, BYTE byXDodge, BYTE byXDefense, FUSION_DESC* pFuse, BYTE byShot, WORD wPerforation, int nGongLeft, int nGongRight)
+{
+	CItemInfo* pMacro = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, wIndex);
+	if (!pMacro)
+		return;
+
+	if (!bForceSingular && pMacro->m_bPlural && MergeItem(wIndex, nNum, bOwn))
+		return;
+
+	if (nNum <= 0)
+		return;
+
+	if (bOwn)
+		nInfo = nInfo & ITEM_OWN;
+
+	ITEMINFO_DESC desc;
+
+	desc.nIID = CItem::NewIID();
+	desc.wIndex = wIndex;
+	desc.nNum = nNum;
+	desc.nInfo = nInfo;
+	desc.byPrefix = byPrefix;
+	desc.byCurEnd = pMacro->m_byEndurance;
+	desc.byMaxEnd = desc.byCurEnd;
+	desc.byXAttack = byXAttack;
+	desc.byXMagic = byXMagic;
+	desc.byXDefense = byXDefense;
+	desc.byXHit = byXHit;
+	desc.byXDodge = byXDodge;
+	desc.byExplosiveBlow = byEBlow;
+
+	if (!pFuse)
+		memset(&desc.fuse, 0, sizeof(FUSION_DESC));
+	else
+		desc.fuse = *pFuse;
+
+	desc.byShot = byShot;
+	desc.wPerforation = wPerforation;
+	desc.nGongLeft = nGongLeft;
+	desc.nGongRight = nGongRight;
+
+	CItem* pItem = CItem::CreateItem(desc);
+	if (!pItem)
+		return;
+
+	PACKETBUFFER buffer;
+	memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+	char *pBegin = (char*)&buffer;
+	char *pEnd = pBegin;
+
+	//Write(S2C_INSERTITEM, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
+	pEnd = CSocket::WritePacket(pBegin, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
+				desc.wIndex,
+				desc.nIID,
+				desc.byPrefix,
+				desc.nInfo,
+				desc.nNum,
+				desc.byMaxEnd,
+				desc.byCurEnd,
+				(BYTE)0, // bySetGem
+				desc.byXAttack,
+				desc.byXMagic,
+				desc.byXDefense,
+				desc.byXHit,
+				desc.byXDodge,
+				(WORD)0, // wProtectNum
+				desc.byExplosiveBlow,
+				(BYTE)0, // byCorrectionAddNum
+				(BYTE)0, // 
+				(BYTE)0, // byRemainingSeconds??
+				(BYTE)0, // byRemainingMinutes??
+				(DWORD)0, // byRemainingHours??
+
+				desc.fuse.byLevel,
+				desc.fuse.wMeele,
+				desc.fuse.wMagic,
+				desc.fuse.wDefense,
+				desc.fuse.wAbsorb,
+				desc.fuse.byDodge,
+				desc.fuse.byHit,
+				desc.fuse.byHP,
+				desc.fuse.byMP,
+				desc.fuse.byStats[P_STR],
+				desc.fuse.byStats[P_HTH],
+				desc.fuse.byStats[P_INT],
+				desc.fuse.byStats[P_WIS],
+				desc.fuse.byStats[P_DEX],
+
+				desc.byShot,
+				desc.wPerforation,
+				desc.nGongLeft,
+				desc.nGongRight);
+
+	Write(S2C_INSERTITEM, "m", pBegin, pEnd - pBegin);
+
+	CDBSocket::Write(S2D_INSERTITEM, "dm", m_nPID, pBegin, pEnd - pBegin);
+}
+
+bool CPlayer::MergeItem(WORD wIndex, int nNum, bool bOwn)
+{
+	CItem *pItem = FindItem(wIndex, bOwn ? IFO_MUSTOWN : IFO_CANTOWN);
+	if (!pItem) return false;
+
+	pItem->Lock();
+	pItem->SetNum(pItem->GetNum() + nNum);
+	pItem->Unlock();
+
+	Write(S2C_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), TL_CREATE);
+
+	CDBSocket::Write(S2D_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), TL_CREATE);
+
+	pItem->m_Access.Release();
+	return true;
 }

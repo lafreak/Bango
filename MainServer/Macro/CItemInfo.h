@@ -32,8 +32,8 @@ struct CItemInfo: public CMacro
 		m_nBuy(0),
 		m_nSell(0),
 		m_byEndurance(0),
-		m_bPlural(0),
-		m_bUse(0),
+		m_bPlural(false),
+		m_bUse(false),
 		m_nCooltime(0)
 	{}
 };

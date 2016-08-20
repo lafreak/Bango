@@ -5,12 +5,11 @@
 
 class CItemGeneral: public CItem
 {
-	int m_nNum;
+	
 
 public:
-	CItemGeneral(D2S_ITEMINFO_DESC& desc);
+	CItemGeneral(ITEMINFO_DESC& desc);
 
-	int GetNum() { return m_nNum; }
 };
 
 #endif

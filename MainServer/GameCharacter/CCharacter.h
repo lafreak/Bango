@@ -71,6 +71,8 @@ protected:
 public:
 
 	static int g_nID;
+	static std::mutex g_mxID;
+	static int NewID();
 
 	CCharacter();
 

@@ -144,7 +144,7 @@ struct FUSION_DESC
 	BYTE byStats[5];
 };
 
-struct D2S_ITEMINFO_DESC
+struct ITEMINFO_DESC
 {
 	int nIID;
 	WORD wIndex;
@@ -1788,4 +1788,12 @@ enum MOVE_TYPE
 	MOVE_ON,
 	MOVE_STOP,
 };
+
+enum ITEM_FIND_OWNERSHIP
+{
+	IFO_ANY,
+	IFO_MUSTOWN,
+	IFO_CANTOWN,
+};
+
 #endif

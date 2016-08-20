@@ -106,6 +106,17 @@ public:
 	void UpdateProperty(BYTE byProperty, __int64 n64Amount);
 	void Teleport(int nX, int , int nZ=0);
 	void OnTeleport(BYTE byAnswer, int nZ);
+	void InsertItem(WORD wIndex, int nNum=1, bool bOwn=false, bool bForceSingular=false, BYTE byPrefix=0, BYTE byXAttack=0, BYTE byXMagic=0, BYTE byXHit=0, BYTE byEBlow=0, int nInfo=0, BYTE byXDodge=0, BYTE byXDefense=0, FUSION_DESC* pFuse=NULL, BYTE byShot=0, WORD wPerforation=0, int nGongLeft=0, int nGongRight=0);
+	bool MergeItem(WORD wIndex, int nNum, bool bOwn=false);
+
+	// Item Map
+	void Add(CItem* pItem);
+	void Remove(CItem* pItem);
+	void FreeItems();
+
+	// Remember to call m_Access.Release() on found item.
+	CItem* FindItem(WORD wIndex, BYTE byOwn=IFO_ANY);
+	CItem* FindItemByIID(int nIID);
 };
 
 typedef std::map<int, CPlayer*> PlayerMap;
