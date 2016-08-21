@@ -20,7 +20,6 @@ public:
 
 	static CMacro* FindMacro(WORD wType, WORD wIndex);
 	static int FindKey(const char* szKey);
-	static int IntAttributeEx(tinyxml2::XMLElement* pEle, const char* szName);
 };
 
 typedef std::map<DWORD, CMacro*> MacroMap;

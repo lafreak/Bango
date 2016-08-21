@@ -19,8 +19,18 @@ struct CItemInfo: public CMacro
 	bool m_bPlural;
 	bool m_bUse;
 	int m_nCooltime;
+	BYTE m_byEffect;
+	int m_nRefresh[2];
 
-	CItemInfo():
+
+	enum REFRESH
+	{
+		R_HP,
+		R_MP
+	};
+
+	CItemInfo()
+	 :
 		m_wIndex(0),
 		m_byClass(0),
 		m_bySubClass(0),
@@ -34,8 +44,12 @@ struct CItemInfo: public CMacro
 		m_byEndurance(0),
 		m_bPlural(false),
 		m_bUse(false),
-		m_nCooltime(0)
-	{}
+		m_nCooltime(0),
+		m_byEffect(0)
+		
+	{
+		m_nRefresh[0] = m_nRefresh[1] = 0;
+	}
 };
 
 #endif

@@ -63,11 +63,11 @@ public:
 
 			if (isCommentLine) continue;
 
-			if (c==' ' && lastWasWhite) continue;
-			if (c==' ') lastWasWhite=true;
+			if ((c==' ' || c=='\t') && lastWasWhite) continue;
+			if (c==' ' || c=='\t') lastWasWhite=true;
 			else lastWasWhite=false;
 
-			if (c== '\n' || c=='\r' || c=='\t') continue;
+			if (c== '\n' || c=='\r') continue;
 
 			len++;
 		}
@@ -92,11 +92,11 @@ public:
 
 			if (isCommentLine) continue;
 
-			if (c==' ' && lastWasWhite) continue;
-			if (c==' ') lastWasWhite=true;
+			if ((c==' ' || c=='\t') && lastWasWhite) continue;
+			if (c==' ' || c=='\t') lastWasWhite=true;
 			else lastWasWhite=false;
 
-			if (c== '\n' || c=='\r' || c=='\t') continue;
+			if (c== '\n' || c=='\r') continue;
 
 			raw[len] = c;
 			len++;
@@ -286,6 +286,7 @@ public:
 
 		pRoot->DeleteChildren();
 
+
 		for (auto& item: root->children)
 		{
 			XMLElement *pEle = doc.NewElement("item")->ToElement();
@@ -297,11 +298,13 @@ public:
 
 				iss >> name;
 
+
 				std::transform(name.begin(), name.end(), name.begin(), ::tolower);
 
 				if (name == "index") {
 					int nIndex=0;
 					iss >> nIndex;
+
 					pEle->SetAttribute("index", nIndex);
 				}
 
@@ -373,6 +376,38 @@ public:
 					int n;
 					iss >> n;
 					pEle->SetAttribute("cooltime", n);
+				}
+
+				else if (name == "effect") {
+					int n;
+					iss >> n;
+					pEle->SetAttribute("effect", n);
+				}
+
+				else if (name == "specialty") {
+					XMLElement *pSpecList = doc.NewElement("specialty")->ToElement();
+
+					for (auto& spec: prop->children)
+					{
+						std::istringstream d(spec->data);
+						std::string specname;
+						d >> specname;
+
+						XMLElement *pSpec = doc.NewElement(specname.c_str())->ToElement();
+
+						if (specname == "refresh") {
+							std::string refreshprop;
+							int nvalue;
+							d >> refreshprop >> nvalue;
+
+							pSpec->SetAttribute("property", refreshprop.c_str());
+							pSpec->SetAttribute("amount", nvalue);
+						}
+
+						pSpecList->InsertEndChild(pSpec);
+					}
+
+					pEle->InsertEndChild(pSpecList);
 				}
 			}
 

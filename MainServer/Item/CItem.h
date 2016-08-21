@@ -12,6 +12,8 @@
 
 #include "../Macro/CMacroDB.h"
 
+class CPlayer;
+
 class CItem
 {
 protected:
@@ -38,6 +40,10 @@ public:
 
 	void Lock() { m_mxThis.lock(); }
 	void Unlock() { m_mxThis.unlock(); }
+
+	virtual bool Use(CPlayer *pPlayer) = 0;
+
+	bool CanUse(CPlayer *pPlayer);
 
 	static CItem* CreateItem(ITEMINFO_DESC& desc);
 };

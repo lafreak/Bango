@@ -106,13 +106,20 @@ public:
 	void UpdateProperty(BYTE byProperty, __int64 n64Amount);
 	void Teleport(int nX, int , int nZ=0);
 	void OnTeleport(BYTE byAnswer, int nZ);
-	void InsertItem(WORD wIndex, int nNum=1, bool bOwn=false, bool bForceSingular=false, BYTE byPrefix=0, BYTE byXAttack=0, BYTE byXMagic=0, BYTE byXHit=0, BYTE byEBlow=0, int nInfo=0, BYTE byXDodge=0, BYTE byXDefense=0, FUSION_DESC* pFuse=NULL, BYTE byShot=0, WORD wPerforation=0, int nGongLeft=0, int nGongRight=0);
-	bool MergeItem(WORD wIndex, int nNum, bool bOwn=false);
+	void InsertItem(WORD wIndex, int nNum=1, BYTE byLogType=TL_CREATE, bool bOwn=false, bool bForceSingular=false, BYTE byPrefix=0, BYTE byXAttack=0, BYTE byXMagic=0, BYTE byXHit=0, BYTE byEBlow=0, int nInfo=0, BYTE byXDodge=0, BYTE byXDefense=0, FUSION_DESC* pFuse=NULL, BYTE byShot=0, WORD wPerforation=0, int nGongLeft=0, int nGongRight=0);
+	bool MergeItem(WORD wIndex, int nNum, BYTE byLogType=TL_CREATE, bool bOwn=false);
+	bool UseItem(CItem *pItem);
+
+	// Remember not to call m_Access.Release if method returns false.
+	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);
+
+	void RemoveItem(WORD wIndex, int nNum=0, BYTE byLogType=TL_DELETE);
+	void SaveAllProperty();
 
 	// Item Map
-	void Add(CItem* pItem);
-	void Remove(CItem* pItem);
-	void FreeItems();
+	void IntoInven(CItem* pItem);
+	void OutofInven(CItem* pItem);
+	void EmptyInven();
 
 	// Remember to call m_Access.Release() on found item.
 	CItem* FindItem(WORD wIndex, BYTE byOwn=IFO_ANY);

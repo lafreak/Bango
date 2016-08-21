@@ -67,6 +67,7 @@ void CMainSocket::Accept()
 
 			int nLen = recv(CMainSocket::g_pMainSocket, packet, MAX_PACKET_LENGTH + (packet->data-(char*)packet), 0);
 			if (nLen <= 0 || packet->wSize <=0) {
+				delete packet;
 				CServer::EmptyAccount();
 				printf("MainServer disconnected.\n");
 				break;
@@ -419,6 +420,33 @@ PVOID CMainSocket::Process(PVOID param)
 				pAccount->m_Access.Release();
 			}
 
+			int nPID=0;
+			BYTE byLevel=0;
+			int nX=0, nY=0, nZ=0;
+			WORD wContribute=0, wCurHP=0, wCurMP=0;
+			__int64 n64Exp=0;
+			WORD wPUPoint=0, wSUPoint=0;
+			int nAnger=0;
+
+			CSocket::ReadPacket(p, "dbdddwwwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &wCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE player SET level=?, x=?, y=?, z=?, contribute=?, curhp=?, curmp=?, exp=?, pupoint=?, supoint=?, anger=? WHERE idplayer=?"));
+			pPStmt->setInt(1, byLevel);
+			pPStmt->setInt(2, nX);
+			pPStmt->setInt(3, nY);
+			pPStmt->setInt(4, nZ);
+			pPStmt->setInt(5, wContribute);
+			pPStmt->setInt(6, wCurHP);
+			pPStmt->setInt(7, wCurMP);
+			pPStmt->setInt(8, n64Exp);
+			pPStmt->setInt(9, wPUPoint);
+			pPStmt->setInt(10, wSUPoint);
+			pPStmt->setInt(11, nAnger);
+			pPStmt->setInt(12, nPID);
+
+			pPStmt->execute();
+
 			break;
 		}
 
@@ -565,7 +593,6 @@ PVOID CMainSocket::Process(PVOID param)
 		case S2D_UPDATEITEMNUM:
 		{
 			printf("S2D_UPDATEITEMNUM.\n");
-
 			int nIID=0, nNum=0;
 			BYTE byLogType=0;
 
@@ -575,6 +602,58 @@ PVOID CMainSocket::Process(PVOID param)
 				"UPDATE item SET num=? WHERE iditem=?"));
 			pPStmt->setInt(1, nNum);
 			pPStmt->setInt(2, nIID);
+
+			pPStmt->execute();
+
+			break;
+		}
+
+		case S2D_SAVEALLPROPERTY:
+		{
+			printf("S2D_SAVEALLPROPERTY.\n");
+
+			int nPID=0;
+			BYTE byLevel=0;
+			int nX=0, nY=0, nZ=0;
+			WORD wContribute=0, wCurHP=0, wCurMP=0;
+			__int64 n64Exp=0;
+			WORD wPUPoint=0, wSUPoint=0;
+			int nAnger=0;
+
+			CSocket::ReadPacket(packet->data, "dbdddwwwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &wCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE player SET level=?, x=?, y=?, z=?, contribute=?, curhp=?, curmp=?, exp=?, pupoint=?, supoint=?, anger=? WHERE idplayer=?"));
+			pPStmt->setInt(1, byLevel);
+			pPStmt->setInt(2, nX);
+			pPStmt->setInt(3, nY);
+			pPStmt->setInt(4, nZ);
+			pPStmt->setInt(5, wContribute);
+			pPStmt->setInt(6, wCurHP);
+			pPStmt->setInt(7, wCurMP);
+			pPStmt->setInt(8, n64Exp);
+			pPStmt->setInt(9, wPUPoint);
+			pPStmt->setInt(10, wSUPoint);
+			pPStmt->setInt(11, nAnger);
+			pPStmt->setInt(12, nPID);
+
+			pPStmt->execute();
+
+			printf("S2D_SAVEALLPROPERTY finished.\n");
+
+			break;
+		}
+
+		case S2D_REMOVEITEM:
+		{
+			printf("S2D_REMOVEITEM.\n");
+
+			int nIID=0;
+			CSocket::ReadPacket(packet->data, "d", &nIID);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"DELETE FROM item WHERE iditem=?"));
+			pPStmt->setInt(1, nIID);
 
 			pPStmt->execute();
 

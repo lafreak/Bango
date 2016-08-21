@@ -55,6 +55,7 @@ public:
 
 	int 		GetCID() const { return m_nCID; }
 
+	CPlayer*	GetPlayer() const { return m_pPlayer; }
 	void		RemovePlayer() { m_pPlayer=NULL; }
 
 	void OnLogin(char *p);

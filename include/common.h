@@ -1079,7 +1079,6 @@ enum PLAYER_CLASS
 	//PC_TALISMAN,
 	//PC_SPIRITKNIGHT,
 	//PC_MONK,
-	PC_ALL = 20, // ex
 };
 
 // Item Class

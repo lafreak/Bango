@@ -39,7 +39,29 @@ bool CClientSocket::Start(WORD wPort)
 
 void CClientSocket::Close(int)
 {
+	CServer::g_mxClient.lock();
+
+	for (auto& a: CServer::g_mClient)
+	{
+		CClient *pClient = a.second;
+		pClient->m_Access.Grant();
+
+		if (pClient->GetPlayer()) {
+			CPlayer *pPlayer = pClient->GetPlayer();
+			pPlayer->m_Access.Grant();
+
+			pPlayer->SaveAllProperty();
+
+			pPlayer->m_Access.Release();
+		}
+
+		pClient->m_Access.Release();
+	}
+
+	CServer::g_mxClient.unlock();
+
 	close(CClientSocket::g_pSocket);
+
 	exit(1);
 }
 

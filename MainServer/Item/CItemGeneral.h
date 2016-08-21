@@ -10,6 +10,7 @@ class CItemGeneral: public CItem
 public:
 	CItemGeneral(ITEMINFO_DESC& desc);
 
+	bool Use(CPlayer *pPlayer);
 };
 
 #endif

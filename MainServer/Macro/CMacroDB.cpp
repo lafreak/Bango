@@ -46,7 +46,10 @@ KeyMap CMacroDB::g_mKey = {
 	{"mage", 		PC_MAGE },
 	{"archer", 		PC_ARCHER },
 	{"thief", 		PC_THIEF },
-	{"all", 		PC_ALL },
+
+	// Item Specialty
+	{"hp",			CItemInfo::R_HP },
+	{"mp", 			CItemInfo::R_MP }
 };
 
 bool CMacroDB::Initialize()
@@ -79,20 +82,39 @@ bool CMacroDB::LoadInitItem()
 	{
 		CItemInfo *pItem = new CItemInfo;
 
-		pItem->m_wIndex = 		IntAttributeEx(pItemInfo, "index");
+		pItem->m_wIndex = 		pItemInfo->IntAttribute("index");
 		pItem->m_byClass = 		FindKey(pItemInfo->Attribute("class"));
 		pItem->m_bySubClass = 	FindKey(pItemInfo->Attribute("subclass"));
-		pItem->m_byLevel = 		IntAttributeEx(pItemInfo, "level");
-	 	pItem->m_bWear = 		IntAttributeEx(pItemInfo, "wear") == 1;
+		pItem->m_byLevel = 		pItemInfo->IntAttribute("level");
+	 	pItem->m_bWear = 		pItemInfo->IntAttribute("wear") == 1;
 		pItem->m_byReqClass = 	FindKey(pItemInfo->Attribute("reqclass"));
-		pItem->m_byReqLevel = 	IntAttributeEx(pItemInfo, "reqlevel");
-		pItem->m_nRange = 		IntAttributeEx(pItemInfo, "range");
+		pItem->m_byReqLevel = 	pItemInfo->IntAttribute("reqlevel");
+		pItem->m_nRange = 		pItemInfo->IntAttribute("range");
 		pItem->m_nBuy = 		pItemInfo->IntAttribute("buy");
 		pItem->m_nSell = 		pItemInfo->IntAttribute("sell");
 		pItem->m_byEndurance = 	pItemInfo->IntAttribute("endurance");
-		pItem->m_bPlural = 		IntAttributeEx(pItemInfo, "plural") == 1;
-		pItem->m_bUse = 		IntAttributeEx(pItemInfo, "use") == 1;
-		pItem->m_nCooltime = 	IntAttributeEx(pItemInfo, "cooltime");
+		pItem->m_bPlural = 		pItemInfo->IntAttribute("plural") == 1;
+		pItem->m_bUse = 		pItemInfo->IntAttribute("use") == 1;
+		pItem->m_nCooltime = 	pItemInfo->IntAttribute("cooltime");
+		pItem->m_byEffect = 	pItemInfo->IntAttribute("effect");
+
+		XMLElement *pItemSpecialtyList = pItemInfo->FirstChildElement("specialty");
+
+		if (pItemSpecialtyList) {
+			XMLNode *pSpecialty = pItemSpecialtyList->FirstChild();
+
+			while (pSpecialty != NULL) {
+
+				if (strcmp(pSpecialty->ToElement()->Name(), "refresh") == 0) {
+
+					int nType = FindKey(pSpecialty->ToElement()->Attribute("property"));
+					if (nType != -1)
+						pItem->m_nRefresh[nType] = pSpecialty->ToElement()->IntAttribute("amount");
+				}
+
+				pSpecialty = pSpecialty->NextSibling();
+			}
+		}
 
 		DWORD dwKey = (CMacro::MT_ITEM << 2) + pItem->m_wIndex;
 		g_mMacro[dwKey] = pItem;
@@ -124,13 +146,4 @@ int CMacroDB::FindKey(const char* szKey)
 		return (*it).second;
 
 	return -1;
-}
-
-int CMacroDB::IntAttributeEx(XMLElement* pEle, const char* szName)
-{
-	int nValue = -1;
-
-	pEle->QueryIntAttribute(szName, &nValue);
-
-	return nValue;
 }

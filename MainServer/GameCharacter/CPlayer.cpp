@@ -47,10 +47,12 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 
 CPlayer::~CPlayer()
 {
-	FreeItems();
+	EmptyInven();
 
 	CMap::Remove(this);
 	CPlayer::Remove(this);
+
+	SaveAllProperty();
 
 	WriteInSight(S2C_REMOVEPLAYER, "d", m_nID);
 
@@ -60,7 +62,7 @@ CPlayer::~CPlayer()
 	}
 }
 
-void CPlayer::Add(CItem* pItem)
+void CPlayer::IntoInven(CItem* pItem)
 {
 	m_mxItem.lock();
 
@@ -70,13 +72,23 @@ void CPlayer::Add(CItem* pItem)
 	m_mxItem.unlock();
 }
 
-void CPlayer::Remove(CItem *pItem)
+void CPlayer::OutofInven(CItem *pItem)
 {
 	m_mxItem.lock();
 
 	ItemMap::iterator it = m_mItem.find(pItem->GetIID());
 	if (it != m_mItem.end())
 		m_mItem.erase(it);
+
+	m_mxItem.unlock();
+}
+
+void CPlayer::EmptyInven()
+{
+	m_mxItem.lock();
+
+	for (auto& a: m_mItem)
+		delete a.second;
 
 	m_mxItem.unlock();
 }
@@ -120,16 +132,6 @@ CItem* CPlayer::FindItemByIID(int nIID)
 	m_mxItem.unlock();
 
 	return pItem;
-}
-
-void CPlayer::FreeItems()
-{
-	m_mxItem.lock();
-
-	for (auto& a: m_mItem)
-		delete a.second;
-
-	m_mxItem.unlock();
 }
 
 WORD CPlayer::GetReqPU(BYTE *byStats)
@@ -462,7 +464,25 @@ void CPlayer::Process(Packet packet)
 			int nIID=0;
 			CSocket::ReadPacket(packet.data, "d", &nIID);
 
-			Write(S2C_TRASHITEM, "d", nIID);
+			CItem *pItem = FindItemByIID(nIID);
+			if (pItem) {
+				if (RemoveItem(pItem))
+					pItem->m_Access.Release();
+			}
+
+			break;
+		}
+
+		case C2S_USEITEM:
+		{
+			int nIID=0;
+			CSocket::ReadPacket(packet.data, "d", &nIID);
+
+			CItem *pItem = FindItemByIID(nIID);
+			if (pItem) {
+				if (UseItem(pItem))
+					pItem->m_Access.Release();
+			}
 
 			break;
 		}
@@ -584,6 +604,11 @@ void CPlayer::OnLoadItems(char *p)
 			&desc.nGongLeft,
 			&desc.nGongRight);
 
+		CItem *pItem = CItem::CreateItem(desc);
+		if (!pItem) continue;
+
+		IntoInven(pItem);
+
 		pEnd = CSocket::WritePacket(pEnd, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
 				desc.wIndex,
 				desc.nIID,
@@ -625,10 +650,6 @@ void CPlayer::OnLoadItems(char *p)
 				desc.wPerforation,
 				desc.nGongLeft,
 				desc.nGongRight);
-
-		CItem *pItem = CItem::CreateItem(desc);
-		if (pItem)
-			Add(pItem);
 	}
 
 	Write(S2C_ITEMINFO, "m", pBegin, pEnd - pBegin);
@@ -666,6 +687,21 @@ void CPlayer::GameRestart()
 		return;
 	}
 
+	printf("S2D_SELECT_CHARACTER sent.\n");
+	CDBSocket::Write(S2D_SELECT_CHARACTER, "ddbdddwwwIwwd", pClient->GetCID(),
+		m_nPID,
+		m_byLevel,
+		m_nX,
+		m_nY,
+		m_nZ,
+		m_wContribute,
+		m_wCurHP,
+		m_wCurMP,
+		m_n64Exp,
+		m_wPUPoint,
+		m_wSUPoint,
+		m_nAnger);
+
 	m_Access.Release();
 
 	delete this;
@@ -673,8 +709,6 @@ void CPlayer::GameRestart()
 	pClient->Lock();
 	pClient->RemovePlayer();
 	pClient->Unlock();
-
-	CDBSocket::Write(S2D_SELECT_CHARACTER, "d", pClient->GetCID());
 	
 	pClient->m_Access.Release();
 }
@@ -844,7 +878,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			m_wStr += n64Amount;
 
-			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwww", P_STR, m_wStr, GetHit(), GetMinAttack(), GetMaxAttack());
+			Write(S2C_UPDATEPROPERTY, "bwwww", P_STR, m_wStr, GetHit(), GetMinAttack(), GetMaxAttack());
 			break;
 		}
 
@@ -859,7 +893,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			if (m_wCurHP > wMaxHP)
 				m_wCurHP = wMaxHP;
 
-			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwww", P_HTH, m_wHth, m_wCurHP, wMaxHP, GetResist(RT_PALSY));
+			Write(S2C_UPDATEPROPERTY, "bwwww", P_HTH, m_wHth, m_wCurHP, wMaxHP, GetResist(RT_PALSY));
 			break;
 		}
 
@@ -870,7 +904,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			m_wInt += n64Amount;
 
-			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwwwww", P_INT, m_wInt, GetMinMagic(), GetMaxMagic(), GetResist(RT_FIRE), GetResist(RT_ICE), GetResist(RT_LITNING));
+			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_INT, m_wInt, GetMinMagic(), GetMaxMagic(), GetResist(RT_FIRE), GetResist(RT_ICE), GetResist(RT_LITNING));
 			break;
 		}
 
@@ -885,7 +919,7 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			if (m_wCurMP > wMaxMP)
 				m_wCurMP = wMaxMP;
 
-			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwwwww", P_WIS, m_wWis, m_wCurMP, wMaxMP, GetMinMagic(), GetMaxMagic(), GetResist(RT_CURSE));
+			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_WIS, m_wWis, m_wCurMP, wMaxMP, GetMinMagic(), GetMaxMagic(), GetResist(RT_CURSE));
 			break;
 		}
 
@@ -896,7 +930,33 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			m_wDex += n64Amount;
 
-			CPlayer::Write(S2C_UPDATEPROPERTY, "bwwwwww", P_DEX, m_wDex, GetHit(), GetDodge(), GetDodge(), GetMinAttack(), GetMaxAttack());
+			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_DEX, m_wDex, GetHit(), GetDodge(), GetDodge(), GetMinAttack(), GetMaxAttack());
+			break;
+		}
+
+		case P_CURHP:
+		{
+			if ((-n64Amount) > m_wCurHP)
+				n64Amount = -m_wCurHP;
+			if (n64Amount > GetMaxHP() - m_wCurHP)
+				n64Amount = GetMaxHP() - m_wCurHP;
+
+			m_wCurHP += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bw", P_CURHP, m_wCurHP);			
+			break;
+		}
+
+		case P_CURMP:
+		{
+			if ((-n64Amount) > m_wCurMP)
+				n64Amount = -m_wCurMP;
+			if (n64Amount > GetMaxMP() - m_wCurMP)
+				n64Amount = GetMaxMP() - m_wCurMP;
+
+			m_wCurMP += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bw", P_CURMP, m_wCurMP);			
 			break;
 		}
 	}
@@ -962,13 +1022,13 @@ void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 	SendPacketInSight(createPacket);
 }
 
-void CPlayer::InsertItem(WORD wIndex, int nNum, bool bOwn, bool bForceSingular, BYTE byPrefix, BYTE byXAttack, BYTE byXMagic, BYTE byXHit, BYTE byEBlow, int nInfo, BYTE byXDodge, BYTE byXDefense, FUSION_DESC* pFuse, BYTE byShot, WORD wPerforation, int nGongLeft, int nGongRight)
+void CPlayer::InsertItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn, bool bForceSingular, BYTE byPrefix, BYTE byXAttack, BYTE byXMagic, BYTE byXHit, BYTE byEBlow, int nInfo, BYTE byXDodge, BYTE byXDefense, FUSION_DESC* pFuse, BYTE byShot, WORD wPerforation, int nGongLeft, int nGongRight)
 {
 	CItemInfo* pMacro = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, wIndex);
 	if (!pMacro)
 		return;
 
-	if (!bForceSingular && pMacro->m_bPlural && MergeItem(wIndex, nNum, bOwn))
+	if (!bForceSingular && pMacro->m_bPlural && MergeItem(wIndex, nNum, byLogType, bOwn))
 		return;
 
 	if (nNum <= 0)
@@ -1007,13 +1067,14 @@ void CPlayer::InsertItem(WORD wIndex, int nNum, bool bOwn, bool bForceSingular, 
 	if (!pItem)
 		return;
 
+	IntoInven(pItem);
+
 	PACKETBUFFER buffer;
 	memset(&buffer, 0, sizeof(PACKETBUFFER));
 
 	char *pBegin = (char*)&buffer;
 	char *pEnd = pBegin;
 
-	//Write(S2C_INSERTITEM, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
 	pEnd = CSocket::WritePacket(pBegin, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
 				desc.wIndex,
 				desc.nIID,
@@ -1061,7 +1122,7 @@ void CPlayer::InsertItem(WORD wIndex, int nNum, bool bOwn, bool bForceSingular, 
 	CDBSocket::Write(S2D_INSERTITEM, "dm", m_nPID, pBegin, pEnd - pBegin);
 }
 
-bool CPlayer::MergeItem(WORD wIndex, int nNum, bool bOwn)
+bool CPlayer::MergeItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn)
 {
 	CItem *pItem = FindItem(wIndex, bOwn ? IFO_MUSTOWN : IFO_CANTOWN);
 	if (!pItem) return false;
@@ -1070,10 +1131,71 @@ bool CPlayer::MergeItem(WORD wIndex, int nNum, bool bOwn)
 	pItem->SetNum(pItem->GetNum() + nNum);
 	pItem->Unlock();
 
-	Write(S2C_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), TL_CREATE);
+	Write(S2C_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), byLogType);
 
-	CDBSocket::Write(S2D_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), TL_CREATE);
+	CDBSocket::Write(S2D_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), byLogType);
 
 	pItem->m_Access.Release();
 	return true;
+}
+
+bool CPlayer::UseItem(CItem *pItem)
+{
+	if (!pItem->Use(this))
+		return true;
+
+	return RemoveItem(pItem, 1, TL_USE);
+}
+
+bool CPlayer::RemoveItem(CItem *pItem, int nNum, BYTE byLogType)
+{
+	if (!nNum)
+		nNum = pItem->GetNum();
+
+	if (pItem->GetNum() <= nNum)
+	{
+		CDBSocket::Write(S2D_REMOVEITEM, "d", pItem->GetIID());
+		Write(S2C_UPDATEITEMNUM, "ddb", pItem->GetIID(), 0, byLogType);
+		OutofInven(pItem);
+		pItem->m_Access.Release();
+		delete pItem;
+		return false;
+	}
+	else
+	{
+		pItem->Lock();
+		pItem->SetNum(pItem->GetNum() - nNum);
+		pItem->Unlock();
+		CDBSocket::Write(S2D_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), byLogType);
+		Write(S2C_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum(), byLogType);
+	}
+
+	return true;
+}
+
+void CPlayer::RemoveItem(WORD wIndex, int nNum, BYTE byLogType)
+{
+	CItem* pItem = FindItem(wIndex);
+	if (!pItem)
+		return;
+
+	if (RemoveItem(pItem, nNum, byLogType))
+		pItem->m_Access.Release();
+}
+
+void CPlayer::SaveAllProperty()
+{
+	CDBSocket::Write(S2D_SAVEALLPROPERTY, "dbdddwwwIwwd",
+		m_nPID,
+		m_byLevel,
+		m_nX,
+		m_nY,
+		m_nZ,
+		m_wContribute,
+		m_wCurHP,
+		m_wCurMP,
+		m_n64Exp,
+		m_wPUPoint,
+		m_wSUPoint,
+		m_nAnger);
 }

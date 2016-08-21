@@ -1,6 +1,8 @@
 #include "CItem.h"
 #include "CItemGeneral.h"
 
+#include "../GameCharacter/CPlayer.h"
+
 int CItem::g_nMaxIID;
 std::mutex CItem::g_mxMaxIID;
 
@@ -26,6 +28,28 @@ int CItem::NewIID()
 	return g_nMaxIID;
 }
 
+bool CItem::CanUse(CPlayer *pPlayer)
+{
+	DWORD dwTimeNow = GetTickCount();
+
+	if (pPlayer->GetLevel() < m_pMacro->m_byReqLevel) {
+		printf(KRED "CItem::CanUse: Level is too low.\n" KNRM);
+		return false;
+	}
+
+	if (m_pMacro->m_byReqClass != 0xFF && m_pMacro->m_byReqClass != pPlayer->GetClass()) {
+		printf(KRED "CItem::CanUse: Wrong class.\n" KNRM);
+		return false;
+	}
+
+	//if (dwTimeNow < m_dwLastUsage + m_pMacro->m_nCooltime) {
+	//	printf(KRED "CItem::CanUse: Cooldown hack.\n" KNRM);
+	//	return false;
+	//}
+
+	return true;
+}
+
 CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 {
 	CItemInfo* pMacro = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, desc.wIndex);
@@ -42,7 +66,7 @@ CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 			pItem = new CItemGeneral(desc);
 			break;
 		default:
-			printf(KRED "Unknown item class (%d). Creating ItemGeneral then.\n" KNRM, pMacro->m_byClass);
+			printf(KRED "Unknown item class (%d).\n" KNRM, pMacro->m_byClass);
 			pItem = new CItemGeneral(desc);
 			break;
 	}

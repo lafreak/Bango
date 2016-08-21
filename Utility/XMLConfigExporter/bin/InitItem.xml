@@ -292,12 +292,12 @@
     </item>
     <item index="47" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="20" sell="4" effect="1">
         <specialty>
-            <refresh property="hp" amount="100"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="48" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="70" sell="14" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="49" class="defense" subclass="upperarmor" level="32" wear="1" reqclass="knight" reqlevel="1" buy="20040" sell="6680" endurance="15">
@@ -1097,23 +1097,23 @@
     <item index="236" class="quest" subclass="common" plural="1" buy="0"/>
     <item index="237" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="238" class="general" subclass="etc" use="1" plural="1" buy="40" sell="10"/>
     <item index="239" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="240" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="241" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="242" class="weapon" subclass="sword" level="50" wear="1" reqclass="knight" reqlevel="50" range="30" buy="355681" sell="117000" endurance="32">
@@ -1334,27 +1334,27 @@
     </item>
     <item index="266" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="100"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="267" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="200"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="268" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="269" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="400"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="270" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="271" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
@@ -2088,7 +2088,7 @@
     <item index="443" class="general" subclass="etc" plural="1" buy="0" sell="40"/>
     <item index="444" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="445" class="general" subclass="etc" plural="1" buy="98" sell="24"/>
@@ -4965,7 +4965,7 @@
     </item>
     <item index="1030" class="general" subclass="refresh" use="1" plural="1" cooltime="1500" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="1031" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="5">
@@ -6536,12 +6536,12 @@
     </item>
     <item index="1318" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="2">
         <specialty>
-            <refresh property="mp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="1319" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="2">
         <specialty>
-            <refresh property="mp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="1320" class="defense" subclass="shield" level="60" wear="1" reqclass="knight" reqlevel="60" buy="0" sell="0" endurance="15">
@@ -9450,7 +9450,7 @@
     </item>
     <item index="2055" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="210" sell="50" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2056" class="general" subclass="etc" use="1" plural="1" buy="1200" sell="240"/>
@@ -9536,12 +9536,12 @@
     </item>
     <item index="2073" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="1500" effect="1">
         <specialty>
-            <refresh property="hp" amount="600"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2074" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2000" effect="1">
         <specialty>
-            <refresh property="hp" amount="700"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2075" class="general" subclass="etc" use="1" plural="1" buy="0" sell="500"/>
@@ -11160,12 +11160,12 @@
     </item>
     <item index="2171" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <refresh property="hp" amount="800"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2172" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <refresh property="mp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2173" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
@@ -11213,7 +11213,7 @@
     </item>
     <item index="2221" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2222" class="weapon" subclass="sword" level="33" wear="1" reqclass="knight" reqlevel="1" range="24" buy="0" sell="0" endurance="30">
@@ -11444,7 +11444,7 @@
     <item index="2338" class="general" subclass="etc" buy="0" sell="0" plural="1"/>
     <item index="2359" class="general" subclass="refresh" use="1" plural="1" cooltime="1500" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="700"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2360" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="7">
@@ -11454,12 +11454,12 @@
     </item>
     <item index="2361" class="general" subclass="refresh" use="1" plural="1" cooltime="1500" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="600"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2362" class="general" subclass="refresh" use="1" plural="1" cooltime="1500" buy="0" sell="0" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2363" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
@@ -11648,17 +11648,17 @@
     </item>
     <item index="2441" class="general" subclass="hpautorefresh" use="1" plural="1" cooltime="1300" buy="40" sell="8" effect="1">
         <specialty>
-            <refresh property="hp" amount="100"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2442" class="general" subclass="hpautorefresh" use="1" plural="1" cooltime="1300" buy="160" sell="32" effect="1">
         <specialty>
-            <refresh property="hp" amount="300"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2443" class="general" subclass="hpautorefresh" use="1" plural="1" cooltime="1300" buy="550" sell="110" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2444" class="general" subclass="etc" use="1" plural="1">
@@ -11722,7 +11722,7 @@
     </item>
     <item index="2458" class="general" subclass="hpautorefresh" use="1" plural="1" cooltime="1300" buy="0" sell="110" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2459" class="general" subclass="etc" buy="0" sell="100" plural="1"/>
@@ -11865,17 +11865,17 @@
     <item index="2497" class="general" subclass="etc" use="1" plural="1" buy="2000" sell="600"/>
     <item index="2498" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2000" effect="1">
         <specialty>
-            <refresh property="hp" amount="400"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2499" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2500" effect="1">
         <specialty>
-            <refresh property="hp" amount="700"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2500" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="3000" effect="1">
         <specialty>
-            <refresh property="hp" amount="700"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2501" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="5500">
@@ -11890,7 +11890,7 @@
     </item>
     <item index="2503" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="7000" effect="1">
         <specialty>
-            <refresh property="mp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2504" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="4500">
@@ -14777,7 +14777,7 @@
     </item>
     <item index="2932" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="50" effect="1">
         <specialty>
-            <refresh property="hp" amount="500"/>
+            <refresh/>
         </specialty>
     </item>
     <item index="2933" class="general" subclass="etc" use="1" plural="1">

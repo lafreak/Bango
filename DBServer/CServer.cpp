@@ -66,10 +66,10 @@ void CServer::EmptyAccount()
 {
 	g_mxAccount.lock();
 
-	for (auto a: g_mAccount)
-		delete a.second; // ??
+	for (auto& a: g_mAccount)
+		delete a.second;
 	
-	g_mAccount.empty();
+	g_mAccount.clear();
 
 	g_mxAccount.unlock();
 }

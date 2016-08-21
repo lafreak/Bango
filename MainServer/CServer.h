@@ -14,10 +14,11 @@ typedef std::map<int, CClient*> ClientMap;
 
 class CServer
 {
-	static ClientMap  g_mClient;
-	static std::mutex g_mxClient;
 
 public:
+
+	static ClientMap  g_mClient;
+	static std::mutex g_mxClient;
 
 	static void Add(CClient* pClient);
 	static void Remove(CClient* pClient);
