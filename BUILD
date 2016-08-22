@@ -19,6 +19,7 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CItemInfo.o MainServer/Macro/
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMacroDB.o MainServer/Macro/CMacroDB.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CItem.o MainServer/Item/CItem.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CItemGeneral.o MainServer/Item/CItemGeneral.cpp
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CItemWeapon.o MainServer/Item/CItemWeapon.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClient.o MainServer/CClient.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CCharacter.o MainServer/GameCharacter/CCharacter.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CPlayer.o MainServer/GameCharacter/CPlayer.cpp
@@ -30,4 +31,4 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CDBSocket.o MainServer/Socket
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClientSocket.o MainServer/Socket/CClientSocket.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/main.o MainServer/main.cpp
 
-g++ --std=c++11 -pthread -o bin/MainServer bin/obj/tinyxml2.o bin/obj/CSocket.o bin/obj/CMacro.o bin/obj/CItemInfo.o bin/obj/CMacroDB.o bin/obj/CItem.o bin/obj/CItemGeneral.o bin/obj/CClient.o bin/obj/CCharacter.o bin/obj/CPlayer.o bin/obj/CNPC.o bin/obj/CTile.o bin/obj/CMap.o bin/obj/CServer.o bin/obj/CDBSocket.o bin/obj/CClientSocket.o bin/obj/main.o
+g++ --std=c++11 -pthread -o bin/MainServer bin/obj/tinyxml2.o bin/obj/CSocket.o bin/obj/CMacro.o bin/obj/CItemInfo.o bin/obj/CMacroDB.o bin/obj/CItem.o bin/obj/CItemGeneral.o bin/obj/CItemWeapon.o bin/obj/CClient.o bin/obj/CCharacter.o bin/obj/CPlayer.o bin/obj/CNPC.o bin/obj/CTile.o bin/obj/CMap.o bin/obj/CServer.o bin/obj/CDBSocket.o bin/obj/CClientSocket.o bin/obj/main.o

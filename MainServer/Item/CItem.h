@@ -37,11 +37,18 @@ public:
 	int GetNum() { return m_desc.nNum; }
 	void SetNum(int nNum) { m_desc.nNum = nNum; }
 	WORD GetIndex() { return m_desc.wIndex; }
+	CItemInfo* GetMacro() const { return m_pMacro; }
+
+	bool IsState(int nState) { return m_desc.nInfo & nState; }
+	void AddState(int nState) { m_desc.nInfo |= nState; }
+	void SubState(int nState) { m_desc.nInfo &= ~nState; }
 
 	void Lock() { m_mxThis.lock(); }
 	void Unlock() { m_mxThis.unlock(); }
 
-	virtual bool Use(CPlayer *pPlayer) = 0;
+	virtual bool Use(CPlayer *pPlayer) { return false; }
+	virtual void PutOn(CPlayer *pPlayer) {}
+	virtual void PutOff(CPlayer *pPlayer) {}
 
 	bool CanUse(CPlayer *pPlayer);
 

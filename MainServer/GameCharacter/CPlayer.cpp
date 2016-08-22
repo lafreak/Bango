@@ -6,12 +6,6 @@
 
 #include "../CServer.h"
 
-WORD CPlayer::g_wDebugItems[4][8] = {
-	1632, 1479, 1480, 1481, 1633, 799, 0, 0,
-	1640, 1489, 1490, 1491, 1641, 801, 0, 0,
-	1636, 1484, 1485, 1486, 1637, 800, 0, 0,
-	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
-};
 
 PlayerMap CPlayer::g_mPlayer;
 std::mutex CPlayer::g_mxPlayer;
@@ -41,6 +35,11 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nX = desc.nX;
 	m_nY = desc.nY;
 	m_nZ = desc.nZ;
+
+	m_n64WearState = 0;
+
+	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
+	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_NUM);
 
 	m_byKind = CK_PLAYER;
 }
@@ -102,8 +101,8 @@ CItem* CPlayer::FindItem(WORD wIndex, BYTE byOwnership)
 	for (ItemMap::iterator it = m_mItem.begin(); it != m_mItem.end(); it++)
 	{
 		bool isOwnership = byOwnership == IFO_ANY ? true : 
-						((it->second->GetInfo() & ITEM_OWN) && byOwnership == IFO_MUSTOWN ? true : 
-						(!(it->second->GetInfo() & ITEM_OWN) && byOwnership == IFO_CANTOWN ? true : false));
+						((it->second->IsState(ITEM_OWN)) && byOwnership == IFO_MUSTOWN ? true : 
+						(!(it->second->IsState(ITEM_OWN)) && byOwnership == IFO_CANTOWN ? true : false));
 
 
 		if (isOwnership && it->second->GetIndex() == wIndex) {
@@ -132,6 +131,78 @@ CItem* CPlayer::FindItemByIID(int nIID)
 	m_mxItem.unlock();
 
 	return pItem;
+}
+
+void CPlayer::SetGear(CItem *pItem)
+{
+	switch (pItem->GetMacro()->m_bySubClass)
+	{
+		case ISC_SWORD:
+		case ISC_WAND:
+		case ISC_BOW:
+		case ISC_DAGGER:
+		case ISC_SWORD2HAND:
+			m_Gear[WS_WEAPON] = pItem->GetIID();
+			m_GearIndex[WS_WEAPON] = pItem->GetIndex();
+			AddWState(WS_WEAPON);
+			break;
+		
+		case ISC_SHIELD:
+			m_Gear[WS_SHIELD] = pItem->GetIID();
+			m_GearIndex[WS_SHIELD] = pItem->GetIndex();
+			AddWState(WS_SHIELD);
+			break;
+
+		case ISC_HELMET:
+			m_Gear[WS_HELMET] = pItem->GetIID();
+			m_GearIndex[WS_HELMET] = pItem->GetIndex();
+			AddWState(WS_HELMET);
+			break;
+
+		case ISC_UPPERARMOR:
+			m_Gear[WS_UPPERARMOR] = pItem->GetIID();
+			m_GearIndex[WS_UPPERARMOR] = pItem->GetIndex();
+			AddWState(WS_UPPERARMOR);
+			break;
+
+		case ISC_LOWERARMOR:
+			m_Gear[WS_LOWERARMOR] = pItem->GetIID();
+			m_GearIndex[WS_LOWERARMOR] = pItem->GetIndex();
+			AddWState(WS_LOWERARMOR);
+			break;
+
+		case ISC_GAUNTLET:
+			m_Gear[WS_GAUNTLET] = pItem->GetIID();
+			m_GearIndex[WS_GAUNTLET] = pItem->GetIndex();
+			AddWState(WS_GAUNTLET);
+			break;
+
+		case ISC_BOOTS:
+			m_Gear[WS_BOOTS] = pItem->GetIID();
+			m_GearIndex[WS_BOOTS] = pItem->GetIndex();
+			AddWState(WS_BOOTS);
+			break;
+
+		case ISC_RING:
+			m_Gear[WS_RING] = pItem->GetIID();
+			AddWState(WS_RING);
+			break;
+
+		case ISC_NECKLACE:
+			m_Gear[WS_NECKLACE] = pItem->GetIID();
+			AddWState(WS_NECKLACE);
+			break;
+
+		case ISC_TRINKET:
+			m_Gear[WS_TRINKET] = pItem->GetIID();
+			AddWState(WS_TRINKET);
+			break;
+
+		case ISC_COCOON:
+			m_Gear[WS_TRANSFORM] = pItem->GetIID();
+			AddWState(WS_TRANSFORM);
+			break;
+	}
 }
 
 WORD CPlayer::GetReqPU(BYTE *byStats)
@@ -235,6 +306,7 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		m_nZ, 
 		m_wDir, 
 		m_n64GState,
+		/*
 		g_wDebugItems[m_byClass][0], 
 		g_wDebugItems[m_byClass][1],
 		g_wDebugItems[m_byClass][2], 
@@ -243,6 +315,15 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		g_wDebugItems[m_byClass][5], 
 		g_wDebugItems[m_byClass][6], 
 		g_wDebugItems[m_byClass][7], 
+		*/
+		m_GearIndex[WS_WEAPON],
+		m_GearIndex[WS_SHIELD],
+		m_GearIndex[WS_HELMET],
+		m_GearIndex[WS_UPPERARMOR],
+		m_GearIndex[WS_LOWERARMOR],
+		m_GearIndex[WS_GAUNTLET],
+		m_GearIndex[WS_BOOTS],
+		(WORD)0,//m_GearIndex[WS_PET],
 		m_byFace, 
 		m_byHair, 
 		m_n64MState, 
@@ -486,6 +567,34 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		case C2S_PUTONITEM:
+		{
+			int nIID=0;
+			CSocket::ReadPacket(packet.data, "d", &nIID);
+
+			CItem *pItem = FindItemByIID(nIID);
+			if (pItem) {
+				PutOnItem(pItem);
+				pItem->m_Access.Release();
+			}
+
+			break;
+		}
+
+		case C2S_PUTOFFITEM:
+		{
+			int nIID=0;
+			CSocket::ReadPacket(packet.data, "d", &nIID);
+
+			CItem *pItem = FindItemByIID(nIID);
+			if (pItem) {
+				PutOffItem(pItem);
+				pItem->m_Access.Release();
+			}
+
+			break;
+		}
 	}
 }
 
@@ -608,6 +717,13 @@ void CPlayer::OnLoadItems(char *p)
 		if (!pItem) continue;
 
 		IntoInven(pItem);
+
+		if (pItem->IsState(ITEM_PUTON)) {
+			Lock();
+			SetGear(pItem);
+			Unlock();
+			//WriteInSight(S2C_PUTONITEM, "ddw", GetID(), pItem->GetIID(), pItem->GetIndex());
+		}
 
 		pEnd = CSocket::WritePacket(pEnd, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
 				desc.wIndex,
@@ -1181,6 +1297,16 @@ void CPlayer::RemoveItem(WORD wIndex, int nNum, BYTE byLogType)
 
 	if (RemoveItem(pItem, nNum, byLogType))
 		pItem->m_Access.Release();
+}
+
+void CPlayer::PutOnItem(CItem *pItem)
+{
+	pItem->PutOn(this);
+}
+
+void CPlayer::PutOffItem(CItem *pItem)
+{
+	pItem->PutOff(this);
 }
 
 void CPlayer::SaveAllProperty()

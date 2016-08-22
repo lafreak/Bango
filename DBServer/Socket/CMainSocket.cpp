@@ -659,6 +659,38 @@ PVOID CMainSocket::Process(PVOID param)
 
 			break;
 		}
+
+		case S2D_PUTONITEM:
+		{
+			printf("S2D_PUTONITEM.\n");
+
+			int nIID=0;
+			CSocket::ReadPacket(packet->data, "d", &nIID);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE item SET info = info | 1 WHERE iditem=?"));
+			pPStmt->setInt(1, nIID);
+
+			pPStmt->execute();
+
+			break;
+		}
+
+		case S2D_PUTOFFITEM:
+		{
+			printf("S2C_PUTOFFITEM.\n");
+
+			int nIID=0;
+			CSocket::ReadPacket(packet->data, "d", &nIID);
+
+			pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
+				"UPDATE item SET info = info & ~1 WHERE iditem=?"));
+			pPStmt->setInt(1, nIID);
+
+			pPStmt->execute();
+
+			break;
+		}
 	}
 
 	CDatabase::Unlock();

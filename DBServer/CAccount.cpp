@@ -2,11 +2,19 @@
 #include "Socket/CMainSocket.h"
 #include "Database/CDatabase.h"
 
+/*
 WORD CAccount::g_wDebugItems[4][8] = {
 	1632, 1479, 1480, 1481, 1633, 799, 0, 0,
 	1640, 1489, 1490, 1491, 1641, 801, 0, 0,
 	1483, 1484, 1485, 1486, 1487, 800, 0, 0,
 	1764, 1766, 1767, 1768, 1769, 1441, 0, 0
+};
+*/
+WORD CAccount::g_wDebugItems[4][8] = {
+	0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0
 };
 
 CAccount::~CAccount()
@@ -34,16 +42,26 @@ void CAccount::SendPlayerInfo()
 	p = CSocket::WritePacket(p, "b", byCount);
 
 	while (rs->next()) {
-		BYTE byWearAmount=6;
+		pstmt_ptr pPStmtEx(CDatabase::g_pConnection->prepareStatement(
+		"SELECT `index` FROM item WHERE idplayer=? AND (info & 1) LIMIT 8"));
+		pPStmtEx->setInt(1, rs->getInt("idplayer"));
+		rs_ptr rsEx(pPStmtEx->executeQuery());
+
+		BYTE byWearAmount=rsEx->rowsCount();
+		
 		int nGID=0;
 		BYTE byClass = rs->getInt("class");
-		p = CSocket::WritePacket(p, "dsbbbdwwwwwbbbwwwwww", rs->getInt("idplayer"),
+		p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", rs->getInt("idplayer"),
 			rs->getString("name").c_str(),
 			byClass, rs->getInt("job"), rs->getInt("level"), nGID,
 			rs->getInt("strength"), rs->getInt("health"), rs->getInt("inteligence"),
-			rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount,
-			g_wDebugItems[byClass][0], g_wDebugItems[byClass][1], g_wDebugItems[byClass][2],
-			g_wDebugItems[byClass][3], g_wDebugItems[byClass][4], g_wDebugItems[byClass][5]);
+			rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
+
+		for (int i = 0; i < 8; i++) {
+			if (!rsEx->next()) break;
+			
+			p = CSocket::WritePacket(p, "w", rsEx->getInt("index"));
+		}
 	}
 
 	CMainSocket::Write(D2S_PLAYER_INFO, "dm", m_nClientID, pBegin, p - pBegin);

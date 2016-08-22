@@ -39,6 +39,7 @@ bool CClientSocket::Start(WORD wPort)
 
 void CClientSocket::Close(int)
 {
+	/* 
 	CServer::g_mxClient.lock();
 
 	for (auto& a: CServer::g_mClient)
@@ -59,6 +60,7 @@ void CClientSocket::Close(int)
 	}
 
 	CServer::g_mxClient.unlock();
+	*/
 
 	close(CClientSocket::g_pSocket);
 

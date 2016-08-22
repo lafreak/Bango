@@ -1066,6 +1066,8 @@ enum WEAR_STATE
 	WS_MASK,
 	WS_2HANDWEAPON,
 	WS_STANDARD,
+
+	WS_PET,
 };
 
 // player Class

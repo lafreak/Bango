@@ -1,5 +1,6 @@
 #include "CItem.h"
 #include "CItemGeneral.h"
+#include "CItemWeapon.h"
 
 #include "../GameCharacter/CPlayer.h"
 
@@ -64,6 +65,9 @@ CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 	{
 		case IC_GENERAL:
 			pItem = new CItemGeneral(desc);
+			break;
+		case IC_WEAPON:
+			pItem = new CItemWeapon(desc);
 			break;
 		default:
 			printf(KRED "Unknown item class (%d).\n" KNRM, pMacro->m_byClass);

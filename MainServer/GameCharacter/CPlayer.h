@@ -11,6 +11,7 @@
 #include "CCharacter.h"
 #include "../Item/CItem.h"
 
+#define GEAR_NUM 15
 
 class CPlayer: public CCharacter
 {
@@ -42,6 +43,11 @@ class CPlayer: public CCharacter
 	int m_nOnTeleportX;
 	int m_nOnTeleportY;
 
+	__int64 m_n64WearState;
+
+	int m_Gear[GEAR_NUM];
+	WORD m_GearIndex[GEAR_NUM];
+
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
 
@@ -51,8 +57,6 @@ class CPlayer: public CCharacter
 public:
 	CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc);
 	~CPlayer();
-
-	static WORD g_wDebugItems[4][8];
 
 	static void Add(CPlayer *pPlayer);
 	static void Remove(CPlayer *pPlayer);
@@ -80,6 +84,13 @@ public:
 	int  GetFlagItem() const { return m_nFlagItem; }
 	int  GetHonorGrade() const { return m_nHonorGrade; }
 	int  GetHonorOption() const { return m_nHonorOption; }
+	int  GetGear(BYTE byType) const { return m_Gear[byType]; }
+	void SetGear(CItem *pItem);
+	void SetGearIndex(BYTE byType, WORD wIndex) { m_GearIndex[byType] = wIndex; }
+
+	bool IsWState(__int64 n64WState) const { return m_n64WearState & (1 << n64WState); }
+	void AddWState(__int64 n64WState) { m_n64WearState |= (1 << n64WState); }
+	void SubWState(__int64 n64WState) { m_n64WearState &= ~(1 << n64WState); }
 
 	WORD GetReqPU(BYTE *byStats);
 
@@ -109,6 +120,8 @@ public:
 	void InsertItem(WORD wIndex, int nNum=1, BYTE byLogType=TL_CREATE, bool bOwn=false, bool bForceSingular=false, BYTE byPrefix=0, BYTE byXAttack=0, BYTE byXMagic=0, BYTE byXHit=0, BYTE byEBlow=0, int nInfo=0, BYTE byXDodge=0, BYTE byXDefense=0, FUSION_DESC* pFuse=NULL, BYTE byShot=0, WORD wPerforation=0, int nGongLeft=0, int nGongRight=0);
 	bool MergeItem(WORD wIndex, int nNum, BYTE byLogType=TL_CREATE, bool bOwn=false);
 	bool UseItem(CItem *pItem);
+	void PutOnItem(CItem *pItem);
+	void PutOffItem(CItem *pItem);
 
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);
