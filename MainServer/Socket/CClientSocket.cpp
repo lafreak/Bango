@@ -39,7 +39,7 @@ bool CClientSocket::Start(WORD wPort)
 
 void CClientSocket::Close(int)
 {
-	/* 
+	printf("About to send All Player Property...\n");
 	CServer::g_mxClient.lock();
 
 	for (auto& a: CServer::g_mClient)
@@ -60,7 +60,8 @@ void CClientSocket::Close(int)
 	}
 
 	CServer::g_mxClient.unlock();
-	*/
+	printf("Property sent.\n");
+	
 
 	close(CClientSocket::g_pSocket);
 
@@ -88,6 +89,7 @@ void CClientSocket::Accept()
 	}
 }
 
+/*
 PVOID CClientSocket::Await(PVOID param)
 {
 	CClient *pClient = new CClient(*(SOCKET*)param);
@@ -113,9 +115,52 @@ PVOID CClientSocket::Await(PVOID param)
 
 		if (nLen > MAX_PACKET_LENGTH || packet.wSize > MAX_PACKET_LENGTH) continue;
 
-		DebugRawPacket(packet);
+		//DebugRawPacket(packet);
 
 		pClient->Process(packet);
+	}
+
+	return NULL;
+}
+*/
+PVOID CClientSocket::Await(PVOID param)
+{
+	CClient *pClient = new CClient(*(SOCKET*)param);
+	delete (SOCKET*)param;
+
+	printf("Client[%d] connected.\n", pClient->GetCID());
+
+	CServer::Add(pClient);
+
+	while (true)
+	{
+		PACKETBUFFER buffer;
+		memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+		int nLen = recv(pClient->GetCID(), &buffer, sizeof(PACKETBUFFER), 0);
+		if (nLen <= 0) {
+			printf("Client[%d] disconnected.\n", pClient->GetCID());
+			CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetCID());
+			CServer::Remove(pClient);
+			break;
+		}
+
+		if (nLen > MAX_PACKET_LENGTH) continue;
+
+		// Cut buffer into packets
+		char *p = (char*)&buffer;
+		while (nLen > 0 && nLen >= *(WORD*)p) 
+		{
+			Packet packet;
+			memset(&packet, 0, sizeof(Packet));
+			memcpy(&packet, p, *(WORD*)p);
+
+			DebugRawPacket(packet);
+			pClient->Process(packet);
+
+			nLen -= *(WORD*)p;
+			p += *(WORD*)p;
+		}
 	}
 
 	return NULL;
@@ -123,6 +168,11 @@ PVOID CClientSocket::Await(PVOID param)
 
 void CClientSocket::DebugRawPacket(Packet& packet)
 {
+	if (packet.byType == C2S_MOVE_ON)
+		return;
+	if (packet.byType == C2S_MOVE_END)
+		return;
+
 	printf("Incoming C2S packet: [%u]\n", (BYTE)packet.byType);
 	for (int i = 0; i < packet.wSize; i++)
 		printf("%u ", (BYTE)((char*)&packet)[i]);

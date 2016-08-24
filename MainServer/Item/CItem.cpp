@@ -1,15 +1,19 @@
 #include "CItem.h"
 #include "CItemGeneral.h"
 #include "CItemWeapon.h"
+#include "CItemDefense.h"
+#include "CItemYinyang.h"
+#include "CItemPet.h"
 
 #include "../GameCharacter/CPlayer.h"
 
 int CItem::g_nMaxIID;
 std::mutex CItem::g_mxMaxIID;
 
-CItem::CItem(ITEMINFO_DESC& desc)
+CItem::CItem(ITEMINFO_DESC& desc, CItemInfo *pMacro)
 {
 	m_desc = desc;
+	m_pMacro = pMacro;
 }
 
 CItem::~CItem()
@@ -51,6 +55,14 @@ bool CItem::CanUse(CPlayer *pPlayer)
 	return true;
 }
 
+bool CItem::CanTrash(CPlayer *pPlayer)
+{
+	if (IsState(ITEM_PUTON))
+		return false;
+
+	return true;
+}
+
 CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 {
 	CItemInfo* pMacro = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, desc.wIndex);
@@ -64,19 +76,25 @@ CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 	switch (pMacro->m_byClass)
 	{
 		case IC_GENERAL:
-			pItem = new CItemGeneral(desc);
+			pItem = new CItemGeneral(desc, pMacro);
 			break;
 		case IC_WEAPON:
-			pItem = new CItemWeapon(desc);
+			pItem = new CItemWeapon(desc, pMacro);
+			break;
+		case IC_DEFENSE:
+			pItem = new CItemDefense(desc, pMacro);
+			break;
+		case IC_YINYANG:
+			pItem = new CItemYinyang(desc, pMacro);
+			break;
+		case IC_PET:
+			pItem = new CItemPet(desc, pMacro);
 			break;
 		default:
 			printf(KRED "Unknown item class (%d).\n" KNRM, pMacro->m_byClass);
-			pItem = new CItemGeneral(desc);
+			pItem = new CItemGeneral(desc, pMacro);
 			break;
 	}
-
-	if (pItem)
-		pItem->m_pMacro = pMacro;
 
 	return pItem;
 }

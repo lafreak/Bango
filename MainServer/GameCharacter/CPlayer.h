@@ -11,7 +11,8 @@
 #include "CCharacter.h"
 #include "../Item/CItem.h"
 
-#define GEAR_NUM 15
+#define GEAR_NUM 19
+#define GEAR_VISIBLE_NUM 9
 
 class CPlayer: public CCharacter
 {
@@ -46,7 +47,8 @@ class CPlayer: public CCharacter
 	__int64 m_n64WearState;
 
 	int m_Gear[GEAR_NUM];
-	WORD m_GearIndex[GEAR_NUM];
+	WORD m_GearIndex[GEAR_VISIBLE_NUM];
+	BYTE m_byTrigramLevel;
 
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
@@ -84,11 +86,17 @@ public:
 	int  GetFlagItem() const { return m_nFlagItem; }
 	int  GetHonorGrade() const { return m_nHonorGrade; }
 	int  GetHonorOption() const { return m_nHonorOption; }
+	BYTE GetTrigramLevel() const { return m_byTrigramLevel; }
+
 	int  GetGear(BYTE byType) const { return m_Gear[byType]; }
-	void SetGear(CItem *pItem);
-	void SetGearIndex(BYTE byType, WORD wIndex) { m_GearIndex[byType] = wIndex; }
+	void OnPutOnGear(CItem *pItem);
+	void OnPutOffGear(CItem *pItem);
+
 
 	bool IsWState(__int64 n64WState) const { return m_n64WearState & (1 << n64WState); }
+	//bool IsAnyTrigramState() const { return IsWState(WS_TRIGRAM1) || IsWState(WS_TRIGRAM2) || IsWState(WS_TRIGRAM3) || IsWState(WS_TRIGRAM4) || IsWState(WS_TRIGRAM5) || IsWState(WS_TRIGRAM6) || IsWState(WS_TRIGRAM7) || IsWState(WS_TRIGRAM8); }
+	bool IsAnyTrigramState() const { return m_n64WearState & (((__int64)0xFF) << WS_TRIGRAM1); }
+	bool IsAllTrigramState() const { return (BYTE)(m_n64WearState >> WS_TRIGRAM1) == 0xFF; }
 	void AddWState(__int64 n64WState) { m_n64WearState |= (1 << n64WState); }
 	void SubWState(__int64 n64WState) { m_n64WearState &= ~(1 << n64WState); }
 
@@ -100,6 +108,7 @@ public:
 	void SendPacketInSight(Packet& packet);
 
 	Packet GenerateCreatePacket(bool bHero=false);
+	Packet GeneratePetPacket();
 	Packet GenerateDeletePacket();
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ);
 

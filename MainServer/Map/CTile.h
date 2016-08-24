@@ -33,7 +33,7 @@ public:
 	void SendPacket(CCharacter *pCharacter, Packet& packet);
 
 	void SendMoveAction(CCharacter *pCharacter, char byX, char byY, 
-		Packet& createPacket, Packet& deletePacket, Packet& movePacket);
+		Packet& createPacket, Packet& petPacket, Packet& deletePacket, Packet& movePacket);
 };
 
 #endif

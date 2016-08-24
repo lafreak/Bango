@@ -1,10 +1,9 @@
 #include <Socket/CSocket.h>
-
 #include "../Socket/CDBSocket.h"
-
 #include "CPlayer.h"
-
 #include "../CServer.h"
+#include "../Item/CItemPet.h"
+
 
 
 PlayerMap CPlayer::g_mPlayer;
@@ -37,9 +36,10 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nZ = desc.nZ;
 
 	m_n64WearState = 0;
+	m_byTrigramLevel = 0;
 
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
-	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_NUM);
+	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
 
 	m_byKind = CK_PLAYER;
 }
@@ -133,7 +133,7 @@ CItem* CPlayer::FindItemByIID(int nIID)
 	return pItem;
 }
 
-void CPlayer::SetGear(CItem *pItem)
+void CPlayer::OnPutOnGear(CItem *pItem)
 {
 	switch (pItem->GetMacro()->m_bySubClass)
 	{
@@ -141,10 +141,16 @@ void CPlayer::SetGear(CItem *pItem)
 		case ISC_WAND:
 		case ISC_BOW:
 		case ISC_DAGGER:
+			m_Gear[WS_WEAPON] = pItem->GetIID();
+			m_GearIndex[WS_WEAPON] = pItem->GetIndex();
+			AddWState(WS_WEAPON);
+			break;
+
 		case ISC_SWORD2HAND:
 			m_Gear[WS_WEAPON] = pItem->GetIID();
 			m_GearIndex[WS_WEAPON] = pItem->GetIndex();
 			AddWState(WS_WEAPON);
+			AddWState(WS_2HANDWEAPON);
 			break;
 		
 		case ISC_SHIELD:
@@ -183,26 +189,187 @@ void CPlayer::SetGear(CItem *pItem)
 			AddWState(WS_BOOTS);
 			break;
 
-		case ISC_RING:
-			m_Gear[WS_RING] = pItem->GetIID();
-			AddWState(WS_RING);
+		case ISC_YINYANGMIRROR:
+			m_Gear[WS_MIRROR] = pItem->GetIID();
+			AddWState(WS_MIRROR);
 			break;
 
-		case ISC_NECKLACE:
-			m_Gear[WS_NECKLACE] = pItem->GetIID();
-			AddWState(WS_NECKLACE);
+		case ISC_TAEGEUK:
+			m_Gear[WS_TAEGEUK] = pItem->GetIID();
+			AddWState(WS_TAEGEUK);
 			break;
 
-		case ISC_TRINKET:
-			m_Gear[WS_TRINKET] = pItem->GetIID();
-			AddWState(WS_TRINKET);
+		case ISC_TRIGRAM1:
+			m_Gear[WS_TRIGRAM1] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM1);
 			break;
 
-		case ISC_COCOON:
-			m_Gear[WS_TRANSFORM] = pItem->GetIID();
-			AddWState(WS_TRANSFORM);
+		case ISC_TRIGRAM2:
+			m_Gear[WS_TRIGRAM2] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM2);
+			break;
+
+		case ISC_TRIGRAM3:
+			m_Gear[WS_TRIGRAM3] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM3);
+			break;
+
+		case ISC_TRIGRAM4:
+			m_Gear[WS_TRIGRAM4] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM4);
+			break;
+
+		case ISC_TRIGRAM5:
+			m_Gear[WS_TRIGRAM5] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM5);
+			break;
+
+		case ISC_TRIGRAM6:
+			m_Gear[WS_TRIGRAM6] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM6);
+			break;
+
+		case ISC_TRIGRAM7:
+			m_Gear[WS_TRIGRAM7] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM7);
+			break;
+
+		case ISC_TRIGRAM8:
+			m_Gear[WS_TRIGRAM8] = pItem->GetIID();
+			m_byTrigramLevel = pItem->GetLevel();
+			AddWState(WS_TRIGRAM8);
+			break;
+
+		case ISC_EGG:
+			m_Gear[WS_PET] = pItem->GetIID();
+			m_GearIndex[WS_PET] = pItem->GetIndex();
+			AddWState(WS_PET);
 			break;
 	}
+}
+
+void CPlayer::OnPutOffGear(CItem *pItem)
+{
+	switch (pItem->GetMacro()->m_bySubClass)
+	{
+		case ISC_SWORD:
+		case ISC_WAND:
+		case ISC_BOW:
+		case ISC_DAGGER:
+			m_Gear[WS_WEAPON] = 0;
+			m_GearIndex[WS_WEAPON] = 0;
+			SubWState(WS_WEAPON);
+			break;
+
+		case ISC_SWORD2HAND:
+			m_Gear[WS_WEAPON] = 0;
+			m_GearIndex[WS_WEAPON] = 0;
+			SubWState(WS_WEAPON);
+			SubWState(WS_2HANDWEAPON);
+			break;
+		
+		case ISC_SHIELD:
+			m_Gear[WS_SHIELD] = 0;
+			m_GearIndex[WS_SHIELD] = 0;
+			SubWState(WS_SHIELD);
+			break;
+
+		case ISC_HELMET:
+			m_Gear[WS_HELMET] = 0;
+			m_GearIndex[WS_HELMET] = 0;
+			SubWState(WS_HELMET);
+			break;
+
+		case ISC_UPPERARMOR:
+			m_Gear[WS_UPPERARMOR] = 0;
+			m_GearIndex[WS_UPPERARMOR] = 0;
+			SubWState(WS_UPPERARMOR);
+			break;
+
+		case ISC_LOWERARMOR:
+			m_Gear[WS_LOWERARMOR] = 0;
+			m_GearIndex[WS_LOWERARMOR] = 0;
+			SubWState(WS_LOWERARMOR);
+			break;
+
+		case ISC_GAUNTLET:
+			m_Gear[WS_GAUNTLET] = 0;
+			m_GearIndex[WS_GAUNTLET] = 0;
+			SubWState(WS_GAUNTLET);
+			break;
+
+		case ISC_BOOTS:
+			m_Gear[WS_BOOTS] = 0;
+			m_GearIndex[WS_BOOTS] = 0;
+			SubWState(WS_BOOTS);
+			break;
+
+		case ISC_YINYANGMIRROR:
+			m_Gear[WS_MIRROR] = 0;
+			SubWState(WS_MIRROR);
+			break;
+
+		case ISC_TAEGEUK:
+			m_Gear[WS_TAEGEUK] = 0;
+			SubWState(WS_TAEGEUK);
+			break;
+
+		case ISC_TRIGRAM1:
+			m_Gear[WS_TRIGRAM1] = 0;
+			SubWState(WS_TRIGRAM1);
+			break;
+
+		case ISC_TRIGRAM2:
+			m_Gear[WS_TRIGRAM2] = 0;
+			SubWState(WS_TRIGRAM2);
+			break;
+
+		case ISC_TRIGRAM3:
+			m_Gear[WS_TRIGRAM3] = 0;
+			SubWState(WS_TRIGRAM3);
+			break;
+
+		case ISC_TRIGRAM4:
+			m_Gear[WS_TRIGRAM4] = 0;
+			SubWState(WS_TRIGRAM4);
+			break;
+
+		case ISC_TRIGRAM5:
+			m_Gear[WS_TRIGRAM5] = 0;
+			SubWState(WS_TRIGRAM5);
+			break;
+
+		case ISC_TRIGRAM6:
+			m_Gear[WS_TRIGRAM6] = 0;
+			SubWState(WS_TRIGRAM6);
+			break;
+
+		case ISC_TRIGRAM7:
+			m_Gear[WS_TRIGRAM7] = 0;
+			SubWState(WS_TRIGRAM7);
+			break;
+
+		case ISC_TRIGRAM8:
+			m_Gear[WS_TRIGRAM8] = 0;
+			SubWState(WS_TRIGRAM8);
+			break;
+
+		case ISC_EGG:
+			m_Gear[WS_PET] = 0;
+			m_GearIndex[WS_PET]=0;
+			SubWState(WS_PET);
+			break;
+	}
+
+	if (!IsAnyTrigramState())
+		m_byTrigramLevel=0;
 }
 
 WORD CPlayer::GetReqPU(BYTE *byStats)
@@ -245,7 +412,7 @@ bool CPlayer::Write(BYTE byType, ...)
 	va_end(va);
 
 	packet.wSize = end - (char*)&packet;
-	send(m_nCID, (char*)&packet, packet.wSize, 0);
+	send(m_nCID, (char*)&packet, packet.wSize, MSG_NOSIGNAL);
 
 	return true;
 }
@@ -265,7 +432,6 @@ bool CPlayer::WriteInSight(BYTE byType, ...)
 	va_end(va);
 
 	packet.wSize = end - (char*)&packet;
-	//send(m_nCID, (char*)&packet, packet.wSize, 0);
 	CMap::SendPacket(this, packet);
 
 	return true;
@@ -273,12 +439,14 @@ bool CPlayer::WriteInSight(BYTE byType, ...)
 
 void CPlayer::SendPacket(Packet& packet)
 {
-	send(m_nCID, (char*)&packet, packet.wSize, 0);
+	if (packet.wSize > 0)
+		send(m_nCID, (char*)&packet, packet.wSize, MSG_NOSIGNAL);
 }
 
 void CPlayer::SendPacketInSight(Packet& packet)
 {
-	CMap::SendPacket(this, packet);
+	if (packet.wSize > 0)
+		CMap::SendPacket(this, packet);
 }
 
 Packet CPlayer::GenerateCreatePacket(bool bHero)
@@ -297,7 +465,7 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		byClass |= GAME_HERO;
 
 	packet.byType = S2C_CREATEPLAYER;
-	char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
+	char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIwwwwwwwwwbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		byClass, 
@@ -306,16 +474,6 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		m_nZ, 
 		m_wDir, 
 		m_n64GState,
-		/*
-		g_wDebugItems[m_byClass][0], 
-		g_wDebugItems[m_byClass][1],
-		g_wDebugItems[m_byClass][2], 
-		g_wDebugItems[m_byClass][3], 
-		g_wDebugItems[m_byClass][4], 
-		g_wDebugItems[m_byClass][5], 
-		g_wDebugItems[m_byClass][6], 
-		g_wDebugItems[m_byClass][7], 
-		*/
 		m_GearIndex[WS_WEAPON],
 		m_GearIndex[WS_SHIELD],
 		m_GearIndex[WS_HELMET],
@@ -323,7 +481,7 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		m_GearIndex[WS_LOWERARMOR],
 		m_GearIndex[WS_GAUNTLET],
 		m_GearIndex[WS_BOOTS],
-		(WORD)0,//m_GearIndex[WS_PET],
+		0,//m_GearIndex[WS_PET], // no effect?
 		m_byFace, 
 		m_byHair, 
 		m_n64MState, 
@@ -336,11 +494,27 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		m_nHonorOption, 
 		m_n64GStateEx, 
 		m_n64MStateEx, 
-		
+
 		byUnknownV,
 		nUn2,
 		nUn3,
-		byUn4);
+		byUn4
+		);
+
+	packet.wSize = end - ((char*)&packet);
+
+	return packet;
+}
+
+Packet CPlayer::GeneratePetPacket()
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = S2C_ATTACH_PET;
+
+	char *end = CSocket::WritePacket(packet.data, "dwdb", m_nID, m_GearIndex[WS_PET], m_Gear[WS_PET], 
+		(m_GearIndex[WS_PET] >= 2004 && m_GearIndex[WS_PET] <= 2007) ? 1 : 0);
 
 	packet.wSize = end - ((char*)&packet);
 
@@ -547,6 +721,11 @@ void CPlayer::Process(Packet packet)
 
 			CItem *pItem = FindItemByIID(nIID);
 			if (pItem) {
+				if (!pItem->CanTrash(this)) {
+					pItem->m_Access.Release();
+					break;
+				}
+
 				if (RemoveItem(pItem))
 					pItem->m_Access.Release();
 			}
@@ -665,6 +844,8 @@ void CPlayer::OnLoadPlayer()
 
 void CPlayer::OnLoadItems(char *p)
 {
+	printf("CPlayer::OnLoadItems\n");
+	
 	BYTE byCount=0;
 	p = CSocket::ReadPacket(p, "b", &byCount);
 
@@ -719,17 +900,26 @@ void CPlayer::OnLoadItems(char *p)
 		IntoInven(pItem);
 
 		if (pItem->IsState(ITEM_PUTON)) {
-			Lock();
-			SetGear(pItem);
-			Unlock();
-			//WriteInSight(S2C_PUTONITEM, "ddw", GetID(), pItem->GetIID(), pItem->GetIndex());
+			if (!pItem->CanUse(this)) 
+			{
+				CDBSocket::Write(S2D_PUTOFFITEM, "d", pItem->GetIID());
+				pItem->Lock();
+				pItem->SubState(ITEM_PUTON);
+				pItem->Unlock();
+			}
+			else
+			{
+				Lock();
+				OnPutOnGear(pItem);
+				Unlock();
+			}
 		}
 
 		pEnd = CSocket::WritePacket(pEnd, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
 				desc.wIndex,
 				desc.nIID,
 				desc.byPrefix,
-				desc.nInfo,
+				pItem->GetInfo(),
 				desc.nNum,
 				desc.byMaxEnd,
 				desc.byCurEnd,
@@ -775,8 +965,11 @@ void CPlayer::OnLoadItems(char *p)
 
 void CPlayer::GameStart()
 {
+	printf("CPlayer::GameStart.\n");
+
 	Packet createPacket 	= GenerateCreatePacket();
 	Packet createHeroPacket = GenerateCreatePacket(true);
+	Packet petPacket		= GeneratePetPacket();
 
 	SendPacket(createHeroPacket);
 
@@ -786,13 +979,16 @@ void CPlayer::GameStart()
 	for (CharacterList::iterator it = list.begin(); it != list.end(); it++)
 	{
 		Packet createPacketEx = (*it)->GenerateCreatePacket();
+		Packet petPacketEx = 	(*it)->GeneratePetPacket();
 
 		SendPacket(createPacketEx);
+		SendPacket(petPacketEx);
 
 		(*it)->m_Access.Release();
 	}
 
 	SendPacketInSight(createPacket);
+	SendPacketInSight(petPacket);
 }
 
 void CPlayer::GameRestart()
@@ -851,9 +1047,9 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 
 	if (!mapInfoCur.equalTile(mapInfoDest)) 
 	{
-		printf("Player tile changed.\n[%d %d]->[%d %d]\n",
-			mapInfoCur.wTileX, mapInfoCur.wTileY,
-			mapInfoDest.wTileX, mapInfoDest.wTileY);
+		//printf("Player tile changed.\n[%d %d]->[%d %d]\n",
+		//	mapInfoCur.wTileX, mapInfoCur.wTileY,
+		//	mapInfoDest.wTileX, mapInfoDest.wTileY);
 
 		CMap::Remove(mapInfoCur, this);
 		CMap::Add(mapInfoDest, this);
@@ -866,6 +1062,7 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 	SetDirection(byX, byY);
 
 	Packet createPacket = GenerateCreatePacket();
+	Packet petPacket = GeneratePetPacket();
 	Packet deletePacket = GenerateDeletePacket();
 	Packet movePacket =   GenerateMovePacket(byType, byX, byY, byZ);
 
@@ -873,7 +1070,7 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 		for (int j = mapInfoDest.wTileY-1; j <= mapInfoDest.wTileY+1; j++) {
 			auto pTile = CMap::GetTile(i, j);
 			if (pTile)
-				pTile->SendMoveAction(this, byX, byY, createPacket, deletePacket, movePacket);
+				pTile->SendMoveAction(this, byX, byY, createPacket, petPacket, deletePacket, movePacket);
 		}
 	}
 }
@@ -1092,6 +1289,7 @@ void CPlayer::Teleport(int nX, int nY, int nZ)
 
 void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 {
+	// TODO: Add check for packet hack
 	if (!byAnswer) {
 		printf(KRED "CPlayer::OnTeleport: Client response: cannot teleport.\n" KNRM);
 		return;
@@ -1313,7 +1511,7 @@ void CPlayer::SaveAllProperty()
 {
 	CDBSocket::Write(S2D_SAVEALLPROPERTY, "dbdddwwwIwwd",
 		m_nPID,
-		m_byLevel,
+		m_byLevel-1,
 		m_nX,
 		m_nY,
 		m_nZ,

@@ -31,7 +31,7 @@ bool CClient::Write(BYTE byType, ...)
 	va_end(va);
 
 	packet.wSize = end - (char*)&packet;
-	send(m_nCID, (char*)&packet, packet.wSize, 0);
+	send(m_nCID, (char*)&packet, packet.wSize, MSG_NOSIGNAL);
 
 	return true;
 }

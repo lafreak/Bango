@@ -100,7 +100,7 @@ void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 		CPlayer *pPlayer = (CPlayer*)a.second;
 
 		if (sqrt(pow(pPlayer->GetX() - pCharacter->GetX(), 2) + pow(pPlayer->GetY() - pCharacter->GetY(), 2)) < MAX_PLAYER_SIGHT) {
-			printf("Sent to %d.\n", pPlayer->GetID());
+			//printf("Sent to %d.\n", pPlayer->GetID());
 			pPlayer->SendPacket(packet);
 		}
 
@@ -111,7 +111,7 @@ void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 }
 
 void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
-	Packet &createPacket, Packet& deletePacket, Packet& movePacket)
+	Packet &createPacket, Packet &petPacket, Packet& deletePacket, Packet& movePacket)
 {
 	Lock();
 
@@ -126,9 +126,12 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 				case MV_AC_CREATE:
 				{
 					pCharacterEx->SendPacket(createPacket);
+					pCharacterEx->SendPacket(petPacket);
 					if (pCharacter->GetKind() == CK_PLAYER) {
 						Packet p=pCharacterEx->GenerateCreatePacket();
+						Packet r=pCharacterEx->GeneratePetPacket();
 						pCharacter->SendPacket(p);
+						pCharacter->SendPacket(r);
 					}
 					break;
 				}

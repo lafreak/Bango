@@ -41,6 +41,14 @@ Packet CNPC::GenerateCreatePacket(bool bHero)
 	return packet;
 }
 
+Packet CNPC::GeneratePetPacket()
+{
+	Packet packet;
+	packet.wSize=0;
+
+	return packet;
+}
+
 Packet CNPC::GenerateDeletePacket()
 {
 	Packet packet;
@@ -58,7 +66,7 @@ Packet CNPC::GenerateDeletePacket()
 Packet CNPC::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 {
 	Packet packet;
-	memset(&packet, 0, sizeof(Packet));
+	packet.wSize=0;
 
 	return packet;
 }

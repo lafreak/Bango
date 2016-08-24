@@ -14,6 +14,9 @@ KeyMap CMacroDB::g_mKey = {
 	{"money", 		IC_MONEY },
 	{"transform", 	IC_TRANSFORM },
 	{"pet", 		IC_PET },
+	{"LimitedPet",  IC_PET },
+	{"money", 		IC_MONEY },
+	{"yinyang", 	IC_YINYANG },
 
 	// Item Sub Class
 	{"fish", 		ISC_FISH },
@@ -32,7 +35,6 @@ KeyMap CMacroDB::g_mKey = {
 	{"refresh", 	ISC_REFRESH },
 	{"charm", 		ISC_CHARM },
 	{"gem", 		ISC_GEM },
-	{"money", 		IC_MONEY },
 	{"coin", 		ISC_COIN },
 	{"repair", 		ISC_REPAIR },
 	{"necklace", 	ISC_NECKLACE },
@@ -40,6 +42,17 @@ KeyMap CMacroDB::g_mKey = {
 	{"mask", 		ISC_MASK },
 	{"standard", 	ISC_STANDARD },
 	{"dagger",		ISC_DAGGER },
+	{"yinyangmirror", ISC_YINYANGMIRROR },
+	{"taegeuk", 	ISC_TAEGEUK },
+	{"trigramSlot1", ISC_TRIGRAM1 },
+	{"trigramSlot2", ISC_TRIGRAM2 },
+	{"trigramSlot3", ISC_TRIGRAM3 },
+	{"trigramSlot4", ISC_TRIGRAM4 },
+	{"trigramSlot5", ISC_TRIGRAM5 },
+	{"trigramSlot6", ISC_TRIGRAM6 },
+	{"trigramSlot7", ISC_TRIGRAM7 },
+	{"trigramSlot8", ISC_TRIGRAM8 },
+	{"egg", 		ISC_EGG },
 
 	// Player Class
 	{"knight",		PC_KNIGHT },

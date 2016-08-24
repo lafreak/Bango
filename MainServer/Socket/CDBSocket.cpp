@@ -39,6 +39,7 @@ bool CDBSocket::Close()
 	return true;
 }
 
+/*
 PVOID CDBSocket::Await(PVOID param)
 {
 	while (true)
@@ -49,6 +50,7 @@ PVOID CDBSocket::Await(PVOID param)
 
 		int nLen = recv(CDBSocket::g_pDBSocket, packet, MAX_PACKET_LENGTH + (packet->data-(char*)packet), 0);
 		if (nLen <= 0 || packet->wSize <=0) {
+			delete packet;
 			printf(KRED "DBServer disconnected.\n" KNRM);
 			break;
 		}
@@ -61,6 +63,43 @@ PVOID CDBSocket::Await(PVOID param)
 		if (pthread_create(&t, NULL, &CDBSocket::Process, (PVOID)packet) != THREAD_SUCCESS) {
 			printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
 			delete packet;
+		}
+	}
+}
+*/
+PVOID CDBSocket::Await(PVOID param)
+{
+	while (true)
+	{
+		PACKETBUFFER buffer;
+		memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+		int nLen = recv(CDBSocket::g_pDBSocket, &buffer, sizeof(PACKETBUFFER), 0);
+		if (nLen <= 0) {
+			printf(KRED "DBServer disconnected.\n" KNRM);
+			break;
+		}
+
+		if (nLen > MAX_PACKET_LENGTH) continue;
+
+		// Cut buffer into packets
+		char *p = (char*)&buffer;
+		while (nLen > 0 && nLen >= *(WORD*)p) 
+		{
+			Packet *packet = new Packet;
+			memset(packet, 0, sizeof(Packet));
+			memcpy(packet, p, *(WORD*)p);
+
+			DebugRawPacket(packet);
+
+			pthread_t t;
+			if (pthread_create(&t, NULL, &CDBSocket::Process, (PVOID)packet) != THREAD_SUCCESS) {
+				printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
+				delete packet;
+			}
+
+			nLen -= *(WORD*)p;
+			p += *(WORD*)p;
 		}
 	}
 }

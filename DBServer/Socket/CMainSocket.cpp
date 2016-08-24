@@ -45,7 +45,7 @@ void CMainSocket::Close(int)
 	close(CMainSocket::g_pDBSocket);
 	exit(1);
 }
-
+/*
 void CMainSocket::Accept()
 {
 	if (CMainSocket::g_pDBSocket == INVALID_SOCKET)
@@ -66,6 +66,8 @@ void CMainSocket::Accept()
 			//Sleep?
 
 			int nLen = recv(CMainSocket::g_pMainSocket, packet, MAX_PACKET_LENGTH + (packet->data-(char*)packet), 0);
+			printf("recv: wSize [%d] nLen [%d]\n", packet->wSize, nLen);
+
 			if (nLen <= 0 || packet->wSize <=0) {
 				delete packet;
 				CServer::EmptyAccount();
@@ -79,6 +81,62 @@ void CMainSocket::Accept()
 			pthread_create(&t, NULL, &CMainSocket::Process, (PVOID)packet);
 
 			DebugRawPacket(packet);
+
+			static int l;
+			if (packet->byType == S2D_SAVEALLPROPERTY) {
+				l++;
+				printf("SAVE ALL PROPERTY MAN: %d\n", l);
+			}
+		}
+	}
+}
+*/
+
+void CMainSocket::Accept()
+{
+	if (CMainSocket::g_pDBSocket == INVALID_SOCKET)
+		return;
+
+	while (true) {
+		CMainSocket::g_pMainSocket = INVALID_SOCKET;
+
+		while (CMainSocket::g_pMainSocket == INVALID_SOCKET)
+			CMainSocket::g_pMainSocket = accept(CMainSocket::g_pDBSocket, NULL, NULL);
+
+		printf("MainServer connected.\n");
+
+		while (true)
+		{
+			PACKETBUFFER buffer;
+			memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+			int nLen = recv(CMainSocket::g_pMainSocket, &buffer, sizeof(PACKETBUFFER), 0);
+
+			if (nLen <= 0) {
+				CServer::EmptyAccount();
+				printf("MainServer disconnected.\n");
+				break;
+			}
+
+			if (nLen > MAX_PACKET_LENGTH) continue;
+
+			// Cut buffer into packets
+			char *p = (char*)&buffer;
+			while (nLen > 0 && nLen >= *(WORD*)p) 
+			{
+				Packet *packet = new Packet;
+				memset(packet, 0, sizeof(Packet));
+				memcpy(packet, p, *(WORD*)p);
+
+				pthread_t t;
+				pthread_create(&t, NULL, &CMainSocket::Process, (PVOID)packet);
+
+				DebugRawPacket(packet);
+
+				nLen -= *(WORD*)p;
+				p += *(WORD*)p;
+			}
+
 		}
 	}
 }

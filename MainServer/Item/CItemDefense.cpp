@@ -1,32 +1,45 @@
-#include "CItemWeapon.h"
+#include "CItemDefense.h"
 
 #include "../GameCharacter/CPlayer.h"
 
 #include "../Socket/CDBSocket.h"
 
-CItemWeapon::CItemWeapon(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(desc, pMacro)
+CItemDefense::CItemDefense(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(desc, pMacro)
 {
 	switch (m_pMacro->m_bySubClass)
 	{
-		case ISC_SWORD:
-		case ISC_WAND:
-		case ISC_BOW:
-		case ISC_DAGGER:
-			m_byWearType = WS_WEAPON;
+		case ISC_SHIELD:
+			m_byWearType = WS_SHIELD;
 			break;
 
-		case ISC_SWORD2HAND:
-			m_byWearType = WS_2HANDWEAPON;
+		case ISC_HELMET:
+			m_byWearType = WS_HELMET;
+			break;
+
+		case ISC_UPPERARMOR:
+			m_byWearType = WS_UPPERARMOR;
+			break;
+
+		case ISC_LOWERARMOR:
+			m_byWearType = WS_LOWERARMOR;
+			break;
+
+		case ISC_GAUNTLET:
+			m_byWearType = WS_GAUNTLET;
+			break;
+
+		case ISC_BOOTS:
+			m_byWearType = WS_BOOTS;
 			break;
 
 		default:
-			printf(KRED "CItemWeapon::CItemWeapon: Unknown SubClass.\n" KNRM);
+			printf(KRED "CItemDefense::CItemDefense: Unknown SubClass.\n" KNRM);
 			m_byWearType = GEAR_NUM-1;
 			break;
 	}
 }
 
-void CItemWeapon::PutOn(CPlayer *pPlayer)
+void CItemDefense::PutOn(CPlayer *pPlayer)
 {
 	if (!CanUse(pPlayer))
 		return;
@@ -40,7 +53,7 @@ void CItemWeapon::PutOn(CPlayer *pPlayer)
 		return;
 	}
 
-	if (m_byWearType == WS_2HANDWEAPON && pPlayer->IsWState(WS_SHIELD))
+	if (m_byWearType == WS_SHIELD && pPlayer->IsWState(WS_2HANDWEAPON))
 		return;
 
 	if (IsState(ITEM_PUTON))
@@ -58,15 +71,15 @@ void CItemWeapon::PutOn(CPlayer *pPlayer)
 	CDBSocket::Write(S2D_PUTONITEM, "d", GetIID());
 }
 
-void CItemWeapon::PutOff(CPlayer *pPlayer)
+void CItemDefense::PutOff(CPlayer *pPlayer)
 {
-	if (!pPlayer->IsWState(WS_WEAPON)) {
-		printf(KRED "CItemWeapon::PutOff: Trying to put off item while having no item put on.\n" KNRM);
+	if (!pPlayer->IsWState(m_byWearType)) {
+		printf(KRED "CItemDefense::PutOff: Trying to put off item while having no item put on.\n" KNRM);
 		return;
 	}
 
 	if (!IsState(ITEM_PUTON)) {
-		printf(KRED "CItemWeapon::PutOff: Trying to put off item with no state ITEM_PUTON.\n" KNRM);
+		printf(KRED "CItemDefense::PutOff: Trying to put off item with no state ITEM_PUTON.\n" KNRM);
 		return;
 	}
 

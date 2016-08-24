@@ -127,6 +127,7 @@ public:
 	bool IsMStateEx(__int64 n64MStateEx);
 
 	virtual Packet GenerateCreatePacket(bool bHero=false) = 0;
+	virtual Packet GeneratePetPacket() = 0;
 	virtual Packet GenerateDeletePacket() = 0;
 	virtual Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ) = 0;
 

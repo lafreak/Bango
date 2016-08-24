@@ -27,6 +27,7 @@ public:
 	static CNPC* FindNPC(int nID);
 
 	Packet GenerateCreatePacket(bool bHero=false);
+	Packet GeneratePetPacket();
 	Packet GenerateDeletePacket();
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ);
 

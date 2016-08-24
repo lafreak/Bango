@@ -2,9 +2,6 @@
 
 #include "../GameCharacter/CPlayer.h"
 
-CItemGeneral::CItemGeneral(ITEMINFO_DESC& desc): CItem(desc)
-{
-}
 
 bool CItemGeneral::Use(CPlayer *pPlayer)
 {
