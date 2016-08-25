@@ -6,7 +6,7 @@ g++ --std=c++11 -I include/ -o Utility/XMLConfigExporter/bin/Convert bin/obj/tin
 
 # DBServer
 g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CAccount.o DBServer/CAccount.cpp
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CServer.o DBServer/CServer.cpp
+g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CServer.o DBServer/CServer.cpp
 g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CMainSocket.o DBServer/Socket/CMainSocket.cpp
 g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CDatabase.o DBServer/Database/CDatabase.cpp 
 g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/main.o DBServer/main.cpp

@@ -1,5 +1,7 @@
 #include "CDatabase.h"
 
+std::mutex			CDatabase::g_mxThis;
+
 URL_T				CDatabase::g_pUrl = NULL;
 ConnectionPool_T 	CDatabase::g_pConnectionPool = NULL;
 

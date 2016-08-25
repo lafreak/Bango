@@ -9,6 +9,8 @@
 
 #include <minwindef.h>
 
+#include <zdb.h>
+
 class CAccount
 {
 	std::mutex m_mxThis;
@@ -40,8 +42,8 @@ public:
 	std::string GetSecondary() const { return m_szSecondary; }
 	void 		SetSecondary(std::string szSecondary) { m_szSecondary = szSecondary; }
 
-	void SendPlayerInfo();
-	void SendItemInfo(int nPID);
+	void SendPlayerInfo(Connection_T con);
+	void SendItemInfo(Connection_T con, int nPID);
 };
 
 #endif

@@ -25,9 +25,8 @@ CAccount::~CAccount()
 	}
 }
 
-void CAccount::SendPlayerInfo()
+void CAccount::SendPlayerInfo(Connection_T con)
 {
-	Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 	PreparedStatement_T ps = Connection_prepareStatement(con,
 		"SELECT * FROM player WHERE idaccount=? AND deleted=0 ORDER BY level DESC");
 	PreparedStatement_T pcnt = Connection_prepareStatement(con,
@@ -84,9 +83,8 @@ void CAccount::SendPlayerInfo()
 	printf("D2S_PLAYER_INFO sent.\n");
 }
 
-void CAccount::SendItemInfo(int nPID)
+void CAccount::SendItemInfo(Connection_T con, int nPID)
 {
-	Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 	PreparedStatement_T ps = Connection_prepareStatement(con, 
 		"SELECT * FROM item WHERE idplayer=?");
 	PreparedStatement_T pscount = Connection_prepareStatement(con, 
@@ -151,8 +149,6 @@ void CAccount::SendItemInfo(int nPID)
 			ResultSet_getIntByName(r, "gongleft"),
 			ResultSet_getIntByName(r, "gongright"));
 	}
-
-	Connection_close(con);
 
 	// 52 * 72 + 3 + 4 + 1 = 3752 BYTE MAX
 	CMainSocket::Write(D2S_LOADITEMS, "dm", m_nClientID, pBegin, p - pBegin);

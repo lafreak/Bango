@@ -145,6 +145,10 @@ PVOID CMainSocket::Process(PVOID param)
 {
 	Packet* packet = (Packet*)param;
 
+	CDatabase::Lock();
+
+	Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
+
 	switch (packet->byType)
 	{
 		case S2D_LOGIN:
@@ -159,7 +163,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			printf("ClientID: %d, Login: %s, Password: %s\n", nClientID, szLogin, szPassword);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"SELECT "
 				"EXISTS(SELECT 1 FROM account WHERE login=?) as bIsLogin, "
@@ -180,20 +183,16 @@ PVOID CMainSocket::Process(PVOID param)
 
 			if (ResultSet_getIntByName(r, "bIsLogin") == 0) {
 				CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_WRONGID);
-				Connection_close(con);
 				break;
 			}
 
 			if (ResultSet_getIntByName(r, "bIsPW") == 0) {
 				CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_WRONGPWD);
-				Connection_close(con);
 				break;
 			}
 
 			int nAccountID = ResultSet_getIntByName(r, "nAccountID");
 			const char* secondary = ResultSet_getStringByName(r, "szSecondary");
-			
-			Connection_close(con);
 
 			std::string szSecondary(secondary ? secondary : "");
 
@@ -242,7 +241,6 @@ PVOID CMainSocket::Process(PVOID param)
 			pAccount->SetSecondary(std::string(szSecondaryPW));
 			pAccount->Unlock();
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"UPDATE account SET secondary=? WHERE idaccount=?");
 
@@ -250,8 +248,6 @@ PVOID CMainSocket::Process(PVOID param)
 			PreparedStatement_setInt(p, 2, pAccount->GetAID());
 
 			PreparedStatement_execute(p);
-
-			Connection_close(con);
 
 			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
 
@@ -284,7 +280,6 @@ PVOID CMainSocket::Process(PVOID param)
 			pAccount->SetSecondary(std::string(szNewPassword));
 			pAccount->Unlock();
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"UPDATE account SET secondary=? WHERE idaccount=?");
 
@@ -292,8 +287,6 @@ PVOID CMainSocket::Process(PVOID param)
 			PreparedStatement_setInt(p, 2, pAccount->GetAID());
 
 			PreparedStatement_execute(p);
-
-			Connection_close(con);
 
 			CMainSocket::Write(D2S_LOGIN, "db", nClientID, LA_OK);
 
@@ -318,7 +311,7 @@ PVOID CMainSocket::Process(PVOID param)
 			if (pAccount->GetSecondary() != std::string(szPassword))
 				CMainSocket::Write(D2S_SEC_LOGIN, "db", nClientID, MSL_WRONG_PWD);
 			else
-				pAccount->SendPlayerInfo();
+				pAccount->SendPlayerInfo(con);
 
 			pAccount->m_Access.Release();
 			break;
@@ -353,7 +346,6 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE player SET deleted=1 WHERE idaccount=? AND idplayer=?");
 
@@ -362,11 +354,9 @@ PVOID CMainSocket::Process(PVOID param)
 
 			PreparedStatement_execute(p);
 
-			Connection_close(con);
-
 			//?
 			//if (PreparedStatement_rowsChanged(p) > 0)
-				pAccount->SendPlayerInfo();
+				pAccount->SendPlayerInfo(con);
 
 			pAccount->m_Access.Release();
 			break;
@@ -389,7 +379,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			CSocket::ReadPacket(p, "sbwwwwwbb", &szName, &byJob, &wStats[0], &wStats[1], &wStats[2], &wStats[3], &wStats[4], &byShape[0], &byShape[1]);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T ps = Connection_prepareStatement(con, 
 				"SELECT "
 				"EXISTS(SELECT 1 FROM player WHERE name=?) as bIsDuplicate, "
@@ -404,14 +393,12 @@ PVOID CMainSocket::Process(PVOID param)
 			if (ResultSet_getIntByName(r, "bIsDuplicate")) {
 				CMainSocket::Write(D2S_ANS_NEWPLAYER, "db", nClientID, NA_OCCUPIEDID);
 				pAccount->m_Access.Release();
-				Connection_close(con);
 				break;
 			}
 
 			if (ResultSet_getIntByName(r, "byCount") >= MAX_CHARACTER) {
 				CMainSocket::Write(D2S_ANS_NEWPLAYER, "db", nClientID, NA_OVERPLAYERNUM);
 				pAccount->m_Access.Release();
-				Connection_close(con);
 				break;
 			}
 
@@ -434,9 +421,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 			PreparedStatement_execute(ps);
 
-			Connection_close(con);
-
-			pAccount->SendPlayerInfo();
+			pAccount->SendPlayerInfo(con);
 			pAccount->m_Access.Release();
 			break;
 		}
@@ -452,53 +437,57 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
-			PreparedStatement_T p = Connection_prepareStatement(con,
-				"SELECT * FROM player WHERE idplayer=? AND idaccount=? AND deleted=0");
+			TRY
+			{
+				PreparedStatement_T p = Connection_prepareStatement(con,
+					"SELECT * FROM player WHERE idplayer=? AND idaccount=? AND deleted=0");
 
-			PreparedStatement_setInt(p, 1, nPID);
-			PreparedStatement_setInt(p, 2, pAccount->GetAID());
+				PreparedStatement_setInt(p, 1, nPID);
+				PreparedStatement_setInt(p, 2, pAccount->GetAID());
 
-			ResultSet_T r = PreparedStatement_executeQuery(p);
+				ResultSet_T r = PreparedStatement_executeQuery(p);
 
-			BYTE byMessage=0;
+				BYTE byMessage=0;
 
-			if (!ResultSet_next(r)) {
-				byMessage=1;
-				CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
-				pAccount->m_Access.Release();
-				Connection_close(con);
-				break;
+				if (!ResultSet_next(r)) {
+					byMessage=1;
+					CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
+					pAccount->m_Access.Release();
+					break;
+				}
+
+				CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
+					ResultSet_getIntByName(r, "idaccount"), 
+					nPID, 
+					ResultSet_getStringByName(r, "name"),
+					ResultSet_getIntByName(r, "class"), 
+					ResultSet_getIntByName(r, "job"), 
+					ResultSet_getIntByName(r, "level"),
+					ResultSet_getIntByName(r, "strength"), 
+					ResultSet_getIntByName(r, "health"), 
+					ResultSet_getIntByName(r, "inteligence"), 
+					ResultSet_getIntByName(r, "wisdom"), 
+					ResultSet_getIntByName(r, "dexterity"),
+					ResultSet_getIntByName(r, "curhp"), 
+					ResultSet_getIntByName(r, "curmp"), 
+					ResultSet_getLLongByName(r, "exp"), 
+					ResultSet_getIntByName(r, "pupoint"), 
+					ResultSet_getIntByName(r, "supoint"), 
+					ResultSet_getIntByName(r, "contribute"), 
+					ResultSet_getIntByName(r, "anger"),
+					ResultSet_getIntByName(r, "x"), 
+					ResultSet_getIntByName(r, "y"), 
+					ResultSet_getIntByName(r, "z"),
+					ResultSet_getIntByName(r, "face"),
+					ResultSet_getIntByName(r, "hair"));
 			}
+			CATCH(SQLException)
+			{
+				printf("SQLException -- %s\n", Exception_frame.message);
+			}
+			END_TRY;
 
-			CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
-				ResultSet_getIntByName(r, "idaccount"), 
-				nPID, 
-				ResultSet_getStringByName(r, "name"),
-				ResultSet_getIntByName(r, "class"), 
-				ResultSet_getIntByName(r, "job"), 
-				ResultSet_getIntByName(r, "level"),
-				ResultSet_getIntByName(r, "strength"), 
-				ResultSet_getIntByName(r, "health"), 
-				ResultSet_getIntByName(r, "inteligence"), 
-				ResultSet_getIntByName(r, "wisdom"), 
-				ResultSet_getIntByName(r, "dexterity"),
-				ResultSet_getIntByName(r, "curhp"), 
-				ResultSet_getIntByName(r, "curmp"), 
-				ResultSet_getLLongByName(r, "exp"), 
-				ResultSet_getIntByName(r, "pupoint"), 
-				ResultSet_getIntByName(r, "supoint"), 
-				ResultSet_getIntByName(r, "contribute"), 
-				ResultSet_getIntByName(r, "anger"),
-				ResultSet_getIntByName(r, "x"), 
-				ResultSet_getIntByName(r, "y"), 
-				ResultSet_getIntByName(r, "z"),
-				ResultSet_getIntByName(r, "face"),
-				ResultSet_getIntByName(r, "hair"));
-
-			Connection_close(con);
-
-			pAccount->SendItemInfo(nPID);
+			pAccount->SendItemInfo(con, nPID);
 
 			pAccount->m_Access.Release();
 			break;
@@ -513,7 +502,7 @@ PVOID CMainSocket::Process(PVOID param)
 			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (pAccount) {
-				pAccount->SendPlayerInfo();
+				pAccount->SendPlayerInfo(con);
 				pAccount->m_Access.Release();
 			}
 
@@ -531,7 +520,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			CSocket::ReadPacket(packet->data, "dwwwwww", &nPID, &wStats[P_STR], &wStats[P_HTH], &wStats[P_INT], &wStats[P_WIS], &wStats[P_DEX], &wPUPoint);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"UPDATE player SET strength=?, health=?, inteligence=?, wisdom=?, dexterity=?, pupoint=? WHERE idplayer=?");
 
@@ -545,8 +533,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			PreparedStatement_execute(p);
 
-			Connection_close(con);
-
 			break;
 		}
 
@@ -554,15 +540,12 @@ PVOID CMainSocket::Process(PVOID param)
 		{
 			printf("S2D_MAX_IID.\n");
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			ResultSet_T r = Connection_executeQuery(con, 
 				"SELECT COALESCE(MAX(iditem), -2147483648) AS max_id FROM item");
 
 			ResultSet_next(r);
 
 			int nMaxIID = ResultSet_getInt(r, 1);
-
-			Connection_close(con);
 			
 			CMainSocket::Write(D2S_MAX_IID, "d", nMaxIID);
 
@@ -625,7 +608,6 @@ PVOID CMainSocket::Process(PVOID param)
 				&nGongLeft,
 				&nGongRight);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"INSERT INTO item (idplayer, `index`, prefix, info, num, maxend, curend, xattack, xmagic, xdefense, xhit, xdodge, explosiveblow, "
 				"fusion, fmeele, fmagic, fdefense, fabsorb, fevasion, fhit, fhp, fmp, fstr, fhth, fint, fwis, fdex, shot, perforation, gongleft, gongright, iditem) "
@@ -666,8 +648,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			PreparedStatement_execute(p);
 
-			Connection_close(con);
-
 			break;
 		}
 
@@ -679,7 +659,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			CSocket::ReadPacket(packet->data, "ddb", &nIID, &nNum, &byLogType);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"UPDATE item SET num=? WHERE iditem=?");
 
@@ -687,8 +666,6 @@ PVOID CMainSocket::Process(PVOID param)
 			PreparedStatement_setInt(p, 2, nIID);
 
 			PreparedStatement_execute(p);
-
-			Connection_close(con);
 
 			break;
 		}
@@ -707,7 +684,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			CSocket::ReadPacket(packet->data, "dbdddwwwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &wCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE player SET level=?, x=?, y=?, z=?, contribute=?, curhp=?, curmp=?, exp=?, pupoint=?, supoint=?, anger=? WHERE idplayer=?");
 
@@ -726,8 +702,6 @@ PVOID CMainSocket::Process(PVOID param)
 
 			PreparedStatement_execute(p);
 
-			Connection_close(con);
-
 			printf("S2D_SAVEALLPROPERTY finished.\n");
 
 			break;
@@ -740,15 +714,12 @@ PVOID CMainSocket::Process(PVOID param)
 			int nIID=0;
 			CSocket::ReadPacket(packet->data, "d", &nIID);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"DELETE FROM item WHERE iditem=?");
 
 			PreparedStatement_setInt(p, 1, nIID);
 
 			PreparedStatement_execute(p);
-
-			Connection_close(con);
 
 			break;
 		}
@@ -760,15 +731,12 @@ PVOID CMainSocket::Process(PVOID param)
 			int nIID=0;
 			CSocket::ReadPacket(packet->data, "d", &nIID);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE item SET info = info | 1 WHERE iditem=?");
 
 			PreparedStatement_setInt(p, 1, nIID);
 
 			PreparedStatement_execute(p);
-
-			Connection_close(con);
 
 			break;
 		}
@@ -780,7 +748,6 @@ PVOID CMainSocket::Process(PVOID param)
 			int nIID=0;
 			CSocket::ReadPacket(packet->data, "d", &nIID);
 
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE item SET info = info & ~1 WHERE iditem=?");
 
@@ -788,11 +755,14 @@ PVOID CMainSocket::Process(PVOID param)
 
 			PreparedStatement_execute(p);
 
-			Connection_close(con);
-
 			break;
 		}
 	}
+
+
+	Connection_close(con);
+
+	CDatabase::Unlock();
 
 	delete packet;
 	return NULL;

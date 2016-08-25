@@ -128,7 +128,8 @@ INSERT INTO account (login, password, secondary)
 	('bot40', 'passwd', '00000000'),
 
 	('qwe', 'asd', '00000000'),
-	('qwe1', 'asd', '00000000')
+	('qwe1', 'asd', '00000000'),
+	('test1', 'pass', NULL)
 ;
 
 INSERT INTO player (idaccount, name, class, strength, health, inteligence, wisdom, dexterity, curhp, curmp, face, hair)
