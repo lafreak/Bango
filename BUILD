@@ -5,13 +5,13 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/tinyxml2.o include/TinyXML2/t
 g++ --std=c++11 -I include/ -o Utility/XMLConfigExporter/bin/Convert bin/obj/tinyxml2.o Utility/XMLConfigExporter/ConvertC++.cpp
 
 # DBServer
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CAccount.o DBServer/CAccount.cpp
+g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CAccount.o DBServer/CAccount.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CServer.o DBServer/CServer.cpp
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMainSocket.o DBServer/Socket/CMainSocket.cpp
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CDatabase.o DBServer/Database/CDatabase.cpp 
-g++ --std=c++11 -pthread -I include/ -c -o bin/obj/main.o DBServer/main.cpp
+g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CMainSocket.o DBServer/Socket/CMainSocket.cpp
+g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/CDatabase.o DBServer/Database/CDatabase.cpp 
+g++ --std=c++11 -pthread -I include/ -I /usr/include/zdb/ -c -o bin/obj/main.o DBServer/main.cpp
 
-g++ --std=c++11 -pthread -o bin/DBServer bin/obj/CSocket.o bin/obj/CAccount.o bin/obj/CServer.o bin/obj/CDatabase.o bin/obj/CMainSocket.o bin/obj/main.o -lmysqlcppconn
+g++ --std=c++11 -pthread -o bin/DBServer bin/obj/CSocket.o bin/obj/CAccount.o bin/obj/CServer.o bin/obj/CDatabase.o bin/obj/CMainSocket.o bin/obj/main.o -lzdb
 
 # MainServer
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMacro.o MainServer/Macro/CMacro.cpp

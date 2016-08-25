@@ -27,12 +27,21 @@ CAccount::~CAccount()
 
 void CAccount::SendPlayerInfo()
 {
-	pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-		"SELECT * FROM player WHERE idaccount=? AND deleted=0 ORDER BY level DESC"));
-	pPStmt->setInt(1, GetAID());
-	rs_ptr rs(pPStmt->executeQuery());
+	Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
+	PreparedStatement_T ps = Connection_prepareStatement(con,
+		"SELECT * FROM player WHERE idaccount=? AND deleted=0 ORDER BY level DESC");
+	PreparedStatement_T pcnt = Connection_prepareStatement(con,
+		"SELECT COUNT(*) FROM player WHERE idaccount=? AND deleted=0 ORDER BY level DESC");
 
-	BYTE byCount = rs->rowsCount();
+	PreparedStatement_setInt(ps, 1, GetAID());
+	PreparedStatement_setInt(pcnt, 1, GetAID());
+
+	ResultSet_T r = PreparedStatement_executeQuery(ps);
+	ResultSet_T rcnt = PreparedStatement_executeQuery(pcnt);
+
+	ResultSet_next(rcnt);
+
+	BYTE byCount = ResultSet_getInt(rcnt, 1);
 
 	PACKETBUFFER buffer;
 	memset(&buffer, 0, sizeof(PACKETBUFFER));
@@ -41,27 +50,33 @@ void CAccount::SendPlayerInfo()
 	
 	p = CSocket::WritePacket(p, "b", byCount);
 
-	while (rs->next()) {
-		pstmt_ptr pPStmtEx(CDatabase::g_pConnection->prepareStatement(
-		"SELECT `index` FROM item WHERE idplayer=? AND (info & 1) LIMIT 8"));
-		pPStmtEx->setInt(1, rs->getInt("idplayer"));
-		rs_ptr rsEx(pPStmtEx->executeQuery());
+	while (ResultSet_next(r)) {
+		PreparedStatement_T i = Connection_prepareStatement(con,
+			"SELECT `index` FROM item WHERE idplayer=? AND (info & 1) LIMIT 8");
+		PreparedStatement_T icnt = Connection_prepareStatement(con,
+			"SELECT COUNT(*) FROM item WHERE idplayer=? AND (info & 1) LIMIT 8");
 
-		BYTE byWearAmount=rsEx->rowsCount();
-		
+		PreparedStatement_setInt(i, 1, ResultSet_getIntByName(r, "idplayer"));
+		PreparedStatement_setInt(icnt, 1, ResultSet_getIntByName(r, "idplayer"));
+
+		ResultSet_T items = PreparedStatement_executeQuery(i);
+		ResultSet_T itemcount = PreparedStatement_executeQuery(icnt);
+
+		ResultSet_next(itemcount);
+
+		BYTE byWearAmount=ResultSet_getInt(itemcount, 1);
+
 		int nGID=0;
-		BYTE byClass = rs->getInt("class");
-		p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", rs->getInt("idplayer"),
-			rs->getString("name").c_str(),
-			byClass, rs->getInt("job"), rs->getInt("level"), nGID,
-			rs->getInt("strength"), rs->getInt("health"), rs->getInt("inteligence"),
-			rs->getInt("wisdom"), rs->getInt("dexterity"), rs->getInt("face"), rs->getInt("hair"), byWearAmount);
+		BYTE byClass = ResultSet_getIntByName(r, "class");
+		p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", ResultSet_getIntByName(r, "idplayer"),
+			ResultSet_getStringByName(r, "name"),
+			byClass, ResultSet_getIntByName(r, "job"), ResultSet_getIntByName(r, "level"), nGID,
+			ResultSet_getIntByName(r, "strength"), ResultSet_getIntByName(r, "health"), ResultSet_getIntByName(r, "inteligence"),
+			ResultSet_getIntByName(r, "wisdom"), ResultSet_getIntByName(r, "dexterity"), ResultSet_getIntByName(r, "face"), 
+			ResultSet_getIntByName(r, "hair"), byWearAmount);
 
-		for (int i = 0; i < 8; i++) {
-			if (!rsEx->next()) break;
-			
-			p = CSocket::WritePacket(p, "w", rsEx->getInt("index"));
-		}
+		while (ResultSet_next(items))
+			p = CSocket::WritePacket(p, "w", ResultSet_getInt(items, 1));
 	}
 
 	CMainSocket::Write(D2S_PLAYER_INFO, "dm", m_nClientID, pBegin, p - pBegin);
@@ -71,22 +86,31 @@ void CAccount::SendPlayerInfo()
 
 void CAccount::SendItemInfo(int nPID)
 {
-	pstmt_ptr pPStmt(CDatabase::g_pConnection->prepareStatement(
-		"SELECT * FROM item WHERE idplayer=?"));
-	pPStmt->setInt(1, nPID);
-	rs_ptr rs(pPStmt->executeQuery());
+	Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
+	PreparedStatement_T ps = Connection_prepareStatement(con, 
+		"SELECT * FROM item WHERE idplayer=?");
+	PreparedStatement_T pscount = Connection_prepareStatement(con, 
+		"SELECT COUNT(*) FROM item WHERE idplayer=?");
 
-	printf("About to send %li item rows.\n", rs->rowsCount());
+	PreparedStatement_setInt(ps, 1, nPID);
+	PreparedStatement_setInt(pscount, 1, nPID);
+
+	ResultSet_T r = PreparedStatement_executeQuery(ps);
+	ResultSet_T rcount = PreparedStatement_executeQuery(pscount);
+
+	ResultSet_next(rcount);
+
+	printf("About to send %d item rows.\n", ResultSet_getInt(rcount, 1));
 
 	PACKETBUFFER buffer;
 	memset(&buffer, 0, sizeof(PACKETBUFFER));
 	char* pBegin = (char*)&buffer;
 	char* p = pBegin;
 
-	p = CSocket::WritePacket(p, "b", rs->rowsCount());
+	p = CSocket::WritePacket(p, "b", ResultSet_getInt(rcount, 1));
 
 	BYTE byLimit = MAX_INVENTORYEX;
-	while (rs->next())
+	while (ResultSet_next(r))
 	{
 		if (byLimit-- <= 0) {
 			printf(KRED "Player inventory exceeded.\n" KNRM);
@@ -95,38 +119,40 @@ void CAccount::SendItemInfo(int nPID)
 
 		// 52 BYTE
 		p = CSocket::WritePacket(p, "dwddbbbbbbbbbbwwwwbbbbbbbbbbwdd",
-			rs->getInt("iditem"),
-			rs->getInt("index"),
-			rs->getInt("num"),
-			rs->getInt("info"),
-			rs->getInt("prefix"),
-			rs->getInt("curend"),
-			rs->getInt("maxend"),
-			rs->getInt("xattack"),
-			rs->getInt("xmagic"),
-			rs->getInt("xdefense"),
-			rs->getInt("xhit"),
-			rs->getInt("xdodge"),
-			rs->getInt("explosiveblow"),
-			rs->getInt("fusion"),
-			rs->getInt("fmeele"),
-			rs->getInt("fmagic"),
-			rs->getInt("fdefense"),
-			rs->getInt("fabsorb"),
-			rs->getInt("fevasion"),
-			rs->getInt("fhit"),
-			rs->getInt("fhp"),
-			rs->getInt("fmp"),
-			rs->getInt("fstr"),
-			rs->getInt("fhth"),
-			rs->getInt("fint"),
-			rs->getInt("fwis"),
-			rs->getInt("fdex"),
-			rs->getInt("shot"),
-			rs->getInt("perforation"),
-			rs->getInt("gongleft"),
-			rs->getInt("gongright"));
+			ResultSet_getIntByName(r, "iditem"),
+			ResultSet_getIntByName(r, "index"),
+			ResultSet_getIntByName(r, "num"),
+			ResultSet_getIntByName(r, "info"),
+			ResultSet_getIntByName(r, "prefix"),
+			ResultSet_getIntByName(r, "curend"),
+			ResultSet_getIntByName(r, "maxend"),
+			ResultSet_getIntByName(r, "xattack"),
+			ResultSet_getIntByName(r, "xmagic"),
+			ResultSet_getIntByName(r, "xdefense"),
+			ResultSet_getIntByName(r, "xhit"),
+			ResultSet_getIntByName(r, "xdodge"),
+			ResultSet_getIntByName(r, "explosiveblow"),
+			ResultSet_getIntByName(r, "fusion"),
+			ResultSet_getIntByName(r, "fmeele"),
+			ResultSet_getIntByName(r, "fmagic"),
+			ResultSet_getIntByName(r, "fdefense"),
+			ResultSet_getIntByName(r, "fabsorb"),
+			ResultSet_getIntByName(r, "fevasion"),
+			ResultSet_getIntByName(r, "fhit"),
+			ResultSet_getIntByName(r, "fhp"),
+			ResultSet_getIntByName(r, "fmp"),
+			ResultSet_getIntByName(r, "fstr"),
+			ResultSet_getIntByName(r, "fhth"),
+			ResultSet_getIntByName(r, "fint"),
+			ResultSet_getIntByName(r, "fwis"),
+			ResultSet_getIntByName(r, "fdex"),
+			ResultSet_getIntByName(r, "shot"),
+			ResultSet_getIntByName(r, "perforation"),
+			ResultSet_getIntByName(r, "gongleft"),
+			ResultSet_getIntByName(r, "gongright"));
 	}
+
+	Connection_close(con);
 
 	// 52 * 72 + 3 + 4 + 1 = 3752 BYTE MAX
 	CMainSocket::Write(D2S_LOADITEMS, "dm", m_nClientID, pBegin, p - pBegin);

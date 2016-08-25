@@ -1000,6 +1000,8 @@ void CPlayer::GameRestart()
 	}
 
 	printf("S2D_SELECT_CHARACTER sent.\n");
+	CDBSocket::Write(S2D_SELECT_CHARACTER, "d", pClient->GetCID());
+	/*
 	CDBSocket::Write(S2D_SELECT_CHARACTER, "ddbdddwwwIwwd", pClient->GetCID(),
 		m_nPID,
 		m_byLevel,
@@ -1013,6 +1015,7 @@ void CPlayer::GameRestart()
 		m_wPUPoint,
 		m_wSUPoint,
 		m_nAnger);
+		*/
 
 	m_Access.Release();
 
