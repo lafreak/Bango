@@ -59,7 +59,7 @@ public:
 	void		RemovePlayer() { m_pPlayer=NULL; }
 
 	void OnLogin(char *p);
-	void OnLoadPlayer(char *p);
+	char* OnLoadPlayer(char *p);
 	void OnLoadItems(char *p);
 };
 

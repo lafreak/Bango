@@ -39,34 +39,6 @@ bool CDBSocket::Close()
 	return true;
 }
 
-/*
-PVOID CDBSocket::Await(PVOID param)
-{
-	while (true)
-	{
-		Packet *packet = new Packet;
-		memset(packet, 0, sizeof(Packet));
-		//Sleep?
-
-		int nLen = recv(CDBSocket::g_pDBSocket, packet, MAX_PACKET_LENGTH + (packet->data-(char*)packet), 0);
-		if (nLen <= 0 || packet->wSize <=0) {
-			delete packet;
-			printf(KRED "DBServer disconnected.\n" KNRM);
-			break;
-		}
-
-		if (nLen > MAX_PACKET_LENGTH || packet->wSize > MAX_PACKET_LENGTH) continue;
-
-		DebugRawPacket(packet);
-
-		pthread_t t;
-		if (pthread_create(&t, NULL, &CDBSocket::Process, (PVOID)packet) != THREAD_SUCCESS) {
-			printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
-			delete packet;
-		}
-	}
-}
-*/
 PVOID CDBSocket::Await(PVOID param)
 {
 	while (true)
@@ -90,7 +62,7 @@ PVOID CDBSocket::Await(PVOID param)
 			memset(packet, 0, sizeof(Packet));
 			memcpy(packet, p, *(WORD*)p);
 
-			DebugRawPacket(packet);
+			//DebugRawPacket(packet);
 
 			pthread_t t;
 			if (pthread_create(&t, NULL, &CDBSocket::Process, (PVOID)packet) != THREAD_SUCCESS) {
@@ -153,7 +125,7 @@ PVOID CDBSocket::Process(PVOID param)
 
 			pClient->Write(S2C_PLAYERINFO, "bbdm", byAuth, byUnknwon, nExpTime, 
 				p, ((char*)packet + packet->wSize) - p);
-			printf("S2C_PLAYERINFO sent.\n");
+			//printf("S2C_PLAYERINFO sent.\n");
 
 			pClient->m_Access.Release();
 
@@ -189,14 +161,17 @@ PVOID CDBSocket::Process(PVOID param)
 				break;
 			}
 
-			pClient->OnLoadPlayer(p);
+			p = pClient->OnLoadPlayer(p);
+			pClient->OnLoadItems(p);
 
 			pClient->m_Access.Release();
 			break;
 		}
 
+/*
 		case D2S_LOADITEMS:
 		{
+
 			int nClientID=0;
 
 			char* p = CSocket::ReadPacket(packet->data, "d", &nClientID);
@@ -204,13 +179,14 @@ PVOID CDBSocket::Process(PVOID param)
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			printf("Packet LOADITEMS received, size: %d\n", packet->wSize);
+			//printf("Packet LOADITEMS received, size: %d\n", packet->wSize);
 			pClient->OnLoadItems(p);
 
 			pClient->m_Access.Release();
 
 			break;
 		}
+*/
 
 		case D2S_MAX_IID:
 		{

@@ -39,7 +39,7 @@ bool CClientSocket::Start(WORD wPort)
 
 void CClientSocket::Close(int)
 {
-	printf("About to send All Player Property...\n");
+	printf("\nAbout to send all player property...\n");
 	CServer::g_mxClient.lock();
 
 	for (auto& a: CServer::g_mClient)
@@ -89,40 +89,6 @@ void CClientSocket::Accept()
 	}
 }
 
-/*
-PVOID CClientSocket::Await(PVOID param)
-{
-	CClient *pClient = new CClient(*(SOCKET*)param);
-	delete (SOCKET*)param;
-
-	printf("Client[%d] connected.\n", pClient->GetCID());
-
-	CServer::Add(pClient);
-
-	while (true)
-	{
-		Packet packet;
-		memset(&packet, 0, sizeof(Packet));
-		//Sleep?
-
-		int nLen = recv(pClient->GetCID(), &packet, MAX_PACKET_LENGTH + (packet.data-(char*)&packet), 0);
-		if (nLen <= 0 || packet.wSize <=0) {
-			printf("Client[%d] disconnected.\n", pClient->GetCID());
-			CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetCID());
-			CServer::Remove(pClient);
-			break;
-		}
-
-		if (nLen > MAX_PACKET_LENGTH || packet.wSize > MAX_PACKET_LENGTH) continue;
-
-		//DebugRawPacket(packet);
-
-		pClient->Process(packet);
-	}
-
-	return NULL;
-}
-*/
 PVOID CClientSocket::Await(PVOID param)
 {
 	CClient *pClient = new CClient(*(SOCKET*)param);
@@ -155,7 +121,7 @@ PVOID CClientSocket::Await(PVOID param)
 			memset(&packet, 0, sizeof(Packet));
 			memcpy(&packet, p, *(WORD*)p);
 
-			DebugRawPacket(packet);
+			//DebugRawPacket(packet);
 			pClient->Process(packet);
 
 			nLen -= *(WORD*)p;

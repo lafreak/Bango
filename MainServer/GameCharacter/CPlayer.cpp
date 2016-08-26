@@ -46,6 +46,7 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 
 CPlayer::~CPlayer()
 {
+	printf("About to delete [%s]\n", m_szName.c_str());
 	EmptyInven();
 
 	CMap::Remove(this);
@@ -597,10 +598,10 @@ void CPlayer::Process(Packet packet)
 			BYTE byUnknown=0;
 			int nHeight=0;
 			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &nHeight);
-			printf("byUnknown: %d, nHeight: %d\n", byUnknown, nHeight);
+			//printf("byUnknown: %d, nHeight: %d\n", byUnknown, nHeight);
 
-			if (nHeight != m_nZ)
-				printf(KRED "Client map height[%d] differs from player Z[%d].\n" KNRM, nHeight, m_nZ);
+			//if (nHeight != m_nZ)
+			//	printf(KRED "Client map height[%d] differs from player Z[%d].\n" KNRM, nHeight, m_nZ);
 
 			GameStart();
 
@@ -668,7 +669,7 @@ void CPlayer::Process(Packet packet)
 
 			WORD wTotalReqPU = GetReqPU(byStats);
 
-			printf("wTotalReqPU: %d PUPoint: %d\n", wTotalReqPU, m_wPUPoint);
+			//printf("wTotalReqPU: %d PUPoint: %d\n", wTotalReqPU, m_wPUPoint);
 
 			if (wTotalReqPU > m_wPUPoint || wTotalReqPU <= 0)
 				break;
@@ -830,7 +831,7 @@ void CPlayer::OnLoadPlayer()
 			GetResist(RT_PALSY),
 			m_nAnger);
 
-	printf("S2C_PROPERTY sent.\n");
+	//printf("S2C_PROPERTY sent.\n");
 
 	WORD wTime=1200;
 
@@ -839,14 +840,14 @@ void CPlayer::OnLoadPlayer()
 
 	Write(S2C_ANS_LOAD, "wdd", wTime, m_nX, m_nY);
 
-	printf("S2C_ANS_LOAD sent.\n");
+	//printf("S2C_ANS_LOAD sent.\n");
 
 	Unlock();
 }
 
 void CPlayer::OnLoadItems(char *p)
 {
-	printf("CPlayer::OnLoadItems\n");
+	//printf("CPlayer::OnLoadItems\n");
 	
 	BYTE byCount=0;
 	p = CSocket::ReadPacket(p, "b", &byCount);
@@ -962,12 +963,12 @@ void CPlayer::OnLoadItems(char *p)
 
 	Write(S2C_ITEMINFO, "m", pBegin, pEnd - pBegin);
 
-	printf("Items loaded.\n");
+	//printf("Items loaded.\n");
 }
 
 void CPlayer::GameStart()
 {
-	printf("CPlayer::GameStart.\n");
+	//printf("CPlayer::GameStart.\n");
 
 	Packet createPacket 	= GenerateCreatePacket();
 	Packet createHeroPacket = GenerateCreatePacket(true);
@@ -1001,23 +1002,8 @@ void CPlayer::GameRestart()
 		return;
 	}
 
-	printf("S2D_SELECT_CHARACTER sent.\n");
+	//printf("S2D_SELECT_CHARACTER sent.\n");
 	CDBSocket::Write(S2D_SELECT_CHARACTER, "d", pClient->GetCID());
-	/*
-	CDBSocket::Write(S2D_SELECT_CHARACTER, "ddbdddwwwIwwd", pClient->GetCID(),
-		m_nPID,
-		m_byLevel,
-		m_nX,
-		m_nY,
-		m_nZ,
-		m_wContribute,
-		m_wCurHP,
-		m_wCurMP,
-		m_n64Exp,
-		m_wPUPoint,
-		m_wSUPoint,
-		m_nAnger);
-		*/
 
 	m_Access.Release();
 
@@ -1034,7 +1020,7 @@ bool CPlayer::CanMove()
 {
 	if (IsGState(CGS_REST | CGS_KO | CGS_FISH))
 	{
-		printf("Can't move.\n");
+		//printf("Can't move.\n");
 
 		Write(S2C_MOVEBEFORE, "ddddw", m_nID, m_nX, m_nY, m_nZ, m_wDir);
 		return false;
@@ -1516,7 +1502,7 @@ void CPlayer::SaveAllProperty()
 {
 	CDBSocket::Write(S2D_SAVEALLPROPERTY, "dbdddwwwIwwd",
 		m_nPID,
-		m_byLevel-1,
+		m_byLevel,
 		m_nX,
 		m_nY,
 		m_nZ,

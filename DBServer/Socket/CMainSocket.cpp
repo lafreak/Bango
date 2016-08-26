@@ -437,23 +437,118 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
-			PreparedStatement_T p = Connection_prepareStatement(con,
+			PreparedStatement_T preparedPlayer = Connection_prepareStatement(con,
 				"SELECT * FROM player WHERE idplayer=? AND idaccount=? AND deleted=0");
 
-			PreparedStatement_setInt(p, 1, nPID);
-			PreparedStatement_setInt(p, 2, pAccount->GetAID());
+			PreparedStatement_setInt(preparedPlayer, 1, nPID);
+			PreparedStatement_setInt(preparedPlayer, 2, pAccount->GetAID());
 
-			ResultSet_T r = PreparedStatement_executeQuery(p);
+			ResultSet_T resultPlayer = PreparedStatement_executeQuery(preparedPlayer);
 
 			BYTE byMessage=0;
 
-			if (!ResultSet_next(r)) {
+			if (!ResultSet_next(resultPlayer)) {
 				byMessage=1;
 				CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
 				pAccount->m_Access.Release();
 				break;
 			}
 
+			PACKETBUFFER buffer;
+			memset(&buffer, 0, sizeof(PACKETBUFFER));
+			char* pBegin = (char*)&buffer;
+			char* p = pBegin;
+
+			p = CSocket::WritePacket(p, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
+				ResultSet_getIntByName(resultPlayer, "idaccount"), 
+				nPID, 
+				ResultSet_getStringByName(resultPlayer, "name"),
+				ResultSet_getIntByName(resultPlayer, "class"), 
+				ResultSet_getIntByName(resultPlayer, "job"), 
+				ResultSet_getIntByName(resultPlayer, "level"),
+				ResultSet_getIntByName(resultPlayer, "strength"), 
+				ResultSet_getIntByName(resultPlayer, "health"), 
+				ResultSet_getIntByName(resultPlayer, "inteligence"), 
+				ResultSet_getIntByName(resultPlayer, "wisdom"), 
+				ResultSet_getIntByName(resultPlayer, "dexterity"),
+				ResultSet_getIntByName(resultPlayer, "curhp"), 
+				ResultSet_getIntByName(resultPlayer, "curmp"), 
+				ResultSet_getLLongByName(resultPlayer, "exp"), 
+				ResultSet_getIntByName(resultPlayer, "pupoint"), 
+				ResultSet_getIntByName(resultPlayer, "supoint"), 
+				ResultSet_getIntByName(resultPlayer, "contribute"), 
+				ResultSet_getIntByName(resultPlayer, "anger"),
+				ResultSet_getIntByName(resultPlayer, "x"), 
+				ResultSet_getIntByName(resultPlayer, "y"), 
+				ResultSet_getIntByName(resultPlayer, "z"),
+				ResultSet_getIntByName(resultPlayer, "face"),
+				ResultSet_getIntByName(resultPlayer, "hair"));
+
+			PreparedStatement_T preparedItemlist = Connection_prepareStatement(con, 
+				"SELECT * FROM item WHERE idplayer=?");
+			PreparedStatement_T preparedItemCount = Connection_prepareStatement(con, 
+				"SELECT COUNT(*) FROM item WHERE idplayer=?");
+
+			PreparedStatement_setInt(preparedItemlist, 1, nPID);
+			PreparedStatement_setInt(preparedItemCount, 1, nPID);
+
+			ResultSet_T resultItemlist = PreparedStatement_executeQuery(preparedItemlist);
+			ResultSet_T resultItemCount = PreparedStatement_executeQuery(preparedItemCount);
+
+			ResultSet_next(resultItemCount);
+
+			BYTE byItemCount = ResultSet_getInt(resultItemCount, 1);
+			printf("About to send %d item rows.\n", byItemCount);
+
+			p = CSocket::WritePacket(p, "b", byItemCount > MAX_INVENTORYEX ? MAX_INVENTORYEX : byItemCount);
+
+			BYTE byLimit = MAX_INVENTORYEX;
+			while (ResultSet_next(resultItemlist))
+			{
+				if (byLimit-- <= 0) {
+					printf(KRED "Player inventory exceeded.\n" KNRM);
+					break;
+				}
+
+				// 52 BYTE
+				p = CSocket::WritePacket(p, "dwddbbbbbbbbbbwwwwbbbbbbbbbbwdd",
+					ResultSet_getIntByName(resultItemlist, "iditem"),
+					ResultSet_getIntByName(resultItemlist, "index"),
+					ResultSet_getIntByName(resultItemlist, "num"),
+					ResultSet_getIntByName(resultItemlist, "info"),
+					ResultSet_getIntByName(resultItemlist, "prefix"),
+					ResultSet_getIntByName(resultItemlist, "curend"),
+					ResultSet_getIntByName(resultItemlist, "maxend"),
+					ResultSet_getIntByName(resultItemlist, "xattack"),
+					ResultSet_getIntByName(resultItemlist, "xmagic"),
+					ResultSet_getIntByName(resultItemlist, "xdefense"),
+					ResultSet_getIntByName(resultItemlist, "xhit"),
+					ResultSet_getIntByName(resultItemlist, "xdodge"),
+					ResultSet_getIntByName(resultItemlist, "explosiveblow"),
+					ResultSet_getIntByName(resultItemlist, "fusion"),
+					ResultSet_getIntByName(resultItemlist, "fmeele"),
+					ResultSet_getIntByName(resultItemlist, "fmagic"),
+					ResultSet_getIntByName(resultItemlist, "fdefense"),
+					ResultSet_getIntByName(resultItemlist, "fabsorb"),
+					ResultSet_getIntByName(resultItemlist, "fevasion"),
+					ResultSet_getIntByName(resultItemlist, "fhit"),
+					ResultSet_getIntByName(resultItemlist, "fhp"),
+					ResultSet_getIntByName(resultItemlist, "fmp"),
+					ResultSet_getIntByName(resultItemlist, "fstr"),
+					ResultSet_getIntByName(resultItemlist, "fhth"),
+					ResultSet_getIntByName(resultItemlist, "fint"),
+					ResultSet_getIntByName(resultItemlist, "fwis"),
+					ResultSet_getIntByName(resultItemlist, "fdex"),
+					ResultSet_getIntByName(resultItemlist, "shot"),
+					ResultSet_getIntByName(resultItemlist, "perforation"),
+					ResultSet_getIntByName(resultItemlist, "gongleft"),
+					ResultSet_getIntByName(resultItemlist, "gongright"));
+			}
+
+			CMainSocket::Write(D2S_LOADPLAYER, "m", pBegin, p - pBegin);
+
+			/*
+			// 77 BYTE MAX
 			CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
 				ResultSet_getIntByName(r, "idaccount"), 
 				nPID, 
@@ -480,6 +575,7 @@ PVOID CMainSocket::Process(PVOID param)
 				ResultSet_getIntByName(r, "hair"));
 
 			pAccount->SendItemInfo(con, nPID);
+			*/
 
 			pAccount->m_Access.Release();
 			break;

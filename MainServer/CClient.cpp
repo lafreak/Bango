@@ -68,7 +68,7 @@ void CClient::Process(Packet packet)
 			BYTE byUnknown=0;
 
 			CSocket::ReadPacket(packet.data, "dddddb", &nAppTime, &dwSeedL[0], &dwSeedL[1], &dwSeedL[2], &dwSeedL[3], &byUnknown);
-			printf("nAppTime: %i\ndwSeedL: %u %u %u %u\nbyUnknown: %u\n", nAppTime, dwSeedL[0], dwSeedL[1], dwSeedL[2], dwSeedL[3], byUnknown);
+			//printf("nAppTime: %i\ndwSeedL: %u %u %u %u\nbyUnknown: %u\n", nAppTime, dwSeedL[0], dwSeedL[1], dwSeedL[2], dwSeedL[3], byUnknown);
 
 			DWORD dwProtocolVersion=0;
 			BYTE byCode=0;
@@ -81,7 +81,7 @@ void CClient::Process(Packet packet)
 			BYTE byCountry=N_EN;
 
 			Write(S2C_CODE, "dbdddIbbb", dwProtocolVersion, byCode, nTimeStamp, nTimeStart, dwSystem, dwEvent, byServerID, byAge, byCountry);
-			printf("S2C_CODE sent.\n");
+			//printf("S2C_CODE sent.\n");
 			break;
 		}
 
@@ -91,7 +91,7 @@ void CClient::Process(Packet packet)
 			DWORD dwProtocolVersion=0;
 
 			CSocket::ReadPacket(packet.data, "bd", &byUnknown, &dwProtocolVersion);
-			printf("byUnknown: %u\ndwProtocolVersion: %u\n", byUnknown, dwProtocolVersion);
+			//printf("byUnknown: %u\ndwProtocolVersion: %u\n", byUnknown, dwProtocolVersion);
 			break;
 		}
 
@@ -102,10 +102,10 @@ void CClient::Process(Packet packet)
 			char* szMac=NULL;
 
 			CSocket::ReadPacket(packet.data, "sss", &szLogin, &szPassword, &szMac);
-			printf("Login: %s\nPassword: %s\nMac: %s\n", szLogin, szPassword, szMac);
+			//printf("Login: %s\nPassword: %s\nMac: %s\n", szLogin, szPassword, szMac);
 
 			CDBSocket::Write(S2D_LOGIN, "dss", m_nCID, szLogin, szPassword);
-			printf("S2D_LOGIN sent.\n");
+			//printf("S2D_LOGIN sent.\n");
 			break;
 		}
 
@@ -177,7 +177,7 @@ void CClient::Process(Packet packet)
 					char *szPassword=NULL;
 					CSocket::ReadPacket(p, "s", &szPassword);
 
-					printf("Secondary password: %s\n", szPassword);
+					//printf("Secondary password: %s\n", szPassword);
 
 					if (strlen(szPassword) != 8) {
 						Write(S2C_CLOSE, "b", CC_KICK);
@@ -253,8 +253,8 @@ void CClient::Process(Packet packet)
 			int nShow_honorGrade=0;
 
 			CSocket::ReadPacket(packet.data, "ddd", &nPID, &nGID, &nShow_honorGrade);
-			printf("Load PID: %d, GID: %d, Show_honorGrade: %d\n", nPID, nGID, nShow_honorGrade);
-
+			//printf("Load PID: %d, GID: %d, Show_honorGrade: %d\n", nPID, nGID, nShow_honorGrade);
+			
 			CDBSocket::Write(S2D_LOADPLAYER, "dd", m_nCID, nPID);
 			break;
 		}
@@ -282,15 +282,15 @@ void CClient::OnLogin(char *p)
 
 	Write(S2C_ANS_LOGIN, "b", byAnswer);
 
-	printf("S2C_ANS_LOGIN sent.\n");
+	//printf("S2C_ANS_LOGIN sent.\n");
 }
 
-void CClient::OnLoadPlayer(char *p)
+char* CClient::OnLoadPlayer(char *p)
 {
 	D2S_LOADPLAYER_DESC desc;
 	memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
 
-	CSocket::ReadPacket(p, "ddsbbbwwwwwwwIwwwddddbb", 
+	p = CSocket::ReadPacket(p, "ddsbbbwwwwwwwIwwwddddbb", 
 		&desc.nAID, 
 		&desc.nPID,
 		&desc.szName,
@@ -326,11 +326,16 @@ void CClient::OnLoadPlayer(char *p)
 	m_pPlayer->OnLoadPlayer();
 
 	m_pPlayer->m_Access.Release();
+
+	return p;
 }
 
 void CClient::OnLoadItems(char *p)
 {
-	if (!m_pPlayer) return;
+	if (!m_pPlayer) {
+		printf(KRED "Cannot load items (non existing player)\n." KNRM);
+		return;
+	}
 
 	m_pPlayer->m_Access.Grant();
 	m_pPlayer->OnLoadItems(p);
