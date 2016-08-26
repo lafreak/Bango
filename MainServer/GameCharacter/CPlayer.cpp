@@ -555,6 +555,8 @@ void CPlayer::Add(CPlayer *pPlayer)
 
 	if (g_mPlayer.find(pPlayer->GetID()) == g_mPlayer.end())
 		g_mPlayer[pPlayer->GetID()] = pPlayer;
+	else
+		printf(KRED "CPlayer::Add: Same player ingame.\n" KNRM);
 
 	g_mxPlayer.unlock();
 }

@@ -273,9 +273,10 @@ void CClient::OnLogin(char *p)
 
 		auto pClientEx = CServer::FindClient(nClientExID);
 		if (pClientEx) {
-			pClientEx->Write(S2C_CLOSE, "b", CC_SAMEUSER);
 			pClientEx->m_Access.Release();
+			::shutdown(nClientExID, SHUT_RDWR);
 		}
+		
 	}
 
 	Write(S2C_ANS_LOGIN, "b", byAnswer);

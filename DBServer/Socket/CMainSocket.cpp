@@ -437,55 +437,47 @@ PVOID CMainSocket::Process(PVOID param)
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
-			TRY
-			{
-				PreparedStatement_T p = Connection_prepareStatement(con,
-					"SELECT * FROM player WHERE idplayer=? AND idaccount=? AND deleted=0");
+			PreparedStatement_T p = Connection_prepareStatement(con,
+				"SELECT * FROM player WHERE idplayer=? AND idaccount=? AND deleted=0");
 
-				PreparedStatement_setInt(p, 1, nPID);
-				PreparedStatement_setInt(p, 2, pAccount->GetAID());
+			PreparedStatement_setInt(p, 1, nPID);
+			PreparedStatement_setInt(p, 2, pAccount->GetAID());
 
-				ResultSet_T r = PreparedStatement_executeQuery(p);
+			ResultSet_T r = PreparedStatement_executeQuery(p);
 
-				BYTE byMessage=0;
+			BYTE byMessage=0;
 
-				if (!ResultSet_next(r)) {
-					byMessage=1;
-					CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
-					pAccount->m_Access.Release();
-					break;
-				}
-
-				CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
-					ResultSet_getIntByName(r, "idaccount"), 
-					nPID, 
-					ResultSet_getStringByName(r, "name"),
-					ResultSet_getIntByName(r, "class"), 
-					ResultSet_getIntByName(r, "job"), 
-					ResultSet_getIntByName(r, "level"),
-					ResultSet_getIntByName(r, "strength"), 
-					ResultSet_getIntByName(r, "health"), 
-					ResultSet_getIntByName(r, "inteligence"), 
-					ResultSet_getIntByName(r, "wisdom"), 
-					ResultSet_getIntByName(r, "dexterity"),
-					ResultSet_getIntByName(r, "curhp"), 
-					ResultSet_getIntByName(r, "curmp"), 
-					ResultSet_getLLongByName(r, "exp"), 
-					ResultSet_getIntByName(r, "pupoint"), 
-					ResultSet_getIntByName(r, "supoint"), 
-					ResultSet_getIntByName(r, "contribute"), 
-					ResultSet_getIntByName(r, "anger"),
-					ResultSet_getIntByName(r, "x"), 
-					ResultSet_getIntByName(r, "y"), 
-					ResultSet_getIntByName(r, "z"),
-					ResultSet_getIntByName(r, "face"),
-					ResultSet_getIntByName(r, "hair"));
+			if (!ResultSet_next(r)) {
+				byMessage=1;
+				CMainSocket::Write(D2S_LOADPLAYER, "db", nClientID, byMessage);
+				pAccount->m_Access.Release();
+				break;
 			}
-			CATCH(SQLException)
-			{
-				printf("SQLException -- %s\n", Exception_frame.message);
-			}
-			END_TRY;
+
+			CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
+				ResultSet_getIntByName(r, "idaccount"), 
+				nPID, 
+				ResultSet_getStringByName(r, "name"),
+				ResultSet_getIntByName(r, "class"), 
+				ResultSet_getIntByName(r, "job"), 
+				ResultSet_getIntByName(r, "level"),
+				ResultSet_getIntByName(r, "strength"), 
+				ResultSet_getIntByName(r, "health"), 
+				ResultSet_getIntByName(r, "inteligence"), 
+				ResultSet_getIntByName(r, "wisdom"), 
+				ResultSet_getIntByName(r, "dexterity"),
+				ResultSet_getIntByName(r, "curhp"), 
+				ResultSet_getIntByName(r, "curmp"), 
+				ResultSet_getLLongByName(r, "exp"), 
+				ResultSet_getIntByName(r, "pupoint"), 
+				ResultSet_getIntByName(r, "supoint"), 
+				ResultSet_getIntByName(r, "contribute"), 
+				ResultSet_getIntByName(r, "anger"),
+				ResultSet_getIntByName(r, "x"), 
+				ResultSet_getIntByName(r, "y"), 
+				ResultSet_getIntByName(r, "z"),
+				ResultSet_getIntByName(r, "face"),
+				ResultSet_getIntByName(r, "hair"));
 
 			pAccount->SendItemInfo(con, nPID);
 
