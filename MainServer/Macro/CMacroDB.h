@@ -14,9 +14,14 @@ class CMacroDB
 	static std::map<std::string, int> g_mKey;
 
 	static bool LoadInitItem();
+
+	// Use only on MainServer close.
+	
 	
 public:
 	static bool Initialize();
+
+	static void UnloadInitItem();
 
 	static CMacro* FindMacro(WORD wType, WORD wIndex);
 	static int FindKey(const char* szKey);

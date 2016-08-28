@@ -58,6 +58,7 @@ PVOID CDBSocket::Await(PVOID param)
 		char *p = (char*)&buffer;
 		while (nLen > 0 && nLen >= *(WORD*)p) 
 		{
+			/*
 			Packet *packet = new Packet;
 			memset(packet, 0, sizeof(Packet));
 			memcpy(packet, p, *(WORD*)p);
@@ -69,6 +70,15 @@ PVOID CDBSocket::Await(PVOID param)
 				printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
 				delete packet;
 			}
+			*/
+
+			Packet packet;
+			memset(&packet, 0, sizeof(Packet));
+			memcpy(&packet, p, *(WORD*)p);
+
+			//DebugRawPacket(packet);
+
+			Process(packet);
 
 			nLen -= *(WORD*)p;
 			p += *(WORD*)p;
@@ -76,17 +86,18 @@ PVOID CDBSocket::Await(PVOID param)
 	}
 }
 
-PVOID CDBSocket::Process(PVOID param)
+//PVOID CDBSocket::Process(PVOID param)
+void CDBSocket::Process(Packet& packet)
 {
-	Packet* packet = (Packet*)param;
+	//Packet* packet = (Packet*)param;
 
-	switch (packet->byType)
+	switch (packet.byType)
 	{
 		case D2S_LOGIN:
 		{
 			BYTE byAnswer=0;
 			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
@@ -100,7 +111,7 @@ PVOID CDBSocket::Process(PVOID param)
 		{
 			int nClientID=0;
 			BYTE byAnswer=0;
-			CSocket::ReadPacket(packet->data, "db", &nClientID, &byAnswer);
+			CSocket::ReadPacket(packet.data, "db", &nClientID, &byAnswer);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (pClient) {
@@ -114,7 +125,7 @@ PVOID CDBSocket::Process(PVOID param)
 		case D2S_PLAYER_INFO:
 		{
 			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
@@ -124,7 +135,7 @@ PVOID CDBSocket::Process(PVOID param)
 			BYTE byUnknwon=0;
 
 			pClient->Write(S2C_PLAYERINFO, "bbdm", byAuth, byUnknwon, nExpTime, 
-				p, ((char*)packet + packet->wSize) - p);
+				p, ((char*)&packet + packet.wSize) - p);
 			//printf("S2C_PLAYERINFO sent.\n");
 
 			pClient->m_Access.Release();
@@ -135,12 +146,12 @@ PVOID CDBSocket::Process(PVOID param)
 		case D2S_ANS_NEWPLAYER:
 		{
 			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)packet + packet->wSize) - p);
+			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)&packet + packet.wSize) - p);
 
 			pClient->m_Access.Release();
 			break;
@@ -150,7 +161,7 @@ PVOID CDBSocket::Process(PVOID param)
 		{
 			int nClientID=0;
 			BYTE byMessage=0;
-			char* p= CSocket::ReadPacket(packet->data, "db", &nClientID, &byMessage);
+			char* p= CSocket::ReadPacket(packet.data, "db", &nClientID, &byMessage);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
@@ -174,12 +185,12 @@ PVOID CDBSocket::Process(PVOID param)
 
 			int nClientID=0;
 
-			char* p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			char* p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
 			if (!pClient) break;
 
-			//printf("Packet LOADITEMS received, size: %d\n", packet->wSize);
+			//printf("Packet LOADITEMS received, size: %d\n", packet.wSize);
 			pClient->OnLoadItems(p);
 
 			pClient->m_Access.Release();
@@ -190,13 +201,16 @@ PVOID CDBSocket::Process(PVOID param)
 
 		case D2S_MAX_IID:
 		{
-			CSocket::ReadPacket(packet->data, "d", &CItem::g_nMaxIID);
+			CSocket::ReadPacket(packet.data, "d", &CItem::g_nMaxIID);
 			break;
 		}
 	}
 
-	delete packet;
-	return NULL;
+	//delete packet;
+
+	//pthread_detach(pthread_self());
+
+	//return NULL;
 }
 
 bool CDBSocket::Write(BYTE byType, ...)
@@ -222,11 +236,11 @@ bool CDBSocket::Write(BYTE byType, ...)
 	return true;
 }
 
-void CDBSocket::DebugRawPacket(Packet *packet)
+void CDBSocket::DebugRawPacket(Packet& packet)
 {
-	printf("Incoming D2S packet: [%u]\n", (BYTE)packet->byType);
-	for (int i = 0; i < packet->wSize; i++)
-		printf("%u ", (BYTE)((char*)packet)[i]);
+	printf("Incoming D2S packet: [%u]\n", (BYTE)packet.byType);
+	for (int i = 0; i < packet.wSize; i++)
+		printf("%u ", (BYTE)((char*)&packet)[i]);
 	printf("\n");
 }
 

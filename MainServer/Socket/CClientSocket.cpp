@@ -1,5 +1,8 @@
 #include "CClientSocket.h"
 #include "CDBSocket.h"
+#include "../Macro/CMacroDB.h"
+#include "../Map/CMap.h"
+#include "../GameCharacter/CNPC.h"
 
 SOCKET CClientSocket::g_pSocket = INVALID_SOCKET;
 
@@ -62,8 +65,13 @@ void CClientSocket::Close(int)
 	CServer::g_mxClient.unlock();
 	printf("Property sent.\n");
 	
+	CServer::EmptyClient();
 
 	close(CClientSocket::g_pSocket);
+
+	CMacroDB::UnloadInitItem();
+	CMap::UnloadMaps();
+	CNPC::UnloadNPC();
 
 	exit(1);
 }
@@ -92,6 +100,7 @@ void CClientSocket::Accept()
 PVOID CClientSocket::Await(PVOID param)
 {
 	CClient *pClient = new CClient(*(SOCKET*)param);
+
 	delete (SOCKET*)param;
 
 	printf("Client[%d] connected.\n", pClient->GetCID());
@@ -128,6 +137,8 @@ PVOID CClientSocket::Await(PVOID param)
 			p += *(WORD*)p;
 		}
 	}
+
+	pthread_detach(pthread_self());
 
 	return NULL;
 }

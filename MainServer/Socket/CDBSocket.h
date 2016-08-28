@@ -28,10 +28,11 @@ public:
 	static bool Close();
 	static PVOID Await(PVOID packet);
 	static PVOID Process(PVOID packet);
+	static void Process(Packet& packet);
 
 	static bool Write(BYTE byType, ...);
 
-	static void DebugRawPacket(Packet *packet);
+	static void DebugRawPacket(Packet& packet);
 };
 
 #endif

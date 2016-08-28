@@ -4,8 +4,9 @@
 
 CClient::~CClient()
 {
-	if (m_pPlayer)
+	if (m_pPlayer) {
 		delete m_pPlayer;
+	}
 
 	while (m_Access.IsBusy()) {
 		printf("CClient::~CClient: Client is in use, can't delete! Retrying in 10ms...\n");

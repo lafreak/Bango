@@ -26,6 +26,19 @@ void CServer::Remove(CClient *pClient)
  	g_mxClient.unlock();
 }
 
+void CServer::EmptyClient()
+{
+	g_mxClient.lock();
+
+	for (auto& a: g_mClient) {
+		delete a.second;
+	}
+
+	g_mClient.clear();
+
+ 	g_mxClient.unlock();
+}
+
 CClient* CServer::FindClient(int nCID)
 {
 	CClient* pClient=NULL;

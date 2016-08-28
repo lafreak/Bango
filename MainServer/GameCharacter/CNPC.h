@@ -20,6 +20,7 @@ public:
 	int GetHTML() { return m_nHtml; }
 
 	static bool LoadNPC();
+	static void UnloadNPC();
 	static void Add(CNPC* pNPC);
 	static void Remove(CNPC* pNPC);
 

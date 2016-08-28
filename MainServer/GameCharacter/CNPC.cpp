@@ -114,6 +114,18 @@ bool CNPC::LoadNPC()
 	return true;
 }
 
+void CNPC::UnloadNPC()
+{
+	g_mxNPC.lock();
+
+	for (auto& a: g_mNPC)
+		delete a.second;
+
+	g_mNPC.clear();
+
+	g_mxNPC.unlock();
+}
+
 void CNPC::Add(CNPC* pNPC)
 {
 	g_mxNPC.lock();

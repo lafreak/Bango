@@ -24,6 +24,7 @@ public:
 	static CTile *g_Tiles[TILE_LEN][TILE_LEN];
 
 	static void LoadMaps();
+	static void UnloadMaps();
 	static void Add(int nTileX, int nTileY, CCharacter *pCharacter);
 	static void Add(MapInfo mapInfo, CCharacter *pCharacter);
 	static void Add(CCharacter *pCharacter);

@@ -124,12 +124,25 @@ void CMainSocket::Accept()
 			char *p = (char*)&buffer;
 			while (nLen > 0 && nLen >= *(WORD*)p) 
 			{
+				/*
 				Packet *packet = new Packet;
 				memset(packet, 0, sizeof(Packet));
 				memcpy(packet, p, *(WORD*)p);
 
 				pthread_t t;
 				pthread_create(&t, NULL, &CMainSocket::Process, (PVOID)packet);
+
+				DebugRawPacket(packet);
+				*/
+
+				Packet packet;
+				memset(&packet, 0, sizeof(Packet));
+				memcpy(&packet, p, *(WORD*)p);
+
+				//pthread_t t;
+				//pthread_create(&t, NULL, &CMainSocket::Process, (PVOID)packet);
+
+				Process(packet);
 
 				DebugRawPacket(packet);
 
@@ -141,15 +154,16 @@ void CMainSocket::Accept()
 	}
 }
 
-PVOID CMainSocket::Process(PVOID param)
+//PVOID CMainSocket::Process(PVOID param)
+void CMainSocket::Process(Packet& packet)
 {
-	Packet* packet = (Packet*)param;
+	//Packet* packet = (Packet*)param;
 
 	CDatabase::Lock();
 
 	Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 
-	switch (packet->byType)
+	switch (packet.byType)
 	{
 		case S2D_LOGIN:
 		{
@@ -159,7 +173,7 @@ PVOID CMainSocket::Process(PVOID param)
 			char* szLogin=NULL;
 			char* szPassword=NULL;
 
-			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szLogin, &szPassword);
+			CSocket::ReadPacket(packet.data, "dss", &nClientID, &szLogin, &szPassword);
 
 			printf("ClientID: %d, Login: %s, Password: %s\n", nClientID, szLogin, szPassword);
 
@@ -224,7 +238,7 @@ PVOID CMainSocket::Process(PVOID param)
 			char *szPassword=NULL;
 			char *szSecondaryPW=NULL;
 
-			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szPassword, &szSecondaryPW);
+			CSocket::ReadPacket(packet.data, "dss", &nClientID, &szPassword, &szSecondaryPW);
 
 			printf("ClientID: %d, Password: %s, Secondary Password: %s\n", nClientID, szPassword, szSecondaryPW);
 
@@ -263,7 +277,7 @@ PVOID CMainSocket::Process(PVOID param)
 			char *szOldPassword=NULL;
 			char *szNewPassword=NULL;
 
-			CSocket::ReadPacket(packet->data, "dss", &nClientID, &szOldPassword, &szNewPassword);
+			CSocket::ReadPacket(packet.data, "dss", &nClientID, &szOldPassword, &szNewPassword);
 			
 			printf("ClientID: %d, OldPassword: %s, NewPassword: %s\n", nClientID, szOldPassword, szNewPassword);
 
@@ -301,7 +315,7 @@ PVOID CMainSocket::Process(PVOID param)
 			int nClientID=0;
 			char *szPassword=NULL;
 
-			CSocket::ReadPacket(packet->data, "ds", &nClientID, &szPassword);
+			CSocket::ReadPacket(packet.data, "ds", &nClientID, &szPassword);
 			
 			printf("ClientID: %d, SecondaryPW: %s\n", nClientID, szPassword);
 
@@ -323,7 +337,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 			int nClientID=0;
 
-			CSocket::ReadPacket(packet->data, "d", &nClientID);
+			CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (pAccount) {
@@ -341,7 +355,7 @@ PVOID CMainSocket::Process(PVOID param)
 			int nClientID=0;
 			int nPID=0;
 
-			CSocket::ReadPacket(packet->data, "dd", &nClientID, &nPID);
+			CSocket::ReadPacket(packet.data, "dd", &nClientID, &nPID);
 
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
@@ -368,7 +382,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 			int nClientID=0;
 
-			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
 
@@ -432,7 +446,7 @@ PVOID CMainSocket::Process(PVOID param)
 			int nPID=0;
 			int nClientID=0;
 
-			CSocket::ReadPacket(packet->data, "dd", &nClientID, &nPID);
+			CSocket::ReadPacket(packet.data, "dd", &nClientID, &nPID);
 
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (!pAccount) break;
@@ -587,7 +601,7 @@ PVOID CMainSocket::Process(PVOID param)
 
 			int nClientID=0;
 
-			char *p = CSocket::ReadPacket(packet->data, "d", &nClientID);
+			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 			CAccount *pAccount = CServer::FindAccount(nClientID);
 			if (pAccount) {
 				pAccount->SendPlayerInfo(con);
@@ -606,7 +620,7 @@ PVOID CMainSocket::Process(PVOID param)
 			WORD wStats[5]={0,};
 			WORD wPUPoint=0;
 
-			CSocket::ReadPacket(packet->data, "dwwwwww", &nPID, &wStats[P_STR], &wStats[P_HTH], &wStats[P_INT], &wStats[P_WIS], &wStats[P_DEX], &wPUPoint);
+			CSocket::ReadPacket(packet.data, "dwwwwww", &nPID, &wStats[P_STR], &wStats[P_HTH], &wStats[P_INT], &wStats[P_WIS], &wStats[P_DEX], &wPUPoint);
 
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"UPDATE player SET strength=?, health=?, inteligence=?, wisdom=?, dexterity=?, pupoint=? WHERE idplayer=?");
@@ -660,7 +674,7 @@ PVOID CMainSocket::Process(PVOID param)
 			WORD wPerforation=0;
 			int nGongLeft=0, nGongRight=0;
 
-			CSocket::ReadPacket(packet->data, "dwdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd", &nPID,
+			CSocket::ReadPacket(packet.data, "dwdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd", &nPID,
 				&wIndex,
 				&nIID,
 				&byPrefix,
@@ -745,7 +759,7 @@ PVOID CMainSocket::Process(PVOID param)
 			int nIID=0, nNum=0;
 			BYTE byLogType=0;
 
-			CSocket::ReadPacket(packet->data, "ddb", &nIID, &nNum, &byLogType);
+			CSocket::ReadPacket(packet.data, "ddb", &nIID, &nNum, &byLogType);
 
 			PreparedStatement_T p = Connection_prepareStatement(con,
 				"UPDATE item SET num=? WHERE iditem=?");
@@ -770,7 +784,7 @@ PVOID CMainSocket::Process(PVOID param)
 			WORD wPUPoint=0, wSUPoint=0;
 			int nAnger=0;
 
-			CSocket::ReadPacket(packet->data, "dbdddwwwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &wCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
+			CSocket::ReadPacket(packet.data, "dbdddwwwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &wCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
 
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE player SET level=?, x=?, y=?, z=?, contribute=?, curhp=?, curmp=?, exp=?, pupoint=?, supoint=?, anger=? WHERE idplayer=?");
@@ -800,7 +814,7 @@ PVOID CMainSocket::Process(PVOID param)
 			printf("S2D_REMOVEITEM.\n");
 
 			int nIID=0;
-			CSocket::ReadPacket(packet->data, "d", &nIID);
+			CSocket::ReadPacket(packet.data, "d", &nIID);
 
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"DELETE FROM item WHERE iditem=?");
@@ -817,7 +831,7 @@ PVOID CMainSocket::Process(PVOID param)
 			printf("S2D_PUTONITEM.\n");
 
 			int nIID=0;
-			CSocket::ReadPacket(packet->data, "d", &nIID);
+			CSocket::ReadPacket(packet.data, "d", &nIID);
 
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE item SET info = info | 1 WHERE iditem=?");
@@ -834,7 +848,7 @@ PVOID CMainSocket::Process(PVOID param)
 			printf("S2C_PUTOFFITEM.\n");
 
 			int nIID=0;
-			CSocket::ReadPacket(packet->data, "d", &nIID);
+			CSocket::ReadPacket(packet.data, "d", &nIID);
 
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE item SET info = info & ~1 WHERE iditem=?");
@@ -847,13 +861,15 @@ PVOID CMainSocket::Process(PVOID param)
 		}
 	}
 
+	//delete packet;
 
 	Connection_close(con);
 
 	CDatabase::Unlock();
 
-	delete packet;
-	return NULL;
+	//pthread_detach(pthread_self());
+
+	//return NULL;
 }
 
 bool CMainSocket::Write(BYTE byType, ...)
@@ -888,11 +904,11 @@ bool CMainSocket::WritePacket(Packet packet)
 	return true;
 }
 
-void CMainSocket::DebugRawPacket(Packet *packet)
+void CMainSocket::DebugRawPacket(Packet& packet)
 {
-	printf("Incoming S2D packet: [%u]\n", (BYTE)packet->byType);
-	for (int i = 0; i < packet->wSize; i++)
-		printf("%u ", (BYTE)((char*)packet)[i]);
+	printf("Incoming S2D packet: [%u]\n", (BYTE)packet.byType);
+	for (int i = 0; i < packet.wSize; i++)
+		printf("%u ", (BYTE)((char*)&packet)[i]);
 	printf("\n");
 }
 

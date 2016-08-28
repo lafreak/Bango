@@ -138,6 +138,14 @@ bool CMacroDB::LoadInitItem()
 	return true;
 }
 
+void CMacroDB::UnloadInitItem()
+{
+	for (auto& a: g_mMacro)
+		delete a.second;
+
+	g_mMacro.clear();
+}
+
 CMacro* CMacroDB::FindMacro(WORD wKey, WORD wIndex)
 {
 	DWORD dwKey = (wKey << 2) + wIndex;

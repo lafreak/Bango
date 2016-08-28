@@ -9,6 +9,13 @@ void CMap::LoadMaps()
 			CMap::g_Tiles[i][j] = new CTile;
 }
 
+void CMap::UnloadMaps()
+{
+	for (int i = 0; i < TILE_LEN; i++)
+		for (int j = 0; j < TILE_LEN; j++)
+			delete CMap::g_Tiles[i][j];
+}
+
 CTile* CMap::GetTile(int nTileX, int nTileY)
 {
 	if (nTileX < 0 || nTileX < 0 || nTileY >= TILE_LEN || nTileY >= TILE_LEN) {

@@ -398,6 +398,32 @@ WORD CPlayer::GetReqPU(BYTE *byStats)
 	return wReqPU;
 }
 
+bool CPlayer::WriteAll(BYTE byType, ...)
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = byType;
+
+	va_list va;
+	va_start(va, byType);
+
+	char* end = CSocket::WriteV(packet.data, va);
+
+	va_end(va);
+
+	packet.wSize = end - (char*)&packet;
+
+	g_mxPlayer.lock();
+
+	for (auto& a: g_mPlayer)
+		a.second->SendPacket(packet);
+
+	g_mxPlayer.unlock();
+
+	return true;
+}
+
 bool CPlayer::Write(BYTE byType, ...)
 {
 	Packet packet;
@@ -835,8 +861,9 @@ void CPlayer::OnLoadPlayer()
 
 	WORD wTime=1200;
 
-	CMap::Add(this);
-	CPlayer::Add(this);
+	// Moved to GameStart
+	//CMap::Add(this);
+	//CPlayer::Add(this);
 
 	Write(S2C_ANS_LOAD, "wdd", wTime, m_nX, m_nY);
 
@@ -969,6 +996,9 @@ void CPlayer::OnLoadItems(char *p)
 void CPlayer::GameStart()
 {
 	//printf("CPlayer::GameStart.\n");
+
+	CMap::Add(this);
+	CPlayer::Add(this);
 
 	Packet createPacket 	= GenerateCreatePacket();
 	Packet createHeroPacket = GenerateCreatePacket(true);
@@ -1166,6 +1196,13 @@ void CPlayer::ChatCommand(char* szCommand)
 
 			InsertItem(wIndex, nNum);
 		}
+	}
+
+	else if (!strcmp(token, "/notice")) {
+		token = std::strtok(NULL, "\0");
+
+		if (token)
+			CPlayer::WriteAll(S2C_NOTICE, "s", token);
 	}
 }
 
