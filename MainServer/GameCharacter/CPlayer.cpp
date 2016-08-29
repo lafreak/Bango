@@ -1366,7 +1366,7 @@ void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 	Packet petPacket = GeneratePetPacket();
 
 	SendPacketInSight(createPacket);
-	SendPacket(petPacket);
+	SendPacketInSight(petPacket);
 }
 
 void CPlayer::InsertItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn, bool bForceSingular, BYTE byPrefix, BYTE byXAttack, BYTE byXMagic, BYTE byXHit, BYTE byEBlow, int nInfo, BYTE byXDodge, BYTE byXDefense, FUSION_DESC* pFuse, BYTE byShot, WORD wPerforation, int nGongLeft, int nGongRight)
