@@ -1202,7 +1202,7 @@ void CPlayer::ChatCommand(char* szCommand)
 		token = std::strtok(NULL, "\0");
 
 		if (token)
-			CPlayer::WriteAll(S2C_NOTICE, "s", token);
+			WriteAll(S2C_NOTICE, "s", token);
 	}
 }
 
@@ -1354,14 +1354,19 @@ void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 	for (CharacterList::iterator it = clist.begin(); it != clist.end(); it++)
 	{
 		Packet createPacketEx = (*it)->GenerateCreatePacket();
+		Packet petPacketEx = (*it)->GeneratePetPacket();
 
 		SendPacket(createPacketEx);
+		SendPacket(petPacketEx);
 
 		(*it)->m_Access.Release();
 	}
 
 	Packet createPacket = GenerateCreatePacket();
+	Packet petPacket = GeneratePetPacket();
+
 	SendPacketInSight(createPacket);
+	SendPacket(petPacket);
 }
 
 void CPlayer::InsertItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn, bool bForceSingular, BYTE byPrefix, BYTE byXAttack, BYTE byXMagic, BYTE byXHit, BYTE byEBlow, int nInfo, BYTE byXDodge, BYTE byXDefense, FUSION_DESC* pFuse, BYTE byShot, WORD wPerforation, int nGongLeft, int nGongRight)

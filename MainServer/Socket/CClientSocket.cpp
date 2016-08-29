@@ -115,8 +115,12 @@ PVOID CClientSocket::Await(PVOID param)
 		int nLen = recv(pClient->GetCID(), &buffer, sizeof(PACKETBUFFER), 0);
 		if (nLen <= 0) {
 			printf("Client[%d] disconnected.\n", pClient->GetCID());
+			int nClientDescriptor = pClient->GetCID();
+
 			CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetCID());
 			CServer::Remove(pClient);
+			
+			close(nClientDescriptor);
 			break;
 		}
 
