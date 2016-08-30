@@ -4,6 +4,8 @@
 #include "CItemDefense.h"
 #include "CItemYinyang.h"
 #include "CItemPet.h"
+#include "CItemOrnament.h"
+#include "CItemTransform.h"
 
 #include "../GameCharacter/CPlayer.h"
 
@@ -89,6 +91,12 @@ CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 			break;
 		case IC_PET:
 			pItem = new CItemPet(desc, pMacro);
+			break;
+		case IC_ORNAMENT:
+			pItem = new CItemOrnament(desc, pMacro);
+			break;
+		case IC_TRANSFORM:
+			pItem = new CItemTransform(desc, pMacro);
 			break;
 		default:
 			printf(KRED "Unknown item class (%d).\n" KNRM, pMacro->m_byClass);

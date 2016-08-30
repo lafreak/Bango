@@ -7,14 +7,20 @@
 #include "GameCharacter/CNPC.h"
 #include "Macro/CMacroDB.h"
 
+#include "Config/CConfig.h"
+
 int main()
 {
-	srand(time(NULL));
-
-	if (!CDBSocket::Connect(2999))
+	MAINCONFIG mainconf;
+	if (CConfig::Read(mainconf) == CConfig::READ_ERROR)
 		return 1;
 
-	if (!CClientSocket::Start(3000))
+	srand(time(NULL));
+
+	if (!CDBSocket::Connect(mainconf.wDBPort))
+		return 1;
+
+	if (!CClientSocket::Start(mainconf.wMainPort))
 		return 1;
 
 	if (!CMacroDB::Initialize())
@@ -27,7 +33,7 @@ int main()
 	if (!CNPC::LoadNPC())
 		return 1;
 
-	printf(KGRN "MainServer started on port 3000.\n" KNRM);
+	printf(KGRN "MainServer started on port %d.\n" KNRM, mainconf.wMainPort);
 
 	CClientSocket::Accept();
 

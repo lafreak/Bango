@@ -12,7 +12,16 @@ bool CDatabase::Connect(std::string szHostname, std::string szPort, std::string 
 	CDatabase::g_pUrl = URL_new(szUrl.c_str());
 	CDatabase::g_pConnectionPool = ConnectionPool_new(CDatabase::g_pUrl);
 	
-	ConnectionPool_start(CDatabase::g_pConnectionPool);
+	TRY
+	{
+		ConnectionPool_start(CDatabase::g_pConnectionPool);
+	}
+	CATCH (SQLException)
+	{
+		printf(KRED "%s\n" KNRM, Exception_frame.message);
+		return false;
+	}
+	END_TRY;
 
 	return true;
 }

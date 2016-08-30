@@ -11,8 +11,8 @@
 #include "CCharacter.h"
 #include "../Item/CItem.h"
 
-#define GEAR_NUM 19
-#define GEAR_VISIBLE_NUM 9
+#define GEAR_NUM 22
+#define GEAR_VISIBLE_NUM 8
 
 class CPlayer: public CCharacter
 {

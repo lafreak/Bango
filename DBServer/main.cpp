@@ -1,16 +1,21 @@
 #include "Socket/CMainSocket.h"
 #include "Database/CDatabase.h"
 
+#include <Config/CConfig.h>
+
 int main()
 {
-
-	if (!CDatabase::Connect("127.0.0.1", "3306", "root", "iostream;", "kalonline"))
+	DBCONFIG dbconf;
+	if (CConfig::Read(dbconf) == CConfig::READ_ERROR)
 		return 1;
 
-	if (!CMainSocket::Start(2999))
+	if (!CDatabase::Connect(dbconf.szHostname, dbconf.szPort, dbconf.szUser, dbconf.szPassword, dbconf.szSchema))
 		return 1;
 
-	printf(KGRN "DBServer started on port 2999.\n" KNRM);
+	if (!CMainSocket::Start(dbconf.wListenPort))
+		return 1;
+
+	printf(KGRN "DBServer started on port %d.\n" KNRM, dbconf.wListenPort);
 
 	CMainSocket::Accept();
 

@@ -46,7 +46,6 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 
 CPlayer::~CPlayer()
 {
-	printf("About to delete [%s]\n", m_szName.c_str());
 	EmptyInven();
 
 	CMap::Remove(this);
@@ -253,6 +252,26 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 			m_GearIndex[WS_PET] = pItem->GetIndex();
 			AddWState(WS_PET);
 			break;
+
+		case ISC_RING:
+			m_Gear[WS_RING] = pItem->GetIID();
+			AddWState(WS_RING);
+			break;
+
+		case ISC_NECKLACE:
+			m_Gear[WS_NECKLACE] = pItem->GetIID();
+			AddWState(WS_NECKLACE);
+			break;
+
+		case ISC_TRINKET:
+			m_Gear[WS_TRINKET] = pItem->GetIID();
+			AddWState(WS_TRINKET);
+			break;
+
+		case ISC_RESISTNECKLACE2:
+			m_Gear[WS_RESISTNECKLACE2] = pItem->GetIID();
+			AddWState(WS_RESISTNECKLACE2);
+			break;
 	}
 }
 
@@ -366,6 +385,26 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 			m_Gear[WS_PET] = 0;
 			m_GearIndex[WS_PET]=0;
 			SubWState(WS_PET);
+			break;
+
+		case ISC_RING:
+			m_Gear[WS_RING] = 0;
+			SubWState(WS_RING);
+			break;
+
+		case ISC_NECKLACE:
+			m_Gear[WS_NECKLACE] = 0;
+			SubWState(WS_NECKLACE);
+			break;
+
+		case ISC_TRINKET:
+			m_Gear[WS_TRINKET] = 0;
+			SubWState(WS_TRINKET);
+			break;
+
+		case ISC_RESISTNECKLACE2:
+			m_Gear[WS_RESISTNECKLACE2] = 0;
+			SubWState(WS_RESISTNECKLACE2);
 			break;
 	}
 

@@ -1,1 +1,3 @@
-/bin/obj
+/bin/obj/*
+/bin/DBConfig.xml
+/bin/MainConfig.xml

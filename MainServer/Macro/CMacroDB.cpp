@@ -38,6 +38,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"coin", 		ISC_COIN },
 	{"repair", 		ISC_REPAIR },
 	{"necklace", 	ISC_NECKLACE },
+	{"resistnecklace2", ISC_RESISTNECKLACE2 },
 	{"cocoon", 		ISC_COCOON },	
 	{"mask", 		ISC_MASK },
 	{"standard", 	ISC_STANDARD },
