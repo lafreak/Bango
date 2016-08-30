@@ -654,6 +654,25 @@ CPlayer* CPlayer::FindPlayer(int nID)
 	return pPlayer;
 }
 
+CPlayer* CPlayer::FindPlayerByName(char* szName)
+{
+	CPlayer *pPlayer=NULL;
+
+	g_mxPlayer.lock();
+
+	for (auto& a: g_mPlayer) {
+		if (!strcmp(szName, a.second->GetName().c_str())) {
+			pPlayer = a.second;
+			pPlayer->m_Access.Grant();
+			break;
+		}
+	}
+
+	g_mxPlayer.unlock();
+
+	return pPlayer;
+}
+
 void CPlayer::Process(Packet packet)
 {
 	switch (packet.byType)
@@ -839,6 +858,17 @@ void CPlayer::Process(Packet packet)
 				PutOffItem(pItem);
 				pItem->m_Access.Release();
 			}
+
+			break;
+		}
+
+		case C2S_PLAYER_ANIMATION:
+		{
+			int nID=0;
+			BYTE byAnim=0;
+			CSocket::ReadPacket(packet.data, "db", &nID, &byAnim);
+
+			WriteInSight(S2C_PLAYER_ANIMATION, "db", GetID(), byAnim);
 
 			break;
 		}
@@ -1182,11 +1212,12 @@ void CPlayer::ChatCommand(char* szCommand)
 	if (!strcmp(token, "/ride")) {
 		token = std::strtok(NULL, " ");
 
-		if (token) {
-			int nIndex = atoi(token);
+		if (!token)
+			return;
 
-			WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
-		}
+		int nIndex = atoi(token);
+
+		WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
 	}
 
 	else if (!strcmp(token, "/npc")) {
@@ -1205,19 +1236,34 @@ void CPlayer::ChatCommand(char* szCommand)
 		token = std::strtok(NULL, " ");
 
 		int nX=0, nY=0, nZ=0;
-		if (token) {
-			nX = atoi(token);
-			token = std::strtok(NULL, " ");
+		if (!token)
+			return;
 
-			if (token) {
-				nY = atoi(token);
-				token = std::strtok(NULL, " ");
+		nX = atoi(token);
+		token = std::strtok(NULL, " ");
 
-				if (token)
-					nZ = atoi(token);
+		if (!token)
+			return;
 
-				Teleport(nX, nY, nZ);
-			}
+		nY = atoi(token);
+		token = std::strtok(NULL, " ");
+
+		if (token)
+			nZ = atoi(token);
+
+		Teleport(nX, nY, nZ);
+	}
+
+	else if (!strcmp(token, "/moveto")) {
+		token = std::strtok(NULL, "\0");
+
+		if (!token)
+			return;
+
+		CPlayer *pPlayer = FindPlayerByName(token);
+		if (pPlayer) {
+			Teleport(pPlayer->GetX(), pPlayer->GetY(), pPlayer->GetZ());
+			pPlayer->m_Access.Release();
 		}
 	}
 
@@ -1225,16 +1271,17 @@ void CPlayer::ChatCommand(char* szCommand)
 		token = std::strtok(NULL, " ");
 
 		WORD wIndex=0;
-		if (token) {
-			wIndex = atoi(token);
+		if (!token)
+			return;
 
-			int nNum=1;
-			token = std::strtok(NULL, " ");
-			if (token)
-				nNum = atoi(token);
+		wIndex = atoi(token);
 
-			InsertItem(wIndex, nNum);
-		}
+		int nNum=1;
+		token = std::strtok(NULL, " ");
+		if (token)
+			nNum = atoi(token);
+
+		InsertItem(wIndex, nNum);
 	}
 
 	else if (!strcmp(token, "/notice")) {

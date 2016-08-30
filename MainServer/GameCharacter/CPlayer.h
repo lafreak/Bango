@@ -65,6 +65,7 @@ public:
 
 	// Remember to call m_Access.Release() after usage
 	static CPlayer* FindPlayer(int nID);
+	static CPlayer* FindPlayerByName(char *szName);
 
 	int  GetAID() const { return m_nAID; }
 	int  GetPID() const { return m_nPID; }
