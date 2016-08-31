@@ -859,6 +859,61 @@ void CMainSocket::Process(Packet& packet)
 
 			break;
 		}
+
+		case S2D_SHORTCUT:
+		{
+			printf("S2C_SHORTCUT.\n");
+
+			BYTE byType=0;
+			int nCID=0;
+			int nPID=0;
+			char *p = CSocket::ReadPacket(packet.data, "ddb", &nCID, &nPID, &byType);
+
+			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
+
+			if (byType == 0) 
+			{
+				PreparedStatement_T ps = Connection_prepareStatement(con,
+					"SELECT value FROM shortcut WHERE idplayer=? ORDER BY idslot ASC");
+
+				PreparedStatement_setInt(ps, 1, nPID);
+
+				ResultSet_T r = PreparedStatement_executeQuery(ps);
+
+				PACKETBUFFER buffer;
+				memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+				char *pBegin = (char*)&buffer;
+				char *pEnd = pBegin;
+
+				while (ResultSet_next(r))
+				{
+					pEnd = CSocket::WritePacket(pEnd, "w", ResultSet_getInt(r, 1));
+				}
+
+				CMainSocket::Write(D2S_SHORTCUT, "dm", nCID, pBegin, pEnd - pBegin);
+
+				printf("S2C_SHORTCUT sent.\n");
+			}
+			else
+			{
+				PreparedStatement_T ps = Connection_prepareStatement(con,
+					"UPDATE shortcut SET value=? WHERE idplayer=? AND idslot=?");
+
+				for (int i = 1; i <= 20; i++)
+				{
+					WORD wValue=0;
+					p = CSocket::ReadPacket(p, "w", &wValue);
+
+					PreparedStatement_setInt(ps, 1, wValue);
+					PreparedStatement_setInt(ps, 2, nPID);
+					PreparedStatement_setInt(ps, 3, i);
+					PreparedStatement_execute(ps);
+				}
+			}
+
+			break;
+		}
 	}
 
 	//delete packet;

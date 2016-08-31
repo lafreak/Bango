@@ -50,6 +50,8 @@ class CPlayer: public CCharacter
 	WORD m_GearIndex[GEAR_VISIBLE_NUM];
 	BYTE m_byTrigramLevel;
 
+	BYTE m_byShortcutState;
+
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
 
@@ -69,6 +71,7 @@ public:
 
 	int  GetAID() const { return m_nAID; }
 	int  GetPID() const { return m_nPID; }
+	int  GetCID() const { return m_nCID; }
 	WORD GetPUPoint() const { return m_wPUPoint; }
 	WORD GetSUPoint() const { return m_wSUPoint; }
 	WORD GetContribute() const { return m_wContribute; }

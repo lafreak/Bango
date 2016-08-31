@@ -45,6 +45,31 @@ CREATE TABLE player (
 	UNIQUE(name)
 );
 
+CREATE TABLE shortcut (
+	idplayer INT AUTO_INCREMENT,
+	idslot SMALLINT NOT NULL,
+	value SMALLINT NOT NULL DEFAULT 0,
+
+	FOREIGN KEY (idplayer)
+		REFERENCES player (idplayer)
+);
+
+DROP TRIGGER IF EXISTS player_after_insert;
+
+DELIMITER //
+CREATE TRIGGER player_after_insert
+AFTER INSERT
+	ON player FOR EACH ROW
+BEGIN
+	INSERT INTO shortcut (idplayer, idslot)
+		VALUES
+			(NEW.idplayer, 1), (NEW.idplayer, 2), (NEW.idplayer, 3), (NEW.idplayer, 4), (NEW.idplayer, 5),
+			(NEW.idplayer, 6), (NEW.idplayer, 7), (NEW.idplayer, 8), (NEW.idplayer, 9), (NEW.idplayer, 10),
+			(NEW.idplayer, 11), (NEW.idplayer, 12), (NEW.idplayer, 13), (NEW.idplayer, 14), (NEW.idplayer, 15),
+			(NEW.idplayer, 16), (NEW.idplayer, 17), (NEW.idplayer, 18), (NEW.idplayer, 19), (NEW.idplayer, 20);
+END; //
+DELIMITER ;
+
 CREATE TABLE item (
 	iditem INT AUTO_INCREMENT,
 	idplayer INT NOT NULL,

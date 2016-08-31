@@ -38,6 +38,8 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_n64WearState = 0;
 	m_byTrigramLevel = 0;
 
+	m_byShortcutState = 0;
+
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
 	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
 
@@ -869,6 +871,24 @@ void CPlayer::Process(Packet packet)
 			CSocket::ReadPacket(packet.data, "db", &nID, &byAnim);
 
 			WriteInSight(S2C_PLAYER_ANIMATION, "db", GetID(), byAnim);
+
+			break;
+		}
+
+		case C2S_SHORTCUT:
+		{
+			BYTE byType=0;
+			CSocket::ReadPacket(packet.data, "b", &byType);
+
+			if (byType == 0 && m_byShortcutState != 0)
+				break;
+
+			if (byType == 1 && m_byShortcutState != 1)
+				break;
+
+			m_byShortcutState++;
+
+			CDBSocket::Write(S2D_SHORTCUT, "ddm", GetCID(), GetPID(), packet.data, packet.wSize - (packet.data - (char*)&packet));
 
 			break;
 		}

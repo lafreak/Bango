@@ -100,7 +100,8 @@ void CDBSocket::Process(Packet& packet)
 			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) break;
+			if (!pClient) 
+				break;
 
 			pClient->OnLogin(p);
 			pClient->m_Access.Release();
@@ -128,7 +129,8 @@ void CDBSocket::Process(Packet& packet)
 			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) break;
+			if (!pClient) 
+				break;
 
 			BYTE byAuth=0;
 			int nExpTime=0;
@@ -149,7 +151,8 @@ void CDBSocket::Process(Packet& packet)
 			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) break;
+			if (!pClient) 
+				break;
 
 			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)&packet + packet.wSize) - p);
 
@@ -164,7 +167,8 @@ void CDBSocket::Process(Packet& packet)
 			char* p= CSocket::ReadPacket(packet.data, "db", &nClientID, &byMessage);
 
 			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) break;
+			if (!pClient) 
+				break;
 
 			if (byMessage == 1) {
 				pClient->Write(S2C_MESSAGE, "b", MSG_NOTEXISTPLAYER);
@@ -202,6 +206,21 @@ void CDBSocket::Process(Packet& packet)
 		case D2S_MAX_IID:
 		{
 			CSocket::ReadPacket(packet.data, "d", &CItem::g_nMaxIID);
+			break;
+		}
+
+		case D2S_SHORTCUT:
+		{
+			int nClientID=0;
+			char* p= CSocket::ReadPacket(packet.data, "d", &nClientID);
+
+			CClient *pClient = CServer::FindClient(nClientID);
+			if (!pClient) 
+				break;
+
+			pClient->Write(S2C_SHORTCUT, "bm", 1, p, packet.wSize - (p - (char*)&packet));
+
+			pClient->m_Access.Release();
 			break;
 		}
 	}
