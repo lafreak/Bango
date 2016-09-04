@@ -1623,7 +1623,7 @@
 		(attack 0 470 700) (magic 0 0) (defense 260 210) (absorb 30) (mspeed 1600 600) (resist 33 33 33 45 45)
 		(quest ))
 
-; Ghost of Dragon
+; Egg
 (monster (name 312) (index 312) (country 2) (race 7) (level 70) (exp 400)    		
 		(hp 5000) 
 		(defense 150 240) (absorb 70) (resist 30 30 30 40 40)
@@ -1788,7 +1788,7 @@
                 (skill (17 1) (18 1) (19 1) (20 1))
                 (quest ))
   
-;(monster (name 340) (index 340) (country 2) (race 5) (skill ( 43 1)))  		
+;(monster (name 340) (index 340) (country 2) (race 5) (skill ( 43 1)))  	
 
 ;  Black Wolf 
 (monster (name 361) (index 361) (country 2) (race 1) (level 20) (ai 2) (range 30) (sight 170 310) (exp 280) 

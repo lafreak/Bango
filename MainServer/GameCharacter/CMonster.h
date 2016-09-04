@@ -9,12 +9,24 @@ class CMonster: public CCharacter
 {
 	WORD m_wIndex;
 	CMonsterInfo *m_pMacro;
+
+	static std::map<int, CMonster*> g_mMonster;
+	static std::mutex g_mxMonster;
 	
 public:
 	CMonster(CMonsterInfo *pMacro, int nX, int nY);
 	~CMonster();
 	
 	static CMonster* CreateMonster(WORD wIndex, int nX, int nY);
+
+	static CMonster* Summon(WORD wIndex, int nX, int nY);
+
+	static void Add(CMonster *pMonster);
+	static void Remove(CMonster *pMonster);
+
+	// Remember to call m_Access.Release() after usage
+	static CMonster* FindMonster(int nID);
+	static CMonster* FindMonsterByIndex(WORD wIndex);
 
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GeneratePetPacket();
@@ -23,6 +35,7 @@ public:
 
 	WORD GetIndex() { return m_pMacro->m_wIndex; }
 	BYTE GetRace() { return m_pMacro->m_byRace; }
+	BYTE GetLevel() { return m_pMacro->m_byLevel; }
 
 	void SendPacket(Packet& packet) {};
 };

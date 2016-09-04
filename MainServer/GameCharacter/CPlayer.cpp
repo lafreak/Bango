@@ -4,8 +4,6 @@
 #include "../CServer.h"
 #include "../Item/CItemPet.h"
 
-
-
 PlayerMap CPlayer::g_mPlayer;
 std::mutex CPlayer::g_mxPlayer;
 
@@ -1298,13 +1296,7 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (token)
 			wIndex = atoi(token);
 
-		auto pMonster = CMonster::CreateMonster(wIndex, GetX(), GetY());
-		if (pMonster) {
-			CMap::Add(pMonster);
-
-			Packet createMonster = pMonster->GenerateCreatePacket();
-			SendPacketInSight(createMonster);
-		}
+		CMonster::Summon(wIndex, GetX(), GetY());
 	}
 }
 
