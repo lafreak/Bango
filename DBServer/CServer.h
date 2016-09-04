@@ -19,7 +19,7 @@ public:
 	static void Remove(CAccount* pAccount);
 
 	// Remember to call m_Access.Release() after work on account is done.
-	static CAccount* FindAccount(SOCKET socket);
+	static CAccount* FindAccount(int nCID);
 	static CAccount* FindAccountByAID(int nAccountID);
 	static void EmptyAccount();
 };

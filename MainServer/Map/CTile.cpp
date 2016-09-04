@@ -15,6 +15,11 @@ void CTile::Add(CCharacter *pCharacter)
 			if (m_mNPC.find(pCharacter->GetID()) == m_mNPC.end())
 				m_mNPC[pCharacter->GetID()] = (CNPC*)pCharacter;
 			break;
+
+		case CK_MONSTER:
+			if (m_mMonster.find(pCharacter->GetID()) == m_mMonster.end())
+				m_mMonster[pCharacter->GetID()] = (CMonster*)pCharacter;
+			break;
 	}
 
 	Unlock();
@@ -39,6 +44,14 @@ void CTile::Remove(CCharacter *pCharacter)
 			NPCMap::iterator it = m_mNPC.find(pCharacter->GetID());
 			if (it != m_mNPC.end())
 				m_mNPC.erase(it);
+			break;
+		}
+
+		case CK_MONSTER:
+		{
+			MonsterMap::iterator it = m_mMonster.find(pCharacter->GetID());
+			if (it != m_mMonster.end())
+				m_mMonster.erase(it);
 			break;
 		}
 	}
@@ -70,6 +83,16 @@ void CTile::GetCharacterListAround(CCharacter *pCharacter, int nDistance, Charac
 			pTarget->m_Access.Release();
 	}
 
+	for (auto& a: m_mMonster) {
+		a.second->m_Access.Grant();
+		auto pTarget = a.second;
+
+		if (pCharacter->GetDistance(pTarget) <= nDistance)
+			list.push_back(pTarget);
+		else
+			pTarget->m_Access.Release();
+	}
+
 	Unlock();
 }
 
@@ -78,6 +101,23 @@ void CTile::GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerLis
 	Lock();
 
 	for (auto& a: m_mPlayer) {
+		a.second->m_Access.Grant();
+		auto pTarget = a.second;
+
+		if (pCharacter->GetDistance(pTarget) <= nDistance)
+			list.push_back(pTarget);
+		else 
+			pTarget->m_Access.Release();
+	}
+
+	Unlock();
+}
+
+void CTile::GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterList& list)
+{
+	Lock();
+
+	for (auto& a: m_mMonster) {
 		a.second->m_Access.Grant();
 		auto pTarget = a.second;
 

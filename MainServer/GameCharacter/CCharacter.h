@@ -6,6 +6,7 @@
 #include <math.h>
 #include <list>
 #include <map>
+#include <unistd.h>
 
 #include <access.h>
 
@@ -13,7 +14,7 @@
 #include <string.h>
 
 #include <Protocol/Packet.h>
-
+#include <Socket/CSocket.h>
 
 #include <Protocol/MainProtocol.h>
 
@@ -132,6 +133,10 @@ public:
 	virtual Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ) = 0;
 
 	virtual void SendPacket(Packet& packet) = 0;
+
+	bool WriteInSight(BYTE byType, ...);
+
+	void SendPacketInSight(Packet& packet);
 
 	void SetDirection(int nX, int nY);
 

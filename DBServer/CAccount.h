@@ -43,7 +43,6 @@ public:
 	void 		SetSecondary(std::string szSecondary) { m_szSecondary = szSecondary; }
 
 	void SendPlayerInfo(Connection_T con);
-	void SendItemInfo(Connection_T con, int nPID);
 };
 
 #endif

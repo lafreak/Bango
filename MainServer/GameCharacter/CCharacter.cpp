@@ -1,5 +1,7 @@
 #include "CCharacter.h"
 
+#include "../Map/CMap.h"
+
 int CCharacter::g_nID = 1;
 std::mutex CCharacter::g_mxID;
 
@@ -22,6 +24,32 @@ int CCharacter::NewID()
 	g_mxID.unlock();
 
 	return nID;
+}
+
+bool CCharacter::WriteInSight(BYTE byType, ...)
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = byType;
+
+	va_list va;
+	va_start(va, byType);
+
+	char* end = CSocket::WriteV(packet.data, va);
+
+	va_end(va);
+
+	packet.wSize = end - (char*)&packet;
+	CMap::SendPacket(this, packet);
+
+	return true;
+}
+
+void CCharacter::SendPacketInSight(Packet& packet)
+{
+	if (packet.wSize > 0)
+		CMap::SendPacket(this, packet);
 }
 
 WORD CCharacter::GetMaxHP() const

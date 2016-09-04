@@ -485,36 +485,10 @@ bool CPlayer::Write(BYTE byType, ...)
 	return true;
 }
 
-bool CPlayer::WriteInSight(BYTE byType, ...)
-{
-	Packet packet;
-	memset(&packet, 0, sizeof(Packet));
-
-	packet.byType = byType;
-
-	va_list va;
-	va_start(va, byType);
-
-	char* end = CSocket::WriteV(packet.data, va);
-
-	va_end(va);
-
-	packet.wSize = end - (char*)&packet;
-	CMap::SendPacket(this, packet);
-
-	return true;
-}
-
 void CPlayer::SendPacket(Packet& packet)
 {
 	if (packet.wSize > 0)
 		send(m_nCID, (char*)&packet, packet.wSize, MSG_NOSIGNAL);
-}
-
-void CPlayer::SendPacketInSight(Packet& packet)
-{
-	if (packet.wSize > 0)
-		CMap::SendPacket(this, packet);
 }
 
 Packet CPlayer::GenerateCreatePacket(bool bHero)
@@ -533,7 +507,8 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		byClass |= GAME_HERO;
 
 	packet.byType = S2C_CREATEPLAYER;
-	char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIwwwwwwwwwbddb", 
+	//char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIwwwwwwwwwbddb", 
+	char *end = CSocket::WritePacket(packet.data, "dsbdddwIwwwwwwwwbbIssdbdddIIbddb", 
 		m_nID, 
 		m_szName.c_str(), 
 		byClass, 
@@ -880,11 +855,15 @@ void CPlayer::Process(Packet packet)
 			BYTE byType=0;
 			CSocket::ReadPacket(packet.data, "b", &byType);
 
-			if (byType == 0 && m_byShortcutState != 0)
+			if (byType == 0 && m_byShortcutState != 0) {
+				printf(KRED "Trying to load shortcut for the second time.\n" KNRM);
 				break;
+			}
 
-			if (byType == 1 && m_byShortcutState != 1)
+			if (byType == 1 && m_byShortcutState != 1) {
+				printf(KRED "Trying to save shortcut for the second time.\n" KNRM);
 				break;
+			}
 
 			m_byShortcutState++;
 
@@ -1309,6 +1288,23 @@ void CPlayer::ChatCommand(char* szCommand)
 
 		if (token)
 			WriteAll(S2C_NOTICE, "s", token);
+	}
+
+	else if (!strcmp(token, "/summon")) {
+		token = std::strtok(NULL, " ");
+
+		int wIndex=0;
+
+		if (token)
+			wIndex = atoi(token);
+
+		auto pMonster = CMonster::CreateMonster(wIndex, GetX(), GetY());
+		if (pMonster) {
+			CMap::Add(pMonster);
+
+			Packet createMonster = pMonster->GenerateCreatePacket();
+			SendPacketInSight(createMonster);
+		}
 	}
 }
 

@@ -10,6 +10,7 @@
 
 #include "CCharacter.h"
 #include "../Item/CItem.h"
+#include "CMonster.h"
 
 #define GEAR_NUM 22
 #define GEAR_VISIBLE_NUM 8
@@ -109,9 +110,8 @@ public:
 	static bool WriteAll(BYTE byType, ...);
 
 	bool Write(BYTE byType, ...);
-	bool WriteInSight(BYTE byType, ...);
+	
 	void SendPacket(Packet& packet);
-	void SendPacketInSight(Packet& packet);
 
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GeneratePetPacket();

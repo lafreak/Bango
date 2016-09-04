@@ -72,6 +72,10 @@ bool CMacroDB::Initialize()
 	if (!LoadInitItem())
 		return false;
 
+	printf("Loading Monsters...\n");
+	if (!LoadInitMonster())
+		return false;
+
 	return true;
 }
 
@@ -130,10 +134,66 @@ bool CMacroDB::LoadInitItem()
 			}
 		}
 
-		DWORD dwKey = (CMacro::MT_ITEM << 2) + pItem->m_wIndex;
+		DWORD dwKey = (CMacro::MT_ITEM << 16) + pItem->m_wIndex;
 		g_mMacro[dwKey] = pItem;
 
 		pItemInfo = pItemInfo->NextSiblingElement("item");
+	}
+
+	return true;
+}
+
+bool CMacroDB::LoadInitMonster()
+{
+	XMLDocument doc;
+
+	if (doc.LoadFile("Config/InitMonster.xml") != XML_SUCCESS) {
+		printf(KRED "Cannot open InitMonster.xml. (%s)\n" KNRM, doc.ErrorName());
+		return false;
+	}
+
+	XMLElement *pRoot = doc.RootElement();
+	if (!pRoot) {
+		printf("Cannot find root element inside InitMonster.xml.\n");
+		return false;
+	}
+
+	XMLElement *pMonsterInfo = pRoot->FirstChildElement("monster");
+
+	while (pMonsterInfo != NULL)
+	{
+		CMonsterInfo *pMonster = new CMonsterInfo;
+
+/*
+
+		m_byRace(0),
+		m_byLevel(0),
+		m_byAI(0),
+		m_wRange(0),
+		m_wCloseSight(0),
+		m_wFarSight(0),
+		m_n64Exp(0),
+		m_wWalkSpeed(0),
+		m_wRunSpeed(0)
+		*/
+		pMonster->m_wIndex = 		pMonsterInfo->IntAttribute("index");
+		pMonster->m_byLevel =		pMonsterInfo->IntAttribute("level");
+		pMonster->m_byAI =			pMonsterInfo->IntAttribute("ai");
+		pMonster->m_wRange =		pMonsterInfo->IntAttribute("range");
+		pMonster->m_wCloseSight =	pMonsterInfo->IntAttribute("closesight");
+		pMonster->m_wFarSight =		pMonsterInfo->IntAttribute("farsight");
+		pMonster->m_wWalkSpeed =	pMonsterInfo->IntAttribute("walkspeed");
+		pMonster->m_wRunSpeed =		pMonsterInfo->IntAttribute("runspeed");
+
+		std::stringstream conv;
+		const char* exp = pMonsterInfo->Attribute("exp");
+		conv << exp;
+		conv >> pMonster->m_n64Exp;
+
+		DWORD dwKey = (CMacro::MT_MONSTER << 16) + pMonster->m_wIndex;
+		g_mMacro[dwKey] = pMonster;
+
+		pMonsterInfo = pMonsterInfo->NextSiblingElement("monster");
 	}
 
 	return true;
@@ -149,7 +209,7 @@ void CMacroDB::UnloadInitItem()
 
 CMacro* CMacroDB::FindMacro(WORD wKey, WORD wIndex)
 {
-	DWORD dwKey = (wKey << 2) + wIndex;
+	DWORD dwKey = (wKey << 16) + wIndex;
 
 	MacroMap::iterator it = g_mMacro.find(dwKey);
 	if (it != g_mMacro.end())

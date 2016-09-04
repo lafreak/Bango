@@ -6,7 +6,7 @@
 
 #include "../GameCharacter/CPlayer.h"
 #include "../GameCharacter/CNPC.h"
-
+#include "../GameCharacter/CMonster.h"
 
 class CTile
 {
@@ -16,6 +16,7 @@ class CTile
 
 	PlayerMap m_mPlayer;
 	NPCMap m_mNPC;
+	MonsterMap m_mMonster;
 
 public:
 	CTile() {}
@@ -29,6 +30,7 @@ public:
 	// Remember to run m_Access.Release on each used object in the list.
 	void GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list);
 	void GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list);
+	void GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterList& list);
 
 	void SendPacket(CCharacter *pCharacter, Packet& packet);
 

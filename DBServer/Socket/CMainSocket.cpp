@@ -561,36 +561,6 @@ void CMainSocket::Process(Packet& packet)
 
 			CMainSocket::Write(D2S_LOADPLAYER, "m", pBegin, p - pBegin);
 
-			/*
-			// 77 BYTE MAX
-			CMainSocket::Write(D2S_LOADPLAYER, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
-				ResultSet_getIntByName(r, "idaccount"), 
-				nPID, 
-				ResultSet_getStringByName(r, "name"),
-				ResultSet_getIntByName(r, "class"), 
-				ResultSet_getIntByName(r, "job"), 
-				ResultSet_getIntByName(r, "level"),
-				ResultSet_getIntByName(r, "strength"), 
-				ResultSet_getIntByName(r, "health"), 
-				ResultSet_getIntByName(r, "inteligence"), 
-				ResultSet_getIntByName(r, "wisdom"), 
-				ResultSet_getIntByName(r, "dexterity"),
-				ResultSet_getIntByName(r, "curhp"), 
-				ResultSet_getIntByName(r, "curmp"), 
-				ResultSet_getLLongByName(r, "exp"), 
-				ResultSet_getIntByName(r, "pupoint"), 
-				ResultSet_getIntByName(r, "supoint"), 
-				ResultSet_getIntByName(r, "contribute"), 
-				ResultSet_getIntByName(r, "anger"),
-				ResultSet_getIntByName(r, "x"), 
-				ResultSet_getIntByName(r, "y"), 
-				ResultSet_getIntByName(r, "z"),
-				ResultSet_getIntByName(r, "face"),
-				ResultSet_getIntByName(r, "hair"));
-
-			pAccount->SendItemInfo(con, nPID);
-			*/
-
 			pAccount->m_Access.Release();
 			break;
 		}
@@ -868,8 +838,6 @@ void CMainSocket::Process(Packet& packet)
 			int nCID=0;
 			int nPID=0;
 			char *p = CSocket::ReadPacket(packet.data, "ddb", &nCID, &nPID, &byType);
-
-			Connection_T con = ConnectionPool_getConnection(CDatabase::g_pConnectionPool);
 
 			if (byType == 0) 
 			{

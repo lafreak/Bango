@@ -417,6 +417,100 @@ public:
 		doc.SaveFile(outputPath);
 		printf("Converting succeeded.\n");
 	}
+
+	void InitMonsterToXML(const char* outputPath)
+	{
+		FILE *fp = fopen(outputPath, "w+");
+		if (!fp) {
+			printf("Cannot create %s.\n", outputPath);
+			return;
+		}
+
+		fprintf(fp, "<?xml version=\"1.0\" encoding=\"UTF-8\"?><monsterlist></monsterlist>");
+		fclose(fp);
+
+		XMLDocument doc;
+
+		if (doc.LoadFile(outputPath) != XML_SUCCESS)
+		{
+			printf("Cannot open %s. (%s)\n", outputPath, doc.ErrorName());
+			return;
+		}
+		
+		XMLElement *pRoot = doc.RootElement();
+		if (!pRoot)
+		{
+			printf("Can't find root.\n");
+			return;
+		}
+
+		pRoot->DeleteChildren();
+
+
+		for (auto& monster: root->children)
+		{
+			XMLElement *pEle = doc.NewElement("monster")->ToElement();
+
+			for (auto& prop: monster->children)
+			{
+				std::istringstream iss(prop->data);
+				std::string name;
+
+				iss >> name;
+
+
+				std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+
+				if (name == "index") {
+					int n=0;
+					iss >> n;
+
+					pEle->SetAttribute("index", n);
+				}
+				else if (name == "race") {
+					int n=0;
+					iss >> n;
+
+					pEle->SetAttribute("race", n);
+				}
+				else if (name == "level") {
+					int n=0;
+					iss >> n;
+
+					pEle->SetAttribute("level", n);
+				}
+				else if (name == "ai") {
+					int n=0;
+					iss >> n;
+
+					pEle->SetAttribute("ai", n);
+				}
+				else if (name == "range") {
+					int n=0;
+					iss >> n;
+
+					pEle->SetAttribute("range", n);
+				}
+				else if (name == "sight") {
+					int n=0;
+					iss >> n;
+					pEle->SetAttribute("closesight", n);
+					iss >> n;
+					pEle->SetAttribute("farsight", n);
+				}
+				else if (name == "exp") {
+					int64_t n=0;
+					iss >> n;
+					pEle->SetAttribute("exp", n);
+				}
+			}
+
+			pRoot->InsertEndChild(pEle);
+		}
+
+		doc.SaveFile(outputPath);
+		printf("Converting succeeded.\n");
+	}
 };
 
 int main(int argc, char** argv)
@@ -443,6 +537,8 @@ int main(int argc, char** argv)
 		doc.InitNPCToXML(argv[3]);
 	else if (!strcmp(argv[1], "InitItem"))
 		doc.InitItemToXML(argv[3]);
+	else if (!strcmp(argv[1], "InitMonster"))
+		doc.InitMonsterToXML(argv[3]);
 	else
 		printf("%s is not available.\n", argv[1]);
 

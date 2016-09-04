@@ -134,7 +134,7 @@ PVOID CClientSocket::Await(PVOID param)
 			memset(&packet, 0, sizeof(Packet));
 			memcpy(&packet, p, *(WORD*)p);
 
-			DebugRawPacket(packet);
+			//DebugRawPacket(packet);
 			pClient->Process(packet);
 
 			nLen -= *(WORD*)p;

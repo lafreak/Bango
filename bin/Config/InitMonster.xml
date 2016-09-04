@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monsterlist>
+    <monster index="1" race="0" level="1" ai="1" range="20" closesight="160" farsight="240" exp="2"/>
+    <monster index="2" race="0" level="3" ai="1" range="16" closesight="160" farsight="240" exp="4"/>
+    <monster index="3" race="0" level="4" ai="1" range="20" closesight="160" farsight="240" exp="6"/>
+    <monster index="4" race="0" level="5" ai="1" range="16" closesight="160" farsight="240" exp="9"/>
+    <monster index="5" race="0" level="6" ai="1" range="16" closesight="160" farsight="240" exp="12"/>
+    <monster index="6" race="0" level="8" ai="2" range="20" closesight="160" farsight="240" exp="16"/>
+    <monster index="7" race="0" level="8" ai="2" range="96" closesight="160" farsight="240" exp="18"/>
+    <monster index="8" race="0" level="9" ai="2" range="20" closesight="160" farsight="240" exp="22"/>
+    <monster index="9" race="0" level="11" ai="1" range="20" closesight="160" farsight="320" exp="27"/>
+    <monster index="10" race="0" level="13" ai="1" range="28" closesight="160" farsight="320" exp="31"/>
+    <monster index="11" race="0" level="16" ai="1" range="28" closesight="160" farsight="320" exp="42"/>
+    <monster index="12" race="0" level="19" ai="1" range="28" closesight="160" farsight="320" exp="52"/>
+    <monster index="13" race="0" level="20" ai="1" range="96" closesight="160" farsight="320" exp="55"/>
+    <monster index="14" race="0" level="21" ai="2" range="28" closesight="200" farsight="320" exp="60"/>
+    <monster index="15" race="0" level="22" ai="2" range="28" closesight="200" farsight="320" exp="65"/>
+    <monster index="16" race="0" level="23" ai="1" range="28" closesight="160" farsight="320" exp="71"/>
+    <monster index="17" race="0" level="25" ai="1" range="28" closesight="160" farsight="320" exp="80"/>
+    <monster index="18" race="0" level="27" ai="2" range="28" closesight="106" farsight="320" exp="92"/>
+    <monster index="19" race="0" level="29" ai="2" range="28" closesight="160" farsight="320" exp="105"/>
+    <monster index="20" race="0" level="34" ai="2" range="28" closesight="160" farsight="320" exp="133"/>
+    <monster index="21" race="0" level="24" ai="1" range="28" closesight="160" farsight="320" exp="77"/>
+    <monster index="22" race="0" level="26" ai="2" range="28" closesight="200" farsight="320" exp="86"/>
+    <monster index="23" race="0" level="28" ai="2" range="28" closesight="160" farsight="320" exp="99"/>
+    <monster index="24" race="0" level="37" ai="2" range="28" closesight="160" farsight="320" exp="167"/>
+    <monster index="25" race="1" level="14" ai="1" range="28" closesight="160" farsight="320" exp="35"/>
+    <monster index="26" race="1" level="15" ai="1" range="28" closesight="160" farsight="320" exp="38"/>
+    <monster index="27" race="1" level="17" ai="2" range="28" closesight="160" farsight="320" exp="45"/>
+    <monster index="28" race="1" level="18" ai="2" range="28" closesight="160" farsight="320" exp="48"/>
+    <monster index="29" race="1" level="30" ai="2" range="20" closesight="160" farsight="320" exp="109"/>
+    <monster index="30" race="1" level="31" ai="2" range="20" closesight="160" farsight="320" exp="120"/>
+    <monster index="31" race="1" level="32" ai="2" range="20" closesight="160" farsight="320" exp="131"/>
+    <monster index="32" race="1" level="33" ai="2" range="20" closesight="160" farsight="320" exp="141"/>
+    <monster index="33" race="1" level="34" ai="2" range="20" closesight="160" farsight="320" exp="152"/>
+    <monster index="34" race="1" level="35" ai="2" range="20" closesight="160" farsight="320" exp="160"/>
+    <monster index="35" race="1" level="37" ai="2" range="20" closesight="160" farsight="320" exp="221"/>
+    <monster index="36" race="1" level="39" ai="2" range="20" closesight="160" farsight="320" exp="240"/>
+    <monster index="37" race="0" level="34" ai="2" range="28" closesight="200" farsight="320" exp="171"/>
+    <monster index="38" race="0" level="36" ai="2" range="28" closesight="200" farsight="320" exp="179"/>
+    <monster index="39" race="0" level="37" ai="2" range="120" closesight="200" farsight="320" exp="185"/>
+    <monster index="40" race="0" level="38" ai="2" range="28" closesight="200" farsight="320" exp="192"/>
+    <monster index="41" race="0" level="39" ai="2" range="80" closesight="200" farsight="320" exp="199"/>
+    <monster index="42" race="0" level="46" ai="2" range="80" closesight="200" farsight="320" exp="487"/>
+    <monster index="43" race="0" level="46" ai="2" range="80" closesight="200" farsight="320" exp="487"/>
+    <monster index="44" race="1" level="45" ai="2" range="28" closesight="200" farsight="320" exp="486"/>
+    <monster index="45" race="1" level="47" ai="2" range="28" closesight="200" farsight="320" exp="563"/>
+    <monster index="46" race="1" level="48" ai="2" range="28" closesight="200" farsight="320" exp="585"/>
+    <monster index="47" race="1" level="49" ai="2" range="28" closesight="200" farsight="320" exp="604"/>
+    <monster index="48" race="1" level="50" ai="2" range="28" closesight="200" farsight="320" exp="635"/>
+    <monster index="49" race="1" level="51" ai="2" range="28" closesight="200" farsight="320" exp="660"/>
+    <monster index="50" race="1" level="52" ai="2" range="28" closesight="200" farsight="320" exp="693"/>
+    <monster index="52" race="0" level="40" ai="2" range="34" closesight="200" farsight="320" exp="345"/>
+    <monster index="53" race="0" level="41" ai="2" range="34" closesight="200" farsight="320" exp="357"/>
+    <monster index="54" race="0" level="42" ai="2" range="34" closesight="200" farsight="320" exp="366"/>
+    <monster index="55" race="0" level="43" ai="2" range="34" closesight="200" farsight="320" exp="392"/>
+    <monster index="56" race="0" level="44" ai="2" range="34" closesight="200" farsight="320" exp="423"/>
+    <monster index="57" race="0" level="45" ai="2" range="34" closesight="200" farsight="320" exp="459"/>
+    <monster index="58" race="0" level="46" ai="2" range="34" closesight="200" farsight="320" exp="482"/>
+    <monster index="92" race="0" level="41" ai="1" range="34" closesight="200" farsight="320" exp="100"/>
+    <monster index="93" race="1" level="15" ai="1" range="28" closesight="160" farsight="320" exp="10"/>
+    <monster index="94" race="0" level="42" ai="1" range="34" closesight="200" farsight="320" exp="120"/>
+    <monster index="95" race="0" level="42" ai="1" range="34" closesight="200" farsight="320" exp="120"/>
+    <monster index="96" race="0" level="42" ai="1" range="34" closesight="200" farsight="320" exp="120"/>
+    <monster index="97" race="0" level="42" ai="1" range="34" closesight="200" farsight="320" exp="120"/>
+    <monster index="98" race="0" level="42" ai="1" range="34" closesight="200" farsight="320" exp="120"/>
+    <monster index="99" race="0" level="43" ai="2" range="34" closesight="200" farsight="320" exp="120"/>
+    <monster index="100" race="2" level="60" ai="0" range="0" closesight="0" farsight="0" exp="0"/>
+    <monster index="101" race="3" level="60" ai="0" range="0" closesight="0" farsight="0" exp="0"/>
+    <monster index="78" race="1" level="53" ai="2" range="28" closesight="200" farsight="320" exp="823"/>
+    <monster index="102" race="1" level="54" ai="2" range="28" closesight="200" farsight="320" exp="866"/>
+    <monster index="103" race="1" level="55" ai="2" range="28" closesight="200" farsight="320" exp="909"/>
+    <monster index="79" race="1" level="53" ai="2" range="32" closesight="200" farsight="320" exp="823"/>
+    <monster index="104" race="1" level="54" ai="2" range="32" closesight="200" farsight="320" exp="866"/>
+    <monster index="105" race="1" level="55" ai="2" range="32" closesight="200" farsight="320" exp="909"/>
+    <monster index="80" race="1" level="56" ai="2" range="28" closesight="200" farsight="320" exp="952"/>
+    <monster index="106" race="1" level="57" ai="2" range="28" closesight="200" farsight="320" exp="997"/>
+    <monster index="81" race="1" level="56" ai="2" range="28" closesight="200" farsight="320" exp="952"/>
+    <monster index="107" race="1" level="57" ai="2" range="28" closesight="200" farsight="320" exp="997"/>
+    <monster index="82" race="1" level="58" ai="2" range="28" closesight="200" farsight="320" exp="1055"/>
+    <monster index="108" race="1" level="59" ai="2" range="28" closesight="200" farsight="320" exp="1100"/>
+    <monster index="109" race="1" level="60" ai="2" range="28" closesight="200" farsight="320" exp="1145"/>
+    <monster index="110" race="1" level="61" ai="2" range="28" closesight="200" farsight="320" exp="1190"/>
+    <monster index="83" race="1" level="58" ai="2" range="28" closesight="200" farsight="320" exp="1055"/>
+    <monster index="111" race="1" level="59" ai="2" range="28" closesight="200" farsight="320" exp="1100"/>
+    <monster index="112" race="1" level="60" ai="2" range="28" closesight="200" farsight="320" exp="1145"/>
+    <monster index="113" race="1" level="61" ai="2" range="28" closesight="200" farsight="320" exp="1190"/>
+    <monster index="84" race="1" level="58" ai="2" range="32" closesight="200" farsight="320" exp="1055"/>
+    <monster index="114" race="1" level="59" ai="2" range="32" closesight="200" farsight="320" exp="1100"/>
+    <monster index="115" race="1" level="60" ai="2" range="32" closesight="200" farsight="320" exp="1145"/>
+    <monster index="116" race="1" level="61" ai="2" range="32" closesight="200" farsight="320" exp="1190"/>
+    <monster index="85" race="1" level="58" ai="2" range="28" closesight="200" farsight="320" exp="1055"/>
+    <monster index="117" race="1" level="59" ai="2" range="28" closesight="200" farsight="320" exp="1100"/>
+    <monster index="118" race="1" level="60" ai="2" range="28" closesight="200" farsight="320" exp="1145"/>
+    <monster index="119" race="1" level="61" ai="2" range="28" closesight="200" farsight="320" exp="1190"/>
+    <monster index="134" race="0" level="48" ai="1" range="34" closesight="200" farsight="320" exp="482"/>
+    <monster index="135" race="1" level="54" ai="1" range="28" closesight="200" farsight="320" exp="693"/>
+    <monster index="120" race="1" level="61" ai="2" range="32" closesight="200" farsight="320" exp="1400"/>
+    <monster index="136" race="1" level="62" ai="2" range="32" closesight="200" farsight="320" exp="1460"/>
+    <monster index="137" race="1" level="63" ai="2" range="32" closesight="200" farsight="320" exp="1520"/>
+    <monster index="121" race="1" level="64" ai="2" range="32" closesight="200" farsight="320" exp="1580"/>
+    <monster index="138" race="1" level="65" ai="2" range="32" closesight="200" farsight="320" exp="1640"/>
+    <monster index="139" race="1" level="66" ai="2" range="32" closesight="200" farsight="320" exp="1700"/>
+    <monster index="122" race="1" level="64" ai="2" range="180" closesight="200" farsight="320" exp="1580"/>
+    <monster index="140" race="1" level="65" ai="2" range="180" closesight="200" farsight="320" exp="1640"/>
+    <monster index="141" race="1" level="66" ai="2" range="180" closesight="200" farsight="320" exp="1700"/>
+    <monster index="123" race="1" level="67" ai="2" range="28" closesight="200" farsight="320" exp="1760"/>
+    <monster index="142" race="1" level="68" ai="2" range="28" closesight="200" farsight="320" exp="1820"/>
+    <monster index="143" race="1" level="69" ai="2" range="28" closesight="200" farsight="320" exp="1880"/>
+    <monster index="124" race="1" level="67" ai="2" range="180" closesight="200" farsight="320" exp="1760"/>
+    <monster index="144" race="1" level="68" ai="2" range="180" closesight="200" farsight="320" exp="1820"/>
+    <monster index="145" race="1" level="69" ai="2" range="180" closesight="200" farsight="320" exp="1880"/>
+    <monster index="125" race="1" level="70" ai="2" range="32" closesight="200" farsight="320" exp="1940"/>
+    <monster index="146" race="1" level="71" ai="2" range="32" closesight="200" farsight="320" exp="2000"/>
+    <monster index="147" race="1" level="72" ai="2" range="32" closesight="200" farsight="320" exp="2060"/>
+    <monster index="126" race="1" level="80" ai="2" range="28" closesight="200" farsight="320" exp="2540"/>
+    <monster index="127" race="0" level="61" ai="2" range="28" closesight="200" farsight="320" exp="1400"/>
+    <monster index="148" race="0" level="62" ai="2" range="28" closesight="200" farsight="320" exp="1460"/>
+    <monster index="149" race="0" level="63" ai="2" range="28" closesight="200" farsight="320" exp="1520"/>
+    <monster index="128" race="0" level="64" ai="2" range="180" closesight="200" farsight="320" exp="1580"/>
+    <monster index="150" race="0" level="65" ai="2" range="180" closesight="200" farsight="320" exp="1640"/>
+    <monster index="151" race="0" level="66" ai="2" range="180" closesight="200" farsight="320" exp="1700"/>
+    <monster index="129" race="0" level="64" ai="2" range="28" closesight="200" farsight="320" exp="1580"/>
+    <monster index="152" race="0" level="65" ai="2" range="28" closesight="200" farsight="320" exp="1640"/>
+    <monster index="153" race="0" level="66" ai="2" range="28" closesight="200" farsight="320" exp="1700"/>
+    <monster index="130" race="0" level="67" ai="2" range="28" closesight="200" farsight="320" exp="1760"/>
+    <monster index="154" race="0" level="68" ai="2" range="28" closesight="200" farsight="320" exp="1820"/>
+    <monster index="155" race="0" level="69" ai="2" range="28" closesight="200" farsight="320" exp="1880"/>
+    <monster index="131" race="0" level="67" ai="2" range="28" closesight="200" farsight="320" exp="1760"/>
+    <monster index="156" race="0" level="68" ai="2" range="28" closesight="200" farsight="320" exp="1820"/>
+    <monster index="157" race="0" level="69" ai="2" range="28" closesight="200" farsight="320" exp="1880"/>
+    <monster index="132" race="0" level="70" ai="2" range="28" closesight="200" farsight="320" exp="1940"/>
+    <monster index="158" race="0" level="71" ai="2" range="28" closesight="200" farsight="320" exp="2000"/>
+    <monster index="159" race="0" level="72" ai="2" range="28" closesight="200" farsight="320" exp="2060"/>
+    <monster index="133" race="0" level="84" ai="2" range="32" closesight="200" farsight="320" exp="2780"/>
+    <monster index="86" race="1" level="81" ai="2" range="40" closesight="360" farsight="360" exp="2680"/>
+    <monster index="87" race="1" level="81" ai="2" range="40" closesight="360" farsight="360" exp="2680"/>
+    <monster index="88" race="1" level="81" ai="2" range="40" closesight="360" farsight="360" exp="2680"/>
+    <monster index="89" race="1" level="85" ai="2" range="40" closesight="360" farsight="360" exp="2920"/>
+    <monster index="90" race="1" level="87" ai="2" range="40" closesight="360" farsight="360" exp="3040"/>
+    <monster index="91" race="1" level="89" ai="2" range="40" closesight="360" farsight="360" exp="3160"/>
+    <monster index="173" race="1" level="57" ai="2" range="40" closesight="280" farsight="320" exp="997"/>
+    <monster index="174" race="1" level="57" ai="2" range="40" closesight="280" farsight="320" exp="997"/>
+    <monster index="175" race="1" level="58" ai="2" range="36" closesight="280" farsight="320" exp="1055"/>
+    <monster index="176" race="1" level="60" ai="2" range="36" closesight="280" farsight="320" exp="1145"/>
+    <monster index="177" race="1" level="62" ai="2" range="36" closesight="280" farsight="320" exp="1460"/>
+    <monster index="178" race="1" level="64" ai="2" range="36" closesight="280" farsight="320" exp="1580"/>
+    <monster index="179" race="1" level="58" ai="2" range="36" closesight="280" farsight="320" exp="1055"/>
+    <monster index="180" race="1" level="60" ai="2" range="36" closesight="280" farsight="320" exp="1145"/>
+    <monster index="181" race="1" level="62" ai="2" range="36" closesight="280" farsight="320" exp="1460"/>
+    <monster index="182" race="1" level="64" ai="2" range="36" closesight="280" farsight="320" exp="1580"/>
+    <monster index="183" race="1" level="58" ai="2" range="48" closesight="280" farsight="320" exp="1055"/>
+    <monster index="184" race="1" level="60" ai="2" range="48" closesight="280" farsight="320" exp="1145"/>
+    <monster index="185" race="1" level="62" ai="2" range="48" closesight="280" farsight="320" exp="1460"/>
+    <monster index="186" race="1" level="64" ai="2" range="48" closesight="280" farsight="320" exp="1580"/>
+    <monster index="187" race="1" level="58" ai="2" range="36" closesight="280" farsight="320" exp="1055"/>
+    <monster index="188" race="1" level="60" ai="2" range="36" closesight="280" farsight="320" exp="1145"/>
+    <monster index="189" race="1" level="62" ai="2" range="36" closesight="280" farsight="320" exp="1460"/>
+    <monster index="190" race="1" level="64" ai="2" range="36" closesight="280" farsight="320" exp="1580"/>
+    <monster index="160" race="0" level="61" ai="2" range="44" closesight="300" farsight="320" exp="1400"/>
+    <monster index="191" race="0" level="62" ai="2" range="44" closesight="300" farsight="320" exp="1460"/>
+    <monster index="192" race="0" level="63" ai="2" range="44" closesight="300" farsight="320" exp="1520"/>
+    <monster index="193" race="0" level="64" ai="2" range="44" closesight="300" farsight="320" exp="1580"/>
+    <monster index="161" race="0" level="65" ai="2" range="40" closesight="300" farsight="320" exp="1640"/>
+    <monster index="194" race="0" level="66" ai="2" range="40" closesight="300" farsight="320" exp="1700"/>
+    <monster index="162" race="0" level="67" ai="2" range="44" closesight="300" farsight="320" exp="1760"/>
+    <monster index="195" race="0" level="68" ai="2" range="44" closesight="300" farsight="320" exp="1820"/>
+    <monster index="163" race="0" level="69" ai="2" range="44" closesight="300" farsight="320" exp="1880"/>
+    <monster index="196" race="0" level="70" ai="2" range="44" closesight="300" farsight="320" exp="1940"/>
+    <monster index="164" race="0" level="71" ai="2" range="40" closesight="300" farsight="320" exp="2000"/>
+    <monster index="197" race="0" level="72" ai="2" range="40" closesight="300" farsight="320" exp="2060"/>
+    <monster index="165" race="0" level="90" ai="2" range="48" closesight="360" farsight="360" exp="3220"/>
+    <monster index="198" race="1" level="52" ai="2" range="28" closesight="190" farsight="320" exp="770"/>
+    <monster index="199" race="1" level="53" ai="2" range="28" closesight="190" farsight="320" exp="823"/>
+    <monster index="200" race="1" level="54" ai="2" range="28" closesight="190" farsight="320" exp="866"/>
+    <monster index="201" race="1" level="55" ai="2" range="28" closesight="190" farsight="320" exp="909"/>
+    <monster index="202" race="1" level="56" ai="2" range="28" closesight="190" farsight="320" exp="952"/>
+    <monster index="203" race="1" level="57" ai="2" range="28" closesight="190" farsight="320" exp="997"/>
+    <monster index="204" race="1" level="58" ai="2" range="28" closesight="190" farsight="320" exp="1055"/>
+    <monster index="205" race="0" level="52" ai="2" range="34" closesight="190" farsight="320" exp="770"/>
+    <monster index="206" race="0" level="53" ai="2" range="34" closesight="190" farsight="320" exp="823"/>
+    <monster index="207" race="0" level="54" ai="2" range="34" closesight="190" farsight="320" exp="866"/>
+    <monster index="208" race="0" level="55" ai="2" range="34" closesight="190" farsight="320" exp="909"/>
+    <monster index="209" race="0" level="56" ai="2" range="34" closesight="190" farsight="320" exp="952"/>
+    <monster index="210" race="0" level="57" ai="2" range="34" closesight="190" farsight="320" exp="997"/>
+    <monster index="211" race="0" level="58" ai="2" range="34" closesight="190" farsight="320" exp="1055"/>
+    <monster index="212" race="4" level="1"/>
+    <monster index="221" race="4" level="1"/>
+    <monster index="222" race="4" level="1"/>
+    <monster index="223" race="4" level="1"/>
+    <monster index="224" race="4" level="1"/>
+    <monster index="225" race="4" level="1"/>
+    <monster index="226" race="4" level="1"/>
+    <monster index="227" race="4" level="1"/>
+    <monster index="213" race="1" level="95" ai="3" range="140" closesight="360" farsight="360" exp="50000000"/>
+    <monster index="228" race="5"/>
+    <monster index="229" race="5"/>
+    <monster index="230" race="5"/>
+    <monster index="231" race="5"/>
+    <monster index="232" race="6" level="50" ai="0"/>
+    <monster index="233" race="1" level="56" ai="2" range="28" closesight="190" farsight="320" exp="952"/>
+    <monster index="234" race="1" level="57" ai="2" range="28" closesight="190" farsight="320" exp="1020"/>
+    <monster index="235" race="1" level="58" ai="2" range="28" closesight="190" farsight="320" exp="1088"/>
+    <monster index="236" race="1" level="58" ai="2" range="28" closesight="190" farsight="320" exp="1156"/>
+    <monster index="237" race="1" level="59" ai="2" range="28" closesight="190" farsight="320" exp="1224"/>
+    <monster index="238" race="1" level="60" ai="2" range="28" closesight="190" farsight="320" exp="1292"/>
+    <monster index="239" race="1" level="60" ai="2" range="28" closesight="190" farsight="320" exp="1360"/>
+    <monster index="240" race="1" level="61" ai="2" range="28" closesight="190" farsight="320" exp="1428"/>
+    <monster index="241" race="1" level="62" ai="2" range="28" closesight="190" farsight="320" exp="1496"/>
+    <monster index="242" race="1" level="63" ai="2" range="28" closesight="190" farsight="320" exp="1564"/>
+    <monster index="243" race="1" level="64" ai="2" range="28" closesight="190" farsight="320" exp="1632"/>
+    <monster index="244" race="1" level="65" ai="2" range="28" closesight="190" farsight="320" exp="1700"/>
+    <monster index="245" race="0" level="61" ai="2" range="44" closesight="210" farsight="320" exp="1400"/>
+    <monster index="246" race="0" level="62" ai="2" range="44" closesight="210" farsight="320" exp="1460"/>
+    <monster index="247" race="0" level="63" ai="2" range="44" closesight="210" farsight="320" exp="1520"/>
+    <monster index="248" race="0" level="64" ai="2" range="44" closesight="210" farsight="320" exp="1580"/>
+    <monster index="249" race="0" level="65" ai="2" range="44" closesight="210" farsight="320" exp="1640"/>
+    <monster index="250" race="0" level="66" ai="2" range="44" closesight="210" farsight="320" exp="1700"/>
+    <monster index="251" race="0" level="67" ai="2" range="44" closesight="210" farsight="320" exp="1760"/>
+    <monster index="252" race="0" level="68" ai="2" range="44" closesight="210" farsight="320" exp="1820"/>
+    <monster index="253" race="0" level="69" ai="2" range="44" closesight="210" farsight="320" exp="1880"/>
+    <monster index="254" race="0" level="68" ai="2" range="44" closesight="210" farsight="320" exp="1820"/>
+    <monster index="255" race="0" level="69" ai="2" range="44" closesight="210" farsight="320" exp="1880"/>
+    <monster index="256" race="0" level="70" ai="2" range="44" closesight="210" farsight="320" exp="1940"/>
+    <monster index="257" race="0" level="70" ai="2" range="44" closesight="210" farsight="320" exp="1940"/>
+    <monster index="258" race="0" level="71" ai="2" range="44" closesight="210" farsight="320" exp="2000"/>
+    <monster index="259" race="0" level="72" ai="2" range="44" closesight="210" farsight="320" exp="2060"/>
+    <monster index="260" race="0" level="73" ai="2" range="44" closesight="210" farsight="320" exp="2120"/>
+    <monster index="261" race="0" level="74" ai="2" range="44" closesight="210" farsight="320" exp="2180"/>
+    <monster index="262" race="0" level="75" ai="2" range="44" closesight="210" farsight="320" exp="2240"/>
+    <monster index="263" race="1" level="69" ai="2" range="44" closesight="220" farsight="320" exp="1600"/>
+    <monster index="264" race="1" level="70" ai="2" range="44" closesight="220" farsight="320" exp="1660"/>
+    <monster index="265" race="1" level="71" ai="2" range="44" closesight="220" farsight="320" exp="1720"/>
+    <monster index="266" race="1" level="72" ai="2" range="44" closesight="220" farsight="320" exp="1780"/>
+    <monster index="267" race="1" level="73" ai="2" range="44" closesight="220" farsight="320" exp="1840"/>
+    <monster index="268" race="1" level="74" ai="2" range="44" closesight="220" farsight="320" exp="1900"/>
+    <monster index="269" race="1" level="73" ai="2" range="44" closesight="220" farsight="320" exp="1840"/>
+    <monster index="270" race="1" level="74" ai="2" range="44" closesight="220" farsight="320" exp="1900"/>
+    <monster index="271" race="1" level="75" ai="2" range="44" closesight="220" farsight="320" exp="1960"/>
+    <monster index="272" race="1" level="74" ai="2" range="44" closesight="220" farsight="320" exp="1900"/>
+    <monster index="273" race="1" level="75" ai="2" range="44" closesight="220" farsight="320" exp="1960"/>
+    <monster index="274" race="1" level="76" ai="2" range="44" closesight="220" farsight="320" exp="2020"/>
+    <monster index="275" race="1" level="75" ai="2" range="44" closesight="220" farsight="320" exp="1960"/>
+    <monster index="276" race="1" level="76" ai="2" range="44" closesight="220" farsight="320" exp="2020"/>
+    <monster index="277" race="1" level="77" ai="2" range="44" closesight="220" farsight="320" exp="2080"/>
+    <monster index="278" race="1" level="78" ai="2" range="44" closesight="220" farsight="320" exp="2140"/>
+    <monster index="279" race="1" level="79" ai="2" range="44" closesight="220" farsight="320" exp="2200"/>
+    <monster index="280" race="1" level="80" ai="2" range="44" closesight="220" farsight="320" exp="2260"/>
+    <monster index="281" race="1" level="76" ai="2" range="28" closesight="190" farsight="320" exp="2448"/>
+    <monster index="282" race="1" level="77" ai="2" range="28" closesight="190" farsight="320" exp="2516"/>
+    <monster index="283" race="1" level="78" ai="2" range="28" closesight="190" farsight="320" exp="2584"/>
+    <monster index="284" race="1" level="77" ai="2" range="28" closesight="190" farsight="320" exp="2516"/>
+    <monster index="285" race="1" level="78" ai="2" range="28" closesight="190" farsight="320" exp="2584"/>
+    <monster index="286" race="1" level="79" ai="2" range="28" closesight="190" farsight="320" exp="2652"/>
+    <monster index="287" race="1" level="78" ai="2" range="28" closesight="190" farsight="320" exp="2584"/>
+    <monster index="288" race="1" level="79" ai="2" range="28" closesight="190" farsight="320" exp="2652"/>
+    <monster index="289" race="1" level="80" ai="2" range="28" closesight="190" farsight="320" exp="2720"/>
+    <monster index="290" race="1" level="78" ai="2" range="40" closesight="720" farsight="720" exp="2800"/>
+    <monster index="291" race="4" level="1"/>
+    <monster index="292" race="4" level="1"/>
+    <monster index="293" race="4" level="1"/>
+    <monster index="294" race="4" level="1"/>
+    <monster index="295" race="4" level="1"/>
+    <monster index="296" race="4" level="1"/>
+    <monster index="297" race="4" level="1"/>
+    <monster index="299" race="0" level="50" ai="4" range="80" closesight="150" farsight="340" exp="630"/>
+    <monster index="300" race="0" level="53" ai="4" range="90" closesight="150" farsight="340" exp="823"/>
+    <monster index="301" race="0" level="56" ai="4" range="100" closesight="150" farsight="340" exp="950"/>
+    <monster index="302" race="0" level="57" ai="5" range="28" closesight="150" farsight="340" exp="1100"/>
+    <monster index="303" race="0" level="60" ai="5" range="100" closesight="200" farsight="340" exp="1400"/>
+    <monster index="304" race="0" level="65" ai="2" range="30" closesight="180" farsight="340" exp="1650"/>
+    <monster index="305" race="0" level="67" ai="2" range="30" closesight="180" farsight="340" exp="1700"/>
+    <monster index="306" race="0" level="70" ai="2" range="30" closesight="180" farsight="340" exp="1840"/>
+    <monster index="307" race="0" level="70" ai="2" range="180" closesight="180" farsight="340" exp="1960"/>
+    <monster index="308" race="0" level="73" ai="2" range="30" closesight="180" farsight="340" exp="2150"/>
+    <monster index="309" race="0" level="75" ai="2" range="30" closesight="180" farsight="340" exp="2230"/>
+    <monster index="310" race="0" level="78" ai="2" range="30" closesight="180" farsight="340" exp="2380"/>
+    <monster index="311" race="0" level="80" ai="2" range="30" closesight="200" farsight="340" exp="2550"/>
+    <monster index="312" race="7" level="70" exp="400"/>
+    <monster index="313" race="8" level="70" ai="2" range="28" closesight="200" farsight="400" exp="630"/>
+    <monster index="314" race="1" level="70" ai="4" range="30" closesight="200" farsight="340" exp="2000"/>
+    <monster index="315" race="9" level="70"/>
+    <monster index="316" race="0" level="85" ai="3" range="35" closesight="340" farsight="250" exp="50000"/>
+    <monster index="317" level="80" exp="1493120" ai="10" range="450" closesight="450" farsight="450" race="1"/>
+    <monster index="318" level="97" exp="50000000" ai="2" range="400" closesight="400" farsight="400" race="9"/>
+    <monster index="319" race="10" level="85" ai="1"/>
+    <monster index="320" race="10" level="85" ai="1"/>
+    <monster index="321" race="10" level="80" ai="1"/>
+    <monster index="322" race="10" level="80" ai="1"/>
+    <monster index="323" race="10" level="80" ai="1"/>
+    <monster index="324" race="10"/>
+    <monster index="325" race="10"/>
+    <monster index="326" race="10"/>
+    <monster index="327" race="10"/>
+    <monster index="328" race="10"/>
+    <monster index="329" race="0" level="85" ai="3" range="35" closesight="340" farsight="250" exp="50000"/>
+    <monster index="330" race="9" level="80"/>
+    <monster index="331" race="10" ai="2" level="85"/>
+    <monster index="332" race="10" ai="2" level="85"/>
+    <monster index="333" race="10" ai="2" level="80"/>
+    <monster index="334" race="0" level="40" ai="2" range="30" closesight="300" farsight="320" exp="330"/>
+    <monster index="335" race="1" level="70" ai="5" range="120" closesight="300" farsight="320" exp="1500"/>
+    <monster index="336" race="0" level="50" ai="2" range="30" closesight="300" farsight="320" exp="650"/>
+    <monster index="337" race="1" level="85" ai="1" range="40" closesight="360" farsight="380" exp="20000"/>
+    <monster index="338" race="5"/>
+    <monster index="339" race="1" level="90" ai="1" range="120" closesight="360" farsight="360" exp="20000000"/>
+    <monster index="361" race="1" level="20" ai="2" range="30" closesight="170" farsight="310" exp="280"/>
+    <monster index="362" race="1" level="50" ai="1" range="30" closesight="230" farsight="320" exp="970"/>
+    <monster index="363" race="1" level="35" ai="2" range="30" closesight="180" farsight="320" exp="315"/>
+    <monster index="365" race="1" level="70" ai="1" range="44" closesight="300" farsight="320" exp="1250"/>
+    <monster index="366" race="1" level="58" ai="2" range="40" closesight="250" farsight="600" exp="2"/>
+    <monster index="367" race="1" level="70" ai="2" range="40" closesight="280" farsight="600" exp="2"/>
+    <monster index="368" race="1" level="72" ai="2" range="40" closesight="300" farsight="600" exp="2"/>
+    <monster index="369" race="3" level="60" ai="0" range="0" closesight="0" farsight="0" exp="0"/>
+    <monster index="370" race="3" level="80" ai="1" range="0" closesight="0" farsight="0" exp="0"/>
+    <monster index="371" race="0" level="1"/>
+    <monster index="372" race="1" level="74" ai="1" range="60" closesight="500" farsight="600" exp="2"/>
+    <monster index="373" race="10"/>
+    <monster index="374" race="10" ai="2" level="85"/>
+    <monster index="375" race="0" level="71" ai="2" range="30" closesight="210" farsight="320" exp="2730"/>
+    <monster index="376" race="0" level="72" ai="2" range="30" closesight="210" farsight="320" exp="2818"/>
+    <monster index="377" race="0" level="75" ai="2" range="30" closesight="210" farsight="320" exp="2940"/>
+    <monster index="378" race="0" level="79" ai="2" range="30" closesight="210" farsight="320" exp="3110"/>
+    <monster index="379" race="0" level="85" ai="2" range="30" closesight="300" farsight="340" exp="26500"/>
+    <monster index="380" race="1" level="74" ai="2" range="92" closesight="180" farsight="320" exp="2510"/>
+    <monster index="381" race="1" level="71" ai="2" range="92" closesight="180" farsight="320" exp="1980"/>
+    <monster index="382" race="1" level="95" ai="2" range="90" closesight="360" farsight="360" exp="50000000"/>
+    <monster index="383" race="1" level="95" ai="2" range="90" closesight="360" farsight="360"/>
+    <monster index="384" race="6" level="80"/>
+    <monster index="385" race="1" level="74" ai="2" range="92" closesight="720" farsight="720" exp="2510"/>
+    <monster index="386" race="1" level="71" ai="2" range="92" closesight="720" farsight="720" exp="1980"/>
+    <monster index="387" race="10" ai="2" level="85"/>
+    <monster index="388" race="10" ai="2" level="85"/>
+    <monster index="389" race="10" ai="2" level="85"/>
+    <monster index="390" race="1" level="63" ai="2" range="20" closesight="160" farsight="320" exp="1650"/>
+    <monster index="391" race="1" level="65" ai="2" range="20" closesight="160" farsight="320" exp="1700"/>
+    <monster index="392" race="1" level="67" ai="2" range="20" closesight="160" farsight="320" exp="1750"/>
+    <monster index="393" race="1" level="68" ai="2" range="20" closesight="160" farsight="320" exp="1785"/>
+    <monster index="394" race="1" level="66" ai="2" range="92" closesight="180" farsight="320" exp="1683"/>
+    <monster index="395" race="1" level="67" ai="2" range="92" closesight="180" farsight="320" exp="1705"/>
+    <monster index="396" race="1" level="69" ai="2" range="92" closesight="180" farsight="320" exp="1782"/>
+    <monster index="397" race="1" level="70" ai="2" range="92" closesight="180" farsight="320" exp="1810"/>
+    <monster index="398" race="1" level="68" ai="2" range="92" closesight="180" farsight="320" exp="1980"/>
+    <monster index="399" race="1" level="69" ai="2" range="92" closesight="180" farsight="320" exp="2002"/>
+    <monster index="400" race="1" level="70" ai="2" range="92" closesight="180" farsight="320" exp="2090"/>
+    <monster index="401" race="1" level="72" ai="2" range="92" closesight="180" farsight="320" exp="2145"/>
+    <monster index="402" race="0" level="68" ai="2" range="30" closesight="210" farsight="320" exp="2420"/>
+    <monster index="403" race="0" level="70" ai="2" range="30" closesight="210" farsight="320" exp="2350"/>
+    <monster index="404" race="0" level="70" ai="2" range="30" closesight="210" farsight="320" exp="2500"/>
+    <monster index="405" race="0" level="71" ai="2" range="30" closesight="210" farsight="320" exp="2795"/>
+    <monster index="406" race="0" level="74" ai="2" range="30" closesight="210" farsight="320" exp="2960"/>
+    <monster index="407" race="0" level="76" ai="2" range="30" closesight="210" farsight="320" exp="3048"/>
+    <monster index="408" race="0" level="77" ai="2" range="30" closesight="210" farsight="320" exp="3070"/>
+    <monster index="409" race="0" level="84" ai="2" range="30" closesight="300" farsight="340" exp="24500"/>
+    <monster index="410" race="10" ai="2" level="85"/>
+    <monster index="411" race="10" ai="2" level="85"/>
+    <monster index="412" race="0" level="71" ai="2" range="30" closesight="720" farsight="720" exp="2730"/>
+    <monster index="413" race="0" level="72" ai="2" range="30" closesight="720" farsight="720" exp="2818"/>
+    <monster index="414" race="0" level="75" ai="2" range="30" closesight="720" farsight="720" exp="2940"/>
+    <monster index="415" race="0" level="79" ai="2" range="30" closesight="720" farsight="720" exp="3110"/>
+    <monster index="416" race="1" level="63" ai="2" range="20" closesight="160" farsight="320" exp="1"/>
+    <monster index="417" race="1" level="68" ai="2" range="92" closesight="180" farsight="320" exp="1"/>
+    <monster index="418" race="1" level="90" ai="2" range="40" closesight="360" farsight="360" exp="1"/>
+    <monster index="419" race="1" level="60" ai="2" range="50" closesight="200" farsight="320" exp="1"/>
+    <monster index="420" race="1" level="78" ai="2" range="92" closesight="220" farsight="320" exp="1"/>
+    <monster index="421" race="1" level="85" ai="2" range="30" closesight="200" farsight="340" exp="1"/>
+    <monster index="422" race="1" level="90" ai="2" range="45" closesight="360" farsight="360" exp="1"/>
+    <monster index="423" race="0"/>
+    <monster index="424" race="1" level="73" ai="2" range="20" closesight="160" farsight="320" exp="1"/>
+    <monster index="425" race="1" level="75" ai="2" range="92" closesight="220" farsight="320" exp="1"/>
+    <monster index="426" race="1" level="80" ai="2" range="60" closesight="220" farsight="320" exp="1"/>
+    <monster index="427" race="1" level="90" ai="2" range="60" closesight="360" farsight="360" exp="1"/>
+    <monster index="428" race="1" level="73" ai="2" range="20" closesight="550" farsight="550" exp="1500"/>
+    <monster index="429" race="1" level="90" ai="2" range="60" closesight="550" farsight="550" exp="10000"/>
+    <monster index="430" race="1" level="73" ai="2" range="20" closesight="550" farsight="550" exp="1500"/>
+    <monster index="431" race="1" level="90" ai="2" range="60" closesight="550" farsight="550" exp="10000"/>
+    <monster index="432" race="1" level="73" ai="2" range="20" closesight="550" farsight="550" exp="1500"/>
+    <monster index="433" race="1" level="90" ai="2" range="60" closesight="550" farsight="550" exp="10000"/>
+    <monster index="449" race="1" level="68" ai="2" range="20" closesight="550" farsight="550" exp="1200"/>
+    <monster index="450" race="1" level="85" ai="2" range="60" closesight="550" farsight="550" exp="8000"/>
+    <monster index="451" race="1" level="68" ai="2" range="20" closesight="550" farsight="550" exp="1200"/>
+    <monster index="452" race="1" level="85" ai="2" range="60" closesight="550" farsight="550" exp="8000"/>
+    <monster index="453" race="1" level="68" ai="2" range="20" closesight="550" farsight="550" exp="1200"/>
+    <monster index="454" race="1" level="85" ai="2" range="60" closesight="550" farsight="550" exp="8000"/>
+    <monster index="434" race="1" level="80" ai="2" range="30" closesight="220" farsight="330" exp="6120"/>
+    <monster index="435" race="1" level="90" ai="2" range="30" closesight="300" farsight="340" exp="30000"/>
+    <monster index="436" race="1" level="80" ai="2" range="30" closesight="220" farsight="330" exp="6120"/>
+    <monster index="437" race="1" level="90" ai="2" range="30" closesight="300" farsight="340" exp="30000"/>
+    <monster index="438" race="1" level="80" ai="2" range="30" closesight="220" farsight="330" exp="6120"/>
+    <monster index="439" race="1" level="90" ai="2" range="30" closesight="300" farsight="340" exp="30000"/>
+    <monster index="440" race="1" level="80" ai="2" range="30" closesight="220" farsight="330" exp="6120"/>
+    <monster index="441" race="1" level="90" ai="2" range="30" closesight="300" farsight="340" exp="30000"/>
+    <monster index="442" race="1" level="80" ai="2" range="30" closesight="220" farsight="330" exp="6120"/>
+    <monster index="443" race="1" level="90" ai="2" range="30" closesight="300" farsight="340" exp="30000"/>
+    <monster index="444" race="1" level="93" ai="2" range="30" closesight="310" farsight="350" exp="30200"/>
+    <monster index="461" race="1" level="78" ai="2" range="30" closesight="220" farsight="330" exp="6000"/>
+    <monster index="462" race="1" level="79" ai="2" range="30" closesight="220" farsight="330" exp="6060"/>
+    <monster index="463" race="1" level="81" ai="2" range="30" closesight="220" farsight="330" exp="6180"/>
+    <monster index="464" race="1" level="82" ai="2" range="30" closesight="220" farsight="330" exp="6240"/>
+    <monster index="465" race="1" level="78" ai="2" range="30" closesight="220" farsight="330" exp="6000"/>
+    <monster index="466" race="1" level="79" ai="2" range="30" closesight="220" farsight="330" exp="6060"/>
+    <monster index="467" race="1" level="81" ai="2" range="30" closesight="220" farsight="330" exp="6180"/>
+    <monster index="468" race="1" level="82" ai="2" range="30" closesight="220" farsight="330" exp="6240"/>
+    <monster index="469" race="1" level="78" ai="2" range="30" closesight="220" farsight="330" exp="6000"/>
+    <monster index="470" race="1" level="79" ai="14" range="30" closesight="220" farsight="330" exp="6060"/>
+    <monster index="471" race="1" level="81" ai="2" range="30" closesight="220" farsight="330" exp="6180"/>
+    <monster index="472" race="1" level="82" ai="2" range="30" closesight="220" farsight="330" exp="6240"/>
+    <monster index="473" race="1" level="78" ai="2" range="30" closesight="220" farsight="330" exp="6000"/>
+    <monster index="474" race="1" level="79" ai="2" range="30" closesight="220" farsight="330" exp="6060"/>
+    <monster index="475" race="1" level="81" ai="2" range="30" closesight="220" farsight="330" exp="6180"/>
+    <monster index="476" race="1" level="82" ai="2" range="30" closesight="220" farsight="330" exp="6240"/>
+    <monster index="477" race="1" level="78" ai="2" range="30" closesight="220" farsight="330" exp="6000"/>
+    <monster index="478" race="1" level="79" ai="2" range="30" closesight="220" farsight="330" exp="6060"/>
+    <monster index="479" race="1" level="81" ai="2" range="30" closesight="220" farsight="330" exp="6180"/>
+    <monster index="480" race="1" level="82" ai="2" range="30" closesight="220" farsight="330" exp="6240"/>
+    <monster index="481" race="1" level="88" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="482" race="1" level="89" ai="2" range="30" closesight="300" farsight="340" exp="31600"/>
+    <monster index="483" race="1" level="91" ai="2" range="30" closesight="300" farsight="340" exp="30400"/>
+    <monster index="484" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="485" race="1" level="88" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="486" race="1" level="89" ai="2" range="30" closesight="300" farsight="340" exp="31600"/>
+    <monster index="487" race="1" level="91" ai="2" range="30" closesight="300" farsight="340" exp="30400"/>
+    <monster index="488" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="489" race="1" level="88" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="490" race="1" level="89" ai="2" range="30" closesight="300" farsight="340" exp="31600"/>
+    <monster index="491" race="1" level="91" ai="2" range="30" closesight="300" farsight="340" exp="30400"/>
+    <monster index="492" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="493" race="1" level="88" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="494" race="1" level="89" ai="2" range="30" closesight="300" farsight="340" exp="31600"/>
+    <monster index="495" race="1" level="91" ai="2" range="30" closesight="300" farsight="340" exp="30400"/>
+    <monster index="496" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="497" race="1" level="88" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="498" race="1" level="89" ai="2" range="30" closesight="300" farsight="340" exp="31600"/>
+    <monster index="499" race="1" level="91" ai="2" range="30" closesight="300" farsight="340" exp="30400"/>
+    <monster index="500" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="516" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="517" race="1" level="93" ai="2" range="30" closesight="300" farsight="340" exp="31000"/>
+    <monster index="518" race="1" level="94" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="519" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="520" race="1" level="93" ai="2" range="30" closesight="300" farsight="340" exp="31000"/>
+    <monster index="521" race="1" level="94" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="522" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="523" race="1" level="93" ai="2" range="30" closesight="300" farsight="340" exp="31000"/>
+    <monster index="524" race="1" level="94" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="525" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="526" race="1" level="93" ai="2" range="30" closesight="300" farsight="340" exp="31000"/>
+    <monster index="527" race="1" level="94" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="528" race="1" level="92" ai="2" range="30" closesight="300" farsight="340" exp="30800"/>
+    <monster index="529" race="1" level="93" ai="2" range="30" closesight="300" farsight="340" exp="31000"/>
+    <monster index="530" race="1" level="94" ai="2" range="30" closesight="300" farsight="340" exp="31200"/>
+    <monster index="531" race="1" level="94" ai="2" range="30" closesight="310" farsight="350" exp="32000"/>
+    <monster index="532" race="1" level="95" ai="2" range="30" closesight="310" farsight="350" exp="32000"/>
+    <monster index="533" race="1" level="99" ai="2" range="30" closesight="340" farsight="340" exp="12500000"/>
+    <monster index="534" race="1" level="99" ai="2" range="30" closesight="340" farsight="340" exp="12500000"/>
+    <monster index="535" race="1" level="99" ai="2" range="30" closesight="340" farsight="340" exp="12500000"/>
+    <monster index="536" race="1" level="99" ai="2" range="30" closesight="340" farsight="340" exp="12500000"/>
+    <monster index="537" race="1" level="99" ai="2" range="30" closesight="340" farsight="340" exp="12500000"/>
+    <monster index="538" race="1" level="81" ai="2" range="30" closesight="210" farsight="320" exp="5100"/>
+    <monster index="539" race="1" level="82" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="540" race="1" level="83" ai="2" range="30" closesight="210" farsight="320" exp="5180"/>
+    <monster index="541" race="1" level="84" ai="2" range="30" closesight="210" farsight="320" exp="5200"/>
+    <monster index="542" race="1" level="85" ai="2" range="30" closesight="210" farsight="320" exp="5220"/>
+    <monster index="543" race="1" level="81" ai="2" range="30" closesight="210" farsight="320" exp="5100"/>
+    <monster index="544" race="1" level="82" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="545" race="1" level="83" ai="2" range="30" closesight="210" farsight="320" exp="5180"/>
+    <monster index="546" race="1" level="82" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="547" race="1" level="83" ai="2" range="30" closesight="210" farsight="320" exp="5180"/>
+    <monster index="548" race="1" level="84" ai="2" range="30" closesight="210" farsight="320" exp="5220"/>
+    <monster index="549" race="1" level="85" ai="2" range="30" closesight="210" farsight="320" exp="5240"/>
+    <monster index="550" race="1" level="86" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="551" race="1" level="84" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="552" race="1" level="85" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="553" race="1" level="86" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="554" race="1" level="87" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="555" race="1" level="88" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="556" race="1" level="81" ai="2" range="100" closesight="210" farsight="320" exp="5140"/>
+    <monster index="557" race="1" level="82" ai="2" range="100" closesight="210" farsight="320" exp="5140"/>
+    <monster index="558" race="1" level="83" ai="2" range="100" closesight="210" farsight="320" exp="5140"/>
+    <monster index="559" race="1" level="84" ai="2" range="100" closesight="210" farsight="320" exp="5140"/>
+    <monster index="560" race="1" level="85" ai="2" range="100" closesight="210" farsight="320" exp="5140"/>
+    <monster index="561" race="1" level="85" ai="2" range="100" closesight="210" farsight="320" exp="5140"/>
+    <monster index="562" race="1" level="86" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="563" race="1" level="87" ai="2" range="30" closesight="210" farsight="320" exp="5140"/>
+    <monster index="564" race="1" level="95" ai="2" range="30" closesight="210" farsight="320" exp="51400"/>
+    <monster index="565" race="1" level="96" ai="2" range="30" closesight="210" farsight="320" exp="51400"/>
+    <monster index="566" race="1" level="99" ai="2" range="70" closesight="360" farsight="360" exp="1500000"/>
+    <monster index="567" race="5"/>
+    <monster index="568" race="5"/>
+    <monster index="569" race="5"/>
+    <monster index="570" race="5"/>
+    <monster index="571" race="5"/>
+    <monster index="572" race="1" level="99" ai="2" range="70" closesight="360" farsight="360" exp="2000000"/>
+    <monster index="573" race="1" level="99" ai="2" range="70" closesight="360" farsight="360" exp="50000000"/>
+    <monster index="574" race="5"/>
+    <monster index="575" race="5"/>
+    <monster index="745" race="5"/>
+    <monster index="749" race="5"/>
+    <monster index="585" race="1" level="81" ai="2" range="30" closesight="180" farsight="340" exp="5140"/>
+    <monster index="586" race="1" level="82" ai="2" range="30" closesight="180" farsight="340" exp="5190"/>
+    <monster index="587" race="1" level="83" ai="2" range="30" closesight="180" farsight="340" exp="5240"/>
+    <monster index="588" race="1" level="84" ai="2" range="30" closesight="180" farsight="340" exp="5290"/>
+    <monster index="589" race="1" level="85" ai="2" range="30" closesight="180" farsight="340" exp="5340"/>
+    <monster index="637" race="1" level="82" ai="2" range="30" closesight="180" farsight="340" exp="5140"/>
+    <monster index="638" race="1" level="83" ai="2" range="30" closesight="180" farsight="340" exp="5190"/>
+    <monster index="639" race="1" level="84" ai="2" range="30" closesight="180" farsight="340" exp="5240"/>
+    <monster index="640" race="1" level="85" ai="2" range="30" closesight="180" farsight="340" exp="5290"/>
+    <monster index="641" race="1" level="86" ai="2" range="30" closesight="180" farsight="340" exp="5340"/>
+    <monster index="642" race="1" level="83" ai="2" range="100" closesight="180" farsight="340" exp="5140"/>
+    <monster index="643" race="1" level="84" ai="2" range="100" closesight="180" farsight="340" exp="5150"/>
+    <monster index="644" race="1" level="85" ai="2" range="100" closesight="180" farsight="340" exp="5200"/>
+    <monster index="645" race="1" level="86" ai="2" range="100" closesight="180" farsight="340" exp="5250"/>
+    <monster index="646" race="1" level="87" ai="2" range="100" closesight="180" farsight="340" exp="5290"/>
+    <monster index="590" race="1" level="86" ai="2" range="30" closesight="180" farsight="340" exp="5140"/>
+    <monster index="591" race="1" level="87" ai="2" range="30" closesight="180" farsight="340" exp="5140"/>
+    <monster index="592" race="1" level="88" ai="2" range="30" closesight="180" farsight="340" exp="16400"/>
+    <monster index="593" race="1" level="89" ai="2" range="30" closesight="180" farsight="340" exp="16900"/>
+    <monster index="594" race="1" level="90" ai="2" range="30" closesight="180" farsight="340" exp="17400"/>
+    <monster index="622" race="1" level="96" ai="2" range="30" closesight="180" farsight="340" exp="51400"/>
+    <monster index="623" race="1" level="97" ai="2" range="30" closesight="180" farsight="340" exp="51400"/>
+    <monster index="598" race="1" level="83" ai="2" range="30" closesight="180" farsight="340" exp="5180"/>
+    <monster index="599" race="1" level="84" ai="2" range="30" closesight="180" farsight="340" exp="5230"/>
+    <monster index="600" race="1" level="85" ai="2" range="30" closesight="180" farsight="340" exp="5280"/>
+    <monster index="595" race="1" level="85" ai="2" range="30" closesight="180" farsight="340" exp="5220"/>
+    <monster index="596" race="1" level="86" ai="2" range="30" closesight="180" farsight="340" exp="5270"/>
+    <monster index="597" race="1" level="87" ai="2" range="30" closesight="180" farsight="340" exp="5320"/>
+    <monster index="604" race="1" level="88" ai="2" range="30" closesight="180" farsight="340" exp="16400"/>
+    <monster index="605" race="1" level="90" ai="2" range="30" closesight="180" farsight="340" exp="16900"/>
+    <monster index="606" race="1" level="92" ai="2" range="30" closesight="180" farsight="340" exp="17400"/>
+    <monster index="601" race="1" level="91" ai="2" range="30" closesight="180" farsight="340" exp="30800"/>
+    <monster index="602" race="1" level="92" ai="2" range="30" closesight="180" farsight="340" exp="31300"/>
+    <monster index="603" race="1" level="93" ai="2" range="30" closesight="180" farsight="340" exp="31800"/>
+    <monster index="607" race="1" level="91" ai="2" range="30" closesight="180" farsight="340" exp="30800"/>
+    <monster index="608" race="1" level="92" ai="2" range="30" closesight="180" farsight="340" exp="31300"/>
+    <monster index="609" race="1" level="93" ai="2" range="30" closesight="180" farsight="340" exp="31800"/>
+    <monster index="610" race="1" level="91" ai="2" range="30" closesight="180" farsight="340" exp="30800"/>
+    <monster index="611" race="1" level="92" ai="2" range="30" closesight="180" farsight="340" exp="31300"/>
+    <monster index="612" race="1" level="93" ai="2" range="30" closesight="180" farsight="340" exp="31800"/>
+    <monster index="613" race="1" level="91" ai="2" range="30" closesight="180" farsight="340" exp="32300"/>
+    <monster index="614" race="1" level="92" ai="2" range="30" closesight="180" farsight="340" exp="32800"/>
+    <monster index="615" race="1" level="93" ai="2" range="30" closesight="180" farsight="340" exp="33300"/>
+    <monster index="670" race="1" level="99" ai="2" range="50" closesight="360" farsight="360" exp="25000000"/>
+    <monster index="671" race="1" level="95" ai="2" range="40" closesight="320" farsight="340" exp="32500"/>
+    <monster index="824" race="1" level="90" ai="2" range="45" closesight="360" farsight="360" exp="29794"/>
+    <monster index="825" race="1" level="90" ai="2" range="40" closesight="360" farsight="360" exp="29794"/>
+    <monster index="826" race="1" level="90" ai="2" range="60" closesight="360" farsight="360" exp="29794"/>
+    <monster index="827" race="1" level="99" ai="2" range="50" closesight="180" farsight="340" exp="32500"/>
+    <monster index="828" race="1" level="99" ai="2" range="50" closesight="180" farsight="340" exp="25000000"/>
+    <monster index="829" race="1" level="99" ai="2" range="50" closesight="180" farsight="340" exp="25000000"/>
+    <monster index="834" race="1" level="90" ai="2" range="30" closesight="180" farsight="340" exp="34923"/>
+    <monster index="835" race="1" level="88" ai="2" range="30" closesight="180" farsight="340" exp="39531"/>
+    <monster index="836" race="1" level="99" ai="2" range="30" closesight="180" farsight="340" exp="101000"/>
+</monsterlist>

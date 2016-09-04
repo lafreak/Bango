@@ -36,6 +36,7 @@ public:
 	// Remember to run m_Access.Release on each used object in the list.
 	static void GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list);
 	static void GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list);
+	static void GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterList& list);
 
 	static CTile* GetTile(int nTileX, int nTileY);
 	static MapInfo GetMapInfo(int nX, int nY); 

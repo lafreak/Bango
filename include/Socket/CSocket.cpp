@@ -135,10 +135,19 @@ char* CSocket::WritePacketFromFile(char* packet, const char* fileName)
 		std::istringstream iss(line);
 
 		char format[2]={0,};
-		__int64 value=0;
-		if (!(iss >> format[0] >> value)) continue;
+		
+		//if (!(iss >> format[0] >> value)) continue;
 
-		p = WritePacket(p, format, value);
+		iss >> format[0];
+		if (format[0] == 's') {
+			std::string value;
+			iss >> value;
+			p = WritePacket(p, format, value.c_str());
+		} else {
+			__int64 value=0;
+			iss >> value;
+			p = WritePacket(p, format, value);
+		}
 	}
 
 	return p;

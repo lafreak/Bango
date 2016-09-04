@@ -9,6 +9,7 @@ struct CMacro
 	enum MACRO_TYPE {
 		MT_NPC,
 		MT_ITEM,
+		MT_MONSTER,
 	};
 };
 
