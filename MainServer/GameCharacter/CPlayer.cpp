@@ -1196,6 +1196,31 @@ void CPlayer::ProcessMsg(char* szMsg)
 			ChatCommand(szMsg);
 			break;
 
+		case '@':
+		{
+		    if(strstr(szMsg, " ") == NULL)
+		    	return;
+
+		    std::string strTemp = szMsg;
+		    char *token = strtok(szMsg + 1, " ");
+
+		    CPlayer *pPlayer = FindPlayerByName(token);
+
+		    if(pPlayer)
+		    {
+		    	Write(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
+		    	pPlayer->Write(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
+
+		    	pPlayer->m_Access.Release();
+		    }
+
+		    else
+		    {
+		    	Write(S2C_MESSAGE, "b", MSG_THEREISNOPLAYER);
+		    }
+		}
+		    break;
+
 		default:
 			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
 			break;
@@ -1204,6 +1229,7 @@ void CPlayer::ProcessMsg(char* szMsg)
 
 void CPlayer::ChatCommand(char* szCommand)
 {
+	std::string strTemp = szCommand;
 	char *token = std::strtok(szCommand, " ");
 
 	if (!strcmp(token, "/ride")) {
@@ -1310,6 +1336,24 @@ void CPlayer::ChatCommand(char* szCommand)
 		for (int i = GetX() - 50; i <= GetX() + 50; i+=5) {
 			for (int j = GetY() - 50; j <= GetY() + 50; j+=5) {
 				CMonster::Summon(wIndex, i, j);
+			}
+		}
+	}
+
+	else if (!strcmp(token, "/s")) {
+		CItem *pItem = FindItem(515);
+
+		if(pItem)
+		{
+			if(RemoveItem(pItem, 1, TL_USE))
+			{
+				CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
+
+				pItem->m_Access.Release();
+			}
+			else
+			{
+				CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
 			}
 		}
 	}

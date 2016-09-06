@@ -108,9 +108,9 @@ public:
 	WORD GetReqPU(BYTE *byStats);
 
 	static bool WriteAll(BYTE byType, ...);
-
+    
 	bool Write(BYTE byType, ...);
-	
+
 	void SendPacket(Packet& packet);
 
 	Packet GenerateCreatePacket(bool bHero=false);
