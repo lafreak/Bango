@@ -1348,9 +1348,7 @@ void CPlayer::ChatCommand(char* szCommand)
 			CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
 
 			if (RemoveItem(pItem, 1, TL_USE))
-			{
 				pItem->m_Access.Release();
-			}
 		}
 	}
 }
