@@ -1229,7 +1229,7 @@ void CPlayer::ProcessMsg(char* szMsg)
 
 void CPlayer::ChatCommand(char* szCommand)
 {
-	std::string strTemp = szCommand;
+	std::string szMsg = szCommand;
 	char *token = std::strtok(szCommand, " ");
 
 	if (!strcmp(token, "/ride")) {
@@ -1345,7 +1345,7 @@ void CPlayer::ChatCommand(char* szCommand)
 
 		if (pItem)
 		{
-			CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
+			CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), szMsg.c_str());
 
 			if (RemoveItem(pItem, 1, TL_USE))
 				pItem->m_Access.Release();
