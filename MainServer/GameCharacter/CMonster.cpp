@@ -112,7 +112,13 @@ Packet CMonster::GeneratePetPacket()
 Packet CMonster::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 {
 	Packet packet;
-	packet.wSize=0;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = (byType & 0x10) ? S2C_MOVEMONSTER_END : S2C_MOVEMONSTER_ON;
+
+	char *end = CSocket::WritePacket(packet.data, "dbbb", m_nID, byX, byY, byType & 1);
+
+	packet.wSize = end - ((char*)&packet);
 
 	return packet;
 }
@@ -180,5 +186,40 @@ void CMonster::Tick()
 {
 	DWORD dwTime = GetTickCount();
 
+	char byX = (rand() % 65) - 32;
+	char byY = (rand() % 65) - 32;
+
+	Move(byX, byY, MT_WALK);
+
 	printf("CMonster::Tick %d\n", GetIndex());
+}
+
+void CMonster::Move(char byX, char byY, BYTE byType)
+{
+	MapInfo mapInfoCur = CMap::GetMapInfo(m_nX, m_nY);
+	MapInfo mapInfoDest = CMap::GetMapInfo(m_nX + byX, m_nY + byY);
+
+	if (!mapInfoCur.equalTile(mapInfoDest)) 
+	{
+		CMap::Remove(mapInfoCur, this);
+		CMap::Add(mapInfoDest, this);
+	}
+
+	m_nX += byX;
+	m_nY += byY;
+
+	SetDirection(byX, byY);
+
+	Packet createPacket = 	GenerateCreatePacket();
+	Packet petPacket =		GeneratePetPacket();
+	Packet deletePacket = 	GenerateDeletePacket();
+	Packet movePacket =   	GenerateMovePacket(byType, byX, byY);
+
+	for (int i = mapInfoDest.wTileX-1; i <= mapInfoDest.wTileX+1; i++) {
+		for (int j = mapInfoDest.wTileY-1; j <= mapInfoDest.wTileY+1; j++) {
+			auto pTile = CMap::GetTile(i, j);
+			if (pTile)
+				pTile->SendMoveAction(this, byX, byY, createPacket, petPacket, deletePacket, movePacket);
+		}
+	}
 }

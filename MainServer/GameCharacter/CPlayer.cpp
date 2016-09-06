@@ -1149,7 +1149,7 @@ void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 	SetDirection(byX, byY);
 
 	Packet createPacket = GenerateCreatePacket();
-	Packet petPacket = GeneratePetPacket();
+	Packet petPacket = 	  GeneratePetPacket();
 	Packet deletePacket = GenerateDeletePacket();
 	Packet movePacket =   GenerateMovePacket(byType, byX, byY, byZ);
 

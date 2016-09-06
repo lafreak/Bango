@@ -130,7 +130,7 @@ public:
 	virtual Packet GenerateCreatePacket(bool bHero=false) = 0;
 	virtual Packet GeneratePetPacket() = 0;
 	virtual Packet GenerateDeletePacket() = 0;
-	virtual Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ) = 0;
+	virtual Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0) = 0;
 
 	virtual void SendPacket(Packet& packet) = 0;
 

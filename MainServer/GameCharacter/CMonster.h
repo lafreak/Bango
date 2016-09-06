@@ -31,20 +31,26 @@ public:
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GeneratePetPacket();
 	Packet GenerateDeletePacket();
-	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ);
+	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0);
 
 	WORD GetIndex() { return m_pMacro->m_wIndex; }
 	BYTE GetRace() { return m_pMacro->m_byRace; }
 	BYTE GetLevel() { return m_pMacro->m_byLevel; }
 
 	void Tick();
+	void Move(char byX, char byY, BYTE byType);
 
 	void SendPacket(Packet& packet) {};
 
-	enum
+	enum MOVE_TYPE
 	{
-		MS_WALK,
-		MS_RUN,
+		MT_WALK,
+		MT_RUN,
+	};
+
+	enum MOVE_TYPEEX
+	{
+		MTEX_MOVEEND = 2,
 	};
 };
 
