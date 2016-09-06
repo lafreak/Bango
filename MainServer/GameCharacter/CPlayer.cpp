@@ -1198,7 +1198,7 @@ void CPlayer::ProcessMsg(char* szMsg)
 
 		case '@':
 		{
-		    if(strstr(szMsg, " ") == NULL)
+		    if (strstr(szMsg, " ") == NULL)
 		    	return;
 
 		    std::string szTemp = szMsg;
@@ -1206,7 +1206,7 @@ void CPlayer::ProcessMsg(char* szMsg)
 
 		    CPlayer *pTarget = FindPlayerByName(token);
 
-		    if(pTarget)
+		    if (pTarget)
 		    {
 		    	Write(S2C_CHATTING, "ss", m_szName.c_str(), szTemp.c_str());
 		    	pTarget->Write(S2C_CHATTING, "ss", m_szName.c_str(), szTemp.c_str());
@@ -1343,11 +1343,11 @@ void CPlayer::ChatCommand(char* szCommand)
 	else if (!strcmp(token, "/s")) {
 		CItem *pItem = FindItem(515);
 
-		if(pItem)
+		if (pItem)
 		{
 			CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
 
-			if(RemoveItem(pItem, 1, TL_USE))
+			if (RemoveItem(pItem, 1, TL_USE))
 			{
 				pItem->m_Access.Release();
 			}
