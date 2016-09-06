@@ -1670,5 +1670,5 @@ void CPlayer::Tick()
 {
 	DWORD dwTime = GetTickCount();
 
-	printf("CPlayer::Tick %s.\n", m_szName.c_str());
+	//printf("CPlayer::Tick %s.\n", m_szName.c_str());
 }

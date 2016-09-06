@@ -191,7 +191,7 @@ void CMonster::Tick()
 
 	Move(byX, byY, MT_WALK);
 
-	printf("CMonster::Tick %d\n", GetIndex());
+	//printf("CMonster::Tick %d\n", GetIndex());
 }
 
 void CMonster::Move(char byX, char byY, BYTE byType)
