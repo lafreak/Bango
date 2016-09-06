@@ -1201,17 +1201,17 @@ void CPlayer::ProcessMsg(char* szMsg)
 		    if(strstr(szMsg, " ") == NULL)
 		    	return;
 
-		    std::string strTemp = szMsg;
+		    std::string szTemp = szMsg;
 		    char *token = strtok(szMsg + 1, " ");
 
-		    CPlayer *pPlayer = FindPlayerByName(token);
+		    CPlayer *pTarget = FindPlayerByName(token);
 
-		    if(pPlayer)
+		    if(pTarget)
 		    {
-		    	Write(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
-		    	pPlayer->Write(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
+		    	Write(S2C_CHATTING, "ss", m_szName.c_str(), szTemp.c_str());
+		    	pTarget->Write(S2C_CHATTING, "ss", m_szName.c_str(), szTemp.c_str());
 
-		    	pPlayer->m_Access.Release();
+		    	pTarget->m_Access.Release();
 		    }
 
 		    else
@@ -1345,15 +1345,11 @@ void CPlayer::ChatCommand(char* szCommand)
 
 		if(pItem)
 		{
+			CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
+
 			if(RemoveItem(pItem, 1, TL_USE))
 			{
-				CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
-
 				pItem->m_Access.Release();
-			}
-			else
-			{
-				CPlayer::WriteAll(S2C_CHATTING, "ss", m_szName.c_str(), strTemp.c_str());
 			}
 		}
 	}
