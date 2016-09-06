@@ -52,7 +52,7 @@ CMonster* CMonster::Summon(WORD wIndex, int nX, int nY)
 	CMap::Add(pMonster);
 	CMonster::Add(pMonster);
 
-	Packet createPacket = pMonster->GenerateCreatePacket();
+	Packet createPacket = pMonster->GenerateCreatePacket(true);
 	pMonster->SendPacketInSight(createPacket);
 }
 
@@ -73,10 +73,10 @@ Packet CMonster::GenerateCreatePacket(bool bHero)
 		100, //maxhp
 		GetGState(),
 		GetMState(),
-		"gname",
-		GetRace(),
+		"\0",
+		GetRace() | (bHero ? 0x80 : 0),
 		0, // gid
-		"gpos",
+		"\0",
 		GetGStateEx(),
 		GetMStateEx(),
 		GetLevel() //level
@@ -174,4 +174,11 @@ CMonster* CMonster::FindMonsterByIndex(WORD wIndex)
 	g_mxMonster.unlock();
 
 	return pMonster;
+}
+
+void CMonster::Tick()
+{
+	DWORD dwTime = GetTickCount();
+
+	printf("CMonster::Tick %d\n", GetIndex());
 }

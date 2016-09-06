@@ -177,6 +177,7 @@ bool CMacroDB::LoadInitMonster()
 		m_wRunSpeed(0)
 		*/
 		pMonster->m_wIndex = 		pMonsterInfo->IntAttribute("index");
+		pMonster->m_byRace = 		pMonsterInfo->IntAttribute("race");
 		pMonster->m_byLevel =		pMonsterInfo->IntAttribute("level");
 		pMonster->m_byAI =			pMonsterInfo->IntAttribute("ai");
 		pMonster->m_wRange =		pMonsterInfo->IntAttribute("range");

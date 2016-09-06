@@ -498,6 +498,13 @@ public:
 					iss >> n;
 					pEle->SetAttribute("farsight", n);
 				}
+				else if (name == "mspeed") {
+					int n=0;
+					iss >> n;
+					pEle->SetAttribute("walkspeed", n);
+					iss >> n;
+					pEle->SetAttribute("runspeed", n);
+				}
 				else if (name == "exp") {
 					int64_t n=0;
 					iss >> n;

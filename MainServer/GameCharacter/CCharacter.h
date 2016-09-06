@@ -134,6 +134,8 @@ public:
 
 	virtual void SendPacket(Packet& packet) = 0;
 
+	virtual void Tick() = 0;
+
 	bool WriteInSight(BYTE byType, ...);
 
 	void SendPacketInSight(Packet& packet);

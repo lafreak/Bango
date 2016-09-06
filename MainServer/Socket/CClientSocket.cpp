@@ -90,7 +90,8 @@ void CClientSocket::Accept()
 
 		pthread_t t;
 
-		if (pthread_create(&t, NULL, &CClientSocket::Await, (PVOID)client) != THREAD_SUCCESS) {
+		if (pthread_create(&t, NULL, &CClientSocket::Await, (PVOID)client) != THREAD_SUCCESS) 
+		{
 			printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
 			delete client;
 		}

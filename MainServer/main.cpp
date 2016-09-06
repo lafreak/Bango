@@ -7,6 +7,8 @@
 #include "GameCharacter/CNPC.h"
 #include "Macro/CMacroDB.h"
 
+#include "CServer.h"
+
 #include "Config/CConfig.h"
 
 int main()
@@ -31,6 +33,9 @@ int main()
 
 	printf("Loading NPC...\n");
 	if (!CNPC::LoadNPC())
+		return 1;
+
+	if (!CServer::Start())
 		return 1;
 
 	printf(KGRN "MainServer started on port %d.\n" KNRM, mainconf.wMainPort);

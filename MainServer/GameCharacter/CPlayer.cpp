@@ -877,12 +877,12 @@ void CPlayer::OnLoadPlayer()
 	Lock();
 
 	m_byGrade = 1;
-	m_szGuildName = "gname";
+	m_szGuildName = "\0";
 	m_byGRole = 1;
 	m_wDefense = 90;
 	m_byAbsorb = 5;
 
-	m_szGuildClass = "gclass";
+	m_szGuildClass = "\0";
 	m_nGID = 0;
 	m_byFlag = 0;
 	m_nFlagItem = 0;
@@ -1298,6 +1298,21 @@ void CPlayer::ChatCommand(char* szCommand)
 
 		CMonster::Summon(wIndex, GetX(), GetY());
 	}
+
+	else if (!strcmp(token, "/test")) {
+		token = std::strtok(NULL, " ");
+
+		int wIndex=0;
+
+		if (token)
+			wIndex = atoi(token);
+
+		for (int i = GetX() - 50; i <= GetX() + 50; i+=5) {
+			for (int j = GetY() - 50; j <= GetY() + 50; j+=5) {
+				CMonster::Summon(wIndex, i, j);
+			}
+		}
+	}
 }
 
 void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
@@ -1649,4 +1664,11 @@ void CPlayer::SaveAllProperty()
 		m_wPUPoint,
 		m_wSUPoint,
 		m_nAnger);
+}
+
+void CPlayer::Tick()
+{
+	DWORD dwTime = GetTickCount();
+
+	printf("CPlayer::Tick %s.\n", m_szName.c_str());
 }

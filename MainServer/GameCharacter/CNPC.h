@@ -33,6 +33,8 @@ public:
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ);
 
 	void SendPacket(Packet& packet) {}
+
+	void Tick() {}
 };
 
 typedef std::map<int, CNPC*> NPCMap;

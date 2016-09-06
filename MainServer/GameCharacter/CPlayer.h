@@ -56,12 +56,12 @@ class CPlayer: public CCharacter
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
 
-	static std::map<int, CPlayer*> g_mPlayer;
-	static std::mutex g_mxPlayer;
-
 public:
 	CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc);
 	~CPlayer();
+
+	static std::map<int, CPlayer*> g_mPlayer;
+	static std::mutex g_mxPlayer;
 
 	static void Add(CPlayer *pPlayer);
 	static void Remove(CPlayer *pPlayer);
@@ -137,6 +137,7 @@ public:
 	bool UseItem(CItem *pItem);
 	void PutOnItem(CItem *pItem);
 	void PutOffItem(CItem *pItem);
+	void Tick();
 
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);

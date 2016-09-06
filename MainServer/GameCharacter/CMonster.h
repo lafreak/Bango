@@ -9,9 +9,6 @@ class CMonster: public CCharacter
 {
 	WORD m_wIndex;
 	CMonsterInfo *m_pMacro;
-
-	static std::map<int, CMonster*> g_mMonster;
-	static std::mutex g_mxMonster;
 	
 public:
 	CMonster(CMonsterInfo *pMacro, int nX, int nY);
@@ -20,6 +17,9 @@ public:
 	static CMonster* CreateMonster(WORD wIndex, int nX, int nY);
 
 	static CMonster* Summon(WORD wIndex, int nX, int nY);
+
+	static std::map<int, CMonster*> g_mMonster;
+	static std::mutex g_mxMonster;
 
 	static void Add(CMonster *pMonster);
 	static void Remove(CMonster *pMonster);
@@ -37,7 +37,15 @@ public:
 	BYTE GetRace() { return m_pMacro->m_byRace; }
 	BYTE GetLevel() { return m_pMacro->m_byLevel; }
 
+	void Tick();
+
 	void SendPacket(Packet& packet) {};
+
+	enum
+	{
+		MS_WALK,
+		MS_RUN,
+	};
 };
 
 typedef std::map<int, CMonster*> MonsterMap;

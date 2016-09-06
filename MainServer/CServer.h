@@ -8,6 +8,7 @@
 
 #include "CClient.h"
 #include "GameCharacter/CPlayer.h"
+#include "GameCharacter/CMonster.h"
 #include "Map/CMap.h"
 
 typedef std::map<int, CClient*> ClientMap;
@@ -23,6 +24,10 @@ public:
 	static void Add(CClient* pClient);
 	static void Remove(CClient* pClient);
 	static void EmptyClient();
+
+	static bool Start();
+
+	static PVOID Timer(PVOID param);
 
 	// Remember to call m_Access.Release() after work on client is done.
 	static CClient* FindClient(int nCID);

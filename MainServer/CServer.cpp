@@ -54,3 +54,55 @@ CClient* CServer::FindClient(int nCID)
 
 	return pClient;
 }
+
+bool CServer::Start()
+{
+	pthread_t t;
+
+	if (pthread_create(&t, NULL, &CServer::Timer, NULL) != THREAD_SUCCESS) 
+	{
+		printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
+		return false;
+	}
+
+	return true;
+}
+
+PVOID CServer::Timer(PVOID)
+{
+	DWORD dwTickTime = GetTickCount();
+
+	while (true)
+	{
+		usleep(30000);
+
+		DWORD dwNow = GetTickCount();
+
+		if (dwNow - dwTickTime >= 1000) 
+		{
+			CPlayer::g_mxPlayer.lock();
+
+			for (auto& a: CPlayer::g_mPlayer) 
+			{
+				a.second->m_Access.Grant();
+				a.second->Tick();
+				a.second->m_Access.Release();
+			}
+
+			CPlayer::g_mxPlayer.unlock();
+
+			CMonster::g_mxMonster.lock();
+
+			for (auto& a: CMonster::g_mMonster) 
+			{
+				a.second->m_Access.Grant();
+				a.second->Tick();
+				a.second->m_Access.Release();
+			}
+
+			CMonster::g_mxMonster.unlock();
+
+			dwTickTime = dwNow;
+		}
+	}
+}
