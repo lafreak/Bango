@@ -14,7 +14,7 @@
 
 #define GEAR_NUM 22
 #define GEAR_VISIBLE_NUM 8
-
+//test this
 class CPlayer: public CCharacter
 {
 	int m_nCID;
