@@ -7,10 +7,15 @@
 #include "CItemOrnament.h"
 #include "CItemTransform.h"
 
+#include "../Map/CMap.h"
+
 #include "../GameCharacter/CPlayer.h"
 
 int CItem::g_nMaxIID;
 std::mutex CItem::g_mxMaxIID;
+
+ItemMap CItem::g_mItem;
+std::mutex CItem::g_mxItem;
 
 CItem::CItem(ITEMINFO_DESC& desc, CItemInfo *pMacro)
 {
@@ -33,6 +38,70 @@ int CItem::NewIID()
 	g_mxMaxIID.unlock();
 
 	return g_nMaxIID;
+}
+
+void CItem::Add(CItem *pItem)
+{
+	g_mxItem.lock();
+
+	if (pItem->g_mItem.find(pItem->GetIID()) == g_mItem.end())
+		g_mItem[pItem->GetIID()] = pItem;
+
+	else 
+		printf(KRED "CItem::Add: Same Item alrdy in ItemMap.\n" KNRM);
+
+	g_mxItem.unlock();
+
+}
+
+void CItem::Remove(CItem *pItem)
+{
+	g_mxItem.lock();
+
+	ItemMap::iterator it = g_mItem.find(pItem->GetIID());
+	
+	if (it != g_mItem.end())
+		g_mItem.erase(it);
+
+	g_mxItem.unlock();
+}
+
+CItem* CItem::FindItemByIID(int nIID)
+{
+	CItem *pItem = NULL;
+
+	g_mxItem.lock();
+
+	if (g_mItem.find(nIID) != g_mItem.end()) {
+        pItem = g_mItem[nIID];
+        pItem->m_Access.Grant();
+	}
+
+	g_mxItem.unlock();
+
+	return pItem;
+}
+
+void CItem::Tick()
+{
+
+	DWORD m_timer = this->GetTimer(); 
+
+	Lock();
+
+	int id = this->GetIID();
+	
+	if (GetTickCount() - m_timer > 30000 && m_nGState == IGS_DROPPED)
+	//if (GetTickCount() - m_timer > 15000 && m_nGState == 1)
+	{
+		printf("Current state before S2C_Removeitem %d\n", this->GetState());
+		CPlayer::WriteAll(S2C_REMOVEITEM, "d", id);
+		
+		CMap::RemoveItem(this);
+		SetGState(IGS_GENERAL);
+	}
+
+	Unlock();
 }
 
 bool CItem::CanUse(CPlayer *pPlayer)
@@ -63,6 +132,60 @@ bool CItem::CanTrash(CPlayer *pPlayer)
 		return false;
 
 	return true;
+}
+
+CItem* CItem::CreateItem(CItem* dropItem, int amount, int x, int y)
+{
+	ITEMINFO_DESC m_desc = dropItem->GetDesc();
+
+    m_desc.nIID = CItem::NewIID();
+    m_desc.nNum = amount;
+
+    CItem* pItem = CItem::CreateItem(m_desc);
+  
+    pItem->SetX(x);
+    pItem->SetY(y);
+
+    if (pItem)
+    CItem::Add(pItem);
+
+    return pItem;
+}
+
+Packet CItem::GenerateCreatePacket()
+{
+	Packet packet;
+
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = S2C_CREATEITEM;
+
+	char* end = CSocket::WritePacket(packet.data, "wddddd",
+	 this->GetIndex(), 
+	 this->GetIID(), 
+	 this->GetX(), 
+	 this->GetY(), 
+	 -1);
+
+	packet.wSize = end - ((char*)&packet);
+
+	printf("packet has been created index: [%d] posX: [%d] posY: [%d]", this->GetIndex(), this->GetX(), this->GetY());
+
+	return packet;
+}
+
+Packet CItem::GenerateDeletePacket()
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = S2C_REMOVEITEM;
+
+	char *end = CSocket::WritePacket(packet.data, "d", this->GetIID());
+
+	packet.wSize = end - ((char*)&packet);
+
+	return packet;
 }
 
 CItem* CItem::CreateItem(ITEMINFO_DESC& desc)

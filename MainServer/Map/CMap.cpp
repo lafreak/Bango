@@ -60,6 +60,40 @@ void CMap::Remove(CCharacter *pCharacter)
 	Remove(GetMapInfo(pCharacter->GetX(), pCharacter->GetY()), pCharacter);
 }
 
+void CMap::AddItem(CItem* pItem)
+{
+	AddItem(GetMapInfo(pItem->GetX(), pItem->GetY()), pItem);
+}
+
+void CMap::AddItem(MapInfo mapInfo, CItem* pItem)
+{
+	AddItem(mapInfo.wTileX, mapInfo.wTileY, pItem);
+}
+
+void CMap::AddItem(int nTileX, int nTileY, CItem *pItem)
+{
+	auto pTile = GetTile(nTileX, nTileY);
+	if(pTile)
+		pTile->AddItem(pItem);
+}
+
+void CMap::RemoveItem(CItem* pItem)
+{
+	RemoveItem(GetMapInfo(pItem->GetX(), pItem->GetY()), pItem);
+}
+
+void CMap::RemoveItem(MapInfo mapInfo, CItem* pItem)
+{
+	RemoveItem(mapInfo.wTileX, mapInfo.wTileY, pItem);
+}
+
+void CMap::RemoveItem(int nTileX, int nTileY, CItem *pItem)
+{
+	auto pTile = GetTile(nTileX, nTileY);
+	if(pTile)
+		pTile->RemoveItem(pItem);
+}
+
 void CMap::GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list)
 {
 	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
@@ -95,6 +129,19 @@ void CMap::GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterLi
 			auto pTile = GetTile(i, j);
 			if (pTile)
 				pTile->GetMonsterListAround(pCharacter, nDistance, list);
+		}
+	}
+}
+
+void CMap::GetItemListAround(CCharacter* pCharacter, int nDistance, ItemList &list)
+{
+	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
+
+	for (int i = m.wTileX-1; i <= m.wTileX+1; i++) {
+		for (int j = m.wTileY-1; j <= m.wTileY+1; j++) {
+			auto pTile = GetTile(i, j);
+			if (pTile)
+				pTile->GetItemListAround(pCharacter, nDistance, list);
 		}
 	}
 }

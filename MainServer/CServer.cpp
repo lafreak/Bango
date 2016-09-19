@@ -86,7 +86,7 @@ PVOID CServer::Timer(PVOID)
 			{
 				a.second->m_Access.Grant();
 				a.second->Tick();
-				a.second->m_Access.Release();
+				a.second->m_Access.Release(); 
 			}
 
 			CPlayer::g_mxPlayer.unlock();
@@ -101,6 +101,17 @@ PVOID CServer::Timer(PVOID)
 			}
 
 			CMonster::g_mxMonster.unlock();
+
+			CItem::g_mxItem.lock();
+
+			for (auto& a : CItem::g_mItem)
+			{
+				a.second->m_Access.Grant();
+				a.second->Tick();
+				a.second->m_Access.Release();
+			}
+
+			CItem::g_mxItem.unlock();
 
 			dwTickTime = dwNow;
 		}

@@ -119,7 +119,7 @@ CItem* CPlayer::FindItem(WORD wIndex, BYTE byOwnership)
 
 CItem* CPlayer::FindItemByIID(int nIID)
 {
-	CItem *pItem=NULL;
+	CItem *pItem = NULL;
 
 	m_mxItem.lock();
 
@@ -650,6 +650,12 @@ CPlayer* CPlayer::FindPlayerByName(char* szName)
 
 void CPlayer::Process(Packet packet)
 {
+	printf("Incoming C2S packet: [%u]\n", (BYTE)packet.byType);
+	for (int i = 0; i < packet.wSize; i++)
+		printf("%u ", (BYTE)((char*)&packet)[i]);
+	printf("\n");
+
+
 	switch (packet.byType)
 	{
 		case C2S_START:
@@ -869,12 +875,75 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		case C2S_DROPITEM:
+		{
+			int x = m_nX + 10;
+			int y = m_nY + 10;
+
+			int nIID;
+			int count;
+
+			CItem* pItem = NULL;
+			CItem* pDropItem = NULL;
+
+			CSocket::ReadPacket(packet.data, "dd", &nIID, &count);
+      
+			pItem = FindItemByIID(nIID);
+
+			if (pItem != NULL)
+			{
+				pDropItem = CItem::CreateItem(pItem, count, x, y);
+
+                if (pDropItem)
+                {
+                	CMap::AddItem(pDropItem);
+
+				if (RemoveItem(pItem, count, TL_DROP))
+						pItem->m_Access.Release();
+				
+					WriteInSight(S2C_CREATEITEM, "wddddd", pDropItem->GetIndex(), pDropItem->GetIID(), pDropItem->GetX(), pDropItem->GetY(), -1);
+
+					pDropItem->Lock();
+					pDropItem->SetGState(1);
+					pDropItem->Unlock();
+
+					pDropItem->SetTimer();
+		        }
+		    }
+
+		    break;  
+		}
+
+		case C2S_PICKUPITEM:
+		{
+			int itemID, nx, nz = 0;
+
+			CSocket::ReadPacket(packet.data, "ddd", &itemID, &nx, &nz);
+		
+			CItem *pItem = CItem::FindItemByIID(itemID);
+
+            if (pItem && GetTickCount() - m_Time >= 500)
+            {
+            	WriteInSight(S2C_REMOVEITEM, "d", pItem->GetIID());
+            	CMap::RemoveItem(pItem);
+            	InsertItem(pItem);
+
+            	pItem->m_Access.Release();
+
+            	m_Time = GetTickCount();
+            }
+
+            break;
+		}		
 	}
 }
-
+	
 void CPlayer::OnLoadPlayer()
 {
 	Lock();
+
+	m_Time = GetTickCount();
 
 	m_byGrade = 1;
 	m_szGuildName = "\0";
@@ -994,6 +1063,7 @@ void CPlayer::OnLoadItems(char *p)
 		if (!pItem) continue;
 
 		IntoInven(pItem);
+		
 
 		if (pItem->IsState(ITEM_PUTON)) {
 			if (!pItem->CanUse(this)) 
@@ -1065,6 +1135,7 @@ void CPlayer::GameStart()
 
 	CMap::Add(this);
 	CPlayer::Add(this);
+
 
 	Packet createPacket 	= GenerateCreatePacket();
 	Packet createHeroPacket = GenerateCreatePacket(true);
@@ -1275,6 +1346,15 @@ void CPlayer::ChatCommand(char* szCommand)
 			nZ = atoi(token);
 
 		Teleport(nX, nY, nZ);
+	}
+
+	else if (!strcmp(token, "/vod")) {
+
+		Teleport(360902, 187081, 42140);
+	}
+
+	else if(!strcmp(token, "/d2")) {
+		Teleport(3188, 3116, 19768);
 	}
 
 	else if (!strcmp(token, "/moveto")) {
@@ -1498,6 +1578,9 @@ void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 	CharacterList clist;
 	CMap::GetCharacterListAround(this, MAX_PLAYER_SIGHT, clist);
 
+	ItemList ilist;
+	CMap::GetItemListAround(this, MAX_PLAYER_SIGHT, ilist);
+
 	for (CharacterList::iterator it = clist.begin(); it != clist.end(); it++)
 	{
 		Packet createPacketEx = (*it)->GenerateCreatePacket();
@@ -1509,11 +1592,94 @@ void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 		(*it)->m_Access.Release();
 	}
 
+	for (ItemList::iterator it = ilist.begin(); it != ilist.end(); it++)
+	{
+		Packet createPacketEx = (*it)->GenerateCreatePacket();
+
+		SendPacket(createPacketEx);
+
+		(*it)->m_Access.Release();
+	}
+
 	Packet createPacket = GenerateCreatePacket();
 	Packet petPacket = GeneratePetPacket();
 
 	SendPacketInSight(createPacket);
 	SendPacketInSight(petPacket);
+}
+
+void CPlayer::InsertItem(CItem *pItem)
+{
+	if (pItem->GetNum() <= 0)
+		return;
+
+	ITEMINFO_DESC desc = pItem->GetDesc();
+
+	CItemInfo* pMacro = (CItemInfo*) CMacroDB::FindMacro(CMacro::MT_ITEM, desc.wIndex);
+	if (!pMacro)
+		return;
+
+	if (pMacro->m_bPlural && MergeItem(pItem))
+		return;
+
+	IntoInven(pItem);
+	CItem::Remove(pItem);
+
+	pItem->Lock();
+    pItem->SetGState(0);
+    pItem->Unlock();
+    	
+	PACKETBUFFER buffer;
+	memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+	char *pBegin = (char*)&buffer;
+	char *pEnd = pBegin;
+
+	pEnd = CSocket::WritePacket(pBegin, "wdbddbbbbbbbbwbbbbbdbwwwwbbbbbbbbbbwdd",
+				desc.wIndex,
+				desc.nIID,
+				desc.byPrefix,
+				desc.nInfo,
+				desc.nNum,
+				desc.byMaxEnd,
+				desc.byCurEnd,
+				(BYTE)0, // bySetGem
+				desc.byXAttack,
+				desc.byXMagic,
+				desc.byXDefense,
+				desc.byXHit,
+				desc.byXDodge,
+				(WORD)0, // wProtectNum
+				desc.byExplosiveBlow,
+				(BYTE)0, // byCorrectionAddNum
+				(BYTE)0, // 
+				(BYTE)0, // byRemainingSeconds??
+				(BYTE)0, // byRemainingMinutes??
+				(DWORD)0, // byRemainingHours??
+
+				desc.fuse.byLevel,
+				desc.fuse.wMeele,
+				desc.fuse.wMagic,
+				desc.fuse.wDefense,
+				desc.fuse.wAbsorb,
+				desc.fuse.byDodge,
+				desc.fuse.byHit,
+				desc.fuse.byHP,
+				desc.fuse.byMP,
+				desc.fuse.byStats[P_STR],
+				desc.fuse.byStats[P_HTH],
+				desc.fuse.byStats[P_INT],
+				desc.fuse.byStats[P_WIS],
+				desc.fuse.byStats[P_DEX],
+
+				desc.byShot,
+				desc.wPerforation,
+				desc.nGongLeft,
+				desc.nGongRight);
+
+	Write(S2C_INSERTITEM, "m", pBegin, pEnd - pBegin);
+
+	CDBSocket::Write(S2D_INSERTITEM, "dm", m_nPID, pBegin, pEnd - pBegin);
 }
 
 void CPlayer::InsertItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn, bool bForceSingular, BYTE byPrefix, BYTE byXAttack, BYTE byXMagic, BYTE byXHit, BYTE byEBlow, int nInfo, BYTE byXDodge, BYTE byXDefense, FUSION_DESC* pFuse, BYTE byShot, WORD wPerforation, int nGongLeft, int nGongRight)
@@ -1614,6 +1780,7 @@ void CPlayer::InsertItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn, bool 
 	Write(S2C_INSERTITEM, "m", pBegin, pEnd - pBegin);
 
 	CDBSocket::Write(S2D_INSERTITEM, "dm", m_nPID, pBegin, pEnd - pBegin);
+
 }
 
 bool CPlayer::MergeItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn)
@@ -1632,6 +1799,27 @@ bool CPlayer::MergeItem(WORD wIndex, int nNum, BYTE byLogType, bool bOwn)
 	pItem->m_Access.Release();
 	return true;
 }
+
+bool CPlayer::MergeItem(CItem* dropitem)
+{
+	CItem *pItem = FindItem(dropitem->GetIndex());
+
+	if(!pItem)
+		return false;
+
+	pItem->Lock();
+	pItem->SetNum(pItem->GetNum() + dropitem->GetNum());
+	pItem->Unlock();
+
+	Write(S2C_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum());
+
+	CDBSocket::Write(S2D_UPDATEITEMNUM, "ddb", pItem->GetIID(), pItem->GetNum());
+
+	pItem->m_Access.Release();
+
+	return true;
+}
+
 
 bool CPlayer::UseItem(CItem *pItem)
 {
@@ -1708,5 +1896,5 @@ void CPlayer::Tick()
 {
 	DWORD dwTime = GetTickCount();
 
-	printf("CPlayer::Tick %s.\n", m_szName.c_str());
+	//printf("CPlayer::Tick %s.\n", m_szName.c_str());
 }

@@ -14,7 +14,7 @@
 
 #define GEAR_NUM 22
 #define GEAR_VISIBLE_NUM 8
-//test this
+
 class CPlayer: public CCharacter
 {
 	int m_nCID;
@@ -52,6 +52,8 @@ class CPlayer: public CCharacter
 	BYTE m_byTrigramLevel;
 
 	BYTE m_byShortcutState;
+
+	DWORD m_Time;
 
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
@@ -133,7 +135,9 @@ public:
 	void Teleport(int nX, int , int nZ=0);
 	void OnTeleport(BYTE byAnswer, int nZ);
 	void InsertItem(WORD wIndex, int nNum=1, BYTE byLogType=TL_CREATE, bool bOwn=false, bool bForceSingular=false, BYTE byPrefix=0, BYTE byXAttack=0, BYTE byXMagic=0, BYTE byXHit=0, BYTE byEBlow=0, int nInfo=0, BYTE byXDodge=0, BYTE byXDefense=0, FUSION_DESC* pFuse=NULL, BYTE byShot=0, WORD wPerforation=0, int nGongLeft=0, int nGongRight=0);
+	void InsertItem(CItem* pItem);
 	bool MergeItem(WORD wIndex, int nNum, BYTE byLogType=TL_CREATE, bool bOwn=false);
+	bool MergeItem(CItem* dropitem);
 	bool UseItem(CItem *pItem);
 	void PutOnItem(CItem *pItem);
 	void PutOffItem(CItem *pItem);

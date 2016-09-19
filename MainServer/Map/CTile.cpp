@@ -25,6 +25,27 @@ void CTile::Add(CCharacter *pCharacter)
 	Unlock();
 }
 
+void CTile::AddItem(CItem* pItem)
+{
+	Lock();
+
+	if(m_mItem.find(pItem->GetIID()) == m_mItem.end())
+		m_mItem[pItem->GetIID()] = pItem;
+
+	Unlock();
+}
+
+void CTile::RemoveItem(CItem* pItem)
+{
+	Lock();
+
+	ItemMap::iterator it = m_mItem.find(pItem->GetIID());
+	if(it != m_mItem.end())
+		m_mItem.erase(it);
+
+	Unlock();
+}
+
 void CTile::Remove(CCharacter *pCharacter)
 {
 	Lock();
@@ -130,6 +151,24 @@ void CTile::GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterL
 	Unlock();
 }
 
+void CTile::GetItemListAround(CCharacter *pCharacter, int nDistance, ItemList& list)
+{
+	Lock();
+
+	for (auto& a: m_mItem) {
+		a.second->m_Access.Grant();
+		auto pTarget = a.second;
+
+		if (pCharacter->GetDistance(pTarget) <= nDistance)
+			list.push_back(pTarget);
+
+		else
+			pTarget->m_Access.Release();
+	}
+
+	Unlock();
+}
+
 void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 {
 	Lock();
@@ -227,6 +266,40 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 
 		a.second->m_Access.Release();
 	}
+
+	for (auto& a : m_mItem) {
+		a.second->m_Access.Grant();
+
+		if (a.second->GetIID() != pCharacter->GetID()) {
+			auto pCharacterEx = a.second;
+
+		switch(pCharacter->GetMoveAction(pCharacterEx, byX, byY))
+		{
+			case MV_AC_CREATE:
+			{
+				if(pCharacter->GetKind() == CK_PLAYER) {
+					Packet p = pCharacterEx->GenerateCreatePacket();
+					pCharacter->SendPacket(p);
+					printf("Packet sent to %d\n", pCharacter->GetCurHP());
+				}
+
+				break;
+			}
+
+			case MV_AC_DELETE:
+			{
+				if (pCharacter->GetKind() == CK_PLAYER) {
+					
+					Packet p = pCharacterEx->GenerateDeletePacket();
+					pCharacter->SendPacket(p);
+				}
+
+				break;
+			}
+		}
+		a.second->m_Access.Release();
+	}
+}
 
 	Unlock();
 }

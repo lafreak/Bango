@@ -33,10 +33,19 @@ public:
 	static void Remove(CCharacter *pCharacter);
 	static void SendPacket(CCharacter *pCharacter, Packet& packet);
 
+	static void AddItem(int nTileX, int nTileY, CItem *pItem);
+	static void AddItem(MapInfo mapinfo, CItem * pItem);
+	static void AddItem(CItem* pItem);
+	static void RemoveItem(int nTileX, int nTileY, CItem *pItem);
+	static void RemoveItem(MapInfo mapinfo, CItem * pItem);
+	static void RemoveItem(CItem* pItem);
+
+
 	// Remember to run m_Access.Release on each used object in the list.
 	static void GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list);
 	static void GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list);
 	static void GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterList& list);
+	static void GetItemListAround(CCharacter* pItem, int nDistance, ItemList &list);
 
 	static CTile* GetTile(int nTileX, int nTileY);
 	static MapInfo GetMapInfo(int nX, int nY); 

@@ -18,6 +18,7 @@
 
 #include <Protocol/MainProtocol.h>
 
+#include "../Item/CItem.h"
 
 #include <minwindef.h>
 #include <common.h>
@@ -143,7 +144,9 @@ public:
 	void SetDirection(int nX, int nY);
 
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
+	BYTE GetMoveAction(CItem* pItem, char byX, char byY);
 	int  GetDistance(CCharacter *pCharacter);
+	int GetDistance(CItem *pItem);
 };
 
 typedef std::map<int, CCharacter*> CharacterMap;

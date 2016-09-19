@@ -10,6 +10,7 @@
 #include "GameCharacter/CPlayer.h"
 #include "GameCharacter/CMonster.h"
 #include "Map/CMap.h"
+#include "Item/CItem.h"
 
 typedef std::map<int, CClient*> ClientMap;
 

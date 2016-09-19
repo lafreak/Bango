@@ -2,6 +2,7 @@
 
 #include "../Map/CMap.h"
 
+
 int CCharacter::g_nID = 1;
 std::mutex CCharacter::g_mxID;
 
@@ -217,7 +218,31 @@ BYTE CCharacter::GetMoveAction(CCharacter *pCharacter, char byX, char byY)
 	return MV_AC_NONE;
 }
 
+BYTE CCharacter::GetMoveAction(CItem *pItem, char byX, char byY)
+{
+	printf("Getting move action for item creation");
+	float fDistanceCur = sqrt(pow(m_nX - byX - pItem->GetX(), 2) + pow(m_nY - byY - pItem->GetY(), 2));
+	float fDistanceDest = sqrt(pow(m_nX - pItem->GetX(), 2) + pow(m_nY - pItem->GetY(), 2));
+
+	/*if (fDistanceCur <= MAX_PLAYER_SIGHT && fDistanceDest <= MAX_PLAYER_SIGHT)
+		return MV_AC_MOVE;
+		*/
+
+	if (fDistanceCur > MAX_PLAYER_SIGHT && fDistanceDest <= MAX_PLAYER_SIGHT)
+		return MV_AC_CREATE;
+
+	if (fDistanceCur <= MAX_PLAYER_SIGHT && fDistanceDest > MAX_PLAYER_SIGHT)
+		return MV_AC_DELETE;
+
+	return MV_AC_NONE;
+}
+
 int CCharacter::GetDistance(CCharacter *pCharacter)
 {
 	return (int)sqrt(pow(m_nX - pCharacter->GetX(), 2) + pow(m_nY - pCharacter->GetY(), 2));
+}
+
+int CCharacter::GetDistance(CItem *pItem)
+{
+	return (int)sqrt(pow(m_nX - pItem->GetX(), 2) + pow(m_nY - pItem->GetY(), 2));
 }
