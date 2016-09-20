@@ -143,6 +143,8 @@ public:
 	void PutOffItem(CItem *pItem);
 	void Tick();
 
+	Packet UpdateParty(CPlayer* pPlayer);
+
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);
 

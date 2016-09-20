@@ -168,9 +168,7 @@ Packet CItem::GenerateCreatePacket()
 	 -1);
 
 	packet.wSize = end - ((char*)&packet);
-
-	printf("packet has been created index: [%d] posX: [%d] posY: [%d]", this->GetIndex(), this->GetX(), this->GetY());
-
+	
 	return packet;
 }
 

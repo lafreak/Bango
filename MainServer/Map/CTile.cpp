@@ -280,7 +280,6 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 				if(pCharacter->GetKind() == CK_PLAYER) {
 					Packet p = pCharacterEx->GenerateCreatePacket();
 					pCharacter->SendPacket(p);
-					printf("Packet sent to %d\n", pCharacter->GetCurHP());
 				}
 
 				break;

@@ -935,8 +935,48 @@ void CPlayer::Process(Packet packet)
             }
 
             break;
+		}
+
+		case C2S_ASKPARTY:
+		{
+			int nID = 0;
+			Packet packet;
+
+			CPlayer* pPlayer;
+
+			CSocket::ReadPacket(packet.data, "d", &nID);
+
+			pPlayer = FindPlayer(nID);
+
+			packet = UpdateParty(pPlayer);
+
+			if(pPlayer)
+				pPlayer->Write(S2C_ASKPARTY, "d", m_nPID);
+
+			Write(S2C_ASKPARTY, "d", pPlayer->GetPID());
+
+			SendPacket(packet); 
+
+			pPlayer->m_Access.Release();
+
 		}		
 	}
+}
+
+Packet CPlayer::UpdateParty(CPlayer* pPlayer)
+{
+	Packet packet;
+
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = S2C_UPDATEPARTY;
+
+	char *end = CSocket::WritePacket(packet.data, "bsbbb",
+		pPlayer->GetPID(), pPlayer->GetName(), 1, pPlayer->GetLevel(), pPlayer->GetCurHP());
+
+	packet.wSize = end - ((char*)&packet);
+
+	return packet;
 }
 	
 void CPlayer::OnLoadPlayer()
