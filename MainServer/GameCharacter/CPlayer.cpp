@@ -936,6 +936,7 @@ void CPlayer::Process(Packet packet)
 
             break;
 		}
+		/*
 
 		case C2S_ASKPARTY:
 		{
@@ -959,9 +960,11 @@ void CPlayer::Process(Packet packet)
 
 			pPlayer->m_Access.Release();
 
-		}		
+		}	
+		*/	
 	}
 }
+/*
 
 Packet CPlayer::UpdateParty(CPlayer* pPlayer)
 {
@@ -978,6 +981,7 @@ Packet CPlayer::UpdateParty(CPlayer* pPlayer)
 
 	return packet;
 }
+*/
 	
 void CPlayer::OnLoadPlayer()
 {
