@@ -62,3 +62,13 @@ void CItemRide::PutOff(CPlayer *pPlayer)
 	pPlayer->Write(S2C_PUTOFFITEM, "ddw", pPlayer->GetID(), GetIID(), GetIndex());
 	CDBSocket::Write(S2D_PUTOFFITEM, "d", GetIID());
 }
+
+bool CItemRide::Use(CPlayer *pPlayer)
+{
+	if (!CanUse(pPlayer))
+		return false;
+
+	pPlayer->WriteInSight(S2C_RIDING, "bdd", 0, pPlayer->GetID(), GetRideType());
+
+	return false;
+}

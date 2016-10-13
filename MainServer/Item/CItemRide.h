@@ -14,6 +14,8 @@ public:
 
 	void PutOn(CPlayer *pPlayer);
 	void PutOff(CPlayer *pPlayer);
+
+	bool Use(CPlayer *pPlayer) override;
 };
 
 #endif
