@@ -21,6 +21,9 @@ struct CItemInfo: public CMacro
 	int m_nCooltime;
 	BYTE m_byEffect;
 	int m_nRefresh[2];
+	int m_nBuffId;
+	int m_nBuffTime;
+	int m_nBuffValue;
 
 
 	enum REFRESH
@@ -45,7 +48,10 @@ struct CItemInfo: public CMacro
 		m_bPlural(false),
 		m_bUse(false),
 		m_nCooltime(0),
-		m_byEffect(0)
+		m_byEffect(0),
+		m_nBuffId(0),
+		m_nBuffTime(0),
+		m_nBuffValue(0)
 		
 	{
 		m_nRefresh[0] = m_nRefresh[1] = 0;

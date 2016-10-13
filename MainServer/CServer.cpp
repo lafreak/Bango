@@ -80,29 +80,12 @@ PVOID CServer::Timer(PVOID)
 
 		if (dwNow - dwTickTime >= 1000) 
 		{
-			CPlayer::g_mxPlayer.lock();
-
-			for (auto& a: CPlayer::g_mPlayer) 
-			{
-				a.second->m_Access.Grant();
-				a.second->Tick();
-				a.second->m_Access.Release();
-			}
-
-			CPlayer::g_mxPlayer.unlock();
-
-			CMonster::g_mxMonster.lock();
-
-			for (auto& a: CMonster::g_mMonster) 
-			{
-				a.second->m_Access.Grant();
-				a.second->Tick();
-				a.second->m_Access.Release();
-			}
-
-			CMonster::g_mxMonster.unlock();
+			CPlayer::TickAll();
+			CMonster::TickAll();
 
 			dwTickTime = dwNow;
 		}
+
+		CMonster::AIAll();
 	}
 }

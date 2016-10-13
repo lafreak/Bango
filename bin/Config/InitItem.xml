@@ -1359,12 +1359,12 @@
     </item>
     <item index="271" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="5" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="272" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="6" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="273" class="quest" subclass="common" plural="1" buy="0" sell="0"/>
@@ -1700,27 +1700,27 @@
     <item index="365" class="defense" subclass="mask" wear="1" reqclass="mage" reqlevel="6" buy="0" sell="35000" endurance="1"/>
     <item index="366" class="general" subclass="refresh" level="12" use="1" plural="1" reqclass="all" reqlevel="12" buy="0">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="4"/>
         </specialty>
     </item>
     <item index="367" class="general" subclass="refresh" level="20" use="1" plural="1" reqclass="all" reqlevel="20" buy="0">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="8"/>
         </specialty>
     </item>
     <item index="368" class="general" subclass="refresh" level="32" use="1" plural="1" reqclass="all" reqlevel="32" buy="0">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="17"/>
         </specialty>
     </item>
     <item index="369" class="general" subclass="refresh" level="40" use="1" plural="1" reqclass="all" reqlevel="40" buy="0">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="25"/>
         </specialty>
     </item>
     <item index="370" class="general" subclass="refresh" level="48" use="1" plural="1" reqclass="all" reqlevel="48" buy="0">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="33"/>
         </specialty>
     </item>
     <item index="372" class="defense" subclass="upperarmor" level="50" wear="1" reqclass="knight" reqlevel="50" buy="392161" sell="129000" endurance="24">
@@ -1880,152 +1880,152 @@
     <item index="398" class="general" subclass="etc" plural="1" buy="0" sell="4"/>
     <item index="399" class="general" subclass="refresh" level="8" use="1" plural="1" reqclass="all" reqlevel="8" buy="9" sell="3">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="9"/>
         </specialty>
     </item>
     <item index="400" class="general" subclass="refresh" level="12" use="1" plural="1" reqclass="all" reqlevel="12" buy="12" sell="4">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="11"/>
         </specialty>
     </item>
     <item index="401" class="general" subclass="refresh" level="16" use="1" plural="1" reqclass="all" reqlevel="16" buy="21" sell="7">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="14"/>
         </specialty>
     </item>
     <item index="402" class="general" subclass="refresh" level="20" use="1" plural="1" reqclass="all" reqlevel="20" buy="36" sell="12">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="18"/>
         </specialty>
     </item>
     <item index="403" class="general" subclass="refresh" level="24" use="1" plural="1" reqclass="all" reqlevel="24" buy="45" sell="15">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="23"/>
         </specialty>
     </item>
     <item index="404" class="general" subclass="refresh" level="28" use="1" plural="1" reqclass="all" reqlevel="28" buy="57" sell="19">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="28"/>
         </specialty>
     </item>
     <item index="405" class="general" subclass="refresh" level="32" use="1" plural="1" reqclass="all" reqlevel="32" buy="72" sell="24">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="34"/>
         </specialty>
     </item>
     <item index="406" class="general" subclass="refresh" level="36" use="1" plural="1" reqclass="all" reqlevel="36" buy="81" sell="27">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="41"/>
         </specialty>
     </item>
     <item index="407" class="general" subclass="refresh" level="40" use="1" plural="1" reqclass="all" reqlevel="40" buy="93" sell="31">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="48"/>
         </specialty>
     </item>
     <item index="408" class="general" subclass="refresh" level="44" use="1" plural="1" reqclass="all" reqlevel="44" buy="108" sell="36">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="55"/>
         </specialty>
     </item>
     <item index="409" class="general" subclass="refresh" level="48" use="1" plural="1" reqclass="all" reqlevel="48" buy="123" sell="41">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="63"/>
         </specialty>
     </item>
     <item index="410" class="general" subclass="refresh" level="52" use="1" plural="1" reqclass="all" reqlevel="52" buy="141" sell="47">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="73"/>
         </specialty>
     </item>
     <item index="411" class="general" subclass="refresh" level="56" use="1" plural="1" reqclass="all" reqlevel="56" buy="159" sell="53">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="83"/>
         </specialty>
     </item>
     <item index="412" class="general" subclass="refresh" level="60" use="1" plural="1" reqclass="all" reqlevel="60" buy="180" sell="60">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="94"/>
         </specialty>
     </item>
     <item index="413" class="general" subclass="refresh" level="64" use="1" plural="1" reqclass="all" reqlevel="64" buy="201" sell="67">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="105"/>
         </specialty>
     </item>
     <item index="414" class="general" subclass="refresh" level="8" use="1" plural="1" reqclass="all" reqlevel="8" buy="18" sell="6">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="3"/>
         </specialty>
     </item>
     <item index="415" class="general" subclass="refresh" level="12" use="1" plural="1" reqclass="all" reqlevel="12" buy="39" sell="13">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="4"/>
         </specialty>
     </item>
     <item index="416" class="general" subclass="refresh" level="16" use="1" plural="1" reqclass="all" reqlevel="16" buy="75" sell="25">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="6"/>
         </specialty>
     </item>
     <item index="417" class="general" subclass="refresh" level="20" use="1" plural="1" reqclass="all" reqlevel="20" buy="132" sell="44">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="8"/>
         </specialty>
     </item>
     <item index="418" class="general" subclass="refresh" level="24" use="1" plural="1" reqclass="all" reqlevel="24" buy="216" sell="72">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="11"/>
         </specialty>
     </item>
     <item index="419" class="general" subclass="refresh" level="28" use="1" plural="1" reqclass="all" reqlevel="28" buy="282" sell="94">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="14"/>
         </specialty>
     </item>
     <item index="420" class="general" subclass="refresh" level="32" use="1" plural="1" reqclass="all" reqlevel="32" buy="327" sell="109">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="17"/>
         </specialty>
     </item>
     <item index="421" class="general" subclass="refresh" level="36" use="1" plural="1" reqclass="all" reqlevel="36" buy="384" sell="128">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="21"/>
         </specialty>
     </item>
     <item index="422" class="general" subclass="refresh" level="40" use="1" plural="1" reqclass="all" reqlevel="40" buy="558" sell="186">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="25"/>
         </specialty>
     </item>
     <item index="423" class="general" subclass="refresh" level="44" use="1" plural="1" reqclass="all" reqlevel="44" buy="612" sell="204">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="29"/>
         </specialty>
     </item>
     <item index="424" class="general" subclass="refresh" level="48" use="1" plural="1" reqclass="all" reqlevel="48" buy="696" sell="232">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="33"/>
         </specialty>
     </item>
     <item index="425" class="general" subclass="refresh" level="52" use="1" plural="1" reqclass="all" reqlevel="52" buy="789" sell="263">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="39"/>
         </specialty>
     </item>
     <item index="426" class="general" subclass="refresh" level="56" use="1" plural="1" reqclass="all" reqlevel="56" buy="822" sell="274">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="45"/>
         </specialty>
     </item>
     <item index="427" class="general" subclass="refresh" level="60" use="1" plural="1" reqclass="all" reqlevel="60" buy="918" sell="306">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="52"/>
         </specialty>
     </item>
     <item index="428" class="general" subclass="refresh" level="64" use="1" plural="1" reqclass="all" reqlevel="64" buy="1020" sell="340">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="59"/>
         </specialty>
     </item>
     <item index="429" class="defense" subclass="shield" level="44" wear="1" reqclass="knight" reqlevel="40" buy="0" sell="20000" endurance="15">
@@ -2095,7 +2095,7 @@
     <item index="446" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="447" class="general" subclass="refresh" use="1" plural="1" cooltime="2000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="12" time="1800" value="45"/>
         </specialty>
     </item>
     <item index="448" class="general" subclass="etc" buy="0" sell="0"/>
@@ -2235,62 +2235,62 @@
     </item>
     <item index="469" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="470" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="471" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="472" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="473" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="474" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="475" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="476" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="477" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="478" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="479" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="480" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="481" class="general" subclass="charm" use="1" plural="1" buy="0">
@@ -2377,87 +2377,87 @@
     </item>
     <item index="524" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="51" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="525" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="6">
         <specialty>
-            <buff/>
+            <buff id="52" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="526" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="53" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="527" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="54" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="528" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="56" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="529" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="9">
         <specialty>
-            <buff/>
+            <buff id="57" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="530" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="100" value="0"/>
         </specialty>
     </item>
     <item index="531" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="300" value="0"/>
         </specialty>
     </item>
     <item index="532" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="500" value="0"/>
         </specialty>
     </item>
     <item index="533" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="12">
         <specialty>
-            <buff/>
+            <buff id="60" time="7200" value="5"/>
         </specialty>
     </item>
     <item index="534" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="13">
         <specialty>
-            <buff/>
+            <buff id="61" time="7200" value="10"/>
         </specialty>
     </item>
     <item index="535" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="14">
         <specialty>
-            <buff/>
+            <buff id="62" time="7200" value="5"/>
         </specialty>
     </item>
     <item index="536" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="15">
         <specialty>
-            <buff/>
+            <buff id="63" time="7200" value="10"/>
         </specialty>
     </item>
     <item index="537" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="16">
         <specialty>
-            <buff/>
+            <buff id="64" time="7200" value="5"/>
         </specialty>
     </item>
     <item index="538" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
         <specialty>
-            <buff/>
+            <buff id="59" time="100" value="0"/>
         </specialty>
     </item>
     <item index="539" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
         <specialty>
-            <buff/>
+            <buff id="59" time="300" value="0"/>
         </specialty>
     </item>
     <item index="540" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
         <specialty>
-            <buff/>
+            <buff id="59" time="500" value="0"/>
         </specialty>
     </item>
     <item index="560" class="weapon" subclass="sword" level="56" wear="1" reqclass="knight" reqlevel="56" range="30" buy="0" sell="397800" endurance="32">
@@ -2841,62 +2841,62 @@
     </item>
     <item index="597" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="51" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="599" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="6">
         <specialty>
-            <buff/>
+            <buff id="52" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="601" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="54" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="603" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="56" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="605" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="9">
         <specialty>
-            <buff/>
+            <buff id="57" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="607" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="12">
         <specialty>
-            <buff/>
+            <buff id="60" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="608" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="13">
         <specialty>
-            <buff/>
+            <buff id="61" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="609" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="14">
         <specialty>
-            <buff/>
+            <buff id="62" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="610" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="15">
         <specialty>
-            <buff/>
+            <buff id="63" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="611" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="16">
         <specialty>
-            <buff/>
+            <buff id="64" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="617" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="500" value="0"/>
         </specialty>
     </item>
     <item index="618" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
         <specialty>
-            <buff/>
+            <buff id="59" time="500" value="0"/>
         </specialty>
     </item>
     <item index="621" class="defense" subclass="upperarmor" level="55" wear="1" reqclass="knight" reqlevel="55" buy="0" sell="260000" endurance="24">
@@ -3044,17 +3044,17 @@
     </item>
     <item index="636" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="21">
         <specialty>
-            <buff/>
+            <buff id="99" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="637" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="22">
         <specialty>
-            <buff/>
+            <buff id="101" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="638" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" sell="0" effect="22">
         <specialty>
-            <buff/>
+            <buff id="100" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="639" class="general" subclass="etc" plural="1" buy="0"/>
@@ -3090,17 +3090,17 @@
     <item index="657" class="general" subclass="etc" plural="1" cooltime="1000" buy="0" effect="23"/>
     <item index="658" class="general" subclass="etc" use="1" plural="1" cooltime="1000" reqclass="knight" reqlevel="6" buy="0" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="659" class="general" subclass="etc" use="1" plural="1" cooltime="1000" reqclass="archer" reqlevel="6" buy="0" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="660" class="general" subclass="etc" use="1" plural="1" cooltime="1000" reqclass="mage" reqlevel="6" buy="0" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="661" class="general" subclass="etc" plural="1" cooltime="1000" buy="0" effect="23"/>
@@ -3891,12 +3891,12 @@
     <item index="757" class="quest" subclass="common" plural="1" buy="0"/>
     <item index="758" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="21">
         <specialty>
-            <buff/>
+            <buff id="99" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="759" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="22">
         <specialty>
-            <buff/>
+            <buff id="101" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="760" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
@@ -4912,7 +4912,7 @@
     </item>
     <item index="879" class="general" subclass="charm" use="1" plural="1" cooltime="2000" buy="0" sell="0" effect="30">
         <specialty>
-            <buff/>
+            <buff id="111" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="880" class="general" subclass="etc" cooltime="1000" buy="0" sell="0"/>
@@ -4924,7 +4924,7 @@
     <item index="886" class="general" subclass="etc" cooltime="1000" buy="0" sell="0"/>
     <item index="887" class="general" subclass="charm" use="1" plural="1" cooltime="2000" buy="0" sell="0" effect="30">
         <specialty>
-            <buff/>
+            <buff id="111" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="888" class="general" subclass="etc" cooltime="1000" buy="0" sell="0"/>
@@ -4970,38 +4970,38 @@
     </item>
     <item index="1031" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="136" time="1800" value="7"/>
         </specialty>
     </item>
     <item index="1032" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="137" time="1800" value="3"/>
         </specialty>
     </item>
     <item index="1033" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="138" time="1800" value="5"/>
         </specialty>
     </item>
     <item index="1034" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="139" time="1800" value="5"/>
         </specialty>
     </item>
     <item index="1035" class="general" subclass="etc" buy="0" sell="0"/>
     <item index="1036" class="general" subclass="etc" use="1" cooltime="1000" reqclass="knight" reqlevel="41" buy="100000" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1037" class="general" subclass="etc" use="1" cooltime="1000" reqclass="archer" reqlevel="41" buy="100000" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1038" class="general" subclass="etc" use="1" cooltime="1000" reqclass="mage" reqlevel="41" buy="100000" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1039" class="ornament" subclass="ring" wear="1" buy="0" sell="0" endurance="10">
@@ -5399,42 +5399,42 @@
     </item>
     <item index="1139" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="1140" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="1141" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="1142" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="12">
         <specialty>
-            <buff/>
+            <buff id="60" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="1143" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="13">
         <specialty>
-            <buff/>
+            <buff id="61" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="1144" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="14">
         <specialty>
-            <buff/>
+            <buff id="62" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="1145" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="15">
         <specialty>
-            <buff/>
+            <buff id="63" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="1146" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="16">
         <specialty>
-            <buff/>
+            <buff id="64" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="1147" class="general" subclass="charm" use="1" plural="1" cooltime="2000" buy="0" effect="4">
@@ -5446,37 +5446,37 @@
     <item index="1149" class="general" subclass="etc" plural="1" buy="0"/>
     <item index="1150" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="51" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1151" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="6">
         <specialty>
-            <buff/>
+            <buff id="52" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1152" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="54" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1153" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="56" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1154" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="9">
         <specialty>
-            <buff/>
+            <buff id="57" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1155" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="500" value="0"/>
         </specialty>
     </item>
     <item index="1156" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
         <specialty>
-            <buff/>
+            <buff id="59" time="500" value="0"/>
         </specialty>
     </item>
     <item index="1157" class="quest" subclass="common" plural="1" buy="0" sell="0"/>
@@ -5489,12 +5489,12 @@
     <item index="1160" class="general" subclass="etc" plural="1" buy="0" effect="17"/>
     <item index="1161" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="21">
         <specialty>
-            <buff/>
+            <buff id="99" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1162" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="22">
         <specialty>
-            <buff/>
+            <buff id="101" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1163" class="general" subclass="etc" plural="1" buy="0"/>
@@ -5511,12 +5511,12 @@
     <item index="1168" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1169" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1170" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1171" class="general" subclass="etc" buy="0" sell="0"/>
@@ -5527,17 +5527,17 @@
     </item>
     <item index="1173" class="general" subclass="etc" use="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="147" time="172800" value="0"/>
         </specialty>
     </item>
     <item index="1174" class="general" subclass="etc" use="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="148" time="172800" value="0"/>
         </specialty>
     </item>
     <item index="1175" class="general" subclass="etc" use="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="149" time="172800" value="0"/>
         </specialty>
     </item>
     <item index="1176" class="general" subclass="etc" use="1" cooltime="90000" buy="0" sell="0"/>
@@ -6402,12 +6402,12 @@
     <item index="1293" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1294" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1295" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1296" class="defense" subclass="gauntlet" level="60" wear="1" reqclass="knight" reqlevel="56" buy="0" sell="200000" endurance="10">
@@ -6553,7 +6553,7 @@
     </item>
     <item index="1323" class="general" subclass="etc" use="1" plural="1" cooltime="30000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="167" time="10000" value="0"/>
         </specialty>
     </item>
     <item index="1324" class="general" subclass="etc" use="1" cooltime="2000" buy="50000" sell="0">
@@ -7182,12 +7182,12 @@
     </item>
     <item index="1446" class="general" subclass="etc" use="1" plural="1" cooltime="30000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="167" time="10000" value="0"/>
         </specialty>
     </item>
     <item index="1447" class="general" subclass="etc" use="1" plural="1" cooltime="30000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="167" time="10000" value="0"/>
         </specialty>
     </item>
     <item index="1448" class="weapon" subclass="sword" level="62" wear="1" reqclass="knight" reqlevel="62" range="30" buy="0" sell="0" endurance="34">
@@ -8190,17 +8190,17 @@
     <item index="1621" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1628" class="general" subclass="refresh" level="72" use="1" plural="1" reqclass="all" reqlevel="72" buy="0" sell="81">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="125"/>
         </specialty>
     </item>
     <item index="1629" class="general" subclass="refresh" level="72" use="1" plural="1" reqclass="all" reqlevel="72" buy="0" sell="380">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="69"/>
         </specialty>
     </item>
     <item index="1630" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1631" class="defense" subclass="upperarmor" level="65" wear="1" reqclass="knight" reqlevel="65" buy="0" sell="520000" endurance="24">
@@ -8458,12 +8458,12 @@
     </item>
     <item index="1679" class="general" subclass="throwitem" use="1" plural="1" cooltime="600000" reqclass="all" reqlevel="50" range="150" buy="100000">
         <specialty>
-            <buff/>
+            <buff id="248" time="5" value="0"/>
         </specialty>
     </item>
     <item index="1680" class="general" subclass="etc" use="1" plural="1" cooltime="900000" reqclass="all" reqlevel="50" buy="100000" effect="54">
         <specialty>
-            <buff/>
+            <buff id="249" time="180" value="30"/>
         </specialty>
     </item>
     <item index="1692" class="general" subclass="etc" plural="1" buy="0" sell="25"/>
@@ -8610,7 +8610,7 @@
     </item>
     <item index="1681" class="general" subclass="etc" use="1" cooltime="1000" reqclass="thief" reqlevel="41" buy="100000" sell="0" endurance="1">
         <specialty>
-            <buff/>
+            <buff id="104" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1682" class="general" subclass="etc" use="1" reqclass="thief" reqlevel="60" buy="0" sell="0"/>
@@ -8623,12 +8623,12 @@
     <item index="1689" class="general" subclass="etc" use="1" reqclass="thief" reqlevel="60" buy="0" sell="0"/>
     <item index="1707" class="general" subclass="etc" use="1" plural="1" cooltime="300000" reqclass="all" reqlevel="50" buy="100000" effect="57">
         <specialty>
-            <buff/>
+            <buff id="251" time="10000" value="200"/>
         </specialty>
     </item>
     <item index="1708" class="general" subclass="etc" use="1" plural="1" cooltime="450000" reqclass="all" reqlevel="50" buy="100000" effect="58">
         <specialty>
-            <buff/>
+            <buff id="252" time="10000" value="50"/>
         </specialty>
     </item>
     <item index="1709" class="weapon" subclass="wand" level="65" wear="1" reqclass="mage" reqlevel="65" range="18" buy="0" sell="6364800" endurance="36">
@@ -8845,7 +8845,7 @@
     <item index="1773" class="general" subclass="etc" wear="1" use="1" plural="1" buy="0" sell="430"/>
     <item index="1774" class="general" subclass="etc" wear="1" use="1" plural="1" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="257" time="1200" value="0"/>
         </specialty>
     </item>
     <item index="1775" class="general" subclass="etc" wear="1" use="1" plural="1" buy="0" sell="435"/>
@@ -9081,12 +9081,12 @@
     </item>
     <item index="1830" class="general" subclass="etc" wear="1" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="258" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1831" class="general" subclass="etc" wear="1" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="259" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1821" class="weapon" subclass="wand" level="65" wear="1" reqclass="mage" reqlevel="65" range="18" buy="0" sell="6364800" endurance="36">
@@ -9160,12 +9160,12 @@
     </item>
     <item index="1854" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="258" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1855" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="259" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1832" class="defense" subclass="upperarmor" level="1" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="500" endurance="15">
@@ -9251,78 +9251,78 @@
     </item>
     <item index="1939" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="343" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1940" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="344" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1945" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="345" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1946" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="346" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1947" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="347" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1948" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="6">
         <specialty>
-            <buff/>
+            <buff id="348" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1949" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="349" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1950" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="9">
         <specialty>
-            <buff/>
+            <buff id="350" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1951" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="12">
         <specialty>
-            <buff/>
+            <buff id="351" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1952" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="13">
         <specialty>
-            <buff/>
+            <buff id="352" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1953" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="14">
         <specialty>
-            <buff/>
+            <buff id="353" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1954" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="15">
         <specialty>
-            <buff/>
+            <buff id="354" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1955" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="16">
         <specialty>
-            <buff/>
+            <buff id="355" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1944" class="general" subclass="etc" plural="1" buy="0"/>
     <item index="1965" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1966" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="1971" class="general" subclass="charm" use="1" plural="1" cooltime="2000" buy="0" effect="4">
@@ -9337,47 +9337,47 @@
     </item>
     <item index="1984" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1985" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1986" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="1987" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="1988" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="1989" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="2000" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="2001" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="2002" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="1990" class="general" subclass="etc" plural="1" cooltime="2000" buy="0" sell="0"/>
@@ -9388,64 +9388,64 @@
     </item>
     <item index="1956" class="general" subclass="charm" use="1" plural="1" cooltime="1000" effect="7">
         <specialty>
-            <buff/>
+            <buff id="359" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1957" class="general" subclass="charm" use="1" plural="1" cooltime="1000" effect="7">
         <specialty>
-            <buff/>
+            <buff id="360" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="1958" class="general" subclass="charm" use="1" plural="1" cooltime="1000" effect="7">
         <specialty>
-            <buff/>
+            <buff id="361" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2004" class="LimitedPet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
     <item index="2007" class="LimitedPet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
     <item index="2048" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="383" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2049" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="384" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2050" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="385" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2051" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="383" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2052" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="384" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2053" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="385" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2099" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="383" time="1800" value="0"/>
         </specialty>
     </item>
     <item index="2100" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="384" time="1800" value="0"/>
         </specialty>
     </item>
     <item index="2101" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="385" time="1800" value="0"/>
         </specialty>
     </item>
     <item index="2055" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="210" sell="50" effect="1">
@@ -9456,22 +9456,22 @@
     <item index="2056" class="general" subclass="etc" use="1" plural="1" buy="1200" sell="240"/>
     <item index="2057" class="general" subclass="refresh" level="68" use="1" plural="1" reqclass="all" reqlevel="68" buy="250" sell="75">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="116"/>
         </specialty>
     </item>
     <item index="2058" class="general" subclass="refresh" level="72" use="1" plural="1" reqclass="all" reqlevel="72" buy="300" sell="90">
         <specialty>
-            <buff/>
+            <buff id="18" time="30" value="127"/>
         </specialty>
     </item>
     <item index="2059" class="general" subclass="refresh" level="68" use="1" plural="1" reqclass="all" reqlevel="68" buy="1550" sell="400">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="66"/>
         </specialty>
     </item>
     <item index="2060" class="general" subclass="refresh" level="72" use="1" plural="1" reqclass="all" reqlevel="72" buy="1700" sell="565">
         <specialty>
-            <buff/>
+            <buff id="19" time="30" value="73"/>
         </specialty>
     </item>
     <item index="2061" class="general" subclass="etc" level="87" use="1" buy="249576" sell="0">
@@ -9521,17 +9521,17 @@
     </item>
     <item index="2070" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="500">
         <specialty>
-            <buff/>
+            <buff id="412" time="1800" value="1"/>
         </specialty>
     </item>
     <item index="2071" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="500">
         <specialty>
-            <buff/>
+            <buff id="413" time="1800" value="2"/>
         </specialty>
     </item>
     <item index="2072" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="500">
         <specialty>
-            <buff/>
+            <buff id="414" time="1800" value="3"/>
         </specialty>
     </item>
     <item index="2073" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="1500" effect="1">
@@ -9547,22 +9547,22 @@
     <item index="2075" class="general" subclass="etc" use="1" plural="1" buy="0" sell="500"/>
     <item index="2076" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="2000">
         <specialty>
-            <buff/>
+            <buff id="415" time="3600" value="4"/>
         </specialty>
     </item>
     <item index="2077" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="3000">
         <specialty>
-            <buff/>
+            <buff id="416" time="3600" value="5"/>
         </specialty>
     </item>
     <item index="2078" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="3000">
         <specialty>
-            <buff/>
+            <buff id="417" time="3600" value="6"/>
         </specialty>
     </item>
     <item index="2079" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="3500">
         <specialty>
-            <buff/>
+            <buff id="418" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2080" class="general" subclass="etc" use="1" plural="1" buy="0" sell="500"/>
@@ -11019,7 +11019,7 @@
     </item>
     <item index="2162" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="2163" class="weapon" subclass="sword" level="1" wear="1" reqclass="knight" reqlevel="1" range="30" buy="0" sell="100" endurance="40">
@@ -11170,22 +11170,22 @@
     </item>
     <item index="2173" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="430" time="1800" value="15"/>
         </specialty>
     </item>
     <item index="2174" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="431" time="1800" value="16"/>
         </specialty>
     </item>
     <item index="2175" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="432" time="1800" value="17"/>
         </specialty>
     </item>
     <item index="2176" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="12" time="1800" value="60"/>
         </specialty>
     </item>
     <item index="2177" class="general" subclass="etc" plural="1" buy="0" sell="10"/>
@@ -11193,12 +11193,12 @@
     <item index="2179" class="general" subclass="etc" plural="1" buy="0" sell="10"/>
     <item index="2198" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="423" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="2199" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="423" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="2200" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
@@ -11208,7 +11208,7 @@
     <item index="2219" class="general" subclass="charm" use="1" buy="0" sell="0"/>
     <item index="2220" class="general" subclass="refresh" use="1" plural="1" cooltime="2000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="12" time="1800" value="45"/>
         </specialty>
     </item>
     <item index="2221" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
@@ -11449,7 +11449,7 @@
     </item>
     <item index="2360" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="137" time="1800" value="3"/>
         </specialty>
     </item>
     <item index="2361" class="general" subclass="refresh" use="1" plural="1" cooltime="1500" buy="0" sell="0" effect="1">
@@ -11464,12 +11464,12 @@
     </item>
     <item index="2363" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="12" time="1800" value="60"/>
         </specialty>
     </item>
     <item index="2364" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="432" time="1800" value="17"/>
         </specialty>
     </item>
     <item index="2365" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
@@ -11480,7 +11480,7 @@
     </item>
     <item index="2411" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="43200" value="0"/>
         </specialty>
     </item>
     <item index="2412" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
@@ -11517,57 +11517,57 @@
     </item>
     <item index="2366" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="430" time="1800" value="15"/>
         </specialty>
     </item>
     <item index="2367" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="431" time="1800" value="16"/>
         </specialty>
     </item>
     <item index="2368" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="432" time="1800" value="17"/>
         </specialty>
     </item>
     <item index="2369" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="107" time="1800" value="5"/>
         </specialty>
     </item>
     <item index="2370" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="109" time="1800" value="5"/>
         </specialty>
     </item>
     <item index="2371" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="106" time="1800" value="3"/>
         </specialty>
     </item>
     <item index="2372" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="110" time="1800" value="3"/>
         </specialty>
     </item>
     <item index="2373" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
         <specialty>
-            <buff/>
+            <buff id="108" time="1800" value="3"/>
         </specialty>
     </item>
     <item index="2374" class="general" subclass="refresh" use="1" plural="1" cooltime="2000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="12" time="3600" value="60"/>
         </specialty>
     </item>
     <item index="2375" class="general" subclass="refresh" use="1" plural="1" cooltime="2000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="12" time="3600" value="50"/>
         </specialty>
     </item>
     <item index="2376" class="general" subclass="refresh" use="1" plural="1" cooltime="2000" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="12" time="3600" value="45"/>
         </specialty>
     </item>
     <item index="2422" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>
@@ -11585,7 +11585,7 @@
     </item>
     <item index="2414" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="386" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="2427" class="general" subclass="etc" buy="0" sell="100000" plural="1"/>
@@ -11593,52 +11593,52 @@
     <item index="2429" class="general" subclass="etc" buy="0" sell="100000000" plural="0"/>
     <item index="2430" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="442" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2431" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="6">
         <specialty>
-            <buff/>
+            <buff id="444" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2432" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="443" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2433" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="451" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2434" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="9">
         <specialty>
-            <buff/>
+            <buff id="445" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2435" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="12">
         <specialty>
-            <buff/>
+            <buff id="446" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2436" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="14">
         <specialty>
-            <buff/>
+            <buff id="448" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2437" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="16">
         <specialty>
-            <buff/>
+            <buff id="447" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2438" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="13">
         <specialty>
-            <buff/>
+            <buff id="450" time="3600" value="12"/>
         </specialty>
     </item>
     <item index="2439" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="15">
         <specialty>
-            <buff/>
+            <buff id="449" time="3600" value="12"/>
         </specialty>
     </item>
     <item index="2440" class="general" subclass="etc" plural="1">
@@ -11663,7 +11663,7 @@
     </item>
     <item index="2444" class="general" subclass="etc" use="1" plural="1">
         <specialty>
-            <buff/>
+            <buff id="452" time="432000" value="0"/>
         </specialty>
     </item>
     <item index="2446" class="general" subclass="etc" use="1" plural="1" cooltime="1800000">
@@ -11712,12 +11712,12 @@
     </item>
     <item index="2456" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="1" effect="1">
         <specialty>
-            <buff/>
+            <buff id="460" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="2457" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="500" value="0"/>
         </specialty>
     </item>
     <item index="2458" class="general" subclass="hpautorefresh" use="1" plural="1" cooltime="1300" buy="0" sell="110" effect="1">
@@ -11745,7 +11745,7 @@
     </item>
     <item index="2465" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="385" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2466" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0">
@@ -11755,7 +11755,7 @@
     </item>
     <item index="2467" class="general" subclass="etc" use="1" plural="1">
         <specialty>
-            <buff/>
+            <buff id="452" time="432000" value="0"/>
         </specialty>
     </item>
     <item index="2468" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
@@ -11781,37 +11781,37 @@
     </item>
     <item index="2474" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="6">
         <specialty>
-            <buff/>
+            <buff id="52" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2475" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="5">
         <specialty>
-            <buff/>
+            <buff id="51" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2476" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
         <specialty>
-            <buff/>
+            <buff id="59" time="500" value="0"/>
         </specialty>
     </item>
     <item index="2477" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="500" value="0"/>
         </specialty>
     </item>
     <item index="2478" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="9">
         <specialty>
-            <buff/>
+            <buff id="57" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2479" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="8">
         <specialty>
-            <buff/>
+            <buff id="56" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2480" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="7">
         <specialty>
-            <buff/>
+            <buff id="54" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2481" class="general" subclass="etc" plural="1" buy="0"/>
@@ -11829,17 +11829,17 @@
     <item index="2485" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="2486" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="1" effect="1">
         <specialty>
-            <buff/>
+            <buff id="423" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="2487" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="259" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="2488" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="2489" class="general" subclass="charm" use="1" plural="1" buy="0" sell="0">
@@ -11849,17 +11849,17 @@
     </item>
     <item index="2490" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="21">
         <specialty>
-            <buff/>
+            <buff id="99" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="2491" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="1" effect="1">
         <specialty>
-            <buff/>
+            <buff id="423" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="2492" class="general" subclass="etc" use="1" plural="1">
         <specialty>
-            <buff/>
+            <buff id="452" time="172800" value="0"/>
         </specialty>
     </item>
     <item index="2497" class="general" subclass="etc" use="1" plural="1" buy="2000" sell="600"/>
@@ -11880,12 +11880,12 @@
     </item>
     <item index="2501" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="5500">
         <specialty>
-            <buff/>
+            <buff id="462" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2502" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="6500">
         <specialty>
-            <buff/>
+            <buff id="463" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2503" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="7000" effect="1">
@@ -11895,22 +11895,22 @@
     </item>
     <item index="2504" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="4500">
         <specialty>
-            <buff/>
+            <buff id="464" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2505" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="5000">
         <specialty>
-            <buff/>
+            <buff id="465" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2506" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="5000">
         <specialty>
-            <buff/>
+            <buff id="466" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2507" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="5000">
         <specialty>
-            <buff/>
+            <buff id="467" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="2508" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0">
@@ -11920,7 +11920,7 @@
     </item>
     <item index="2513" class="general" subclass="etc" use="1" plural="1">
         <specialty>
-            <buff/>
+            <buff id="452" time="432000" value="0"/>
         </specialty>
     </item>
     <item index="2514" class="general" subclass="etc" plural="1" buy="10000" sell="1000">
@@ -11928,7 +11928,7 @@
     </item>
     <item index="2515" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="468" time="3600" value="0"/>
         </specialty>
     </item>
     <item index="2516" class="ornament" subclass="enchantnecklace" wear="1" level="75" reqclass="all" reqlevel="75" buy="0" sell="0" endurance="20"/>
@@ -14782,7 +14782,7 @@
     </item>
     <item index="2933" class="general" subclass="etc" use="1" plural="1">
         <specialty>
-            <buff/>
+            <buff id="452" time="172800" value="0"/>
         </specialty>
     </item>
     <item index="2934" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0">
@@ -15267,18 +15267,18 @@
     <item index="3086" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
     <item index="3087" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="10" effect="1">
         <specialty>
-            <buff/>
+            <buff id="430" time="1800" value="15"/>
         </specialty>
     </item>
     <item index="3081" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
     <item index="3088" class="general" subclass="refresh" level="70" use="1" plural="1" cooltime="1300" reqclass="all" reqlevel="70" buy="0" sell="6500">
         <specialty>
-            <buff/>
+            <buff id="463" time="3600" value="7"/>
         </specialty>
     </item>
     <item index="3082" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
         <specialty>
-            <buff/>
+            <buff id="58" time="500" value="0"/>
         </specialty>
     </item>
     <item index="3089" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0">
@@ -15293,27 +15293,27 @@
     </item>
     <item index="3093" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="12">
         <specialty>
-            <buff/>
+            <buff id="60" time="7200" value="5"/>
         </specialty>
     </item>
     <item index="3094" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="13">
         <specialty>
-            <buff/>
+            <buff id="61" time="7200" value="10"/>
         </specialty>
     </item>
     <item index="3095" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="14">
         <specialty>
-            <buff/>
+            <buff id="62" time="7200" value="5"/>
         </specialty>
     </item>
     <item index="3096" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="15">
         <specialty>
-            <buff/>
+            <buff id="63" time="7200" value="10"/>
         </specialty>
     </item>
     <item index="3097" class="general" subclass="refresh" use="1" plural="1" cooltime="1000" buy="0" effect="16">
         <specialty>
-            <buff/>
+            <buff id="64" time="7200" value="5"/>
         </specialty>
     </item>
     <item index="3104" class="general" subclass="lottery" level="1" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
@@ -16488,27 +16488,37 @@
     <item index="3204" class="mstone" subclass="protect" plural="1" buy="0" sell="0"/>
     <item index="3205" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="30" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="3206" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="258" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="3207" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="3208" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff/>
+            <buff id="370" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="3209" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="1" effect="1">
         <specialty>
-            <buff/>
+            <buff id="423" time="86400" value="0"/>
+        </specialty>
+    </item>
+    <item index="3215" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2400">
+        <specialty>
+            <buff id="5" time="3600" value="10"/>
+        </specialty>
+    </item>
+    <item index="3216" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2400">
+        <specialty>
+            <buff id="6" time="3600" value="10"/>
         </specialty>
     </item>
     <item index="3318" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
@@ -16524,27 +16534,27 @@
     <item index="3319" class="general" subclass="HonorPointCoupon" use="1" plural="1" buy="0" sell="0"/>
     <item index="1967" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1974" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
         <specialty>
-            <buff/>
+            <buff id="31" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="1968" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1969" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1970" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
         <specialty>
-            <buff/>
+            <buff id="32" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="1979" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0">
@@ -16558,7 +16568,7 @@
     <item index="1982" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1976" class="general" subclass="charm" use="1" plural="1" cooltime="2000" buy="0" sell="0" effect="30">
         <specialty>
-            <buff/>
+            <buff id="111" time="7200" value="0"/>
         </specialty>
     </item>
     <item index="1977" class="general" subclass="etc" cooltime="1000" buy="0" sell="0"/>
@@ -16609,48 +16619,48 @@
     </item>
     <item index="3412" class="ride" subclass="etc" cooltime="5000" use="1" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="1"/>
         </specialty>
     </item>
     <item index="3413" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="5"/>
         </specialty>
     </item>
     <item index="3414" class="ride" subclass="etc" cooltime="5000" use="1" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="2"/>
         </specialty>
     </item>
     <item index="3415" class="ride" subclass="etc" cooltime="5000" use="1" buy="4500000">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="6"/>
         </specialty>
     </item>
     <item index="3416" class="ride" subclass="etc" cooltime="5000" use="1" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="3"/>
         </specialty>
     </item>
     <item index="3417" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="7"/>
         </specialty>
     </item>
     <item index="3418" class="ride" subclass="etc" cooltime="5000" use="1" buy="0" sell="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="4"/>
         </specialty>
     </item>
     <item index="3419" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="8"/>
         </specialty>
     </item>
     <item index="3420" class="general" subclass="lottery" level="3" plural="1" use="1" buy="0" sell="0"/>
     <item index="3421" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
         <specialty>
-            <buff/>
+            <buff id="498" time="0" value="9"/>
         </specialty>
     </item>
     <item index="3428" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0">
@@ -16673,22 +16683,42 @@
             <Dex/>
         </specialty>
     </item>
-    <item index="3432" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0">
+    <item index="3432" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0" level="1">
         <specialty>
             <Hth/>
         </specialty>
     </item>
-    <item index="3433" class="defense" subclass="cost" wear="1" reqclass="archer" reqlevel="1" buy="0" sell="0">
+    <item index="3433" class="defense" subclass="cost" wear="1" reqclass="archer" reqlevel="1" buy="0" sell="0" level="1">
         <specialty>
             <Dex/>
         </specialty>
     </item>
-    <item index="3434" class="defense" subclass="cost" wear="1" reqclass="mage" reqlevel="1" buy="0" sell="0">
+    <item index="3434" class="defense" subclass="cost" wear="1" reqclass="mage" reqlevel="1" buy="0" sell="0" level="1">
         <specialty>
             <wis/>
         </specialty>
     </item>
-    <item index="3435" class="defense" subclass="cost" wear="1" reqclass="thief" reqlevel="1" buy="0" sell="0">
+    <item index="3435" class="defense" subclass="cost" wear="1" reqclass="thief" reqlevel="1" buy="0" sell="0" level="1">
+        <specialty>
+            <Dex/>
+        </specialty>
+    </item>
+    <item index="3436" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0" level="1">
+        <specialty>
+            <Hth/>
+        </specialty>
+    </item>
+    <item index="3437" class="defense" subclass="cost" wear="1" reqclass="archer" reqlevel="1" buy="0" sell="0" level="1">
+        <specialty>
+            <Dex/>
+        </specialty>
+    </item>
+    <item index="3438" class="defense" subclass="cost" wear="1" reqclass="mage" reqlevel="1" buy="0" sell="0" level="1">
+        <specialty>
+            <wis/>
+        </specialty>
+    </item>
+    <item index="3439" class="defense" subclass="cost" wear="1" reqclass="thief" reqlevel="1" buy="0" sell="0" level="1">
         <specialty>
             <Dex/>
         </specialty>
@@ -16696,6 +16726,109 @@
     <item index="3440" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
         <specialty>
             <haveItems/>
+        </specialty>
+    </item>
+    <item index="3446" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty>
+            <haveItems/>
+        </specialty>
+    </item>
+    <item index="3447" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty>
+            <haveItems/>
+        </specialty>
+    </item>
+    <item index="3448" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty>
+            <haveItems/>
+        </specialty>
+    </item>
+    <item index="3449" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty>
+            <haveItems/>
+        </specialty>
+    </item>
+    <item index="3450" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty>
+            <haveItems/>
+        </specialty>
+    </item>
+    <item index="3451" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty>
+            <haveItems/>
+        </specialty>
+    </item>
+    <item index="3452" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="3453" class="general" subclass="lottery" level="5" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
+    <item index="3454" class="general" subclass="lottery" level="6" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
+    <item index="4035" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2400">
+        <specialty>
+            <buff id="5" time="3600" value="10"/>
+        </specialty>
+    </item>
+    <item index="4036" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2400">
+        <specialty>
+            <buff id="6" time="3600" value="10"/>
+        </specialty>
+    </item>
+    <item index="4040" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="21">
+        <specialty>
+            <buff id="99" time="2592000" value="0"/>
+        </specialty>
+    </item>
+    <item index="4100" class="general" subclass="etc" use="1" plural="1" cooltime="1000" sell="0" buy="0"/>
+    <item index="4101" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>
+    <item index="4102" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>
+    <item index="4134" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="4135" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="4145" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty>
+            <haveallItems/>
+        </specialty>
+    </item>
+    <item index="4146" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty>
+            <haveallItems/>
+        </specialty>
+    </item>
+    <item index="4147" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty>
+            <haveallItems/>
+        </specialty>
+    </item>
+    <item index="4148" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty>
+            <haveallItems/>
+        </specialty>
+    </item>
+    <item index="4149" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="9"/>
+        </specialty>
+    </item>
+    <item index="4150" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="10"/>
+        </specialty>
+    </item>
+    <item index="4151" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="11"/>
+        </specialty>
+    </item>
+    <item index="4152" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="14"/>
+        </specialty>
+    </item>
+    <item index="4153" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="15"/>
+        </specialty>
+    </item>
+    <item index="4200" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="30" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="5000" class="weapon" subclass="sword" level="62" wear="1" reqclass="knight" reqlevel="60" range="30" buy="0" sell="0" endurance="34">

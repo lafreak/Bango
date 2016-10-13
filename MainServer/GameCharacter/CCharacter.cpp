@@ -219,5 +219,5 @@ BYTE CCharacter::GetMoveAction(CCharacter *pCharacter, char byX, char byY)
 
 int CCharacter::GetDistance(CCharacter *pCharacter)
 {
-	return (int)sqrt(pow(m_nX - pCharacter->GetX(), 2) + pow(m_nY - pCharacter->GetY(), 2));
+	return (int) sqrt(pow(m_nX - pCharacter->GetX(), 2) + pow(m_nY - pCharacter->GetY(), 2));
 }

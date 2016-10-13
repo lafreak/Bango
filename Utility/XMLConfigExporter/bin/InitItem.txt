@@ -2370,9 +2370,9 @@
 
 ;2012년 모래방랑자 이벤트 보상
 ;케이오스
-(item	(name 3132)	(Index 2422)	(Image "shop131")	(desc 1033) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(sell 0)	(limitdate 2592000))
+(item	(name 3132)	(Index 2422)	(Image "shop131")	(desc 1033) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(sell 0)	(limitdate 2592000)	        (own))
 ;두나미스                                                                                                                                                                   
-(item	(name 3133)	(Index 2423)	(Image "shop132")	(desc 1034) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(sell 0)	(limitdate 2592000))
+(item	(name 3133)	(Index 2423)	(Image "shop132")	(desc 1034) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(sell 0)	(limitdate 2592000)	        (own))
 
 ;2012년 글로벌 올림픽 금메달 이벤트
 ;흑룡 펫
@@ -2582,7 +2582,7 @@
 
 ;어획 추가
 ;어망
-(item	(name 3508)		(Index 2497)	(Image "item065")		(desc 3498)	(class general etc)	(code 4 8 0 0)	(country 0 1 2)			(use 1)	(plural 1)											(buy 2000)	(sell 600)																																																								)
+(item	(name 3508)		(Index 2497)	(Image "item065")		(desc 3498)	(class general etc)	(code 4 8 0 0)	(country 0 1 2)			(use 1)	(plural 1)											(buy 2000)	(sell 600) 																																																								)
 ;은빛 장어
 (item	(name 3509)		(Index 2498)	(Image "item635")		(desc 3499)	(class general refresh)	(code 4 8 0 0)	(country 0 1 2)			(use 1)	(plural 1)				(cooltime 1300)							(buy 0)	(sell 2000)				(effect 1)		(specialty																									(refresh hp 400)																	)								)
 ;은빛 전어
@@ -3766,6 +3766,10 @@
 
 (item	(name 4067)		(Index 3209)	(Image "shop135")	(desc 3771)			(class general etc)	(code 4 8 0 0)	(country 0 1 2)			(use 1)	(plural 1)				(cooltime 1300)							(buy 0)	(sell 1)				(effect 1)		(specialty																												(buff 423 86400 0)																	)	(own)									)
 
+;이벤트 장어구이, 장어 보양탕
+(item	(name 526)	(Index 3215)	(Image "item074")	(desc 112)	(class general refresh)	(code 4 8 0 0)	(country 0 1 2)	(use 1)	(plural 1)	(own)	(cooltime 1300)	(buy 0)	(sell 2400)	(specialty	(buff 5 3600 10)	)	)
+(item	(name 527)	(Index 3216)	(Image "item075")	(desc 113)	(class general refresh)	(code 4 8 0 0)	(country 0 1 2)	(use 1)	(plural 1)	(own)	(cooltime 1300)	(buy 0)	(sell 2400)	(specialty	(buff 6 3600 10)	)	)
+
 ;복권용 흑마 무기 상자
 (item (name 4179) (Index 3318) (Image "item184") (desc 3786) (class general equipbox) (code 4 9 0 0) (country 0 2) (use 1)	(plural 1) (cooltime 100) (buy 0) (sell 0) 
 (specialty (haveItems 
@@ -3780,7 +3784,7 @@
 
 ;상점 판매 아이템
 (item	(name 691)		(Index 1967)	(Image "shop006")		(desc 221)	(class general etc)	(code 4 8 0 0)	(country 0 2)			(use 1)	(plural 1)		(pay 1)		(cooltime 2000)							(buy 0)					(effect 20)		(specialty																																						(buff 31 604800 0)							)			(own)							)	
-(item	(name 693)		(Index 1974)	(Image "shop008")		(desc 223)	(class general etc)	(code 4 8 0 0)	(country 0 2)			(use 1)	(plural 1)		(pay 1)		(cooltime 2000)							(buy 0)					(effect 20)		(specialty																																						(buff 31 2592000 0)							)			(own)							)	
+(item	(name 676)		(Index 1974)	(Image "shop008")		(desc 223)	(class general etc)	(code 4 8 0 0)	(country 0 2)			(use 1)	(plural 1)		(pay 1)		(cooltime 2000)							(buy 0)					(effect 20)		(specialty																																						(buff 31 2592000 0)							)			(own)							)	
 (item	(name 694)		(Index 1968)	(Image "shop009")		(desc 224)	(class general etc)	(code 4 8 0 0)	(country 0 2)			(use 1)	(plural 1)		(pay 1)		(cooltime 2000)							(buy 0)					(effect 18)		(specialty																																						(buff 32 86400 0)							)			(own)							)	
 (item	(name 695)		(Index 1969)	(Image "shop011")		(desc 225)	(class general etc)	(code 4 8 0 0)	(country 0 2)			(use 1)	(plural 1)		(pay 1)		(cooltime 2000)							(buy 0)					(effect 18)		(specialty																																						(buff 32 604800 0)							)			(own)							)	
 (item	(name 697)		(Index 1970)	(Image "shop012")		(desc 227)	(class general etc)	(code 4 8 0 0)	(country 0 2)			(use 1)	(plural 1)		(pay 1)		(cooltime 2000)							(buy 0)					(effect 18)		(specialty																																						(buff 32 2592000 0)							)			(own)							)	
@@ -3852,42 +3856,108 @@
 
 ;탈 것 시스템
 ;백호
-(item	(name 4561)	(Index 3412)	(Image "item547")	(desc 3839)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(buy 0)	(sell 0)	(specialty (buff 498 0 1) )	(own2) )
-;맹호							                                                                                                                   
-(item	(name 4562)	(Index 3413)	(Image "item548")	(desc 3836)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 5) )	(own2) )	
-;흑마								                                                                                                             
-(item	(name 4563)	(Index 3414)	(Image "item549")	(desc 3833)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(buy 0)	(sell 0)	(honoritem 2 300000)	(specialty (buff 498 0 2) )	(own2) )	
-;말						                                                                                                                           
-(item	(name 4564)	(Index 3415)	(Image "item550")	(desc 3832)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 4500000)	(specialty (buff 498 0 6) )	(own2) )
-;다이어 울프								                                                                                                         
-(item	(name 4665)	(Index 3416)	(Image "item551")	(desc 3834)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(buy 0)	(sell 0)	(specialty (buff 498 0 3) )	(own2) )
-;늑대						                                                                                                                        
-(item	(name 4666)	(Index 3417)	(Image "item552")	(desc 3837)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 7) )	(own2) )
-;다이어 베어								                                                                                                        
-(item	(name 4667)	(Index 3418)	(Image "item553")	(desc 3835)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(buy 0)	(sell 0)	(specialty (buff 498 0 4) )	(own2) )
-;곰								                                                                                                                
-(item	(name 4668)	(Index 3419)	(Image "item554")	(desc 3838)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 8) )	(own2) )
+(item	(name 4561)	(Index 3412)	(Image "item547")	(desc 3839)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 1)	(use 1)	(buy 0)	(sell 0)	(specialty (buff 498 0 1) )	(own2) )
+;맹호							                                                                                                                               
+(item	(name 4562)	(Index 3413)	(Image "item548")	(desc 3836)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 1)	(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 5) )	(own2) )	
+;흑마								                                                                                                                           
+(item	(name 4563)	(Index 3414)	(Image "item549")	(desc 3833)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 6)	(use 1)	(buy 0)	(sell 0)	(honoritem 2 300000)	(specialty (buff 498 0 2) )	(own2) )	
+;말						                                                                                                                                       
+(item	(name 4564)	(Index 3415)	(Image "item550")	(desc 3832)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 6)	(use 1)	(pay 1)	(buy 4500000)	(specialty (buff 498 0 6) )	(own2) )
+;다이어 울프								                                                                                                                   
+(item	(name 4665)	(Index 3416)	(Image "item551")	(desc 3834)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 3)	(use 1)	(buy 0)	(sell 0)	(specialty (buff 498 0 3) )	(own2) )
+;늑대						                                                                                                                                   
+(item	(name 4666)	(Index 3417)	(Image "item552")	(desc 3837)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 3)	(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 7) )	(own2) )
+;다이어 베어								                                                                                                                   
+(item	(name 4667)	(Index 3418)	(Image "item553")	(desc 3835)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 2)	(use 1)	(buy 0)	(sell 0)	(specialty (buff 498 0 4) )	(own2) )
+;곰								                                                                                                                               
+(item	(name 4668)	(Index 3419)	(Image "item554")	(desc 3838)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 2)	(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 8) )	(own2) )
 
 ;god box
 (item   (name 4526) (Index 3420)    (Image "item657")   (class general lottery) (code 4 9 0 0)  (country 0 2)   (level 3)   (plural 1)  (use 1) (buy 0) (sell 0)(own2))
 
 ;군마	                                                                                                                
-(item	(name 4669)	(Index 3421)	(Image "item789")	(desc 3840)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 2592000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 9) ))
+(item	(name 4669)	(Index 3421)	(Image "item789")	(desc 3840)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 2592000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 9) )	(own2))
 
 ;코스튬 수영복(무제한)
-(item	(name 4938)	(Index 3428)	(Image "Cost1")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit knight 1)	(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (Hth 5)))
-(item	(name 4939)	(Index 3429)	(Image "Cost2")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit archer 1)	(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (Dex 5)))
-(item	(name 4940)	(Index 3430)	(Image "Cost3")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit mage 1)		(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (wis 5)))
-(item	(name 4941)	(Index 3431)	(Image "Cost4")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit thief 1)		(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (Dex 5)))
+(item	(name 4938)	(Index 3428)	(Image "Cost1")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit knight 1)	(buy 0)	(sell 0)	(notEnchant)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Hth 5)))
+(item	(name 4939)	(Index 3429)	(Image "Cost2")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit archer 1)	(buy 0)	(sell 0)	(notEnchant)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Dex 5)))
+(item	(name 4940)	(Index 3430)	(Image "Cost3")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit mage 1)		(buy 0)	(sell 0)	(notEnchant)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (wis 5)))
+(item	(name 4941)	(Index 3431)	(Image "Cost4")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit thief 1)		(buy 0)	(sell 0)	(notEnchant)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Dex 5)))
 
-;코스튬 레어 수영복 (무제한)
-(item	(name 4942)	(Index 3432)	(Image "Cost1")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit knight 1)	(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (Hth 10)))
-(item	(name 4943)	(Index 3433)	(Image "Cost2")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit archer 1)	(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (Dex 10)))
-(item	(name 4944)	(Index 3434)	(Image "Cost3")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit mage 1)		(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (wis 10)))
-(item	(name 4945)	(Index 3435)	(Image "Cost4")	(Action 1 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit thief 1)		(buy 0)	(sell 0)	(ignorepart 0 1 2 3 5)	(specialty (Dex 10)))
+;코스튬 레어 수영복(무제한)
+(item	(name 4942)	(Index 3432)	(Image "Cost5")	(Action 2 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit knight 1)	(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Hth 10)))
+(item	(name 4943)	(Index 3433)	(Image "Cost6")	(Action 2 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit archer 1)	(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Dex 10)))
+(item	(name 4944)	(Index 3434)	(Image "Cost7")	(Action 2 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit mage 1)		(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (wis 10)))
+(item	(name 4945)	(Index 3435)	(Image "Cost8")	(Action 2 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit thief 1)		(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Dex 10)))
+
+;코스튬 수영복(무제한)
+(item	(name 4946)	(Index 3436)	(Image "Cost9")	(Action 3 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit knight 1)	(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Hth 10)))
+(item	(name 4947)	(Index 3437)	(Image "Cost10")	(Action 3 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit archer 1)	(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Dex 10)))
+(item	(name 4948)	(Index 3438)	(Image "Cost11")	(Action 3 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit mage 1)		(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (wis 10)))
+(item	(name 4949)	(Index 3439)	(Image "Cost12")	(Action 3 1)	(class defense cost)	(code 2 3 4 0)	(country 0 1 2)	(wear 1)	(limit thief 1)		(buy 0)	(sell 0)	(notEnchant)	(level 1)	(ignorepart 0 1 2 3 5)	(costumetype 1) (specialty (Dex 10)))
 
 ;수영복 상자
-(item	(name 4950)	(index 3440)	(Image "item657") (class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty (haveItems	(3428 1 1 250) (3429 1 251 500) (3430 1 501 750) (3431 1 751 1000))))
+(item	(name 4950)	(index 3440)	(Image "item793") (class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty (haveItems	(3428 1 1 250) (3429 1 251 500) (3430 1 501 750) (3431 1 751 1000))))
+
+;수영복상자 랜덤(레어 포함)
+(item	(name 4951)	(index 3446)	(Image "srb001")	(class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty	(haveItems	(3428 1 1 920) (3432 1 921 960) (3436 1 961 1000))))
+(item	(name 4952)	(index 3447)	(Image "srb002")	(class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty	(haveItems	(3429 1 1 920) (3433 1 921 960) (3437 1 961 1000))))
+(item	(name 4953)	(index 3448)	(Image "srb003")	(class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty	(haveItems	(3430 1 1 920) (3434 1 921 960) (3438 1 961 1000))))
+(item	(name 4954)	(index 3449)	(Image "srb004")	(class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty	(haveItems	(3431 1 1 920) (3435 1 921 960) (3439 1 961 1000))))
+
+; NEW 수영복 상자
+(item	(name 4600)	(index 3450)	(Image "item793") (class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty (haveItems	(3432 1 1 250) (3433 1 251 500) (3434 1 501 750) (3435 1 751 1000))))
+
+; SEXY 수영복 상자
+(item	(name 4601)	(index 3451)	(Image "item793") (class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(use 1)	(specialty (haveItems	(3436 1 1 250) (3437 1 251 500) (3438 1 501 750) (3439 1 751 1000))))
+
+;흑룡 펫
+(item	(name 3433)	(Index 3452)	(Image "pet018")	(desc 1005) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(buy 0)	(sell 0)	(limitdate 1296000)	        )
+ 
+;8월의 럭키 박스
+(item	(name 4526)	(Index 3453)    (Image "item657")   (class general lottery)	(level 5)	(code 4 9 0 0)	(country 0 2)	(use 1)	(pay 1)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(effect 6))
+ 
+;블랙 큐브
+(item	(name 4998)	(Index 3454)    (Image "item807")	(desc 4998)  (class general lottery)	(level 6)	(code 4 9 0 0)	(country 0 2)	(use 1)	(pay 1)	(plural 1)	(cooltime 100)	(buy 0)	(sell 0)	(effect 6)(type black_cube))
+
+;이벤트 장어구이, 장어 보양탕
+(item	(name 526)	(Index 4035)	(Image "item074")	(desc 112)	(class general refresh)	(code 4 8 0 0)	(country 0 1 2)	(use 1)	(plural 1)	(own)	(cooltime 1300)	(buy 0)	(sell 2400)	(specialty	(buff 5 3600 10)	)	)
+(item	(name 527)	(Index 4036)	(Image "item075")	(desc 113)	(class general refresh)	(code 4 8 0 0)	(country 0 1 2)	(use 1)	(plural 1)	(own)	(cooltime 1300)	(buy 0)	(sell 2400)	(specialty	(buff 6 3600 10)	)	)
+(item	(name 836)	(Index 4040)	(Image "shop040")	(desc 364)	(class general etc)	(code 4 8 0 0)	(country 0 2)	(use 1)	(own2)	(plural 1)	(pay 1)	(cooltime 1000)	(buy 0)	(effect 21)	(specialty	(buff 99 2592000 0)	)	)
+ 
+;블랙티켓
+(item	(name 4999)	(Index 4100)	(Image "item808")	(desc 4999)	(class general etc)	(code 4 8 0 0)	(country 0 2)	(use 1)	(plural 1)	(pay 1)	(cooltime 1000)	(sell 0)	(buy 0)	(own))
+
+;2012년 모래방랑자 이벤트 보상
+;케이오스
+(item	(name 3132)	(Index 4101)	(Image "shop131")	(desc 1033) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(sell 0)	(limitdate 1296000)	        (own))
+;두나미스                                                                                                                                                                   
+(item	(name 3133)	(Index 4102)	(Image "shop132")	(desc 1034) (Action 21 1)		(class pet egg)(code 1 2 1 3)	(country 0 1 2)	(level 1)	(wear 1)(limit all 1)	(sell 0)	(limitdate 1296000)	        (own))
+
+ ;코스튬 강화석
+(item	(name 4955)	(index 4134)	(image "item794")	(desc 5203)	(class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(buy 0)	(sell 0))
+(item	(name 4956)	(index 4135)	(image "item795")	(desc 5204)	(class general etc)	(code 4 8 0 0)	(country 0 2)	(plural 1)	(buy 0)	(sell 0))
+
+;썸머팩
+(item	(name 5008)	(index 4145)	(Image "item797")	(desc 4013)	(class general etc)	(code 4 9 0 0)	(country 0	2)	(use 1)	(buy 0)	(sell 0)	(specialty	(haveallItems	(4040 1 1 1) (1147 5 2 2) (1966 1 3 3) (3215 50 4 4) (3216 50 5 5) (1974 1 6 6) (1291 20 7 7) (4149 1 8 8) (3428 1 9 9) (1989 1 10 10)))(own))
+(item	(name 5009)	(index 4146)	(Image "item798")	(desc 4013)	(class general etc)	(code 4 9 0 0)	(country 0	2)	(use 1)	(buy 0)	(sell 0)	(specialty	(haveallItems	(4040 1 1 1) (1147 5 2 2) (1966 1 3 3) (3215 50 4 4) (3216 50 5 5) (1974 1 6 6) (1291 20 7 7) (4149 1 8 8) (3429 1 9 9) (1989 1 10 10)))(own))
+(item	(name 5010)	(index 4147)	(Image "item799")	(desc 4013)	(class general etc)	(code 4 9 0 0)	(country 0	2)	(use 1)	(buy 0)	(sell 0)	(specialty	(haveallItems	(4040 1 1 1) (1147 5 2 2) (1966 1 3 3) (3215 50 4 4) (3216 50 5 5) (1974 1 6 6) (1291 20 7 7) (4149 1 8 8) (3430 1 9 9) (1989 1 10 10)))(own))
+(item	(name 5011)	(index 4148)	(Image "item800")	(desc 4013)	(class general etc)	(code 4 9 0 0)	(country 0	2)	(use 1)	(buy 0)	(sell 0)	(specialty	(haveallItems	(4040 1 1 1) (1147 5 2 2) (1966 1 3 3) (3215 50 4 4) (3216 50 5 5) (1974 1 6 6) (1291 20 7 7) (4149 1 8 8) (3431 1 9 9) (1989 1 10 10)))(own))
+
+;백마(15일)	                                                                                                                
+(item	(name 4669)	(Index 4149)	(Image "item789")	(desc 3840)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)	(ridingtype 6)	(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 9) )	)
+
+;공룡(15일)	                                                                                                                
+(item	(name 4603)	(Index 4150)	(Image "item801")	(desc 3843)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 10) )	)
+;스켈레톤 공룡(15일)	                                                                                                                
+(item	(name 4604)	(Index 4151)	(Image "item802")	(desc 3844)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 11) )	)
+;전투 공룡(15일)	                                                                                                                
+(item	(name 4605)	(Index 4152)	(Image "item803")	(desc 3845)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 14) )	)
+;전투 스켈레톤 공룡(15일)	                                                                                                                
+(item	(name 4606)	(Index 4153)	(Image "item804")	(desc 3846)	(class ride etc)	(cooltime 5000 22)	(code 4 8 0 0)	(country 0 1 2)	(limitDate 1296000)		(use 1)	(pay 1)	(buy 0)	(specialty (buff 498 0 15) )	)
+
+;경험치 보상용 경험의돌1일(귀속)
+(item	(name 669)		(Index 4200)	(Image "shop001")		(desc 216)	(class general etc)	(code 4 8 0 0)	(country 2)			(use 1)	(plural 1)	(pay 1)		(cooltime 2000)						(buy 0)					(effect 19)	(specialty																														(buff 30 86400 0)							)			(own)					)
 
 ;대여 아이템 황금참도 (30일 / 90일 순)																																		
 (item	(name 4226)	(Index 5000)	(Image "Wea118")	(Action 7 1)	(limitDate 1296000)	(class weapon sword)		(code  1 1 1 1)	(country 0 2)	(level 62)	(wear 1)	(limit knight 60)	(range 30)	(buy 0)	(sell 0)	(endurance 34)	(maxprotect 240)	(specialty	(aspeed 700)	(Attack 300 370)	(hp 450)	(Str 5)	(Hth 4)	(Dex 1)	(hit 83)(Changeprefix ornament 34 3 80 1)	)	(own)		) 					

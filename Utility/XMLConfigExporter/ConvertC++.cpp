@@ -404,6 +404,15 @@ public:
 							pSpec->SetAttribute("amount", nvalue);
 						}
 
+						else if (specname == "buff") {
+							int id=0, time=0, value=0;
+							d >> id >> time >> value;
+
+							pSpec->SetAttribute("id", id);
+							pSpec->SetAttribute("time", time);
+							pSpec->SetAttribute("value", value);
+						}
+
 						pSpecList->InsertEndChild(pSpec);
 					}
 

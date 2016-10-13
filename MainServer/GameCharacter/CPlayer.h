@@ -12,8 +12,8 @@
 #include "../Item/CItem.h"
 #include "CMonster.h"
 
-#define GEAR_NUM 22
-#define GEAR_VISIBLE_NUM 8
+#define GEAR_NUM 23
+#define GEAR_VISIBLE_NUM 9
 
 class CPlayer: public CCharacter
 {
@@ -56,15 +56,16 @@ class CPlayer: public CCharacter
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
 
+	static std::map<int, CPlayer*> g_mPlayer;
+	static std::mutex g_mxPlayer;
+
 public:
 	CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc);
 	~CPlayer();
 
-	static std::map<int, CPlayer*> g_mPlayer;
-	static std::mutex g_mxPlayer;
-
 	static void Add(CPlayer *pPlayer);
 	static void Remove(CPlayer *pPlayer);
+	static void TickAll();
 
 	// Remember to call m_Access.Release() after usage
 	static CPlayer* FindPlayer(int nID);

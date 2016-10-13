@@ -4,6 +4,8 @@
 
 #include "../Map/CMap.h"
 
+#include "CPlayer.h"
+
 MonsterMap CMonster::g_mMonster;
 std::mutex CMonster::g_mxMonster;
 
@@ -12,6 +14,15 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 	m_pMacro = pMacro;
 	m_nX = nX;
 	m_nY = nY;
+
+	m_pTarget = NULL;
+
+	m_byAIState = AIS_IDLE;
+
+	m_dwWalkTime = GetTickCount() + (rand() % (MONSTER_WALK_FREQUENCY * 1000));
+
+	m_dwLastWalkStep = 0;
+	m_dwLastChaseStep = 0;
 }
 
 CMonster::~CMonster()
@@ -54,6 +65,8 @@ CMonster* CMonster::Summon(WORD wIndex, int nX, int nY)
 
 	Packet createPacket = pMonster->GenerateCreatePacket(true);
 	pMonster->SendPacketInSight(createPacket);
+
+	return pMonster;
 }
 
 Packet CMonster::GenerateCreatePacket(bool bHero)
@@ -147,6 +160,34 @@ void CMonster::Remove(CMonster *pMonster)
 	g_mxMonster.unlock();
 }
 
+void CMonster::TickAll()
+{
+	g_mxMonster.lock();
+
+	for (auto& a: g_mMonster)
+	{
+		a.second->m_Access.Grant();
+		a.second->Tick();
+		a.second->m_Access.Release();
+	}
+
+	g_mxMonster.unlock();
+}
+
+void CMonster::AIAll()
+{
+	g_mxMonster.lock();
+
+	for (auto& a: g_mMonster)
+	{
+		a.second->m_Access.Grant();
+		a.second->AI();
+		a.second->m_Access.Release();
+	}
+
+	g_mxMonster.unlock();
+}
+
 CMonster* CMonster::FindMonster(int nID)
 {
 	CMonster *pMonster=NULL;
@@ -182,16 +223,111 @@ CMonster* CMonster::FindMonsterByIndex(WORD wIndex)
 	return pMonster;
 }
 
+CPlayer* CMonster::GetClosestPlayer()
+{
+	return CMap::GetClosestPlayer(this, GetCloseSight());
+}
+
 void CMonster::Tick()
 {
-	DWORD dwTime = GetTickCount();
+	DWORD dwNow = GetTickCount();
 
-	char byX = (rand() % 65) - 32;
-	char byY = (rand() % 65) - 32;
+	if (m_byAIState == AIS_IDLE && dwNow >= m_dwWalkTime) 
+	{
+		Lock();
 
-	Move(byX, byY, MT_WALK);
+		auto pTarget = GetClosestPlayer();
 
-	//printf("CMonster::Tick %d\n", GetIndex());
+		if (pTarget) 
+		{
+			printf("Found taget.\n");
+			m_pTarget = pTarget;
+			m_byAIState = AIS_CHASE;
+			pTarget->m_Access.Release();
+			printf("Time for chase!.\n");
+		}
+		else
+		{
+			printf("Walk time.\n");
+			m_dwWalkTime = dwNow + MONSTER_WALK_FREQUENCY * 1000;
+			m_byAIState = AIS_WALK;
+		}
+
+		Unlock();
+	}
+}
+
+void CMonster::AI()
+{
+	DWORD dwNow = GetTickCount();
+
+	switch (m_byAIState)
+	{
+		case AIS_WALK:
+		{
+			if (dwNow < m_dwLastWalkStep)
+				break;
+
+			WORD wAngle = rand() % 360;
+			char dx = 32 * cos(wAngle * M_PI / 180.0);
+			char dy = 32 * sin(wAngle * M_PI / 180.0);
+
+			Lock();
+
+			if ((rand() % MONSTER_WALK_TIME) == 0)
+			{
+				Move(dx, dy, MT_WALK | MTEX_MOVEEND);
+				m_byAIState = AIS_IDLE;
+			}
+			else
+			{
+				Move(dx, dy, MT_WALK);
+			}
+
+			m_dwLastWalkStep = dwNow + GetWalkSpeed();
+
+			Unlock();
+
+			break;
+		}
+
+		case AIS_CHASE:
+		{
+			if (dwNow < m_dwLastChaseStep)
+				break;
+
+			printf("Step.\n");
+
+			int nDistance = GetDistance(m_pTarget) - GetRange();
+
+			if (nDistance <= 1)
+				break; // Attack
+
+			int nStep = nDistance > 64 ? 64 : nDistance;
+			BYTE byType = nDistance > 64 ? 0 : 1;
+
+			float fAngle = atan2(m_pTarget->GetY() - GetY(), m_pTarget->GetX() - GetX());
+			char dx = nStep * cos(fAngle);
+			char dy = nStep * sin(fAngle);
+
+			Lock();
+
+			if (byType)
+			{
+				Move(dx, dy, MT_RUN | MTEX_MOVEEND);
+			}
+			else
+			{
+				Move(dx, dy, MT_RUN);
+			}
+
+			m_dwLastChaseStep = dwNow + GetRunSpeed();
+
+			Unlock();
+
+			break;
+		}
+	}
 }
 
 void CMonster::Move(char byX, char byY, BYTE byType)

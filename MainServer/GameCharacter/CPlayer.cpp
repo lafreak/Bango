@@ -272,6 +272,11 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 			m_Gear[WS_RESISTNECKLACE2] = pItem->GetIID();
 			AddWState(WS_RESISTNECKLACE2);
 			break;
+
+		case ISC_ETC:
+			m_Gear[WS_RIDE] = pItem->GetIID();
+			AddWState(WS_RIDE);
+			break;
 	}
 }
 
@@ -405,6 +410,11 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 		case ISC_RESISTNECKLACE2:
 			m_Gear[WS_RESISTNECKLACE2] = 0;
 			SubWState(WS_RESISTNECKLACE2);
+			break;
+
+		case ISC_ETC:
+			m_Gear[WS_RIDE] = 0;
+			SubWState(WS_RIDE);
 			break;
 	}
 
@@ -609,6 +619,20 @@ void CPlayer::Remove(CPlayer *pPlayer)
 	PlayerMap::iterator it = g_mPlayer.find(pPlayer->GetID());
 	if (it != g_mPlayer.end())
 		g_mPlayer.erase(it);
+
+	g_mxPlayer.unlock();
+}
+
+void CPlayer::TickAll()
+{
+	g_mxPlayer.lock();
+
+	for (auto& a: g_mPlayer)
+	{
+		a.second->m_Access.Grant();
+		a.second->Tick();
+		a.second->m_Access.Release();
+	}
 
 	g_mxPlayer.unlock();
 }
@@ -870,6 +894,8 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 	}
+
+	printf("S2C_? %d\n", packet.byType);
 }
 
 void CPlayer::OnLoadPlayer()
@@ -1296,7 +1322,11 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (token)
 			wIndex = atoi(token);
 
-		CMonster::Summon(wIndex, GetX(), GetY());
+		CMonster *pMonster = CMonster::Summon(wIndex, GetX(), GetY());
+		if (pMonster) {
+		//	pMonster->SetTarget(this);
+		//	pMonster->SetAIS(CMonster::AIS_CHASE);
+		}
 	}
 
 	else if (!strcmp(token, "/test")) {
@@ -1307,8 +1337,8 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (token)
 			wIndex = atoi(token);
 
-		for (int i = GetX() - 50; i <= GetX() + 50; i+=5) {
-			for (int j = GetY() - 50; j <= GetY() + 50; j+=5) {
+		for (int i = GetX() - 500; i <= GetX() + 500; i+=50) {
+			for (int j = GetY() - 500; j <= GetY() + 500; j+=50) {
 				CMonster::Summon(wIndex, i, j);
 			}
 		}

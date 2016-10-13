@@ -6,6 +6,7 @@
 #include "CItemPet.h"
 #include "CItemOrnament.h"
 #include "CItemTransform.h"
+#include "CItemRide.h"
 
 #include "../GameCharacter/CPlayer.h"
 
@@ -98,6 +99,10 @@ CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 		case IC_TRANSFORM:
 			pItem = new CItemTransform(desc, pMacro);
 			break;
+		case IC_RIDE:
+			pItem = new CItemRide(desc, pMacro);
+			break;
+
 		default:
 			printf(KRED "Unknown item class (%d).\n" KNRM, pMacro->m_byClass);
 			pItem = new CItemGeneral(desc, pMacro);

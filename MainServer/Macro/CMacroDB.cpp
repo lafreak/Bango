@@ -17,6 +17,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"LimitedPet",  IC_PET },
 	{"money", 		IC_MONEY },
 	{"yinyang", 	IC_YINYANG },
+	{"ride", 		IC_RIDE },
 
 	// Item Sub Class
 	{"fish", 		ISC_FISH },
@@ -128,6 +129,14 @@ bool CMacroDB::LoadInitItem()
 					int nType = FindKey(pSpecialty->ToElement()->Attribute("property"));
 					if (nType != -1)
 						pItem->m_nRefresh[nType] = pSpecialty->ToElement()->IntAttribute("amount");
+				}
+
+				else if (strcmp(pSpecialty->ToElement()->Name(), "buff") == 0) {
+					XMLElement *pElement = pSpecialty->ToElement();
+
+					pItem->m_nBuffId = pElement->IntAttribute("id");
+					pItem->m_nBuffTime = pElement->IntAttribute("time");
+					pItem->m_nBuffValue = pElement->IntAttribute("value");
 				}
 
 				pSpecialty = pSpecialty->NextSibling();

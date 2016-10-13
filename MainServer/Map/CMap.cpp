@@ -99,6 +99,41 @@ void CMap::GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterLi
 	}
 }
 
+CPlayer* CMap::GetClosestPlayer(CCharacter *pCharacter, int nDistance)
+{
+	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
+
+	PlayerList list;
+	GetPlayerListAround(pCharacter, nDistance, list);
+
+	CPlayer *pPlayer=NULL;
+	int nCurDist = -1;
+
+	for (PlayerList::iterator it = list.begin(); it != list.end(); it++)
+	{
+		int nDist = pCharacter->GetDistance(*it);
+
+		if (nCurDist == -1)
+		{
+			pPlayer = (*it);
+			nCurDist = nDist;
+			continue;
+		}
+
+		if (pCharacter->GetDistance(*it) < nCurDist) 
+		{
+			pPlayer->m_Access.Release();
+			pPlayer = (*it);
+			nCurDist = nDist;
+			continue;
+		}
+
+		(*it)->m_Access.Release();
+	}
+
+	return pPlayer;
+}
+
 MapInfo CMap::GetMapInfo(int nX, int nY)
 {
 	MapInfo mapInfo;
