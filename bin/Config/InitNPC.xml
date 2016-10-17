@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <world>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
+    <npc/>
     <npc index="1" shape="3" html="1" x="257491" y="258584" z="16120" dirx="254491" diry="257584"/>
     <npc index="2" shape="3" html="3" x="257016" y="258556" z="16140" dirx="260016" diry="250556"/>
     <npc index="3" shape="3" html="7" x="257556" y="258207" z="16140" dirx="256556" diry="258207"/>
@@ -74,7 +83,7 @@
     <npc index="76" shape="9" x="264974" y="262227" z="16180" dirx="264974" diry="263227"/>
     <npc index="77" shape="3" x="265183" y="262364" z="16208" dirx="264183" diry="270364"/>
     <npc index="78" shape="1" x="257190" y="258988" z="16090" dirx="277190" diry="259988"/>
-    <npc index="79" shape="9" x="256786" y="258150" z="16101" dirx="256815" diry="258159"/>
+    <npc index="79" shape="9" x="256928" y="258156" z="16160" dirx="257928" diry="258156"/>
     <npc index="80" shape="1" x="265131" y="261996" z="16180" dirx="266131" diry="262996"/>
     <npc index="81" shape="2" x="265121" y="285614" z="22650" dirx="266121" diry="287614"/>
     <npc index="82" shape="1" x="257543" y="259049" z="16070" dirx="256543" diry="260049"/>
@@ -400,4 +409,98 @@
     <npc index="474" shape="29" html="274" x="248539" y="260590" z="24280" dirx="248536" diry="260565"/>
     <npc index="476" shape="31" html="0" x="256346" y="288883" z="27055" dirx="256364" diry="288883"/>
     <npc index="477" shape="36" html="277" x="256346" y="288898" z="27059" dirx="256377" diry="288899"/>
+    <npc index="605" shape="60" html="0" x="267383" y="242421" z="19632" dirx="267403" diry="242425"/>
+    <npc index="606" shape="61" html="350" x="282435" y="248189" z="16351" dirx="282417" diry="248252"/>
+    <npc index="607" shape="46" html="284" x="282539" y="248324" z="16351" dirx="282463" diry="248324"/>
+    <npc index="608" shape="47" html="313" x="282487" y="248257" z="16351" dirx="282440" diry="248291"/>
+    <npc index="576" shape="26" html="328" x="214286" y="280784" z="37797" dirx="214298" diry="280816"/>
+    <npc index="577" shape="26" html="328" x="214206" y="283359" z="37824" dirx="214527" diry="280593"/>
+    <npc index="578" shape="26" html="328" x="214230" y="285608" z="37777" dirx="214240" diry="285640"/>
+    <npc index="579" shape="26" html="328" x="216594" y="280872" z="37630" dirx="216606" diry="280904"/>
+    <npc index="580" shape="26" html="328" x="216695" y="283359" z="37830" dirx="216707" diry="283390"/>
+    <npc index="581" shape="26" html="328" x="216684" y="285683" z="37830" dirx="216667" diry="285682"/>
+    <npc index="582" shape="26" html="328" x="219021" y="280783" z="37750" dirx="218984" diry="280811"/>
+    <npc index="583" shape="26" html="328" x="218949" y="283344" z="37738" dirx="218918" diry="283371"/>
+    <npc index="584" shape="26" html="328" x="219100" y="285646" z="37823" dirx="219115" diry="285677"/>
+    <npc index="585" shape="27" html="326" x="257685" y="259139" z="16080" dirx="257676" diry="259171"/>
+    <npc index="586" shape="27" html="326" x="268023" y="242997" z="19630" dirx="268001" diry="242979"/>
+    <npc index="587" shape="27" html="326" x="232068" y="294992" z="45310" dirx="232088" diry="295009"/>
+    <npc index="615" shape="9" html="376" x="256649" y="257545" z="16505" dirx="256661" diry="257625"/>
+    <npc index="588" shape="8" html="330" x="255754" y="257249" z="15927" dirx="255808" diry="257304"/>
+    <npc index="627" shape="66" x="229535" y="275585" z="38290" dirx="255808" diry="257304"/>
+    <npc index="628" shape="66" x="236005" y="273158" z="38575" dirx="255808" diry="257304"/>
+    <npc index="629" shape="66" x="241012" y="275262" z="44610" dirx="255808" diry="257304"/>
+    <npc index="630" shape="66" x="244712" y="284967" z="36092" dirx="255808" diry="257304"/>
+    <npc index="631" shape="66" x="231055" y="283728" z="38754" dirx="255808" diry="257304"/>
+    <npc index="632" shape="7" html="900671" x="232789" y="294695" z="45300" dirx="232770" diry="294748"/>
+    <npc index="636" shape="3" html="506" x="257009" y="258474" z="16150" dirx="257042" diry="258489"/>
+    <npc index="637" shape="3" html="507" x="264965" y="285222" z="22650" dirx="264996" diry="285250"/>
+    <npc index="638" shape="3" html="508" x="265320" y="285060" z="22650" dirx="265327" diry="285101"/>
+    <npc index="639" shape="3" html="509" x="269124" y="243161" z="19620" dirx="269098" diry="243156"/>
+    <npc index="640" shape="3" html="510" x="268999" y="242759" z="19630" dirx="268991" diry="242794"/>
+    <npc index="641" shape="3" html="511" x="234894" y="294210" z="45406" dirx="234888" diry="294250"/>
+    <npc index="642" shape="3" html="512" x="234976" y="295160" z="45390" dirx="234977" diry="295083"/>
+    <npc index="643" shape="84" html="513" x="256540" y="257834" z="16505" dirx="256563" diry="257814"/>
+    <npc index="644" shape="5" html="514" x="255628" y="289315" z="27077" dirx="255657" diry="289332"/>
+    <npc index="645" shape="5" html="515" x="255614" y="289343" z="27070" dirx="255649" diry="289367"/>
+    <npc index="646" shape="5" html="516" x="268865" y="243444" z="19620" dirx="268844" diry="243417"/>
+    <npc index="647" shape="5" html="517" x="268898" y="243417" z="19630" dirx="268880" diry="243395"/>
+    <npc index="648" shape="5" html="518" x="233040" y="291199" z="45420" dirx="233491" diry="291665"/>
+    <npc index="649" shape="5" html="519" x="233005" y="291231" z="45420" dirx="233491" diry="291665"/>
+    <npc index="652" shape="5" html="527" x="117415" y="35509" z="27399" dirx="117415" diry="35500"/>
+    <npc index="561" shape="67" html="0" x="117338" y="35712" z="27399" dirx="117336" diry="36797"/>
+    <npc index="653" shape="5" html="424" x="236019" y="279744" z="44697" dirx="236023" diry="279711"/>
+    <npc index="654" shape="7" html="520" x="232802" y="294651" z="45300" dirx="232802" diry="294631"/>
+    <npc index="658" shape="68" html="0" x="70176" y="51360" z="24094" dirx="70176" diry="51360"/>
+    <npc index="659" shape="68" html="0" x="118153" y="51856" z="22589" dirx="118153" diry="51856"/>
+    <npc index="660" shape="68" html="0" x="150674" y="52056" z="23603" dirx="150803" diry="51927"/>
+    <npc index="661" shape="68" html="0" x="71161" y="37752" z="39462" dirx="71161" diry="37752"/>
+    <npc index="662" shape="68" html="0" x="87545" y="39745" z="39460" dirx="87545" diry="39745"/>
+    <npc index="663" shape="68" html="0" x="102665" y="39378" z="21436" dirx="102665" diry="39378"/>
+    <npc index="689" shape="7" html="536" x="257405" y="259297" z="16101" dirx="257420" diry="259290"/>
+    <npc index="690" shape="7" html="536" x="267671" y="242308" z="19630" dirx="267678" diry="242383"/>
+    <npc index="691" shape="7" html="536" x="232819" y="294681" z="45300" dirx="232840" diry="294690"/>
+    <npc index="694" shape="7" html="551" x="266171" y="288109" z="20987" dirx="266119" diry="288027"/>
+    <npc index="698" shape="84" html="635" x="232080" y="294451" z="45310" dirx="232089" diry="294444"/>
+    <npc index="699" shape="85" html="0" x="232095" y="294476" z="45317" dirx="232103" diry="294471"/>
+    <npc index="704" shape="5" html="801" x="231654" y="294758" z="45310" dirx="231654" diry="294769"/>
+    <npc index="719" shape="7" html="767" x="257190" y="259579" z="16129" dirx="257190" diry="259578"/>
+    <npc index="720" shape="7" html="767" x="264758" y="262038" z="16077" dirx="264777" diry="262041"/>
+    <npc index="721" shape="7" html="767" x="265753" y="285235" z="22650" dirx="265750" diry="285237"/>
+    <npc index="722" shape="7" html="767" x="256555" y="289127" z="27125" dirx="256548" diry="289118"/>
+    <npc index="723" shape="7" html="767" x="267465" y="242583" z="19649" dirx="2674169" diry="242585"/>
+    <npc index="724" shape="7" html="767" x="232147" y="294581" z="45310" dirx="232151" diry="294581"/>
+    <npc index="1000" shape="70" html="540" x="361648" y="187352" z="42381" dirx="361621" diry="187352"/>
+    <npc index="1001" shape="83" html="574" x="360889" y="188063" z="42347" dirx="360887" diry="187981"/>
+    <npc index="1004" shape="82" html="575" x="361118" y="187752" z="42346" dirx="361054" diry="187749"/>
+    <npc index="1007" shape="73" html="615" x="360413" y="187246" z="42100" dirx="360534" diry="187094"/>
+    <npc index="1012" shape="10" html="557" x="360902" y="187177" z="42140" dirx="257386" diry="260305"/>
+    <npc index="1029" shape="78" html="810" x="360768" y="186791" z="42036" dirx="360713" diry="186798"/>
+    <npc index="1013" shape="3" html="641" x="256268" y="289073" z="27056" dirx="256313" diry="289094"/>
+    <npc index="739" shape="36" html="300152" x="359559" y="233861" z="28801" dirx="359703" diry="233862"/>
+    <npc index="743" shape="80" html="300158" x="359597" y="233891" z="28856" dirx="359703" diry="233892"/>
+    <npc index="1011" shape="77" html="405000" x="360022" y="234002" z="29386" dirx="360019" diry="233994"/>
+    <npc index="1020" shape="78" html="802" x="359636" y="233629" z="28608" dirx="359628" diry="233642"/>
+    <npc index="1021" shape="79" html="803" x="359620" y="233604" z="28594" dirx="359612" diry="233625"/>
+    <npc index="1022" shape="76" html="806" x="359545" y="233598" z="28593" dirx="359535" diry="233641"/>
+    <npc index="1023" shape="81" html="804" x="360128" y="234018" z="29445" dirx="360127" diry="234006"/>
+    <npc index="1024" shape="82" html="805" x="359681" y="233970" z="28836" dirx="359703" diry="233957"/>
+    <npc index="1026" shape="74" html="401000" x="359987" y="234019" z="29343" dirx="359982" diry="234008"/>
+    <npc index="1027" shape="75" html="807" x="360325" y="234056" z="29481" dirx="360317" diry="234048"/>
+    <npc index="1028" shape="10" html="809" x="359621" y="233760" z="28718" dirx="359618" diry="233756"/>
+    <npc index="745" shape="155" html="300151" x="356695" y="245519" z="29535" dirx="356694" diry="245519"/>
+    <npc index="1035" shape="84" html="814" x="360438" y="187346" z="42106" dirx="360439" diry="187346"/>
+    <npc index="1036" shape="4" html="400100" x="360835" y="187249" z="42140" dirx="360830" diry="187249"/>
+    <npc index="1037" shape="79" html="405100" x="360768" y="186781" z="42027" dirx="360765" diry="186781"/>
+    <npc index="1061" shape="155" html="841" x="362702" y="244126" z="26603" dirx="362673" diry="244030"/>
+    <npc index="1062" shape="2" html="842" x="268119" y="284771" z="26970" dirx="268119" diry="284671"/>
+    <npc index="1063" shape="2" html="842" x="262878" y="282506" z="27860" dirx="262937" diry="282586"/>
+    <npc index="1064" shape="2" html="844" x="255495" y="291445" z="27620" dirx="255492" diry="291544"/>
+    <npc index="1065" shape="2" html="842" x="263691" y="284707" z="29710" dirx="263691" diry="284607"/>
+    <npc index="1066" shape="14" html="843" x="267158" y="283172" z="24998" dirx="267089" diry="283244"/>
+    <npc index="1201" shape="36" html="848" x="267090" y="283006" z="24983" dirx="267035" diry="282993"/>
+    <npc index="1200" shape="7" html="1005" x="256460" y="257801" z="16505" dirx="256445" diry="257700"/>
+    <npc index="1212" shape="3" html="1024" x="265167" y="261561" z="16170" dirx="265266" diry="261547"/>
+    <npc index="1222" shape="75" html="80336" x="268064" y="243867" z="19620" dirx="267981" diry="243818"/>
+    <npc index="1223" shape="75" html="80337" x="268149" y="243764" z="19620" dirx="268088" diry="243672"/>
 </world>
