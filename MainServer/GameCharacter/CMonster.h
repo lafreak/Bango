@@ -9,9 +9,11 @@ class CMonster: public CCharacter
 {
 	WORD m_wIndex;
 	CMonsterInfo *m_pMacro;
+	int m_nMaxHp;
 	
 public:
-	CMonster(CMonsterInfo *pMacro, int nX, int nY);
+
+	CMonster(CMonsterInfo *pMacro, int nX, int nY, MONSTER_DESC &desc);
 	~CMonster();
 	
 	static CMonster* CreateMonster(WORD wIndex, int nX, int nY);
@@ -20,6 +22,8 @@ public:
 
 	static std::map<int, CMonster*> g_mMonster;
 	static std::mutex g_mxMonster;
+
+	int GetHP(){ return m_nMaxHp; }
 
 	static void Add(CMonster *pMonster);
 	static void Remove(CMonster *pMonster);
@@ -39,6 +43,10 @@ public:
 
 	void Tick();
 	void Move(char byX, char byY, BYTE byType);
+
+	static bool LoadDesc(WORD wIndex, MONSTER_DESC &desc);
+
+	void UpdateProperty(int ExplosiveBlow, int Damage);
 
 	void SendPacket(Packet& packet) {};
 

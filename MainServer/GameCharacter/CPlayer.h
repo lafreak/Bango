@@ -14,9 +14,21 @@
 
 #define GEAR_NUM 22
 #define GEAR_VISIBLE_NUM 8
+#define PI 3.14159265
 
 class CPlayer: public CCharacter
 {
+	struct DropPos
+	{
+		int m_nX, 
+		    m_nY;
+
+		bool circle;
+
+		int main_pos,
+		    circle_pos;
+	} m_nDP;
+
 	int m_nCID;
 
 	int m_nAID;
@@ -123,7 +135,8 @@ public:
 	void Process(Packet packet);
 
 	void OnLoadPlayer();
-	void OnLoadItems(char *p);
+	char* OnLoadItems(char *p);
+	void OnLoadSkills(char *p);
 	void GameStart();
 	void GameRestart();
 	bool CanMove();
@@ -141,9 +154,12 @@ public:
 	bool UseItem(CItem *pItem);
 	void PutOnItem(CItem *pItem);
 	void PutOffItem(CItem *pItem);
+	void LearnSkill(BYTE byIndex);
+	void UpgradeSkill(BYTE byIndex);
 	void Tick();
 
-	Packet UpdateParty(CPlayer* pPlayer);
+	Packet GeneratePartyPacket(CPlayer* pPlayer);
+	char* GenerateMemberPacket();
 
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);
@@ -156,9 +172,12 @@ public:
 	void OutofInven(CItem* pItem);
 	void EmptyInven();
 
+	std::pair<int,int> DropCoord();
+
 	// Remember to call m_Access.Release() on found item.
 	CItem* FindItem(WORD wIndex, BYTE byOwn=IFO_ANY);
 	CItem* FindItemByIID(int nIID);
+	bool FindWearItemByIID(int nIID);
 };
 
 typedef std::map<int, CPlayer*> PlayerMap;

@@ -3,6 +3,8 @@
 #include "CPlayer.h"
 #include "../CServer.h"
 #include "../Item/CItemPet.h"
+#include "CParty.h"
+#include <cmath>
 
 PlayerMap CPlayer::g_mPlayer;
 std::mutex CPlayer::g_mxPlayer;
@@ -32,6 +34,12 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nX = desc.nX;
 	m_nY = desc.nY;
 	m_nZ = desc.nZ;
+
+	m_nDP.m_nX = m_nX;
+	m_nDP.m_nY = m_nY;
+	m_nDP.main_pos = 0;
+	m_nDP.circle_pos = 0;
+	m_nDP.circle = false;
 
 	m_n64WearState = 0;
 	m_byTrigramLevel = 0;
@@ -131,6 +139,16 @@ CItem* CPlayer::FindItemByIID(int nIID)
 	m_mxItem.unlock();
 
 	return pItem;
+}
+
+bool CPlayer::FindWearItemByIID(int nIID)
+{
+	for(int i=0; i < 22; i++)
+	{
+		if(m_Gear[i] == nIID)
+			return true;
+	}
+	return false;
 }
 
 void CPlayer::OnPutOnGear(CItem *pItem)
@@ -878,9 +896,34 @@ void CPlayer::Process(Packet packet)
 
 		case C2S_DROPITEM:
 		{
-			int x = m_nX + 10;
-			int y = m_nY + 10;
+			if(m_nX != m_nDP.m_nX || m_nY != m_nDP.m_nY)
+			{
+				m_nDP.main_pos = 0;
+				m_nDP.circle_pos = 0;
+			}
 
+			m_nDP.m_nX = m_nX;
+			m_nDP.m_nY = m_nY;
+
+			if(m_nDP.main_pos == 4)
+			{
+				m_nDP.main_pos = 0;
+				m_nDP.circle = true;
+			}
+
+			if(m_nDP.circle_pos == 32)
+			{
+				m_nDP.circle_pos = 0;
+				m_nDP.circle = false;
+			}
+
+			m_nDP.main_pos++;
+
+			if(m_nDP.circle == true)
+			m_nDP.circle_pos++;
+
+			std::pair<int,int>dropcoord = DropCoord();
+            
 			int nIID;
 			int count;
 
@@ -888,12 +931,15 @@ void CPlayer::Process(Packet packet)
 			CItem* pDropItem = NULL;
 
 			CSocket::ReadPacket(packet.data, "dd", &nIID, &count);
+
+			if (FindWearItemByIID(nIID))
+				break;
       
 			pItem = FindItemByIID(nIID);
 
 			if (pItem != NULL)
 			{
-				pDropItem = CItem::CreateItem(pItem, count, x, y);
+				pDropItem = CItem::CreateItem(pItem, count, dropcoord.first , dropcoord.second);
 
                 if (pDropItem)
                 {
@@ -936,12 +982,10 @@ void CPlayer::Process(Packet packet)
 
             break;
 		}
-		/*
-
+		
 		case C2S_ASKPARTY:
 		{
 			int nID = 0;
-			Packet packet;
 
 			CPlayer* pPlayer;
 
@@ -949,49 +993,295 @@ void CPlayer::Process(Packet packet)
 
 			pPlayer = FindPlayer(nID);
 
-			packet = UpdateParty(pPlayer);
-
 			if(pPlayer)
-				pPlayer->Write(S2C_ASKPARTY, "d", m_nPID);
-
-			Write(S2C_ASKPARTY, "d", pPlayer->GetPID());
-
-			SendPacket(packet); 
+				pPlayer->Write(S2C_ASKPARTY, "d", GetID());
 
 			pPlayer->m_Access.Release();
 
-		}	
-		*/	
+			break;
+
+		}
+
+		case C2S_ANS_ASKPARTY:
+		{
+			int nID =0;
+			int ans =0;
+
+			CPlayer* pPlayer;
+
+			CSocket::ReadPacket(packet.data, "bd", &ans, &nID);
+
+			if(ans == 0)
+				break;
+
+			pPlayer = FindPlayer(nID);
+
+			if(pPlayer)
+			{
+				CParty* pParty = new CParty(pPlayer, this);
+
+				if(pParty)
+					pParty->SendPartyInfo();
+
+				pPlayer->m_Access.Release();
+
+				//if(CParty::FindPartyMember(pPlayer) || CParty::FindPartyMember(this)
+			}
+
+			break;
+		}
+
+		case C2S_LEAVEPARTY:
+		{
+			CParty* pParty;
+
+			pParty = CParty::FindParty(this);
+
+			if(pParty)
+			{
+				pParty->RemoveMember(this);
+				pParty->SendPartyInfo();
+
+				pParty->m_Access.Release();
+			}
+
+			Write(S2C_PARTYINFO,"b",0);
+			break;
+		}
+
+		case C2S_ATTACK:
+		{
+			BYTE byKind;
+			int nID;
+			int dmg = 5;
+			int eb = 18;
+			BYTE otp = 1;
+			CMonster* pMonster = NULL;
+
+			CSocket::ReadPacket(packet.data, "bd", &byKind, &nID);
+			pMonster = CMonster::FindMonster(nID);
+			if(!pMonster)
+			{
+				printf("Error finding monster by id\n");
+				break;
+			}
+
+			Write(S2C_ATTACK, "ddddb", m_nID, nID, dmg, eb, otp);
+			pMonster->UpdateProperty(eb, dmg);
+			break;
+		}
+
+		case C2S_LEARNSKILL:
+		{
+			BYTE byIndex;
+
+			CSocket::ReadPacket(packet.data, "b", &byIndex);
+			LearnSkill(byIndex);
+			break;
+		}
+
+		case C2S_SKILLUP:
+		{
+			BYTE byIndex;
+
+			CSocket::ReadPacket(packet.data, "b", &byIndex);
+			UpgradeSkill(byIndex);
+			break;
+		}
+
+		case C2S_SKILL:
+		{
+			BYTE bySkill;
+			BYTE byKind;
+			int nID;
+			CMonster* pMonster = NULL;
+			
+			int dmg = 5;
+			int eb = 18;
+			BYTE otp = 1;
+			
+			CSocket::ReadPacket(packet.data,"bbd", &bySkill, &byKind, &nID );
+			pMonster = CMonster::FindMonster(nID);
+			if(!pMonster)
+				break;
+
+			Write(S2C_SKILL, "bddbbwwb", bySkill, m_nID, nID, 1, 1, dmg, eb, otp);
+			break;
+		}
+
+		case C2S_PRESKILL:
+		{
+			BYTE bySkill;
+			int nID;
+			CMonster* pMonster = NULL;
+
+			int dmg = 5;
+			int eb = 18;
+			BYTE otp = 1;
+
+			CSocket::ReadPacket(packet.data, "bd", &bySkill, &nID);
+			pMonster = CMonster::FindMonster(nID);
+			if(!pMonster)
+				break;
+
+			//Write(S2C_SKILL, "bddbbwwb", bySkill, m_nID, nID, 1, 1, dmg, eb, otp);
+			//Write(S2C_EFFECT, "db", m_nID, bySkill);
+			WriteInSight(S2C_ACTION, "dbb", m_nID, AT_SKILL, bySkill);
+			break;
+		}
 	}
 }
-/*
 
-Packet CPlayer::UpdateParty(CPlayer* pPlayer)
+Packet CPlayer::GeneratePartyPacket(CPlayer* pPlayer)
 {
 	Packet packet;
 
 	memset(&packet, 0, sizeof(Packet));
 
-	packet.byType = S2C_UPDATEPARTY;
 
-	char *end = CSocket::WritePacket(packet.data, "bsbbb",
-		pPlayer->GetPID(), pPlayer->GetName(), 1, pPlayer->GetLevel(), pPlayer->GetCurHP());
+
+	packet.byType = S2C_PARTYINFO;
+
+	char *end = CSocket::WritePacket(packet.data,"b",2);
+
+    end = CSocket::WritePacket(end,"dsbbww",
+	 GetPID(), 
+	 GetName().c_str(), 
+	 GetClass(), 
+	 GetLevel(), 
+	 GetCurHP(), 
+	 GetMaxHP());
+
+    end = CSocket::WritePacket(end,"dsbbww",
+	 pPlayer->GetPID(), 
+	 pPlayer->GetName().c_str(), 
+	 pPlayer->GetClass(), 
+	 pPlayer->GetLevel(), 
+	 pPlayer->GetCurHP(), 
+	 pPlayer->GetMaxHP());
 
 	packet.wSize = end - ((char*)&packet);
 
 	return packet;
 }
-*/
-	
+
+ char* CPlayer::GenerateMemberPacket()
+{
+	Packet packet;
+
+	char* end = CSocket::WritePacket(packet.data,"dsbbww",
+	 GetPID(), 
+	 GetName().c_str(), 
+	 GetClass(), 
+	 GetLevel(), 
+	 GetCurHP(), 
+	 GetMaxHP());
+
+	return end;
+
+}
+
+std::pair<int,int> CPlayer::DropCoord()
+{
+	std::pair<int,int>coord;
+	int x = m_nDP.m_nX;
+	int y = m_nDP.m_nY;
+
+	switch(m_nDP.main_pos)
+	{
+		case(1):
+			x = x +10;
+			y = y +10;
+			break;
+		case(2):
+			x = x +10;
+			y = y -10;
+			break;
+		case(3):
+			x = x -10;
+			y = y +10;
+			break;
+		default:
+			x = x -10;
+			y = y -10;
+			break;
+	}
+
+	if (m_nDP.circle_pos == 1 || m_nDP.circle_pos == 2 || m_nDP.circle_pos == 3 || m_nDP.circle_pos == 4)
+	{
+		coord.first = x + 2 *cos(0*PI/180);
+		coord.second = y + 2 *sin(0*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 5 || m_nDP.circle_pos == 6 || m_nDP.circle_pos == 7 || m_nDP.circle_pos == 8)
+	{
+		coord.first = x + 2 *cos(45*PI/180);
+		coord.second = y + 2 *sin(45*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 9 || m_nDP.circle_pos == 10 || m_nDP.circle_pos == 11 || m_nDP.circle_pos == 12)
+	{
+		coord.first = x + 2 *cos(90*PI/180);
+		coord.second = y + 2 *sin(90*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 13 || m_nDP.circle_pos == 14 || m_nDP.circle_pos == 15 || m_nDP.circle_pos == 16)
+	{
+		coord.first = x + 2 *cos(135*PI/180);
+		coord.second = y + 2 *sin(90*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 17 || m_nDP.circle_pos == 18 || m_nDP.circle_pos == 19 || m_nDP.circle_pos == 20)
+	{
+		coord.first = x + 2 *cos(180*PI/180);
+		coord.second = y + 2 *sin(180*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 21 || m_nDP.circle_pos == 22 || m_nDP.circle_pos == 23 || m_nDP.circle_pos == 24)
+	{
+		coord.first = x + 2 *cos(225*PI/180);
+		coord.second = y + 2 *sin(225*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 25 || m_nDP.circle_pos == 26 || m_nDP.circle_pos == 27 || m_nDP.circle_pos == 28)
+	{
+		coord.first = x + 2 *cos(270*PI/180);
+		coord.second = y + 2 *sin(270*PI/180);
+
+		return coord;
+	}
+	else if (m_nDP.circle_pos == 29 || m_nDP.circle_pos == 30 || m_nDP.circle_pos == 31 || m_nDP.circle_pos == 32)
+	{
+		coord.first = x + 2 *cos(315*PI/180);
+		coord.second = y + 2 *sin(315*PI/180);
+
+		return coord;
+	}
+
+	else
+	{
+		coord.first = x;
+		coord.second = y;
+
+		return coord;
+	}
+}
+
 void CPlayer::OnLoadPlayer()
 {
 	Lock();
 
 	m_Time = GetTickCount();
 
-	m_byGrade = 1;
+	m_byGrade = 24;
 	m_szGuildName = "\0";
-	m_byGRole = 1;
+	m_byGRole = 24;
 	m_wDefense = 90;
 	m_byAbsorb = 5;
 
@@ -1051,7 +1341,7 @@ void CPlayer::OnLoadPlayer()
 	Unlock();
 }
 
-void CPlayer::OnLoadItems(char *p)
+char* CPlayer::OnLoadItems(char *p)
 {
 	//printf("CPlayer::OnLoadItems\n");
 	
@@ -1170,7 +1460,36 @@ void CPlayer::OnLoadItems(char *p)
 
 	Write(S2C_ITEMINFO, "m", pBegin, pEnd - pBegin);
 
+	return p;
+
 	//printf("Items loaded.\n");
+}
+
+void CPlayer::OnLoadSkills(char* p)
+{
+	BYTE skillIndex =0;
+	BYTE skillLevel =0;
+	int coolDown =0;
+	BYTE byCount=0;
+
+	p = CSocket::ReadPacket(p, "b", &byCount);
+
+	PACKETBUFFER buffer;
+	memset(&buffer, 0, sizeof(PACKETBUFFER));
+	char* pBegin = (char*)&buffer;
+	char* pEnd = pBegin;
+
+	pEnd = CSocket::WritePacket(pEnd, "b", byCount);
+
+	for (BYTE i = 0; i < byCount; i++)
+	{
+		p = CSocket::ReadPacket(p, "bbd", &skillIndex, &skillLevel, &coolDown);
+		printf("Skillindex [%d] skillLevel [%d] coolDown [%d]\n", skillIndex, skillLevel, coolDown);
+		pEnd = CSocket::WritePacket(pEnd, "bbd", skillIndex, skillLevel, coolDown);
+	}
+
+	printf("Sending Skillinfo...\n");
+	Write(S2C_SKILLINFO, "m", pBegin, pEnd -pBegin);
 }
 
 void CPlayer::GameStart()
@@ -1336,6 +1655,23 @@ void CPlayer::ProcessMsg(char* szMsg)
 		}
 		    break;
 
+		case '#':
+		{
+			CParty* pParty = CParty::FindParty(this);
+
+			if(pParty)
+			{
+				std::string szTemp = szMsg;
+
+				for(auto &a : pParty->GetVec())
+					a->Write(S2C_CHATTING, "ss", m_szName.c_str(), szTemp.c_str());
+
+				pParty->m_Access.Release();
+			}
+		}
+
+		    break;
+
 		default:
 			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
 			break;
@@ -1368,6 +1704,15 @@ void CPlayer::ChatCommand(char* szCommand)
 
 		WriteInSight(S2C_REMOVENPC, "d", 150000);
 		WriteInSight(S2C_CREATENPC, "dwbdddwId", 150000, 1, nShape, m_nX, m_nY, m_nZ, m_wDir, (__int64)0, (int)0);
+	}
+
+	else if(!strcmp(token, "/speed")) {
+		token = std::strtok(NULL, " ");
+
+		WORD speed;
+		speed = atoi(token);
+
+		Write(S2C_UPDATEMPROPERTY,"dbw", m_nID, P_MSPEED, speed);
 	}
 
 	else if (!strcmp(token, "/tp")) {
@@ -1870,6 +2215,8 @@ bool CPlayer::UseItem(CItem *pItem)
 	if (!pItem->Use(this))
 		return true;
 
+	CParty::UpdateParty(this);
+
 	return RemoveItem(pItem, 1, TL_USE);
 }
 
@@ -1934,6 +2281,18 @@ void CPlayer::SaveAllProperty()
 		m_wPUPoint,
 		m_wSUPoint,
 		m_nAnger);
+}
+
+void CPlayer::LearnSkill(BYTE byIndex)
+{
+	Write(S2C_SKILLUP, "bb", byIndex, 1);
+
+	CDBSocket::Write(S2D_ADDSKILL, "db", m_nPID, byIndex);
+}
+
+void CPlayer::UpgradeSkill(BYTE byIndex)
+{
+	CDBSocket::Write(S2D_UPGRADESKILL, "ddb", m_nPID, m_nID, byIndex);
 }
 
 void CPlayer::Tick()

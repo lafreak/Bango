@@ -156,6 +156,20 @@ struct ITEMINFO_DESC
 	int nGongLeft, nGongRight;
 };
 
+struct MONSTER_DESC
+{
+	int nhp;
+};
+/*
+struct PARTYMEMBER_DESC
+{
+	int nID;
+	std::string szName;
+	BYTE byJob, byLevel;
+	WORD wCurHP;
+}
+*/
+
 //#if defined( MAINSVR) || defined( DBSVR)
 
 struct BASEPROPERTY

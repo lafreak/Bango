@@ -292,7 +292,7 @@
     </item>
     <item index="47" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="20" sell="4" effect="1">
         <specialty>
-            <refresh property="hp" amount="100"/>
+            <refresh property="mp" amount="500"/>
         </specialty>
     </item>
     <item index="48" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="70" sell="14" effect="1">

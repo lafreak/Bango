@@ -178,7 +178,10 @@ void CDBSocket::Process(Packet& packet)
 			}
 
 			p = pClient->OnLoadPlayer(p);
-			pClient->OnLoadItems(p);
+			p = pClient->OnLoadItems(p);
+			
+			if(p!= NULL)
+			pClient->OnLoadSkills(p);
 
 			pClient->m_Access.Release();
 			break;
@@ -222,6 +225,27 @@ void CDBSocket::Process(Packet& packet)
 			pClient->Write(S2C_SHORTCUT, "bm", 1, p, packet.wSize - (p - (char*)&packet));
 
 			pClient->m_Access.Release();
+			break;
+		}
+
+		case D2S_SKILL_INFO:
+		{
+			int nID=0;
+			BYTE skillLevel=0, skillIndex=0;
+			CPlayer *pPlayer=0;
+
+			CSocket::ReadPacket(packet.data, "dbb", &nID, &skillLevel, &skillIndex);
+			pPlayer = CPlayer::FindPlayer(nID);
+
+			if (!pPlayer)
+				break;
+
+			printf("By what level%d\n", skillLevel);
+
+
+			pPlayer->Write(S2C_SKILLUP, "bb", skillIndex, skillLevel);
+			pPlayer->m_Access.Release();
+
 			break;
 		}
 	}

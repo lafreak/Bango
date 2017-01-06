@@ -510,6 +510,11 @@ public:
 					iss >> n;
 					pEle->SetAttribute("exp", n);
 				}
+				else if (name == "hp"){
+					int n =0;
+					iss >> n;
+					pEle->SetAttribute("hp", n);
+				}
 			}
 
 			pRoot->InsertEndChild(pEle);

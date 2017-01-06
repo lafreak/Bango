@@ -60,7 +60,8 @@ public:
 
 	void OnLogin(char *p);
 	char* OnLoadPlayer(char *p);
-	void OnLoadItems(char *p);
+	char* OnLoadItems(char *p);
+	void OnLoadSkills(char *p);
 };
 
 #endif

@@ -7,11 +7,13 @@
 MonsterMap CMonster::g_mMonster;
 std::mutex CMonster::g_mxMonster;
 
-CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
+CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY, MONSTER_DESC &desc)
 {
 	m_pMacro = pMacro;
 	m_nX = nX;
 	m_nY = nY;
+	m_nMaxHp = desc.nhp;
+    m_wCurHP = desc.nhp;
 }
 
 CMonster::~CMonster()
@@ -24,23 +26,62 @@ CMonster::~CMonster()
 
 CMonster* CMonster::CreateMonster(WORD wIndex, int nX, int nY)
 {
+	CMonster* pMonster=NULL;
+	MONSTER_DESC desc;
+
 	CMonsterInfo* pMacro = (CMonsterInfo*) CMacroDB::FindMacro(CMacro::MT_MONSTER, wIndex);
 	if (!pMacro) {
 		printf(KRED "Wrong monster index: %d\n" KNRM, wIndex);
 		return NULL;
 	}
 
-	CMonster* pMonster=NULL;
-
 	switch (pMacro->m_byRace)
 	{
 		default:
 			printf(KRED "Unknown monster race (%d).\n" KNRM, pMacro->m_byRace);
-			pMonster = new CMonsterReal(pMacro, nX, nY);
+			
+			if(CMonster::LoadDesc(wIndex, desc))
+			pMonster = new CMonsterReal(pMacro, nX, nY, desc);
+
 			break;
 	}
-
 	return pMonster;
+}
+
+bool CMonster::LoadDesc(WORD wIndex, MONSTER_DESC &desc)
+{
+	using namespace tinyxml2;
+	int wIndex_temp;
+
+	XMLDocument doc;
+
+	if (doc.LoadFile("Config/InitMonster.xml") != XML_SUCCESS) {
+		printf(KRED "Cannot open InitMonster.xml. (%s)\n" KNRM, doc.ErrorName());
+		return false;
+	}
+
+	XMLElement *pRoot = doc.RootElement();
+	if (!pRoot) {
+		printf("Cannot find root element inside InitNPC.xml.\n");
+		return false;
+	}
+
+	XMLElement *pMonsterInfo = pRoot->FirstChildElement("monster");
+
+	while (pMonsterInfo != NULL)
+	{	
+		wIndex_temp = pMonsterInfo->IntAttribute("index");
+
+		if(wIndex_temp == wIndex)
+		{
+			desc.nhp = pMonsterInfo->IntAttribute("hp");
+			break;
+		}
+
+		pMonsterInfo = pMonsterInfo->NextSiblingElement("monster");
+	}
+
+	return true;
 }
 
 CMonster* CMonster::Summon(WORD wIndex, int nX, int nY)
@@ -69,8 +110,8 @@ Packet CMonster::GenerateCreatePacket(bool bHero)
 		GetX(),
 		GetY(),
 		GetDir(),
-		100, //curhp
-		100, //maxhp
+		GetHP(), //curhp
+		GetHP(), //maxhp
 		GetGState(),
 		GetMState(),
 		"\0",
@@ -184,6 +225,9 @@ CMonster* CMonster::FindMonsterByIndex(WORD wIndex)
 
 void CMonster::Tick()
 {
+	if(m_wCurHP == 0)
+		return;
+	
 	DWORD dwTime = GetTickCount();
 
 	char byX = (rand() % 65) - 32;
@@ -191,7 +235,7 @@ void CMonster::Tick()
 
 	Move(byX, byY, MT_WALK);
 
-	printf("CMonster::Tick %d\n", GetIndex());
+	//printf("CMonster::Tick %d\n", GetIndex());
 }
 
 void CMonster::Move(char byX, char byY, BYTE byType)
@@ -222,4 +266,19 @@ void CMonster::Move(char byX, char byY, BYTE byType)
 				pTile->SendMoveAction(this, byX, byY, createPacket, petPacket, deletePacket, movePacket);
 		}
 	}
+}
+
+void CMonster::UpdateProperty(int ExplosiveBlow, int Damage)
+{
+	int total_dmg = ExplosiveBlow + Damage;
+
+	if(m_wCurHP - total_dmg <=  0)
+	{
+		WriteInSight(S2C_ACTION, "db", m_nID, AT_DIE);
+		m_wCurHP = 0;
+		return;
+	}
+
+	m_wCurHP -= total_dmg;
+
 }

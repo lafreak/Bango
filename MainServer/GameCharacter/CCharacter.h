@@ -28,6 +28,7 @@ class CCharacter
 	std::mutex m_mxThis;
 
 protected:
+	//m_ = member variable || n = integer || w = word || by = byte
 	int m_nID;
 
 	WORD m_wStr, 

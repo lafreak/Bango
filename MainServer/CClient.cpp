@@ -331,14 +331,29 @@ char* CClient::OnLoadPlayer(char *p)
 	return p;
 }
 
-void CClient::OnLoadItems(char *p)
+char* CClient::OnLoadItems(char *p)
 {
 	if (!m_pPlayer) {
+		printf(KRED "Cannot load items (non existing player)\n." KNRM);
+		return NULL;
+	}
+
+	m_pPlayer->m_Access.Grant();
+	p = m_pPlayer->OnLoadItems(p);
+	m_pPlayer->m_Access.Release();
+
+	return p;
+}
+
+void CClient::OnLoadSkills(char *p)
+{
+	if(!m_pPlayer) {
 		printf(KRED "Cannot load items (non existing player)\n." KNRM);
 		return;
 	}
 
 	m_pPlayer->m_Access.Grant();
-	m_pPlayer->OnLoadItems(p);
+	m_pPlayer->OnLoadSkills(p);
 	m_pPlayer->m_Access.Release();
+
 }

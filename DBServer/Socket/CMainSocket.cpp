@@ -1,5 +1,4 @@
 #include "CMainSocket.h"
-
 #include "../Database/CDatabase.h"
 
 SOCKET CMainSocket::g_pDBSocket = INVALID_SOCKET;
@@ -559,6 +558,32 @@ void CMainSocket::Process(Packet& packet)
 					ResultSet_getIntByName(resultItemlist, "gongright"));
 			}
 
+			PreparedStatement_T preparedSkillslist = Connection_prepareStatement(con,
+				"SELECT * FROM skills WHERE idplayer=?");
+			PreparedStatement_T preparedSkillsCount = Connection_prepareStatement(con,
+				"SELECT COUNT(*) FROM skills WHERE idplayer=?");
+
+			PreparedStatement_setInt(preparedSkillslist, 1, nPID);
+			PreparedStatement_setInt(preparedSkillsCount, 1, nPID);
+
+			ResultSet_T resultSkillsList = PreparedStatement_executeQuery(preparedSkillslist);
+			ResultSet_T resultSkillsCount = PreparedStatement_executeQuery(preparedSkillsCount);
+
+			ResultSet_next(resultSkillsCount);
+
+			BYTE bySkillsCount = ResultSet_getInt(resultSkillsCount, 1);
+			printf("About to send %d item rows.\n", bySkillsCount);
+
+			p = CSocket::WritePacket(p, "b", bySkillsCount);
+
+			while(ResultSet_next(resultSkillsList))
+			{
+				p = CSocket::WritePacket(p, "bbd",
+					ResultSet_getIntByName(resultSkillsList, "skillIndex"),
+					ResultSet_getIntByName(resultSkillsList, "skillLevel"),
+					ResultSet_getIntByName(resultSkillsList, "coolDown"));
+			}
+
 			CMainSocket::Write(D2S_LOADPLAYER, "m", pBegin, p - pBegin);
 
 			pAccount->m_Access.Release();
@@ -719,6 +744,71 @@ void CMainSocket::Process(Packet& packet)
 			PreparedStatement_setInt(p, 32, nIID);
 
 			PreparedStatement_execute(p);
+
+			break;
+		}
+
+		case S2D_ADDSKILL:
+		{
+			printf("Adding skill\n");
+			BYTE skillIndex=0, skillLevel=1;
+			int coolDown=0;
+			int nPID=0;
+
+			CSocket::ReadPacket(packet.data, "db", &nPID, &skillIndex);
+
+			PreparedStatement_T p = Connection_prepareStatement(con, "SELECT COUNT(*) FROM skills WHERE skillIndex=?");
+			PreparedStatement_setInt(p, 1, skillIndex);
+		    ResultSet_T resultSkillsCount = PreparedStatement_executeQuery(p);
+		    ResultSet_next(resultSkillsCount);
+		    BYTE bySkillsCount = ResultSet_getInt(resultSkillsCount, 1);
+		    if(bySkillsCount != 0)
+		    	break;
+		    	
+		    p = Connection_prepareStatement(con, 
+				"INSERT INTO skills (idplayer, skillIndex, skillLevel, coolDown) VALUES (?, ?, ?, ?)");
+
+			PreparedStatement_setInt(p, 1, nPID);
+			PreparedStatement_setInt(p, 2, skillIndex);
+			PreparedStatement_setInt(p, 3, skillLevel);
+			PreparedStatement_setInt(p, 4, coolDown);
+
+			PreparedStatement_execute(p);
+
+			break;
+		}
+
+		case S2D_UPGRADESKILL:
+		{
+			BYTE skillIndex = 0;
+			BYTE skillLevel = 0;
+			int nPID = 0;
+			int nID = 0;
+
+			CSocket::ReadPacket(packet.data, "ddb", &nPID, &nID, &skillIndex);
+
+			printf("skillindex [%d] nPID [%d]\n", skillIndex, nPID);
+
+			PreparedStatement_T p = Connection_prepareStatement(con, "SELECT * FROM skills WHERE skillIndex=? AND idplayer=?");
+			PreparedStatement_setInt(p, 1, skillIndex);
+			PreparedStatement_setInt(p, 2, nPID);
+
+			ResultSet_T resultSkill = PreparedStatement_executeQuery(p);
+
+			ResultSet_next(resultSkill);
+
+			skillLevel = ResultSet_getIntByName(resultSkill, "skillLevel");
+			skillLevel += 1;
+
+			printf("Skilllevel is now %d\n", skillLevel);
+
+			p = Connection_prepareStatement(con, "UPDATE skills SET skillLevel=? WHERE idplayer=?");
+			PreparedStatement_setInt(p, 1, skillLevel);
+			PreparedStatement_setInt(p, 2, nPID);
+
+			PreparedStatement_execute(p);
+
+			CMainSocket::Write(D2S_SKILL_INFO, "dbb", nID, skillLevel, skillIndex);
 
 			break;
 		}
