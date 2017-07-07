@@ -4,6 +4,7 @@
 #include <map>
 
 #include <sstream>
+#include <fstream>
 
 #include <TinyXML2/tinyxml2.h>
 

@@ -22,7 +22,7 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_wInt = desc.wStats[P_INT];
 	m_wWis = desc.wStats[P_WIS];
 	m_wDex = desc.wStats[P_DEX];
-	m_wCurHP = desc.wCurHP;
+	m_nCurHP = desc.nCurHP;
 	m_wCurMP = desc.wCurMP;
 	m_n64Exp = desc.n64Exp;
 	m_wPUPoint = desc.wPUPoint;
@@ -916,8 +916,9 @@ void CPlayer::OnLoadPlayer()
 	m_nHonorOption = 0;
 
 	m_wDir = 0;
-
-	Write(S2C_PROPERTY, "bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd", 
+	//                   bsbwwwwwwddwwwwwbIwwwwwwbbbbbd
+	//Write(S2C_PROPERTY, "bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd", 
+	Write(S2C_PROPERTY, "bsbwwwwwwddwwwwwbIwwwwwwbbbbbd", 
 			m_byGrade, 
 			m_szGuildName.c_str(), 
 			m_byGRole, 
@@ -927,7 +928,7 @@ void CPlayer::OnLoadPlayer()
 			m_wInt, 
 			m_wWis, 
 			m_wDex,
-			m_wCurHP, 
+			m_nCurHP, 
 			GetMaxHP(),
 			m_wCurMP, 
 			GetMaxMP(),
@@ -1375,11 +1376,11 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			m_wHth += n64Amount;
 
-			WORD wMaxHP = GetMaxHP();
-			if (m_wCurHP > wMaxHP)
-				m_wCurHP = wMaxHP;
+			DWORD nMaxHP = GetMaxHP();
+			if (m_nCurHP > nMaxHP)
+				m_nCurHP = nMaxHP;
 
-			Write(S2C_UPDATEPROPERTY, "bwwww", P_HTH, m_wHth, m_wCurHP, wMaxHP, GetResist(RT_PALSY));
+			Write(S2C_UPDATEPROPERTY, "bwddw", P_HTH, m_wHth, m_nCurHP, nMaxHP, GetResist(RT_PALSY));
 			break;
 		}
 
@@ -1422,14 +1423,14 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 		case P_CURHP:
 		{
-			if ((-n64Amount) > m_wCurHP)
-				n64Amount = -m_wCurHP;
-			if (n64Amount > GetMaxHP() - m_wCurHP)
-				n64Amount = GetMaxHP() - m_wCurHP;
+			if ((-n64Amount) > m_nCurHP)
+				n64Amount = -m_nCurHP;
+			if (n64Amount > GetMaxHP() - m_nCurHP)
+				n64Amount = GetMaxHP() - m_nCurHP;
 
-			m_wCurHP += n64Amount;
+			m_nCurHP += n64Amount;
 
-			Write(S2C_UPDATEPROPERTY, "bw", P_CURHP, m_wCurHP);			
+			Write(S2C_UPDATEPROPERTY, "bd", P_CURHP, m_nCurHP);			
 			break;
 		}
 
@@ -1687,14 +1688,14 @@ void CPlayer::PutOffItem(CItem *pItem)
 
 void CPlayer::SaveAllProperty()
 {
-	CDBSocket::Write(S2D_SAVEALLPROPERTY, "dbdddwwwIwwd",
+	CDBSocket::Write(S2D_SAVEALLPROPERTY, "dbdddwdwIwwd",
 		m_nPID,
 		m_byLevel,
 		m_nX,
 		m_nY,
 		m_nZ,
 		m_wContribute,
-		m_wCurHP,
+		m_nCurHP,
 		m_wCurMP,
 		m_n64Exp,
 		m_wPUPoint,

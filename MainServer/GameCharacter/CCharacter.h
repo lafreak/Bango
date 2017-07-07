@@ -35,8 +35,8 @@ protected:
 		 m_wWis, 
 		 m_wDex;
 
-	WORD m_wCurHP, 
-		 m_wCurMP;
+	DWORD m_nCurHP;
+	WORD	m_wCurMP;
 
 	int m_nX, 
 		m_nY, 
@@ -90,9 +90,9 @@ public:
 	WORD GetInt() const { return m_wInt; }
 	WORD GetWis() const { return m_wWis; }
 	WORD GetAgi() const { return m_wDex; }
-	WORD GetCurHP() const { return m_wCurHP; }
+	DWORD GetCurHP() const { return m_nCurHP; }
 	WORD GetCurMP() const { return m_wCurMP; }
-	WORD GetMaxHP() const;// { return m_wMaxHP; }
+	DWORD GetMaxHP() const;// { return m_wMaxHP; }
 	WORD GetMaxMP() const;// { return m_wMaxMP; }
 	int  GetX() const { return m_nX; }
 	int  GetY() const { return m_nY; }

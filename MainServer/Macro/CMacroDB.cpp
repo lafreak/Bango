@@ -85,7 +85,12 @@ bool CMacroDB::LoadInitItem()
 	XMLDocument doc;
 
 	if (doc.LoadFile("Config/InitItem.xml") != XML_SUCCESS) {
-		printf(KRED "Cannot open InitItem.xml. (%s)\n" KNRM, doc.ErrorName());
+		std::ofstream error1("InitItemError.txt");
+		error1 << std::string(doc.GetErrorStr1());
+		error1.close();
+
+		printf(KRED "Cannot open InitItem.xml. (%s)\nMore information in generated InitItemError.txt file." KNRM, doc.ErrorName());
+
 		return false;
 	}
 

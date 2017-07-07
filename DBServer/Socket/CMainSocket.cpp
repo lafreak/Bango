@@ -473,7 +473,7 @@ void CMainSocket::Process(Packet& packet)
 			char* pBegin = (char*)&buffer;
 			char* p = pBegin;
 
-			p = CSocket::WritePacket(p, "dbddsbbbwwwwwwwIwwwddddbb", nClientID, byMessage,
+			p = CSocket::WritePacket(p, "dbddsbbbwwwwwdwIwwwddddbb", nClientID, byMessage,
 				ResultSet_getIntByName(resultPlayer, "idaccount"), 
 				nPID, 
 				ResultSet_getStringByName(resultPlayer, "name"),
@@ -749,12 +749,14 @@ void CMainSocket::Process(Packet& packet)
 			int nPID=0;
 			BYTE byLevel=0;
 			int nX=0, nY=0, nZ=0;
-			WORD wContribute=0, wCurHP=0, wCurMP=0;
+			WORD wContribute=0;
+			DWORD nCurHP=0;
+			WORD wCurMP=0;
 			__int64 n64Exp=0;
 			WORD wPUPoint=0, wSUPoint=0;
 			int nAnger=0;
 
-			CSocket::ReadPacket(packet.data, "dbdddwwwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &wCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
+			CSocket::ReadPacket(packet.data, "dbdddwdwIwwd", &nPID, &byLevel, &nX, &nY, &nZ, &wContribute, &nCurHP, &wCurMP, &n64Exp, &wPUPoint, &wSUPoint, &nAnger);
 
 			PreparedStatement_T p = Connection_prepareStatement(con, 
 				"UPDATE player SET level=?, x=?, y=?, z=?, contribute=?, curhp=?, curmp=?, exp=?, pupoint=?, supoint=?, anger=? WHERE idplayer=?");
@@ -764,7 +766,7 @@ void CMainSocket::Process(Packet& packet)
 			PreparedStatement_setInt(p, 3, nY);
 			PreparedStatement_setInt(p, 4, nZ);
 			PreparedStatement_setInt(p, 5, wContribute);
-			PreparedStatement_setInt(p, 6, wCurHP);
+			PreparedStatement_setInt(p, 6, nCurHP);
 			PreparedStatement_setInt(p, 7, wCurMP);
 			PreparedStatement_setInt(p, 8, n64Exp);
 			PreparedStatement_setInt(p, 9, wPUPoint);

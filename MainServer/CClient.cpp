@@ -291,7 +291,7 @@ char* CClient::OnLoadPlayer(char *p)
 	D2S_LOADPLAYER_DESC desc;
 	memset(&desc, 0, sizeof(D2S_LOADPLAYER_DESC));
 
-	p = CSocket::ReadPacket(p, "ddsbbbwwwwwwwIwwwddddbb", 
+	p = CSocket::ReadPacket(p, "ddsbbbwwwwwdwIwwwddddbb", 
 		&desc.nAID, 
 		&desc.nPID,
 		&desc.szName,
@@ -303,7 +303,7 @@ char* CClient::OnLoadPlayer(char *p)
 		&desc.wStats[P_INT],
 		&desc.wStats[P_WIS], 
 		&desc.wStats[P_DEX],
-		&desc.wCurHP, 
+		&desc.nCurHP, 
 		&desc.wCurMP, 
 		&desc.n64Exp, 
 		&desc.wPUPoint, 

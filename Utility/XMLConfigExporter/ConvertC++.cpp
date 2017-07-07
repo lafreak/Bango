@@ -402,6 +402,7 @@ public:
 
 							pSpec->SetAttribute("property", refreshprop.c_str());
 							pSpec->SetAttribute("amount", nvalue);
+							pSpecList->InsertEndChild(pSpec);
 						}
 
 						else if (specname == "buff") {
@@ -411,9 +412,8 @@ public:
 							pSpec->SetAttribute("id", id);
 							pSpec->SetAttribute("time", time);
 							pSpec->SetAttribute("value", value);
+							pSpecList->InsertEndChild(pSpec);
 						}
-
-						pSpecList->InsertEndChild(pSpec);
 					}
 
 					pEle->InsertEndChild(pSpecList);

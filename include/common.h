@@ -127,7 +127,8 @@ struct D2S_LOADPLAYER_DESC
 {
 	int nAID, nPID;
 	WORD wStats[5];
-	WORD wCurHP, wCurMP;
+	DWORD nCurHP;
+	WORD wCurMP;
 	__int64 n64Exp;
 	WORD wPUPoint, wSUPoint, wContribute;
 	int nAnger, nX, nY, nZ;

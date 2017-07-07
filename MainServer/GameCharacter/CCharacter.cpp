@@ -52,7 +52,7 @@ void CCharacter::SendPacketInSight(Packet& packet)
 		CMap::SendPacket(this, packet);
 }
 
-WORD CCharacter::GetMaxHP() const
+DWORD CCharacter::GetMaxHP() const
 {
 	return ((m_byLevel >= 96 ? 195 : 
 			(m_byLevel >= 91 ? 141.8147 : 
