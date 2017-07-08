@@ -1,1 +1,4 @@
 /bin/obj/*
+/bin/DBServer
+/bin/MainServer
+/Utility/XMLConfigExporter/bin/Convert
