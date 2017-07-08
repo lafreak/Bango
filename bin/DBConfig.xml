@@ -5,7 +5,7 @@
     <port>3306</port>
     <user>root</user>
     <password></password>
-    <schema>kalonline</schema>
+    <schema></schema>
   </mysql>
   <listen>
     <port>2999</port>
