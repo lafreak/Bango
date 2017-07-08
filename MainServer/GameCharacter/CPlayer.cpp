@@ -38,6 +38,8 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 
 	m_byShortcutState = 0;
 
+	m_nPartyID = 0;
+
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
 	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
 
@@ -896,16 +898,17 @@ void CPlayer::Process(Packet packet)
 
 		case C2S_ASKPARTY:
 		{
-			int nID = 0;
-			CPlayer* pPlayer;
-
+			int nID=0;
 			CSocket::ReadPacket(packet.data, "d", &nID);
 
-			pPlayer = FindPlayer(nID);
+			CPlayer* pPlayer = FindPlayer(nID);
 
+			// TODO: Add a check if player is a leader. Or not? Might be fun. xD And let leader kick?
 			if (pPlayer)
 			{
-				pPlayer->Write(S2C_ASKPARTY, "d", GetID());
+				if (pPlayer->GetPartyID() == 0)
+					pPlayer->Write(S2C_ASKPARTY, "d", GetID());
+
 				pPlayer->m_Access.Release();
 			}
 
@@ -914,45 +917,51 @@ void CPlayer::Process(Packet packet)
 
 		case C2S_ANS_ASKPARTY:
 		{
-			int nID =0;
-			int ans =0;
-			CPlayer* pPlayer = NULL;
+			int nID=0;
+			BYTE byAns=0;
+			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
 
-			CSocket::ReadPacket(packet.data, "bd", &ans, &nID);
-
-			if (ans == 0)
+			if (byAns == 0)
+			{
+				// TODO: Didn't you wonder why inix send DECLINE packet? You should inform sender that player did not accept.
 				break;
+			}
 
-			pPlayer = FindPlayer(nID);
+			CPlayer* pPlayer = FindPlayer(nID);
 
+			// TODO: Force party allowed! Add check if player was invited. Also add check if player was invited by leader.
 			if (pPlayer)
 			{
-				CParty* pParty = CParty::FindParty(pPlayer);
+				CParty* pParty = CParty::FindParty(pPlayer->GetPartyID());
+
 				if (pParty)
 					pParty->AddMember(this);
 				else
 					pParty = new CParty(pPlayer, this);
 
 				pParty->SendPartyInfo();
+
+				pParty->m_Access.Release();
 				pPlayer->m_Access.Release();
 			}
 
 			break;
 		}
 
+		// TODO: Leave party when GameExit.
 		case C2S_LEAVEPARTY:
 		{
-			CParty* pParty;
-			pParty = CParty::FindParty(this);
+			CParty* pParty = CParty::FindParty(GetPartyID());
 
 			if (pParty)
 			{
 				pParty->RemoveMember(this);
-				Write(S2C_PARTYINFO,"b",0);
+				Write(S2C_PARTYINFO, "b", 0);
 
 				if (pParty->GetMemberAmount() == 1)
 				{
 					pParty->Discard();
+					pParty->m_Access.Release();
 					delete pParty;
 				}
 				else
@@ -964,6 +973,8 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
+
+		// TODO: Kick player from party by "Ban" option (case C2S_...?) and /expelparty [name]
 	}
 
 	printf("S2C_? %d\n", packet.byType);

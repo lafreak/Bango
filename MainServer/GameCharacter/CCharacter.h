@@ -35,7 +35,7 @@ protected:
 		 m_wWis, 
 		 m_wDex;
 
-	DWORD m_nCurHP;
+	DWORD	m_nCurHP;
 	WORD	m_wCurMP;
 
 	int m_nX, 

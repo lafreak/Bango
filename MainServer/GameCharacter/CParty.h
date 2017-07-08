@@ -32,30 +32,34 @@ typedef std::vector<CPlayer*> MemberVec;
 class CParty
 {
 private:
-	MemberVec m_Members;
-	std::mutex m_xMembers;
 	int m_nID;
 
-	static int g_nMaxIID;
+	MemberVec m_vMembers;
+	std::mutex m_mxThis;
+
 	static std::map<int, CParty*> g_mParty;
 	static std::mutex g_mxParty;
-	static std::mutex g_mxMaxIID;
+
+	static int g_nMaxID;
+	static std::mutex g_mxMaxID;
 
 
-	int NewIID();
-	void Add(CParty* pParty);
+	static int NewID();
+	static void Add(CParty* pParty);
+	static void Remove(CParty* pParty);
+
+	void GetPlayerList(MemberVec& list);
 
 public:
 	Access m_Access;
 
 	CParty(CPlayer* pPlayer, CPlayer* pPlayer2);
-	~CParty() {};
+	~CParty();
 
-	static CParty* FindParty(CPlayer* pPlayer);
+	static CParty* FindParty(int nID);
 
-	int GetIID() { return m_nID; }
-	void Remove(CParty* pParty);
-	int GetMemberAmount() { return m_Members.size(); }
+	int GetID() const { return m_nID; }
+	int GetMemberAmount() const { return m_vMembers.size(); }
 	void Discard();
 	void AddMember(CPlayer* pPlayer);
 	void RemoveMember(CPlayer* pPlayer);
