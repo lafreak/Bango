@@ -11,7 +11,6 @@
 #include "CCharacter.h"
 #include "../Item/CItem.h"
 #include "CMonster.h"
-#include "CParty.h"
 
 #define GEAR_NUM 23
 #define GEAR_VISIBLE_NUM 9
