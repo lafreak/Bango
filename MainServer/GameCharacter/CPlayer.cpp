@@ -893,8 +893,78 @@ void CPlayer::Process(Packet packet)
 
 			break;
 		}
-	}
 
+		case C2S_ASKPARTY:
+		{
+			int nID = 0;
+			CPlayer* pPlayer;
+
+			CSocket::ReadPacket(packet.data, "d", &nID);
+
+			pPlayer = FindPlayer(nID);
+
+			if (pPlayer)
+			{
+				pPlayer->Write(S2C_ASKPARTY, "d", GetID());
+				pPlayer->m_Access.Release();
+			}
+
+			break;
+		}
+
+		case C2S_ANS_ASKPARTY:
+		{
+			int nID =0;
+			int ans =0;
+			CPlayer* pPlayer = NULL;
+
+			CSocket::ReadPacket(packet.data, "bd", &ans, &nID);
+
+			if (ans == 0)
+				break;
+
+			pPlayer = FindPlayer(nID);
+
+			if (pPlayer)
+			{
+				CParty* pParty = CParty::FindParty(pPlayer);
+				if (pParty)
+					pParty->AddMember(this);
+				else
+					pParty = new CParty(pPlayer, this);
+
+				pParty->SendPartyInfo();
+				pPlayer->m_Access.Release();
+			}
+
+			break;
+		}
+
+		case C2S_LEAVEPARTY:
+		{
+			CParty* pParty;
+			pParty = CParty::FindParty(this);
+
+			if (pParty)
+			{
+				pParty->RemoveMember(this);
+				Write(S2C_PARTYINFO,"b",0);
+
+				if (pParty->GetMemberAmount() == 1)
+				{
+					pParty->Discard();
+					delete pParty;
+				}
+				else
+				{
+					pParty->SendPartyInfo();
+					pParty->m_Access.Release();
+				}
+			}
+
+			break;
+		}
+	}
 	printf("S2C_? %d\n", packet.byType);
 }
 
