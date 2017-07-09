@@ -973,7 +973,7 @@ void CPlayer::Process(Packet packet)
 				pParty->m_Access.Release();
 			}
 			// Player might have a party by now.
-			else if (GetPartyID() == 0 && !pInviter->HasParty())
+			else if (!HasParty() && !pInviter->HasParty())
 			{
 				pParty = new CParty(pInviter, this);
 				pParty->m_Access.Release();
