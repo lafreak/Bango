@@ -50,6 +50,8 @@ CPlayer::~CPlayer()
 {
 	EmptyInven();
 
+	LeaveParty();
+
 	CMap::Remove(this);
 	CPlayer::Remove(this);
 
@@ -903,6 +905,7 @@ void CPlayer::Process(Packet packet)
 
 			CPlayer* pPlayer = FindPlayer(nID);
 
+			// TODO: Distance check, party is full check
 			// TODO: Add a check if player is a leader. Or not? Might be fun. xD And let leader kick?
 			if (pPlayer)
 			{
@@ -929,6 +932,7 @@ void CPlayer::Process(Packet packet)
 
 			CPlayer* pPlayer = FindPlayer(nID);
 
+			// TODO: Distance check, party is full check
 			// TODO: Force party allowed! Add check if player was invited. Also add check if player was invited by leader.
 			if (pPlayer)
 			{
@@ -939,7 +943,7 @@ void CPlayer::Process(Packet packet)
 				else
 					pParty = new CParty(pPlayer, this);
 
-				pParty->SendPartyInfo();
+				//pParty->SendPartyInfo();
 
 				pParty->m_Access.Release();
 				pPlayer->m_Access.Release();
@@ -951,26 +955,7 @@ void CPlayer::Process(Packet packet)
 		// TODO: Leave party when GameExit.
 		case C2S_LEAVEPARTY:
 		{
-			CParty* pParty = CParty::FindParty(GetPartyID());
-
-			if (pParty)
-			{
-				pParty->RemoveMember(this);
-				Write(S2C_PARTYINFO, "b", 0);
-
-				if (pParty->GetMemberAmount() == 1)
-				{
-					pParty->Discard();
-					pParty->m_Access.Release();
-					delete pParty;
-				}
-				else
-				{
-					pParty->SendPartyInfo();
-					pParty->m_Access.Release();
-				}
-			}
-
+			LeaveParty();
 			break;
 		}
 
@@ -1463,6 +1448,11 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 				m_nCurHP = nMaxHP;
 
 			Write(S2C_UPDATEPROPERTY, "bwddw", P_HTH, m_wHth, m_nCurHP, nMaxHP, GetResist(RT_PALSY));
+
+			CParty *pParty = CParty::FindParty(GetPartyID());
+			if (pParty)
+				pParty->UpdateMemberHP(this);
+
 			break;
 		}
 
@@ -1512,7 +1502,12 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			m_nCurHP += n64Amount;
 
-			Write(S2C_UPDATEPROPERTY, "bd", P_CURHP, m_nCurHP);			
+			Write(S2C_UPDATEPROPERTY, "bd", P_CURHP, m_nCurHP);
+
+			CParty *pParty = CParty::FindParty(GetPartyID());
+			if (pParty)
+				pParty->UpdateMemberHP(this);
+
 			break;
 		}
 
@@ -1783,6 +1778,28 @@ void CPlayer::SaveAllProperty()
 		m_wPUPoint,
 		m_wSUPoint,
 		m_nAnger);
+}
+
+void CPlayer::LeaveParty()
+{
+	auto pParty = CParty::FindParty(GetPartyID());
+
+	if (pParty)
+	{
+		pParty->RemoveMember(this);
+		Write(S2C_PARTYINFO, "b", 0);
+
+		if (pParty->GetMemberAmount() <= 1)
+		{
+			pParty->Discard();
+			pParty->m_Access.Release();
+			delete pParty;
+		}
+		else
+		{
+			pParty->m_Access.Release();
+		}
+	}
 }
 
 void CPlayer::Tick()

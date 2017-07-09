@@ -11,7 +11,7 @@ CParty::CParty(CPlayer* pLeader, CPlayer* pPlayer)
 	m_vMembers.push_back(pLeader);
 	m_vMembers.push_back(pPlayer);
 
-	m_nID = NewID();
+	m_nID = CParty::NewID();
 
 	pLeader->Lock();
 	pPlayer->Lock();
@@ -25,6 +25,8 @@ CParty::CParty(CPlayer* pLeader, CPlayer* pPlayer)
 	CParty::Add(this);
 
 	m_Access.Grant();
+
+	SendPartyInfo();
 }
 
 CParty::~CParty()
@@ -53,8 +55,6 @@ void CParty::Add(CParty* pParty)
 	if (g_mParty.find(pParty->GetID()) == g_mParty.end())
 		g_mParty[pParty->GetID()] = pParty;
 
-	printf("%d\n", (int) g_mParty.size());
-
 	g_mxParty.unlock();
 }
 
@@ -65,8 +65,6 @@ void CParty::Remove(CParty* pParty)
 	PartyMap::iterator it = g_mParty.find(pParty->GetID());
 	if (it != g_mParty.end())
 		g_mParty.erase(it);
-
-	printf("%d\n", (int) g_mParty.size());
 
 	g_mxParty.unlock();
 }
@@ -80,8 +78,10 @@ void CParty::AddMember(CPlayer* pPlayer)
 	pPlayer->Lock();
 	pPlayer->SetPartyID(m_nID);
 	pPlayer->Unlock();
-
+	
 	m_mxThis.unlock();
+
+	SendPartyInfo();
 }
 
 void CParty::RemoveMember(CPlayer* pPlayer)
@@ -97,6 +97,8 @@ void CParty::RemoveMember(CPlayer* pPlayer)
 	pPlayer->Unlock();
 
 	m_mxThis.unlock();
+
+	SendPartyInfo();
 }
 
 void CParty::Discard()
@@ -111,21 +113,6 @@ void CParty::Discard()
 
 CParty* CParty::FindParty(int nID)
 {
-	/*
-	for (auto &a : g_mParty)
-	{
-		for (int i = 0; i < a.second->m_vMembers.size(); i++)
-		{
-			if (a.second->m_vMembers[i] == pPlayer)
-			{
-				a.second->m_Access.Grant();
-				return a.second;
-			}
-		}
-	}
-	return NULL;
-	*/
-
 	if (nID <= 0)
 		return NULL;
 
@@ -143,23 +130,11 @@ CParty* CParty::FindParty(int nID)
 	return pParty;
 }
 
-/*
-keep me here i am just a draft <3
-void CParty::UpdateParty()
+void CParty::UpdateMemberHP(CPlayer* pPlayer)
 {
-	CParty* pParty = FindParty(id);
+	m_mxThis.lock();
 
-	if (pParty)
-	{
-		pParty->UpdatePartyInfo(pPlayer);
-		pParty->m_Access.Release();
-	}
-}
-
-*/
-
-void CParty::UpdatePartyInfo(CPlayer* pPlayer)
-{
+	/*
 	Packet packet;
 	memset(&packet, 0, sizeof(Packet));
 	packet.byType = S2C_UPDATEPARTY;
@@ -174,6 +149,34 @@ void CParty::UpdatePartyInfo(CPlayer* pPlayer)
 
 	for (auto &a : m_vMembers)
 		a->SendPacket(packet);
+	*/
+
+	MemberVec members;
+	GetPlayerList(members);
+
+	for (auto &m : members)
+	{
+		m->Write(S2C_UPDATEPARTY, "dbdd", pPlayer->GetPID(), P_CURHP, pPlayer->GetCurHP(), pPlayer->GetMaxHP());
+		m->m_Access.Release();
+	}
+
+	m_mxThis.unlock();
+}
+
+void CParty::UpdateMemberLevel(CPlayer * pPlayer)
+{
+	m_mxThis.lock();
+
+	MemberVec members;
+	GetPlayerList(members);
+
+	for (auto &m : members)
+	{
+		m->Write(S2C_UPDATEPARTY, "dbb", pPlayer->GetPID(), P_LEVEL, pPlayer->GetLevel());
+		m->m_Access.Release();
+	}
+
+	m_mxThis.unlock();
 }
 
 void CParty::GetPlayerList(MemberVec& list)
@@ -189,7 +192,7 @@ void CParty::SendPartyInfo()
 {
 	m_mxThis.lock();
 
-	int byCount = m_vMembers.size();
+	int byCount = GetMemberAmount();
 	char* end;
 
 	Packet packet;
@@ -206,7 +209,6 @@ void CParty::SendPartyInfo()
 		for (auto &a : members)
 		{
 			end = CSocket::WritePacket(end, "dsbbww",
-				//end = CSocket::WritePacket(end, "dsbbdw",
 				a->GetPID(),
 				a->GetName().c_str(),
 				a->GetClass(),

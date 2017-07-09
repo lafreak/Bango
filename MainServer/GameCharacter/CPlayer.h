@@ -151,6 +151,9 @@ public:
 	void RemoveItem(WORD wIndex, int nNum=0, BYTE byLogType=TL_DELETE);
 	void SaveAllProperty();
 
+	// Party
+	void LeaveParty();
+
 	// Item Map
 	void IntoInven(CItem* pItem);
 	void OutofInven(CItem* pItem);

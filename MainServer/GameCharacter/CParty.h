@@ -63,8 +63,9 @@ public:
 	void Discard();
 	void AddMember(CPlayer* pPlayer);
 	void RemoveMember(CPlayer* pPlayer);
-	void UpdatePartyInfo(CPlayer *pPlayer);
-	void UpdateParty(CPlayer *pPlayer);
+	void UpdateMemberHP(CPlayer *pPlayer);
+	void UpdateMemberLevel(CPlayer *pPlayer);
+	//void UpdateParty(CPlayer *pPlayer);
 	void SendPartyInfo();
 };
 
