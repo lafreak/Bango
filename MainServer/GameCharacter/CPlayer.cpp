@@ -929,6 +929,9 @@ void CPlayer::Process(Packet packet)
 				pTarget->m_Access.Release();
 			}
 
+			if (pParty)
+				pParty->m_Access.Release();
+
 			break;
 		}
 
@@ -964,8 +967,7 @@ void CPlayer::Process(Packet packet)
 				// Is inviter still leader ? was player actually invited ? Is he still without party?
 				if (pParty->IsHead(pInviter) && pParty->FindPending(GetID()) && !HasParty() && pParty->GetMemberAmount() < 8)
 				{
-					printf("Adding member\n");
-						pParty->AddMember(this);
+					pParty->AddMember(this);
 				}
 				else
 						; // TODO: Party is full packet
