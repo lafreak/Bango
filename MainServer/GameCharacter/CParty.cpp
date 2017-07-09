@@ -88,12 +88,13 @@ void CParty::RemoveMember(CPlayer* pPlayer)
 {
 	m_mxThis.lock();
 
-	MemberVec::iterator it = std::find(m_vMembers.begin(), m_vMembers.end(), pPlayer);
+	auto it = std::find(m_vMembers.begin(), m_vMembers.end(), pPlayer);
 	if (it != m_vMembers.end())
 		m_vMembers.erase(it);
 
 	pPlayer->Lock();
 	pPlayer->SetPartyID(0);
+	pPlayer->Write(S2C_PARTYINFO, "b", 0);
 	pPlayer->Unlock();
 
 	m_mxThis.unlock();
@@ -101,13 +102,21 @@ void CParty::RemoveMember(CPlayer* pPlayer)
 	SendPartyInfo();
 }
 
+bool CParty::IsHead(CPlayer *pPlayer)
+{
+	m_mxThis.lock();
+
+	bool bIsHead = m_vMembers.size() > 0 && m_vMembers[0]->GetID() == pPlayer->GetID();
+
+	m_mxThis.unlock();
+
+	return bIsHead;
+}
+
 void CParty::Discard()
 {
 	m_vMembers[0]->m_Access.Grant();
-	m_vMembers[0]->Lock();
-	m_vMembers[0]->SetPartyID(0);
-	m_vMembers[0]->Write(S2C_PARTYINFO, "b", 0);
-	m_vMembers[0]->Unlock();
+	RemoveMember(m_vMembers[0]);
 	m_vMembers[0]->m_Access.Release();
 }
 
@@ -151,7 +160,7 @@ void CParty::UpdateMemberHP(CPlayer* pPlayer)
 		a->SendPacket(packet);
 	*/
 
-	MemberVec members;
+	PlayerVector members;
 	GetPlayerList(members);
 
 	for (auto &m : members)
@@ -167,7 +176,7 @@ void CParty::UpdateMemberLevel(CPlayer * pPlayer)
 {
 	m_mxThis.lock();
 
-	MemberVec members;
+	PlayerVector members;
 	GetPlayerList(members);
 
 	for (auto &m : members)
@@ -179,7 +188,7 @@ void CParty::UpdateMemberLevel(CPlayer * pPlayer)
 	m_mxThis.unlock();
 }
 
-void CParty::GetPlayerList(MemberVec& list)
+void CParty::GetPlayerList(PlayerVector& list)
 {
 	for (auto &a : m_vMembers)
 	{
@@ -199,7 +208,7 @@ void CParty::SendPartyInfo()
 	memset(&packet, 0, sizeof(Packet));
 	packet.byType = S2C_PARTYINFO;
 
-	MemberVec members;
+	PlayerVector members;
 	GetPlayerList(members);
 
 	if (byCount >= 2)

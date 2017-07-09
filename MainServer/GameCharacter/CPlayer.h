@@ -78,6 +78,7 @@ public:
 	int  GetPID() const { return m_nPID; }
 	int  GetCID() const { return m_nCID; }
 	int  GetPartyID() const { return m_nPartyID; }
+	bool HasParty() const { return m_nPartyID > 0; }
 	void SetPartyID(int nID) { m_nPartyID = nID; }
 	WORD GetPUPoint() const { return m_wPUPoint; }
 	WORD GetSUPoint() const { return m_wSUPoint; }

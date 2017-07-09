@@ -24,7 +24,7 @@
 
 #include "CPlayer.h"
 
-typedef std::vector<CPlayer*> MemberVec;
+typedef std::vector<CPlayer*> PlayerVector;
 
 //ADD ITEM DESTRUCTOR ->for when logout, player leaves pt too. etc.
 //fix couldnt findparty map error when joining pt after logging in
@@ -34,7 +34,7 @@ class CParty
 private:
 	int m_nID;
 
-	MemberVec m_vMembers;
+	PlayerVector m_vMembers;
 	std::mutex m_mxThis;
 
 	static std::map<int, CParty*> g_mParty;
@@ -48,7 +48,7 @@ private:
 	static void Add(CParty* pParty);
 	static void Remove(CParty* pParty);
 
-	void GetPlayerList(MemberVec& list);
+	void GetPlayerList(PlayerVector& list);
 
 public:
 	Access m_Access;
@@ -60,6 +60,7 @@ public:
 
 	int GetID() const { return m_nID; }
 	int GetMemberAmount() const { return m_vMembers.size(); }
+	bool IsHead(CPlayer *pPlayer);
 	void Discard();
 	void AddMember(CPlayer* pPlayer);
 	void RemoveMember(CPlayer* pPlayer);

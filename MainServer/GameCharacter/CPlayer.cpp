@@ -903,16 +903,19 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			CSocket::ReadPacket(packet.data, "d", &nID);
 
-			CPlayer* pPlayer = FindPlayer(nID);
+			if (nID == GetID())
+				break;
 
-			// TODO: Distance check, party is full check
-			// TODO: Add a check if player is a leader. Or not? Might be fun. xD And let leader kick?
-			if (pPlayer)
+			CPlayer* pTarget = FindPlayer(nID);
+
+			// TODO: Party is full check
+			// TODO: Add a check if player is a leader. Or not? Might be fun. xD
+			if (pTarget)
 			{
-				if (pPlayer->GetPartyID() == 0)
-					pPlayer->Write(S2C_ASKPARTY, "d", GetID());
+				if (!pTarget->HasParty())
+					pTarget->Write(S2C_ASKPARTY, "d", GetID());
 
-				pPlayer->m_Access.Release();
+				pTarget->m_Access.Release();
 			}
 
 			break;
@@ -924,29 +927,36 @@ void CPlayer::Process(Packet packet)
 			BYTE byAns=0;
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
 
-			if (byAns == 0)
-			{
-				// TODO: Didn't you wonder why inix send DECLINE packet? You should inform sender that player did not accept.
+			if (nID == GetID())
 				break;
-			}
 
-			CPlayer* pPlayer = FindPlayer(nID);
+			CPlayer* pInviter = FindPlayer(nID);
 
-			// TODO: Distance check, party is full check
-			// TODO: Force party allowed! Add check if player was invited. Also add check if player was invited by leader.
-			if (pPlayer)
+			// TODO: Force party allowed! Add check if player was invited.
+			if (pInviter)
 			{
-				CParty* pParty = CParty::FindParty(pPlayer->GetPartyID());
+				if (byAns == 0)
+				{
+					// TODO: Party declined packet
+					break;
+				}
+
+				CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
 
 				if (pParty)
-					pParty->AddMember(this);
+				{
+					if (pParty->GetMemberAmount() < 8)
+						pParty->AddMember(this);
+					else
+						; // TODO: Party is full packet
+				}
 				else
-					pParty = new CParty(pPlayer, this);
-
-				//pParty->SendPartyInfo();
+				{
+					pParty = new CParty(pInviter, this);
+				}
 
 				pParty->m_Access.Release();
-				pPlayer->m_Access.Release();
+				pInviter->m_Access.Release();
 			}
 
 			break;
@@ -1787,9 +1797,8 @@ void CPlayer::LeaveParty()
 	if (pParty)
 	{
 		pParty->RemoveMember(this);
-		Write(S2C_PARTYINFO, "b", 0);
 
-		if (pParty->GetMemberAmount() <= 1)
+		if (pParty->GetMemberAmount() == 1)
 		{
 			pParty->Discard();
 			pParty->m_Access.Release();
