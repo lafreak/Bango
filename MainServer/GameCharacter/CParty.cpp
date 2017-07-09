@@ -102,40 +102,6 @@ void CParty::RemoveMember(CPlayer* pPlayer)
 	SendPartyInfo();
 }
 
-void CParty::AddPending(int nID)
-{
-	 m_mxPending.lock();
-
-	 m_vPending.push_back(nID);
-
-	 m_mxPending.unlock();
-}
-
-void CParty::RemovePending(int nID)
-{
-	m_mxPending.lock();
-	
-	auto it = std::find(m_vPending.begin(), m_vPending.end(), nID);
-	if (it != m_vPending.end())
-		m_vPending.erase(it);
-
-	m_mxPending.unlock();
-}
-
-bool CParty::FindPending(int nID)
-{
-	bool rtn = false;
-	m_mxPending.lock();
-
-	auto it = std::find(m_vPending.begin(), m_vPending.end(), nID);
-	if (it != m_vPending.end())
-		rtn = true;
-
-	m_mxPending.unlock();
-
-	return rtn;
-}
-
 bool CParty::IsHead(CPlayer *pPlayer)
 {
 	m_mxThis.lock();

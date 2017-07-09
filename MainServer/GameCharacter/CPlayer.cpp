@@ -909,20 +909,20 @@ void CPlayer::Process(Packet packet)
 			CPlayer* pTarget = FindPlayer(nID);
 			CParty* pParty = CParty::FindParty(GetPartyID());
 
-			// TODO: Party is full check
-			// TODO: Add a check if player is a leader. Or not? Might be fun. xD
 			if (pTarget && pParty && pParty->IsHead(this))
 			{
 				if (!pTarget->HasParty())
 				{
-					pParty->AddPending(pTarget->GetID());
+					pTarget->Lock();
+					pTarget->SetInviterID(GetID());
 					pTarget->Write(S2C_ASKPARTY, "d", GetID());
+					pTarget->Unlock();
 				}
+		
 				pTarget->m_Access.Release();
 			}
 			else if (pTarget)
 			{
-
 				if (!pTarget->HasParty() && !HasParty())
 					pTarget->Write(S2C_ASKPARTY, "d", GetID());
 
@@ -940,38 +940,26 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			BYTE byAns=0;
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
-
-			if (nID == GetID())
-				break;
-
 			CPlayer* pInviter = FindPlayer(nID);
 
-			if (!pInviter)
-				break;
-
-			CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
-
-			// TODO: Force party allowed! Add check if player was invited.
-			if (byAns == 0)
+			if (byAns == 0 || nID == GetID() || nID != GetInviterID() || !pInviter)
 			{
-				if (pParty)
-				{
-					pParty->RemovePending(GetID());
-					pParty->m_Access.Release();
-				}
+				Lock();
+				SetInviterID(0);
+				Unlock();
 				break;
 			}
+
+			CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
 
 			if (pParty)
 			{
 				// Is inviter still leader ? was player actually invited ? Is he still without party?
-				if (pParty->IsHead(pInviter) && pParty->FindPending(GetID()) && !HasParty() && pParty->GetMemberAmount() < 8)
-				{
+				if (pParty->IsHead(pInviter) && !HasParty() && pParty->GetMemberAmount() < 8)
 					pParty->AddMember(this);
-				}
 				else
 						; // TODO: Party is full packet
-				pParty->RemovePending(GetID());
+
 				pParty->m_Access.Release();
 			}
 			// Player might have a party by now.
@@ -980,6 +968,11 @@ void CPlayer::Process(Packet packet)
 				pParty = new CParty(pInviter, this);
 				pParty->m_Access.Release();
 			}
+
+			Lock();
+			SetInviterID(0);
+			Unlock();
+
 			pInviter->m_Access.Release();
 			break;
 		}

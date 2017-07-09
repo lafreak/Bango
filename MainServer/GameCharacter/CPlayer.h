@@ -55,6 +55,7 @@ class CPlayer: public CCharacter
 	BYTE m_byShortcutState;
 
 	int m_nPartyID;
+	int m_nInviterID;
 
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
@@ -78,8 +79,10 @@ public:
 	int  GetPID() const { return m_nPID; }
 	int  GetCID() const { return m_nCID; }
 	int  GetPartyID() const { return m_nPartyID; }
+	int  GetInviterID() const { return m_nInviterID; }
 	bool HasParty() const { return m_nPartyID > 0; }
 	void SetPartyID(int nID) { m_nPartyID = nID; }
+	void SetInviterID(int nID) { m_nInviterID = nID; }
 	WORD GetPUPoint() const { return m_wPUPoint; }
 	WORD GetSUPoint() const { return m_wSUPoint; }
 	WORD GetContribute() const { return m_wContribute; }
