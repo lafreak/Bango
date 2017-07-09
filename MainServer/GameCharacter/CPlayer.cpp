@@ -903,6 +903,9 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			CSocket::ReadPacket(packet.data, "d", &nID);
 
+			if (nID == GetID())
+				break;
+
 			CPlayer* pTarget = FindPlayer(nID);
 			CParty* pParty = CParty::FindParty(GetPartyID());
 
@@ -935,6 +938,9 @@ void CPlayer::Process(Packet packet)
 			BYTE byAns=0;
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
 
+			if (nID == GetID())
+				break;
+
 			CPlayer* pInviter = FindPlayer(nID);
 
 			if (!pInviter)
@@ -955,15 +961,6 @@ void CPlayer::Process(Packet packet)
 
 			if (pParty)
 			{
-				if (pParty->FindPending(GetID()))
-					printf("Found pending\n");
-
-				if (pParty->IsHead(pInviter))
-					printf("is head\n");
-
-				if (!HasParty())
-					printf("doesnt have party\n");
-
 				// Is inviter still leader ? was player actually invited ? Is he still without party?
 				if (pParty->IsHead(pInviter) && pParty->FindPending(GetID()) && !HasParty() && pParty->GetMemberAmount() < 8)
 				{
