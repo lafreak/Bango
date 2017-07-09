@@ -1300,6 +1300,18 @@ void CPlayer::ProcessMsg(char* szMsg)
 			ChatCommand(szMsg);
 			break;
 
+		case '#':
+		{
+			auto pParty = CParty::FindParty(GetPartyID());
+			if (pParty)
+			{
+				pParty->ProcessMsg((char *)m_szName.c_str(), szMsg);
+				pParty->m_Access.Release();
+			}
+
+			break;
+		}
+
 		default:
 			WriteInSight(S2C_CHATTING, "ss", m_szName.c_str(), szMsg);
 			break;

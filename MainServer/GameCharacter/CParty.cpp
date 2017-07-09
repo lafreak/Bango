@@ -242,3 +242,19 @@ void CParty::SendPartyInfo()
 	m_mxThis.unlock();
 }
 
+void CParty::ProcessMsg(char * szName, char * szMsg)
+{
+	m_mxThis.lock();
+
+	PlayerVector members;
+	GetPlayerList(members);
+
+	for (auto &a : members)
+	{
+		a->Write(S2C_CHATTING, "ss", szName, szMsg);
+		a->m_Access.Release();
+	}
+
+	m_mxThis.unlock();
+}
+

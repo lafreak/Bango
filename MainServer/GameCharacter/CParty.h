@@ -68,6 +68,7 @@ public:
 	void UpdateMemberLevel(CPlayer *pPlayer);
 	//void UpdateParty(CPlayer *pPlayer);
 	void SendPartyInfo();
+	void ProcessMsg(char* szName, char* szMsg);
 };
 
 typedef std::map<int, CParty*> PartyMap;
