@@ -26,16 +26,17 @@
 
 typedef std::vector<CPlayer*> PlayerVector;
 
-//ADD ITEM DESTRUCTOR ->for when logout, player leaves pt too. etc.
-//fix couldnt findparty map error when joining pt after logging in
-
 class CParty
 {
 private:
 	int m_nID;
 
 	PlayerVector m_vMembers;
+	// wtf is this mutex name?
 	std::mutex m_mxThis;
+
+	std::vector<int>m_vPending;
+	std::mutex m_mxPending;
 
 	static std::map<int, CParty*> g_mParty;
 	static std::mutex g_mxParty;
@@ -69,6 +70,10 @@ public:
 	//void UpdateParty(CPlayer *pPlayer);
 	void SendPartyInfo();
 	void ProcessMsg(char* szName, char* szMsg);
+
+	void AddPending(int nID);
+	void RemovePending(int nID);
+	bool FindPending(int nID);
 };
 
 typedef std::map<int, CParty*> PartyMap;
