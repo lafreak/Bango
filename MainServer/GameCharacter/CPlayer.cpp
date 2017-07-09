@@ -903,16 +903,24 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			CSocket::ReadPacket(packet.data, "d", &nID);
 
-			if (nID == GetID())
-				break;
-
 			CPlayer* pTarget = FindPlayer(nID);
+			CParty* pParty = CParty::FindParty(GetPartyID());
 
 			// TODO: Party is full check
 			// TODO: Add a check if player is a leader. Or not? Might be fun. xD
-			if (pTarget)
+			if (pTarget && pParty && pParty->IsHead(this))
 			{
 				if (!pTarget->HasParty())
+				{
+					pParty->AddPending(pTarget->GetID());
+					pTarget->Write(S2C_ASKPARTY, "d", GetID());
+				}
+				pTarget->m_Access.Release();
+			}
+			else if (pTarget)
+			{
+
+				if (!pTarget->HasParty() && !HasParty())
 					pTarget->Write(S2C_ASKPARTY, "d", GetID());
 
 				pTarget->m_Access.Release();
@@ -927,38 +935,53 @@ void CPlayer::Process(Packet packet)
 			BYTE byAns=0;
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
 
-			if (nID == GetID())
-				break;
-
 			CPlayer* pInviter = FindPlayer(nID);
 
+			if (!pInviter)
+				break;
+
+			CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
+
 			// TODO: Force party allowed! Add check if player was invited.
-			if (pInviter)
+			if (byAns == 0)
 			{
-				if (byAns == 0)
-				{
-					// TODO: Party declined packet
-					break;
-				}
-
-				CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
-
 				if (pParty)
 				{
-					if (pParty->GetMemberAmount() < 8)
-						pParty->AddMember(this);
-					else
-						; // TODO: Party is full packet
+					pParty->RemovePending(GetID());
+					pParty->m_Access.Release();
 				}
-				else
-				{
-					pParty = new CParty(pInviter, this);
-				}
-
-				pParty->m_Access.Release();
-				pInviter->m_Access.Release();
+				break;
 			}
 
+			if (pParty)
+			{
+				if (pParty->FindPending(GetID()))
+					printf("Found pending\n");
+
+				if (pParty->IsHead(pInviter))
+					printf("is head\n");
+
+				if (!HasParty())
+					printf("doesnt have party\n");
+
+				// Is inviter still leader ? was player actually invited ? Is he still without party?
+				if (pParty->IsHead(pInviter) && pParty->FindPending(GetID()) && !HasParty() && pParty->GetMemberAmount() < 8)
+				{
+					printf("Adding member\n");
+						pParty->AddMember(this);
+				}
+				else
+						; // TODO: Party is full packet
+				pParty->RemovePending(GetID());
+				pParty->m_Access.Release();
+			}
+			// Player might have a party by now.
+			else if (GetPartyID() == 0 && !pInviter->HasParty())
+			{
+				pParty = new CParty(pInviter, this);
+				pParty->m_Access.Release();
+			}
+			pInviter->m_Access.Release();
 			break;
 		}
 
