@@ -907,16 +907,30 @@ void CPlayer::Process(Packet packet)
 				break;
 
 			CPlayer* pTarget = FindPlayer(nID);
+			CParty* pParty = CParty::FindParty(GetPartyID());
 
-			// TODO: Party is full check
-			// TODO: Add a check if player is a leader. Or not? Might be fun. xD
-			if (pTarget)
+			if (pTarget && pParty && pParty->IsHead(this))
 			{
 				if (!pTarget->HasParty())
+				{
+					pTarget->Lock();
+					pTarget->SetInviterID(GetID());
+					pTarget->Write(S2C_ASKPARTY, "d", GetID());
+					pTarget->Unlock();
+				}
+		
+				pTarget->m_Access.Release();
+			}
+			else if (pTarget)
+			{
+				if (!pTarget->HasParty() && !HasParty())
 					pTarget->Write(S2C_ASKPARTY, "d", GetID());
 
 				pTarget->m_Access.Release();
 			}
+
+			if (pParty)
+				pParty->m_Access.Release();
 
 			break;
 		}
@@ -926,43 +940,46 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			BYTE byAns=0;
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
-
-			if (nID == GetID())
-				break;
-
 			CPlayer* pInviter = FindPlayer(nID);
 
-			// TODO: Force party allowed! Add check if player was invited.
-			if (pInviter)
+			if (byAns == 0 || nID == GetID() || !pInviter)
 			{
-				if (byAns == 0)
-				{
-					// TODO: Party declined packet
-					break;
-				}
-
-				CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
-
-				if (pParty)
-				{
-					if (pParty->GetMemberAmount() < 8)
-						pParty->AddMember(this);
-					else
-						; // TODO: Party is full packet
-				}
-				else
-				{
-					pParty = new CParty(pInviter, this);
-				}
-
-				pParty->m_Access.Release();
-				pInviter->m_Access.Release();
+				Lock();
+				SetInviterID(0);
+				Unlock();
+				break;
 			}
 
+			CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
+
+			if (pParty)
+			{
+				if (nID != GetInviterID())
+					break;
+				// Is inviter still leader ? was player actually invited ? Is he still without party?
+				if (pParty->IsHead(pInviter) && !HasParty() && pParty->GetMemberAmount() < 8)
+					pParty->AddMember(this);
+				else
+						; // TODO: Party is full packet
+
+				pParty->m_Access.Release();
+			}
+			// Player might have a party by now.
+			else if (!HasParty() && !pInviter->HasParty())
+			{
+				pParty = new CParty(pInviter, this);
+				pParty->m_Access.Release();
+			}
+
+			Lock();
+			SetInviterID(0);
+			Unlock();
+
+			pInviter->m_Access.Release();
 			break;
 		}
 
-		// TODO: Leave party when GameExit.
+		//TODO: Leave Party Message 
 		case C2S_LEAVEPARTY:
 		{
 			LeaveParty();
