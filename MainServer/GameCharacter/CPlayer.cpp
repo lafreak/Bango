@@ -1351,6 +1351,37 @@ void CPlayer::ChatCommand(char* szCommand)
 		WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
 	}
 
+	else if (!strcmp(token, "/expelparty")) {
+		token = std::strtok(NULL, " ");
+
+		if (!token)
+			return;
+
+		auto pParty = CParty::FindParty(GetPartyID());
+		CPlayer* pPlayer = NULL;
+
+		if (pParty && pParty->IsHead(this))
+		{
+			pPlayer = pParty->FindMemberByName(token);
+			if (pPlayer)
+			{
+				pParty->RemoveMember(pPlayer);
+				pPlayer->m_Access.Release();
+
+				if (pParty->GetMemberAmount() == 1)
+				{
+					pParty->Discard();
+					pParty->m_Access.Release();
+					delete pParty;
+					return;
+				}
+			}
+		}
+
+		if (pParty)
+			pParty->m_Access.Release();
+	}
+
 	else if (!strcmp(token, "/npc")) {
 		token = std::strtok(NULL, " ");
 

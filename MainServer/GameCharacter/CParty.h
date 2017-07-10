@@ -54,6 +54,7 @@ public:
 	~CParty();
 
 	static CParty* FindParty(int nID);
+	CPlayer* FindMemberByName(char *szName);
 
 	int GetID() const { return m_nID; }
 	int GetMemberAmount() const { return m_vMembers.size(); }

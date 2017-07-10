@@ -141,6 +141,25 @@ CParty* CParty::FindParty(int nID)
 	return pParty;
 }
 
+CPlayer* CParty::FindMemberByName(char* szName)
+{
+	CPlayer *pPlayer=NULL;
+
+	m_mxThis.lock();
+
+	for (auto& a: m_vMembers) {
+		if (!strcmp(szName, a->GetName().c_str())) {
+			pPlayer = a;
+			pPlayer->m_Access.Grant();
+			break;
+		}
+	}
+
+	m_mxThis.unlock();
+
+	return pPlayer;
+}
+
 void CParty::UpdateMemberHP(CPlayer* pPlayer)
 {
 	m_mxThis.lock();
