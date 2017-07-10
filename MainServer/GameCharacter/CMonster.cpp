@@ -23,6 +23,8 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 
 	m_dwLastWalkStep = 0;
 	m_dwLastChaseStep = 0;
+
+	m_byKind = CK_MONSTER;
 }
 
 CMonster::~CMonster()
@@ -240,7 +242,7 @@ void CMonster::Tick()
 
 		if (pTarget) 
 		{
-			printf("Found taget.\n");
+			printf("Found taget KIND [%d].\n", pTarget->GetKind());
 			m_pTarget = pTarget;
 			m_byAIState = AIS_CHASE;
 			pTarget->m_Access.Release();
@@ -268,6 +270,8 @@ void CMonster::AI()
 			if (dwNow < m_dwLastWalkStep)
 				break;
 
+			m_dwLastWalkStep = dwNow + GetWalkSpeed();
+
 			WORD wAngle = rand() % 360;
 			char dx = 32 * cos(wAngle * M_PI / 180.0);
 			char dy = 32 * sin(wAngle * M_PI / 180.0);
@@ -284,8 +288,6 @@ void CMonster::AI()
 				Move(dx, dy, MT_WALK);
 			}
 
-			m_dwLastWalkStep = dwNow + GetWalkSpeed();
-
 			Unlock();
 
 			break;
@@ -296,9 +298,11 @@ void CMonster::AI()
 			if (dwNow < m_dwLastChaseStep)
 				break;
 
-			printf("Step.\n");
+			m_dwLastChaseStep = dwNow + GetRunSpeed();
 
 			int nDistance = GetDistance(m_pTarget) - GetRange();
+
+			printf("Distance (%d).\n", nDistance);
 
 			if (nDistance <= 1)
 				break; // Attack
@@ -320,8 +324,6 @@ void CMonster::AI()
 			{
 				Move(dx, dy, MT_RUN);
 			}
-
-			m_dwLastChaseStep = dwNow + GetRunSpeed();
 
 			Unlock();
 

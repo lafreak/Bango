@@ -1460,15 +1460,15 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (token)
 			wIndex = atoi(token);
 
-		/*
+		
 		for (int i = GetX() - 500; i <= GetX() + 500; i+=50) {
 			for (int j = GetY() - 500; j <= GetY() + 500; j+=50) {
 				CMonster::Summon(wIndex, i, j);
 			}
 		}
-		*/
-		Write(S2C_ITEMSHOP, "b", 0);
-		Write(S2C_ITEMSHOP, "bddd", 4, 100, 200, 300);
+		
+		//Write(S2C_ITEMSHOP, "b", 0);
+		//Write(S2C_ITEMSHOP, "bddd", 4, 100, 200, 300);
 
 		//Write(S2C_ITEMSHOP, "bbwwwbbdbwbbdb", 3, wIndex, 400, 2, 255, 1, 2, 3, 4, 256, 1, 2, 3, 4);
 	}
