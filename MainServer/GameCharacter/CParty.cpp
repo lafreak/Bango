@@ -18,6 +18,7 @@ CParty::CParty(CPlayer* pLeader, CPlayer* pPlayer)
 
 	pLeader->SetPartyID(m_nID);
 	pPlayer->SetPartyID(m_nID);
+	pPlayer->SetPartyInviterID(0);
 
 	pLeader->Unlock();
 	pPlayer->Unlock();
@@ -77,6 +78,7 @@ void CParty::AddMember(CPlayer* pPlayer)
 
 	pPlayer->Lock();
 	pPlayer->SetPartyID(m_nID);
+	pPlayer->SetPartyInviterID(0);
 	pPlayer->Unlock();
 	
 	m_mxThis.unlock();

@@ -32,7 +32,6 @@ private:
 	int m_nID;
 
 	PlayerVector m_vMembers;
-	// wtf is this mutex name?
 	std::mutex m_mxThis;
 
 	static std::map<int, CParty*> g_mParty;

@@ -906,31 +906,40 @@ void CPlayer::Process(Packet packet)
 			if (nID == GetID())
 				break;
 
-			CPlayer* pTarget = FindPlayer(nID);
-			CParty* pParty = CParty::FindParty(GetPartyID());
+			auto pTarget = CPlayer::FindPlayer(nID);
 
-			if (pTarget && pParty && pParty->IsHead(this))
+			if (pTarget)
 			{
-				if (!pTarget->HasParty())
+				if (pTarget->HasParty())
+				{
+					pTarget->m_Access.Release();
+					break;
+				}
+
+				auto pParty = CParty::FindParty(GetPartyID());
+
+				if (pParty)
+				{
+					if (pParty->IsHead(this))
+					{
+						pTarget->Lock();
+						pTarget->SetPartyInviterID(GetID());
+						pTarget->Write(S2C_ASKPARTY, "d", GetID());
+						pTarget->Unlock();
+					}
+
+					pParty->m_Access.Release();
+				}
+				else
 				{
 					pTarget->Lock();
-					pTarget->SetInviterID(GetID());
+					pTarget->SetPartyInviterID(GetID());
 					pTarget->Write(S2C_ASKPARTY, "d", GetID());
 					pTarget->Unlock();
 				}
-		
-				pTarget->m_Access.Release();
-			}
-			else if (pTarget)
-			{
-				if (!pTarget->HasParty() && !HasParty())
-					pTarget->Write(S2C_ASKPARTY, "d", GetID());
 
 				pTarget->m_Access.Release();
 			}
-
-			if (pParty)
-				pParty->m_Access.Release();
 
 			break;
 		}
@@ -940,42 +949,49 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			BYTE byAns=0;
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
-			CPlayer* pInviter = FindPlayer(nID);
 
-			if (byAns == 0 || nID == GetID() || !pInviter)
+			if (nID == GetID())
+				break;
+
+			if (nID != GetPartyInviterID())
+				break;
+
+			if (HasParty())
+				break;
+
+			if (byAns == 0) // Decline
 			{
 				Lock();
-				SetInviterID(0);
+				SetPartyInviterID(0);
+				// TODO: Sent packet to Inviter that request was declined.
 				Unlock();
 				break;
 			}
 
-			CParty* pParty = CParty::FindParty(pInviter->GetPartyID());
+			auto pInviter = CPlayer::FindPlayer(nID);
 
-			if (pParty)
+			if (pInviter)
 			{
-				if (nID != GetInviterID())
-					break;
-				// Is inviter still leader ? was player actually invited ? Is he still without party?
-				if (pParty->IsHead(pInviter) && !HasParty() && pParty->GetMemberAmount() < 8)
-					pParty->AddMember(this);
-				else
+				auto pParty = CParty::FindParty(pInviter->GetPartyID());
+
+				if (pParty)
+				{
+					if (!pParty->IsHead(pInviter))
+						;
+					else if (pParty->GetMemberAmount() < 8)
+						pParty->AddMember(this);
+					else
 						; // TODO: Party is full packet
+				}
+				else
+				{
+					pParty = new CParty(pInviter, this);
+				}
 
 				pParty->m_Access.Release();
-			}
-			// Player might have a party by now.
-			else if (!HasParty() && !pInviter->HasParty())
-			{
-				pParty = new CParty(pInviter, this);
-				pParty->m_Access.Release();
+				pInviter->m_Access.Release();
 			}
 
-			Lock();
-			SetInviterID(0);
-			Unlock();
-
-			pInviter->m_Access.Release();
 			break;
 		}
 
