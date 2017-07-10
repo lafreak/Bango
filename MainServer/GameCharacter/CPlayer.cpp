@@ -39,6 +39,7 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_byShortcutState = 0;
 
 	m_nPartyID = 0;
+	m_nPartyInviterID = 0;
 
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
 	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
@@ -903,41 +904,11 @@ void CPlayer::Process(Packet packet)
 			int nID=0;
 			CSocket::ReadPacket(packet.data, "d", &nID);
 
-			if (nID == GetID())
-				break;
-
 			auto pTarget = CPlayer::FindPlayer(nID);
 
 			if (pTarget)
 			{
-				if (pTarget->HasParty())
-				{
-					pTarget->m_Access.Release();
-					break;
-				}
-
-				auto pParty = CParty::FindParty(GetPartyID());
-
-				if (pParty)
-				{
-					if (pParty->IsHead(this))
-					{
-						pTarget->Lock();
-						pTarget->SetPartyInviterID(GetID());
-						pTarget->Write(S2C_ASKPARTY, "d", GetID());
-						pTarget->Unlock();
-					}
-
-					pParty->m_Access.Release();
-				}
-				else
-				{
-					pTarget->Lock();
-					pTarget->SetPartyInviterID(GetID());
-					pTarget->Write(S2C_ASKPARTY, "d", GetID());
-					pTarget->Unlock();
-				}
-
+				AskParty(pTarget);
 				pTarget->m_Access.Release();
 			}
 
@@ -1354,6 +1325,20 @@ void CPlayer::ProcessMsg(char* szMsg)
 void CPlayer::ChatCommand(char* szCommand)
 {
 	char *token = std::strtok(szCommand, " ");
+
+	if (!strcmp(token, "/party")) {
+		token = std::strtok(NULL, " ");
+
+		if (!token)
+			return;
+
+		auto pTarget = CPlayer::FindPlayerByName(token);
+		if (pTarget)
+		{
+			AskParty(pTarget);
+			pTarget->m_Access.Release();
+		}
+	}
 
 	if (!strcmp(token, "/ride")) {
 		token = std::strtok(NULL, " ");
@@ -1833,6 +1818,37 @@ void CPlayer::SaveAllProperty()
 		m_wPUPoint,
 		m_wSUPoint,
 		m_nAnger);
+}
+
+void CPlayer::AskParty(CPlayer * pTarget)
+{
+	if (pTarget->GetID() == GetID())
+		return;
+
+	if (pTarget->HasParty())
+		return;
+
+	auto pParty = CParty::FindParty(GetPartyID());
+
+	if (pParty)
+	{
+		if (pParty->IsHead(this))
+		{
+			pTarget->Lock();
+			pTarget->SetPartyInviterID(GetID());
+			pTarget->Write(S2C_ASKPARTY, "d", GetID());
+			pTarget->Unlock();
+		}
+
+		pParty->m_Access.Release();
+	}
+	else
+	{
+		pTarget->Lock();
+		pTarget->SetPartyInviterID(GetID());
+		pTarget->Write(S2C_ASKPARTY, "d", GetID());
+		pTarget->Unlock();
+	}
 }
 
 void CPlayer::LeaveParty()

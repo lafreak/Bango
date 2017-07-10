@@ -156,6 +156,7 @@ public:
 	void SetPartyInviterID(int nID) { m_nPartyInviterID = nID; }
 	int  GetPartyInviterID() const { return m_nPartyInviterID; }
 	bool HasParty() const { return m_nPartyID > 0; }
+	void AskParty(CPlayer *pPlayer);
 	void LeaveParty();
 
 	// Item Map
