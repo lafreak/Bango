@@ -271,23 +271,11 @@ void CMonster::AI()
 			if (dwNow < m_dwLastWalkStep)
 				break;
 
-			m_dwLastWalkStep = dwNow + GetWalkSpeed();
-
-			WORD wAngle = rand() % 360;
-			char dx = 32 * cos(wAngle * M_PI / 180.0);
-			char dy = 32 * sin(wAngle * M_PI / 180.0);
-
 			Lock();
 
-			if ((rand() % MONSTER_WALK_TIME) == 0)
-			{
-				Move(dx, dy, MT_WALK | MTEX_MOVEEND);
-				m_byAIState = AIS_IDLE;
-			}
-			else
-			{
-				Move(dx, dy, MT_WALK);
-			}
+			m_dwLastWalkStep = dwNow + GetWalkSpeed();
+
+			Walk();
 
 			Unlock();
 
@@ -299,35 +287,55 @@ void CMonster::AI()
 			if (dwNow < m_dwLastChaseStep)
 				break;
 
+			Lock();
+
 			m_dwLastChaseStep = dwNow + GetRunSpeed();
 
 			int nDistance = GetDistance(m_pTarget) - GetRange();
 
-			printf("Distance (%d).\n", nDistance);
-
-			// Attack
-			if (nDistance <= 0) // 0/1?
+			if (nDistance > GetFarSight())
+				SetAIS(AIS_WALK);
+			else if (nDistance > 1)
 			{
-				m_byAIState = AIS_ATTACK;
-				break;
-			}
-
-			int nStep = nDistance > 64 ? 64 : nDistance;
-			BYTE byType = nDistance > 64 ? 0 : 1;
-
-			float fAngle = atan2(m_pTarget->GetY() - GetY(), m_pTarget->GetX() - GetX());
-			char dx = nStep * cos(fAngle);
-			char dy = nStep * sin(fAngle);
-
-			Lock();
-
-			if (byType)
-			{
-				Move(dx, dy, MT_RUN | MTEX_MOVEEND);
+				Chase();
+				if (nDistance <= 64)
+				{
+					m_dwLastAttackTime = m_dwLastChaseStep;
+					SetAIS(AIS_FORCEATTACK);
+				}
 			}
 			else
 			{
-				Move(dx, dy, MT_RUN);
+				m_dwLastAttackTime = m_dwLastChaseStep;
+				SetAIS(AIS_FORCEATTACK);
+			}
+
+			Unlock();
+
+			break;
+		}
+
+		case AIS_FORCEATTACK:
+		{
+			if (dwNow < m_dwLastAttackTime)
+				break;
+
+			Lock();
+
+			m_dwLastAttackTime = dwNow + GetAttackSpeed();
+
+			Attack();
+
+			int nDistance = GetDistance(m_pTarget) - GetRange();
+
+			if (nDistance > 1)
+			{
+				m_dwLastChaseStep = m_dwLastAttackTime;
+				SetAIS(AIS_CHASE);
+			}
+			else
+			{
+				SetAIS(AIS_ATTACK);
 			}
 
 			Unlock();
@@ -340,19 +348,23 @@ void CMonster::AI()
 			if (dwNow < m_dwLastAttackTime)
 				break;
 
-			printf("Attack %s!\n", m_pTarget->GetName().c_str());
+			Lock();
 
 			m_dwLastAttackTime = dwNow + GetAttackSpeed();
 
 			int nDistance = GetDistance(m_pTarget) - GetRange();
 
-			printf("Distance (%d).\n", nDistance);
-
-			if (nDistance > 0) // 0/1?
+			if (nDistance > 1)
 			{
-				m_byAIState = AIS_CHASE;
+				m_dwLastChaseStep = GetRunSpeed();
+				SetAIS(AIS_CHASE);
+				Unlock();
 				break;
 			}
+
+			Attack();
+
+			Unlock();
 
 			break;
 		}
@@ -388,3 +400,47 @@ void CMonster::Move(char byX, char byY, BYTE byType)
 		}
 	}
 }
+
+void CMonster::Attack()
+{
+	WriteInSight(S2C_ATTACK, "ddddb", GetID(), m_pTarget->GetID(), 3, 0, 1);
+}
+
+void CMonster::Chase()
+{
+	int nDistance = GetDistance(m_pTarget) - GetRange();
+
+	int nStep = nDistance > 64 ? 64 : nDistance;
+	BYTE byType = nDistance > 64 ? 0 : 1;
+
+	float fAngle = atan2(m_pTarget->GetY() - GetY(), m_pTarget->GetX() - GetX());
+	char dx = nStep * cos(fAngle);
+	char dy = nStep * sin(fAngle);
+
+	if (byType)
+	{
+		Move(dx, dy, MT_RUN | MTEX_MOVEEND);
+	}
+	else
+	{
+		Move(dx, dy, MT_RUN);
+	}
+}
+
+void CMonster::Walk()
+{
+	WORD wAngle = rand() % 360;
+	char dx = 32 * cos(wAngle * M_PI / 180.0);
+	char dy = 32 * sin(wAngle * M_PI / 180.0);
+
+	if ((rand() % MONSTER_WALK_TIME) == 0)
+	{
+		Move(dx, dy, MT_WALK | MTEX_MOVEEND);
+		m_byAIState = AIS_IDLE;
+	}
+	else
+	{
+		Move(dx, dy, MT_WALK);
+	}
+}
+

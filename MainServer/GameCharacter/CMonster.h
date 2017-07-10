@@ -58,6 +58,7 @@ public:
 	WORD GetRunSpeed() const { return m_pMacro->m_wRunSpeed; }
 	WORD GetAttackSpeed() const { return m_pMacro->m_wAttackSpeed; }
 	WORD GetCloseSight() const { return m_pMacro->m_wCloseSight; }
+	WORD GetFarSight() const { return m_pMacro->m_wFarSight; }
 
 	void SetAIS(BYTE byState) { m_byAIState = byState; }
 	void SetTarget(CPlayer *pPlayer) { m_pTarget = pPlayer; }
@@ -65,6 +66,9 @@ public:
 	void Tick();
 	void AI();
 	void Move(char byX, char byY, BYTE byType);
+	void Attack();
+	void Chase();
+	void Walk();
 
 	void SendPacket(Packet& packet) {};
 
@@ -87,6 +91,7 @@ public:
 		AIS_IDLE,
 		AIS_WALK,
 		AIS_CHASE,
+		AIS_FORCEATTACK,
 		AIS_ATTACK,
 	};
 };
