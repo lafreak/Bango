@@ -942,7 +942,7 @@ void CPlayer::Process(Packet packet)
 			CSocket::ReadPacket(packet.data, "bd", &byAns, &nID);
 			CPlayer* pInviter = FindPlayer(nID);
 
-			if (byAns == 0 || nID == GetID() || nID != GetInviterID() || !pInviter)
+			if (byAns == 0 || nID == GetID() || !pInviter)
 			{
 				Lock();
 				SetInviterID(0);
@@ -954,6 +954,8 @@ void CPlayer::Process(Packet packet)
 
 			if (pParty)
 			{
+				if (nID != GetInviterID())
+					break;
 				// Is inviter still leader ? was player actually invited ? Is he still without party?
 				if (pParty->IsHead(pInviter) && !HasParty() && pParty->GetMemberAmount() < 8)
 					pParty->AddMember(this);
@@ -977,7 +979,7 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
-		// TODO: Leave party when GameExit.
+		//TODO: Leave Party Message 
 		case C2S_LEAVEPARTY:
 		{
 			LeaveParty();
