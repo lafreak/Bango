@@ -23,6 +23,7 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 
 	m_dwLastWalkStep = 0;
 	m_dwLastChaseStep = 0;
+	m_dwLastAttackTime = 0;
 
 	m_byKind = CK_MONSTER;
 }
@@ -304,8 +305,12 @@ void CMonster::AI()
 
 			printf("Distance (%d).\n", nDistance);
 
-			if (nDistance <= 1)
-				break; // Attack
+			// Attack
+			if (nDistance <= 0) // 0/1?
+			{
+				m_byAIState = AIS_ATTACK;
+				break;
+			}
 
 			int nStep = nDistance > 64 ? 64 : nDistance;
 			BYTE byType = nDistance > 64 ? 0 : 1;
@@ -326,6 +331,28 @@ void CMonster::AI()
 			}
 
 			Unlock();
+
+			break;
+		}
+
+		case AIS_ATTACK:
+		{
+			if (dwNow < m_dwLastAttackTime)
+				break;
+
+			printf("Attack %s!\n", m_pTarget->GetName().c_str());
+
+			m_dwLastAttackTime = dwNow + GetAttackSpeed();
+
+			int nDistance = GetDistance(m_pTarget) - GetRange();
+
+			printf("Distance (%d).\n", nDistance);
+
+			if (nDistance > 0) // 0/1?
+			{
+				m_byAIState = AIS_CHASE;
+				break;
+			}
 
 			break;
 		}

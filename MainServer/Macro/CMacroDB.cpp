@@ -188,7 +188,8 @@ bool CMacroDB::LoadInitMonster()
 		m_wFarSight(0),
 		m_n64Exp(0),
 		m_wWalkSpeed(0),
-		m_wRunSpeed(0)
+		m_wRunSpeed(0),
+		m_wAttackSpeed(0),
 		*/
 		pMonster->m_wIndex = 		pMonsterInfo->IntAttribute("index");
 		pMonster->m_byRace = 		pMonsterInfo->IntAttribute("race");
@@ -199,6 +200,7 @@ bool CMacroDB::LoadInitMonster()
 		pMonster->m_wFarSight =		pMonsterInfo->IntAttribute("farsight");
 		pMonster->m_wWalkSpeed =	pMonsterInfo->IntAttribute("walkspeed");
 		pMonster->m_wRunSpeed =		pMonsterInfo->IntAttribute("runspeed");
+		pMonster->m_wAttackSpeed =  pMonsterInfo->IntAttribute("attackspeed");
 
 		std::stringstream conv;
 		const char* exp = pMonsterInfo->Attribute("exp");

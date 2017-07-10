@@ -23,6 +23,7 @@ class CMonster: public CCharacter
 
 	DWORD m_dwLastWalkStep;
 	DWORD m_dwLastChaseStep;
+	DWORD m_dwLastAttackTime;
 
 	static std::map<int, CMonster*> g_mMonster;
 	static std::mutex g_mxMonster;
@@ -49,13 +50,14 @@ public:
 	Packet GenerateDeletePacket();
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0);
 
-	WORD GetIndex() { return m_pMacro->m_wIndex; }
-	BYTE GetRace() { return m_pMacro->m_byRace; }
-	BYTE GetLevel() { return m_pMacro->m_byLevel; }
-	WORD GetRange() { return m_pMacro->m_wRange; }
-	WORD GetWalkSpeed() { return m_pMacro->m_wWalkSpeed; }
-	WORD GetRunSpeed() { return m_pMacro->m_wRunSpeed; }
-	WORD GetCloseSight() { return m_pMacro->m_wCloseSight; }
+	WORD GetIndex() const { return m_pMacro->m_wIndex; }
+	BYTE GetRace() const { return m_pMacro->m_byRace; }
+	BYTE GetLevel() const { return m_pMacro->m_byLevel; }
+	WORD GetRange() const { return m_pMacro->m_wRange; }
+	WORD GetWalkSpeed() const { return m_pMacro->m_wWalkSpeed; }
+	WORD GetRunSpeed() const { return m_pMacro->m_wRunSpeed; }
+	WORD GetAttackSpeed() const { return m_pMacro->m_wAttackSpeed; }
+	WORD GetCloseSight() const { return m_pMacro->m_wCloseSight; }
 
 	void SetAIS(BYTE byState) { m_byAIState = byState; }
 	void SetTarget(CPlayer *pPlayer) { m_pTarget = pPlayer; }
@@ -85,6 +87,7 @@ public:
 		AIS_IDLE,
 		AIS_WALK,
 		AIS_CHASE,
+		AIS_ATTACK,
 	};
 };
 

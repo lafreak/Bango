@@ -15,6 +15,7 @@ struct CMonsterInfo: public CMacro
 	__int64 m_n64Exp;
 	WORD m_wWalkSpeed;
 	WORD m_wRunSpeed;
+	WORD m_wAttackSpeed;
 
 	CMonsterInfo()
 	 :
@@ -27,8 +28,8 @@ struct CMonsterInfo: public CMacro
 		m_wFarSight(0),
 		m_n64Exp(0),
 		m_wWalkSpeed(0),
-		m_wRunSpeed(0)
-		
+		m_wRunSpeed(0),
+		m_wAttackSpeed(0)
 	{
 	}
 };

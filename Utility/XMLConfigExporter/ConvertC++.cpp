@@ -519,6 +519,11 @@ public:
 					iss >> n;
 					pEle->SetAttribute("exp", n);
 				}
+				else if (name == "aspeed") {
+					int64_t n = 0;
+					iss >> n;
+					pEle->SetAttribute("attackspeed", n);
+				}
 			}
 
 			pRoot->InsertEndChild(pEle);
