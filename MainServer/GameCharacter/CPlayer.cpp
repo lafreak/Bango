@@ -1357,29 +1357,30 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (!token)
 			return;
 
-		auto pParty = CParty::FindParty(GetPartyID());
-		CPlayer* pPlayer = NULL;
+		if (!HasParty())
+			return;
 
-		if (pParty && pParty->IsHead(this))
-		{
-			pPlayer = pParty->FindMemberByName(token);
-			if (pPlayer)
-			{
-				pParty->RemoveMember(pPlayer);
-				pPlayer->m_Access.Release();
+		CPlayer* pTarget = CPlayer::FindPlayerByName(token);
+		if (!pTarget)
+			return;
 
-				if (pParty->GetMemberAmount() == 1)
-				{
-					pParty->Discard();
-					pParty->m_Access.Release();
-					delete pParty;
-					return;
-				}
-			}
-		}
+		//I know its shit to look for party here when LeaveParty does it already but i found no other way
+		CParty* pParty = CParty::FindParty(pTarget->GetPartyID());
 
 		if (pParty)
-			pParty->m_Access.Release();
+		{
+			if (pParty->IsHead(this))
+			{
+				pParty->m_Access.Release();
+				pTarget->LeaveParty();
+			}
+			else
+			{
+				pParty->m_Access.Release();
+			}
+		}
+	
+		pTarget->m_Access.Release();
 	}
 
 	else if (!strcmp(token, "/npc")) {
