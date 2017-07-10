@@ -243,15 +243,12 @@ void CMonster::Tick()
 
 		if (pTarget) 
 		{
-			printf("Found taget KIND [%d].\n", pTarget->GetKind());
 			m_pTarget = pTarget;
 			m_byAIState = AIS_CHASE;
 			pTarget->m_Access.Release();
-			printf("Time for chase!.\n");
 		}
 		else
 		{
-			printf("Walk time.\n");
 			m_dwWalkTime = dwNow + MONSTER_WALK_FREQUENCY * 1000;
 			m_byAIState = AIS_WALK;
 		}
@@ -298,7 +295,7 @@ void CMonster::AI()
 			else if (nDistance > 1)
 			{
 				Chase();
-				if (nDistance <= 64)
+				if (nDistance <= 32)
 				{
 					m_dwLastAttackTime = m_dwLastChaseStep;
 					SetAIS(AIS_FORCEATTACK);
