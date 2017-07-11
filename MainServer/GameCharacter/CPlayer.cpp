@@ -1351,6 +1351,38 @@ void CPlayer::ChatCommand(char* szCommand)
 		WriteInSight(S2C_RIDING, "bdd", 0, m_nID, nIndex);
 	}
 
+	else if (!strcmp(token, "/expelparty")) {
+		token = std::strtok(NULL, " ");
+
+		if (!token)
+			return;
+
+		if (!HasParty())
+			return;
+
+		CPlayer* pTarget = CPlayer::FindPlayerByName(token);
+		if (!pTarget)
+			return;
+
+		//I know its shit to look for party here when LeaveParty does it already but i found no other way
+		CParty* pParty = CParty::FindParty(pTarget->GetPartyID());
+
+		if (pParty)
+		{
+			if (pParty->IsHead(this))
+			{
+				pParty->m_Access.Release();
+				pTarget->LeaveParty();
+			}
+			else
+			{
+				pParty->m_Access.Release();
+			}
+		}
+	
+		pTarget->m_Access.Release();
+	}
+
 	else if (!strcmp(token, "/npc")) {
 		token = std::strtok(NULL, " ");
 
