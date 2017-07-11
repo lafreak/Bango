@@ -13,6 +13,23 @@ CCharacter::CCharacter(): m_Access()
 	m_n64MState = 0;
 	m_n64GStateEx = 0;
 	m_n64MStateEx = 0;
+
+	m_wHitAdd = 0;
+	m_wDodgeAdd = 0;
+
+	m_dwMaxHPAdd = 0;
+	m_wMaxMPAdd = 0;
+
+	m_wMinAttackAdd = 0;
+	m_wMaxAttackAdd = 0;
+	m_wMinMagicAdd = 0;
+	m_wMaxMagicAdd = 0;
+
+	m_wResistFireAdd = 0;
+	m_wResistIceAdd = 0;
+	m_wResistLitningAdd = 0;
+	m_wResistCurseAdd = 0;
+	m_wResistPalsyAdd = 0;
 }
 
 int CCharacter::NewID()
@@ -60,7 +77,7 @@ DWORD CCharacter::GetMaxHP() const
 			(GetLevel() >= 81 ? 91.758 :
 			(GetLevel() >= 76 ? 78 :
 			(GetLevel() >= 72 ? 67.8162 :
-								52 )))))) * GetLevel() / 3) + 115 + 2 * GetHth() * GetHth() / g_denoHP[m_byClass];
+								52 )))))) * GetLevel() / 3) + 115 + 2 * GetHth() * GetHth() / g_denoHP[m_byClass] + m_dwMaxHPAdd;
 }
 
 WORD CCharacter::GetMaxMP() const
@@ -71,37 +88,37 @@ WORD CCharacter::GetMaxMP() const
 			(GetLevel() >= 81 ? 14 :
 			(GetLevel() >= 76 ? 12 :
 			(GetLevel() >= 72 ? 10 :
-								8 )))))) * GetLevel()) + 140 + GetWis() + 2 * GetWis() * GetWis() / g_denoMP[m_byClass];
+								8 )))))) * GetLevel()) + 140 + GetWis() + 2 * GetWis() * GetWis() / g_denoMP[m_byClass] + m_wMaxMPAdd;
 }
 
 WORD CCharacter::GetHit() const
 {
-	return GetAgi() / 8 + 15 * GetStr() / 54;
+	return GetAgi() / 8 + 15 * GetStr() / 54 + m_wHitAdd;
 }
 
 WORD CCharacter::GetDodge() const
 {
-	return GetAgi() / 3;
+	return GetAgi() / 3 + m_wDodgeAdd;
 }
 
 WORD CCharacter::GetMinAttack() const
 {
-	return 1 + ((11 * GetStr() - 80) / 30) + ((GetAgi() - 5) / 11) + (7 * GetLevel() / 10);
+	return 1 + ((11 * GetStr() - 80) / 30) + ((GetAgi() - 5) / 11) + (7 * GetLevel() / 10) + m_wMinAttackAdd;
 }
 
 WORD CCharacter::GetMaxAttack() const
 {
-	return ((8 * GetStr() - 25) / 15) + (18 * GetAgi() / 77) + GetLevel();
+	return ((8 * GetStr() - 25) / 15) + (18 * GetAgi() / 77) + GetLevel() + m_wMaxAttackAdd;
 }
 
 WORD CCharacter::GetMinMagic() const
 {
-	return (7 * GetInt() - 20) / 12 + GetWis() / 7;
+	return (7 * GetInt() - 20) / 12 + GetWis() / 7 + m_wMinMagicAdd;
 }
 
 WORD CCharacter::GetMaxMagic() const
 {
-	return 7 * GetInt() / 12 + 14 * GetWis() / 45;
+	return 7 * GetInt() / 12 + 14 * GetWis() / 45 + m_wMaxMagicAdd;
 }
 
 WORD CCharacter::GetResist(BYTE byResist) const
@@ -109,13 +126,15 @@ WORD CCharacter::GetResist(BYTE byResist) const
 	switch (byResist)
 	{
 		case RT_FIRE:
+			return GetInt() / 9 + m_wResistFireAdd;
 		case RT_ICE:
+			return GetInt() / 9 + m_wResistIceAdd;
 		case RT_LITNING:
-			return GetInt() / 9;
+			return GetInt() / 9 + m_wResistLitningAdd;
 		case RT_PALSY:
-			return GetHth() / 9;
+			return GetHth() / 9 + m_wResistPalsyAdd;
 		case RT_CURSE:
-			return GetWis() / 9;
+			return GetWis() / 9 + m_wResistCurseAdd;
 	}
 }
 

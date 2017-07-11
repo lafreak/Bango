@@ -25,7 +25,24 @@ struct CItemInfo: public CMacro
 	int m_nBuffTime;
 	int m_nBuffValue;
 
-	WORD m_wDefense;
+	WORD m_wDefense,
+		m_wHit,
+		m_wDodge,
+		m_wAbsorb;
+
+	WORD m_wResistFire,
+		m_wResistIce,
+		m_wResistLitning,
+		m_wResistCurse,
+		m_wResistPalsy;
+
+	DWORD m_dwHP,
+		m_dwMP;
+
+	WORD m_wMinAttack,
+		m_wMaxAttack,
+		m_wMinMagic,
+		m_wMaxMagic;
 
 	WORD m_wStr,
 		m_wHth,
@@ -60,6 +77,20 @@ struct CItemInfo: public CMacro
 		m_nBuffTime(0),
 		m_nBuffValue(0),
 		m_wDefense(0),
+		m_wHit(0),
+		m_wDodge(0),
+		m_wAbsorb(0),
+		m_wResistFire(0),
+		m_wResistIce(0),
+		m_wResistLitning(0),
+		m_wResistCurse(0),
+		m_wResistPalsy(0),
+		m_dwHP(0),
+		m_dwMP(0),
+		m_wMinAttack(0),
+		m_wMaxAttack(0),
+		m_wMinMagic(0),
+		m_wMaxMagic(0),
 		m_wStr(0),
 		m_wHth(0),
 		m_wInt(0),

@@ -126,6 +126,20 @@ bool CMacroDB::LoadInitItem()
 
 		if (pItemSpecialtyList) {
 			pItem->m_wDefense = pItemSpecialtyList->IntAttribute("defense");
+			pItem->m_wHit =		pItemSpecialtyList->IntAttribute("hit");
+			pItem->m_wDodge =	pItemSpecialtyList->IntAttribute("dodge");
+			pItem->m_wAbsorb =	pItemSpecialtyList->IntAttribute("absorb");
+			pItem->m_wResistFire =		pItemSpecialtyList->IntAttribute("resistfire");
+			pItem->m_wResistIce =		pItemSpecialtyList->IntAttribute("resistice");
+			pItem->m_wResistLitning =	pItemSpecialtyList->IntAttribute("resistlitning");
+			pItem->m_wResistCurse =		pItemSpecialtyList->IntAttribute("resistcurse");
+			pItem->m_wResistPalsy =		pItemSpecialtyList->IntAttribute("resistpalsy");
+			pItem->m_dwHP = pItemSpecialtyList->IntAttribute("hp");
+			pItem->m_dwMP = pItemSpecialtyList->IntAttribute("mp");
+			pItem->m_wMinAttack = pItemSpecialtyList->IntAttribute("minattack");
+			pItem->m_wMaxAttack = pItemSpecialtyList->IntAttribute("maxattack");
+			pItem->m_wMinMagic =  pItemSpecialtyList->IntAttribute("minmagic");
+			pItem->m_wMaxMagic =  pItemSpecialtyList->IntAttribute("maxmagic");
 			pItem->m_wStr =		pItemSpecialtyList->IntAttribute("str");
 			pItem->m_wHth =		pItemSpecialtyList->IntAttribute("hth");
 			pItem->m_wInt =		pItemSpecialtyList->IntAttribute("int");

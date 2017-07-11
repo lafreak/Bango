@@ -1653,8 +1653,181 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 		case P_DEFENSE:
 		{
+			if ((-n64Amount) > m_wDefense)
+				n64Amount = -m_wDefense;
+
 			m_wDefense += n64Amount;
 			Write(S2C_UPDATEPROPERTY, "bww", P_DEFENSE, GetDefense(), GetDefense());
+			break;
+		}
+
+		case P_DODGE:
+		{
+			if ((-n64Amount) > m_wDodgeAdd)
+				n64Amount = -m_wDodgeAdd;
+
+			m_wDodgeAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bww", P_DODGE, GetDodge(), GetDodge());
+			break;
+		}
+
+		case P_HIT:
+		{
+			if ((-n64Amount) > m_wHitAdd)
+				n64Amount = -m_wHitAdd;
+
+			m_wHitAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_HIT, GetHit());
+			break;
+		}
+
+		case P_ABSORB:
+		{
+			if ((-n64Amount) > m_byAbsorb)
+				n64Amount = -m_byAbsorb;
+
+			m_byAbsorb += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_ABSORB, GetAbsorb());
+			break;
+		}
+
+		case P_HP:
+		{
+			if ((-n64Amount) > m_dwMaxHPAdd)
+				n64Amount = -m_dwMaxHPAdd;
+
+			m_dwMaxHPAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bdd", P_HP, GetCurHP(), GetMaxHP());
+			break;
+		}
+
+		case P_MP:
+		{
+			if ((-n64Amount) > m_wMaxMPAdd)
+				n64Amount = -m_wMaxMPAdd;
+
+			m_wMaxMPAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bww", P_MP, GetCurMP(), GetMaxMP());
+			break;
+		}
+
+		case P_MINATTACK:
+		{
+			if ((-n64Amount) > m_wMinAttackAdd)
+				n64Amount = -m_wMinAttackAdd;
+
+			m_wMinAttackAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_MINATTACK, GetMinAttack());
+			break;
+		}
+		
+		case P_MAXATTACK:
+		{
+			if ((-n64Amount) > m_wMaxAttackAdd)
+				n64Amount = -m_wMaxAttackAdd;
+
+			m_wMaxAttackAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_MAXATTACK, GetMaxAttack());
+			break;
+		}
+
+		case P_MINMAXATTACK:
+		{
+			if ((-n64Amount) > m_wMinAttackAdd)
+				n64Amount = -m_wMinAttackAdd;
+
+			if ((-n64Amount) > m_wMaxAttackAdd)
+				n64Amount = -m_wMaxAttackAdd;
+
+			m_wMinAttackAdd += n64Amount;
+			m_wMaxAttackAdd += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bw", P_MINMAXATTACK, GetMinAttack(), GetMaxAttack());
+			break;
+		}
+
+		case P_MINMAGIC:
+		{
+			if ((-n64Amount) > m_wMinMagicAdd)
+				n64Amount = -m_wMinMagicAdd;
+
+			m_wMinMagicAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_MINMAGIC, GetMinMagic());
+			break;
+		}
+
+		case P_MAXMAGIC:
+		{
+			if ((-n64Amount) > m_wMaxMagicAdd)
+				n64Amount = -m_wMaxMagicAdd;
+
+			m_wMaxMagicAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_MAXMAGIC, GetMaxMagic());
+			break;
+		}
+
+		case P_MINMAXMAGIC:
+		{
+			if ((-n64Amount) > m_wMinMagicAdd)
+				n64Amount = -m_wMinMagicAdd;
+
+			if ((-n64Amount) > m_wMaxMagicAdd)
+				n64Amount = -m_wMaxMagicAdd;
+
+			m_wMinMagicAdd += n64Amount;
+			m_wMaxMagicAdd += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bw", P_MINMAXMAGIC, GetMinMagic(), GetMinMagic());
+			break;
+		}
+
+		case P_RESFIRE:
+		{
+			if ((-n64Amount) > m_wResistFireAdd)
+				n64Amount = -m_wResistFireAdd;
+
+			m_wResistFireAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_RESFIRE, GetResist(RT_FIRE));
+			break;
+		}
+
+		case P_RESICE:
+		{
+			if ((-n64Amount) > m_wResistIceAdd)
+				n64Amount = -m_wResistIceAdd;
+
+			m_wResistIceAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_RESICE, GetResist(RT_ICE));
+			break;
+		}
+
+		case P_RESLITNING:
+		{
+			if ((-n64Amount) > m_wResistLitningAdd)
+				n64Amount = -m_wResistLitningAdd;
+
+			m_wResistLitningAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_RESLITNING, GetResist(RT_LITNING));
+			break;
+		}
+
+		case P_RESCURSE:
+		{
+			if ((-n64Amount) > m_wResistCurseAdd)
+				n64Amount = -m_wResistCurseAdd;
+
+			m_wResistCurseAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_RESCURSE, GetResist(RT_CURSE));
+			break;
+		}
+
+		case P_RESPALSY:
+		{
+			if ((-n64Amount) > m_wResistPalsyAdd)
+				n64Amount = -m_wResistPalsyAdd;
+
+			m_wResistPalsyAdd += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bw", P_RESPALSY, GetResist(RT_PALSY));
 			break;
 		}
 	}
@@ -1953,6 +2126,20 @@ void CPlayer::SendProperty()
 void CPlayer::ApplySpec(CItem * pItem)
 {
 	UpdateProperty(P_DEFENSE, pItem->GetMacro()->m_wDefense);
+	UpdateProperty(P_HIT, pItem->GetMacro()->m_wHit);
+	UpdateProperty(P_DODGE, pItem->GetMacro()->m_wDodge);
+	UpdateProperty(P_ABSORB, pItem->GetMacro()->m_wAbsorb);
+	UpdateProperty(P_RESFIRE, pItem->GetMacro()->m_wResistFire);
+	UpdateProperty(P_RESICE, pItem->GetMacro()->m_wResistIce);
+	UpdateProperty(P_RESLITNING, pItem->GetMacro()->m_wResistLitning);
+	UpdateProperty(P_RESCURSE, pItem->GetMacro()->m_wResistCurse);
+	UpdateProperty(P_RESPALSY, pItem->GetMacro()->m_wResistPalsy);
+	UpdateProperty(P_HP, pItem->GetMacro()->m_dwHP);
+	UpdateProperty(P_MP, pItem->GetMacro()->m_dwMP);
+	UpdateProperty(P_MINATTACK, pItem->GetMacro()->m_wMinAttack);
+	UpdateProperty(P_MAXATTACK, pItem->GetMacro()->m_wMaxAttack);
+	UpdateProperty(P_MINMAGIC, pItem->GetMacro()->m_wMinMagic);
+	UpdateProperty(P_MAXMAGIC, pItem->GetMacro()->m_wMaxMagic);
 	UpdateProperty(P_STRADD, pItem->GetMacro()->m_wStr);
 	UpdateProperty(P_HTHADD, pItem->GetMacro()->m_wHth);
 	UpdateProperty(P_INTADD, pItem->GetMacro()->m_wInt);
@@ -1963,6 +2150,20 @@ void CPlayer::ApplySpec(CItem * pItem)
 void CPlayer::FreeSpec(CItem * pItem)
 {
 	UpdateProperty(P_DEFENSE, -pItem->GetMacro()->m_wDefense);
+	UpdateProperty(P_HIT, -pItem->GetMacro()->m_wHit);
+	UpdateProperty(P_DODGE, -pItem->GetMacro()->m_wDodge);
+	UpdateProperty(P_ABSORB, -pItem->GetMacro()->m_wAbsorb);
+	UpdateProperty(P_RESFIRE, -pItem->GetMacro()->m_wResistFire);
+	UpdateProperty(P_RESICE, -pItem->GetMacro()->m_wResistIce);
+	UpdateProperty(P_RESLITNING, -pItem->GetMacro()->m_wResistLitning);
+	UpdateProperty(P_RESCURSE, -pItem->GetMacro()->m_wResistCurse);
+	UpdateProperty(P_RESPALSY, -pItem->GetMacro()->m_wResistPalsy);
+	UpdateProperty(P_HP, -pItem->GetMacro()->m_dwHP);
+	UpdateProperty(P_MP, -pItem->GetMacro()->m_dwMP);
+	UpdateProperty(P_MINATTACK, -pItem->GetMacro()->m_wMinAttack);
+	UpdateProperty(P_MAXATTACK, -pItem->GetMacro()->m_wMaxAttack);
+	UpdateProperty(P_MINMAGIC, -pItem->GetMacro()->m_wMinMagic);
+	UpdateProperty(P_MAXMAGIC, -pItem->GetMacro()->m_wMaxMagic);
 	UpdateProperty(P_STRADD, -pItem->GetMacro()->m_wStr);
 	UpdateProperty(P_HTHADD, -pItem->GetMacro()->m_wHth);
 	UpdateProperty(P_INTADD, -pItem->GetMacro()->m_wInt);

@@ -422,6 +422,68 @@ public:
 							pSpecList->SetAttribute("defense", val);
 						}
 
+						else if (specname == "hit") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("hit", val);
+						}
+
+						else if (specname == "dodge") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("dodge", val);
+						}
+
+						else if (specname == "absorb") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("absorb", val);
+						}
+
+						else if (specname == "resistfire") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("resistfire", val);
+						}
+
+						else if (specname == "resistice") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("resistice", val);
+						}
+
+						else if (specname == "resistlitning") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("resistlitning", val);
+						}
+
+						else if (specname == "resistcurse") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("resistcurse", val);
+						}
+
+						else if (specname == "resistpalsy") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("resistpalsy", val);
+						}
+
+						else if (specname == "hp") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("hp", val);
+						}
+
+						else if (specname == "mp") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("mp", val);
+						}
+
+						else if (specname == "attack") {
+							int min, max; min=max = 0; d >> min >> max;
+							pSpecList->SetAttribute("minattack", min);
+							pSpecList->SetAttribute("maxattack", max);
+						}
+
+						else if (specname == "magic") {
+							int min, max; min = max = 0; d >> min >> max;
+							pSpecList->SetAttribute("minmagic", min);
+							pSpecList->SetAttribute("maxmagic", max);
+						}
+
 						else if (specname == "str") {
 							int val = 0; d >> val;
 							pSpecList->SetAttribute("str", val);

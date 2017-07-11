@@ -85,10 +85,10 @@ public:
 	int  GetPID() const { return m_nPID; }
 	int  GetCID() const { return m_nCID; }
 	WORD GetStr() const override { return m_wStr + m_wStrAdd; }
-	WORD GetHth() const override { return m_wHth + m_wStrAdd; }
-	WORD GetInt() const override { return m_wInt + m_wStrAdd; }
-	WORD GetWis() const override { return m_wWis + m_wStrAdd; }
-	WORD GetAgi() const override { return m_wDex + m_wStrAdd; }
+	WORD GetHth() const override { return m_wHth + m_wHthAdd; }
+	WORD GetInt() const override { return m_wInt + m_wIntAdd; }
+	WORD GetWis() const override { return m_wWis + m_wWisAdd; }
+	WORD GetAgi() const override { return m_wDex + m_wDexAdd; }
 	WORD GetPUPoint() const { return m_wPUPoint; }
 	WORD GetSUPoint() const { return m_wSUPoint; }
 	WORD GetContribute() const { return m_wContribute; }

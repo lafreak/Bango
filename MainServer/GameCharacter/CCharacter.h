@@ -47,8 +47,23 @@ protected:
 
 	//WORD m_wMaxHP, 
 		 //m_wMaxMP, 
-	//WORD m_wHit, 
-		 //m_wDodge, 
+	WORD m_wHitAdd,
+		m_wDodgeAdd;
+
+	DWORD m_dwMaxHPAdd;
+	WORD m_wMaxMPAdd;
+
+	WORD m_wMinAttackAdd,
+		m_wMaxAttackAdd,
+		m_wMinMagicAdd,
+		m_wMaxMagicAdd;
+
+	WORD m_wResistFireAdd,
+		m_wResistIceAdd,
+		m_wResistLitningAdd,
+		m_wResistCurseAdd,
+		m_wResistPalsyAdd;
+
 	WORD m_wDefense;
 	BYTE m_byAbsorb;
 	//WORD m_wMinAttack, 
