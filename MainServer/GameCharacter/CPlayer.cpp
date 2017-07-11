@@ -53,6 +53,8 @@ CPlayer::~CPlayer()
 
 	LeaveParty();
 
+	// Remove Target from mobs around
+
 	CMap::Remove(this);
 	CPlayer::Remove(this);
 
@@ -1364,20 +1366,17 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (!pTarget)
 			return;
 
-		//I know its shit to look for party here when LeaveParty does it already but i found no other way
 		CParty* pParty = CParty::FindParty(pTarget->GetPartyID());
 
 		if (pParty)
 		{
-			if (pParty->IsHead(this))
+			if (GetID() != pTarget->GetID() && pParty->IsHead(this))
 			{
-				pParty->m_Access.Release();
 				pTarget->LeaveParty();
+				// TODO: Send EXPEL info packet
 			}
-			else
-			{
-				pParty->m_Access.Release();
-			}
+
+			pParty->m_Access.Release();
 		}
 	
 		pTarget->m_Access.Release();

@@ -291,7 +291,10 @@ void CMonster::AI()
 			int nDistance = GetDistance(m_pTarget) - GetRange();
 
 			if (nDistance > GetFarSight())
+			{
+				SetTarget(NULL);
 				SetAIS(AIS_WALK);
+			}
 			else if (nDistance > 1)
 			{
 				Chase();
