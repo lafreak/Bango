@@ -28,6 +28,12 @@ class CPlayer: public CCharacter
 	int m_nAnger;
 	__int64 m_n64Exp;
 
+	WORD m_wStrAdd,
+		 m_wHthAdd,
+		 m_wIntAdd,
+		 m_wWisAdd,
+		 m_wDexAdd;
+
 	BYTE m_byGrade;
 	std::string m_szGuildName;
 	BYTE m_byGRole;
@@ -75,9 +81,14 @@ public:
 	static CPlayer* FindPlayer(int nID);
 	static CPlayer* FindPlayerByName(char *szName);
 
-	int  GetAID() const { return m_nAID; }
+	int  GetAID() const  { return m_nAID; }
 	int  GetPID() const { return m_nPID; }
 	int  GetCID() const { return m_nCID; }
+	WORD GetStr() const override { return m_wStr + m_wStrAdd; }
+	WORD GetHth() const override { return m_wHth + m_wStrAdd; }
+	WORD GetInt() const override { return m_wInt + m_wStrAdd; }
+	WORD GetWis() const override { return m_wWis + m_wStrAdd; }
+	WORD GetAgi() const override { return m_wDex + m_wStrAdd; }
 	WORD GetPUPoint() const { return m_wPUPoint; }
 	WORD GetSUPoint() const { return m_wSUPoint; }
 	WORD GetContribute() const { return m_wContribute; }
@@ -150,6 +161,11 @@ public:
 	void RemoveItem(WORD wIndex, int nNum=0, BYTE byLogType=TL_DELETE);
 	void SaveAllProperty();
 
+	void SendProperty();
+
+	void ApplySpec(CItem *pItem);
+	void FreeSpec(CItem *pItem);
+
 	// Party
 	int  GetPartyID() const { return m_nPartyID; }
 	void SetPartyID(int nID) { m_nPartyID = nID; }
@@ -158,6 +174,8 @@ public:
 	bool HasParty() const { return m_nPartyID > 0; }
 	void AskParty(CPlayer *pPlayer);
 	void LeaveParty();
+
+	void RemoveAggro();
 
 	// Item Map
 	void IntoInven(CItem* pItem);

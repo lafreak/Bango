@@ -243,8 +243,8 @@ void CMonster::Tick()
 
 		if (pTarget) 
 		{
-			m_pTarget = pTarget;
-			m_byAIState = AIS_CHASE;
+			SetTarget(pTarget);
+			SetAIS(AIS_CHASE);
 			pTarget->m_Access.Release();
 		}
 		else

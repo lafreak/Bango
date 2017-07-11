@@ -25,6 +25,13 @@ struct CItemInfo: public CMacro
 	int m_nBuffTime;
 	int m_nBuffValue;
 
+	WORD m_wDefense;
+
+	WORD m_wStr,
+		m_wHth,
+		m_wInt,
+		m_wWis,
+		m_wDex;
 
 	enum REFRESH
 	{
@@ -51,8 +58,13 @@ struct CItemInfo: public CMacro
 		m_byEffect(0),
 		m_nBuffId(0),
 		m_nBuffTime(0),
-		m_nBuffValue(0)
-		
+		m_nBuffValue(0),
+		m_wDefense(0),
+		m_wStr(0),
+		m_wHth(0),
+		m_wInt(0),
+		m_wWis(0),
+		m_wDex(0)
 	{
 		m_nRefresh[0] = m_nRefresh[1] = 0;
 	}

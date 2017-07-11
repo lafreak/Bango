@@ -145,23 +145,6 @@ void CParty::UpdateMemberHP(CPlayer* pPlayer)
 {
 	m_mxThis.lock();
 
-	/*
-	Packet packet;
-	memset(&packet, 0, sizeof(Packet));
-	packet.byType = S2C_UPDATEPARTY;
-
-	char* end = CSocket::WritePacket(packet.data, "dbdd",
-		pPlayer->GetPID(),
-		P_CURHP,
-		pPlayer->GetCurHP(),
-		pPlayer->GetMaxHP());
-
-	packet.wSize = end - ((char*)&packet);
-
-	for (auto &a : m_vMembers)
-		a->SendPacket(packet);
-	*/
-
 	PlayerVector members;
 	GetPlayerList(members);
 

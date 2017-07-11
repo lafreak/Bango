@@ -62,6 +62,7 @@ public:
 
 	void SetAIS(BYTE byState) { m_byAIState = byState; }
 	void SetTarget(CPlayer *pPlayer) { m_pTarget = pPlayer; }
+	CPlayer* GetTarget() const { return m_pTarget; }
 
 	void Tick();
 	void AI();

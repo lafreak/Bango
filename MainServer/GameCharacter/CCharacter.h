@@ -29,8 +29,8 @@ class CCharacter
 protected:
 	int m_nID;
 
-	WORD m_wStr, 
-		 m_wHth, 
+	WORD m_wStr,
+		 m_wHth,
 		 m_wInt,
 		 m_wWis, 
 		 m_wDex;
@@ -85,11 +85,11 @@ public:
 	int  GetID() const { return m_nID; }
 	BYTE GetKind() const { return m_byKind; }
 	BYTE GetClass() const { return m_byClass; }
-	WORD GetStr() const { return m_wStr; }
-	WORD GetHth() const { return m_wHth; }
-	WORD GetInt() const { return m_wInt; }
-	WORD GetWis() const { return m_wWis; }
-	WORD GetAgi() const { return m_wDex; }
+	virtual WORD GetStr() const { return m_wStr; }
+	virtual WORD GetHth() const { return m_wHth; }
+	virtual WORD GetInt() const { return m_wInt; }
+	virtual WORD GetWis() const { return m_wWis; }
+	virtual WORD GetAgi() const { return m_wDex; }
 	DWORD GetCurHP() const { return m_nCurHP; }
 	WORD GetCurMP() const { return m_wCurMP; }
 	DWORD GetMaxHP() const;// { return m_wMaxHP; }

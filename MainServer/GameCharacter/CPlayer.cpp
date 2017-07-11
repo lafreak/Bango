@@ -41,6 +41,12 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nPartyID = 0;
 	m_nPartyInviterID = 0;
 
+	m_wStrAdd = 0,
+	m_wHthAdd = 0,
+	m_wIntAdd = 0,
+	m_wWisAdd = 0,
+	m_wDexAdd = 0;
+
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
 	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
 
@@ -53,7 +59,7 @@ CPlayer::~CPlayer()
 
 	LeaveParty();
 
-	// Remove Target from mobs around
+	RemoveAggro();
 
 	CMap::Remove(this);
 	CPlayer::Remove(this);
@@ -142,6 +148,8 @@ CItem* CPlayer::FindItemByIID(int nIID)
 
 void CPlayer::OnPutOnGear(CItem *pItem)
 {
+	ApplySpec(pItem);
+
 	switch (pItem->GetMacro()->m_bySubClass)
 	{
 		case ISC_SWORD:
@@ -289,6 +297,8 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 
 void CPlayer::OnPutOffGear(CItem *pItem)
 {
+	FreeSpec(pItem);
+
 	switch (pItem->GetMacro()->m_bySubClass)
 	{
 		case ISC_SWORD:
@@ -988,8 +998,8 @@ void CPlayer::OnLoadPlayer()
 	m_byGrade = 1;
 	m_szGuildName = "\0";
 	m_byGRole = 1;
-	m_wDefense = 90;
-	m_byAbsorb = 5;
+	m_wDefense = 0;
+	m_byAbsorb = 0;
 
 	m_szGuildClass = "\0";
 	m_nGID = 0;
@@ -999,39 +1009,8 @@ void CPlayer::OnLoadPlayer()
 	m_nHonorOption = 0;
 
 	m_wDir = 0;
-	//                   bsbwwwwwwddwwwwwbIwwwwwwbbbbbd
-	//Write(S2C_PROPERTY, "bsbwwwwwwwwwwwwwbIwwwwwwbbbbbd", 
-	Write(S2C_PROPERTY, "bsbwwwwwwddwwwwwbIwwwwwwbbbbbd", 
-			m_byGrade, 
-			m_szGuildName.c_str(), 
-			m_byGRole, 
-			m_wContribute, 
-			m_wStr, 
-			m_wHth, 
-			m_wInt, 
-			m_wWis, 
-			m_wDex,
-			m_nCurHP, 
-			GetMaxHP(),
-			m_wCurMP, 
-			GetMaxMP(),
-			GetHit(),
-			GetDodge(),
-			m_wDefense, 
-			m_byAbsorb,
-			m_n64Exp, 
-			GetMinAttack(),
-			GetMaxAttack(),
-			GetMinMagic(),
-			GetMaxMagic(),
-			m_wPUPoint, 
-			m_wSUPoint, 
-			GetResist(RT_FIRE),
-			GetResist(RT_ICE),
-			GetResist(RT_LITNING),
-			GetResist(RT_CURSE), 
-			GetResist(RT_PALSY),
-			m_nAnger);
+
+	SendProperty();
 
 	//printf("S2C_PROPERTY sent.\n");
 
@@ -1507,6 +1486,17 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			break;
 		}
 
+		case P_STRADD:
+		{
+			if ((-n64Amount) > m_wStrAdd)
+				n64Amount = -m_wStrAdd;
+
+			m_wStrAdd += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bwwww", P_STRADD, m_wStrAdd, GetHit(), GetMinAttack(), GetMaxAttack());
+			break;
+		}
+
 		case P_HTH:
 		{
 			if ((-n64Amount) > m_wHth)
@@ -1522,7 +1512,33 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			CParty *pParty = CParty::FindParty(GetPartyID());
 			if (pParty)
+			{
 				pParty->UpdateMemberHP(this);
+				pParty->m_Access.Release();
+			}
+
+			break;
+		}
+
+		case P_HTHADD:
+		{
+			if ((-n64Amount) > m_wHthAdd)
+				n64Amount = -m_wHthAdd;
+
+			m_wHthAdd += n64Amount;
+
+			DWORD nMaxHP = GetMaxHP();
+			if (m_nCurHP > nMaxHP)
+				m_nCurHP = nMaxHP;
+
+			Write(S2C_UPDATEPROPERTY, "bwddw", P_HTHADD, m_wHthAdd, m_nCurHP, nMaxHP, GetResist(RT_PALSY));
+
+			CParty *pParty = CParty::FindParty(GetPartyID());
+			if (pParty)
+			{
+				pParty->UpdateMemberHP(this);
+				pParty->m_Access.Release();
+			}
 
 			break;
 		}
@@ -1535,6 +1551,17 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			m_wInt += n64Amount;
 
 			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_INT, m_wInt, GetMinMagic(), GetMaxMagic(), GetResist(RT_FIRE), GetResist(RT_ICE), GetResist(RT_LITNING));
+			break;
+		}
+
+		case P_INTADD:
+		{
+			if ((-n64Amount) > m_wIntAdd)
+				n64Amount = -m_wIntAdd;
+
+			m_wIntAdd += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_INTADD, m_wIntAdd, GetMinMagic(), GetMaxMagic(), GetResist(RT_FIRE), GetResist(RT_ICE), GetResist(RT_LITNING));
 			break;
 		}
 
@@ -1553,6 +1580,21 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			break;
 		}
 
+		case P_WISADD:
+		{
+			if ((-n64Amount) > m_wWisAdd)
+				n64Amount = -m_wWisAdd;
+
+			m_wWisAdd += n64Amount;
+
+			WORD wMaxMP = GetMaxMP();
+			if (m_wCurMP > wMaxMP)
+				m_wCurMP = wMaxMP;
+
+			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_WISADD, m_wWisAdd, m_wCurMP, wMaxMP, GetMinMagic(), GetMaxMagic(), GetResist(RT_CURSE));
+			break;
+		}
+
 		case P_DEX:
 		{
 			if ((-n64Amount) > m_wDex)
@@ -1561,6 +1603,17 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			m_wDex += n64Amount;
 
 			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_DEX, m_wDex, GetHit(), GetDodge(), GetDodge(), GetMinAttack(), GetMaxAttack());
+			break;
+		}
+
+		case P_DEXADD:
+		{
+			if ((-n64Amount) > m_wDexAdd)
+				n64Amount = -m_wDexAdd;
+
+			m_wDexAdd += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bwwwwww", P_DEXADD, m_wDexAdd, GetHit(), GetDodge(), GetDodge(), GetMinAttack(), GetMaxAttack());
 			break;
 		}
 
@@ -1577,7 +1630,10 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 			CParty *pParty = CParty::FindParty(GetPartyID());
 			if (pParty)
+			{
 				pParty->UpdateMemberHP(this);
+				pParty->m_Access.Release();
+			}
 
 			break;
 		}
@@ -1592,6 +1648,13 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 			m_wCurMP += n64Amount;
 
 			Write(S2C_UPDATEPROPERTY, "bw", P_CURMP, m_wCurMP);			
+			break;
+		}
+
+		case P_DEFENSE:
+		{
+			m_wDefense += n64Amount;
+			Write(S2C_UPDATEPROPERTY, "bww", P_DEFENSE, GetDefense(), GetDefense());
 			break;
 		}
 	}
@@ -1851,6 +1914,62 @@ void CPlayer::SaveAllProperty()
 		m_nAnger);
 }
 
+void CPlayer::SendProperty()
+{
+	//					 bsbwwwwwwddwwwwwbIwwwwwwbbbbbd
+	Write(S2C_PROPERTY, "bsbwwwwwwddwwwwwbIwwwwwwbbbbbd",
+		m_byGrade,
+		m_szGuildName.c_str(),
+		m_byGRole,
+		m_wContribute,
+		m_wStr,
+		m_wHth,
+		m_wInt,
+		m_wWis,
+		m_wDex,
+		m_nCurHP,
+		GetMaxHP(),
+		m_wCurMP,
+		GetMaxMP(),
+		GetHit(),
+		GetDodge(),
+		m_wDefense,
+		m_byAbsorb,
+		m_n64Exp,
+		GetMinAttack(),
+		GetMaxAttack(),
+		GetMinMagic(),
+		GetMaxMagic(),
+		m_wPUPoint,
+		m_wSUPoint,
+		GetResist(RT_FIRE),
+		GetResist(RT_ICE),
+		GetResist(RT_LITNING),
+		GetResist(RT_CURSE),
+		GetResist(RT_PALSY),
+		m_nAnger);
+}
+
+void CPlayer::ApplySpec(CItem * pItem)
+{
+	UpdateProperty(P_DEFENSE, pItem->GetMacro()->m_wDefense);
+	UpdateProperty(P_STRADD, pItem->GetMacro()->m_wStr);
+	UpdateProperty(P_HTHADD, pItem->GetMacro()->m_wHth);
+	UpdateProperty(P_INTADD, pItem->GetMacro()->m_wInt);
+	UpdateProperty(P_WISADD, pItem->GetMacro()->m_wWis);
+	UpdateProperty(P_DEXADD, pItem->GetMacro()->m_wDex);
+}
+
+void CPlayer::FreeSpec(CItem * pItem)
+{
+	UpdateProperty(P_DEFENSE, -pItem->GetMacro()->m_wDefense);
+	UpdateProperty(P_STRADD, -pItem->GetMacro()->m_wStr);
+	UpdateProperty(P_HTHADD, -pItem->GetMacro()->m_wHth);
+	UpdateProperty(P_INTADD, -pItem->GetMacro()->m_wInt);
+	UpdateProperty(P_WISADD, -pItem->GetMacro()->m_wWis);
+	UpdateProperty(P_DEXADD, -pItem->GetMacro()->m_wDex);
+}
+
 void CPlayer::AskParty(CPlayer * pTarget)
 {
 	if (pTarget->GetID() == GetID())
@@ -1900,6 +2019,25 @@ void CPlayer::LeaveParty()
 		{
 			pParty->m_Access.Release();
 		}
+	}
+}
+
+void CPlayer::RemoveAggro()
+{
+	MonsterList list;
+	CMap::GetMonsterListAround(this, MAX_PLAYER_SIGHT, list);
+
+	for (auto &m : list)
+	{
+		if (m->GetTarget() == this)
+		{
+			m->Lock();
+			m->SetAIS(CMonster::AIS_WALK);
+			m->SetTarget(NULL);
+			m->Unlock();
+		}
+
+		m->m_Access.Release();
 	}
 }
 

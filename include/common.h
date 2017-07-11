@@ -1423,6 +1423,11 @@ enum PROPERTY_TYPE
 	P_CURHPR,		// 40
 	P_CURMPR,
 
+	P_STRADD = 0x2B,	// 0
+	P_HTHADD,
+	P_INTADD,
+	P_WISADD,
+	P_DEXADD,
 
 	P_PREFIX = 0xff,	// maximum
 };

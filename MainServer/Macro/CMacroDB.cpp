@@ -125,6 +125,13 @@ bool CMacroDB::LoadInitItem()
 		XMLElement *pItemSpecialtyList = pItemInfo->FirstChildElement("specialty");
 
 		if (pItemSpecialtyList) {
+			pItem->m_wDefense = pItemSpecialtyList->IntAttribute("defense");
+			pItem->m_wStr =		pItemSpecialtyList->IntAttribute("str");
+			pItem->m_wHth =		pItemSpecialtyList->IntAttribute("hth");
+			pItem->m_wInt =		pItemSpecialtyList->IntAttribute("int");
+			pItem->m_wWis =		pItemSpecialtyList->IntAttribute("wis");
+			pItem->m_wDex =		pItemSpecialtyList->IntAttribute("dex");
+
 			XMLNode *pSpecialty = pItemSpecialtyList->FirstChild();
 
 			while (pSpecialty != NULL) {

@@ -395,6 +395,8 @@ public:
 
 						XMLElement *pSpec = doc.NewElement(specname.c_str())->ToElement();
 
+						std::transform(specname.begin(), specname.end(), specname.begin(), ::tolower);
+
 						if (specname == "refresh") {
 							std::string refreshprop;
 							int nvalue;
@@ -414,6 +416,37 @@ public:
 							pSpec->SetAttribute("value", value);
 							pSpecList->InsertEndChild(pSpec);
 						}
+
+						else if (specname == "defense") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("defense", val);
+						}
+
+						else if (specname == "str") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("str", val);
+						}
+
+						else if (specname == "hth") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("hth", val);
+						}
+						
+						else if (specname == "int") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("int", val);
+						}
+						
+						else if (specname == "wis") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("wis", val);
+						}
+
+						else if (specname == "dex") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("dex", val);
+						}
+						
 					}
 
 					pEle->InsertEndChild(pSpecList);
