@@ -182,6 +182,68 @@ void CParty::GetPlayerList(PlayerVector& list)
 	}
 }
 
+void CParty::TickAll()
+{
+	g_mxParty.lock();
+
+	for (auto &a : g_mParty)
+	{
+		a.second->m_Access.Grant();
+		a.second->Tick();
+		a.second->m_Access.Release();
+	}
+
+	g_mxParty.unlock();
+}
+
+//Intervall might be too fast.
+void CParty::Tick()
+{
+	SendPositionInfo();
+}
+
+void CParty::SendPositionInfo()
+{
+	m_mxThis.lock();
+
+	int byCount = GetMemberAmount();
+	char* end;
+
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+	packet.byType = S2C_PARTYMEMPOS;
+
+	PlayerVector members;
+	GetPlayerList(members);
+
+	if (byCount >= 2)
+	{
+		end = CSocket::WritePacket(packet.data, "b", byCount);
+
+		for (auto&a : members)
+		{
+			end = CSocket::WritePacket(end, "ddd",
+				a->GetPID(),
+				a->GetX(),
+				a->GetY());
+		}
+	}
+	else
+	{
+		end = CSocket::WritePacket(packet.data, "b", 0);
+	}
+
+	packet.wSize = end - ((char*)&packet);
+
+	for (auto &a : members)
+	{
+		a->SendPacket(packet);
+		a->m_Access.Release();
+	}
+
+	m_mxThis.unlock();
+}
+
 void CParty::SendPartyInfo()
 {
 	m_mxThis.lock();
