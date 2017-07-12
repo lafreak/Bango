@@ -985,6 +985,26 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
+		case C2S_TARGET:
+		{
+			// Just checking packet contents 
+			int nID=0;
+			BYTE byType=0;
+
+			CSocket::ReadPacket(packet.data, "db", &nID, &byType);
+
+			printf("C2S_SELECTED: %d\n", nID);
+
+			CPlayer* pPlayer = CPlayer::FindPlayer(nID);
+
+			if (pPlayer)
+			{
+				printf("PLAYER FOUND\n");
+				pPlayer->m_Access.Release();
+			}
+
+		}
+
 		// TODO: Kick player from party by "Ban" option (case C2S_...?) and /expelparty [name]
 	}
 
@@ -1351,11 +1371,13 @@ void CPlayer::ChatCommand(char* szCommand)
 		{
 			if (GetID() != pTarget->GetID() && pParty->IsHead(this))
 			{
+				pParty->m_Access.Release();
 				pTarget->LeaveParty();
-				// TODO: Send EXPEL info packet
 			}
-
-			pParty->m_Access.Release();
+			else
+			{
+				pParty->m_Access.Release();
+			}
 		}
 	
 		pTarget->m_Access.Release();
