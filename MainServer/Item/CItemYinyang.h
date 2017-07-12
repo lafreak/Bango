@@ -5,8 +5,6 @@
 
 class CItemYinyang: public CItem
 {
-	BYTE m_byWearType;
-
 public:
 	CItemYinyang(ITEMINFO_DESC& desc, CItemInfo* pMacro);
 

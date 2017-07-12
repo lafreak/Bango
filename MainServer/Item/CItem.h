@@ -20,6 +20,8 @@ protected:
 	ITEMINFO_DESC m_desc;
 	CItemInfo* m_pMacro;
 
+	BYTE m_byWearType;
+
 	std::mutex m_mxThis;
 
 public:
@@ -40,6 +42,7 @@ public:
 	BYTE GetLevel() const { return m_pMacro->m_byLevel; }
 	BYTE GetClass() const { return m_pMacro->m_byClass; }
 	BYTE GetSubClass() const { return m_pMacro->m_bySubClass; }
+	BYTE GetWearType() const { return m_byWearType; }
 
 	CItemInfo* GetMacro() const { return m_pMacro; }
 

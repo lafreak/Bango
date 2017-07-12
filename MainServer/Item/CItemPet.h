@@ -5,8 +5,6 @@
 
 class CItemPet: public CItem
 {
-	BYTE m_byWearType;
-
 public:
 	CItemPet(ITEMINFO_DESC& desc, CItemInfo* pMacro);
 

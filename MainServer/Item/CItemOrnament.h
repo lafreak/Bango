@@ -5,8 +5,6 @@
 
 class CItemOrnament: public CItem
 {
-	BYTE m_byWearType;
-
 public:
 	CItemOrnament(ITEMINFO_DESC& desc, CItemInfo* pMacro);
 

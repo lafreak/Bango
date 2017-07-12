@@ -5,8 +5,6 @@
 
 class CItemTransform: public CItem
 {
-	BYTE m_byWearType;
-
 public:
 	CItemTransform(ITEMINFO_DESC& desc, CItemInfo* pMacro);
 

@@ -20,7 +20,7 @@ CItemTransform::CItemTransform(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(de
 
 		default:
 			printf(KRED "CItemTransform::CItemTransform: Unknown SubClass.\n" KNRM);
-			m_byWearType = GEAR_NUM-1;
+			m_byWearType = WS_TRANSFORM;
 			break;
 	}
 }

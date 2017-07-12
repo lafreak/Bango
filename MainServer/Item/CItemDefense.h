@@ -5,7 +5,6 @@
 
 class CItemDefense: public CItem
 {
-	BYTE m_byWearType;
 
 public:
 	CItemDefense(ITEMINFO_DESC& desc, CItemInfo* pMacro);

@@ -5,8 +5,6 @@
 
 class CItemWeapon: public CItem
 {
-	BYTE m_byWearType;
-
 public:
 	CItemWeapon(ITEMINFO_DESC& desc, CItemInfo* pMacro);
 

@@ -150,6 +150,47 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 {
 	ApplySpec(pItem);
 
+	if (pItem->GetWearType() < GEAR_NUM)
+		m_Gear[pItem->GetWearType()] = pItem->GetIID();
+
+	if (pItem->GetWearType() < GEAR_VISIBLE_NUM)
+		m_Gear[pItem->GetWearType()] = pItem->GetIndex();
+
+	if (pItem->GetMacro()->m_bySubClass == ISC_SWORD2HAND)
+		AddWState(WS_2HANDWEAPON);
+
+	if (pItem->GetMacro()->m_bySubClass >= ISC_TRIGRAM1 && pItem->GetMacro()->m_bySubClass <= ISC_TRIGRAM8)
+		m_byTrigramLevel = pItem->GetLevel();
+
+	AddWState(pItem->GetWearType());
+	printf("Added W State (%d) %d\n", pItem->GetWearType(), IsWState(pItem->GetWearType()));
+}
+
+void CPlayer::OnPutOffGear(CItem *pItem)
+{
+	FreeSpec(pItem);
+
+	if (pItem->GetWearType() < GEAR_NUM)
+		m_Gear[pItem->GetWearType()] = 0;
+
+	if (pItem->GetWearType() < GEAR_VISIBLE_NUM)
+		m_Gear[pItem->GetWearType()] = 0;
+
+	if (pItem->GetMacro()->m_bySubClass == ISC_SWORD2HAND)
+		SubWState(WS_2HANDWEAPON);
+
+	SubWState(pItem->GetWearType());
+	printf("Substracted W State %d %d\n", pItem->GetWearType(), IsWState(pItem->GetWearType()));
+
+	if (!IsAnyTrigramState())
+		m_byTrigramLevel = 0;
+}
+
+/*
+void CPlayer::OnPutOnGear(CItem *pItem)
+{
+	ApplySpec(pItem);
+
 	switch (pItem->GetMacro()->m_bySubClass)
 	{
 		case ISC_SWORD:
@@ -287,11 +328,16 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 			m_Gear[WS_RESISTNECKLACE2] = pItem->GetIID();
 			AddWState(WS_RESISTNECKLACE2);
 			break;
+	}
 
-		case ISC_ETC:
+	switch (pItem->GetMacro()->m_byClass)
+	{
+		case IC_RIDE:
+		{
 			m_Gear[WS_RIDE] = pItem->GetIID();
 			AddWState(WS_RIDE);
 			break;
+		}
 	}
 }
 
@@ -428,17 +474,22 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 			m_Gear[WS_RESISTNECKLACE2] = 0;
 			SubWState(WS_RESISTNECKLACE2);
 			break;
+	}
 
-		case ISC_ETC:
-			m_Gear[WS_RIDE] = 0;
-			SubWState(WS_RIDE);
+	switch (pItem->GetMacro()->m_byClass)
+	{
+		case IC_RIDE:
+		{
+			m_Gear[WS_RIDE] = pItem->GetIID();
+			AddWState(WS_RIDE);
 			break;
+		}
 	}
 
 	if (!IsAnyTrigramState())
 		m_byTrigramLevel=0;
 }
-
+*/
 WORD CPlayer::GetReqPU(BYTE *byStats)
 {
 	WORD wReqPU=0;
@@ -993,7 +1044,7 @@ void CPlayer::Process(Packet packet)
 
 			CSocket::ReadPacket(packet.data, "db", &nID, &byType);
 
-			printf("C2S_SELECTED: %d\n", nID);
+			printf("C2S_TARGET: %d %d\n", nID, byType);
 
 			CPlayer* pPlayer = CPlayer::FindPlayer(nID);
 
@@ -1003,12 +1054,11 @@ void CPlayer::Process(Packet packet)
 				pPlayer->m_Access.Release();
 			}
 
+			break;
 		}
-
-		// TODO: Kick player from party by "Ban" option (case C2S_...?) and /expelparty [name]
 	}
 
-	printf("S2C_? %d\n", packet.byType);
+	printf("C2S_? %d\n", packet.byType);
 }
 
 void CPlayer::OnLoadPlayer()

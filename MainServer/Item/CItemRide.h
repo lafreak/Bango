@@ -5,8 +5,6 @@
 
 class CItemRide: public CItem
 {
-	BYTE m_byWearType;
-
 public:
 	CItemRide(ITEMINFO_DESC& desc, CItemInfo* pMacro);
 

@@ -10,6 +10,7 @@ CItemOrnament::CItemOrnament(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(desc
 	{
 		case ISC_RING:
 			m_byWearType = WS_RING;
+			printf("I'm Ring %d %d!\n", m_byWearType, GetWearType());
 			break;
 
 		case ISC_NECKLACE:
@@ -21,12 +22,13 @@ CItemOrnament::CItemOrnament(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(desc
 			break;
 
 		case ISC_RESISTNECKLACE2:
+		case ISC_ENCHANTNECKLAKE:
 			m_byWearType = WS_RESISTNECKLACE2;
 			break;
 
 		default:
 			printf(KRED "CItemOrnament::CItemOrnament: Unknown SubClass.\n" KNRM);
-			m_byWearType = GEAR_NUM-1;
+			m_byWearType = WS_RING;
 			break;
 	}
 }
