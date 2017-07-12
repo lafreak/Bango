@@ -619,6 +619,88 @@ public:
 					iss >> n;
 					pEle->SetAttribute("attackspeed", n);
 				}
+
+				else if (name == "defense") {
+					int close, far; close=far= 0; iss >> close>>far;
+					pEle->SetAttribute("defense", close);
+					// far?
+				}
+
+				else if (name == "hit") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("hit", val);
+				}
+
+				else if (name == "dodge") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("dodge", val);
+				}
+
+				else if (name == "absorb") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("absorb", val);
+				}
+
+				else if (name == "resist") {
+					int f, i, l, c, p; f=i=l=c=p=0; iss >> f>>i>>l>>c>>p;
+					pEle->SetAttribute("resistfire", f);
+					pEle->SetAttribute("resistice", i);
+					pEle->SetAttribute("resistlitning", l);
+					pEle->SetAttribute("resistcurse", c);
+					pEle->SetAttribute("resistpalsy", p);
+				}
+
+				else if (name == "hp") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("hp", val);
+				}
+
+				else if (name == "mp") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("mp", val);
+				}
+
+				else if (name == "attack") {
+					int type, min, max; type = min = max = 0; iss >> type >> min >> max;
+					pEle->SetAttribute("minattack", min);
+					pEle->SetAttribute("maxattack", max);
+				}
+
+				else if (name == "magic") {
+					int min, max; min = max = 0; iss >> min >> max;
+					pEle->SetAttribute("minmagic", min);
+					pEle->SetAttribute("maxmagic", max);
+				}
+
+				else if (name == "str") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("str", val);
+				}
+
+				else if (name == "hth") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("hth", val);
+				}
+
+				else if (name == "int") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("int", val);
+				}
+
+				else if (name == "wis") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("wis", val);
+				}
+
+				else if (name == "dex") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("dex", val);
+				}
+
+				else if (name == "size") {
+					int val = 0; iss >> val;
+					pEle->SetAttribute("size", val);
+				}
 			}
 
 			pRoot->InsertEndChild(pEle);

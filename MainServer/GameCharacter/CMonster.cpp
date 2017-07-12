@@ -139,6 +139,74 @@ Packet CMonster::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 	return packet;
 }
 
+WORD CMonster::GetHit() const
+{
+	return GetAgi() / 8 + 15 * GetStr() / 54 + m_pMacro->m_wHit;
+}
+
+WORD CMonster::GetDodge() const
+{
+	return GetAgi() / 3 + m_pMacro->m_wDodge;
+}
+
+DWORD CMonster::GetMaxHP() const
+{
+	return ((GetLevel() >= 96 ? 195 :
+		(GetLevel() >= 91 ? 141.8147 :
+		(GetLevel() >= 86 ? 111.426 :
+			(GetLevel() >= 81 ? 91.758 :
+			(GetLevel() >= 76 ? 78 :
+				(GetLevel() >= 72 ? 67.8162 :
+					52)))))) * GetLevel() / 3) + 115 + 2 * GetHth() * GetHth() / 14/*?*/ + m_pMacro->m_dwHP;
+}
+
+WORD CMonster::GetMaxMP() const
+{
+	return ((GetLevel() >= 96 ? 20 :
+		(GetLevel() >= 91 ? 18 :
+		(GetLevel() >= 86 ? 16 :
+			(GetLevel() >= 81 ? 14 :
+			(GetLevel() >= 76 ? 12 :
+				(GetLevel() >= 72 ? 10 :
+					8)))))) * GetLevel()) + 140 + GetWis() + 2 * GetWis() * GetWis() / 14/*?*/ + m_pMacro->m_dwMP;
+}
+
+WORD CMonster::GetMinAttack() const
+{
+	return 1 + ((11 * GetStr() - 80) / 30) + ((GetAgi() - 5) / 11) + (7 * GetLevel() / 10) + m_pMacro->m_wMinAttack;
+}
+
+WORD CMonster::GetMaxAttack() const
+{
+	return ((8 * GetStr() - 25) / 15) + (18 * GetAgi() / 77) + GetLevel() + m_pMacro->m_wMaxAttack;
+}
+
+WORD CMonster::GetMinMagic() const
+{
+	return (7 * GetInt() - 20) / 12 + GetWis() / 7 + m_pMacro->m_wMinMagic;
+}
+
+WORD CMonster::GetMaxMagic() const
+{
+	return 7 * GetInt() / 12 + 14 * GetWis() / 45 + m_pMacro->m_wMaxMagic;
+}
+
+WORD CMonster::GetResist(BYTE byResist) const
+{
+	switch (byResist)
+	{
+	case RT_FIRE:
+		return GetInt() / 9 + m_pMacro->m_wResistFire;
+	case RT_ICE:
+		return GetInt() / 9 + m_pMacro->m_wResistIce;
+	case RT_LITNING:
+		return GetInt() / 9 + m_pMacro->m_wResistLitning;
+	case RT_PALSY:
+		return GetHth() / 9 + m_pMacro->m_wResistPalsy;
+	case RT_CURSE:
+		return GetWis() / 9 + m_pMacro->m_wResistCurse;
+	}
+}
 
 void CMonster::Add(CMonster *pMonster)
 {

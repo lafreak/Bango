@@ -28,11 +28,16 @@ class CPlayer: public CCharacter
 	int m_nAnger;
 	__int64 m_n64Exp;
 
-	WORD m_wStrAdd,
-		 m_wHthAdd,
-		 m_wIntAdd,
-		 m_wWisAdd,
-		 m_wDexAdd;
+	WORD m_wStr,
+		m_wHth,
+		m_wInt,
+		m_wWis,
+		m_wDex;
+
+	BYTE m_byLevel;
+
+	WORD m_wDefense;
+	BYTE m_byAbsorb;
 
 	BYTE m_byGrade;
 	std::string m_szGuildName;
@@ -93,6 +98,18 @@ public:
 	WORD GetSUPoint() const { return m_wSUPoint; }
 	WORD GetContribute() const { return m_wContribute; }
 	int  GetAnger() const { return m_nAnger; }
+	BYTE GetLevel() const override { return m_byLevel; }
+	WORD GetHit() const override;
+	WORD GetDodge() const override;
+	WORD GetDefense() const override { return m_wDefense; }
+	BYTE GetAbsorb() const override { return m_byAbsorb; }
+	DWORD GetMaxHP() const override;
+	WORD GetMaxMP() const override;
+	WORD GetMinAttack() const override;
+	WORD GetMaxAttack() const override;
+	WORD GetMinMagic() const override;
+	WORD GetMaxMagic() const override;
+	WORD GetResist(BYTE byResist) const override;
 	__int64 GetExp() const { return m_n64Exp; }
 	BYTE GetGrade() const { return m_byGrade; }
 	std::string GetGuildName() const { return m_szGuildName; }

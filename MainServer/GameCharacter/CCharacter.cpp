@@ -14,6 +14,12 @@ CCharacter::CCharacter(): m_Access()
 	m_n64GStateEx = 0;
 	m_n64MStateEx = 0;
 
+	m_wStrAdd = 0,
+	m_wHthAdd = 0,
+	m_wIntAdd = 0,
+	m_wWisAdd = 0,
+	m_wDexAdd = 0;
+
 	m_wHitAdd = 0;
 	m_wDodgeAdd = 0;
 
@@ -67,75 +73,6 @@ void CCharacter::SendPacketInSight(Packet& packet)
 {
 	if (packet.wSize > 0)
 		CMap::SendPacket(this, packet);
-}
-
-DWORD CCharacter::GetMaxHP() const
-{
-	return ((GetLevel() >= 96 ? 195 :
-			(GetLevel() >= 91 ? 141.8147 :
-			(GetLevel() >= 86 ? 111.426 :
-			(GetLevel() >= 81 ? 91.758 :
-			(GetLevel() >= 76 ? 78 :
-			(GetLevel() >= 72 ? 67.8162 :
-								52 )))))) * GetLevel() / 3) + 115 + 2 * GetHth() * GetHth() / g_denoHP[m_byClass] + m_dwMaxHPAdd;
-}
-
-WORD CCharacter::GetMaxMP() const
-{
-	return ((GetLevel() >= 96 ? 20 :
-			(GetLevel() >= 91 ? 18 :
-			(GetLevel() >= 86 ? 16 :
-			(GetLevel() >= 81 ? 14 :
-			(GetLevel() >= 76 ? 12 :
-			(GetLevel() >= 72 ? 10 :
-								8 )))))) * GetLevel()) + 140 + GetWis() + 2 * GetWis() * GetWis() / g_denoMP[m_byClass] + m_wMaxMPAdd;
-}
-
-WORD CCharacter::GetHit() const
-{
-	return GetAgi() / 8 + 15 * GetStr() / 54 + m_wHitAdd;
-}
-
-WORD CCharacter::GetDodge() const
-{
-	return GetAgi() / 3 + m_wDodgeAdd;
-}
-
-WORD CCharacter::GetMinAttack() const
-{
-	return 1 + ((11 * GetStr() - 80) / 30) + ((GetAgi() - 5) / 11) + (7 * GetLevel() / 10) + m_wMinAttackAdd;
-}
-
-WORD CCharacter::GetMaxAttack() const
-{
-	return ((8 * GetStr() - 25) / 15) + (18 * GetAgi() / 77) + GetLevel() + m_wMaxAttackAdd;
-}
-
-WORD CCharacter::GetMinMagic() const
-{
-	return (7 * GetInt() - 20) / 12 + GetWis() / 7 + m_wMinMagicAdd;
-}
-
-WORD CCharacter::GetMaxMagic() const
-{
-	return 7 * GetInt() / 12 + 14 * GetWis() / 45 + m_wMaxMagicAdd;
-}
-
-WORD CCharacter::GetResist(BYTE byResist) const
-{
-	switch (byResist)
-	{
-		case RT_FIRE:
-			return GetInt() / 9 + m_wResistFireAdd;
-		case RT_ICE:
-			return GetInt() / 9 + m_wResistIceAdd;
-		case RT_LITNING:
-			return GetInt() / 9 + m_wResistLitningAdd;
-		case RT_PALSY:
-			return GetHth() / 9 + m_wResistPalsyAdd;
-		case RT_CURSE:
-			return GetWis() / 9 + m_wResistCurseAdd;
-	}
 }
 
 void CCharacter::AddGState(__int64 n64GState)

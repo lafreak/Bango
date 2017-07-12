@@ -10,7 +10,6 @@ CItemOrnament::CItemOrnament(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(desc
 	{
 		case ISC_RING:
 			m_byWearType = WS_RING;
-			printf("I'm Ring %d %d!\n", m_byWearType, GetWearType());
 			break;
 
 		case ISC_NECKLACE:

@@ -29,11 +29,11 @@ class CCharacter
 protected:
 	int m_nID;
 
-	WORD m_wStr,
-		 m_wHth,
-		 m_wInt,
-		 m_wWis, 
-		 m_wDex;
+	WORD m_wStrAdd,
+		m_wHthAdd,
+		m_wIntAdd,
+		m_wWisAdd,
+		m_wDexAdd;
 
 	DWORD	m_nCurHP;
 	WORD	m_wCurMP;
@@ -42,11 +42,8 @@ protected:
 		m_nY, 
 		m_nZ;
 
-	BYTE m_byLevel;
 	BYTE m_byClass;
 
-	//WORD m_wMaxHP, 
-		 //m_wMaxMP, 
 	WORD m_wHitAdd,
 		m_wDodgeAdd;
 
@@ -63,18 +60,6 @@ protected:
 		m_wResistLitningAdd,
 		m_wResistCurseAdd,
 		m_wResistPalsyAdd;
-
-	WORD m_wDefense;
-	BYTE m_byAbsorb;
-	//WORD m_wMinAttack, 
-	//	 m_wMaxAttack, 
-	//WORD m_wMinMagic, 
-	//WORD m_wMaxMagic;
-	//BYTE m_byFire, 
-	//	 m_byIce, 
-	//	 m_byLightning, 
-	//	 m_byCurse, 
-	//	 m_byPalsy;
 
 	WORD m_wDir;
 
@@ -100,29 +85,29 @@ public:
 	int  GetID() const { return m_nID; }
 	BYTE GetKind() const { return m_byKind; }
 	BYTE GetClass() const { return m_byClass; }
-	virtual WORD GetStr() const { return m_wStr; }
-	virtual WORD GetHth() const { return m_wHth; }
-	virtual WORD GetInt() const { return m_wInt; }
-	virtual WORD GetWis() const { return m_wWis; }
-	virtual WORD GetAgi() const { return m_wDex; }
+	virtual WORD GetStr() const { return 0; }
+	virtual WORD GetHth() const { return 0; }
+	virtual WORD GetInt() const { return 0; }
+	virtual WORD GetWis() const { return 0; }
+	virtual WORD GetAgi() const { return 0; }
 	DWORD GetCurHP() const { return m_nCurHP; }
 	WORD GetCurMP() const { return m_wCurMP; }
-	DWORD GetMaxHP() const;// { return m_wMaxHP; }
-	WORD GetMaxMP() const;// { return m_wMaxMP; }
+	virtual DWORD GetMaxHP() const { return 0; }
+	virtual WORD GetMaxMP() const { return 0; }
 	int  GetX() const { return m_nX; }
 	int  GetY() const { return m_nY; }
 	int  GetZ() const { return m_nZ; }
 	WORD GetDir() const { return m_wDir; }
-	BYTE GetLevel() const { return m_byLevel; }
-	WORD GetHit() const;// { return m_wHit; }
-	WORD GetDodge() const;// { return m_wDodge; }
-	WORD GetDefense() const { return m_wDefense; }
-	BYTE GetAbsorb() const { return m_byAbsorb; }
-	WORD GetMinAttack() const;// { return m_wMinAttack; }
-	WORD GetMaxAttack() const;// { return m_wMaxAttack; }
-	WORD GetMinMagic() const;// { return m_wMinMagic; }
-	WORD GetMaxMagic() const;// { return m_wMaxMagic; }
-	WORD GetResist(BYTE byResist) const;
+	virtual BYTE GetLevel() const { return 0; }
+	virtual WORD GetHit() const { return 0; }
+	virtual WORD GetDodge() const { return 0; }
+	virtual WORD GetDefense() const { return 0; }
+	virtual BYTE GetAbsorb() const { return 0; }
+	virtual WORD GetMinAttack() const { return 0; }
+	virtual WORD GetMaxAttack() const { return 0; }
+	virtual WORD GetMinMagic() const { return 0; }
+	virtual WORD GetMaxMagic() const { return 0; }
+	virtual WORD GetResist(BYTE byResist) const { return 0; }
 
 	__int64 GetGState() const { return m_n64GState; }
 	__int64 GetMState() const { return m_n64MState; }

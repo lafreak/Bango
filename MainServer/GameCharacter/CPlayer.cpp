@@ -41,12 +41,6 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nPartyID = 0;
 	m_nPartyInviterID = 0;
 
-	m_wStrAdd = 0,
-	m_wHthAdd = 0,
-	m_wIntAdd = 0,
-	m_wWisAdd = 0,
-	m_wDexAdd = 0;
-
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
 	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
 
@@ -154,7 +148,7 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 		m_Gear[pItem->GetWearType()] = pItem->GetIID();
 
 	if (pItem->GetWearType() < GEAR_VISIBLE_NUM)
-		m_Gear[pItem->GetWearType()] = pItem->GetIndex();
+		m_GearIndex[pItem->GetWearType()] = pItem->GetIndex();
 
 	if (pItem->GetMacro()->m_bySubClass == ISC_SWORD2HAND)
 		AddWState(WS_2HANDWEAPON);
@@ -163,7 +157,6 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 		m_byTrigramLevel = pItem->GetLevel();
 
 	AddWState(pItem->GetWearType());
-	printf("Added W State (%d) %d\n", pItem->GetWearType(), IsWState(pItem->GetWearType()));
 }
 
 void CPlayer::OnPutOffGear(CItem *pItem)
@@ -174,13 +167,12 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 		m_Gear[pItem->GetWearType()] = 0;
 
 	if (pItem->GetWearType() < GEAR_VISIBLE_NUM)
-		m_Gear[pItem->GetWearType()] = 0;
+		m_GearIndex[pItem->GetWearType()] = 0;
 
 	if (pItem->GetMacro()->m_bySubClass == ISC_SWORD2HAND)
 		SubWState(WS_2HANDWEAPON);
 
 	SubWState(pItem->GetWearType());
-	printf("Substracted W State %d %d\n", pItem->GetWearType(), IsWState(pItem->GetWearType()));
 
 	if (!IsAnyTrigramState())
 		m_byTrigramLevel = 0;
@@ -738,6 +730,75 @@ CPlayer* CPlayer::FindPlayerByName(char* szName)
 	g_mxPlayer.unlock();
 
 	return pPlayer;
+}
+
+WORD CPlayer::GetHit() const
+{
+	return GetAgi() / 8 + 15 * GetStr() / 54 + m_wHitAdd;
+}
+
+WORD CPlayer::GetDodge() const
+{
+	return GetAgi() / 3 + m_wDodgeAdd;
+}
+
+DWORD CPlayer::GetMaxHP() const
+{
+	return ((GetLevel() >= 96 ? 195 :
+		(GetLevel() >= 91 ? 141.8147 :
+		(GetLevel() >= 86 ? 111.426 :
+			(GetLevel() >= 81 ? 91.758 :
+			(GetLevel() >= 76 ? 78 :
+				(GetLevel() >= 72 ? 67.8162 :
+					52)))))) * GetLevel() / 3) + 115 + 2 * GetHth() * GetHth() / g_denoHP[m_byClass] + m_dwMaxHPAdd;
+}
+
+WORD CPlayer::GetMaxMP() const
+{
+	return ((GetLevel() >= 96 ? 20 :
+		(GetLevel() >= 91 ? 18 :
+		(GetLevel() >= 86 ? 16 :
+			(GetLevel() >= 81 ? 14 :
+			(GetLevel() >= 76 ? 12 :
+				(GetLevel() >= 72 ? 10 :
+					8)))))) * GetLevel()) + 140 + GetWis() + 2 * GetWis() * GetWis() / g_denoMP[m_byClass] + m_wMaxMPAdd;
+}
+
+WORD CPlayer::GetMinAttack() const
+{
+	return 1 + ((11 * GetStr() - 80) / 30) + ((GetAgi() - 5) / 11) + (7 * GetLevel() / 10) + m_wMinAttackAdd;
+}
+
+WORD CPlayer::GetMaxAttack() const
+{
+	return ((8 * GetStr() - 25) / 15) + (18 * GetAgi() / 77) + GetLevel() + m_wMaxAttackAdd;
+}
+
+WORD CPlayer::GetMinMagic() const
+{
+	return (7 * GetInt() - 20) / 12 + GetWis() / 7 + m_wMinMagicAdd;
+}
+
+WORD CPlayer::GetMaxMagic() const
+{
+	return 7 * GetInt() / 12 + 14 * GetWis() / 45 + m_wMaxMagicAdd;
+}
+
+WORD CPlayer::GetResist(BYTE byResist) const
+{
+	switch (byResist)
+	{
+	case RT_FIRE:
+		return GetInt() / 9 + m_wResistFireAdd;
+	case RT_ICE:
+		return GetInt() / 9 + m_wResistIceAdd;
+	case RT_LITNING:
+		return GetInt() / 9 + m_wResistLitningAdd;
+	case RT_PALSY:
+		return GetHth() / 9 + m_wResistPalsyAdd;
+	case RT_CURSE:
+		return GetWis() / 9 + m_wResistCurseAdd;
+	}
 }
 
 void CPlayer::Process(Packet packet)

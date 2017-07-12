@@ -224,6 +224,28 @@ bool CMacroDB::LoadInitMonster()
 		pMonster->m_wRunSpeed =		pMonsterInfo->IntAttribute("runspeed");
 		pMonster->m_wAttackSpeed =  pMonsterInfo->IntAttribute("attackspeed");
 
+		pMonster->m_wDefense =		pMonsterInfo->IntAttribute("defense");
+		pMonster->m_wHit =			pMonsterInfo->IntAttribute("hit");
+		pMonster->m_wDodge =		pMonsterInfo->IntAttribute("dodge");
+		pMonster->m_wAbsorb =		pMonsterInfo->IntAttribute("absorb");
+		pMonster->m_wResistFire =	pMonsterInfo->IntAttribute("resistfire");
+		pMonster->m_wResistIce =	pMonsterInfo->IntAttribute("resistice");
+		pMonster->m_wResistLitning = pMonsterInfo->IntAttribute("resistlitning");
+		pMonster->m_wResistCurse =	pMonsterInfo->IntAttribute("resistcurse");
+		pMonster->m_wResistPalsy =	pMonsterInfo->IntAttribute("resistpalsy");
+		pMonster->m_dwHP =			pMonsterInfo->IntAttribute("hp");
+		pMonster->m_dwMP =			pMonsterInfo->IntAttribute("mp");
+		pMonster->m_wMinAttack =	pMonsterInfo->IntAttribute("minattack");
+		pMonster->m_wMaxAttack =	pMonsterInfo->IntAttribute("maxattack");
+		pMonster->m_wMinMagic =		pMonsterInfo->IntAttribute("minmagic");
+		pMonster->m_wMaxMagic =		pMonsterInfo->IntAttribute("maxmagic");
+		pMonster->m_wStr =			pMonsterInfo->IntAttribute("str");
+		pMonster->m_wHth =			pMonsterInfo->IntAttribute("hth");
+		pMonster->m_wInt =			pMonsterInfo->IntAttribute("int");
+		pMonster->m_wWis =			pMonsterInfo->IntAttribute("wis");
+		pMonster->m_wDex =			pMonsterInfo->IntAttribute("dex");
+		pMonster->m_wSize =			pMonsterInfo->IntAttribute("size");
+
 		std::stringstream conv;
 		const char* exp = pMonsterInfo->Attribute("exp");
 		conv << exp;

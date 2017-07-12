@@ -50,9 +50,27 @@ public:
 	Packet GenerateDeletePacket();
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0);
 
+	WORD GetStr() const override { return m_pMacro->m_wStr + m_wStrAdd; }
+	WORD GetHth() const override { return m_pMacro->m_wHth + m_wHthAdd; }
+	WORD GetInt() const override { return m_pMacro->m_wInt + m_wIntAdd; }
+	WORD GetWis() const override { return m_pMacro->m_wWis + m_wWisAdd; }
+	WORD GetAgi() const override { return m_pMacro->m_wDex + m_wDexAdd; }
+
+	WORD GetHit() const override; //unsure
+	WORD GetDodge() const override; //unsure
+	WORD GetDefense() const override { return m_pMacro->m_wDefense; }
+	BYTE GetAbsorb() const override { return m_pMacro->m_wAbsorb; }
+	DWORD GetMaxHP() const override; //unsure
+	WORD GetMaxMP() const override; //unsure
+	WORD GetMinAttack() const override; //unsure
+	WORD GetMaxAttack() const override; //unsure
+	WORD GetMinMagic() const override; //unsure
+	WORD GetMaxMagic() const override; //unsure
+	WORD GetResist(BYTE byResist) const override; //unsure
+
 	WORD GetIndex() const { return m_pMacro->m_wIndex; }
 	BYTE GetRace() const { return m_pMacro->m_byRace; }
-	BYTE GetLevel() const { return m_pMacro->m_byLevel; }
+	BYTE GetLevel() const override { return m_pMacro->m_byLevel; }
 	WORD GetRange() const { return m_pMacro->m_wRange; }
 	WORD GetWalkSpeed() const { return m_pMacro->m_wWalkSpeed; }
 	WORD GetRunSpeed() const { return m_pMacro->m_wRunSpeed; }
