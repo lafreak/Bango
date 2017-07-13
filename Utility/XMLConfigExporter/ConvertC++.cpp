@@ -508,7 +508,15 @@ public:
 							int val = 0; d >> val;
 							pSpecList->SetAttribute("dex", val);
 						}
-						
+
+						else if (specname == "teleport") {
+							int val = 0;
+							char values[3];
+							d >> values[0] >> values[1] >> values[2];
+							std::istringstream iss(values);
+							iss >> val;
+							pSpecList->SetAttribute("teleport", val);
+						}
 					}
 
 					pEle->InsertEndChild(pSpecList);

@@ -20,6 +20,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"ride", 		IC_RIDE },
 
 	// Item Sub Class
+	{"etc", 	    ISC_ETC },
 	{"fish", 		ISC_FISH },
 	{"sword", 		ISC_SWORD },
 	{"sword2h", 	ISC_SWORD2HAND },
@@ -146,6 +147,7 @@ bool CMacroDB::LoadInitItem()
 			pItem->m_wInt =		pItemSpecialtyList->IntAttribute("int");
 			pItem->m_wWis =		pItemSpecialtyList->IntAttribute("wis");
 			pItem->m_wDex =		pItemSpecialtyList->IntAttribute("dex");
+			pItem->m_wTeleport = pItemSpecialtyList->IntAttribute("teleport");
 
 			XMLNode *pSpecialty = pItemSpecialtyList->FirstChild();
 

@@ -451,34 +451,34 @@
     <item index="185" class="general" subclass="etc" buy="0"/>
     <item index="186" class="general" subclass="etc" buy="0"/>
     <item index="187" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
-        <specialty/>
+        <specialty teleport="0"/>
     </item>
     <item index="188" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
-        <specialty/>
+        <specialty teleport="1"/>
     </item>
     <item index="189" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
-        <specialty/>
+        <specialty teleport="2"/>
     </item>
     <item index="190" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
-        <specialty/>
+        <specialty teleport="3"/>
     </item>
     <item index="191" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
-        <specialty/>
+        <specialty teleport="4"/>
     </item>
     <item index="192" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
-        <specialty/>
+        <specialty teleport="10"/>
     </item>
     <item index="193" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
-        <specialty/>
+        <specialty teleport="11"/>
     </item>
     <item index="194" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
-        <specialty/>
+        <specialty teleport="12"/>
     </item>
     <item index="195" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
-        <specialty/>
+        <specialty teleport="13"/>
     </item>
     <item index="196" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
-        <specialty/>
+        <specialty teleport="14"/>
     </item>
     <item index="202" class="ornament" subclass="trinket" wear="1" buy="0" sell="3000" endurance="10">
         <specialty str="1" hp="280" mp="40"/>
@@ -1254,10 +1254,10 @@
         <specialty/>
     </item>
     <item index="484" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
-        <specialty/>
+        <specialty teleport="5"/>
     </item>
     <item index="485" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
-        <specialty/>
+        <specialty teleport="15"/>
     </item>
     <item index="503" class="defense" subclass="standard" wear="1" buy="0" sell="4000">
         <specialty minattack="-50" maxattack="-50" minmagic="-50" maxmagic="-50"/>
@@ -3622,7 +3622,7 @@
     <item index="1618" class="quest" subclass="common" buy="0" sell="0"/>
     <item index="1619" class="general" subclass="etc" buy="0" sell="0"/>
     <item index="1620" class="quest" subclass="common" use="1" plural="1" buy="0" sell="0">
-        <specialty/>
+        <specialty teleport="117"/>
     </item>
     <item index="1621" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1628" class="general" subclass="refresh" level="72" use="1" plural="1" reqclass="all" reqlevel="72" buy="0" sell="81">
@@ -4645,16 +4645,16 @@
     </item>
     <item index="2102" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
     <item index="2157" class="general" subclass="etc" use="1" plural="1" buy="1500" sell="150">
-        <specialty/>
+        <specialty teleport="7"/>
     </item>
     <item index="2158" class="general" subclass="etc" use="1" plural="1" buy="900" sell="100">
-        <specialty/>
+        <specialty teleport="17"/>
     </item>
     <item index="2159" class="general" subclass="etc" use="1" plural="1" buy="1500" sell="150">
-        <specialty/>
+        <specialty teleport="8"/>
     </item>
     <item index="2160" class="general" subclass="etc" use="1" plural="1" buy="900" sell="100">
-        <specialty/>
+        <specialty teleport="18"/>
     </item>
     <item index="1878" class="defense" subclass="upperarmor" level="70" wear="1" reqclass="knight" reqlevel="70" buy="0" sell="780000" endurance="24">
         <specialty str="7" hth="4" dex="1" defense="76" dodge="35" absorb="11" resistfire="2" resistice="2" resistpalsy="2"/>
@@ -5385,7 +5385,7 @@
         </specialty>
     </item>
     <item index="2508" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0">
-        <specialty/>
+        <specialty teleport="17"/>
     </item>
     <item index="2513" class="general" subclass="etc" use="1" plural="1">
         <specialty>
@@ -7371,37 +7371,37 @@
         <specialty/>
     </item>
     <item index="3463" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="100">
-        <specialty/>
+        <specialty teleport="100"/>
     </item>
     <item index="3500" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="694"/>
     </item>
     <item index="3501" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="694"/>
     </item>
     <item index="3502" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="858"/>
     </item>
     <item index="3503" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="102"/>
     </item>
     <item index="3504" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="167"/>
     </item>
     <item index="3505" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="858"/>
     </item>
     <item index="3506" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="118"/>
     </item>
     <item index="3507" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="135"/>
     </item>
     <item index="3508" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="151"/>
     </item>
     <item index="3509" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
-        <specialty/>
+        <specialty teleport="184"/>
     </item>
     <item index="4101" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>
     <item index="4102" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>

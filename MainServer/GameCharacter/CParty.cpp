@@ -289,6 +289,18 @@ void CParty::SendPartyInfo()
 	m_mxThis.unlock();
 }
 
+void CParty::Teleport(int nX, int nY, int nZ)
+{
+	PlayerVector members;
+	GetPlayerList(members);
+
+	for (auto &a : members)
+	{
+		a->Teleport(nX, nY, nZ);
+		a->m_Access.Release();
+	}
+}
+
 void CParty::ProcessMsg(char * szName, char * szMsg)
 {
 	m_mxThis.lock();

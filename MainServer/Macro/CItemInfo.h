@@ -39,6 +39,8 @@ struct CItemInfo: public CMacro
 	DWORD m_dwHP,
 		m_dwMP;
 
+	WORD m_wTeleport;
+
 	WORD m_wMinAttack,
 		m_wMaxAttack,
 		m_wMinMagic,
@@ -54,6 +56,22 @@ struct CItemInfo: public CMacro
 	{
 		R_HP,
 		R_MP
+	};
+
+	enum TELEPORT
+	{
+		NARO_PT,
+		CARGO_PT,
+		GEUM_PT,
+		PUB_PT,
+		TEMP_PT,
+		PRIEST_PT,
+		NARO_INDIV = 10,
+		CARGO_INDIV,
+		GEUM_INDIV,
+		PUB_INDIV,
+		TEMP_INDIV,
+		PRIEST_INDIV
 	};
 
 	CItemInfo()
@@ -87,6 +105,7 @@ struct CItemInfo: public CMacro
 		m_wResistPalsy(0),
 		m_dwHP(0),
 		m_dwMP(0),
+		m_wTeleport(-1),
 		m_wMinAttack(0),
 		m_wMaxAttack(0),
 		m_wMinMagic(0),
