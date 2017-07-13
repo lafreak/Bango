@@ -1125,6 +1125,7 @@ void CPlayer::Process(Packet packet)
 			}
 
 			pTarget->m_Access.Release();
+			break;
 		}
 
 		case C2S_TARGET:
@@ -1451,7 +1452,7 @@ void CPlayer::ProcessMsg(char* szMsg)
 			auto pParty = CParty::FindParty(GetPartyID());
 			if (pParty)
 			{
-				pParty->ProcessMsg((char *)m_szName.c_str(), szMsg);
+				pParty->Broadcast(S2C_CHATTING, "ss", (char *)m_szName.c_str(), szMsg);
 				pParty->m_Access.Release();
 			}
 

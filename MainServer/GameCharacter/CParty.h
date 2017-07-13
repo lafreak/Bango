@@ -44,8 +44,6 @@ private:
 	static void Add(CParty* pParty);
 	static void Remove(CParty* pParty);
 
-	void GetPlayerList(PlayerVector& list);
-
 public:
 	Access m_Access;
 
@@ -63,11 +61,11 @@ public:
 	void RemoveMember(CPlayer* pPlayer);
 	void UpdateMemberHP(CPlayer *pPlayer);
 	void UpdateMemberLevel(CPlayer *pPlayer);
-	//void UpdateParty(CPlayer *pPlayer);
 	void SendPartyInfo();
 	void SendPositionInfo();
-	void ProcessMsg(char* szName, char* szMsg);
 	void Tick();
+	void Broadcast(BYTE byType, ...);
+	void Broadcast(Packet& packet);
 };
 
 typedef std::map<int, CParty*> PartyMap;

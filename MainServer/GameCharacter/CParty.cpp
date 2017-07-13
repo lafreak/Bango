@@ -143,43 +143,12 @@ CParty* CParty::FindParty(int nID)
 
 void CParty::UpdateMemberHP(CPlayer* pPlayer)
 {
-	m_mxThis.lock();
-
-	PlayerVector members;
-	GetPlayerList(members);
-
-	for (auto &m : members)
-	{
-		m->Write(S2C_UPDATEPARTY, "dbdd", pPlayer->GetID(), P_CURHP, pPlayer->GetCurHP(), pPlayer->GetMaxHP());
-		m->m_Access.Release();
-	}
-
-	m_mxThis.unlock();
+	Broadcast(S2C_UPDATEPARTY, "dbdd", pPlayer->GetID(), P_CURHP, pPlayer->GetCurHP(), pPlayer->GetMaxHP());
 }
 
 void CParty::UpdateMemberLevel(CPlayer * pPlayer)
 {
-	m_mxThis.lock();
-
-	PlayerVector members;
-	GetPlayerList(members);
-
-	for (auto &m : members)
-	{
-		m->Write(S2C_UPDATEPARTY, "dbb", pPlayer->GetID(), P_LEVEL, pPlayer->GetLevel());
-		m->m_Access.Release();
-	}
-
-	m_mxThis.unlock();
-}
-
-void CParty::GetPlayerList(PlayerVector& list)
-{
-	for (auto &a : m_vMembers)
-	{
-		a->m_Access.Grant();
-		list.push_back(a);
-	}
+	Broadcast(S2C_UPDATEPARTY, "dbb", pPlayer->GetID(), P_LEVEL, pPlayer->GetLevel());
 }
 
 void CParty::TickAll()
@@ -202,106 +171,83 @@ void CParty::Tick()
 	SendPositionInfo();
 }
 
-void CParty::SendPositionInfo()
+void CParty::Broadcast(BYTE byType, ...)
+{
+	Packet packet;
+	memset(&packet, 0, sizeof(Packet));
+
+	packet.byType = byType;
+
+	va_list va;
+	va_start(va, byType);
+
+	char* end = CSocket::WriteV(packet.data, va);
+
+	va_end(va);
+
+	packet.wSize = end - (char*)&packet;
+
+	Broadcast(packet);
+}
+
+void CParty::Broadcast(Packet & packet)
 {
 	m_mxThis.lock();
 
-	int byCount = GetSize();
-	char* end;
+	for (auto &a : m_vMembers)
+		a->SendPacket(packet);
+
+	m_mxThis.unlock();
+}
+
+void CParty::SendPositionInfo()
+{
+	if (GetSize() < 2)
+		return;
 
 	Packet packet;
 	memset(&packet, 0, sizeof(Packet));
 	packet.byType = S2C_PARTYMEMPOS;
 
-	PlayerVector members;
-	GetPlayerList(members);
+	m_mxThis.lock();
 
-	if (byCount >= 2)
-	{
-		end = CSocket::WritePacket(packet.data, "b", byCount);
+	char* end = CSocket::WritePacket(packet.data, "b", GetSize());
 
-		for (auto&a : members)
-		{
-			end = CSocket::WritePacket(end, "ddd",
-				a->GetID(),
-				a->GetX(),
-				a->GetY());
-		}
-	}
-	else
-	{
-		end = CSocket::WritePacket(packet.data, "b", 0);
-	}
+	for (auto &a : m_vMembers)
+		end = CSocket::WritePacket(end, "ddd", a->GetID(), a->GetX(), a->GetY());
+
+	m_mxThis.unlock();
 
 	packet.wSize = end - ((char*)&packet);
 
-	for (auto &a : members)
-	{
-		a->SendPacket(packet);
-		a->m_Access.Release();
-	}
-
-	m_mxThis.unlock();
+	Broadcast(packet);
 }
 
 void CParty::SendPartyInfo()
 {
-	m_mxThis.lock();
-
-	int byCount = GetSize();
-	char* end;
+	if (GetSize() < 2)
+		return;
 
 	Packet packet;
 	memset(&packet, 0, sizeof(Packet));
 	packet.byType = S2C_PARTYINFO;
 
-	PlayerVector members;
-	GetPlayerList(members);
+	m_mxThis.lock();
 
-	if (byCount >= 2)
-	{
-		end = CSocket::WritePacket(packet.data, "b", byCount);
+	char* end = CSocket::WritePacket(packet.data, "b", GetSize());
 
-		for (auto &a : members)
-		{
-			end = CSocket::WritePacket(end, "dsbbww",
-				a->GetID(),
-				a->GetName().c_str(),
-				a->GetClass(),
-				a->GetLevel(),
-				a->GetCurHP(),
-				a->GetMaxHP());
-		}
-	}
-	else
-	{
-		end = CSocket::WritePacket(packet.data, "b", 0);
-	}
+	for (auto &a : m_vMembers)
+		end = CSocket::WritePacket(end, "dsbbww", // Inix forgot to change party HP to DWORD
+			a->GetID(),
+			a->GetName().c_str(),
+			a->GetClass(),
+			a->GetLevel(),
+			a->GetCurHP(),
+			a->GetMaxHP());
+
+	m_mxThis.unlock();
 
 	packet.wSize = end - ((char*)&packet);
 
-	for (auto &a : members)
-	{
-		a->SendPacket(packet);
-		a->m_Access.Release();
-	}
-
-	m_mxThis.unlock();
+	Broadcast(packet);
 }
-
-void CParty::ProcessMsg(char * szName, char * szMsg)
-{
-	m_mxThis.lock();
-
-	PlayerVector members;
-	GetPlayerList(members);
-
-	for (auto &a : members)
-	{
-		a->Write(S2C_CHATTING, "ss", szName, szMsg);
-		a->m_Access.Release();
-	}
-
-	m_mxThis.unlock();
-}
-
