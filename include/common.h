@@ -481,6 +481,11 @@ static BASEPROPERTY g_baseproperty[] = {
 #define CBS_PKPENALTY			__int64(0x00010000) << 32	// ŔÚ°´˝Ă˝şĹŰ ĆäłÎĆĽ Ŕűżë 1´Ü°č
 //(CBS_PKPENALTY1 | CBS_PKPENALTY2 | CBS_PKPENALTY3 | CBS_PKPENALTY4 | CBS_PKPENALTY5)
 
+// Attack Type Flags
+#define ATF_HIT				1
+#define ATF_CRITICAL		2
+#define ATF_BLOCK			4
+
 // Monster AI
 #define AI_NONE				0x00000000
 #define AI_PASSIVE			0x00000001

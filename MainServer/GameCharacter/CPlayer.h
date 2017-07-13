@@ -153,6 +153,7 @@ public:
 
 	void Process(Packet packet);
 
+	void Tick();
 	void OnLoadPlayer();
 	void OnLoadItems(char *p);
 	void GameStart();
@@ -170,7 +171,8 @@ public:
 	bool UseItem(CItem *pItem);
 	void PutOnItem(CItem *pItem);
 	void PutOffItem(CItem *pItem);
-	void Tick();
+	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
+	void Die() override;
 
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);

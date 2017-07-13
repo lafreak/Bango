@@ -75,6 +75,42 @@ void CCharacter::SendPacketInSight(Packet& packet)
 		CMap::SendPacket(this, packet);
 }
 
+WORD CCharacter::GetAttack() const
+{
+	WORD wMinAttack = GetMinAttack();
+	WORD wMaxAttack = GetMaxAttack();
+	return wMinAttack + (rand() % (wMaxAttack+1 - wMinAttack));
+}
+
+WORD CCharacter::GetMagic() const
+{
+	WORD wMinMagic = GetMinMagic();
+	WORD wMaxMagic = GetMaxMagic();
+	return wMinMagic + (rand() % (wMaxMagic+1 - wMinMagic));
+}
+
+bool CCharacter::CheckHit(CCharacter * pTarget) const
+{
+	return true; // Not implemented
+}
+
+DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage)
+{
+	int byLevelDiff = pAttacker->GetLevel() - GetLevel();
+
+	return dwDamage + byLevelDiff * abs(byLevelDiff) / 4;
+}
+
+DWORD CCharacter::GetFatalDamage(DWORD dwFinalDamage, BYTE& byType)
+{
+	DWORD dwFatalDamage = 0;
+
+	if (dwFatalDamage > 0)
+		byType |= ATF_CRITICAL;
+
+	return dwFinalDamage + dwFatalDamage; // Not implemented
+}
+
 void CCharacter::AddGState(__int64 n64GState)
 {
 	m_n64GState |= n64GState;

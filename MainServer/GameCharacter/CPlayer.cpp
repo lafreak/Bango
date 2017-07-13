@@ -1023,6 +1023,8 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
+		// Add Distance check and cooldown 
+		// Otherwise it's possible to flood server with party requests & spam all players
 		case C2S_ASKPARTY:
 		{
 			int nID=0;
@@ -1073,7 +1075,7 @@ void CPlayer::Process(Packet packet)
 				{
 					if (!pParty->IsHead(pInviter))
 						;
-					else if (pParty->GetMemberAmount() < 8)
+					else if (pParty->GetSize() < 8)
 						pParty->AddMember(this);
 					else
 						; // TODO: Party is full packet
@@ -1094,6 +1096,37 @@ void CPlayer::Process(Packet packet)
 		case C2S_LEAVEPARTY:
 		{
 			LeaveParty();
+			break;
+		}
+
+		case C2S_EXILEPARTY:
+		{
+			int nID = 0;
+			CSocket::ReadPacket(packet.data, "d", &nID);
+
+			if (!HasParty())
+				break;
+
+			CPlayer* pTarget = CPlayer::FindPlayer(nID);
+			if (!pTarget)
+				break;
+
+			CParty* pParty = CParty::FindParty(pTarget->GetPartyID());
+
+			if (pParty)
+			{
+				if (GetID() != pTarget->GetID() && pParty->IsHead(this))
+				{
+					pParty->m_Access.Release();
+					pTarget->LeaveParty();
+				}
+				else
+				{
+					pParty->m_Access.Release();
+				}
+			}
+
+			pTarget->m_Access.Release();
 			break;
 		}
 
@@ -1140,6 +1173,9 @@ void CPlayer::OnLoadPlayer()
 	m_nHonorOption = 0;
 
 	m_wDir = 0;
+
+	if (GetCurHP() <= 0)
+		AddGState(CGS_KO);
 
 	SendProperty();
 
@@ -1421,7 +1457,7 @@ void CPlayer::ProcessMsg(char* szMsg)
 			auto pParty = CParty::FindParty(GetPartyID());
 			if (pParty)
 			{
-				pParty->ProcessMsg((char *)m_szName.c_str(), szMsg);
+				pParty->Broadcast(S2C_CHATTING, "ss", (char *)m_szName.c_str(), szMsg);
 				pParty->m_Access.Release();
 			}
 
@@ -2343,7 +2379,7 @@ void CPlayer::LeaveParty()
 	{
 		pParty->RemoveMember(this);
 
-		if (pParty->GetMemberAmount() == 1)
+		if (pParty->GetSize() == 1)
 		{
 			pParty->Discard();
 			pParty->m_Access.Release();
@@ -2380,4 +2416,34 @@ void CPlayer::Tick()
 	DWORD dwTime = GetTickCount();
 
 	//printf("CPlayer::Tick %s.\n", m_szName.c_str());
+}
+
+void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
+{
+	byType = ATF_HIT;
+
+	dwDamage = GetFinalDamage(pAttacker, dwDamage);
+	dwDamage = pAttacker->GetFatalDamage(dwDamage, byType);
+
+	if (dwDamage > GetCurHP())
+		dwDamage = GetCurHP();
+
+	Lock();
+	m_nCurHP -= dwDamage;
+	Unlock();
+
+	if (m_nCurHP > 0)
+		Rest(0);
+	else
+		Die();
+}
+
+void CPlayer::Die()
+{
+	Lock();
+
+	AddGState(CGS_KO);
+	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
+
+	Unlock();
 }

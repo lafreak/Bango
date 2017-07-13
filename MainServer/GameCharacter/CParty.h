@@ -44,9 +44,6 @@ private:
 	static void Add(CParty* pParty);
 	static void Remove(CParty* pParty);
 
-	void Tick();
-	void GetPlayerList(PlayerVector& list);
-
 public:
 	Access m_Access;
 
@@ -57,7 +54,7 @@ public:
 	static CParty* FindParty(int nID);
 
 	int GetID() const { return m_nID; }
-	int GetMemberAmount() const { return m_vMembers.size(); }
+	int GetSize() const { return m_vMembers.size(); }
 	bool IsHead(CPlayer *pPlayer);
 	void Discard();
 	void AddMember(CPlayer* pPlayer);
@@ -67,9 +64,12 @@ public:
 
 	void Teleport(int nX, int nY, int nZ=0);
 	//void UpdateParty(CPlayer *pPlayer);
+
 	void SendPartyInfo();
 	void SendPositionInfo();
-	void ProcessMsg(char* szName, char* szMsg);
+	void Tick();
+	void Broadcast(BYTE byType, ...);
+	void Broadcast(Packet& packet);
 };
 
 typedef std::map<int, CParty*> PartyMap;
