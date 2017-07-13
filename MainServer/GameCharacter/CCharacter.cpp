@@ -75,6 +75,35 @@ void CCharacter::SendPacketInSight(Packet& packet)
 		CMap::SendPacket(this, packet);
 }
 
+WORD CCharacter::GetAttack() const
+{
+	WORD wMinAttack = GetMinAttack();
+	WORD wMaxAttack = GetMaxAttack();
+	return wMinAttack + (rand() % (wMaxAttack+1 - wMinAttack));
+}
+
+WORD CCharacter::GetMagic() const
+{
+	WORD wMinMagic = GetMinMagic();
+	WORD wMaxMagic = GetMaxMagic();
+	return wMinMagic + (rand() % (wMaxMagic+1 - wMinMagic));
+}
+
+bool CCharacter::CheckHit(CCharacter * pTarget) const
+{
+	return true; // Not implemented
+}
+
+DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage)
+{
+	return dwDamage; // Not implemented
+}
+
+DWORD CCharacter::GetFatalDamage(DWORD dwFinalDamage)
+{
+	return dwFinalDamage; // Not implemented
+}
+
 void CCharacter::AddGState(__int64 n64GState)
 {
 	m_n64GState |= n64GState;

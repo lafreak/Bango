@@ -69,6 +69,8 @@ CMonster* CMonster::Summon(WORD wIndex, int nX, int nY)
 	Packet createPacket = pMonster->GenerateCreatePacket(true);
 	pMonster->SendPacketInSight(createPacket);
 
+	printf("MaxHP: %d Attack %d~%d\n", pMonster->GetMaxHP(), pMonster->GetMinAttack(), pMonster->GetMaxAttack());
+
 	return pMonster;
 }
 
@@ -471,7 +473,16 @@ void CMonster::Move(char byX, char byY, BYTE byType)
 
 void CMonster::Attack()
 {
-	WriteInSight(S2C_ATTACK, "ddddb", GetID(), m_pTarget->GetID(), 3, 0, 1);
+	SetDirection(m_pTarget);
+
+	DWORD dwDamage = GetAttack();
+	DWORD dwExplosiveBlow = 0;
+	BYTE byType = 0;
+
+	if (CheckHit(m_pTarget))
+		m_pTarget->Damage(this, dwDamage, byType);
+
+	WriteInSight(S2C_ATTACK, "ddddb", GetID(), m_pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }
 
 void CMonster::Chase()

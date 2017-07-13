@@ -2412,3 +2412,11 @@ void CPlayer::Tick()
 
 	//printf("CPlayer::Tick %s.\n", m_szName.c_str());
 }
+
+void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
+{
+	byType = 1;
+
+	dwDamage = GetFinalDamage(pAttacker, dwDamage);
+	dwDamage = GetFatalDamage(dwDamage);
+}

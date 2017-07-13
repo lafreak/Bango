@@ -108,6 +108,11 @@ public:
 	virtual WORD GetMinMagic() const { return 0; }
 	virtual WORD GetMaxMagic() const { return 0; }
 	virtual WORD GetResist(BYTE byResist) const { return 0; }
+	WORD GetAttack() const;
+	WORD GetMagic() const;
+	bool CheckHit(CCharacter *pTarget) const;
+	DWORD GetFinalDamage(CCharacter *pAttacker, DWORD dwDamage);
+	DWORD GetFatalDamage(DWORD dwFinalDamage);
 
 	__int64 GetGState() const { return m_n64GState; }
 	__int64 GetMState() const { return m_n64MState; }
@@ -141,6 +146,7 @@ public:
 	void SendPacketInSight(Packet& packet);
 
 	void SetDirection(int nX, int nY);
+	void SetDirection(CCharacter* pCharacter) { SetDirection(pCharacter->GetX() - GetX(), pCharacter->GetY() - GetY()); }
 
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
 	int  GetDistance(CCharacter *pCharacter);
