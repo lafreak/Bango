@@ -44,7 +44,6 @@ private:
 	static void Add(CParty* pParty);
 	static void Remove(CParty* pParty);
 
-	void Tick();
 	void GetPlayerList(PlayerVector& list);
 
 public:
@@ -57,7 +56,7 @@ public:
 	static CParty* FindParty(int nID);
 
 	int GetID() const { return m_nID; }
-	int GetMemberAmount() const { return m_vMembers.size(); }
+	int GetSize() const { return m_vMembers.size(); }
 	bool IsHead(CPlayer *pPlayer);
 	void Discard();
 	void AddMember(CPlayer* pPlayer);
@@ -68,6 +67,7 @@ public:
 	void SendPartyInfo();
 	void SendPositionInfo();
 	void ProcessMsg(char* szName, char* szMsg);
+	void Tick();
 };
 
 typedef std::map<int, CParty*> PartyMap;

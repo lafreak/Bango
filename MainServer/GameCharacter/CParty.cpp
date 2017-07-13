@@ -150,7 +150,7 @@ void CParty::UpdateMemberHP(CPlayer* pPlayer)
 
 	for (auto &m : members)
 	{
-		m->Write(S2C_UPDATEPARTY, "dbdd", pPlayer->GetPID(), P_CURHP, pPlayer->GetCurHP(), pPlayer->GetMaxHP());
+		m->Write(S2C_UPDATEPARTY, "dbdd", pPlayer->GetID(), P_CURHP, pPlayer->GetCurHP(), pPlayer->GetMaxHP());
 		m->m_Access.Release();
 	}
 
@@ -166,7 +166,7 @@ void CParty::UpdateMemberLevel(CPlayer * pPlayer)
 
 	for (auto &m : members)
 	{
-		m->Write(S2C_UPDATEPARTY, "dbb", pPlayer->GetPID(), P_LEVEL, pPlayer->GetLevel());
+		m->Write(S2C_UPDATEPARTY, "dbb", pPlayer->GetID(), P_LEVEL, pPlayer->GetLevel());
 		m->m_Access.Release();
 	}
 
@@ -206,7 +206,7 @@ void CParty::SendPositionInfo()
 {
 	m_mxThis.lock();
 
-	int byCount = GetMemberAmount();
+	int byCount = GetSize();
 	char* end;
 
 	Packet packet;
@@ -223,7 +223,7 @@ void CParty::SendPositionInfo()
 		for (auto&a : members)
 		{
 			end = CSocket::WritePacket(end, "ddd",
-				a->GetPID(),
+				a->GetID(),
 				a->GetX(),
 				a->GetY());
 		}
@@ -248,7 +248,7 @@ void CParty::SendPartyInfo()
 {
 	m_mxThis.lock();
 
-	int byCount = GetMemberAmount();
+	int byCount = GetSize();
 	char* end;
 
 	Packet packet;
@@ -265,7 +265,7 @@ void CParty::SendPartyInfo()
 		for (auto &a : members)
 		{
 			end = CSocket::WritePacket(end, "dsbbww",
-				a->GetPID(),
+				a->GetID(),
 				a->GetName().c_str(),
 				a->GetClass(),
 				a->GetLevel(),

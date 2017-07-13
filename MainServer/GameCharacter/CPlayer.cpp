@@ -1073,7 +1073,7 @@ void CPlayer::Process(Packet packet)
 				{
 					if (!pParty->IsHead(pInviter))
 						;
-					else if (pParty->GetMemberAmount() < 8)
+					else if (pParty->GetSize() < 8)
 						pParty->AddMember(this);
 					else
 						; // TODO: Party is full packet
@@ -1095,6 +1095,36 @@ void CPlayer::Process(Packet packet)
 		{
 			LeaveParty();
 			break;
+		}
+
+		case C2S_EXILEPARTY:
+		{
+			int nID = 0;
+			CSocket::ReadPacket(packet.data, "d", &nID);
+
+			if (!HasParty())
+				break;
+
+			CPlayer* pTarget = CPlayer::FindPlayer(nID);
+			if (!pTarget)
+				break;
+
+			CParty* pParty = CParty::FindParty(pTarget->GetPartyID());
+
+			if (pParty)
+			{
+				if (GetID() != pTarget->GetID() && pParty->IsHead(this))
+				{
+					pParty->m_Access.Release();
+					pTarget->LeaveParty();
+				}
+				else
+				{
+					pParty->m_Access.Release();
+				}
+			}
+
+			pTarget->m_Access.Release();
 		}
 
 		case C2S_TARGET:
@@ -2343,7 +2373,7 @@ void CPlayer::LeaveParty()
 	{
 		pParty->RemoveMember(this);
 
-		if (pParty->GetMemberAmount() == 1)
+		if (pParty->GetSize() == 1)
 		{
 			pParty->Discard();
 			pParty->m_Access.Release();
