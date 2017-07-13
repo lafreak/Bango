@@ -40,11 +40,11 @@ private:
 	static int g_nMaxID;
 	static std::mutex g_mxMaxID;
 
-
 	static int NewID();
 	static void Add(CParty* pParty);
 	static void Remove(CParty* pParty);
 
+	void Tick();
 	void GetPlayerList(PlayerVector& list);
 
 public:
@@ -53,6 +53,7 @@ public:
 	CParty(CPlayer* pPlayer, CPlayer* pPlayer2);
 	~CParty();
 
+	static void TickAll();
 	static CParty* FindParty(int nID);
 
 	int GetID() const { return m_nID; }
@@ -65,6 +66,7 @@ public:
 	void UpdateMemberLevel(CPlayer *pPlayer);
 	//void UpdateParty(CPlayer *pPlayer);
 	void SendPartyInfo();
+	void SendPositionInfo();
 	void ProcessMsg(char* szName, char* szMsg);
 };
 

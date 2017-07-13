@@ -82,6 +82,7 @@ PVOID CServer::Timer(PVOID)
 		{
 			CPlayer::TickAll();
 			CMonster::TickAll();
+			CParty::TickAll();
 
 			dwTickTime = dwNow;
 		}
