@@ -1023,6 +1023,8 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
+		// Add Distance check and cooldown 
+		// Otherwise it's possible to flood server with party requests & spam all players
 		case C2S_ASKPARTY:
 		{
 			int nID=0;
@@ -1171,6 +1173,9 @@ void CPlayer::OnLoadPlayer()
 	m_nHonorOption = 0;
 
 	m_wDir = 0;
+
+	if (GetCurHP() <= 0)
+		AddGState(CGS_KO);
 
 	SendProperty();
 
@@ -2415,8 +2420,30 @@ void CPlayer::Tick()
 
 void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 {
-	byType = 1;
+	byType = ATF_HIT;
 
 	dwDamage = GetFinalDamage(pAttacker, dwDamage);
-	dwDamage = GetFatalDamage(dwDamage);
+	dwDamage = pAttacker->GetFatalDamage(dwDamage, byType);
+
+	if (dwDamage > GetCurHP())
+		dwDamage = GetCurHP();
+
+	Lock();
+	m_nCurHP -= dwDamage;
+	Unlock();
+
+	if (m_nCurHP > 0)
+		Rest(0);
+	else
+		Die();
+}
+
+void CPlayer::Die()
+{
+	Lock();
+
+	AddGState(CGS_KO);
+	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
+
+	Unlock();
 }

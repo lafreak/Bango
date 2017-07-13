@@ -96,12 +96,19 @@ bool CCharacter::CheckHit(CCharacter * pTarget) const
 
 DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage)
 {
-	return dwDamage; // Not implemented
+	int byLevelDiff = pAttacker->GetLevel() - GetLevel();
+
+	return dwDamage + byLevelDiff * abs(byLevelDiff) / 4;
 }
 
-DWORD CCharacter::GetFatalDamage(DWORD dwFinalDamage)
+DWORD CCharacter::GetFatalDamage(DWORD dwFinalDamage, BYTE& byType)
 {
-	return dwFinalDamage; // Not implemented
+	DWORD dwFatalDamage = 0;
+
+	if (dwFatalDamage > 0)
+		byType |= ATF_CRITICAL;
+
+	return dwFinalDamage + dwFatalDamage; // Not implemented
 }
 
 void CCharacter::AddGState(__int64 n64GState)
