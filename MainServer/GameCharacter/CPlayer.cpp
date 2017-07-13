@@ -1137,6 +1137,34 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
+		case C2S_ATTACK:
+		{
+			BYTE byKind=0;
+			int nID=0;
+			int nMove=0;//?
+			CSocket::ReadPacket(packet.data, "bdd", &byKind, &nID, &nMove);
+
+			CCharacter* pTarget=NULL;
+
+			if (byKind == CK_PLAYER)
+				pTarget = CPlayer::FindPlayer(nID);
+			else if (byKind == CK_MONSTER)
+				pTarget = CMonster::FindMonster(nID);
+
+			if (pTarget)
+			{
+				Lock();
+				//pTarget->Lock();
+				Attack(pTarget);
+				//pTarget->Unlock();
+				Unlock();
+
+				pTarget->m_Access.Release();
+			}
+
+			break;
+		}
+
 		case C2S_TARGET:
 		{
 			int nID=0;
@@ -2441,7 +2469,6 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 	{
 		if (pAttacker->GetKind() == CK_MONSTER)
 			((CMonster*)pAttacker)->SetTarget(NULL);
-			//((CMonster*)pAttacker)->SetAIS(CMonster::AIS_WALK);
 
 		Die();
 	}
@@ -2468,4 +2495,27 @@ void CPlayer::Revival()
 	Unlock();
 
 	Teleport(360931, 187024);
+}
+
+void CPlayer::Attack(CCharacter *pTarget)
+{
+	if (!pTarget->IsNormal())
+		return;
+
+	SetDirection(pTarget);
+
+	// TODO: Distance check, attack speed corrupted check
+	// TODO: Player OnPVP Check
+	// TODO: CanAttack check
+
+	DWORD dwDamage = GetAttack();
+	DWORD dwExplosiveBlow = 0;
+	BYTE byType = 0;
+
+	if (CheckHit(pTarget))
+		pTarget->Damage(this, dwDamage, byType);
+	else
+		dwDamage = 0;
+
+	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }
