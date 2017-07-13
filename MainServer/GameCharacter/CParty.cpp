@@ -225,14 +225,8 @@ void CParty::SendPositionInfo()
 
 void CParty::Teleport(int nX, int nY, int nZ)
 {
-	PlayerVector members;
-	GetPlayerList(members);
-
-	for (auto &a : members)
-	{
+	for (auto &a : m_vMembers)
 		a->Teleport(nX, nY, nZ);
-		a->m_Access.Release();
-	}
 }
 
 void CParty::SendPartyInfo()

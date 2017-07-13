@@ -29,6 +29,9 @@ bool CItemGeneral::Use(CPlayer *pPlayer)
 				else
 					pPlayer->Teleport(257303, 258710);
 
+				if (pParty)
+					pParty->m_Access.Release();
+
 				break;
 			}
 			case CItemInfo::CARGO_PT:
@@ -38,6 +41,9 @@ bool CItemGeneral::Use(CPlayer *pPlayer)
 					pParty->Teleport(264931, 262029);
 				else
 					pPlayer->Teleport(264931, 262029);
+
+				if (pParty)
+					pParty->m_Access.Release();
 
 				break;
 			}
@@ -49,6 +55,8 @@ bool CItemGeneral::Use(CPlayer *pPlayer)
 				else
 					pPlayer->Teleport(265642, 285434);
 
+				if (pParty)
+					pParty->m_Access.Release();
 
 				break;
 			}
@@ -60,6 +68,9 @@ bool CItemGeneral::Use(CPlayer *pPlayer)
 				else
 					pPlayer->Teleport(256442, 288522);
 
+				if (pParty)
+					pParty->m_Access.Release();
+
 				break;
 			}
 			case CItemInfo::TEMP_PT:
@@ -70,6 +81,9 @@ bool CItemGeneral::Use(CPlayer *pPlayer)
 				else
 					pPlayer->Teleport(267895, 242644);
 
+				if (pParty)
+					pParty->m_Access.Release();
+
 				break;
 			}
 			case CItemInfo::PRIEST_PT:
@@ -79,6 +93,9 @@ bool CItemGeneral::Use(CPlayer *pPlayer)
 					pParty->Teleport(232828, 294721);
 				else
 					pPlayer->Teleport(232828, 294721);
+
+				if (pParty)
+					pParty->m_Access.Release();
 
 				break;
 			}
