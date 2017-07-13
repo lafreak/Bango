@@ -37,7 +37,7 @@ public:
 	static void GetCharacterListAround(CCharacter *pCharacter, int nDistance, CharacterList& list);
 	static void GetPlayerListAround(CCharacter *pCharacter, int nDistance, PlayerList& list);
 	static void GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterList& list);
-	static CPlayer* GetClosestPlayer(CCharacter *pCharacter, int nDistance);
+	static CPlayer* GetClosestNormalPlayer(CCharacter *pCharacter, int nDistance);
 
 	static CTile* GetTile(int nTileX, int nTileY);
 	static MapInfo GetMapInfo(int nX, int nY); 
