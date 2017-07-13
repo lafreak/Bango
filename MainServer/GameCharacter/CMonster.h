@@ -78,8 +78,10 @@ public:
 	WORD GetCloseSight() const { return m_pMacro->m_wCloseSight; }
 	WORD GetFarSight() const { return m_pMacro->m_wFarSight; }
 
+	BYTE GetAIS() const { return m_byAIState; }
 	void SetAIS(BYTE byState) { m_byAIState = byState; }
-	void SetTarget(CPlayer *pPlayer) { m_pTarget = pPlayer; }
+	// Sets new target, starts chasing him and Releases access of last target if was any.
+	void SetTarget(CPlayer *pPlayer);
 	CPlayer* GetTarget() const { return m_pTarget; }
 
 	void Tick();
@@ -91,8 +93,8 @@ public:
 
 	void SendPacket(Packet& packet) {};
 
-	// Remember to call m_Access.Release() after usage
-	CPlayer* GetClosestPlayer();
+	// Gets closest normal CPlayer and Grants his access. (Inix CMonster::ScanSight)
+	CPlayer* GetClosestNormalPlayer();
 
 	enum MOVE_TYPE
 	{

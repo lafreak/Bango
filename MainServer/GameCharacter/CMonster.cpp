@@ -300,9 +300,22 @@ CMonster* CMonster::FindMonsterByIndex(WORD wIndex)
 	return pMonster;
 }
 
-CPlayer* CMonster::GetClosestPlayer()
+CPlayer* CMonster::GetClosestNormalPlayer()
 {
-	return CMap::GetClosestPlayer(this, GetCloseSight());
+	return CMap::GetClosestNormalPlayer(this, GetCloseSight());
+}
+
+void CMonster::SetTarget(CPlayer * pPlayer)
+{
+	if (m_pTarget)
+		m_pTarget->m_Access.Release();
+
+	m_pTarget = pPlayer;
+
+	if (pPlayer)
+		SetAIS(AIS_CHASE);
+	else
+		SetAIS(AIS_WALK);
 }
 
 void CMonster::Tick()
@@ -313,13 +326,13 @@ void CMonster::Tick()
 	{
 		Lock();
 
-		auto pTarget = GetClosestPlayer();
+		auto pTarget = GetClosestNormalPlayer();
 
 		if (pTarget) 
 		{
 			SetTarget(pTarget);
-			SetAIS(AIS_CHASE);
-			pTarget->m_Access.Release();
+			//SetAIS(AIS_CHASE);
+			//pTarget->m_Access.Release();
 		}
 		else
 		{
@@ -367,7 +380,7 @@ void CMonster::AI()
 			if (nDistance > GetFarSight())
 			{
 				SetTarget(NULL);
-				SetAIS(AIS_WALK);
+				//SetAIS(AIS_WALK);
 			}
 			else if (nDistance > 1)
 			{
@@ -477,18 +490,26 @@ void CMonster::Move(char byX, char byY, BYTE byType)
 
 void CMonster::Attack()
 {
-	SetDirection(m_pTarget);
+	auto pTarget = GetTarget();
+
+	if (!pTarget->IsNormal())
+	{
+		SetTarget(NULL);
+		return;
+	}
+
+	SetDirection(pTarget);
 
 	DWORD dwDamage = GetAttack();
 	DWORD dwExplosiveBlow = 0;
 	BYTE byType = 0;
 
-	if (CheckHit(m_pTarget))
-		m_pTarget->Damage(this, dwDamage, byType);
+	if (CheckHit(pTarget))
+		pTarget->Damage(this, dwDamage, byType);
 	else
 		dwDamage = 0;
 
-	WriteInSight(S2C_ATTACK, "ddddb", GetID(), m_pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
+	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }
 
 void CMonster::Chase()

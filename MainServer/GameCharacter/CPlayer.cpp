@@ -53,6 +53,7 @@ CPlayer::~CPlayer()
 
 	LeaveParty();
 
+	// Bad idea
 	RemoveAggro();
 
 	CMap::Remove(this);
@@ -1130,24 +1131,18 @@ void CPlayer::Process(Packet packet)
 			break;
 		}
 
+		case C2S_REVIVAL:
+		{
+			Revival();
+			break;
+		}
+
 		case C2S_TARGET:
 		{
-			// Just checking packet contents 
 			int nID=0;
 			BYTE byType=0;
 
 			CSocket::ReadPacket(packet.data, "db", &nID, &byType);
-
-			printf("C2S_TARGET: %d %d\n", nID, byType);
-
-			CPlayer* pPlayer = CPlayer::FindPlayer(nID);
-
-			if (pPlayer)
-			{
-				printf("PLAYER FOUND\n");
-				pPlayer->m_Access.Release();
-			}
-
 			break;
 		}
 	}
@@ -2402,7 +2397,7 @@ void CPlayer::RemoveAggro()
 		if (m->GetTarget() == this)
 		{
 			m->Lock();
-			m->SetAIS(CMonster::AIS_WALK);
+			//m->SetAIS(CMonster::AIS_WALK);
 			m->SetTarget(NULL);
 			m->Unlock();
 		}
@@ -2428,14 +2423,28 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 	if (dwDamage > GetCurHP())
 		dwDamage = GetCurHP();
 
+	if (dwDamage <= 0)
+	{
+		byType = 0;
+		return;
+	}
+
 	Lock();
 	m_nCurHP -= dwDamage;
 	Unlock();
 
-	if (m_nCurHP > 0)
+	if (GetCurHP() > 0)
+	{
 		Rest(0);
+	}
 	else
+	{
+		if (pAttacker->GetKind() == CK_MONSTER)
+			((CMonster*)pAttacker)->SetTarget(NULL);
+			//((CMonster*)pAttacker)->SetAIS(CMonster::AIS_WALK);
+
 		Die();
+	}
 }
 
 void CPlayer::Die()
@@ -2446,4 +2455,17 @@ void CPlayer::Die()
 	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
 
 	Unlock();
+}
+
+void CPlayer::Revival()
+{
+	if (!IsGState(CGS_KO))
+		return;
+
+	Lock();
+	UpdateProperty(P_CURHP, GetMaxHP());
+	SubGState(CGS_KO);
+	Unlock();
+
+	Teleport(360931, 187024);
 }

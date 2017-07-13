@@ -99,7 +99,7 @@ void CMap::GetMonsterListAround(CCharacter *pCharacter, int nDistance, MonsterLi
 	}
 }
 
-CPlayer* CMap::GetClosestPlayer(CCharacter *pCharacter, int nDistance)
+CPlayer* CMap::GetClosestNormalPlayer(CCharacter *pCharacter, int nDistance)
 {
 	MapInfo m = GetMapInfo(pCharacter->GetX(), pCharacter->GetY());
 
@@ -111,6 +111,12 @@ CPlayer* CMap::GetClosestPlayer(CCharacter *pCharacter, int nDistance)
 
 	for (PlayerList::iterator it = list.begin(); it != list.end(); it++)
 	{
+		if (!(*it)->IsNormal()) 
+		{
+			(*it)->m_Access.Release();
+			continue;
+		}
+
 		int nDist = pCharacter->GetDistance(*it);
 
 		if (nCurDist == -1)

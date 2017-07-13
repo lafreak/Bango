@@ -96,9 +96,14 @@ bool CCharacter::CheckHit(CCharacter * pTarget) const
 
 DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage)
 {
-	int byLevelDiff = pAttacker->GetLevel() - GetLevel();
+	int byLevelDiff = (int) pAttacker->GetLevel() - (int) GetLevel();
 
-	return dwDamage + byLevelDiff * abs(byLevelDiff) / 4;
+	int nDamage = (int) dwDamage + byLevelDiff * abs(byLevelDiff) / 4;
+
+	if (nDamage < 0)
+		nDamage = 0;
+
+	return (DWORD) nDamage;
 }
 
 DWORD CCharacter::GetFatalDamage(DWORD dwFinalDamage, BYTE& byType)
