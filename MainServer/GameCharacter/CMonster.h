@@ -90,6 +90,8 @@ public:
 	void Attack();
 	void Chase();
 	void Walk();
+	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
+	void Die() override;
 
 	void SendPacket(Packet& packet) {};
 
@@ -114,6 +116,7 @@ public:
 		AIS_CHASE,
 		AIS_FORCEATTACK,
 		AIS_ATTACK,
+		AIS_DEAD,
 	};
 };
 

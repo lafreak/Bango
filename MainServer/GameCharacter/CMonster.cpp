@@ -15,6 +15,8 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 	m_nX = nX;
 	m_nY = nY;
 
+	m_nCurHP = GetMaxHP();
+
 	m_pTarget = NULL;
 
 	m_byAIState = AIS_IDLE;
@@ -91,8 +93,8 @@ Packet CMonster::GenerateCreatePacket(bool bHero)
 		GetX(),
 		GetY(),
 		GetDir(),
-		100, //curhp
-		100, //maxhp
+		GetCurHP(),//100, //curhp
+		GetMaxHP(),//100, //maxhp
 		GetGState(),
 		GetMState(),
 		"\0",
@@ -548,5 +550,55 @@ void CMonster::Walk()
 	{
 		Move(dx, dy, MT_WALK);
 	}
+}
+
+void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
+{
+	byType = ATF_HIT;
+
+	if (GetTarget() == NULL) 
+	{
+		pAttacker->m_Access.Grant();
+		Lock();
+		SetTarget((CPlayer *)pAttacker);
+		Unlock();
+	}
+
+	dwDamage = GetFinalDamage(pAttacker, dwDamage);
+	dwDamage = pAttacker->GetFatalDamage(dwDamage, byType);
+
+	if (dwDamage > GetCurHP())
+		dwDamage = GetCurHP();
+
+	if (dwDamage <= 0)
+	{
+		byType = 0;
+		return;
+	}
+
+	Lock();
+	m_nCurHP -= dwDamage;
+	Unlock();
+
+	if (GetCurHP() > 0)
+	{
+		//?
+	}
+	else
+	{
+		Die();
+	}
+}
+
+void CMonster::Die()
+{
+	Lock();
+
+	AddGState(CGS_KO);
+	SetTarget(NULL);
+	SetAIS(AIS_DEAD);
+	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
+
+	Unlock();
 }
 

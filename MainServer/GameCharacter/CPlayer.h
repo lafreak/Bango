@@ -174,6 +174,7 @@ public:
 	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
 	void Die() override;
 	void Revival();
+	void Attack(CCharacter *pTarget);
 
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);
