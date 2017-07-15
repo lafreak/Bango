@@ -9,7 +9,7 @@ CoordsMap CItemGeneral::g_mTeleScrolls = {
 	{ CARGO,   {264931, 262029} },
 	{ GEUM,    {265642, 285434} },
 	{ PUB,     {256442, 288522} },
-	{ TEMP_PT, {267895, 242644} },
+	{ TEMP,    {267895, 242644} },
 	{ PRIEST,  {232828, 294721} },
 	{ CHEONJI, {257303, 258710} },
 	{ HONDEL,  {257303, 258710} }
