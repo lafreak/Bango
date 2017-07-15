@@ -333,8 +333,6 @@ void CMonster::Tick()
 		if (pTarget) 
 		{
 			SetTarget(pTarget);
-			//SetAIS(AIS_CHASE);
-			//pTarget->m_Access.Release();
 		}
 		else
 		{
