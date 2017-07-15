@@ -374,6 +374,7 @@ void CMonster::AI()
 				break;
 
 			Lock();
+			m_pTarget->Lock();
 
 			m_dwLastChaseStep = dwNow + GetRunSpeed();
 
@@ -381,8 +382,10 @@ void CMonster::AI()
 
 			if (nDistance > GetFarSight())
 			{
+				m_pTarget->Unlock();
 				SetTarget(NULL);
-				//SetAIS(AIS_WALK);
+				Unlock();
+				break;
 			}
 			else if (nDistance > 1)
 			{
@@ -399,6 +402,7 @@ void CMonster::AI()
 				SetAIS(AIS_FORCEATTACK);
 			}
 
+			m_pTarget->Unlock();
 			Unlock();
 
 			break;
@@ -411,22 +415,30 @@ void CMonster::AI()
 
 			Lock();
 
+			auto pTarget = GetTarget();
+
+			pTarget->Lock();
+
 			m_dwLastAttackTime = dwNow + GetAttackSpeed();
 
-			Attack();
+			Attack(pTarget);
 
-			int nDistance = GetDistance(m_pTarget) - GetRange();
-
-			if (nDistance > 1)
+			if (GetTarget())
 			{
-				m_dwLastChaseStep = m_dwLastAttackTime;
-				SetAIS(AIS_CHASE);
-			}
-			else
-			{
-				SetAIS(AIS_ATTACK);
+				int nDistance = GetDistance(pTarget) - GetRange();
+
+				if (nDistance > 1)
+				{
+					m_dwLastChaseStep = m_dwLastAttackTime;
+					SetAIS(AIS_CHASE);
+				}
+				else
+				{
+					SetAIS(AIS_ATTACK);
+				}
 			}
 
+			pTarget->Unlock();
 			Unlock();
 
 			break;
@@ -439,6 +451,10 @@ void CMonster::AI()
 
 			Lock();
 
+			auto pTarget = GetTarget();
+
+			pTarget->Lock();
+
 			m_dwLastAttackTime = dwNow + GetAttackSpeed();
 
 			int nDistance = GetDistance(m_pTarget) - GetRange();
@@ -447,12 +463,14 @@ void CMonster::AI()
 			{
 				m_dwLastChaseStep = GetRunSpeed();
 				SetAIS(AIS_CHASE);
+				pTarget->Unlock();
 				Unlock();
 				break;
 			}
 
-			Attack();
+			Attack(pTarget);
 
+			pTarget->Unlock();
 			Unlock();
 
 			break;
@@ -490,10 +508,8 @@ void CMonster::Move(char byX, char byY, BYTE byType)
 	}
 }
 
-void CMonster::Attack()
+void CMonster::Attack(CPlayer *pTarget)
 {
-	auto pTarget = GetTarget();
-
 	if (!pTarget->IsNormal())
 	{
 		SetTarget(NULL);
@@ -559,9 +575,7 @@ void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
 	if (GetTarget() == NULL) 
 	{
 		pAttacker->m_Access.Grant();
-		Lock();
 		SetTarget((CPlayer *)pAttacker);
-		Unlock();
 	}
 
 	dwDamage = GetFinalDamage(pAttacker, dwDamage);
@@ -576,9 +590,7 @@ void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
 		return;
 	}
 
-	Lock();
 	m_nCurHP -= dwDamage;
-	Unlock();
 
 	if (GetCurHP() > 0)
 	{
@@ -592,13 +604,9 @@ void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
 
 void CMonster::Die()
 {
-	Lock();
-
 	AddGState(CGS_KO);
 	SetTarget(NULL);
 	SetAIS(AIS_DEAD);
 	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
-
-	Unlock();
 }
 

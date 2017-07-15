@@ -870,7 +870,9 @@ void CPlayer::Process(Packet packet)
 			BYTE byType=0;
 			CSocket::ReadPacket(packet.data, "b", &byType);
 
+			Lock();
 			Rest(byType);
+			Unlock();
 
 			break;
 		}
@@ -1154,9 +1156,9 @@ void CPlayer::Process(Packet packet)
 			if (pTarget)
 			{
 				Lock();
-				//pTarget->Lock();
+				pTarget->Lock();
 				Attack(pTarget);
-				//pTarget->Unlock();
+				pTarget->Unlock();
 				Unlock();
 
 				pTarget->m_Access.Release();
@@ -1448,9 +1450,7 @@ void CPlayer::Rest(BYTE byType)
 		if (IsGState(CGS_REST))
 			return;
 
-		Lock();
 		AddGState(CGS_REST);
-		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 	else
@@ -1458,9 +1458,7 @@ void CPlayer::Rest(BYTE byType)
 		if (!IsGState(CGS_REST))
 			return;
 
-		Lock();
 		SubGState(CGS_REST);
-		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 }
@@ -2457,9 +2455,7 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 		return;
 	}
 
-	Lock();
 	m_nCurHP -= dwDamage;
-	Unlock();
 
 	if (GetCurHP() > 0)
 	{
@@ -2476,12 +2472,8 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 
 void CPlayer::Die()
 {
-	Lock();
-
 	AddGState(CGS_KO);
 	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
-
-	Unlock();
 }
 
 void CPlayer::Revival()
