@@ -223,10 +223,14 @@ void CParty::SendPositionInfo()
 	Broadcast(packet);
 }
 
-void CParty::Teleport(int nX, int nY, int nZ)
+void CParty::Teleport(std::vector<int> &vCoords)
 {
+	m_mxThis.lock();
+
 	for (auto &a : m_vMembers)
-		a->Teleport(nX, nY, nZ);
+		a->Teleport(vCoords);
+
+	m_mxThis.unlock();
 }
 
 void CParty::SendPartyInfo()
