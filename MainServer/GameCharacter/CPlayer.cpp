@@ -870,7 +870,9 @@ void CPlayer::Process(Packet packet)
 			BYTE byType=0;
 			CSocket::ReadPacket(packet.data, "b", &byType);
 
+			Lock();
 			Rest(byType);
+			Unlock();
 
 			break;
 		}
@@ -1007,6 +1009,8 @@ void CPlayer::Process(Packet packet)
 			BYTE byType=0;
 			CSocket::ReadPacket(packet.data, "b", &byType);
 
+			Lock();
+
 			if (byType == 0 && m_byShortcutState != 0) {
 				printf(KRED "Trying to load shortcut for the second time.\n" KNRM);
 				break;
@@ -1020,6 +1024,8 @@ void CPlayer::Process(Packet packet)
 			m_byShortcutState++;
 
 			CDBSocket::Write(S2D_SHORTCUT, "ddm", GetCID(), GetPID(), packet.data, packet.wSize - (packet.data - (char*)&packet));
+
+			Unlock();
 
 			break;
 		}
@@ -1035,7 +1041,14 @@ void CPlayer::Process(Packet packet)
 
 			if (pTarget)
 			{
+				Lock();
+				pTarget->Lock();
+
 				AskParty(pTarget);
+
+				pTarget->Unlock();
+				Unlock();
+				
 				pTarget->m_Access.Release();
 			}
 
@@ -1154,23 +1167,14 @@ void CPlayer::Process(Packet packet)
 			if (pTarget)
 			{
 				Lock();
-				//pTarget->Lock();
+				pTarget->Lock();
 				Attack(pTarget);
-				//pTarget->Unlock();
+				pTarget->Unlock();
 				Unlock();
 
 				pTarget->m_Access.Release();
 			}
 
-			break;
-		}
-
-		case C2S_TARGET:
-		{
-			int nID=0;
-			BYTE byType=0;
-
-			CSocket::ReadPacket(packet.data, "db", &nID, &byType);
 			break;
 		}
 	}
@@ -1448,9 +1452,7 @@ void CPlayer::Rest(BYTE byType)
 		if (IsGState(CGS_REST))
 			return;
 
-		Lock();
 		AddGState(CGS_REST);
-		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 	else
@@ -1458,9 +1460,7 @@ void CPlayer::Rest(BYTE byType)
 		if (!IsGState(CGS_REST))
 			return;
 
-		Lock();
 		SubGState(CGS_REST);
-		Unlock();
 		WriteInSight(S2C_ACTION, "dbb", m_nID, AT_REST, byType);
 	}
 }
@@ -1506,7 +1506,14 @@ void CPlayer::ChatCommand(char* szCommand)
 		auto pTarget = CPlayer::FindPlayerByName(token);
 		if (pTarget)
 		{
+			Lock();
+			pTarget->Lock();
+
 			AskParty(pTarget);
+
+			pTarget->Unlock();
+			Unlock();
+
 			pTarget->m_Access.Release();
 		}
 	}
@@ -2382,20 +2389,16 @@ void CPlayer::AskParty(CPlayer * pTarget)
 	{
 		if (pParty->IsHead(this))
 		{
-			pTarget->Lock();
 			pTarget->SetPartyInviterID(GetID());
 			pTarget->Write(S2C_ASKPARTY, "d", GetID());
-			pTarget->Unlock();
 		}
 
 		pParty->m_Access.Release();
 	}
 	else
 	{
-		pTarget->Lock();
 		pTarget->SetPartyInviterID(GetID());
 		pTarget->Write(S2C_ASKPARTY, "d", GetID());
-		pTarget->Unlock();
 	}
 }
 
@@ -2462,9 +2465,7 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 		return;
 	}
 
-	Lock();
 	m_nCurHP -= dwDamage;
-	Unlock();
 
 	if (GetCurHP() > 0)
 	{
@@ -2481,12 +2482,8 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 
 void CPlayer::Die()
 {
-	Lock();
-
 	AddGState(CGS_KO);
 	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
-
-	Unlock();
 }
 
 void CPlayer::Revival()
@@ -2522,5 +2519,6 @@ void CPlayer::Attack(CCharacter *pTarget)
 	else
 		dwDamage = 0;
 
+	// TODO: Bugfix - last hit doesn't display damage on monster.
 	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }

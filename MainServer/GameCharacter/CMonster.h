@@ -87,7 +87,7 @@ public:
 	void Tick();
 	void AI();
 	void Move(char byX, char byY, BYTE byType);
-	void Attack();
+	void Attack(CPlayer *pTarget);
 	void Chase();
 	void Walk();
 	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
