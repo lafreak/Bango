@@ -2044,11 +2044,6 @@ void CPlayer::Teleport(int nX, int nY, int nZ)
 	Write(S2C_TELEPORT, "bdddb", byMap, nX, nY, nZ, byCheat);
 }
 
-void CPlayer::Teleport(std::vector<int> &vCoords)
-{
-	Teleport(vCoords[0], vCoords[1]);
-}
-
 void CPlayer::OnTeleport(BYTE byAnswer, int nZ)
 {
 	// TODO: Add check for packet hack
