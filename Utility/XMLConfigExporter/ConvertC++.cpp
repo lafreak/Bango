@@ -417,6 +417,17 @@ public:
 							pSpecList->InsertEndChild(pSpec);
 						}
 
+						else if (specname == "teleport") {
+							int val = 0, val2 = 0, val3 = 0;
+							d >> val >> val2 >> val3;
+							
+							pSpec->SetAttribute("val", val);
+							pSpec->SetAttribute("val2", val2);
+							pSpec->SetAttribute("val3", val3);
+
+							pSpecList->InsertEndChild(pSpec);
+						}
+
 						else if (specname == "defense") {
 							int val = 0; d >> val;
 							pSpecList->SetAttribute("defense", val);
@@ -508,7 +519,6 @@ public:
 							int val = 0; d >> val;
 							pSpecList->SetAttribute("dex", val);
 						}
-						
 					}
 
 					pEle->InsertEndChild(pSpecList);

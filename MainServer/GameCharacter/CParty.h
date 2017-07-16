@@ -61,6 +61,9 @@ public:
 	void RemoveMember(CPlayer* pPlayer);
 	void UpdateMemberHP(CPlayer *pPlayer);
 	void UpdateMemberLevel(CPlayer *pPlayer);
+	void Teleport(std::vector<int> &vCoords);
+	//void UpdateParty(CPlayer *pPlayer);
+
 	void SendPartyInfo();
 	void SendPositionInfo();
 	void Tick();
