@@ -34,6 +34,7 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CParty.o MainServer/GameChara
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CNPC.o MainServer/GameCharacter/CNPC.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMonster.o MainServer/GameCharacter/CMonster.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMonsterReal.o MainServer/GameCharacter/Monster/CMonsterReal.cpp
+g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMonsterMaguni.o MainServer/GameCharacter/Monster/CMonsterMaguni.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CTile.o MainServer/Map/CTile.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CMap.o MainServer/Map/CMap.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CServer.o MainServer/CServer.cpp
@@ -41,4 +42,4 @@ g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CDBSocket.o MainServer/Socket
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/CClientSocket.o MainServer/Socket/CClientSocket.cpp
 g++ --std=c++11 -pthread -I include/ -c -o bin/obj/main.o MainServer/main.cpp
 
-g++ --std=c++11 -pthread -o bin/MainServer bin/obj/tinyxml2.o bin/obj/CSocket.o bin/obj/CConfig.o bin/obj/CMacro.o bin/obj/CItemInfo.o bin/obj/CMacroDB.o bin/obj/CItem.o bin/obj/CItemGeneral.o bin/obj/CItemWeapon.o bin/obj/CItemDefense.o bin/obj/CItemYinyang.o bin/obj/CItemPet.o bin/obj/CItemRide.o bin/obj/CItemOrnament.o bin/obj/CItemTransform.o bin/obj/CClient.o bin/obj/CCharacter.o bin/obj/CPlayer.o bin/obj/CParty.o bin/obj/CNPC.o bin/obj/CMonster.o bin/obj/CMonsterReal.o bin/obj/CTile.o bin/obj/CMap.o bin/obj/CServer.o bin/obj/CDBSocket.o bin/obj/CClientSocket.o bin/obj/main.o
+g++ --std=c++11 -pthread -o bin/MainServer bin/obj/tinyxml2.o bin/obj/CSocket.o bin/obj/CConfig.o bin/obj/CMacro.o bin/obj/CItemInfo.o bin/obj/CMacroDB.o bin/obj/CItem.o bin/obj/CItemGeneral.o bin/obj/CItemWeapon.o bin/obj/CItemDefense.o bin/obj/CItemYinyang.o bin/obj/CItemPet.o bin/obj/CItemRide.o bin/obj/CItemOrnament.o bin/obj/CItemTransform.o bin/obj/CClient.o bin/obj/CCharacter.o bin/obj/CPlayer.o bin/obj/CParty.o bin/obj/CNPC.o bin/obj/CMonster.o bin/obj/CMonsterReal.o bin/obj/CMonsterMaguni.o bin/obj/CTile.o bin/obj/CMap.o bin/obj/CServer.o bin/obj/CDBSocket.o bin/obj/CClientSocket.o bin/obj/main.o

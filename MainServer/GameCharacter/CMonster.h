@@ -84,15 +84,14 @@ public:
 	void SetTarget(CPlayer *pPlayer);
 	CPlayer* GetTarget() const { return m_pTarget; }
 
-	void Tick();
-	void AI();
+	virtual void Tick();
+	virtual void AI();
 	void Move(char byX, char byY, BYTE byType);
 	void Attack(CPlayer *pTarget);
 	void Chase();
 	void Walk();
 	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
-	void Die() override;
-
+	
 	void SendPacket(Packet& packet) {};
 
 	// Gets closest normal CPlayer and Grants his access. (Inix CMonster::ScanSight)
@@ -117,6 +116,7 @@ public:
 		AIS_FORCEATTACK,
 		AIS_ATTACK,
 		AIS_DEAD,
+		AIS_KNEE,
 	};
 };
 

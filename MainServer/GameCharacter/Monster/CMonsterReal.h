@@ -6,8 +6,9 @@
 class CMonsterReal: public CMonster
 {
 public:
-	CMonsterReal(CMonsterInfo *pMacro, int nX, int nY): CMonster(pMacro, nX, nY) {}
+	CMonsterReal(CMonsterInfo *pMacro, int nX, int nY) : CMonster(pMacro, nX, nY) { }
 
+	void Die() override;
 };
 
 #endif

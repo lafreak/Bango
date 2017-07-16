@@ -1,6 +1,7 @@
 #include "CMonster.h"
 
 #include "Monster/CMonsterReal.h"
+#include "Monster/CMonsterMaguni.h"
 
 #include "../Map/CMap.h"
 
@@ -50,10 +51,32 @@ CMonster* CMonster::CreateMonster(WORD wIndex, int nX, int nY)
 
 	switch (pMacro->m_byRace)
 	{
-		default:
-			printf(KRED "Unknown monster race (%d).\n" KNRM, pMacro->m_byRace);
-			pMonster = new CMonsterReal(pMacro, nX, nY);
+		case 0:
+			switch (pMacro->m_byAI)
+			{
+				case 1:
+				case 2:
+					// Beheadable
+					pMonster = new CMonsterMaguni(pMacro, nX, nY);
+					break;
+			}
 			break;
+		case 1:
+			switch (pMacro->m_byAI)
+			{
+				case 1:
+				case 2:
+					// Non beheadable
+					pMonster = new CMonsterReal(pMacro, nX, nY);
+					break;
+			}
+			break;
+	}
+
+	if (!pMonster)
+	{
+		printf(KRED "Unknown monster Race[%d] or AI[%d].\n" KNRM, pMacro->m_byRace, pMacro->m_byAI);
+		pMonster = new CMonsterReal(pMacro, nX, nY);
 	}
 
 	return pMonster;
@@ -599,12 +622,3 @@ void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
 		Die();
 	}
 }
-
-void CMonster::Die()
-{
-	AddGState(CGS_KO);
-	SetTarget(NULL);
-	SetAIS(AIS_DEAD);
-	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
-}
-
