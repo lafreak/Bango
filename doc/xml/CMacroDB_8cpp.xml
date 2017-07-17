@@ -4,77 +4,65 @@
     <compoundname>CMacroDB.cpp</compoundname>
     <includes refid="CMacroDB_8h" local="yes">CMacroDB.h</includes>
     <incdepgraph>
-      <node id="1920">
+      <node id="1400">
         <label>CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="1921" relation="include">
+        <childnode refid="1401" relation="include">
         </childnode>
-        <childnode refid="1922" relation="include">
+        <childnode refid="1402" relation="include">
         </childnode>
-        <childnode refid="1923" relation="include">
+        <childnode refid="1403" relation="include">
         </childnode>
-        <childnode refid="1924" relation="include">
+        <childnode refid="1404" relation="include">
         </childnode>
-        <childnode refid="1925" relation="include">
+        <childnode refid="1405" relation="include">
         </childnode>
-        <childnode refid="1931" relation="include">
-        </childnode>
-      </node>
-      <node id="1927">
-        <label>minwindef.h</label>
-        <link refid="minwindef_8h_source"/>
-        <childnode refid="1928" relation="include">
-        </childnode>
-        <childnode refid="1929" relation="include">
+        <childnode refid="1409" relation="include">
         </childnode>
       </node>
-      <node id="1921">
+      <node id="1401">
         <label>map</label>
       </node>
-      <node id="1923">
+      <node id="1407">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1403">
         <label>fstream</label>
       </node>
-      <node id="1930">
-        <label>common.h</label>
-        <link refid="common_8h_source"/>
-      </node>
-      <node id="1919">
+      <node id="1399">
         <label>MainServer/Macro/CMacroDB.cpp</label>
         <link refid="CMacroDB_8cpp"/>
-        <childnode refid="1920" relation="include">
+        <childnode refid="1400" relation="include">
         </childnode>
       </node>
-      <node id="1922">
+      <node id="1408">
+        <label>common.h</label>
+      </node>
+      <node id="1402">
         <label>sstream</label>
       </node>
-      <node id="1931">
+      <node id="1409">
         <label>CMonsterInfo.h</label>
         <link refid="CMonsterInfo_8h_source"/>
-        <childnode refid="1926" relation="include">
+        <childnode refid="1406" relation="include">
         </childnode>
       </node>
-      <node id="1929">
-        <label>time.h</label>
-      </node>
-      <node id="1925">
+      <node id="1405">
         <label>CItemInfo.h</label>
         <link refid="CItemInfo_8h_source"/>
-        <childnode refid="1926" relation="include">
+        <childnode refid="1406" relation="include">
         </childnode>
       </node>
-      <node id="1924">
+      <node id="1404">
         <label>TinyXML2/tinyxml2.h</label>
       </node>
-      <node id="1926">
+      <node id="1406">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="1927" relation="include">
+        <childnode refid="1407" relation="include">
         </childnode>
-        <childnode refid="1930" relation="include">
+        <childnode refid="1408" relation="include">
         </childnode>
-      </node>
-      <node id="1928">
-        <label>inttypes.h</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespacetinyxml2">tinyxml2</innernamespace>

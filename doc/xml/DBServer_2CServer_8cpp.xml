@@ -4,85 +4,58 @@
     <compoundname>CServer.cpp</compoundname>
     <includes refid="DBServer_2CServer_8h" local="yes">CServer.h</includes>
     <incdepgraph>
-      <node id="54">
+      <node id="44">
+        <label>access.h</label>
+      </node>
+      <node id="41">
         <label>string</label>
       </node>
-      <node id="50">
-        <label>minwindef.h</label>
-        <link refid="minwindef_8h_source"/>
-        <childnode refid="51" relation="include">
-        </childnode>
-        <childnode refid="52" relation="include">
-        </childnode>
-      </node>
-      <node id="49">
+      <node id="38">
         <label>map</label>
       </node>
-      <node id="48">
+      <node id="37">
         <label>CServer.h</label>
         <link refid="DBServer_2CServer_8h_source"/>
-        <childnode refid="49" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="53" relation="include">
-        </childnode>
-      </node>
-      <node id="59">
-        <label>synchronized.h</label>
-        <link refid="synchronized_8h_source"/>
-        <childnode refid="55" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
       </node>
-      <node id="58">
-        <label>cstdio</label>
+      <node id="39">
+        <label>minwindef.h</label>
       </node>
-      <node id="56">
+      <node id="43">
         <label>unistd.h</label>
       </node>
-      <node id="47">
+      <node id="36">
         <label>DBServer/CServer.cpp</label>
         <link refid="DBServer_2CServer_8cpp"/>
-        <childnode refid="48" relation="include">
+        <childnode refid="37" relation="include">
         </childnode>
       </node>
-      <node id="52">
-        <label>time.h</label>
-      </node>
-      <node id="60">
+      <node id="45">
         <label>zdb.h</label>
       </node>
-      <node id="53">
+      <node id="40">
         <label>CAccount.h</label>
         <link refid="CAccount_8h_source"/>
-        <childnode refid="54" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
-        <childnode refid="56" relation="include">
+        <childnode refid="43" relation="include">
         </childnode>
-        <childnode refid="57" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="60" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
       </node>
-      <node id="55">
+      <node id="42">
         <label>mutex</label>
-      </node>
-      <node id="57">
-        <label>access.h</label>
-        <link refid="access_8h_source"/>
-        <childnode refid="58" relation="include">
-        </childnode>
-        <childnode refid="59" relation="include">
-        </childnode>
-        <childnode refid="50" relation="include">
-        </childnode>
-      </node>
-      <node id="51">
-        <label>inttypes.h</label>
       </node>
     </incdepgraph>
     <briefdescription>

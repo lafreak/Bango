@@ -6,367 +6,309 @@
     <includes refid="CPlayer_8h" local="yes">../GameCharacter/CPlayer.h</includes>
     <includes refid="CDBSocket_8h" local="yes">../Socket/CDBSocket.h</includes>
     <incdepgraph>
-      <node id="1478">
+      <node id="1016">
         <label>list</label>
       </node>
-      <node id="1451">
+      <node id="993">
         <label>MainServer/Item/CItemOrnament.cpp</label>
         <link refid="CItemOrnament_8cpp"/>
-        <childnode refid="1452" relation="include">
+        <childnode refid="994" relation="include">
         </childnode>
-        <childnode refid="1471" relation="include">
+        <childnode refid="1009" relation="include">
         </childnode>
-        <childnode refid="1492" relation="include">
+        <childnode refid="1025" relation="include">
         </childnode>
       </node>
-      <node id="1471">
+      <node id="1009">
         <label>../GameCharacter/CPlayer.h</label>
         <link refid="CPlayer_8h_source"/>
-        <childnode refid="1472" relation="include">
+        <childnode refid="1010" relation="include">
         </childnode>
-        <childnode refid="1473" relation="include">
+        <childnode refid="1011" relation="include">
         </childnode>
-        <childnode refid="1474" relation="include">
+        <childnode refid="1012" relation="include">
         </childnode>
-        <childnode refid="1475" relation="include">
+        <childnode refid="1013" relation="include">
         </childnode>
-        <childnode refid="1476" relation="include">
+        <childnode refid="1014" relation="include">
         </childnode>
-        <childnode refid="1453" relation="include">
+        <childnode refid="995" relation="include">
         </childnode>
-        <childnode refid="1488" relation="include">
+        <childnode refid="1021" relation="include">
         </childnode>
-        <childnode refid="1489" relation="include">
+        <childnode refid="1022" relation="include">
         </childnode>
       </node>
-      <node id="1482">
-        <label>stdarg.h</label>
-      </node>
-      <node id="1485">
+      <node id="1028">
         <label>netinet/in.h</label>
       </node>
-      <node id="1487">
-        <label>Protocol/MainProtocol.h</label>
-        <link refid="MainProtocol_8h_source"/>
-      </node>
-      <node id="1464">
+      <node id="1002">
         <label>../Macro/CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="1454" relation="include">
+        <childnode refid="996" relation="include">
         </childnode>
-        <childnode refid="1465" relation="include">
+        <childnode refid="1003" relation="include">
         </childnode>
-        <childnode refid="1466" relation="include">
+        <childnode refid="1004" relation="include">
         </childnode>
-        <childnode refid="1467" relation="include">
+        <childnode refid="1005" relation="include">
         </childnode>
-        <childnode refid="1468" relation="include">
+        <childnode refid="1006" relation="include">
         </childnode>
-        <childnode refid="1470" relation="include">
+        <childnode refid="1008" relation="include">
         </childnode>
       </node>
-      <node id="1493">
+      <node id="1030">
         <label>stdlib.h</label>
       </node>
-      <node id="1476">
+      <node id="1001">
+        <label>access.h</label>
+      </node>
+      <node id="1014">
         <label>CCharacter.h</label>
         <link refid="CCharacter_8h_source"/>
-        <childnode refid="1472" relation="include">
+        <childnode refid="1010" relation="include">
         </childnode>
-        <childnode refid="1456" relation="include">
+        <childnode refid="998" relation="include">
         </childnode>
-        <childnode refid="1477" relation="include">
+        <childnode refid="1015" relation="include">
         </childnode>
-        <childnode refid="1478" relation="include">
+        <childnode refid="1016" relation="include">
         </childnode>
-        <childnode refid="1454" relation="include">
+        <childnode refid="996" relation="include">
         </childnode>
-        <childnode refid="1455" relation="include">
+        <childnode refid="997" relation="include">
         </childnode>
-        <childnode refid="1461" relation="include">
+        <childnode refid="1001" relation="include">
         </childnode>
-        <childnode refid="1479" relation="include">
+        <childnode refid="1017" relation="include">
         </childnode>
-        <childnode refid="1475" relation="include">
+        <childnode refid="1013" relation="include">
         </childnode>
-        <childnode refid="1480" relation="include">
+        <childnode refid="1018" relation="include">
         </childnode>
-        <childnode refid="1481" relation="include">
+        <childnode refid="1019" relation="include">
         </childnode>
-        <childnode refid="1487" relation="include">
+        <childnode refid="1020" relation="include">
         </childnode>
-        <childnode refid="1457" relation="include">
+        <childnode refid="999" relation="include">
         </childnode>
-        <childnode refid="1460" relation="include">
+        <childnode refid="1000" relation="include">
         </childnode>
       </node>
-      <node id="1479">
+      <node id="1017">
         <label>cstdarg</label>
       </node>
-      <node id="1472">
+      <node id="1010">
         <label>string</label>
       </node>
-      <node id="1457">
-        <label>minwindef.h</label>
-        <link refid="minwindef_8h_source"/>
-        <childnode refid="1458" relation="include">
-        </childnode>
-        <childnode refid="1459" relation="include">
-        </childnode>
+      <node id="1020">
+        <label>Protocol/MainProtocol.h</label>
       </node>
-      <node id="1454">
+      <node id="996">
         <label>map</label>
       </node>
-      <node id="1463">
-        <label>synchronized.h</label>
-        <link refid="synchronized_8h_source"/>
-        <childnode refid="1456" relation="include">
-        </childnode>
+      <node id="999">
+        <label>minwindef.h</label>
       </node>
-      <node id="1466">
+      <node id="1004">
         <label>fstream</label>
       </node>
-      <node id="1460">
-        <label>common.h</label>
-        <link refid="common_8h_source"/>
-      </node>
-      <node id="1453">
+      <node id="995">
         <label>CItem.h</label>
         <link refid="CItem_8h_source"/>
-        <childnode refid="1454" relation="include">
+        <childnode refid="996" relation="include">
         </childnode>
-        <childnode refid="1455" relation="include">
+        <childnode refid="997" relation="include">
         </childnode>
-        <childnode refid="1456" relation="include">
+        <childnode refid="998" relation="include">
         </childnode>
-        <childnode refid="1457" relation="include">
+        <childnode refid="999" relation="include">
         </childnode>
-        <childnode refid="1460" relation="include">
+        <childnode refid="1000" relation="include">
         </childnode>
-        <childnode refid="1461" relation="include">
+        <childnode refid="1001" relation="include">
         </childnode>
-        <childnode refid="1464" relation="include">
+        <childnode refid="1002" relation="include">
         </childnode>
       </node>
-      <node id="1494">
+      <node id="1000">
+        <label>common.h</label>
+      </node>
+      <node id="1031">
         <label>pthread.h</label>
       </node>
-      <node id="1483">
+      <node id="1026">
         <label>sys/types.h</label>
       </node>
-      <node id="1475">
+      <node id="1013">
         <label>string.h</label>
       </node>
-      <node id="1480">
-        <label>Protocol/Packet.h</label>
-        <link refid="Packet_8h_source"/>
-        <childnode refid="1457" relation="include">
-        </childnode>
-      </node>
-      <node id="1462">
-        <label>cstdio</label>
-      </node>
-      <node id="1495">
+      <node id="1032">
         <label>../CClient.h</label>
         <link refid="CClient_8h_source"/>
-        <childnode refid="1472" relation="include">
+        <childnode refid="1010" relation="include">
         </childnode>
-        <childnode refid="1456" relation="include">
+        <childnode refid="998" relation="include">
         </childnode>
-        <childnode refid="1479" relation="include">
+        <childnode refid="1017" relation="include">
         </childnode>
-        <childnode refid="1475" relation="include">
+        <childnode refid="1013" relation="include">
         </childnode>
-        <childnode refid="1455" relation="include">
+        <childnode refid="997" relation="include">
         </childnode>
-        <childnode refid="1480" relation="include">
+        <childnode refid="1018" relation="include">
         </childnode>
-        <childnode refid="1487" relation="include">
+        <childnode refid="1020" relation="include">
         </childnode>
-        <childnode refid="1481" relation="include">
+        <childnode refid="1019" relation="include">
         </childnode>
-        <childnode refid="1457" relation="include">
+        <childnode refid="999" relation="include">
         </childnode>
-        <childnode refid="1460" relation="include">
+        <childnode refid="1000" relation="include">
         </childnode>
-        <childnode refid="1461" relation="include">
+        <childnode refid="1001" relation="include">
         </childnode>
-        <childnode refid="1492" relation="include">
+        <childnode refid="1025" relation="include">
         </childnode>
-        <childnode refid="1471" relation="include">
+        <childnode refid="1009" relation="include">
         </childnode>
       </node>
-      <node id="1488">
+      <node id="1021">
         <label>CMonster.h</label>
         <link refid="CMonster_8h_source"/>
-        <childnode refid="1476" relation="include">
+        <childnode refid="1014" relation="include">
         </childnode>
-        <childnode refid="1464" relation="include">
+        <childnode refid="1002" relation="include">
         </childnode>
       </node>
-      <node id="1455">
+      <node id="997">
         <label>unistd.h</label>
       </node>
-      <node id="1489">
+      <node id="1022">
         <label>CParty.h</label>
         <link refid="CParty_8h_source"/>
-        <childnode refid="1454" relation="include">
+        <childnode refid="996" relation="include">
         </childnode>
-        <childnode refid="1455" relation="include">
+        <childnode refid="997" relation="include">
         </childnode>
-        <childnode refid="1456" relation="include">
+        <childnode refid="998" relation="include">
         </childnode>
-        <childnode refid="1478" relation="include">
+        <childnode refid="1016" relation="include">
         </childnode>
-        <childnode refid="1490" relation="include">
+        <childnode refid="1023" relation="include">
         </childnode>
-        <childnode refid="1461" relation="include">
+        <childnode refid="1001" relation="include">
         </childnode>
-        <childnode refid="1480" relation="include">
+        <childnode refid="1018" relation="include">
         </childnode>
-        <childnode refid="1481" relation="include">
+        <childnode refid="1019" relation="include">
         </childnode>
-        <childnode refid="1473" relation="include">
+        <childnode refid="1011" relation="include">
         </childnode>
-        <childnode refid="1474" relation="include">
+        <childnode refid="1012" relation="include">
         </childnode>
-        <childnode refid="1475" relation="include">
+        <childnode refid="1013" relation="include">
         </childnode>
-        <childnode refid="1491" relation="include">
+        <childnode refid="1024" relation="include">
         </childnode>
-        <childnode refid="1471" relation="include">
+        <childnode refid="1009" relation="include">
         </childnode>
       </node>
-      <node id="1490">
+      <node id="1023">
         <label>vector</label>
       </node>
-      <node id="1465">
+      <node id="1003">
         <label>sstream</label>
       </node>
-      <node id="1470">
+      <node id="1008">
         <label>CMonsterInfo.h</label>
         <link refid="CMonsterInfo_8h_source"/>
-        <childnode refid="1469" relation="include">
+        <childnode refid="1007" relation="include">
         </childnode>
       </node>
-      <node id="1459">
-        <label>time.h</label>
-      </node>
-      <node id="1477">
+      <node id="1015">
         <label>math.h</label>
       </node>
-      <node id="1474">
+      <node id="1019">
+        <label>Socket/CSocket.h</label>
+      </node>
+      <node id="1012">
         <label>cstdlib</label>
       </node>
-      <node id="1468">
+      <node id="1006">
         <label>CItemInfo.h</label>
         <link refid="CItemInfo_8h_source"/>
-        <childnode refid="1469" relation="include">
+        <childnode refid="1007" relation="include">
         </childnode>
       </node>
-      <node id="1467">
+      <node id="1005">
         <label>TinyXML2/tinyxml2.h</label>
       </node>
-      <node id="1492">
+      <node id="1018">
+        <label>Protocol/Packet.h</label>
+      </node>
+      <node id="1025">
         <label>../Socket/CDBSocket.h</label>
         <link refid="CDBSocket_8h_source"/>
-        <childnode refid="1475" relation="include">
+        <childnode refid="1013" relation="include">
         </childnode>
-        <childnode refid="1483" relation="include">
+        <childnode refid="1026" relation="include">
         </childnode>
-        <childnode refid="1484" relation="include">
+        <childnode refid="1027" relation="include">
         </childnode>
-        <childnode refid="1485" relation="include">
+        <childnode refid="1028" relation="include">
         </childnode>
-        <childnode refid="1472" relation="include">
+        <childnode refid="1010" relation="include">
         </childnode>
-        <childnode refid="1486" relation="include">
+        <childnode refid="1029" relation="include">
         </childnode>
-        <childnode refid="1493" relation="include">
+        <childnode refid="1030" relation="include">
         </childnode>
-        <childnode refid="1494" relation="include">
+        <childnode refid="1031" relation="include">
         </childnode>
-        <childnode refid="1455" relation="include">
+        <childnode refid="997" relation="include">
         </childnode>
-        <childnode refid="1480" relation="include">
+        <childnode refid="1018" relation="include">
         </childnode>
-        <childnode refid="1487" relation="include">
+        <childnode refid="1020" relation="include">
         </childnode>
-        <childnode refid="1457" relation="include">
+        <childnode refid="999" relation="include">
         </childnode>
-        <childnode refid="1460" relation="include">
+        <childnode refid="1000" relation="include">
         </childnode>
-        <childnode refid="1495" relation="include">
+        <childnode refid="1032" relation="include">
         </childnode>
-        <childnode refid="1471" relation="include">
+        <childnode refid="1009" relation="include">
         </childnode>
       </node>
-      <node id="1456">
+      <node id="998">
         <label>mutex</label>
       </node>
-      <node id="1484">
+      <node id="1027">
         <label>sys/socket.h</label>
       </node>
-      <node id="1461">
-        <label>access.h</label>
-        <link refid="access_8h_source"/>
-        <childnode refid="1462" relation="include">
-        </childnode>
-        <childnode refid="1463" relation="include">
-        </childnode>
-        <childnode refid="1457" relation="include">
-        </childnode>
-      </node>
-      <node id="1491">
+      <node id="1024">
         <label>algorithm</label>
       </node>
-      <node id="1486">
+      <node id="1029">
         <label>stdio.h</label>
       </node>
-      <node id="1473">
+      <node id="1011">
         <label>cstring</label>
       </node>
-      <node id="1452">
+      <node id="994">
         <label>CItemOrnament.h</label>
         <link refid="CItemOrnament_8h_source"/>
-        <childnode refid="1453" relation="include">
+        <childnode refid="995" relation="include">
         </childnode>
       </node>
-      <node id="1469">
+      <node id="1007">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="1457" relation="include">
+        <childnode refid="999" relation="include">
         </childnode>
-        <childnode refid="1460" relation="include">
-        </childnode>
-      </node>
-      <node id="1458">
-        <label>inttypes.h</label>
-      </node>
-      <node id="1481">
-        <label>Socket/CSocket.h</label>
-        <link refid="CSocket_8h_source"/>
-        <childnode refid="1482" relation="include">
-        </childnode>
-        <childnode refid="1475" relation="include">
-        </childnode>
-        <childnode refid="1483" relation="include">
-        </childnode>
-        <childnode refid="1484" relation="include">
-        </childnode>
-        <childnode refid="1485" relation="include">
-        </childnode>
-        <childnode refid="1486" relation="include">
-        </childnode>
-        <childnode refid="1466" relation="include">
-        </childnode>
-        <childnode refid="1465" relation="include">
-        </childnode>
-        <childnode refid="1480" relation="include">
-        </childnode>
-        <childnode refid="1487" relation="include">
-        </childnode>
-        <childnode refid="1457" relation="include">
+        <childnode refid="1000" relation="include">
         </childnode>
       </node>
     </incdepgraph>

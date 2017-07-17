@@ -4,37 +4,25 @@
     <compoundname>CMacro.cpp</compoundname>
     <includes refid="CMacro_8h" local="yes">CMacro.h</includes>
     <incdepgraph>
-      <node id="1883">
+      <node id="1367">
         <label>MainServer/Macro/CMacro.cpp</label>
         <link refid="CMacro_8cpp"/>
-        <childnode refid="1884" relation="include">
+        <childnode refid="1368" relation="include">
         </childnode>
       </node>
-      <node id="1885">
+      <node id="1369">
         <label>minwindef.h</label>
-        <link refid="minwindef_8h_source"/>
-        <childnode refid="1886" relation="include">
-        </childnode>
-        <childnode refid="1887" relation="include">
-        </childnode>
       </node>
-      <node id="1888">
+      <node id="1370">
         <label>common.h</label>
-        <link refid="common_8h_source"/>
       </node>
-      <node id="1887">
-        <label>time.h</label>
-      </node>
-      <node id="1884">
+      <node id="1368">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="1885" relation="include">
+        <childnode refid="1369" relation="include">
         </childnode>
-        <childnode refid="1888" relation="include">
+        <childnode refid="1370" relation="include">
         </childnode>
-      </node>
-      <node id="1886">
-        <label>inttypes.h</label>
       </node>
     </incdepgraph>
     <briefdescription>

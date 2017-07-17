@@ -5,89 +5,62 @@
     <includes local="no">string</includes>
     <includes local="no">mutex</includes>
     <includes local="no">unistd.h</includes>
-    <includes refid="access_8h" local="no">access.h</includes>
-    <includes refid="minwindef_8h" local="no">minwindef.h</includes>
+    <includes local="no">access.h</includes>
+    <includes local="no">minwindef.h</includes>
     <includes local="no">zdb.h</includes>
     <includedby refid="CAccount_8cpp" local="yes">DBServer/CAccount.cpp</includedby>
     <includedby refid="DBServer_2CServer_8h" local="yes">DBServer/CServer.h</includedby>
     <incdepgraph>
-      <node id="34">
+      <node id="30">
+        <label>access.h</label>
+      </node>
+      <node id="27">
         <label>string</label>
       </node>
-      <node id="40">
+      <node id="31">
         <label>minwindef.h</label>
-        <link refid="minwindef_8h_source"/>
-        <childnode refid="41" relation="include">
+      </node>
+      <node id="29">
+        <label>unistd.h</label>
+      </node>
+      <node id="32">
+        <label>zdb.h</label>
+      </node>
+      <node id="26">
+        <label>DBServer/CAccount.h</label>
+        <link refid="CAccount_8h"/>
+        <childnode refid="27" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="39">
-        <label>synchronized.h</label>
-        <link refid="synchronized_8h_source"/>
+      <node id="28">
+        <label>mutex</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="34">
+        <label>DBServer/CServer.h</label>
+        <link refid="DBServer_2CServer_8h_source"/>
         <childnode refid="35" relation="include">
         </childnode>
       </node>
-      <node id="38">
-        <label>cstdio</label>
-      </node>
-      <node id="36">
-        <label>unistd.h</label>
-      </node>
-      <node id="42">
-        <label>time.h</label>
-      </node>
-      <node id="43">
-        <label>zdb.h</label>
+      <node id="35">
+        <label>DBServer/Socket/CMainSocket.h</label>
+        <link refid="CMainSocket_8h_source"/>
       </node>
       <node id="33">
         <label>DBServer/CAccount.h</label>
         <link refid="CAccount_8h"/>
         <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
-      </node>
-      <node id="35">
-        <label>mutex</label>
-      </node>
-      <node id="37">
-        <label>access.h</label>
-        <link refid="access_8h_source"/>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-      </node>
-      <node id="41">
-        <label>inttypes.h</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="45">
-        <label>DBServer/CServer.h</label>
-        <link refid="DBServer_2CServer_8h_source"/>
-        <childnode refid="46" relation="include">
-        </childnode>
-      </node>
-      <node id="46">
-        <label>DBServer/Socket/CMainSocket.h</label>
-        <link refid="CMainSocket_8h_source"/>
-      </node>
-      <node id="44">
-        <label>DBServer/CAccount.h</label>
-        <link refid="CAccount_8h"/>
-        <childnode refid="45" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

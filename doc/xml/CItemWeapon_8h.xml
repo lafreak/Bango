@@ -6,120 +6,92 @@
     <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
     <includedby refid="CItemWeapon_8cpp" local="yes">MainServer/Item/CItemWeapon.cpp</includedby>
     <incdepgraph>
-      <node id="1773">
+      <node id="1270">
         <label>../Macro/CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="1763" relation="include">
+        <childnode refid="1264" relation="include">
         </childnode>
-        <childnode refid="1774" relation="include">
+        <childnode refid="1271" relation="include">
         </childnode>
-        <childnode refid="1775" relation="include">
+        <childnode refid="1272" relation="include">
         </childnode>
-        <childnode refid="1776" relation="include">
+        <childnode refid="1273" relation="include">
         </childnode>
-        <childnode refid="1777" relation="include">
+        <childnode refid="1274" relation="include">
         </childnode>
-        <childnode refid="1779" relation="include">
-        </childnode>
-      </node>
-      <node id="1766">
-        <label>minwindef.h</label>
-        <link refid="minwindef_8h_source"/>
-        <childnode refid="1767" relation="include">
-        </childnode>
-        <childnode refid="1768" relation="include">
+        <childnode refid="1276" relation="include">
         </childnode>
       </node>
-      <node id="1763">
+      <node id="1269">
+        <label>access.h</label>
+      </node>
+      <node id="1264">
         <label>map</label>
       </node>
-      <node id="1772">
-        <label>synchronized.h</label>
-        <link refid="synchronized_8h_source"/>
-        <childnode refid="1765" relation="include">
-        </childnode>
+      <node id="1267">
+        <label>minwindef.h</label>
       </node>
-      <node id="1775">
+      <node id="1272">
         <label>fstream</label>
       </node>
-      <node id="1769">
-        <label>common.h</label>
-        <link refid="common_8h_source"/>
-      </node>
-      <node id="1762">
+      <node id="1263">
         <label>CItem.h</label>
         <link refid="CItem_8h_source"/>
-        <childnode refid="1763" relation="include">
+        <childnode refid="1264" relation="include">
         </childnode>
-        <childnode refid="1764" relation="include">
+        <childnode refid="1265" relation="include">
         </childnode>
-        <childnode refid="1765" relation="include">
+        <childnode refid="1266" relation="include">
         </childnode>
-        <childnode refid="1766" relation="include">
+        <childnode refid="1267" relation="include">
         </childnode>
-        <childnode refid="1769" relation="include">
+        <childnode refid="1268" relation="include">
         </childnode>
-        <childnode refid="1770" relation="include">
+        <childnode refid="1269" relation="include">
         </childnode>
-        <childnode refid="1773" relation="include">
+        <childnode refid="1270" relation="include">
         </childnode>
       </node>
-      <node id="1771">
-        <label>cstdio</label>
+      <node id="1268">
+        <label>common.h</label>
       </node>
-      <node id="1764">
+      <node id="1265">
         <label>unistd.h</label>
       </node>
-      <node id="1774">
+      <node id="1271">
         <label>sstream</label>
       </node>
-      <node id="1779">
+      <node id="1276">
         <label>CMonsterInfo.h</label>
         <link refid="CMonsterInfo_8h_source"/>
-        <childnode refid="1778" relation="include">
+        <childnode refid="1275" relation="include">
         </childnode>
       </node>
-      <node id="1768">
-        <label>time.h</label>
-      </node>
-      <node id="1777">
+      <node id="1274">
         <label>CItemInfo.h</label>
         <link refid="CItemInfo_8h_source"/>
-        <childnode refid="1778" relation="include">
+        <childnode refid="1275" relation="include">
         </childnode>
       </node>
-      <node id="1776">
+      <node id="1273">
         <label>TinyXML2/tinyxml2.h</label>
       </node>
-      <node id="1765">
+      <node id="1266">
         <label>mutex</label>
       </node>
-      <node id="1770">
-        <label>access.h</label>
-        <link refid="access_8h_source"/>
-        <childnode refid="1771" relation="include">
-        </childnode>
-        <childnode refid="1772" relation="include">
-        </childnode>
-        <childnode refid="1766" relation="include">
-        </childnode>
-      </node>
-      <node id="1778">
+      <node id="1275">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="1766" relation="include">
+        <childnode refid="1267" relation="include">
         </childnode>
-        <childnode refid="1769" relation="include">
+        <childnode refid="1268" relation="include">
         </childnode>
       </node>
-      <node id="1761">
+      <node id="1262">
         <label>MainServer/Item/CItemWeapon.h</label>
         <link refid="CItemWeapon_8h"/>
-        <childnode refid="1762" relation="include">
+        <childnode refid="1263" relation="include">
         </childnode>
-      </node>
-      <node id="1767">
-        <label>inttypes.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classCItemWeapon" prot="public">CItemWeapon</innerclass>
