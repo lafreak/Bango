@@ -2,15 +2,16 @@
 #define _CMONSTER_
 
 #include "CCharacter.h"
+#include <ITimer.h>
 
 #include "../Macro/CMacroDB.h"
 
-#define MONSTER_WALK_FREQUENCY 20
+#define MONSTER_WALK_FREQUENCY 5//20
 #define MONSTER_WALK_TIME 4
 
 class CPlayer;
 
-class CMonster: public CCharacter
+class CMonster: public CCharacter, public ITimer
 {
 	WORD m_wIndex;
 	CMonsterInfo *m_pMacro;
@@ -27,7 +28,7 @@ class CMonster: public CCharacter
 
 	static std::map<int, CMonster*> g_mMonster;
 	static std::mutex g_mxMonster;
-	
+
 public:
 	CMonster(CMonsterInfo *pMacro, int nX, int nY);
 	~CMonster();
@@ -35,11 +36,6 @@ public:
 	static CMonster* CreateMonster(WORD wIndex, int nX, int nY);
 
 	static CMonster* Summon(WORD wIndex, int nX, int nY);
-
-	static void Add(CMonster *pMonster);
-	static void Remove(CMonster *pMonster);
-	static void TickAll();
-	static void AIAll();
 
 	// Remember to call m_Access.Release() after usage
 	static CMonster* FindMonster(int nID);
@@ -76,6 +72,7 @@ public:
 	WORD GetAttackSpeed() const { return m_pMacro->m_wAttackSpeed; }
 	WORD GetCloseSight() const { return m_pMacro->m_wCloseSight; }
 	WORD GetFarSight() const { return m_pMacro->m_wFarSight; }
+	WORD GetSize() const { return m_pMacro->m_wSize; }
 
 	BYTE GetAIS() const { return m_byAIState; }
 	void SetAIS(BYTE byState) { m_byAIState = byState; }
@@ -83,15 +80,27 @@ public:
 	void SetTarget(CPlayer *pPlayer);
 	CPlayer* GetTarget() const { return m_pTarget; }
 
-	//! Returns false if Monster should be deleted
-	virtual bool Tick();
-	virtual void AI();
+	static void Add(CMonster *pMonster);
+	static void Remove(CMonster *pMonster);
+	static void TickAll();
+	static void AIAll();
+
+	virtual void Tick();
+	virtual void AI() { Lock(); ExecuteTimer(); Unlock(); }
 	void Move(char byX, char byY, BYTE byType);
 	void Attack(CPlayer *pTarget);
 	void Chase();
 	void Walk();
 	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
 	
+	// Timer
+	void ScanSight();
+	void OnWalk();
+	void OnChase();
+	void OnForceAttack();
+	void OnAttack();
+	void OnRemove();
+
 	// Gets closest normal CPlayer and Grants his access. (Inix CMonster::ScanSight)
 	CPlayer* GetClosestNormalPlayer();
 

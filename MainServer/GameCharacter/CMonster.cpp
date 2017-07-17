@@ -28,6 +28,8 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 	m_dwLastChaseStep = 0;
 	m_dwLastAttackTime = 0;
 
+	SetTimer(std::bind(&CMonster::ScanSight, this), MONSTER_WALK_FREQUENCY * 1000);
+
 	m_byKind = CK_MONSTER;
 }
 
@@ -261,23 +263,11 @@ void CMonster::TickAll()
 {
 	g_mxMonster.lock();
 
-	for (auto it = g_mMonster.cbegin(); it != g_mMonster.cend(); )
+	for (auto& m : g_mMonster)
 	{
-		CMonster *pMonster = (*it).second;
-
-		pMonster->m_Access.Grant();
-
-		if (!pMonster->Tick())
-		{
-			pMonster->m_Access.Release();
-			delete pMonster;
-			g_mMonster.erase(it++);
-		}
-		else
-		{
-			pMonster->m_Access.Release();
-			++it;
-		}
+		m.second->m_Access.Grant();
+		m.second->Tick();
+		m.second->m_Access.Release();
 	}
 
 	g_mxMonster.unlock();
@@ -287,14 +277,42 @@ void CMonster::AIAll()
 {
 	g_mxMonster.lock();
 
+	for (auto it = g_mMonster.cbegin(); it != g_mMonster.cend(); )
+	{
+		CMonster *pMonster = (*it).second;
+
+		if (pMonster->IsGState(CGS_KO))
+		{
+			delete pMonster;
+			g_mMonster.erase(it++);
+		}
+		else
+		{
+			pMonster->m_Access.Grant();
+			pMonster->AI();
+			pMonster->m_Access.Release();
+			++it;
+		}
+	}
+
+	g_mxMonster.unlock();
+
+	/*
+	g_mxMonster.lock();
+
 	for (auto& a: g_mMonster)
 	{
 		a.second->m_Access.Grant();
-		a.second->AI();
+		a.second->AIEx();
 		a.second->m_Access.Release();
 	}
 
 	g_mxMonster.unlock();
+	*/
+}
+
+void CMonster::Tick()
+{
 }
 
 CMonster* CMonster::FindMonster(int nID)
@@ -345,41 +363,12 @@ void CMonster::SetTarget(CPlayer * pPlayer)
 	m_pTarget = pPlayer;
 
 	if (pPlayer)
-		SetAIS(AIS_CHASE);
+		SetTimer(std::bind(&CMonster::OnChase, this), 0);//?
 	else
-		SetAIS(AIS_WALK);
+		SetTimer(std::bind(&CMonster::OnWalk, this), 0);//>
 }
 
-bool CMonster::Tick()
-{
-	DWORD dwNow = GetTickCount();
-
-	if (m_byAIState == AIS_IDLE && dwNow >= m_dwWalkTime) 
-	{
-		Lock();
-
-		auto pTarget = GetClosestNormalPlayer();
-
-		if (pTarget) 
-		{
-			SetTarget(pTarget);
-		}
-		else
-		{
-			m_dwWalkTime = dwNow + MONSTER_WALK_FREQUENCY * 1000;
-			m_byAIState = AIS_WALK;
-		}
-
-		Unlock();
-	}
-	else if (m_byAIState == AIS_DEAD)
-	{
-		return false;
-	}
-
-	return true;
-}
-
+/*
 void CMonster::AI()
 {
 	DWORD dwNow = GetTickCount();
@@ -511,6 +500,7 @@ void CMonster::AI()
 		}
 	}
 }
+*/
 
 void CMonster::Move(char byX, char byY, BYTE byType)
 {
@@ -560,6 +550,11 @@ void CMonster::Attack(CPlayer *pTarget)
 		pTarget->Damage(this, dwDamage, byType);
 	else
 		dwDamage = 0;
+
+	if (pTarget->IsNormal())
+		SetTimer(std::bind(&CMonster::OnAttack, this), GetAttackSpeed());
+	else
+		SetTimer(std::bind(&CMonster::OnWalk, this), GetAttackSpeed());
 
 	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }
@@ -634,4 +629,114 @@ void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
 	{
 		Die();
 	}
+}
+
+void CMonster::ScanSight()
+{
+	auto pTarget = GetClosestNormalPlayer();
+
+	if (pTarget)
+	{
+		SetTarget(pTarget);
+	}
+	else
+	{
+		OnWalk();
+	}
+}
+
+void CMonster::OnWalk()
+{
+	WORD wAngle = rand() % 360;
+	char dx = MAX_MONSTER_WALK_STEP * cos(wAngle * M_PI / 180.0);
+	char dy = MAX_MONSTER_WALK_STEP * sin(wAngle * M_PI / 180.0);
+
+	if ((rand() % MONSTER_WALK_TIME) == 0)
+	{
+		Move(dx, dy, MT_WALK | MTEX_MOVEEND);
+		SetTimer(std::bind(&CMonster::ScanSight, this), MONSTER_WALK_FREQUENCY * 1000);
+	}
+	else
+	{
+		Move(dx, dy, MT_WALK);
+		SetTimer(std::bind(&CMonster::OnWalk, this), GetWalkSpeed());
+	}
+}
+
+void CMonster::OnChase()
+{
+	m_pTarget->Lock();
+
+	int nDistance = GetDistance(m_pTarget) - GetRange();
+
+	if (nDistance > GetFarSight())
+	{
+		m_pTarget->Unlock();
+		SetTarget(NULL);
+		return;
+	}
+	else if (nDistance > 1)
+	{
+		Chase();
+		if (nDistance <= 32)
+		{
+			SetTimer(std::bind(&CMonster::OnForceAttack, this), GetRunSpeed());
+		}
+		else
+		{
+			SetTimer(std::bind(&CMonster::OnChase, this), GetRunSpeed());
+		}
+	}
+	else
+	{
+		SetTimer(std::bind(&CMonster::OnForceAttack, this), GetRunSpeed());
+	}
+
+	m_pTarget->Unlock();
+}
+
+void CMonster::OnForceAttack()
+{
+	auto pTarget = GetTarget();
+
+	pTarget->Lock();
+
+	Attack(pTarget);
+
+	if (GetTarget())
+	{
+		int nDistance = GetDistance(pTarget) - GetRange();
+
+		if (nDistance > 1)
+			SetTimer(std::bind(&CMonster::OnChase, this), GetAttackSpeed());
+	}
+
+	pTarget->Unlock();
+}
+
+void CMonster::OnAttack()
+{
+	auto pTarget = GetTarget();
+
+	pTarget->Lock();
+
+	int nDistance = GetDistance(m_pTarget) - GetRange();
+
+	if (nDistance > 1)
+	{
+		SetTimer(std::bind(&CMonster::OnChase, this), GetRunSpeed());
+		pTarget->Unlock();
+		return;
+	}
+
+	Attack(pTarget);
+
+	pTarget->Unlock();
+}
+
+void CMonster::OnRemove()
+{
+	AddGState(CGS_KO);
+	WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
+	// TODO: Check if this packet deallocates monster memory in client. (If monster count gets decreased)
 }

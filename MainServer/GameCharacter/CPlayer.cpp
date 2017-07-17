@@ -2428,7 +2428,6 @@ void CPlayer::RemoveAggro()
 		if (m->GetTarget() == this)
 		{
 			m->Lock();
-			//m->SetAIS(CMonster::AIS_WALK);
 			m->SetTarget(NULL);
 			m->Unlock();
 		}
@@ -2437,13 +2436,11 @@ void CPlayer::RemoveAggro()
 	}
 }
 
-bool CPlayer::Tick()
+void CPlayer::Tick()
 {
 	DWORD dwTime = GetTickCount();
 
 	//printf("CPlayer::Tick %s.\n", m_szName.c_str());
-
-	return true;
 }
 
 void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
@@ -2463,6 +2460,7 @@ void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)
 	}
 
 	m_nCurHP -= dwDamage;
+	// TODO: Party HP broadcast?
 
 	if (GetCurHP() > 0)
 	{

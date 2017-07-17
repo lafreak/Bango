@@ -18,7 +18,6 @@
 
 #include <Protocol/MainProtocol.h>
 
-
 #include <minwindef.h>
 #include <common.h>
 
@@ -139,7 +138,7 @@ public:
 
 	virtual void SendPacket(Packet& packet) {}
 
-	virtual bool Tick() { return true; }
+	virtual void Tick() {}
 
 	bool WriteInSight(BYTE byType, ...);
 
