@@ -5,6 +5,9 @@
 
 #include "CCharacter.h"
 
+/**
+	Class representation of NPC such as merchants and more.
+*/
 class CNPC: public CCharacter
 {
 	WORD m_wIndex;
