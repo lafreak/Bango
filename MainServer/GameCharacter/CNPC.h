@@ -26,21 +26,21 @@ public:
 	CNPC(NPC_DESC& desc);
 
 	/**
-		\return File index linked to e.pk.
 		Example: if X is returned, could be used to open e.pk s00000X.dat
+		\return File index linked to e.pk.
 	*/
 	int GetHTML() { return m_nHtml; }
 
 	/**
-		Loads NPC from InitNPC.xml.
-		Should be called <b>only</b> at server start.
+		Loads all NPCs from InitNPC.xml.
+		Should be called <b>only</b> once at server start.
 		\return false if bad syntax error, true otherwise
 	*/
 	static bool LoadNPC();
 
 	/**
-		Unloads NPC and deallocates its memory.
-		Should be called <b>only</b> at server close.
+		Unloads all NPCs and deallocates its memory.
+		Should be called <b>only</b> once at server close.
 	*/
 	static void UnloadNPC();
 
@@ -59,6 +59,7 @@ public:
 	static void Remove(CNPC* pNPC);
 
 	/**
+		Find NPC with certain ID.
 		Grants m_Access, so it is a <b>must</b> to Release it after usage.
 		\param nID Game ID identifier.
 		\return NPC with certain ID.
