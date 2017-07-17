@@ -84,7 +84,8 @@ public:
 	void SetTarget(CPlayer *pPlayer);
 	CPlayer* GetTarget() const { return m_pTarget; }
 
-	virtual void Tick();
+	//! Returns false if Monster should be deleted
+	virtual bool Tick();
 	virtual void AI();
 	void Move(char byX, char byY, BYTE byType);
 	void Attack(CPlayer *pTarget);

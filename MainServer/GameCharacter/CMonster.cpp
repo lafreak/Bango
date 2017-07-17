@@ -33,6 +33,9 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 
 CMonster::~CMonster()
 {
+	CMap::Remove(this);
+	//CMonster::Remove(this); // Not required, since TickAll does it
+
 	while (m_Access.IsBusy()) {
 		printf("CMonster::~CMonster: Monster is in use, can't delete! Retrying in 10ms...\n");
 		usleep(10000);
@@ -266,12 +269,26 @@ void CMonster::TickAll()
 {
 	g_mxMonster.lock();
 
-	for (auto& a: g_mMonster)
+	for (auto it = g_mMonster.cbegin(); it != g_mMonster.cend(); )
 	{
-		a.second->m_Access.Grant();
-		a.second->Tick();
-		a.second->m_Access.Release();
+		CMonster *pMonster = (*it).second;
+
+		pMonster->m_Access.Grant();
+
+		if (!pMonster->Tick())
+		{
+			pMonster->m_Access.Release();
+			delete pMonster;
+			g_mMonster.erase(it++);
+		}
+		else
+		{
+			pMonster->m_Access.Release();
+			++it;
+		}
 	}
+
+	printf(KGRN "Monsters%d\n" KNRM, (int)g_mMonster.size());
 
 	g_mxMonster.unlock();
 }
@@ -343,7 +360,7 @@ void CMonster::SetTarget(CPlayer * pPlayer)
 		SetAIS(AIS_WALK);
 }
 
-void CMonster::Tick()
+bool CMonster::Tick()
 {
 	DWORD dwNow = GetTickCount();
 
@@ -365,6 +382,12 @@ void CMonster::Tick()
 
 		Unlock();
 	}
+	else if (m_byAIState == AIS_DEAD)
+	{
+		return false;
+	}
+
+	return true;
 }
 
 void CMonster::AI()

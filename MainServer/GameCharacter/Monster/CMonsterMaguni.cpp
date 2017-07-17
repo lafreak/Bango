@@ -10,20 +10,25 @@ void CMonsterMaguni::Die()
 	WriteInSight(S2C_ACTION, "db", GetID(), AT_KNEE);
 }
 
-void CMonsterMaguni::Tick()
+bool CMonsterMaguni::Tick()
 {
-	CMonster::Tick();
+	if (!CMonster::Tick())
+		return false;
 
 	DWORD dwNow = GetTickCount();
 
 	if (GetAIS() == AIS_KNEE && dwNow >= m_dwDeadTime)
 	{
-		Lock();
-		SubGState(CGS_KNEE);
-		AddGState(CGS_KO);
-		SetAIS(AIS_DEAD);
-		Unlock();
+		//Lock();
+		//SubGState(CGS_KNEE);
+		//AddGState(CGS_KO);
+		//SetAIS(AIS_DEAD);
+		//Unlock();
 
 		WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
+
+		return false;
 	}
+
+	return true;
 }

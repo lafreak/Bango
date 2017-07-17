@@ -11,7 +11,7 @@ public:
 	CMonsterMaguni(CMonsterInfo *pMacro, int nX, int nY) : CMonster(pMacro, nX, nY) { }
 
 	void Die() override;
-	void Tick() override;
+	bool Tick() override;
 };
 
 #endif

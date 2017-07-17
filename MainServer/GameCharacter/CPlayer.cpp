@@ -2437,11 +2437,13 @@ void CPlayer::RemoveAggro()
 	}
 }
 
-void CPlayer::Tick()
+bool CPlayer::Tick()
 {
 	DWORD dwTime = GetTickCount();
 
 	//printf("CPlayer::Tick %s.\n", m_szName.c_str());
+
+	return true;
 }
 
 void CPlayer::Damage(CCharacter * pAttacker, DWORD& dwDamage, BYTE& byType)

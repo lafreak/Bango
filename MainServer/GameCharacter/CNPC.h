@@ -34,7 +34,7 @@ public:
 
 	void SendPacket(Packet& packet) {}
 
-	void Tick() {}
+	bool Tick() { return true; }
 };
 
 typedef std::map<int, CNPC*> NPCMap;

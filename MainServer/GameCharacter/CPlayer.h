@@ -153,7 +153,7 @@ public:
 
 	void Process(Packet packet);
 
-	void Tick();
+	bool Tick();
 	void OnLoadPlayer();
 	void OnLoadItems(char *p);
 	void GameStart();

@@ -139,7 +139,7 @@ public:
 
 	virtual void SendPacket(Packet& packet) = 0;
 
-	virtual void Tick() = 0;
+	virtual bool Tick() = 0;
 
 	bool WriteInSight(BYTE byType, ...);
 
