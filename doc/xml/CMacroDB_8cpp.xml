@@ -77,6 +77,7 @@
         <label>inttypes.h</label>
       </node>
     </incdepgraph>
+    <innernamespace refid="namespacetinyxml2">tinyxml2</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -3,30 +3,30 @@
   <compounddef id="MainProtocol_8h" kind="file" language="C++">
     <compoundname>MainProtocol.h</compoundname>
     <includedby refid="CMainSocket_8h" local="no">DBServer/Socket/CMainSocket.h</includedby>
-    <includedby refid="CSocket_8h" local="no">include/Socket/CSocket.h</includedby>
     <includedby refid="CClient_8h" local="no">MainServer/CClient.h</includedby>
     <includedby refid="CDBSocket_8h" local="no">MainServer/Socket/CDBSocket.h</includedby>
     <includedby refid="CCharacter_8h" local="no">MainServer/GameCharacter/CCharacter.h</includedby>
     <includedby refid="CClientSocket_8h" local="no">MainServer/Socket/CClientSocket.h</includedby>
+    <includedby refid="CSocket_8h" local="no">include/Socket/CSocket.h</includedby>
     <invincdepgraph>
-      <node id="477">
+      <node id="476">
         <label>MainServer/GameCharacter/CNPC.h</label>
         <link refid="CNPC_8h_source"/>
-        <childnode refid="472" relation="include">
+        <childnode refid="471" relation="include">
         </childnode>
       </node>
-      <node id="470">
+      <node id="469">
         <label>MainServer/GameCharacter/CPlayer.h</label>
         <link refid="CPlayer_8h_source"/>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
         <childnode refid="466" relation="include">
         </childnode>
         <childnode refid="471" relation="include">
-        </childnode>
-        <childnode refid="465" relation="include">
-        </childnode>
-        <childnode refid="467" relation="include">
-        </childnode>
-        <childnode refid="472" relation="include">
         </childnode>
       </node>
       <node id="462">
@@ -38,103 +38,103 @@
         </childnode>
         <childnode refid="465" relation="include">
         </childnode>
-        <childnode refid="466" relation="include">
-        </childnode>
-        <childnode refid="469" relation="include">
-        </childnode>
         <childnode refid="468" relation="include">
         </childnode>
-      </node>
-      <node id="476">
-        <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
-        <link refid="CMonsterMaguni_8h_source"/>
-      </node>
-      <node id="475">
-        <label>MainServer/GameCharacter/Monster/CMonsterReal.h</label>
-        <link refid="CMonsterReal_8h_source"/>
-      </node>
-      <node id="469">
-        <label>MainServer/GameCharacter/CCharacter.h</label>
-        <link refid="CCharacter_8h_source"/>
-        <childnode refid="470" relation="include">
-        </childnode>
-        <childnode refid="474" relation="include">
+        <childnode refid="467" relation="include">
         </childnode>
         <childnode refid="477" relation="include">
         </childnode>
       </node>
-      <node id="465">
-        <label>MainServer/CClient.h</label>
-        <link refid="CClient_8h_source"/>
-        <childnode refid="466" relation="include">
-        </childnode>
-        <childnode refid="467" relation="include">
-        </childnode>
+      <node id="475">
+        <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
+        <link refid="CMonsterMaguni_8h_source"/>
       </node>
       <node id="474">
-        <label>MainServer/GameCharacter/CMonster.h</label>
-        <link refid="CMonster_8h_source"/>
-        <childnode refid="470" relation="include">
+        <label>MainServer/GameCharacter/Monster/CMonsterReal.h</label>
+        <link refid="CMonsterReal_8h_source"/>
+      </node>
+      <node id="468">
+        <label>MainServer/GameCharacter/CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="469" relation="include">
         </childnode>
-        <childnode refid="467" relation="include">
-        </childnode>
-        <childnode refid="472" relation="include">
-        </childnode>
-        <childnode refid="475" relation="include">
+        <childnode refid="473" relation="include">
         </childnode>
         <childnode refid="476" relation="include">
         </childnode>
       </node>
-      <node id="471">
-        <label>MainServer/GameCharacter/CParty.h</label>
-        <link refid="CParty_8h_source"/>
-        <childnode refid="470" relation="include">
+      <node id="464">
+        <label>MainServer/CClient.h</label>
+        <link refid="CClient_8h_source"/>
+        <childnode refid="465" relation="include">
         </childnode>
-        <childnode refid="467" relation="include">
+        <childnode refid="466" relation="include">
         </childnode>
       </node>
-      <node id="467">
+      <node id="473">
+        <label>MainServer/GameCharacter/CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
+        </childnode>
+      </node>
+      <node id="470">
+        <label>MainServer/GameCharacter/CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+      </node>
+      <node id="466">
         <label>MainServer/CServer.h</label>
         <link refid="MainServer_2CServer_8h_source"/>
-        <childnode refid="468" relation="include">
+        <childnode refid="467" relation="include">
         </childnode>
       </node>
       <node id="463">
         <label>DBServer/Socket/CMainSocket.h</label>
         <link refid="CMainSocket_8h_source"/>
       </node>
-      <node id="472">
+      <node id="471">
         <label>MainServer/Map/CTile.h</label>
         <link refid="CTile_8h_source"/>
-        <childnode refid="473" relation="include">
+        <childnode refid="472" relation="include">
         </childnode>
       </node>
-      <node id="468">
+      <node id="467">
         <label>MainServer/Socket/CClientSocket.h</label>
         <link refid="CClientSocket_8h_source"/>
       </node>
-      <node id="466">
+      <node id="465">
         <label>MainServer/Socket/CDBSocket.h</label>
         <link refid="CDBSocket_8h_source"/>
-        <childnode refid="465" relation="include">
+        <childnode refid="464" relation="include">
         </childnode>
       </node>
-      <node id="473">
+      <node id="472">
         <label>MainServer/Map/CMap.h</label>
         <link refid="CMap_8h_source"/>
-        <childnode refid="467" relation="include">
+        <childnode refid="466" relation="include">
         </childnode>
       </node>
-      <node id="464">
+      <node id="477">
         <label>include/Socket/CSocket.h</label>
         <link refid="CSocket_8h_source"/>
         <childnode refid="463" relation="include">
         </childnode>
-        <childnode refid="465" relation="include">
+        <childnode refid="464" relation="include">
         </childnode>
-        <childnode refid="469" relation="include">
+        <childnode refid="468" relation="include">
         </childnode>
-        <childnode refid="471" relation="include">
+        <childnode refid="470" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

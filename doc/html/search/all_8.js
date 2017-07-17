@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tick',['Tick',['../classCNPC.html#a9261d699e4c513a63afdfac7beff02b4',1,'CNPC']]]
+  ['unloadnpc',['UnloadNPC',['../classCNPC.html#a3654caa12b148bb1242924e9d92e9712',1,'CNPC']]]
 ];

@@ -761,19 +761,6 @@
     <member refid="structDBCONFIG_1addcd5382c1b2c31cbd0f43b48154c161" kind="variable"><name>szSchema</name></member>
     <member refid="structDBCONFIG_1a4076b3dd0cb774dfec562e5390b7f1ee" kind="variable"><name>wListenPort</name></member>
   </compound>
-  <compound refid="classDocument" kind="class"><name>Document</name>
-    <member refid="classDocument_1a57bb6fc29903cea690e6fb2085271f51" kind="variable"><name>raw</name></member>
-    <member refid="classDocument_1ab5c00ec09df813b99b28a59441494035" kind="variable"><name>length</name></member>
-    <member refid="classDocument_1a55ee8ff781ba6aef5f9ea6825037789e" kind="variable"><name>root</name></member>
-    <member refid="classDocument_1acdbcbe550084e8c20f4f67eb229ad66a" kind="function"><name>Document</name></member>
-    <member refid="classDocument_1ac2e3f62307dc22baac21ddc10fa1609c" kind="function"><name>~Document</name></member>
-    <member refid="classDocument_1a7dfe9562bbc84c889bfe1a2ba0559074" kind="function"><name>LoadFile</name></member>
-    <member refid="classDocument_1a15981b065698e3d77cf45ae4054d3f46" kind="function"><name>Parse</name></member>
-    <member refid="classDocument_1ad7eccce30f197af91d0bca48d22f2676" kind="function"><name>Parse</name></member>
-    <member refid="classDocument_1a45e41edcfd400faf51a5a67d34c6cde7" kind="function"><name>InitNPCToXML</name></member>
-    <member refid="classDocument_1a96be314dbc6189cc40ad507c19a52462" kind="function"><name>InitItemToXML</name></member>
-    <member refid="classDocument_1a9afae6bf0d257657500dbdcaf16d1011" kind="function"><name>InitMonsterToXML</name></member>
-  </compound>
   <compound refid="structFUSION__DESC" kind="struct"><name>FUSION_DESC</name>
     <member refid="structFUSION__DESC_1acbb6baa9aa9bf74ae2c77fb78050c0c7" kind="variable"><name>byLevel</name></member>
     <member refid="structFUSION__DESC_1ac4909e892c24c5f8221c654c69de9d49" kind="variable"><name>wMeele</name></member>
@@ -816,18 +803,6 @@
     <member refid="structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b" kind="variable"><name>wOffsetX</name></member>
     <member refid="structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d" kind="variable"><name>wOffsetY</name></member>
     <member refid="structMapInfo_1af521faa869e28cf4084e13ed0d50478b" kind="function"><name>equalTile</name></member>
-  </compound>
-  <compound refid="structnode" kind="struct"><name>node</name>
-    <member refid="structnode_1a7c6b2b2df1a4f3dcd59248fc65b85bb3" kind="variable"><name>name</name></member>
-    <member refid="structnode_1ab92112052e83472562aa79a56905107a" kind="variable"><name>data</name></member>
-    <member refid="structnode_1a7a5357a6527169c78888acf6fa2bac44" kind="variable"><name>num</name></member>
-    <member refid="structnode_1a875f75abfe22103500535b179828e4e3" kind="variable"><name>right</name></member>
-    <member refid="structnode_1a08cfa31a6c4e0a8adfb4a192b6df6d81" kind="variable"><name>child</name></member>
-  </compound>
-  <compound refid="classNode" kind="class"><name>Node</name>
-    <member refid="classNode_1a85af1fa0eeeecfa52b94c50674fb2129" kind="variable"><name>data</name></member>
-    <member refid="classNode_1a49baf1d613dc14f1e1e4aad883dde6fe" kind="variable"><name>children</name></member>
-    <member refid="classNode_1aa0840c3cb5c7159be6d992adecd2097c" kind="function"><name>~Node</name></member>
   </compound>
   <compound refid="structNPC__DESC" kind="struct"><name>NPC_DESC</name>
     <member refid="structNPC__DESC_1af2a704d6f96f5cd1326f9caf403feba8" kind="variable"><name>wIndex</name></member>
@@ -2554,28 +2529,6 @@
   </compound>
   <compound refid="CDBSocket_8h" kind="file"><name>CDBSocket.h</name>
   </compound>
-  <compound refid="README_8md" kind="file"><name>README.md</name>
-  </compound>
-  <compound refid="ConvertC_09_09_8cpp" kind="file"><name>ConvertC++.cpp</name>
-    <member refid="ConvertC_09_09_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
-  </compound>
-  <compound refid="ConvertC_8cpp" kind="file"><name>ConvertC.cpp</name>
-    <member refid="ConvertC_8cpp_1a0c00a96baa89438d6b732b92a1ba11b9" kind="define"><name>MAX_DATA_LEN</name></member>
-    <member refid="ConvertC_8cpp_1aca1dc47c21d7d457f9cfd8ccbd4f4b87" kind="define"><name>MAX_NODE_LEN</name></member>
-    <member refid="ConvertC_8cpp_1a761f935be7a15cd2c02540590502a62a" kind="define"><name>MAX_NODE_NAME</name></member>
-    <member refid="ConvertC_8cpp_1aba087cc5af103c72c4e5864cc5622196" kind="typedef"><name>Node</name></member>
-    <member refid="ConvertC_8cpp_1a78761c9d82cfc5451c7e0636edbd2c01" kind="function"><name>file_to_data</name></member>
-    <member refid="ConvertC_8cpp_1a7f79dcb886da35dcc900ba3c5bf61145" kind="function"><name>push_brother</name></member>
-    <member refid="ConvertC_8cpp_1a1f4451e08936a8435f71c6aa25c904fc" kind="function"><name>parse_data</name></member>
-    <member refid="ConvertC_8cpp_1a0826ca754e2ec9991f2151d239f10b69" kind="function"><name>parse_init_file</name></member>
-    <member refid="ConvertC_8cpp_1aadaee9188077afb98f52fa7480a124d8" kind="function"><name>parser_init</name></member>
-    <member refid="ConvertC_8cpp_1aa49e2df8491ffca6a93a99c8e760941d" kind="function"><name>print_config</name></member>
-    <member refid="ConvertC_8cpp_1a128d427efe47e83280860cf66a6f6445" kind="function"><name>initnpc_to_xml</name></member>
-    <member refid="ConvertC_8cpp_1af11dac291682845e0836dd2e47bbfaea" kind="function"><name>inititem_to_xml</name></member>
-    <member refid="ConvertC_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
-  </compound>
-  <compound refid="md_README" kind="page"><name>md_README</name>
-  </compound>
   <compound refid="dir_4c66d8320edae8ac4eb532c864452e83" kind="dir"><name>include/Config</name>
   </compound>
   <compound refid="dir_b6707d65141ca7c914abd1abe77993eb" kind="dir"><name>DBServer/Database</name>
@@ -2598,14 +2551,10 @@
   </compound>
   <compound refid="dir_b3c921c3c50aaf411b1607d1d32cd791" kind="dir"><name>include/Protocol</name>
   </compound>
-  <compound refid="dir_a9a91babc2c0f2e776b5abe98790f16d" kind="dir"><name>include/Socket</name>
-  </compound>
   <compound refid="dir_4f72de8a51355b6a8f5cdc81904a47ca" kind="dir"><name>MainServer/Socket</name>
   </compound>
+  <compound refid="dir_a9a91babc2c0f2e776b5abe98790f16d" kind="dir"><name>include/Socket</name>
+  </compound>
   <compound refid="dir_b390245a59d614499d73bc2cac8d26d6" kind="dir"><name>DBServer/Socket</name>
-  </compound>
-  <compound refid="dir_45512b4d464edf1241bf27d9b61f7c89" kind="dir"><name>Utility</name>
-  </compound>
-  <compound refid="dir_ee97b5bd8973f0ce96f76796dd374eb4" kind="dir"><name>Utility/XMLConfigExporter</name>
   </compound>
 </doxygenindex>

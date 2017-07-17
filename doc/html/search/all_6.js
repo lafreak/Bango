@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['remove',['Remove',['../classCNPC.html#a948580bbf9ad0e4449d2a3310aa3ad52',1,'CNPC']]]
+  ['sendpacket',['SendPacket',['../classCNPC.html#ac1dbe33f8c06fdeb63073d58cedeb9ce',1,'CNPC']]]
 ];

@@ -6,8 +6,8 @@
     <includes refid="minwindef_8h" local="no">minwindef.h</includes>
     <includes local="no">TinyXML2/tinyxml2.h</includes>
     <includedby refid="DBServer_2main_8cpp" local="no">DBServer/main.cpp</includedby>
-    <includedby refid="CConfig_8cpp" local="yes">include/Config/CConfig.cpp</includedby>
     <includedby refid="MainServer_2main_8cpp" local="yes">MainServer/main.cpp</includedby>
+    <includedby refid="CConfig_8cpp" local="yes">include/Config/CConfig.cpp</includedby>
     <incdepgraph>
       <node id="416">
         <label>include/Config/CConfig.h</label>
@@ -43,7 +43,6 @@
     <innerclass refid="structDBCONFIG" prot="public">DBCONFIG</innerclass>
     <innerclass refid="structMAINCONFIG" prot="public">MAINCONFIG</innerclass>
     <innerclass refid="classCConfig" prot="public">CConfig</innerclass>
-    <innernamespace refid="namespacetinyxml2">tinyxml2</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

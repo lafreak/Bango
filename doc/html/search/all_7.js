@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sendpacket',['SendPacket',['../classCNPC.html#ac1dbe33f8c06fdeb63073d58cedeb9ce',1,'CNPC']]]
+  ['tick',['Tick',['../classCNPC.html#a9261d699e4c513a63afdfac7beff02b4',1,'CNPC']]]
 ];

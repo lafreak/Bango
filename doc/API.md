@@ -328,9 +328,6 @@
 `define `[`GEAR_VISIBLE_NUM`](#CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43)            | 
 `define `[`TILE_LEN`](#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16)            | 
 `define `[`MAP_LEN`](#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841)            | 
-`define `[`MAX_DATA_LEN`](#ConvertC_8cpp_1a0c00a96baa89438d6b732b92a1ba11b9)            | 
-`define `[`MAX_NODE_LEN`](#ConvertC_8cpp_1aca1dc47c21d7d457f9cfd8ccbd4f4b87)            | 
-`define `[`MAX_NODE_NAME`](#ConvertC_8cpp_1a761f935be7a15cd2c02540590502a62a)            | 
 `enum `[`MOVE_ACTION_TYPE`](#common_8h_1a496d0e487ce7d79cd045830412ec4da7)            | 
 `enum `[`eSeverMapAttr`](#common_8h_1a895a3dbdf704eb27188a0723db5cd4f7)            | 
 `enum `[`COUNTRY_CODE`](#common_8h_1a5f25e0ac7584f7b1e28674e3e4d90dd0)            | 
@@ -387,16 +384,6 @@
 `public static WORD `[`FIND_NEED_PU`](#common_8h_1a109cddba62ace3cd2a7d89c51cc7b5f8)`(WORD cur,BYTE add)`            | 
 `public static WORD `[`FIND_NEED_PU_EX`](#common_8h_1ab91cd69c23cada44263b7afa91fcb737)`(WORD cur,BYTE add)`            | 
 `public static DWORD `[`GetTickCount`](#minwindef_8h_1a7a0122a31225e679b711e65f1223ea32)`(void)`            | 
-`public int `[`main`](#ConvertC_09_09_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627)`(int argc,char ** argv)`            | 
-`public char * `[`file_to_data`](#ConvertC_8cpp_1a78761c9d82cfc5451c7e0636edbd2c01)`(FILE * fp)`            | 
-`public void `[`push_brother`](#ConvertC_8cpp_1a7f79dcb886da35dcc900ba3c5bf61145)`(Node * n,Node * brother)`            | 
-`public Node * `[`parse_data`](#ConvertC_8cpp_1a1f4451e08936a8435f71c6aa25c904fc)`(char * data,const char * name)`            | 
-`public short `[`parse_init_file`](#ConvertC_8cpp_1a0826ca754e2ec9991f2151d239f10b69)`(FILE * fp,Node * root)`            | 
-`public short `[`parser_init`](#ConvertC_8cpp_1aadaee9188077afb98f52fa7480a124d8)`(const char * filename,Node * root)`            | 
-`public void `[`print_config`](#ConvertC_8cpp_1aa49e2df8491ffca6a93a99c8e760941d)`(Node * n)`            | 
-`public void `[`initnpc_to_xml`](#ConvertC_8cpp_1a128d427efe47e83280860cf66a6f6445)`(Node * n,const char * outputPath)`            | 
-`public void `[`inititem_to_xml`](#ConvertC_8cpp_1af11dac291682845e0836dd2e47bbfaea)`(Node * n,const char * outputPath)`            | 
-`public int `[`main`](#ConvertC_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627)`(int argc,char ** argv)`            | 
 `class `[`Access`](#classAccess) | 
 `class `[`CAccount`](#classCAccount) | 
 `class `[`CCharacter`](#classCCharacter) | 
@@ -426,8 +413,6 @@
 `class `[`CServer`](#classCServer) | 
 `class `[`CSocket`](#classCSocket) | 
 `class `[`CTile`](#classCTile) | 
-`class `[`Document`](#classDocument) | 
-`class `[`Node`](#classNode) | 
 `struct `[`BASEPROPERTY`](#structBASEPROPERTY) | 
 `struct `[`CItemInfo`](#structCItemInfo) | 
 `struct `[`CMacro`](#structCMacro) | 
@@ -439,7 +424,6 @@
 `struct `[`ITEMINFO_DESC`](#structITEMINFO__DESC) | 
 `struct `[`MAINCONFIG`](#structMAINCONFIG) | 
 `struct `[`MapInfo`](#structMapInfo) | 
-`struct `[`node`](#structnode) | 
 `struct `[`NPC_DESC`](#structNPC__DESC) | 
 `struct `[`Packet`](#structPacket) | 
 `struct `[`PACKETBUFFER`](#structPACKETBUFFER) | 
@@ -1098,12 +1082,6 @@
 #### `define `[`TILE_LEN`](#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16) {#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16}
 
 #### `define `[`MAP_LEN`](#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841) {#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841}
-
-#### `define `[`MAX_DATA_LEN`](#ConvertC_8cpp_1a0c00a96baa89438d6b732b92a1ba11b9) {#ConvertC_8cpp_1a0c00a96baa89438d6b732b92a1ba11b9}
-
-#### `define `[`MAX_NODE_LEN`](#ConvertC_8cpp_1aca1dc47c21d7d457f9cfd8ccbd4f4b87) {#ConvertC_8cpp_1aca1dc47c21d7d457f9cfd8ccbd4f4b87}
-
-#### `define `[`MAX_NODE_NAME`](#ConvertC_8cpp_1a761f935be7a15cd2c02540590502a62a) {#ConvertC_8cpp_1a761f935be7a15cd2c02540590502a62a}
 
 #### `enum `[`MOVE_ACTION_TYPE`](#common_8h_1a496d0e487ce7d79cd045830412ec4da7) {#common_8h_1a496d0e487ce7d79cd045830412ec4da7}
 
@@ -2510,26 +2488,6 @@ D2S_SHORTCUT            |
 #### `public static WORD `[`FIND_NEED_PU_EX`](#common_8h_1ab91cd69c23cada44263b7afa91fcb737)`(WORD cur,BYTE add)` {#common_8h_1ab91cd69c23cada44263b7afa91fcb737}
 
 #### `public static DWORD `[`GetTickCount`](#minwindef_8h_1a7a0122a31225e679b711e65f1223ea32)`(void)` {#minwindef_8h_1a7a0122a31225e679b711e65f1223ea32}
-
-#### `public int `[`main`](#ConvertC_09_09_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627)`(int argc,char ** argv)` {#ConvertC_09_09_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627}
-
-#### `public char * `[`file_to_data`](#ConvertC_8cpp_1a78761c9d82cfc5451c7e0636edbd2c01)`(FILE * fp)` {#ConvertC_8cpp_1a78761c9d82cfc5451c7e0636edbd2c01}
-
-#### `public void `[`push_brother`](#ConvertC_8cpp_1a7f79dcb886da35dcc900ba3c5bf61145)`(Node * n,Node * brother)` {#ConvertC_8cpp_1a7f79dcb886da35dcc900ba3c5bf61145}
-
-#### `public Node * `[`parse_data`](#ConvertC_8cpp_1a1f4451e08936a8435f71c6aa25c904fc)`(char * data,const char * name)` {#ConvertC_8cpp_1a1f4451e08936a8435f71c6aa25c904fc}
-
-#### `public short `[`parse_init_file`](#ConvertC_8cpp_1a0826ca754e2ec9991f2151d239f10b69)`(FILE * fp,Node * root)` {#ConvertC_8cpp_1a0826ca754e2ec9991f2151d239f10b69}
-
-#### `public short `[`parser_init`](#ConvertC_8cpp_1aadaee9188077afb98f52fa7480a124d8)`(const char * filename,Node * root)` {#ConvertC_8cpp_1aadaee9188077afb98f52fa7480a124d8}
-
-#### `public void `[`print_config`](#ConvertC_8cpp_1aa49e2df8491ffca6a93a99c8e760941d)`(Node * n)` {#ConvertC_8cpp_1aa49e2df8491ffca6a93a99c8e760941d}
-
-#### `public void `[`initnpc_to_xml`](#ConvertC_8cpp_1a128d427efe47e83280860cf66a6f6445)`(Node * n,const char * outputPath)` {#ConvertC_8cpp_1a128d427efe47e83280860cf66a6f6445}
-
-#### `public void `[`inititem_to_xml`](#ConvertC_8cpp_1af11dac291682845e0836dd2e47bbfaea)`(Node * n,const char * outputPath)` {#ConvertC_8cpp_1af11dac291682845e0836dd2e47bbfaea}
-
-#### `public int `[`main`](#ConvertC_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627)`(int argc,char ** argv)` {#ConvertC_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627}
 
 # class `Access` {#classAccess}
 
@@ -4003,66 +3961,6 @@ class CPlayer
 
 #### `public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` {#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4}
 
-# class `Document` {#classDocument}
-
-## Summary
-
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`public char * `[`raw`](#classDocument_1a57bb6fc29903cea690e6fb2085271f51) | 
-`public long `[`length`](#classDocument_1ab5c00ec09df813b99b28a59441494035) | 
-`public Node * `[`root`](#classDocument_1a55ee8ff781ba6aef5f9ea6825037789e) | 
-`public inline  `[`Document`](#classDocument_1acdbcbe550084e8c20f4f67eb229ad66a)`()` | 
-`public inline  `[`~Document`](#classDocument_1ac2e3f62307dc22baac21ddc10fa1609c)`()` | 
-`public inline bool `[`LoadFile`](#classDocument_1a7dfe9562bbc84c889bfe1a2ba0559074)`(const char * fileName)` | 
-`public inline void `[`Parse`](#classDocument_1a15981b065698e3d77cf45ae4054d3f46)`(Node * n)` | 
-`public inline void `[`Parse`](#classDocument_1ad7eccce30f197af91d0bca48d22f2676)`()` | 
-`public inline void `[`InitNPCToXML`](#classDocument_1a45e41edcfd400faf51a5a67d34c6cde7)`(const char * outputPath)` | 
-`public inline void `[`InitItemToXML`](#classDocument_1a96be314dbc6189cc40ad507c19a52462)`(const char * outputPath)` | 
-`public inline void `[`InitMonsterToXML`](#classDocument_1a9afae6bf0d257657500dbdcaf16d1011)`(const char * outputPath)` | 
-
-## Members
-
-#### `public char * `[`raw`](#classDocument_1a57bb6fc29903cea690e6fb2085271f51) {#classDocument_1a57bb6fc29903cea690e6fb2085271f51}
-
-#### `public long `[`length`](#classDocument_1ab5c00ec09df813b99b28a59441494035) {#classDocument_1ab5c00ec09df813b99b28a59441494035}
-
-#### `public Node * `[`root`](#classDocument_1a55ee8ff781ba6aef5f9ea6825037789e) {#classDocument_1a55ee8ff781ba6aef5f9ea6825037789e}
-
-#### `public inline  `[`Document`](#classDocument_1acdbcbe550084e8c20f4f67eb229ad66a)`()` {#classDocument_1acdbcbe550084e8c20f4f67eb229ad66a}
-
-#### `public inline  `[`~Document`](#classDocument_1ac2e3f62307dc22baac21ddc10fa1609c)`()` {#classDocument_1ac2e3f62307dc22baac21ddc10fa1609c}
-
-#### `public inline bool `[`LoadFile`](#classDocument_1a7dfe9562bbc84c889bfe1a2ba0559074)`(const char * fileName)` {#classDocument_1a7dfe9562bbc84c889bfe1a2ba0559074}
-
-#### `public inline void `[`Parse`](#classDocument_1a15981b065698e3d77cf45ae4054d3f46)`(Node * n)` {#classDocument_1a15981b065698e3d77cf45ae4054d3f46}
-
-#### `public inline void `[`Parse`](#classDocument_1ad7eccce30f197af91d0bca48d22f2676)`()` {#classDocument_1ad7eccce30f197af91d0bca48d22f2676}
-
-#### `public inline void `[`InitNPCToXML`](#classDocument_1a45e41edcfd400faf51a5a67d34c6cde7)`(const char * outputPath)` {#classDocument_1a45e41edcfd400faf51a5a67d34c6cde7}
-
-#### `public inline void `[`InitItemToXML`](#classDocument_1a96be314dbc6189cc40ad507c19a52462)`(const char * outputPath)` {#classDocument_1a96be314dbc6189cc40ad507c19a52462}
-
-#### `public inline void `[`InitMonsterToXML`](#classDocument_1a9afae6bf0d257657500dbdcaf16d1011)`(const char * outputPath)` {#classDocument_1a9afae6bf0d257657500dbdcaf16d1011}
-
-# class `Node` {#classNode}
-
-## Summary
-
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`public std::string `[`data`](#classNode_1a85af1fa0eeeecfa52b94c50674fb2129) | 
-`public std::vector< Node * > `[`children`](#classNode_1a49baf1d613dc14f1e1e4aad883dde6fe) | 
-`public inline  `[`~Node`](#classNode_1aa0840c3cb5c7159be6d992adecd2097c)`()` | 
-
-## Members
-
-#### `public std::string `[`data`](#classNode_1a85af1fa0eeeecfa52b94c50674fb2129) {#classNode_1a85af1fa0eeeecfa52b94c50674fb2129}
-
-#### `public std::vector< Node * > `[`children`](#classNode_1a49baf1d613dc14f1e1e4aad883dde6fe) {#classNode_1a49baf1d613dc14f1e1e4aad883dde6fe}
-
-#### `public inline  `[`~Node`](#classNode_1aa0840c3cb5c7159be6d992adecd2097c)`()` {#classNode_1aa0840c3cb5c7159be6d992adecd2097c}
-
 # struct `BASEPROPERTY` {#structBASEPROPERTY}
 
 ## Summary
@@ -4597,30 +4495,6 @@ struct CMonsterInfo
 #### `public WORD `[`wOffsetY`](#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d) {#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d}
 
 #### `public inline bool `[`equalTile`](#structMapInfo_1af521faa869e28cf4084e13ed0d50478b)`(MapInfo & mapInfo)` {#structMapInfo_1af521faa869e28cf4084e13ed0d50478b}
-
-# struct `node` {#structnode}
-
-## Summary
-
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`public char `[`name`](#structnode_1a7c6b2b2df1a4f3dcd59248fc65b85bb3) | 
-`public char `[`data`](#structnode_1ab92112052e83472562aa79a56905107a) | 
-`public int `[`num`](#structnode_1a7a5357a6527169c78888acf6fa2bac44) | 
-`public struct node * `[`right`](#structnode_1a875f75abfe22103500535b179828e4e3) | 
-`public struct node * `[`child`](#structnode_1a08cfa31a6c4e0a8adfb4a192b6df6d81) | 
-
-## Members
-
-#### `public char `[`name`](#structnode_1a7c6b2b2df1a4f3dcd59248fc65b85bb3) {#structnode_1a7c6b2b2df1a4f3dcd59248fc65b85bb3}
-
-#### `public char `[`data`](#structnode_1ab92112052e83472562aa79a56905107a) {#structnode_1ab92112052e83472562aa79a56905107a}
-
-#### `public int `[`num`](#structnode_1a7a5357a6527169c78888acf6fa2bac44) {#structnode_1a7a5357a6527169c78888acf6fa2bac44}
-
-#### `public struct node * `[`right`](#structnode_1a875f75abfe22103500535b179828e4e3) {#structnode_1a875f75abfe22103500535b179828e4e3}
-
-#### `public struct node * `[`child`](#structnode_1a08cfa31a6c4e0a8adfb4a192b6df6d81) {#structnode_1a08cfa31a6c4e0a8adfb4a192b6df6d81}
 
 # struct `NPC_DESC` {#structNPC__DESC}
 

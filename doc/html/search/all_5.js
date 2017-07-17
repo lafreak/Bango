@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadnpc',['LoadNPC',['../classCNPC.html#ac8f234fa07c788d8acd87f38cb81b12a',1,'CNPC']]]
+  ['remove',['Remove',['../classCNPC.html#a948580bbf9ad0e4449d2a3310aa3ad52',1,'CNPC']]]
 ];
