@@ -132,14 +132,14 @@ public:
 	bool IsGStateEx(__int64 n64GStateEx);
 	bool IsMStateEx(__int64 n64MStateEx);
 
-	virtual Packet GenerateCreatePacket(bool bHero=false) = 0;
-	virtual Packet GeneratePetPacket() = 0;
-	virtual Packet GenerateDeletePacket() = 0;
-	virtual Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0) = 0;
+	virtual Packet GenerateCreatePacket(bool bHero = false);
+	virtual Packet GeneratePetPacket();
+	virtual Packet GenerateDeletePacket();
+	virtual Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0);
 
-	virtual void SendPacket(Packet& packet) = 0;
+	virtual void SendPacket(Packet& packet) {}
 
-	virtual bool Tick() = 0;
+	virtual bool Tick() { return true; }
 
 	bool WriteInSight(BYTE byType, ...);
 

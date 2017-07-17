@@ -36,6 +36,11 @@ public:
 
 	void SendMoveAction(CCharacter *pCharacter, char byX, char byY, 
 		Packet& createPacket, Packet& petPacket, Packet& deletePacket, Packet& movePacket);
+
+	void ExchangeMoveActionWithPlayers(CCharacter *pCharacter, char byX, char byY,
+		Packet& createPacket, Packet& petPacket, Packet& deletePacket, Packet& movePacket);
+	void ExchangeMoveActionWithMonsters(CPlayer *pPlayer, char byX, char byY);
+	void ExchangeMoveActionWithNPCs(CPlayer *pPlayer, char byX, char byY);
 };
 
 #endif

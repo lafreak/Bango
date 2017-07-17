@@ -46,7 +46,6 @@ public:
 	static CMonster* FindMonsterByIndex(WORD wIndex);
 
 	Packet GenerateCreatePacket(bool bHero=false);
-	Packet GeneratePetPacket();
 	Packet GenerateDeletePacket();
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0);
 
@@ -93,8 +92,6 @@ public:
 	void Walk();
 	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
 	
-	void SendPacket(Packet& packet) {};
-
 	// Gets closest normal CPlayer and Grants his access. (Inix CMonster::ScanSight)
 	CPlayer* GetClosestNormalPlayer();
 

@@ -151,14 +151,6 @@ Packet CMonster::GenerateDeletePacket()
 	return packet;
 }
 
-Packet CMonster::GeneratePetPacket()
-{
-	Packet packet;
-	packet.wSize=0;
-
-	return packet;
-}
-
 Packet CMonster::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 {
 	Packet packet;
@@ -287,8 +279,6 @@ void CMonster::TickAll()
 			++it;
 		}
 	}
-
-	printf(KGRN "Monsters%d\n" KNRM, (int)g_mMonster.size());
 
 	g_mxMonster.unlock();
 }
@@ -578,8 +568,8 @@ void CMonster::Chase()
 {
 	int nDistance = GetDistance(m_pTarget) - GetRange();
 
-	int nStep = nDistance > 64 ? 64 : nDistance;
-	BYTE byType = nDistance > 64 ? 0 : 1;
+	int nStep = nDistance > MAX_MONSTER_RUN_STEP ? 64 : nDistance;
+	BYTE byType = nDistance > MAX_MONSTER_RUN_STEP ? 0 : 1;
 
 	float fAngle = atan2(m_pTarget->GetY() - GetY(), m_pTarget->GetX() - GetX());
 	char dx = nStep * cos(fAngle);
@@ -598,8 +588,8 @@ void CMonster::Chase()
 void CMonster::Walk()
 {
 	WORD wAngle = rand() % 360;
-	char dx = 32 * cos(wAngle * M_PI / 180.0);
-	char dy = 32 * sin(wAngle * M_PI / 180.0);
+	char dx = MAX_MONSTER_WALK_STEP * cos(wAngle * M_PI / 180.0);
+	char dy = MAX_MONSTER_WALK_STEP * sin(wAngle * M_PI / 180.0);
 
 	if ((rand() % MONSTER_WALK_TIME) == 0)
 	{

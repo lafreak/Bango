@@ -150,6 +150,7 @@ void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 	Unlock();
 }
 
+/*
 void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 	Packet &createPacket, Packet &petPacket, Packet& deletePacket, Packet& movePacket)
 {
@@ -212,7 +213,7 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 				}
 				case MV_AC_DELETE:
 				{
-					pCharacterEx->SendPacket(deletePacket);
+					/CharacterEx->SendPacket(deletePacket);
 					if (pCharacter->GetKind() == CK_PLAYER) {
 						Packet p=pCharacterEx->GenerateDeletePacket();
 						pCharacter->SendPacket(p);
@@ -229,4 +230,131 @@ void CTile::SendMoveAction(CCharacter *pCharacter, char byX, char byY,
 	}
 
 	Unlock();
+}
+*/
+
+void CTile::SendMoveAction(CCharacter * pCharacter, char byX, char byY, Packet & createPacket, Packet & petPacket, Packet & deletePacket, Packet & movePacket)
+{
+	Lock();
+
+	switch (pCharacter->GetKind())
+	{
+	case CK_PLAYER:
+		ExchangeMoveActionWithPlayers(pCharacter, byX, byY, createPacket, petPacket, deletePacket, movePacket);
+		ExchangeMoveActionWithMonsters(((CPlayer *)pCharacter), byX, byY);
+		ExchangeMoveActionWithNPCs(((CPlayer *)pCharacter), byX, byY);
+		break;
+
+	case CK_MONSTER:
+	case CK_NPC:
+		ExchangeMoveActionWithPlayers(pCharacter, byX, byY, createPacket, petPacket, deletePacket, movePacket);
+		break;
+	}
+
+	Unlock();
+}
+
+void CTile::ExchangeMoveActionWithPlayers(CCharacter * pCharacter, char byX, char byY, 
+	Packet & createPacket, Packet & petPacket, Packet & deletePacket, Packet & movePacket)
+{
+	for (auto& a : m_mPlayer) {
+		a.second->m_Access.Grant();
+
+		if (a.second->GetID() == pCharacter->GetID()) {
+			a.second->m_Access.Release();
+			continue;
+		}
+
+		auto pPlayer = a.second;
+
+		switch (pCharacter->GetMoveAction(pPlayer, byX, byY))
+		{
+		case MV_AC_CREATE:
+		{
+			pPlayer->SendPacket(createPacket);
+			pPlayer->SendPacket(petPacket);
+			if (pCharacter->GetKind() == CK_PLAYER) {
+				Packet p = pPlayer->GenerateCreatePacket();
+				Packet r = pPlayer->GeneratePetPacket();
+				pCharacter->SendPacket(p);
+				pCharacter->SendPacket(r);
+			}
+			break;
+		}
+		case MV_AC_DELETE:
+		{
+			pPlayer->SendPacket(deletePacket);
+			if (pCharacter->GetKind() == CK_PLAYER) {
+				Packet p = pPlayer->GenerateDeletePacket();
+				pCharacter->SendPacket(p);
+			}
+			break;
+		}
+		case MV_AC_MOVE:
+			pPlayer->SendPacket(movePacket);
+			break;
+		}
+
+		a.second->m_Access.Release();
+	}
+}
+
+void CTile::ExchangeMoveActionWithMonsters(CPlayer * pPlayer, char byX, char byY)
+{
+	for (auto& a : m_mMonster)
+	{
+		a.second->m_Access.Grant();
+
+		auto pMonster = a.second;
+
+		switch (pPlayer->GetMoveAction(pMonster, byX, byY))
+		{
+			case MV_AC_CREATE:
+			{
+				Packet p = pMonster->GenerateCreatePacket();
+				Packet r = pMonster->GeneratePetPacket();
+				pPlayer->SendPacket(p);
+				pPlayer->SendPacket(r);
+				break;
+			}
+			case MV_AC_DELETE:
+			{
+				Packet p = pMonster->GenerateDeletePacket();
+				pPlayer->SendPacket(p);
+				break;
+			}
+		}
+
+		a.second->m_Access.Release();
+	}
+}
+
+void CTile::ExchangeMoveActionWithNPCs(CPlayer * pPlayer, char byX, char byY)
+{
+	for (auto& a : m_mNPC)
+	{
+		a.second->m_Access.Grant();
+
+		auto pNPC = a.second;
+
+		switch (pPlayer->GetMoveAction(pNPC, byX, byY))
+		{
+			case MV_AC_CREATE:
+			{
+				Packet p = pNPC->GenerateCreatePacket();
+				Packet r = pNPC->GeneratePetPacket();
+				pPlayer->SendPacket(p);
+				pPlayer->SendPacket(r);
+				break;
+			}
+			case MV_AC_DELETE:
+			{
+				Packet p = pNPC->GenerateDeletePacket();
+				pPlayer->SendPacket(p);
+				break;
+			}
+		}
+
+		a.second->m_Access.Release();
+	}
 }

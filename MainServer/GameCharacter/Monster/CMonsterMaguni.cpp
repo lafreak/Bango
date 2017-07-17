@@ -19,14 +19,7 @@ bool CMonsterMaguni::Tick()
 
 	if (GetAIS() == AIS_KNEE && dwNow >= m_dwDeadTime)
 	{
-		//Lock();
-		//SubGState(CGS_KNEE);
-		//AddGState(CGS_KO);
-		//SetAIS(AIS_DEAD);
-		//Unlock();
-
 		WriteInSight(S2C_ACTION, "db", GetID(), AT_DIE);
-
 		return false;
 	}
 

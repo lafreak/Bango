@@ -532,6 +532,8 @@ static BASEPROPERTY g_baseproperty[] = {
 
 #define MAX_PLAYER_SIGHT			1024
 #define MAX_PLAYER_STEP				128
+#define MAX_MONSTER_RUN_STEP		64
+#define MAX_MONSTER_WALK_STEP		32
 
 enum MOVE_ACTION_TYPE
 {

@@ -41,14 +41,6 @@ Packet CNPC::GenerateCreatePacket(bool bHero)
 	return packet;
 }
 
-Packet CNPC::GeneratePetPacket()
-{
-	Packet packet;
-	packet.wSize=0;
-
-	return packet;
-}
-
 Packet CNPC::GenerateDeletePacket()
 {
 	Packet packet;
@@ -59,14 +51,6 @@ Packet CNPC::GenerateDeletePacket()
 	char *end = CSocket::WritePacket(packet.data, "d", m_nID);
 
 	packet.wSize = end - ((char*)&packet);
-
-	return packet;
-}
-
-Packet CNPC::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
-{
-	Packet packet;
-	packet.wSize=0;
 
 	return packet;
 }

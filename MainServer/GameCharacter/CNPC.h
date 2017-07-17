@@ -29,7 +29,7 @@ public:
 		Example: if X is returned, could be used to open e.pk s00000X.dat
 		\return File index linked to e.pk.
 	*/
-	int GetHTML() { return m_nHtml; }
+	int GetHTML() const { return m_nHtml; }
 
 	/**
 		Loads all NPCs from InitNPC.xml.
@@ -68,18 +68,11 @@ public:
 
 	/**
 		Generates packet with information how NPC looks and behave.
-		It is required to distribute this packet to clients each time they appears in sight.
-		\param bHero Dummy.
+		It is required to distribute this packet to clients each time they appear in sight.
+		\param bHero Neither true or false does not affect NPC.
 		\return Generated packet ready to be sent.
 	*/
 	Packet GenerateCreatePacket(bool bHero=false);
-
-	/**
-		Generates pet item information.
-		Since NPC does not use pets, it always returns empty, invalid packet.
-		\return Empty packet.
-	*/
-	Packet GeneratePetPacket();
 
 	/**
 		Generates information about NPC deletion.
@@ -87,31 +80,6 @@ public:
 		\return Generated packet ready to be sent.
 	*/
 	Packet GenerateDeletePacket();
-
-	/**
-		Generates information about NPC move.
-		Since NPC does not move, it always returns empty, invalid packet.
-		\param byType Dummy.
-		\param byX Dummy.
-		\param byY Dummy.
-		\param byZ Dummy.
-		\return Empty packet.
-	*/
-	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ);
-
-	/**
-		Sends packet to socket contained by NPC.
-		Since NPC does not have socket, it does nothing.
-		\param packet Packet to be sent (dummy).
-	*/
-	void SendPacket(Packet& packet) {}
-
-	/**
-		Will get executed once a second once it's needed.
-		Should be called inside TickAll when needed.
-		\return false if instance should be deleted, true otherwise
-	*/
-	bool Tick() { return true; }
 };
 
 typedef std::map<int, CNPC*> NPCMap;
