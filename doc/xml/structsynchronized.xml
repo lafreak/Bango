@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsynchronized" kind="struct" language="C++" prot="public">
+    <compoundname>synchronized</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>T</declname>
+        <defname>T</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structsynchronized_1a44890aab0ecc5a1717ec9d380798326c" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T synchronized&lt; T &gt;::m_value</definition>
+        <argsstring></argsstring>
+        <name>m_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/synchronized.h" line="9" column="1" bodyfile="include/synchronized.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsynchronized_1aec546b0ff44afdfe07ff647c94d36fce" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex synchronized&lt; T &gt;::m_mutex</definition>
+        <argsstring></argsstring>
+        <name>m_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/synchronized.h" line="10" column="1" bodyfile="include/synchronized.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structsynchronized_1af64826104576b4e00a1c000fb439342c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>synchronized&lt; T &gt;::synchronized</definition>
+        <argsstring>(T val)</argsstring>
+        <name>synchronized</name>
+        <param>
+          <type>T</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/synchronized.h" line="13" column="1" bodyfile="include/synchronized.h" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structsynchronized_1afd250e9e084e79b3a939a2044e586cc8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized &amp;</type>
+        <definition>synchronized&amp; synchronized&lt; T &gt;::operator++</definition>
+        <argsstring>()</argsstring>
+        <name>operator++</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/synchronized.h" line="18" column="1" bodyfile="include/synchronized.h" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structsynchronized_1ae3513461ff4f544d2dd8abfbd8d57424" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized &amp;</type>
+        <definition>synchronized&amp; synchronized&lt; T &gt;::operator--</definition>
+        <argsstring>()</argsstring>
+        <name>operator--</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/synchronized.h" line="25" column="1" bodyfile="include/synchronized.h" bodystart="25" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structsynchronized_1ad0a73051876163e81c717e15deca4ed7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>synchronized&lt; T &gt;::operator T</definition>
+        <argsstring>()</argsstring>
+        <name>operator T</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/synchronized.h" line="32" column="1" bodyfile="include/synchronized.h" bodystart="32" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/synchronized.h" line="7" column="1" bodyfile="include/synchronized.h" bodystart="6" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structsynchronized_1aec546b0ff44afdfe07ff647c94d36fce" prot="private" virt="non-virtual"><scope>synchronized</scope><name>m_mutex</name></member>
+      <member refid="structsynchronized_1a44890aab0ecc5a1717ec9d380798326c" prot="private" virt="non-virtual"><scope>synchronized</scope><name>m_value</name></member>
+      <member refid="structsynchronized_1ad0a73051876163e81c717e15deca4ed7" prot="public" virt="non-virtual"><scope>synchronized</scope><name>operator T</name></member>
+      <member refid="structsynchronized_1afd250e9e084e79b3a939a2044e586cc8" prot="public" virt="non-virtual"><scope>synchronized</scope><name>operator++</name></member>
+      <member refid="structsynchronized_1ae3513461ff4f544d2dd8abfbd8d57424" prot="public" virt="non-virtual"><scope>synchronized</scope><name>operator--</name></member>
+      <member refid="structsynchronized_1af64826104576b4e00a1c000fb439342c" prot="public" virt="non-virtual"><scope>synchronized</scope><name>synchronized</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structCMonsterInfo" kind="struct" language="C++" prot="public">
+    <compoundname>CMonsterInfo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CMacro</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wIndex</definition>
+        <argsstring></argsstring>
+        <name>m_wIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="8" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1aa6a0da27614bb6e12ce24e5b8a267bcc" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CMonsterInfo::m_byRace</definition>
+        <argsstring></argsstring>
+        <name>m_byRace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="9" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1af51dd9f92e3c39cff3d2586f29c3bae5" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CMonsterInfo::m_byLevel</definition>
+        <argsstring></argsstring>
+        <name>m_byLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="10" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1abeb38493bf01835786a3526818e3148f" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CMonsterInfo::m_byAI</definition>
+        <argsstring></argsstring>
+        <name>m_byAI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="11" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ab6672eaa7c9dcd23d4125412950dfebb" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wRange</definition>
+        <argsstring></argsstring>
+        <name>m_wRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="12" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a3ad06f707931eed8844497793e8b581f" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wCloseSight</definition>
+        <argsstring></argsstring>
+        <name>m_wCloseSight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="13" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a92cb55f43d52be5d7b28a202aa69430e" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wFarSight</definition>
+        <argsstring></argsstring>
+        <name>m_wFarSight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="14" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1aad4403f33d4255623b03cec89e98194b" prot="public" static="no" mutable="no">
+        <type>__int64</type>
+        <definition>__int64 CMonsterInfo::m_n64Exp</definition>
+        <argsstring></argsstring>
+        <name>m_n64Exp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="15" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ad529ddd263cf9e68e5227b7fa50cce25" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wWalkSpeed</definition>
+        <argsstring></argsstring>
+        <name>m_wWalkSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="16" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ac51bd28674f8c9cae8498e2cc1b9fb7c" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wRunSpeed</definition>
+        <argsstring></argsstring>
+        <name>m_wRunSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="17" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a2606ae8216541893d3f329e4fffc8cda" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wAttackSpeed</definition>
+        <argsstring></argsstring>
+        <name>m_wAttackSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="18" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a077bcb6158ca1d0a45d930cbccb33a46" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wStr</definition>
+        <argsstring></argsstring>
+        <name>m_wStr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="20" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a762fb128f9a62ef821f4fb7009e97d3f" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wHth</definition>
+        <argsstring></argsstring>
+        <name>m_wHth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="21" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a73e33b8accdfbcbe4c795bc630227f93" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wInt</definition>
+        <argsstring></argsstring>
+        <name>m_wInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="22" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a064d63f4c02d248c717a121c30ad31d4" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wWis</definition>
+        <argsstring></argsstring>
+        <name>m_wWis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="23" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wDex</definition>
+        <argsstring></argsstring>
+        <name>m_wDex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="24" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f" prot="public" static="no" mutable="no">
+        <type>DWORD</type>
+        <definition>DWORD CMonsterInfo::m_dwHP</definition>
+        <argsstring></argsstring>
+        <name>m_dwHP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="26" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5" prot="public" static="no" mutable="no">
+        <type>DWORD</type>
+        <definition>DWORD CMonsterInfo::m_dwMP</definition>
+        <argsstring></argsstring>
+        <name>m_dwMP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="27" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wDefense</definition>
+        <argsstring></argsstring>
+        <name>m_wDefense</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="29" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wHit</definition>
+        <argsstring></argsstring>
+        <name>m_wHit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="30" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wDodge</definition>
+        <argsstring></argsstring>
+        <name>m_wDodge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="31" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wAbsorb</definition>
+        <argsstring></argsstring>
+        <name>m_wAbsorb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="32" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ab90f43b23fb76bef8cfb07b43173b72f" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wResistFire</definition>
+        <argsstring></argsstring>
+        <name>m_wResistFire</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="34" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a70f8a1a41f3c4badb17731f476dbb237" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wResistIce</definition>
+        <argsstring></argsstring>
+        <name>m_wResistIce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="35" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a0a2ff1d3742794e0da57f676b25f424b" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wResistLitning</definition>
+        <argsstring></argsstring>
+        <name>m_wResistLitning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="36" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1aad4764813468a16db18c5ab65e659f48" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wResistCurse</definition>
+        <argsstring></argsstring>
+        <name>m_wResistCurse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="37" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ac29435267add159dc68881fe385a6f80" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wResistPalsy</definition>
+        <argsstring></argsstring>
+        <name>m_wResistPalsy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="38" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1ab24c395f81ab71caefff657c8af6d700" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wMinAttack</definition>
+        <argsstring></argsstring>
+        <name>m_wMinAttack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="40" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a8591f1a3a2fb809a2e36c10fb14b191a" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wMaxAttack</definition>
+        <argsstring></argsstring>
+        <name>m_wMaxAttack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="41" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1a039745d705c73743ae62f624bcf7b7b7" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wMinMagic</definition>
+        <argsstring></argsstring>
+        <name>m_wMinMagic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="42" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1abffd3931f2a166c64302ee5ac2a37c6e" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wMaxMagic</definition>
+        <argsstring></argsstring>
+        <name>m_wMaxMagic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="43" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCMonsterInfo_1afbe8ef3d7e35dee06c309bee0d1107fa" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CMonsterInfo::m_wSize</definition>
+        <argsstring></argsstring>
+        <name>m_wSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="45" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCMonsterInfo_1a8dde7a427a752dd840a9911379d66a51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CMonsterInfo::CMonsterInfo</definition>
+        <argsstring>()</argsstring>
+        <name>CMonsterInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMonsterInfo.h" line="47" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="47" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Macro/CMonsterInfo.h" line="7" column="1" bodyfile="MainServer/Macro/CMonsterInfo.h" bodystart="6" bodyend="83"/>
+    <listofallmembers>
+      <member refid="structCMonsterInfo_1a8dde7a427a752dd840a9911379d66a51" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>CMonsterInfo</name></member>
+      <member refid="structCMonsterInfo_1abeb38493bf01835786a3526818e3148f" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_byAI</name></member>
+      <member refid="structCMonsterInfo_1af51dd9f92e3c39cff3d2586f29c3bae5" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_byLevel</name></member>
+      <member refid="structCMonsterInfo_1aa6a0da27614bb6e12ce24e5b8a267bcc" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_byRace</name></member>
+      <member refid="structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_dwHP</name></member>
+      <member refid="structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_dwMP</name></member>
+      <member refid="structCMonsterInfo_1aad4403f33d4255623b03cec89e98194b" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_n64Exp</name></member>
+      <member refid="structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wAbsorb</name></member>
+      <member refid="structCMonsterInfo_1a2606ae8216541893d3f329e4fffc8cda" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wAttackSpeed</name></member>
+      <member refid="structCMonsterInfo_1a3ad06f707931eed8844497793e8b581f" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wCloseSight</name></member>
+      <member refid="structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wDefense</name></member>
+      <member refid="structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wDex</name></member>
+      <member refid="structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wDodge</name></member>
+      <member refid="structCMonsterInfo_1a92cb55f43d52be5d7b28a202aa69430e" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wFarSight</name></member>
+      <member refid="structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wHit</name></member>
+      <member refid="structCMonsterInfo_1a762fb128f9a62ef821f4fb7009e97d3f" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wHth</name></member>
+      <member refid="structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wIndex</name></member>
+      <member refid="structCMonsterInfo_1a73e33b8accdfbcbe4c795bc630227f93" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wInt</name></member>
+      <member refid="structCMonsterInfo_1a8591f1a3a2fb809a2e36c10fb14b191a" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wMaxAttack</name></member>
+      <member refid="structCMonsterInfo_1abffd3931f2a166c64302ee5ac2a37c6e" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wMaxMagic</name></member>
+      <member refid="structCMonsterInfo_1ab24c395f81ab71caefff657c8af6d700" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wMinAttack</name></member>
+      <member refid="structCMonsterInfo_1a039745d705c73743ae62f624bcf7b7b7" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wMinMagic</name></member>
+      <member refid="structCMonsterInfo_1ab6672eaa7c9dcd23d4125412950dfebb" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wRange</name></member>
+      <member refid="structCMonsterInfo_1aad4764813468a16db18c5ab65e659f48" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wResistCurse</name></member>
+      <member refid="structCMonsterInfo_1ab90f43b23fb76bef8cfb07b43173b72f" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wResistFire</name></member>
+      <member refid="structCMonsterInfo_1a70f8a1a41f3c4badb17731f476dbb237" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wResistIce</name></member>
+      <member refid="structCMonsterInfo_1a0a2ff1d3742794e0da57f676b25f424b" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wResistLitning</name></member>
+      <member refid="structCMonsterInfo_1ac29435267add159dc68881fe385a6f80" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wResistPalsy</name></member>
+      <member refid="structCMonsterInfo_1ac51bd28674f8c9cae8498e2cc1b9fb7c" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wRunSpeed</name></member>
+      <member refid="structCMonsterInfo_1afbe8ef3d7e35dee06c309bee0d1107fa" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wSize</name></member>
+      <member refid="structCMonsterInfo_1a077bcb6158ca1d0a45d930cbccb33a46" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wStr</name></member>
+      <member refid="structCMonsterInfo_1ad529ddd263cf9e68e5227b7fa50cce25" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wWalkSpeed</name></member>
+      <member refid="structCMonsterInfo_1a064d63f4c02d248c717a121c30ad31d4" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>m_wWis</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>MACRO_TYPE</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a36fb171ec5d057fa5df16c58bbb9ba8d" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>MT_ITEM</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a03e59fc7bae9ba55308fd18d87d8b801" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>MT_MONSTER</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a28d7e7aa52ecf18d3db84d9faff2f1e6" prot="public" virt="non-virtual"><scope>CMonsterInfo</scope><name>MT_NPC</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

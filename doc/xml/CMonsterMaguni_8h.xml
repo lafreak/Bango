@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CMonsterMaguni_8h" kind="file" language="C++">
+    <compoundname>CMonsterMaguni.h</compoundname>
+    <includes refid="CMonster_8h" local="yes">../CMonster.h</includes>
+    <includedby refid="CMonster_8cpp" local="yes">MainServer/GameCharacter/CMonster.cpp</includedby>
+    <includedby refid="CMonsterMaguni_8cpp" local="yes">MainServer/GameCharacter/Monster/CMonsterMaguni.cpp</includedby>
+    <incdepgraph>
+      <node id="1142">
+        <label>list</label>
+      </node>
+      <node id="1155">
+        <label>stdarg.h</label>
+      </node>
+      <node id="1158">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="1162">
+        <label>Protocol/MainProtocol.h</label>
+        <link refid="MainProtocol_8h_source"/>
+      </node>
+      <node id="1164">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1143" relation="include">
+        </childnode>
+        <childnode refid="1161" relation="include">
+        </childnode>
+        <childnode refid="1160" relation="include">
+        </childnode>
+        <childnode refid="1165" relation="include">
+        </childnode>
+        <childnode refid="1166" relation="include">
+        </childnode>
+        <childnode refid="1168" relation="include">
+        </childnode>
+      </node>
+      <node id="1136">
+        <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
+        <link refid="CMonsterMaguni_8h"/>
+        <childnode refid="1137" relation="include">
+        </childnode>
+      </node>
+      <node id="1138">
+        <label>CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="1139" relation="include">
+        </childnode>
+        <childnode refid="1140" relation="include">
+        </childnode>
+        <childnode refid="1141" relation="include">
+        </childnode>
+        <childnode refid="1142" relation="include">
+        </childnode>
+        <childnode refid="1143" relation="include">
+        </childnode>
+        <childnode refid="1144" relation="include">
+        </childnode>
+        <childnode refid="1145" relation="include">
+        </childnode>
+        <childnode refid="1151" relation="include">
+        </childnode>
+        <childnode refid="1152" relation="include">
+        </childnode>
+        <childnode refid="1153" relation="include">
+        </childnode>
+        <childnode refid="1154" relation="include">
+        </childnode>
+        <childnode refid="1162" relation="include">
+        </childnode>
+        <childnode refid="1148" relation="include">
+        </childnode>
+        <childnode refid="1163" relation="include">
+        </childnode>
+      </node>
+      <node id="1151">
+        <label>cstdarg</label>
+      </node>
+      <node id="1139">
+        <label>string</label>
+      </node>
+      <node id="1148">
+        <label>minwindef.h</label>
+        <link refid="minwindef_8h_source"/>
+        <childnode refid="1149" relation="include">
+        </childnode>
+        <childnode refid="1150" relation="include">
+        </childnode>
+      </node>
+      <node id="1143">
+        <label>map</label>
+      </node>
+      <node id="1147">
+        <label>synchronized.h</label>
+        <link refid="synchronized_8h_source"/>
+        <childnode refid="1140" relation="include">
+        </childnode>
+      </node>
+      <node id="1160">
+        <label>fstream</label>
+      </node>
+      <node id="1163">
+        <label>common.h</label>
+        <link refid="common_8h_source"/>
+      </node>
+      <node id="1156">
+        <label>sys/types.h</label>
+      </node>
+      <node id="1152">
+        <label>string.h</label>
+      </node>
+      <node id="1153">
+        <label>Protocol/Packet.h</label>
+        <link refid="Packet_8h_source"/>
+        <childnode refid="1148" relation="include">
+        </childnode>
+      </node>
+      <node id="1146">
+        <label>cstdio</label>
+      </node>
+      <node id="1137">
+        <label>../CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="1138" relation="include">
+        </childnode>
+        <childnode refid="1164" relation="include">
+        </childnode>
+      </node>
+      <node id="1144">
+        <label>unistd.h</label>
+      </node>
+      <node id="1161">
+        <label>sstream</label>
+      </node>
+      <node id="1168">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1167" relation="include">
+        </childnode>
+      </node>
+      <node id="1150">
+        <label>time.h</label>
+      </node>
+      <node id="1141">
+        <label>math.h</label>
+      </node>
+      <node id="1166">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1167" relation="include">
+        </childnode>
+      </node>
+      <node id="1165">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1140">
+        <label>mutex</label>
+      </node>
+      <node id="1157">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="1145">
+        <label>access.h</label>
+        <link refid="access_8h_source"/>
+        <childnode refid="1146" relation="include">
+        </childnode>
+        <childnode refid="1147" relation="include">
+        </childnode>
+        <childnode refid="1148" relation="include">
+        </childnode>
+      </node>
+      <node id="1159">
+        <label>stdio.h</label>
+      </node>
+      <node id="1167">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1148" relation="include">
+        </childnode>
+        <childnode refid="1163" relation="include">
+        </childnode>
+      </node>
+      <node id="1149">
+        <label>inttypes.h</label>
+      </node>
+      <node id="1154">
+        <label>Socket/CSocket.h</label>
+        <link refid="CSocket_8h_source"/>
+        <childnode refid="1155" relation="include">
+        </childnode>
+        <childnode refid="1152" relation="include">
+        </childnode>
+        <childnode refid="1156" relation="include">
+        </childnode>
+        <childnode refid="1157" relation="include">
+        </childnode>
+        <childnode refid="1158" relation="include">
+        </childnode>
+        <childnode refid="1159" relation="include">
+        </childnode>
+        <childnode refid="1160" relation="include">
+        </childnode>
+        <childnode refid="1161" relation="include">
+        </childnode>
+        <childnode refid="1153" relation="include">
+        </childnode>
+        <childnode refid="1162" relation="include">
+        </childnode>
+        <childnode refid="1148" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCMonsterMaguni" prot="public">CMonsterMaguni</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CMONSTERMAGUNI_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CMONSTERMAGUNI_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../CMonster.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMonsterMaguni:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CMonster</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>m_dwDeadTime;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>CMonsterMaguni(CMonsterInfo<sp/>*pMacro,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nY)<sp/>:<sp/>CMonster(pMacro,<sp/>nX,<sp/>nY)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Die()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Tick()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/GameCharacter/Monster/CMonsterMaguni.h"/>
+  </compounddef>
+</doxygen>

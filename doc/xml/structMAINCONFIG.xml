@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structMAINCONFIG" kind="struct" language="C++" prot="public">
+    <compoundname>MAINCONFIG</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMAINCONFIG_1a94813369a6883220599abd391f8192dd" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD MAINCONFIG::wDBPort</definition>
+        <argsstring></argsstring>
+        <name>wDBPort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="24" column="1" bodyfile="include/Config/CConfig.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMAINCONFIG_1ae0193a33b4d25a21f68c71ae419da84d" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD MAINCONFIG::wMainPort</definition>
+        <argsstring></argsstring>
+        <name>wMainPort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="25" column="1" bodyfile="include/Config/CConfig.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/Config/CConfig.h" line="23" column="1" bodyfile="include/Config/CConfig.h" bodystart="22" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structMAINCONFIG_1a94813369a6883220599abd391f8192dd" prot="public" virt="non-virtual"><scope>MAINCONFIG</scope><name>wDBPort</name></member>
+      <member refid="structMAINCONFIG_1ae0193a33b4d25a21f68c71ae419da84d" prot="public" virt="non-virtual"><scope>MAINCONFIG</scope><name>wMainPort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,481 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CMonster_8h" kind="file" language="C++">
+    <compoundname>CMonster.h</compoundname>
+    <includes refid="CCharacter_8h" local="yes">CCharacter.h</includes>
+    <includes refid="CMacroDB_8h" local="yes">../Macro/CMacroDB.h</includes>
+    <includedby refid="CPlayer_8h" local="yes">MainServer/GameCharacter/CPlayer.h</includedby>
+    <includedby refid="MainServer_2CServer_8h" local="yes">MainServer/CServer.h</includedby>
+    <includedby refid="CTile_8h" local="yes">MainServer/Map/CTile.h</includedby>
+    <includedby refid="CMonster_8cpp" local="yes">MainServer/GameCharacter/CMonster.cpp</includedby>
+    <includedby refid="CMonsterReal_8h" local="yes">MainServer/GameCharacter/Monster/CMonsterReal.h</includedby>
+    <includedby refid="CMonsterMaguni_8h" local="yes">MainServer/GameCharacter/Monster/CMonsterMaguni.h</includedby>
+    <incdepgraph>
+      <node id="802">
+        <label>list</label>
+      </node>
+      <node id="815">
+        <label>stdarg.h</label>
+      </node>
+      <node id="818">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="822">
+        <label>Protocol/MainProtocol.h</label>
+        <link refid="MainProtocol_8h_source"/>
+      </node>
+      <node id="824">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="803" relation="include">
+        </childnode>
+        <childnode refid="821" relation="include">
+        </childnode>
+        <childnode refid="820" relation="include">
+        </childnode>
+        <childnode refid="825" relation="include">
+        </childnode>
+        <childnode refid="826" relation="include">
+        </childnode>
+        <childnode refid="828" relation="include">
+        </childnode>
+      </node>
+      <node id="798">
+        <label>CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="799" relation="include">
+        </childnode>
+        <childnode refid="800" relation="include">
+        </childnode>
+        <childnode refid="801" relation="include">
+        </childnode>
+        <childnode refid="802" relation="include">
+        </childnode>
+        <childnode refid="803" relation="include">
+        </childnode>
+        <childnode refid="804" relation="include">
+        </childnode>
+        <childnode refid="805" relation="include">
+        </childnode>
+        <childnode refid="811" relation="include">
+        </childnode>
+        <childnode refid="812" relation="include">
+        </childnode>
+        <childnode refid="813" relation="include">
+        </childnode>
+        <childnode refid="814" relation="include">
+        </childnode>
+        <childnode refid="822" relation="include">
+        </childnode>
+        <childnode refid="808" relation="include">
+        </childnode>
+        <childnode refid="823" relation="include">
+        </childnode>
+      </node>
+      <node id="811">
+        <label>cstdarg</label>
+      </node>
+      <node id="799">
+        <label>string</label>
+      </node>
+      <node id="808">
+        <label>minwindef.h</label>
+        <link refid="minwindef_8h_source"/>
+        <childnode refid="809" relation="include">
+        </childnode>
+        <childnode refid="810" relation="include">
+        </childnode>
+      </node>
+      <node id="803">
+        <label>map</label>
+      </node>
+      <node id="807">
+        <label>synchronized.h</label>
+        <link refid="synchronized_8h_source"/>
+        <childnode refid="800" relation="include">
+        </childnode>
+      </node>
+      <node id="820">
+        <label>fstream</label>
+      </node>
+      <node id="823">
+        <label>common.h</label>
+        <link refid="common_8h_source"/>
+      </node>
+      <node id="816">
+        <label>sys/types.h</label>
+      </node>
+      <node id="812">
+        <label>string.h</label>
+      </node>
+      <node id="813">
+        <label>Protocol/Packet.h</label>
+        <link refid="Packet_8h_source"/>
+        <childnode refid="808" relation="include">
+        </childnode>
+      </node>
+      <node id="806">
+        <label>cstdio</label>
+      </node>
+      <node id="797">
+        <label>MainServer/GameCharacter/CMonster.h</label>
+        <link refid="CMonster_8h"/>
+        <childnode refid="798" relation="include">
+        </childnode>
+        <childnode refid="824" relation="include">
+        </childnode>
+      </node>
+      <node id="804">
+        <label>unistd.h</label>
+      </node>
+      <node id="821">
+        <label>sstream</label>
+      </node>
+      <node id="828">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="827" relation="include">
+        </childnode>
+      </node>
+      <node id="810">
+        <label>time.h</label>
+      </node>
+      <node id="801">
+        <label>math.h</label>
+      </node>
+      <node id="826">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="827" relation="include">
+        </childnode>
+      </node>
+      <node id="825">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="800">
+        <label>mutex</label>
+      </node>
+      <node id="817">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="805">
+        <label>access.h</label>
+        <link refid="access_8h_source"/>
+        <childnode refid="806" relation="include">
+        </childnode>
+        <childnode refid="807" relation="include">
+        </childnode>
+        <childnode refid="808" relation="include">
+        </childnode>
+      </node>
+      <node id="819">
+        <label>stdio.h</label>
+      </node>
+      <node id="827">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="808" relation="include">
+        </childnode>
+        <childnode refid="823" relation="include">
+        </childnode>
+      </node>
+      <node id="809">
+        <label>inttypes.h</label>
+      </node>
+      <node id="814">
+        <label>Socket/CSocket.h</label>
+        <link refid="CSocket_8h_source"/>
+        <childnode refid="815" relation="include">
+        </childnode>
+        <childnode refid="812" relation="include">
+        </childnode>
+        <childnode refid="816" relation="include">
+        </childnode>
+        <childnode refid="817" relation="include">
+        </childnode>
+        <childnode refid="818" relation="include">
+        </childnode>
+        <childnode refid="819" relation="include">
+        </childnode>
+        <childnode refid="820" relation="include">
+        </childnode>
+        <childnode refid="821" relation="include">
+        </childnode>
+        <childnode refid="813" relation="include">
+        </childnode>
+        <childnode refid="822" relation="include">
+        </childnode>
+        <childnode refid="808" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="830">
+        <label>MainServer/GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="831" relation="include">
+        </childnode>
+        <childnode refid="835" relation="include">
+        </childnode>
+        <childnode refid="832" relation="include">
+        </childnode>
+        <childnode refid="833" relation="include">
+        </childnode>
+        <childnode refid="836" relation="include">
+        </childnode>
+      </node>
+      <node id="839">
+        <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
+        <link refid="CMonsterMaguni_8h_source"/>
+      </node>
+      <node id="838">
+        <label>MainServer/GameCharacter/Monster/CMonsterReal.h</label>
+        <link refid="CMonsterReal_8h_source"/>
+      </node>
+      <node id="832">
+        <label>MainServer/CClient.h</label>
+        <link refid="CClient_8h_source"/>
+        <childnode refid="831" relation="include">
+        </childnode>
+        <childnode refid="833" relation="include">
+        </childnode>
+      </node>
+      <node id="829">
+        <label>MainServer/GameCharacter/CMonster.h</label>
+        <link refid="CMonster_8h"/>
+        <childnode refid="830" relation="include">
+        </childnode>
+        <childnode refid="833" relation="include">
+        </childnode>
+        <childnode refid="836" relation="include">
+        </childnode>
+        <childnode refid="838" relation="include">
+        </childnode>
+        <childnode refid="839" relation="include">
+        </childnode>
+      </node>
+      <node id="835">
+        <label>MainServer/GameCharacter/CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="830" relation="include">
+        </childnode>
+        <childnode refid="833" relation="include">
+        </childnode>
+      </node>
+      <node id="833">
+        <label>MainServer/CServer.h</label>
+        <link refid="MainServer_2CServer_8h_source"/>
+        <childnode refid="834" relation="include">
+        </childnode>
+      </node>
+      <node id="836">
+        <label>MainServer/Map/CTile.h</label>
+        <link refid="CTile_8h_source"/>
+        <childnode refid="837" relation="include">
+        </childnode>
+      </node>
+      <node id="834">
+        <label>MainServer/Socket/CClientSocket.h</label>
+        <link refid="CClientSocket_8h_source"/>
+      </node>
+      <node id="831">
+        <label>MainServer/Socket/CDBSocket.h</label>
+        <link refid="CDBSocket_8h_source"/>
+        <childnode refid="832" relation="include">
+        </childnode>
+      </node>
+      <node id="837">
+        <label>MainServer/Map/CMap.h</label>
+        <link refid="CMap_8h_source"/>
+        <childnode refid="833" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classCMonster" prot="public">CMonster</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="CMonster_8h_1a5b7eae3edb8b301b111c691bc53249f9" prot="public" static="no">
+        <name>MONSTER_WALK_FREQUENCY</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/CMonster.h" line="8" column="9" bodyfile="MainServer/GameCharacter/CMonster.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="CMonster_8h_1a689452730e78553fb130430444bfc605" prot="public" static="no">
+        <name>MONSTER_WALK_TIME</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/CMonster.h" line="9" column="9" bodyfile="MainServer/GameCharacter/CMonster.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="CMonster_8h_1a604352dcba3c0a6ded78830b5af4bc64" prot="public" static="no">
+        <type>std::map&lt; int, CMonster * &gt;</type>
+        <definition>typedef std::map&lt;int, CMonster*&gt; MonsterMap</definition>
+        <argsstring></argsstring>
+        <name>MonsterMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/CMonster.h" line="124" column="1" bodyfile="MainServer/GameCharacter/CMonster.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="CMonster_8h_1a9d7f3ce9caffb251dfe024b342550664" prot="public" static="no">
+        <type>std::list&lt; CMonster * &gt;</type>
+        <definition>typedef std::list&lt;CMonster*&gt; MonsterList</definition>
+        <argsstring></argsstring>
+        <name>MonsterList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/CMonster.h" line="125" column="1" bodyfile="MainServer/GameCharacter/CMonster.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CMONSTER_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CMONSTER_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CCharacter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Macro/CMacroDB.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MONSTER_WALK_FREQUENCY<sp/>20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MONSTER_WALK_TIME<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CPlayer;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMonster:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CCharacter</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>m_wIndex;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>CMonsterInfo<sp/>*m_pMacro;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>CPlayer*<sp/>m_pTarget;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>m_byAIState;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>m_dwWalkTime;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>m_dwLastWalkStep;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>m_dwLastChaseStep;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>m_dwLastAttackTime;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;int,<sp/>CMonster*&gt;<sp/>g_mMonster;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::mutex<sp/>g_mxMonster;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>CMonster(CMonsterInfo<sp/>*pMacro,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nY);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>~CMonster();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CMonster*<sp/>CreateMonster(WORD<sp/>wIndex,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nY);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CMonster*<sp/>Summon(WORD<sp/>wIndex,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nY);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Add(CMonster<sp/>*pMonster);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Remove(CMonster<sp/>*pMonster);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TickAll();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AIAll();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remember<sp/>to<sp/>call<sp/>m_Access.Release()<sp/>after<sp/>usage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CMonster*<sp/>FindMonster(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nID);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CMonster*<sp/>FindMonsterByIndex(WORD<sp/>wIndex);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/>GenerateCreatePacket(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bHero=</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/>GeneratePetPacket();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/>GenerateDeletePacket();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/>GenerateMovePacket(BYTE<sp/>byType,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byX,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byY,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byZ<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetStr()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wStr<sp/>+<sp/>m_wStrAdd;<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetHth()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wHth<sp/>+<sp/>m_wHthAdd;<sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetInt()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wInt<sp/>+<sp/>m_wIntAdd;<sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetWis()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wWis<sp/>+<sp/>m_wWisAdd;<sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetAgi()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wDex<sp/>+<sp/>m_wDexAdd;<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetHit()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetDodge()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetDefense()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wDefense;<sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>GetAbsorb()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wAbsorb;<sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>GetMaxHP()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetMaxMP()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetMinAttack()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetMaxAttack()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetMinMagic()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetMaxMagic()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetResist(BYTE<sp/>byResist)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//unsure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetIndex()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wIndex;<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>GetRace()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_byRace;<sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>GetLevel()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_byLevel;<sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetRange()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wRange;<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetWalkSpeed()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wWalkSpeed;<sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetRunSpeed()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wRunSpeed;<sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetAttackSpeed()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wAttackSpeed;<sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetCloseSight()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wCloseSight;<sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>GetFarSight()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_wFarSight;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>GetAIS()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_byAIState;<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetAIS(BYTE<sp/>byState)<sp/>{<sp/>m_byAIState<sp/>=<sp/>byState;<sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>new<sp/>target,<sp/>starts<sp/>chasing<sp/>him<sp/>and<sp/>Releases<sp/>access<sp/>of<sp/>last<sp/>target<sp/>if<sp/>was<sp/>any.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetTarget(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>CPlayer*<sp/>GetTarget()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pTarget;<sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Tick();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AI();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Move(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byX,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byY,<sp/>BYTE<sp/>byType);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Attack(CPlayer<sp/>*pTarget);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Chase();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Walk();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Damage(CCharacter<sp/>*pAttacker,<sp/>DWORD&amp;<sp/>dwDamage,<sp/>BYTE&amp;<sp/>byType)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SendPacket(Packet&amp;<sp/>packet)<sp/>{};</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Gets<sp/>closest<sp/>normal<sp/>CPlayer<sp/>and<sp/>Grants<sp/>his<sp/>access.<sp/>(Inix<sp/>CMonster::ScanSight)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>CPlayer*<sp/>GetClosestNormalPlayer();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>MOVE_TYPE</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MT_WALK,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MT_RUN,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>MOVE_TYPEEX</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MTEX_MOVEEND<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>AI_STATE</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_IDLE,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_WALK,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_CHASE,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_FORCEATTACK,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_ATTACK,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_DEAD,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIS_KNEE,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;int,<sp/>CMonster*&gt;<sp/>MonsterMap;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::list&lt;CMonster*&gt;<sp/>MonsterList;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/GameCharacter/CMonster.h"/>
+  </compounddef>
+</doxygen>

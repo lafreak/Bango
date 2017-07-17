@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structPacket" kind="struct" language="C++" prot="public">
+    <compoundname>Packet</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPacket_1a87c72e7d31e0a1a95b2ff3d7e5e300d4" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD Packet::wSize</definition>
+        <argsstring></argsstring>
+        <name>wSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/Packet.h" line="17" column="1" bodyfile="include/Protocol/Packet.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPacket_1a7107cb72625de7dff11eeafdfeffe105" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE Packet::byType</definition>
+        <argsstring></argsstring>
+        <name>byType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/Packet.h" line="18" column="1" bodyfile="include/Protocol/Packet.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPacket_1ac655112e119c550b3df869cd9a21ffce" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char Packet::data[MAX_PACKET_LENGTH]</definition>
+        <argsstring>[MAX_PACKET_LENGTH]</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/Packet.h" line="19" column="1" bodyfile="include/Protocol/Packet.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/Protocol/Packet.h" line="16" column="1" bodyfile="include/Protocol/Packet.h" bodystart="15" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structPacket_1a7107cb72625de7dff11eeafdfeffe105" prot="public" virt="non-virtual"><scope>Packet</scope><name>byType</name></member>
+      <member refid="structPacket_1ac655112e119c550b3df869cd9a21ffce" prot="public" virt="non-virtual"><scope>Packet</scope><name>data</name></member>
+      <member refid="structPacket_1a87c72e7d31e0a1a95b2ff3d7e5e300d4" prot="public" virt="non-virtual"><scope>Packet</scope><name>wSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

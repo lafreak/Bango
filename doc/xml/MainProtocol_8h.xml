@@ -1,0 +1,1304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="MainProtocol_8h" kind="file" language="C++">
+    <compoundname>MainProtocol.h</compoundname>
+    <includedby refid="CMainSocket_8h" local="no">DBServer/Socket/CMainSocket.h</includedby>
+    <includedby refid="CSocket_8h" local="no">include/Socket/CSocket.h</includedby>
+    <includedby refid="CClient_8h" local="no">MainServer/CClient.h</includedby>
+    <includedby refid="CDBSocket_8h" local="no">MainServer/Socket/CDBSocket.h</includedby>
+    <includedby refid="CCharacter_8h" local="no">MainServer/GameCharacter/CCharacter.h</includedby>
+    <includedby refid="CClientSocket_8h" local="no">MainServer/Socket/CClientSocket.h</includedby>
+    <invincdepgraph>
+      <node id="477">
+        <label>MainServer/GameCharacter/CNPC.h</label>
+        <link refid="CNPC_8h_source"/>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+      <node id="470">
+        <label>MainServer/GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+      </node>
+      <node id="462">
+        <label>include/Protocol/MainProtocol.h</label>
+        <link refid="MainProtocol_8h"/>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+      </node>
+      <node id="476">
+        <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
+        <link refid="CMonsterMaguni_8h_source"/>
+      </node>
+      <node id="475">
+        <label>MainServer/GameCharacter/Monster/CMonsterReal.h</label>
+        <link refid="CMonsterReal_8h_source"/>
+      </node>
+      <node id="469">
+        <label>MainServer/GameCharacter/CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="477" relation="include">
+        </childnode>
+      </node>
+      <node id="465">
+        <label>MainServer/CClient.h</label>
+        <link refid="CClient_8h_source"/>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+      </node>
+      <node id="474">
+        <label>MainServer/GameCharacter/CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
+        </childnode>
+        <childnode refid="476" relation="include">
+        </childnode>
+      </node>
+      <node id="471">
+        <label>MainServer/GameCharacter/CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+      </node>
+      <node id="467">
+        <label>MainServer/CServer.h</label>
+        <link refid="MainServer_2CServer_8h_source"/>
+        <childnode refid="468" relation="include">
+        </childnode>
+      </node>
+      <node id="463">
+        <label>DBServer/Socket/CMainSocket.h</label>
+        <link refid="CMainSocket_8h_source"/>
+      </node>
+      <node id="472">
+        <label>MainServer/Map/CTile.h</label>
+        <link refid="CTile_8h_source"/>
+        <childnode refid="473" relation="include">
+        </childnode>
+      </node>
+      <node id="468">
+        <label>MainServer/Socket/CClientSocket.h</label>
+        <link refid="CClientSocket_8h_source"/>
+      </node>
+      <node id="466">
+        <label>MainServer/Socket/CDBSocket.h</label>
+        <link refid="CDBSocket_8h_source"/>
+        <childnode refid="465" relation="include">
+        </childnode>
+      </node>
+      <node id="473">
+        <label>MainServer/Map/CMap.h</label>
+        <link refid="CMap_8h_source"/>
+        <childnode refid="467" relation="include">
+        </childnode>
+      </node>
+      <node id="464">
+        <label>include/Socket/CSocket.h</label>
+        <link refid="CSocket_8h_source"/>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5f" prot="public" static="no">
+        <name>S2C_PROTOCOL</name>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fab04512c23e6ff380558a06160f2f845d" prot="public">
+          <name>S2C_SECOND_LOGIN</name>
+          <initializer>= 37</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faede56dd651a5f7725aaa60e12514f169" prot="public">
+          <name>S2C_ANS_LOGIN</name>
+          <initializer>= 149</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fadebd78fb813473b2a853169802da38eb" prot="public">
+          <name>S2C_CODE</name>
+          <initializer>= 125</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fad73b08d5fbc17306e4c3fc732e734d2d" prot="public">
+          <name>S2C_CLOSE</name>
+          <initializer>= 66</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa6255806fbd3384f2c6e1c4b3af103df3" prot="public">
+          <name>S2C_EVENT_FISHING</name>
+          <initializer>= 80</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa0b9368d79e6d49d55560a689854f69b5" prot="public">
+          <name>S2C_RESULT_CODE</name>
+          <initializer>= 99</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa53d051e53ebea7e7a22dbe7436c915d9" prot="public">
+          <name>S2C_STORAGEINFO</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa6126332a163c4c3ccd601de281f38ad6" prot="public">
+          <name>S2C_GIVEUP_QUEST</name>
+          <initializer>= 18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa57f30cb4cfd19fb403ec9c731af5d3e5" prot="public">
+          <name>S2C_QUESTINFO</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fac4ce164bf0deb8e247e16fe345a40bd4" prot="public">
+          <name>S2C_SHOWOFFITEM</name>
+          <initializer>= 16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faa13f1ce23cc5ae134629abf644e1e837" prot="public">
+          <name>S2C_CLOSETRADE</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fab2de4bcf342cf50c6240ce105bdb5dcb" prot="public">
+          <name>S2C_PLAYERINFO</name>
+          <initializer>= 114</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa402133920a9a101a32a85d9a3f28541d" prot="public">
+          <name>S2C_ANS_LOAD</name>
+          <initializer>= 104</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faadb1e7d167dc495cd086778065ec3e27" prot="public">
+          <name>S2C_ANS_START</name>
+          <initializer>= 21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa9386c78146175a5f66f0ca7ffaaaaf33" prot="public">
+          <name>S2C_ACTION</name>
+          <initializer>= 137</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fab7ead5d8118a66ed87959976ede3e2e5" prot="public">
+          <name>S2C_PLAYER_ANIMATION</name>
+          <initializer>= 168</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fabbef56d64cd28a241a7b356d144ee53b" prot="public">
+          <name>S2C_PROPERTY</name>
+          <initializer>= 145</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa94e1bc4e5cb1770d414f06b7bdc30bf6" prot="public">
+          <name>S2C_CREATEPLAYER</name>
+          <initializer>= 107</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa4d31b14b46f3de6c8127d13659b7cefa" prot="public">
+          <name>S2C_ANS_NEWPLAYER</name>
+          <initializer>= 161</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fabd7bfa7a516079b310c4c91826fce5f3" prot="public">
+          <name>S2C_ANS_RESTART</name>
+          <initializer>= 116</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa0b367307bfecd6986dec7cd75fb3962a" prot="public">
+          <name>S2C_ANS_GAMEEXIT</name>
+          <initializer>= 46</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa729d54640d3f4a0ca5c212e294c70aa9" prot="public">
+          <name>S2C_RIDING</name>
+          <initializer>= 198</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa71fcf5452ca7b3e4093890b6d788b3bc" prot="public">
+          <name>S2C_MESSAGE</name>
+          <initializer>= 146</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa349de250752073492720f4f044a5a66e" prot="public">
+          <name>S2C_SIEGEGUNCONTROL</name>
+          <initializer>= 174</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa55f80be5cb40b0bdaa0fb72b2feacac3" prot="public">
+          <name>S2C_MOVEPLAYER_ON</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa62788c8d0e8508adc44a0c10bb590b30" prot="public">
+          <name>S2C_MOVEPLAYER_END</name>
+          <initializer>= 151</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faef3e555eebb464d40ea90d7d31661784" prot="public">
+          <name>S2C_MOVEDASHPLAYER_ON</name>
+          <initializer>= 118</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fabf9a9e8e81b67806d79d684e4c86e531" prot="public">
+          <name>S2C_MOVEDASHPLAYER_END</name>
+          <initializer>= 171</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa6fb92d95b952300338cb11da7a9a0773" prot="public">
+          <name>S2C_REMOVEMONSTER</name>
+          <initializer>= 119</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa3f9f0c51fc755d8de0096ec199d41fe3" prot="public">
+          <name>S2C_REMOVEPLAYER</name>
+          <initializer>= 135</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5facab3b128c44156c66e6edafe1684cf85" prot="public">
+          <name>S2C_REMOVENPC</name>
+          <initializer>= 155</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa29d2e5084f603bdf2f051c60d1d0537b" prot="public">
+          <name>S2C_MOVEMONSTER_ON</name>
+          <initializer>= 152</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fad29632dac62f4195f817523b4dba77a6" prot="public">
+          <name>S2C_MOVEMONSTER_END</name>
+          <initializer>= 173</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa577697e01dd47f1f0821b9aa38e525a0" prot="public">
+          <name>S2C_CHATTING</name>
+          <initializer>= 109</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faf918beb97b41e667606d33910296f0ae" prot="public">
+          <name>S2C_MOVEBEFORE</name>
+          <initializer>= 139</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fade74e9de0897207d5e763d2c854a6980" prot="public">
+          <name>S2C_UPDATEPROPERTY</name>
+          <initializer>= 79</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faa9e984aa1dd2f60e23b78fa2ce5abfe8" prot="public">
+          <name>S2C_CREATENPC</name>
+          <initializer>= 134</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa3630517f32ba739784b77cd2fc19ac48" prot="public">
+          <name>S2C_TELEPORT</name>
+          <initializer>= 69</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa0eaaf753cd21419e2e83133dd904e498" prot="public">
+          <name>S2C_SENDHTML</name>
+          <initializer>= 47</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa617dbd5d221718ff54ef6f0931b5bcbd" prot="public">
+          <name>S2C_INSERTITEM</name>
+          <initializer>= 133</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa2617fd7d9a16adf6a480743426d11f84" prot="public">
+          <name>S2C_INSERT_SITEM</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa74be8845975db89065eb507fdd19a9a8" prot="public">
+          <name>S2C_UPDATEITEMINFO</name>
+          <initializer>= 157</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa049c74944580d29caefea3b04c38b32f" prot="public">
+          <name>S2C_UPDATEITEMNUM</name>
+          <initializer>= 25</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faabd95581b134e1ebf7ca4eada8a181cb" prot="public">
+          <name>S2C_UDPATE_SITEMNUM</name>
+          <initializer>= 77</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa74d7580488abdc877fbcaf25d32f548e" prot="public">
+          <name>S2C_REMOVEITEM</name>
+          <initializer>= 87</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa09cd7abb539539294aafe626db4c41c7" prot="public">
+          <name>S2C_TRASHITEM</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa656508c995f4732badc7a28e76b0ddd4" prot="public">
+          <name>S2C_ITEMINFO</name>
+          <initializer>= 124</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa03384a6316ff2a627b9cb7f7c4c4e61d" prot="public">
+          <name>S2C_UPDATEITEMEND</name>
+          <initializer>= 89</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fae5bab3ed16e5020f01b41c72ce7843cf" prot="public">
+          <name>S2C_EFFECT</name>
+          <initializer>= 110</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa46062b0e5accd55c285f2db7e8d0975d" prot="public">
+          <name>S2C_PUTONITEM</name>
+          <initializer>= 159</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa0257cdced71d9c44a15d657dd641c13f" prot="public">
+          <name>S2C_PUTOFFITEM</name>
+          <initializer>= 170</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa9754405abf74e3983a19f603e0c9b7fb" prot="public">
+          <name>S2C_ATTACH_PET</name>
+          <initializer>= 35</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa8bf721e68bd40b35e158f10726358a2f" prot="public">
+          <name>S2C_NOTICE</name>
+          <initializer>= 169</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa04ad285cf862262b54b9a7a54ed9cf9c" prot="public">
+          <name>S2C_SHORTCUT</name>
+          <initializer>= 123</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5facdc3ea0915326bf5885564fb6c63afc4" prot="public">
+          <name>S2C_CREATEMONSTER</name>
+          <initializer>= 147</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5faed3eb7a64b01198f933402750cf34fb8" prot="public">
+          <name>S2C_ITEMSHOP</name>
+          <initializer>= 186</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa1c81f2674a8983fd7c7c4b9225e9aaf2" prot="public">
+          <name>S2C_ASKPARTY</name>
+          <initializer>= 162</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa05d43beae7d27f59267ccbe78b6e15ae" prot="public">
+          <name>S2C_PARTYINFO</name>
+          <initializer>= 56</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa30aafed5a0f8ed1b62875c997a7b35fa" prot="public">
+          <name>S2C_UPDATEPARTY</name>
+          <initializer>= 72</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa1552271b953edd2ded9e5e3a88d4ec71" prot="public">
+          <name>S2C_PARTYMEMPOS</name>
+          <initializer>= 132</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa0eae25818e7934afdb40cf52ecc53361" prot="public">
+          <name>S2C_ATTACK</name>
+          <initializer>= 144</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fae431a5d8797c7e1d39a395161bac9ab4" prot="public">
+          <name>S2C_SKILLUP</name>
+          <initializer>= 128</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fadd0e42ac85a906cbd8e9d3e4750b3208" prot="public">
+          <name>S2C_SKILL</name>
+          <initializer>= 120</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa71855a8c926b22f97da64f1bed285db0" prot="public">
+          <name>S2C_EFFECT_EX</name>
+          <initializer>= 76</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a49f97bf1dd7d554a59215b372d713e5fa3b9ad881f6547d947a4e146dd1c12f6a" prot="public">
+          <name>S2C_SKILLINFO</name>
+          <initializer>= 160</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/MainProtocol.h" line="5" column="1" bodyfile="include/Protocol/MainProtocol.h" bodystart="4" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="enum" id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9" prot="public" static="no">
+        <name>C2S_PROTOCOL</name>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a2bf659bdb77a74f2b442f688defef0a7" prot="public">
+          <name>C2S_CONNECT</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a6a50e99717c260c64a148ce95c055619" prot="public">
+          <name>C2S_ANS_CODE</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a532ab7d8850eea5a2543ab74aa548f99" prot="public">
+          <name>C2S_LOGIN</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9afc94cad36b14d2b3382ee3087a9e7b83" prot="public">
+          <name>C2S_SECOND_LOGIN</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a6c7b50d8c60c141458ed1c5f70f0108d" prot="public">
+          <name>C2S_LOADPLAYER</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a62d2aa618deb704a03bf3c498fd74735" prot="public">
+          <name>C2S_DELPLAYER</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9aae97e6ccf1efcdb25e3a4d2ea2fe9a90" prot="public">
+          <name>C2S_NEWPLAYER</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9abbe47acd0b029812c83786bc32a711a0" prot="public">
+          <name>C2S_RESTOREPLAYER</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a27ad9af40360e2a9aaec14fdb1fb604b" prot="public">
+          <name>C2S_START</name>
+          <initializer>= 14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a15631152d3d8b877a8b44989167c40a5" prot="public">
+          <name>C2S_GETSTALLINFO</name>
+          <initializer>= 119</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a8ca39c43b1114f6c4acfcc2f7100619d" prot="public">
+          <name>C2S_RESTART</name>
+          <initializer>= 141</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a213915a4e6be2ec63708e29f68df4e61" prot="public">
+          <name>C2S_GAMEEXIT</name>
+          <initializer>= 56</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a8b80c05335a91c03748db681b5878905" prot="public">
+          <name>C2S_CHATTING</name>
+          <initializer>= 42</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a3686a42377c3d5d96384424ad3945ccf" prot="public">
+          <name>C2S_MOVE_ON</name>
+          <initializer>= 95</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9aa7f6a70f8c1fe868b9124ea8609700dd" prot="public">
+          <name>C2S_MOVE_END</name>
+          <initializer>= 147</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9abaed6ba6f8d0545b8780a3d42611b6f8" prot="public">
+          <name>C2S_REST</name>
+          <initializer>= 49</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a1619f88268b75b6412be26749ddd7d14" prot="public">
+          <name>C2S_SKILL</name>
+          <initializer>= 118</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9aa9b77c56b4582045857edb117e1f20e3" prot="public">
+          <name>C2S_UPDATEPROPERTY</name>
+          <initializer>= 160</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a3ef95bd84f7b110b6a3ad37adf9c5ee7" prot="public">
+          <name>C2S_TELEPORT</name>
+          <initializer>= 122</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a6e5ba9c2b1c60a48bbda2f4c62b8e899" prot="public">
+          <name>C2S_ASKNPC</name>
+          <initializer>= 166</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a599f11d680860b0a35c2d1ed7f046d57" prot="public">
+          <name>C2S_TRASHITEM</name>
+          <initializer>= 98</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a377fc0fd78209ec0224080251aaa3943" prot="public">
+          <name>C2S_USEITEM</name>
+          <initializer>= 65</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a592b4e0a50a8673330bc010ec78f1064" prot="public">
+          <name>C2S_PUTONITEM</name>
+          <initializer>= 101</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9aaa362783ab78010f25bf4642e97bea34" prot="public">
+          <name>C2S_PUTOFFITEM</name>
+          <initializer>= 58</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a541419bec9b8815c61480637e24a905b" prot="public">
+          <name>C2S_PLAYER_ANIMATION</name>
+          <initializer>= 47</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a44a7b799a6aaf023ea2f387d85bdf6d6" prot="public">
+          <name>C2S_SHORTCUT</name>
+          <initializer>= 136</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9ae932e805891795aaa7265a5e81a5aa71" prot="public">
+          <name>C2S_ASKPARTY</name>
+          <initializer>= 91</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9ab3ccad2567e30f4b925ac67a1ceb513f" prot="public">
+          <name>C2S_ANS_ASKPARTY</name>
+          <initializer>= 18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a7c7dff4c32efcc99835bdecfb02a593e" prot="public">
+          <name>C2S_LEAVEPARTY</name>
+          <initializer>= 89</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a5e4f28f128ad424f280bab9dd7a1f93c" prot="public">
+          <name>C2S_EXILEPARTY</name>
+          <initializer>= 171</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a83f218fb789ef4b46f43b0face35da5a" prot="public">
+          <name>C2S_REVIVAL</name>
+          <initializer>= 72</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a19943dd4ece02b8b581093e3fee6b421" prot="public">
+          <name>C2S_ATTACK</name>
+          <initializer>= 17</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ae21857da865616e5a54c938d859a4eb9a00174fc8e01c1f2f6a615f5d2ab6cca2" prot="public">
+          <name>C2S_TARGET</name>
+          <initializer>= 178</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/MainProtocol.h" line="74" column="1" bodyfile="include/Protocol/MainProtocol.h" bodystart="73" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="enum" id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2" prot="public" static="no">
+        <name>S2D_PROTOCOL</name>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2adc4fee5b0c981249d7d79c724dbafb50" prot="public">
+          <name>S2D_LOGIN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2aaafd10ced329768d7c9074de1045efaf" prot="public">
+          <name>S2D_CREATE_SECONDARY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2aca47a7024a6d20977082d94d8e21143c" prot="public">
+          <name>S2D_CHANGE_SECONDARY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a6bab0fcd811a1a167f3f7f109253d2d0" prot="public">
+          <name>S2D_SECONDARY_LOGIN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a990549037177e27d6c8edb9980e35f42" prot="public">
+          <name>S2D_DISCONNECT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2ab128d6e6dd12e1b321fb0bbcc2d60c1f" prot="public">
+          <name>S2D_DELPLAYER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2acd90e789a67ac83429090e940492b03e" prot="public">
+          <name>S2D_NEWPLAYER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2ac80663cc9f2012d9245275dccb9e49c3" prot="public">
+          <name>S2D_LOADPLAYER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a8bdbe5b1e795841d4ff48de6aaa2f4f1" prot="public">
+          <name>S2D_SELECT_CHARACTER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a3cd86bb280cda91102c5cf3c7004997b" prot="public">
+          <name>S2D_UPDATEPROPERTY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2af5c3c01c2a0725652a3f744ab5753054" prot="public">
+          <name>S2D_MAX_IID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2adc24f80ceaf85990e684ec1c86cf9567" prot="public">
+          <name>S2D_INSERTITEM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a8e7f09c7e61f3b6cccc66a37a9cb0a7d" prot="public">
+          <name>S2D_UPDATEITEMNUM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a09adad10596af476aceadd5a96ad44f2" prot="public">
+          <name>S2D_SAVEALLPROPERTY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2a75b1e267a72dc28b851a49c713814d94" prot="public">
+          <name>S2D_REMOVEITEM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2ad8dc597c13760d2701eac98d220c7cbe" prot="public">
+          <name>S2D_PUTONITEM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2afff76e16014063b997231786f452a80b" prot="public">
+          <name>S2D_PUTOFFITEM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1a490457dc86189ecae07a0424c04930b2afbca3d8114a8a8f670332b4bae0a49f9" prot="public">
+          <name>S2D_SHORTCUT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/MainProtocol.h" line="112" column="1" bodyfile="include/Protocol/MainProtocol.h" bodystart="111" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="enum" id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444" prot="public" static="no">
+        <name>D2S_PROTOCOL</name>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444af7e1c68b1285467250ff3ed6a5979e31" prot="public">
+          <name>D2S_LOGIN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444af93f9e56fc0d93d4e318122a6bf1dd2f" prot="public">
+          <name>D2S_SEC_LOGIN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444ab78f51b3612be107151ba2de1cb172be" prot="public">
+          <name>D2S_PLAYER_INFO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444ac87f2079f287c36d4369b171fd821bf5" prot="public">
+          <name>D2S_ANS_NEWPLAYER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444a2bbe0ae2638a1106d519292168605299" prot="public">
+          <name>D2S_LOADPLAYER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444afba8806be790eb9b59b3f3f9e56a0d3e" prot="public">
+          <name>D2S_MAX_IID</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444a15af0a70ce41bb25bd47b98f784860fa" prot="public">
+          <name>D2S_LOADITEMS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="MainProtocol_8h_1ac88fc7f40af0c33e88d14fb9988ea444a4c960d29774ddc62553d5a0b5564709c" prot="public">
+          <name>D2S_SHORTCUT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Protocol/MainProtocol.h" line="137" column="1" bodyfile="include/Protocol/MainProtocol.h" bodystart="136" bodyend="146"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_MAINPROTOCOL_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_MAINPROTOCOL_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>S2C_PROTOCOL</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SECOND_LOGIN<sp/>=<sp/>37,</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ANS_LOGIN<sp/>=<sp/>149,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CODE<sp/>=<sp/>125,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CLOSE<sp/>=<sp/>66,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_EVENT_FISHING<sp/>=<sp/>80,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_RESULT_CODE<sp/>=<sp/>99,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_STORAGEINFO<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_GIVEUP_QUEST<sp/>=<sp/>18,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_QUESTINFO<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SHOWOFFITEM<sp/>=<sp/>16,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CLOSETRADE<sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PLAYERINFO<sp/>=<sp/>114,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ANS_LOAD<sp/>=<sp/>104,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ANS_START<sp/>=<sp/>21,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ACTION<sp/>=<sp/>137,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PLAYER_ANIMATION<sp/>=<sp/>168,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PROPERTY<sp/>=<sp/>145,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CREATEPLAYER<sp/>=<sp/>107,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ANS_NEWPLAYER<sp/>=<sp/>161,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ANS_RESTART<sp/>=<sp/>116,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ANS_GAMEEXIT<sp/>=<sp/>46,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_RIDING<sp/>=<sp/>198,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MESSAGE<sp/>=<sp/>146,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SIEGEGUNCONTROL<sp/>=<sp/>174,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEPLAYER_ON<sp/>=<sp/>15,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEPLAYER_END<sp/>=<sp/>151,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEDASHPLAYER_ON<sp/>=<sp/>118,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEDASHPLAYER_END<sp/>=<sp/>171,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_REMOVEMONSTER<sp/>=<sp/>119,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_REMOVEPLAYER<sp/>=<sp/>135,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_REMOVENPC<sp/>=<sp/>155,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEMONSTER_ON<sp/>=<sp/>152,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEMONSTER_END<sp/>=<sp/>173,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CHATTING<sp/>=<sp/>109,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_MOVEBEFORE<sp/>=<sp/>139,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_UPDATEPROPERTY<sp/>=<sp/>79,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CREATENPC<sp/>=<sp/>134,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_TELEPORT<sp/>=<sp/>69,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SENDHTML<sp/>=<sp/>47,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_INSERTITEM<sp/>=<sp/>133,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_INSERT_SITEM<sp/>=<sp/>10,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_UPDATEITEMINFO<sp/>=<sp/>157,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_UPDATEITEMNUM<sp/>=<sp/>25,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_UDPATE_SITEMNUM<sp/>=<sp/>77,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_REMOVEITEM<sp/>=<sp/>87,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_TRASHITEM<sp/>=<sp/>7,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ITEMINFO<sp/>=<sp/>124,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_UPDATEITEMEND<sp/>=<sp/>89,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_EFFECT<sp/>=<sp/>110,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PUTONITEM<sp/>=<sp/>159,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PUTOFFITEM<sp/>=<sp/>170,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ATTACH_PET<sp/>=<sp/>35,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_NOTICE<sp/>=<sp/>169,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SHORTCUT<sp/>=<sp/>123,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_CREATEMONSTER<sp/>=<sp/>147,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ITEMSHOP<sp/>=<sp/>186,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ASKPARTY<sp/>=<sp/>162,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PARTYINFO<sp/>=<sp/>56,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_UPDATEPARTY<sp/>=<sp/>72,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_PARTYMEMPOS<sp/>=<sp/>132,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_ATTACK<sp/>=<sp/>144,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SKILLUP<sp/>=<sp/>128,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SKILL<sp/>=<sp/>120,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_EFFECT_EX<sp/>=<sp/>76,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>S2C_SKILLINFO<sp/>=<sp/>160</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>C2S_PROTOCOL</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_CONNECT<sp/>=<sp/>9,</highlight><highlight class="comment">//8,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_ANS_CODE<sp/>=<sp/>4,</highlight><highlight class="comment">//3,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_LOGIN<sp/>=<sp/>8,</highlight><highlight class="comment">//7,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_SECOND_LOGIN<sp/>=<sp/>10,</highlight><highlight class="comment">//9,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_LOADPLAYER<sp/>=<sp/>5,</highlight><highlight class="comment">//4,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_DELPLAYER<sp/>=<sp/>3,</highlight><highlight class="comment">//2,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_NEWPLAYER<sp/>=<sp/>6,</highlight><highlight class="comment">//5,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_RESTOREPLAYER<sp/>=<sp/>7,</highlight><highlight class="comment">//6,</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_START<sp/>=<sp/>14,</highlight><highlight class="comment">//13,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_GETSTALLINFO<sp/>=<sp/>119,</highlight><highlight class="comment">//118,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_RESTART<sp/>=<sp/>141,</highlight><highlight class="comment">//140,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_GAMEEXIT<sp/>=<sp/>56,</highlight><highlight class="comment">//55,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_CHATTING<sp/>=<sp/>42,</highlight><highlight class="comment">//41,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_MOVE_ON<sp/>=<sp/>95,</highlight><highlight class="comment">//94,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_MOVE_END<sp/>=<sp/>147,</highlight><highlight class="comment">//146,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_REST<sp/>=<sp/>49,</highlight><highlight class="comment">//48,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_SKILL<sp/>=<sp/>118,</highlight><highlight class="comment">//117,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_UPDATEPROPERTY<sp/>=<sp/>160,</highlight><highlight class="comment">//159,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_TELEPORT<sp/>=<sp/>122,</highlight><highlight class="comment">//121,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_ASKNPC<sp/>=<sp/>166,</highlight><highlight class="comment">//165,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_TRASHITEM<sp/>=<sp/>98,</highlight><highlight class="comment">//97,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_USEITEM<sp/>=<sp/>65,</highlight><highlight class="comment">//64,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_PUTONITEM<sp/>=<sp/>101,</highlight><highlight class="comment">//100,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_PUTOFFITEM<sp/>=<sp/>58,</highlight><highlight class="comment">//57,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_PLAYER_ANIMATION<sp/>=<sp/>47,</highlight><highlight class="comment">//46,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_SHORTCUT<sp/>=<sp/>136,</highlight><highlight class="comment">//135,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_ASKPARTY<sp/>=<sp/>91,</highlight><highlight class="comment">//90,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_ANS_ASKPARTY<sp/>=<sp/>18,</highlight><highlight class="comment">//17,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_LEAVEPARTY<sp/>=<sp/>89,</highlight><highlight class="comment">//88</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_EXILEPARTY<sp/>=<sp/>171,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_REVIVAL<sp/>=<sp/>72,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_ATTACK<sp/>=<sp/>17,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>C2S_TARGET<sp/>=<sp/>178<sp/></highlight><highlight class="comment">//?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>S2D_PROTOCOL</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Account<sp/>Packets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_LOGIN,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_CREATE_SECONDARY,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_CHANGE_SECONDARY,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_SECONDARY_LOGIN,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_DISCONNECT,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_DELPLAYER,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_NEWPLAYER,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_LOADPLAYER,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_SELECT_CHARACTER,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Non-account<sp/>packets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_UPDATEPROPERTY,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_MAX_IID,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_INSERTITEM,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_UPDATEITEMNUM,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_SAVEALLPROPERTY,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_REMOVEITEM,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_PUTONITEM,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_PUTOFFITEM,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>S2D_SHORTCUT,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>D2S_PROTOCOL</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_LOGIN,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_SEC_LOGIN,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_PLAYER_INFO,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_ANS_NEWPLAYER,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_LOADPLAYER,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_MAX_IID,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_LOADITEMS,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>D2S_SHORTCUT,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/Protocol/MainProtocol.h"/>
+  </compounddef>
+</doxygen>

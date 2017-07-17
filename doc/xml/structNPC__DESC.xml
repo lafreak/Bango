@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structNPC__DESC" kind="struct" language="C++" prot="public">
+    <compoundname>NPC_DESC</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structNPC__DESC_1af2a704d6f96f5cd1326f9caf403feba8" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD NPC_DESC::wIndex</definition>
+        <argsstring></argsstring>
+        <name>wIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="119" column="1" bodyfile="include/common.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1a244d7b6d29ad62024feffd1312111e99" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nShape</definition>
+        <argsstring></argsstring>
+        <name>nShape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="120" column="1" bodyfile="include/common.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1af962ddd183f00637ce35f2ac98315458" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nHtml</definition>
+        <argsstring></argsstring>
+        <name>nHtml</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="121" column="1" bodyfile="include/common.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1adfdae8ea283a0eca566edb8784c08587" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nX</definition>
+        <argsstring></argsstring>
+        <name>nX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="122" column="1" bodyfile="include/common.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1af3a15930b8a3c7fed9783a31a7a6700b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nY</definition>
+        <argsstring></argsstring>
+        <name>nY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="122" column="1" bodyfile="include/common.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1a9da27e6a09ba54db162624e3ce0d353f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nZ</definition>
+        <argsstring></argsstring>
+        <name>nZ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="122" column="1" bodyfile="include/common.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1aab2569cf87e1bd914ea3c5fc24a86594" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nDirX</definition>
+        <argsstring></argsstring>
+        <name>nDirX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="123" column="1" bodyfile="include/common.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNPC__DESC_1ae6987b469676744835f3257a88fb98c1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NPC_DESC::nDirY</definition>
+        <argsstring></argsstring>
+        <name>nDirY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="123" column="1" bodyfile="include/common.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/common.h" line="118" column="1" bodyfile="include/common.h" bodystart="117" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structNPC__DESC_1aab2569cf87e1bd914ea3c5fc24a86594" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nDirX</name></member>
+      <member refid="structNPC__DESC_1ae6987b469676744835f3257a88fb98c1" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nDirY</name></member>
+      <member refid="structNPC__DESC_1af962ddd183f00637ce35f2ac98315458" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nHtml</name></member>
+      <member refid="structNPC__DESC_1a244d7b6d29ad62024feffd1312111e99" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nShape</name></member>
+      <member refid="structNPC__DESC_1adfdae8ea283a0eca566edb8784c08587" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nX</name></member>
+      <member refid="structNPC__DESC_1af3a15930b8a3c7fed9783a31a7a6700b" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nY</name></member>
+      <member refid="structNPC__DESC_1a9da27e6a09ba54db162624e3ce0d353f" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>nZ</name></member>
+      <member refid="structNPC__DESC_1af2a704d6f96f5cd1326f9caf403feba8" prot="public" virt="non-virtual"><scope>NPC_DESC</scope><name>wIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

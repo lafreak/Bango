@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_e25d6e90754e973d5bd4d424e75e7344" kind="dir">
+    <compoundname>MainServer/Item</compoundname>
+    <innerfile refid="CItem_8cpp">CItem.cpp</innerfile>
+    <innerfile refid="CItem_8h">CItem.h</innerfile>
+    <innerfile refid="CItemDefense_8cpp">CItemDefense.cpp</innerfile>
+    <innerfile refid="CItemDefense_8h">CItemDefense.h</innerfile>
+    <innerfile refid="CItemGeneral_8cpp">CItemGeneral.cpp</innerfile>
+    <innerfile refid="CItemGeneral_8h">CItemGeneral.h</innerfile>
+    <innerfile refid="CItemOrnament_8cpp">CItemOrnament.cpp</innerfile>
+    <innerfile refid="CItemOrnament_8h">CItemOrnament.h</innerfile>
+    <innerfile refid="CItemPet_8cpp">CItemPet.cpp</innerfile>
+    <innerfile refid="CItemPet_8h">CItemPet.h</innerfile>
+    <innerfile refid="CItemRide_8cpp">CItemRide.cpp</innerfile>
+    <innerfile refid="CItemRide_8h">CItemRide.h</innerfile>
+    <innerfile refid="CItemTransform_8cpp">CItemTransform.cpp</innerfile>
+    <innerfile refid="CItemTransform_8h">CItemTransform.h</innerfile>
+    <innerfile refid="CItemWeapon_8cpp">CItemWeapon.cpp</innerfile>
+    <innerfile refid="CItemWeapon_8h">CItemWeapon.h</innerfile>
+    <innerfile refid="CItemYinyang_8cpp">CItemYinyang.cpp</innerfile>
+    <innerfile refid="CItemYinyang_8h">CItemYinyang.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Item/"/>
+  </compounddef>
+</doxygen>

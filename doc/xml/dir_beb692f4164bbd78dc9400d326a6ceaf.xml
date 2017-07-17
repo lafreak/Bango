@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_beb692f4164bbd78dc9400d326a6ceaf" kind="dir">
+    <compoundname>MainServer/GameCharacter</compoundname>
+    <innerdir refid="dir_b32a857cb35a3a5ed143c5750aa7326b">MainServer/GameCharacter/Monster</innerdir>
+    <innerfile refid="CCharacter_8cpp">CCharacter.cpp</innerfile>
+    <innerfile refid="CCharacter_8h">CCharacter.h</innerfile>
+    <innerfile refid="CMonster_8cpp">CMonster.cpp</innerfile>
+    <innerfile refid="CMonster_8h">CMonster.h</innerfile>
+    <innerfile refid="CNPC_8cpp">CNPC.cpp</innerfile>
+    <innerfile refid="CNPC_8h">CNPC.h</innerfile>
+    <innerfile refid="CParty_8cpp">CParty.cpp</innerfile>
+    <innerfile refid="CParty_8h">CParty.h</innerfile>
+    <innerfile refid="CPlayer_8cpp">CPlayer.cpp</innerfile>
+    <innerfile refid="CPlayer_8h">CPlayer.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/GameCharacter/"/>
+  </compounddef>
+</doxygen>

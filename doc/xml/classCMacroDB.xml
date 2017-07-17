@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCMacroDB" kind="class" language="C++" prot="public">
+    <compoundname>CMacroDB</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classCMacroDB_1a39835fc4a515db65b47dc524aba41073" prot="private" static="yes" mutable="no">
+        <type>std::map&lt; DWORD, CMacro * &gt;</type>
+        <definition>MacroMap CMacroDB::g_mMacro</definition>
+        <argsstring></argsstring>
+        <name>g_mMacro</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="17" column="1" bodyfile="MainServer/Macro/CMacroDB.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCMacroDB_1a1cfeec5fe71e9ca62f0aa0328c2a8b9a" prot="private" static="yes" mutable="no">
+        <type>std::map&lt; std::string, int &gt;</type>
+        <definition>KeyMap CMacroDB::g_mKey</definition>
+        <argsstring></argsstring>
+        <name>g_mKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="18" column="1" bodyfile="MainServer/Macro/CMacroDB.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classCMacroDB_1ac8a9876db7ea2099b38fc70a57d01abb" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CMacroDB::LoadInitItem</definition>
+        <argsstring>()</argsstring>
+        <name>LoadInitItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="20" column="1" bodyfile="MainServer/Macro/CMacroDB.cpp" bodystart="84" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMacroDB_1a453b840d6122afa51f9124ec55483379" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CMacroDB::LoadInitMonster</definition>
+        <argsstring>()</argsstring>
+        <name>LoadInitMonster</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="21" column="1" bodyfile="MainServer/Macro/CMacroDB.cpp" bodystart="182" bodyend="261"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classCMacroDB_1ac6b6637d1249e02767110315be94a3d9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CMacroDB::Initialize</definition>
+        <argsstring>()</argsstring>
+        <name>Initialize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="27" column="1" bodyfile="MainServer/Macro/CMacroDB.cpp" bodystart="71" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMacroDB_1a6c3c954ee2e19439c27c5896ea92713a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CMacroDB::UnloadInitItem</definition>
+        <argsstring>()</argsstring>
+        <name>UnloadInitItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="29" column="1" bodyfile="MainServer/Macro/CMacroDB.cpp" bodystart="263" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMacroDB_1aec2c6cf84fc8e9551c7e65506c010120" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void CMacroDB::UnloadInitMonster</definition>
+        <argsstring>()</argsstring>
+        <name>UnloadInitMonster</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMacroDB_1a1a670f4dcf519f7de4dc04e0b762f76b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CMacro *</type>
+        <definition>CMacro * CMacroDB::FindMacro</definition>
+        <argsstring>(WORD wType, WORD wIndex)</argsstring>
+        <name>FindMacro</name>
+        <param>
+          <type>WORD</type>
+          <declname>wType</declname>
+        </param>
+        <param>
+          <type>WORD</type>
+          <declname>wIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="32" column="1" bodyfile="MainServer/Macro/CMacroDB.cpp" bodystart="271" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMacroDB_1af60e76fa6aa8459cb1a443f25934a5e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CMacroDB::FindKey</definition>
+        <argsstring>(const char *szKey)</argsstring>
+        <name>FindKey</name>
+        <param>
+          <type>const char *</type>
+          <declname>szKey</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CMacroDB.h" line="33" column="1" bodyfile="MainServer/Macro/CMacroDB.cpp" bodystart="282" bodyend="292"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Macro/CMacroDB.h" line="15" column="1" bodyfile="MainServer/Macro/CMacroDB.h" bodystart="14" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classCMacroDB_1af60e76fa6aa8459cb1a443f25934a5e4" prot="public" virt="non-virtual"><scope>CMacroDB</scope><name>FindKey</name></member>
+      <member refid="classCMacroDB_1a1a670f4dcf519f7de4dc04e0b762f76b" prot="public" virt="non-virtual"><scope>CMacroDB</scope><name>FindMacro</name></member>
+      <member refid="classCMacroDB_1a1cfeec5fe71e9ca62f0aa0328c2a8b9a" prot="private" virt="non-virtual"><scope>CMacroDB</scope><name>g_mKey</name></member>
+      <member refid="classCMacroDB_1a39835fc4a515db65b47dc524aba41073" prot="private" virt="non-virtual"><scope>CMacroDB</scope><name>g_mMacro</name></member>
+      <member refid="classCMacroDB_1ac6b6637d1249e02767110315be94a3d9" prot="public" virt="non-virtual"><scope>CMacroDB</scope><name>Initialize</name></member>
+      <member refid="classCMacroDB_1ac8a9876db7ea2099b38fc70a57d01abb" prot="private" virt="non-virtual"><scope>CMacroDB</scope><name>LoadInitItem</name></member>
+      <member refid="classCMacroDB_1a453b840d6122afa51f9124ec55483379" prot="private" virt="non-virtual"><scope>CMacroDB</scope><name>LoadInitMonster</name></member>
+      <member refid="classCMacroDB_1a6c3c954ee2e19439c27c5896ea92713a" prot="public" virt="non-virtual"><scope>CMacroDB</scope><name>UnloadInitItem</name></member>
+      <member refid="classCMacroDB_1aec2c6cf84fc8e9551c7e65506c010120" prot="public" virt="non-virtual"><scope>CMacroDB</scope><name>UnloadInitMonster</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

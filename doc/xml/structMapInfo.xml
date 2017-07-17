@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structMapInfo" kind="struct" language="C++" prot="public">
+    <compoundname>MapInfo</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMapInfo_1ad09be2746b03c866a544869de5c90248" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD MapInfo::wTileX</definition>
+        <argsstring></argsstring>
+        <name>wTileX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="11" column="1" bodyfile="MainServer/Map/CMap.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD MapInfo::wTileY</definition>
+        <argsstring></argsstring>
+        <name>wTileY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="11" column="1" bodyfile="MainServer/Map/CMap.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD MapInfo::wOffsetX</definition>
+        <argsstring></argsstring>
+        <name>wOffsetX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="12" column="1" bodyfile="MainServer/Map/CMap.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD MapInfo::wOffsetY</definition>
+        <argsstring></argsstring>
+        <name>wOffsetY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="12" column="1" bodyfile="MainServer/Map/CMap.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structMapInfo_1af521faa869e28cf4084e13ed0d50478b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MapInfo::equalTile</definition>
+        <argsstring>(MapInfo &amp;mapInfo)</argsstring>
+        <name>equalTile</name>
+        <param>
+          <type>MapInfo &amp;</type>
+          <declname>mapInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="14" column="1" bodyfile="MainServer/Map/CMap.h" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Map/CMap.h" line="10" column="1" bodyfile="MainServer/Map/CMap.h" bodystart="9" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structMapInfo_1af521faa869e28cf4084e13ed0d50478b" prot="public" virt="non-virtual"><scope>MapInfo</scope><name>equalTile</name></member>
+      <member refid="structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b" prot="public" virt="non-virtual"><scope>MapInfo</scope><name>wOffsetX</name></member>
+      <member refid="structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d" prot="public" virt="non-virtual"><scope>MapInfo</scope><name>wOffsetY</name></member>
+      <member refid="structMapInfo_1ad09be2746b03c866a544869de5c90248" prot="public" virt="non-virtual"><scope>MapInfo</scope><name>wTileX</name></member>
+      <member refid="structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a" prot="public" virt="non-virtual"><scope>MapInfo</scope><name>wTileY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

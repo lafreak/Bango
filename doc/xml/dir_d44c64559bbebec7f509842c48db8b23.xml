@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>include</compoundname>
+    <innerdir refid="dir_4c66d8320edae8ac4eb532c864452e83">include/Config</innerdir>
+    <innerdir refid="dir_b3c921c3c50aaf411b1607d1d32cd791">include/Protocol</innerdir>
+    <innerdir refid="dir_a9a91babc2c0f2e776b5abe98790f16d">include/Socket</innerdir>
+    <innerfile refid="access_8h">access.h</innerfile>
+    <innerfile refid="common_8h">common.h</innerfile>
+    <innerfile refid="minwindef_8h">minwindef.h</innerfile>
+    <innerfile refid="synchronized_8h">synchronized.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classDocument" kind="class" language="C++" prot="public">
+    <compoundname>Document</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classDocument_1a57bb6fc29903cea690e6fb2085271f51" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* Document::raw</definition>
+        <argsstring></argsstring>
+        <name>raw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="30" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDocument_1ab5c00ec09df813b99b28a59441494035" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long Document::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="31" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDocument_1a55ee8ff781ba6aef5f9ea6825037789e" prot="public" static="no" mutable="no">
+        <type>Node *</type>
+        <definition>Node* Document::root</definition>
+        <argsstring></argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="32" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDocument_1acdbcbe550084e8c20f4f67eb229ad66a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Document::Document</definition>
+        <argsstring>()</argsstring>
+        <name>Document</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="34" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="34" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1ac2e3f62307dc22baac21ddc10fa1609c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Document::~Document</definition>
+        <argsstring>()</argsstring>
+        <name>~Document</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="40" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="40" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1a7dfe9562bbc84c889bfe1a2ba0559074" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Document::LoadFile</definition>
+        <argsstring>(const char *fileName)</argsstring>
+        <name>LoadFile</name>
+        <param>
+          <type>const char *</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="47" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="47" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1a15981b065698e3d77cf45ae4054d3f46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Document::Parse</definition>
+        <argsstring>(Node *n)</argsstring>
+        <name>Parse</name>
+        <param>
+          <type>Node *</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="113" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="113" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1ad7eccce30f197af91d0bca48d22f2676" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Document::Parse</definition>
+        <argsstring>()</argsstring>
+        <name>Parse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="146" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="146" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1a45e41edcfd400faf51a5a67d34c6cde7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Document::InitNPCToXML</definition>
+        <argsstring>(const char *outputPath)</argsstring>
+        <name>InitNPCToXML</name>
+        <param>
+          <type>const char *</type>
+          <declname>outputPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="179" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="179" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1a96be314dbc6189cc40ad507c19a52462" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Document::InitItemToXML</definition>
+        <argsstring>(const char *outputPath)</argsstring>
+        <name>InitItemToXML</name>
+        <param>
+          <type>const char *</type>
+          <declname>outputPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="261" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="261" bodyend="523"/>
+      </memberdef>
+      <memberdef kind="function" id="classDocument_1a9afae6bf0d257657500dbdcaf16d1011" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Document::InitMonsterToXML</definition>
+        <argsstring>(const char *outputPath)</argsstring>
+        <name>InitMonsterToXML</name>
+        <param>
+          <type>const char *</type>
+          <declname>outputPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="525" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="525" bodyend="711"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="28" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="27" bodyend="712"/>
+    <listofallmembers>
+      <member refid="classDocument_1acdbcbe550084e8c20f4f67eb229ad66a" prot="public" virt="non-virtual"><scope>Document</scope><name>Document</name></member>
+      <member refid="classDocument_1a96be314dbc6189cc40ad507c19a52462" prot="public" virt="non-virtual"><scope>Document</scope><name>InitItemToXML</name></member>
+      <member refid="classDocument_1a9afae6bf0d257657500dbdcaf16d1011" prot="public" virt="non-virtual"><scope>Document</scope><name>InitMonsterToXML</name></member>
+      <member refid="classDocument_1a45e41edcfd400faf51a5a67d34c6cde7" prot="public" virt="non-virtual"><scope>Document</scope><name>InitNPCToXML</name></member>
+      <member refid="classDocument_1ab5c00ec09df813b99b28a59441494035" prot="public" virt="non-virtual"><scope>Document</scope><name>length</name></member>
+      <member refid="classDocument_1a7dfe9562bbc84c889bfe1a2ba0559074" prot="public" virt="non-virtual"><scope>Document</scope><name>LoadFile</name></member>
+      <member refid="classDocument_1a15981b065698e3d77cf45ae4054d3f46" prot="public" virt="non-virtual"><scope>Document</scope><name>Parse</name></member>
+      <member refid="classDocument_1ad7eccce30f197af91d0bca48d22f2676" prot="public" virt="non-virtual"><scope>Document</scope><name>Parse</name></member>
+      <member refid="classDocument_1a57bb6fc29903cea690e6fb2085271f51" prot="public" virt="non-virtual"><scope>Document</scope><name>raw</name></member>
+      <member refid="classDocument_1a55ee8ff781ba6aef5f9ea6825037789e" prot="public" virt="non-virtual"><scope>Document</scope><name>root</name></member>
+      <member refid="classDocument_1ac2e3f62307dc22baac21ddc10fa1609c" prot="public" virt="non-virtual"><scope>Document</scope><name>~Document</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

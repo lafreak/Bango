@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structDBCONFIG" kind="struct" language="C++" prot="public">
+    <compoundname>DBCONFIG</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structDBCONFIG_1a32a0af7cd907e209254e0de969dd7758" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DBCONFIG::szHostname</definition>
+        <argsstring></argsstring>
+        <name>szHostname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="14" column="1" bodyfile="include/Config/CConfig.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDBCONFIG_1ad63aa445339b740de7488b202967899c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DBCONFIG::szPort</definition>
+        <argsstring></argsstring>
+        <name>szPort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="15" column="1" bodyfile="include/Config/CConfig.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDBCONFIG_1a6334a2b54d28dc7e742f8510c3b209cc" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DBCONFIG::szUser</definition>
+        <argsstring></argsstring>
+        <name>szUser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="16" column="1" bodyfile="include/Config/CConfig.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDBCONFIG_1a23d33f6348660a2aa291a46f28983b7a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DBCONFIG::szPassword</definition>
+        <argsstring></argsstring>
+        <name>szPassword</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="17" column="1" bodyfile="include/Config/CConfig.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDBCONFIG_1addcd5382c1b2c31cbd0f43b48154c161" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DBCONFIG::szSchema</definition>
+        <argsstring></argsstring>
+        <name>szSchema</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="18" column="1" bodyfile="include/Config/CConfig.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDBCONFIG_1a4076b3dd0cb774dfec562e5390b7f1ee" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD DBCONFIG::wListenPort</definition>
+        <argsstring></argsstring>
+        <name>wListenPort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Config/CConfig.h" line="19" column="1" bodyfile="include/Config/CConfig.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/Config/CConfig.h" line="13" column="1" bodyfile="include/Config/CConfig.h" bodystart="12" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structDBCONFIG_1a32a0af7cd907e209254e0de969dd7758" prot="public" virt="non-virtual"><scope>DBCONFIG</scope><name>szHostname</name></member>
+      <member refid="structDBCONFIG_1a23d33f6348660a2aa291a46f28983b7a" prot="public" virt="non-virtual"><scope>DBCONFIG</scope><name>szPassword</name></member>
+      <member refid="structDBCONFIG_1ad63aa445339b740de7488b202967899c" prot="public" virt="non-virtual"><scope>DBCONFIG</scope><name>szPort</name></member>
+      <member refid="structDBCONFIG_1addcd5382c1b2c31cbd0f43b48154c161" prot="public" virt="non-virtual"><scope>DBCONFIG</scope><name>szSchema</name></member>
+      <member refid="structDBCONFIG_1a6334a2b54d28dc7e742f8510c3b209cc" prot="public" virt="non-virtual"><scope>DBCONFIG</scope><name>szUser</name></member>
+      <member refid="structDBCONFIG_1a4076b3dd0cb774dfec562e5390b7f1ee" prot="public" virt="non-virtual"><scope>DBCONFIG</scope><name>wListenPort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

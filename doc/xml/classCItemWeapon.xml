@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCItemWeapon" kind="class" language="C++" prot="public">
+    <compoundname>CItemWeapon</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CItem</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CItemWeapon::CItemWeapon</definition>
+        <argsstring>(ITEMINFO_DESC &amp;desc, CItemInfo *pMacro)</argsstring>
+        <name>CItemWeapon</name>
+        <param>
+          <type>ITEMINFO_DESC &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>CItemInfo *</type>
+          <declname>pMacro</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Item/CItemWeapon.h" line="9" column="1" bodyfile="MainServer/Item/CItemWeapon.cpp" bodystart="7" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classCItemWeapon_1a94194adc4794ea181c21d9f56215af73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CItemWeapon::PutOn</definition>
+        <argsstring>(CPlayer *pPlayer)</argsstring>
+        <name>PutOn</name>
+        <param>
+          <type>CPlayer *</type>
+          <declname>pPlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Item/CItemWeapon.h" line="11" column="1" bodyfile="MainServer/Item/CItemWeapon.cpp" bodystart="30" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CItemWeapon::PutOff</definition>
+        <argsstring>(CPlayer *pPlayer)</argsstring>
+        <name>PutOff</name>
+        <param>
+          <type>CPlayer *</type>
+          <declname>pPlayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Item/CItemWeapon.h" line="12" column="1" bodyfile="MainServer/Item/CItemWeapon.cpp" bodystart="62" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Item/CItemWeapon.h" line="7" column="1" bodyfile="MainServer/Item/CItemWeapon.h" bodystart="6" bodyend="13"/>
+    <listofallmembers>
+      <member refid="classCItem_1af52c7b0acb76aeef010a6b6932676d69" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>AddState</name></member>
+      <member refid="classCItem_1a137daf554896f4f6052ac506bc6c19fe" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>CanTrash</name></member>
+      <member refid="classCItem_1af029cc1aad0740d70a68286b391c7b55" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>CanUse</name></member>
+      <member refid="classCItem_1a3b0faf4a5b905b09697a002910cc22d7" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>CItem</name></member>
+      <member refid="classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>CItemWeapon</name></member>
+      <member refid="classCItem_1af631567a1bb5871a5b9b5df4e3941320" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>CreateItem</name></member>
+      <member refid="classCItem_1a3f9ba7914876d594045249c819174883" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>g_mxMaxIID</name></member>
+      <member refid="classCItem_1a92e3a99d8ff321faa8e7a91ca2901a82" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>g_nMaxIID</name></member>
+      <member refid="classCItem_1a0d1dd3dcf572d3b926db29c79ae3c957" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetClass</name></member>
+      <member refid="classCItem_1a6397b70896999b6e281a68da540ae8e3" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetIID</name></member>
+      <member refid="classCItem_1a429b6bbc45c497966208f4787614b848" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetIndex</name></member>
+      <member refid="classCItem_1a65c14c3be072bbd1f10cb597a3afb524" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetInfo</name></member>
+      <member refid="classCItem_1ac3c97b8250fb9ed4e05643d8cf8be1d1" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetLevel</name></member>
+      <member refid="classCItem_1a8b8ac7b6818894f971187a6573a7051a" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetMacro</name></member>
+      <member refid="classCItem_1ae7e44327c71d7b0a73c522be9be49fc2" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetNum</name></member>
+      <member refid="classCItem_1ac7821b2e12b09c89b503bc7edb1cc5a9" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetSubClass</name></member>
+      <member refid="classCItem_1a21b7f4f0fe897093d3cc483064b6a834" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>GetWearType</name></member>
+      <member refid="classCItem_1abd9c949506f4ee46222311a07a63aadc" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>IsState</name></member>
+      <member refid="classCItem_1a131ecdd784e0b986befce1f577f0e2fc" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>Lock</name></member>
+      <member refid="classCItem_1a0b2e1cfa343aa2de2fe16c427677ed2c" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>m_Access</name></member>
+      <member refid="classCItem_1a8861ef25a1545a969a4893640f66e0f1" prot="protected" virt="non-virtual"><scope>CItemWeapon</scope><name>m_byWearType</name></member>
+      <member refid="classCItem_1a4e324af341937bffad0493254ce40265" prot="protected" virt="non-virtual"><scope>CItemWeapon</scope><name>m_desc</name></member>
+      <member refid="classCItem_1a1be269ae356f44e14ec53ce783198923" prot="protected" virt="non-virtual"><scope>CItemWeapon</scope><name>m_mxThis</name></member>
+      <member refid="classCItem_1acb6d6f0949cc68721d2b4f536b32bf16" prot="protected" virt="non-virtual"><scope>CItemWeapon</scope><name>m_pMacro</name></member>
+      <member refid="classCItem_1a62bf6c3fe1b2c6aa616d60f1e9754d8b" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>NewIID</name></member>
+      <member refid="classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>PutOff</name></member>
+      <member refid="classCItemWeapon_1a94194adc4794ea181c21d9f56215af73" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>PutOn</name></member>
+      <member refid="classCItem_1ae3d488c1f9fe85b86ed70ed0045d1c42" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>SetNum</name></member>
+      <member refid="classCItem_1abbe08f4912ce874800cff8205aa2f6eb" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>SubState</name></member>
+      <member refid="classCItem_1a6cc30317104d1e0350e03628ec13b27f" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>Unlock</name></member>
+      <member refid="classCItem_1ad68ff7df8ad358daab91dd61cc50ac4f" prot="public" virt="virtual"><scope>CItemWeapon</scope><name>Use</name></member>
+      <member refid="classCItem_1a2487c6e822ed0e850544f1745b43f584" prot="public" virt="non-virtual"><scope>CItemWeapon</scope><name>~CItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

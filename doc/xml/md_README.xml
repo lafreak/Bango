@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="md_README" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>Bango</title>
+    <detaileddescription>
+<para>KalOnline MMORPG Server Emulator written in C++ for Linux 64bit OS.</para><para><heading level="1">Quick installation</heading>
+</para><para>Install MySQL Server: <computeroutput>sudo apt-get install mysql-server</computeroutput> Install Libzdb: <computeroutput>sudo apt-get install libzdb-dev</computeroutput> Run <computeroutput>\. build.sql</computeroutput> in your database.</para><para><heading level="1">Tutorial</heading>
+</para><para><ulink url="http://forum.ragezone.com/f389/bango-server-emulator-linux-1134723/">http://forum.ragezone.com/f389/bango-server-emulator-linux-1134723/</ulink></para><para><heading level="1">Progress</heading>
+</para><para><heading level="6">Player</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Movement</para></listitem><listitem><para>[x] Rest</para></listitem><listitem><para>[x] Start from village</para></listitem><listitem><para>[ ] EXP cutdown</para></listitem><listitem><para>[x] Property update</para></listitem><listitem><para>[x] Stats distrubtion</para></listitem><listitem><para>[x] Normal chatting</para></listitem><listitem><para>[x] Teleportation</para></listitem><listitem><para>[x] Animation</para></listitem><listitem><para>[x] Load/save skillbar shortcuts</para></listitem><listitem><para>[x] Base attack</para></listitem><listitem><para>[x] Final stats calculation</para></listitem><listitem><para>[ ] Trade</para></listitem><listitem><para>[ ] Stall</para></listitem><listitem><para>[ ] Guild</para></listitem></itemizedlist>
+</para><para><heading level="6">Skills</heading>
+</para><para><itemizedlist>
+<listitem><para>[ ] Load from database</para></listitem><listitem><para>[ ] Learn skills</para></listitem></itemizedlist>
+</para><para><heading level="6">Party</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Invitation</para></listitem><listitem><para>[x] Decline</para></listitem><listitem><para>[x] Expulsion</para></listitem><listitem><para>[x] Member minimap position broadcast</para></listitem><listitem><para>[x] Member HP/Level broadcast</para></listitem><listitem><para>[x] Chatting</para></listitem></itemizedlist>
+</para><para><heading level="6">Item</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Load invitentory from database</para></listitem><listitem><para>[x] Insert</para></listitem><listitem><para>[x] Merge</para></listitem><listitem><para>[x] Put on/off</para></listitem><listitem><para>[x] Apply base stats</para></listitem><listitem><para>[x] Trash</para></listitem><listitem><para>[x] Use</para></listitem><listitem><para>[x] Trigrams</para></listitem></itemizedlist>
+</para><para><heading level="6">Monster</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Idle</para></listitem><listitem><para>[x] Chase</para></listitem><listitem><para>[x] Walk</para></listitem><listitem><para>[x] Old AI</para></listitem><listitem><para>[ ] New AI</para></listitem><listitem><para>[ ] Other AIs</para></listitem><listitem><para>[x] Appear disappear in sight</para></listitem><listitem><para>[ ] Die</para></listitem><listitem><para>[ ] Aggro with hostility</para></listitem><listitem><para>[ ] Item drop</para></listitem><listitem><para>[ ] EXP distrubution</para></listitem><listitem><para>[x] Attack</para></listitem><listitem><para>[ ] Final stats calculation</para></listitem></itemizedlist>
+</para><para><heading level="6">Spawner</heading>
+</para><para><itemizedlist>
+<listitem><para>[ ] Load from GenMonster</para></listitem><listitem><para>[ ] Keep track of monster lifetime</para></listitem><listitem><para>[ ] Spawn</para></listitem></itemizedlist>
+</para><para><heading level="6">NPC</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Load from InitNPC</para></listitem><listitem><para>[x] Serve HTML from e.pk</para></listitem><listitem><para>[x] Appear disappear in sight</para></listitem></itemizedlist>
+</para><para><heading level="6">Map</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Cut map into smaller tiles</para></listitem><listitem><para>[x] Search objects in certain distance</para></listitem><listitem><para>[ ] Safezones</para></listitem></itemizedlist>
+</para><para><heading level="6">Socket</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Receive</para></listitem><listitem><para>[x] Send</para></listitem></itemizedlist>
+</para><para><heading level="6">Database Server</heading>
+</para><para><itemizedlist>
+<listitem><para>[x] Connection pooling </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

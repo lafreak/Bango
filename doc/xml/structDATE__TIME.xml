@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structDATE__TIME" kind="struct" language="C++" prot="public">
+    <compoundname>DATE_TIME</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structDATE__TIME_1a10477dcddcb5935b9b86cbf17560dee4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DATE_TIME::year</definition>
+        <argsstring></argsstring>
+        <name>year</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="109" column="1" bodyfile="include/common.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDATE__TIME_1ad8e844e7b2250b90db6e2e1b609b155f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DATE_TIME::month</definition>
+        <argsstring></argsstring>
+        <name>month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="110" column="1" bodyfile="include/common.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDATE__TIME_1aa41e8acfe9ad21e0d42ef338e541c978" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DATE_TIME::day</definition>
+        <argsstring></argsstring>
+        <name>day</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="111" column="1" bodyfile="include/common.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDATE__TIME_1a241cdc6f9dd5c033863dbdae737539fd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DATE_TIME::hour</definition>
+        <argsstring></argsstring>
+        <name>hour</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="112" column="1" bodyfile="include/common.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDATE__TIME_1a56ebc0ec48ef9c88045dca25c531b649" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DATE_TIME::minute</definition>
+        <argsstring></argsstring>
+        <name>minute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="113" column="1" bodyfile="include/common.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structDATE__TIME_1ae102329ae7daa606370bbc2c2ece37b8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DATE_TIME::second</definition>
+        <argsstring></argsstring>
+        <name>second</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/common.h" line="114" column="1" bodyfile="include/common.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/common.h" line="108" column="1" bodyfile="include/common.h" bodystart="107" bodyend="115"/>
+    <listofallmembers>
+      <member refid="structDATE__TIME_1aa41e8acfe9ad21e0d42ef338e541c978" prot="public" virt="non-virtual"><scope>DATE_TIME</scope><name>day</name></member>
+      <member refid="structDATE__TIME_1a241cdc6f9dd5c033863dbdae737539fd" prot="public" virt="non-virtual"><scope>DATE_TIME</scope><name>hour</name></member>
+      <member refid="structDATE__TIME_1a56ebc0ec48ef9c88045dca25c531b649" prot="public" virt="non-virtual"><scope>DATE_TIME</scope><name>minute</name></member>
+      <member refid="structDATE__TIME_1ad8e844e7b2250b90db6e2e1b609b155f" prot="public" virt="non-virtual"><scope>DATE_TIME</scope><name>month</name></member>
+      <member refid="structDATE__TIME_1ae102329ae7daa606370bbc2c2ece37b8" prot="public" virt="non-virtual"><scope>DATE_TIME</scope><name>second</name></member>
+      <member refid="structDATE__TIME_1a10477dcddcb5935b9b86cbf17560dee4" prot="public" virt="non-virtual"><scope>DATE_TIME</scope><name>year</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

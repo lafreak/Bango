@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="DBServer_2main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="CMainSocket_8h" local="yes">Socket/CMainSocket.h</includes>
+    <includes refid="CDatabase_8h" local="yes">Database/CDatabase.h</includes>
+    <includes refid="CConfig_8h" local="no">Config/CConfig.h</includes>
+    <incdepgraph>
+      <node id="226">
+        <label>Config/CConfig.h</label>
+        <link refid="CConfig_8h_source"/>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="227" relation="include">
+        </childnode>
+      </node>
+      <node id="213">
+        <label>stdarg.h</label>
+      </node>
+      <node id="199">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="210">
+        <label>Protocol/MainProtocol.h</label>
+        <link refid="MainProtocol_8h_source"/>
+      </node>
+      <node id="194">
+        <label>DBServer/main.cpp</label>
+        <link refid="DBServer_2main_8cpp"/>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="225" relation="include">
+        </childnode>
+        <childnode refid="226" relation="include">
+        </childnode>
+      </node>
+      <node id="202">
+        <label>stdlib.h</label>
+      </node>
+      <node id="200">
+        <label>string</label>
+      </node>
+      <node id="207">
+        <label>minwindef.h</label>
+        <link refid="minwindef_8h_source"/>
+        <childnode refid="208" relation="include">
+        </childnode>
+        <childnode refid="209" relation="include">
+        </childnode>
+      </node>
+      <node id="217">
+        <label>map</label>
+      </node>
+      <node id="216">
+        <label>../CServer.h</label>
+        <link refid="DBServer_2CServer_8h_source"/>
+        <childnode refid="217" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="218" relation="include">
+        </childnode>
+      </node>
+      <node id="223">
+        <label>synchronized.h</label>
+        <link refid="synchronized_8h_source"/>
+        <childnode refid="219" relation="include">
+        </childnode>
+      </node>
+      <node id="214">
+        <label>fstream</label>
+      </node>
+      <node id="211">
+        <label>common.h</label>
+        <link refid="common_8h_source"/>
+      </node>
+      <node id="203">
+        <label>pthread.h</label>
+      </node>
+      <node id="197">
+        <label>sys/types.h</label>
+      </node>
+      <node id="196">
+        <label>string.h</label>
+      </node>
+      <node id="206">
+        <label>Protocol/Packet.h</label>
+        <link refid="Packet_8h_source"/>
+        <childnode refid="207" relation="include">
+        </childnode>
+      </node>
+      <node id="222">
+        <label>cstdio</label>
+      </node>
+      <node id="220">
+        <label>unistd.h</label>
+      </node>
+      <node id="205">
+        <label>signal.h</label>
+      </node>
+      <node id="195">
+        <label>Socket/CMainSocket.h</label>
+        <link refid="CMainSocket_8h_source"/>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+      </node>
+      <node id="215">
+        <label>sstream</label>
+      </node>
+      <node id="209">
+        <label>time.h</label>
+      </node>
+      <node id="224">
+        <label>zdb.h</label>
+      </node>
+      <node id="227">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="225">
+        <label>Database/CDatabase.h</label>
+        <link refid="CDatabase_8h_source"/>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+      </node>
+      <node id="218">
+        <label>CAccount.h</label>
+        <link refid="CAccount_8h_source"/>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="221" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+      </node>
+      <node id="219">
+        <label>mutex</label>
+      </node>
+      <node id="198">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="221">
+        <label>access.h</label>
+        <link refid="access_8h_source"/>
+        <childnode refid="222" relation="include">
+        </childnode>
+        <childnode refid="223" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+      </node>
+      <node id="201">
+        <label>stdio.h</label>
+      </node>
+      <node id="204">
+        <label>memory</label>
+      </node>
+      <node id="208">
+        <label>inttypes.h</label>
+      </node>
+      <node id="212">
+        <label>Socket/CSocket.h</label>
+        <link refid="CSocket_8h_source"/>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBServer/main.cpp" line="6" column="1" bodyfile="DBServer/main.cpp" bodystart="6" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Socket/CMainSocket.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Database/CDatabase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Config/CConfig.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>DBCONFIG<sp/>dbconf;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(CConfig::Read(dbconf)<sp/>==<sp/>CConfig::READ_ERROR)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CDatabase::Connect(dbconf.szHostname,<sp/>dbconf.szPort,<sp/>dbconf.szUser,<sp/>dbconf.szPassword,<sp/>dbconf.szSchema))</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CMainSocket::Start(dbconf.wListenPort))</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(KGRN<sp/></highlight><highlight class="stringliteral">&quot;DBServer<sp/>started<sp/>on<sp/>port<sp/>%d.\n&quot;</highlight><highlight class="normal"><sp/>KNRM,<sp/>dbconf.wListenPort);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>CMainSocket::Accept();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DBServer/main.cpp"/>
+  </compounddef>
+</doxygen>

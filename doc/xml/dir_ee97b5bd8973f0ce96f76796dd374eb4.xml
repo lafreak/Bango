@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_ee97b5bd8973f0ce96f76796dd374eb4" kind="dir">
+    <compoundname>Utility/XMLConfigExporter</compoundname>
+    <innerfile refid="ConvertC_09_09_8cpp">ConvertC++.cpp</innerfile>
+    <innerfile refid="ConvertC_8cpp">ConvertC.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Utility/XMLConfigExporter/"/>
+  </compounddef>
+</doxygen>

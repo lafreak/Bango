@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classNode" kind="class" language="C++" prot="public">
+    <compoundname>Node</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classNode_1a85af1fa0eeeecfa52b94c50674fb2129" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Node::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="16" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNode_1a49baf1d613dc14f1e1e4aad883dde6fe" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Node * &gt;</type>
+        <definition>std::vector&lt;Node*&gt; Node::children</definition>
+        <argsstring></argsstring>
+        <name>children</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="18" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNode_1aa0840c3cb5c7159be6d992adecd2097c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Node::~Node</definition>
+        <argsstring>()</argsstring>
+        <name>~Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="20" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="20" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Utility/XMLConfigExporter/ConvertC++.cpp" line="14" column="1" bodyfile="Utility/XMLConfigExporter/ConvertC++.cpp" bodystart="13" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classNode_1a49baf1d613dc14f1e1e4aad883dde6fe" prot="public" virt="non-virtual"><scope>Node</scope><name>children</name></member>
+      <member refid="classNode_1a85af1fa0eeeecfa52b94c50674fb2129" prot="public" virt="non-virtual"><scope>Node</scope><name>data</name></member>
+      <member refid="classNode_1aa0840c3cb5c7159be6d992adecd2097c" prot="public" virt="non-virtual"><scope>Node</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

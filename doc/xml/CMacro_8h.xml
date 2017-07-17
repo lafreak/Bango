@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CMacro_8h" kind="file" language="C++">
+    <compoundname>CMacro.h</compoundname>
+    <includes refid="minwindef_8h" local="no">minwindef.h</includes>
+    <includes refid="common_8h" local="no">common.h</includes>
+    <includedby refid="CItemInfo_8h" local="yes">MainServer/Macro/CItemInfo.h</includedby>
+    <includedby refid="CMonsterInfo_8h" local="yes">MainServer/Macro/CMonsterInfo.h</includedby>
+    <includedby refid="CMacro_8cpp" local="yes">MainServer/Macro/CMacro.cpp</includedby>
+    <incdepgraph>
+      <node id="1891">
+        <label>minwindef.h</label>
+        <link refid="minwindef_8h_source"/>
+        <childnode refid="1892" relation="include">
+        </childnode>
+        <childnode refid="1893" relation="include">
+        </childnode>
+      </node>
+      <node id="1894">
+        <label>common.h</label>
+        <link refid="common_8h_source"/>
+      </node>
+      <node id="1893">
+        <label>time.h</label>
+      </node>
+      <node id="1890">
+        <label>MainServer/Macro/CMacro.h</label>
+        <link refid="CMacro_8h"/>
+        <childnode refid="1891" relation="include">
+        </childnode>
+        <childnode refid="1894" relation="include">
+        </childnode>
+      </node>
+      <node id="1892">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1899">
+        <label>MainServer/GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="1900" relation="include">
+        </childnode>
+        <childnode refid="1904" relation="include">
+        </childnode>
+        <childnode refid="1901" relation="include">
+        </childnode>
+        <childnode refid="1902" relation="include">
+        </childnode>
+        <childnode refid="1905" relation="include">
+        </childnode>
+      </node>
+      <node id="1897">
+        <label>MainServer/Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1898" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1917">
+        <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
+        <link refid="CMonsterMaguni_8h_source"/>
+      </node>
+      <node id="1908">
+        <label>MainServer/Item/CItemGeneral.h</label>
+        <link refid="CItemGeneral_8h_source"/>
+      </node>
+      <node id="1916">
+        <label>MainServer/GameCharacter/Monster/CMonsterReal.h</label>
+        <link refid="CMonsterReal_8h_source"/>
+      </node>
+      <node id="1898">
+        <label>MainServer/Item/CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1899" relation="include">
+        </childnode>
+        <childnode refid="1907" relation="include">
+        </childnode>
+        <childnode refid="1908" relation="include">
+        </childnode>
+        <childnode refid="1909" relation="include">
+        </childnode>
+        <childnode refid="1910" relation="include">
+        </childnode>
+        <childnode refid="1911" relation="include">
+        </childnode>
+        <childnode refid="1912" relation="include">
+        </childnode>
+        <childnode refid="1913" relation="include">
+        </childnode>
+        <childnode refid="1914" relation="include">
+        </childnode>
+      </node>
+      <node id="1907">
+        <label>MainServer/Item/CItemPet.h</label>
+        <link refid="CItemPet_8h_source"/>
+      </node>
+      <node id="1901">
+        <label>MainServer/CClient.h</label>
+        <link refid="CClient_8h_source"/>
+        <childnode refid="1900" relation="include">
+        </childnode>
+        <childnode refid="1902" relation="include">
+        </childnode>
+      </node>
+      <node id="1914">
+        <label>MainServer/Item/CItemRide.h</label>
+        <link refid="CItemRide_8h_source"/>
+      </node>
+      <node id="1915">
+        <label>MainServer/GameCharacter/CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="1899" relation="include">
+        </childnode>
+        <childnode refid="1902" relation="include">
+        </childnode>
+        <childnode refid="1905" relation="include">
+        </childnode>
+        <childnode refid="1916" relation="include">
+        </childnode>
+        <childnode refid="1917" relation="include">
+        </childnode>
+      </node>
+      <node id="1904">
+        <label>MainServer/GameCharacter/CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="1899" relation="include">
+        </childnode>
+        <childnode refid="1902" relation="include">
+        </childnode>
+      </node>
+      <node id="1902">
+        <label>MainServer/CServer.h</label>
+        <link refid="MainServer_2CServer_8h_source"/>
+        <childnode refid="1903" relation="include">
+        </childnode>
+      </node>
+      <node id="1905">
+        <label>MainServer/Map/CTile.h</label>
+        <link refid="CTile_8h_source"/>
+        <childnode refid="1906" relation="include">
+        </childnode>
+      </node>
+      <node id="1918">
+        <label>MainServer/Macro/CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1897" relation="include">
+        </childnode>
+      </node>
+      <node id="1896">
+        <label>MainServer/Macro/CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1897" relation="include">
+        </childnode>
+      </node>
+      <node id="1903">
+        <label>MainServer/Socket/CClientSocket.h</label>
+        <link refid="CClientSocket_8h_source"/>
+      </node>
+      <node id="1911">
+        <label>MainServer/Item/CItemYinyang.h</label>
+        <link refid="CItemYinyang_8h_source"/>
+      </node>
+      <node id="1900">
+        <label>MainServer/Socket/CDBSocket.h</label>
+        <link refid="CDBSocket_8h_source"/>
+        <childnode refid="1901" relation="include">
+        </childnode>
+      </node>
+      <node id="1906">
+        <label>MainServer/Map/CMap.h</label>
+        <link refid="CMap_8h_source"/>
+        <childnode refid="1902" relation="include">
+        </childnode>
+      </node>
+      <node id="1910">
+        <label>MainServer/Item/CItemDefense.h</label>
+        <link refid="CItemDefense_8h_source"/>
+      </node>
+      <node id="1913">
+        <label>MainServer/Item/CItemTransform.h</label>
+        <link refid="CItemTransform_8h_source"/>
+      </node>
+      <node id="1912">
+        <label>MainServer/Item/CItemOrnament.h</label>
+        <link refid="CItemOrnament_8h_source"/>
+      </node>
+      <node id="1895">
+        <label>MainServer/Macro/CMacro.h</label>
+        <link refid="CMacro_8h"/>
+        <childnode refid="1896" relation="include">
+        </childnode>
+        <childnode refid="1918" relation="include">
+        </childnode>
+      </node>
+      <node id="1909">
+        <label>MainServer/Item/CItemWeapon.h</label>
+        <link refid="CItemWeapon_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structCMacro" prot="public">CMacro</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CMACRO_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CMACRO_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;minwindef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;common.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CMacro</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>MACRO_TYPE<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MT_NPC,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MT_ITEM,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MT_MONSTER,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Macro/CMacro.h"/>
+  </compounddef>
+</doxygen>

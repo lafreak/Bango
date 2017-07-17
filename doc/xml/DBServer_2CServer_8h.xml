@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="DBServer_2CServer_8h" kind="file" language="C++">
+    <compoundname>CServer.h</compoundname>
+    <includes local="no">map</includes>
+    <includes refid="minwindef_8h" local="no">minwindef.h</includes>
+    <includes refid="CAccount_8h" local="yes">CAccount.h</includes>
+    <includedby refid="CMainSocket_8h" local="yes">DBServer/Socket/CMainSocket.h</includedby>
+    <includedby refid="DBServer_2CServer_8cpp" local="yes">DBServer/CServer.cpp</includedby>
+    <incdepgraph>
+      <node id="117">
+        <label>string</label>
+      </node>
+      <node id="113">
+        <label>minwindef.h</label>
+        <link refid="minwindef_8h_source"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>map</label>
+      </node>
+      <node id="111">
+        <label>DBServer/CServer.h</label>
+        <link refid="DBServer_2CServer_8h"/>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>synchronized.h</label>
+        <link refid="synchronized_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>cstdio</label>
+      </node>
+      <node id="119">
+        <label>unistd.h</label>
+      </node>
+      <node id="115">
+        <label>time.h</label>
+      </node>
+      <node id="123">
+        <label>zdb.h</label>
+      </node>
+      <node id="116">
+        <label>CAccount.h</label>
+        <link refid="CAccount_8h_source"/>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>mutex</label>
+      </node>
+      <node id="120">
+        <label>access.h</label>
+        <link refid="access_8h_source"/>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="124">
+        <label>DBServer/CServer.h</label>
+        <link refid="DBServer_2CServer_8h"/>
+        <childnode refid="125" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>DBServer/Socket/CMainSocket.h</label>
+        <link refid="CMainSocket_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classCServer" prot="public">CServer</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="DBServer_2CServer_8h_1a315a460477a871a85e07e997e3a200f7" prot="public" static="no">
+        <type>std::map&lt; SOCKET, CAccount * &gt;</type>
+        <definition>typedef std::map&lt;SOCKET, CAccount*&gt; AccountMap</definition>
+        <argsstring></argsstring>
+        <name>AccountMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBServer/CServer.h" line="10" column="1" bodyfile="DBServer/CServer.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CSERVER_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CSERVER_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;minwindef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CAccount.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;SOCKET,<sp/>CAccount*&gt;<sp/>AccountMap;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CServer</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>AccountMap<sp/>g_mAccount;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::mutex<sp/>g_mxAccount;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Add(CAccount*<sp/>pAccount);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Remove(CAccount*<sp/>pAccount);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remember<sp/>to<sp/>call<sp/>m_Access.Release()<sp/>after<sp/>work<sp/>on<sp/>account<sp/>is<sp/>done.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CAccount*<sp/>FindAccount(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nCID);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CAccount*<sp/>FindAccountByAID(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nAccountID);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>EmptyAccount();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="DBServer/CServer.h"/>
+  </compounddef>
+</doxygen>
