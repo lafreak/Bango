@@ -1,0 +1,1404 @@
+;20060718 조합시스템 NPC 추가
+;20060612 영문 거조의 동굴 철문 수정
+;20060412 조합NPC 추가
+;20060410 영문 점령전 공성병기 장인 추가
+;20060310 귀환 NPC(거점 추가)
+;20060110 국내 도박 NPC 삭제
+;20060109 영문 하닌서버 복귀자 이벤트 NPC 추가
+;20060102 영문 도박 NPC 삭제
+;20051226 마구니 철문 시스템 수정
+;20051220 어장변경(영문 포함)
+;20051222 Door(문) 추가
+
+;kind 0 상인
+;kind 1 대화
+;kind 2 경비
+;kind 3 퀘스트
+;kind 4 시나리오
+;kind 5 텔레포트
+;kind 6 Door System
+;kind 7 공성병기
+;kind 8 거점
+;kind 9 New Door System
+
+(npc (kind 0) (move 0))
+(npc (kind 1) (move 1))
+(npc (kind 2) (move 1))
+(npc (kind 3) (move 0))
+(npc (kind 4) (move 0))
+(npc (kind 5) (move 0))
+(npc (kind 6) (move 0))
+(npc (kind 7) (move 0))
+(npc (kind 8) (move 0))
+(npc (kind 9) (move 0))
+(npc (kind 10) (move 0))
+(npc (kind 11) (move 0))
+(npc (kind 12) (move 0))
+(npc (kind 13) (move 0))
+(npc (kind 14) (move 0))
+(npc (kind 15) (move 0))
+(npc (kind 16) (move 0))
+(npc (kind 17) (move 0))
+(npc (kind 18) (move 0));Army
+(npc (kind 19) (move 0));Army
+(npc (kind 20) (move 0));정령의 숲
+(npc (kind 21) (move 0));불안전 원소 반납
+(npc (kind 23) (move 0));서버이관 npc
+(npc (kind 24) (move 0));제사장의탑 반납 
+(npc (kind 25) (move 0));제사장의탑 10층 입장 문
+(npc (kind 26) (move 0));일라이어를 잡아라 이벤트 npc
+(npc (kind 27) (move 0));지옥도 입장
+(npc (kind 28) (move 0));지형
+(npc (kind 29) (move 0));천자의 가호 NPC
+(npc (kind 30) (move 0));
+(npc (kind 31) (move 0));공격대 관리인 
+(npc (kind 33) (move 0));할로윈 이벤트 경매인
+(npc (kind 34) (move 0));설날(독도) 이벤트 관리인
+(npc (kind 35) (move 0));이계 연무장
+(npc (kind 36) (move 0));창고npc
+(npc (kind 37) (move 0));이벤트npc
+
+(gennpc (index 1) (country 0 1 2) (kind 0) (shape 3) (html 1) (map 0) (xy 257491 258584 16120) (dir 254491 257584))
+(gennpc (index 2) (country 0 1 2) (kind 0) (shape 3) (html 3) (map 0) (xy 257057 258580 16140) (dir 260016 250556))
+(gennpc (index 3) (country 0 1 2) (kind 0) (shape 3) (html 7) (map 0) (xy 257556 258207 16140) (dir 256556 258207))
+(gennpc (index 4) (country 0 1 2) (kind 1) (shape 5) (html 9) (map 0) (xy 256571 257913 16505) (dir 257571 257913))
+(gennpc (index 5) (country 0 1 2) (kind 1) (shape 6) (html 15) (map 0) (xy 256542 257999 16505) (dir 257542 258999))
+(gennpc (index 6) (country 0 1 2) (kind 1) (shape 7) (html 19) (map 0) (xy 256459 258025 16505) (dir 256459 259025))
+(gennpc (index 7) (country ) (kind 1) (shape 1) (html 20) (map 0) (xy 256459 258025 16505) (dir 0 1))
+(gennpc (index 8) (country 0 1 2) (kind 1) (shape 1) (html 21) (map 0) (xy 257190 258971 16090) (dir 277190 259971))
+(gennpc (index 9) (country 0 1 2) (kind 1) (shape 4) (html 23) (map 0) (xy 257765 259153 16080) (dir 257765 260153))
+(gennpc (index 10) (country 0 1 2) (kind 1) (shape 1) (html 20) (map 0) (xy 257525 259011 16073) (dir 256525 260011))
+(gennpc (index 11) (country 0 1 2) (kind 3) (shape 8) (quest 54 1) (map 0) (xy 256607 259584 16330) (dir 255607 260584))
+(gennpc (index 12) (country 0 1 2) (kind 3) (shape 8) (quest 55 1) (map 0) (xy 256681 259673 16313) (dir 255681 260673))
+(gennpc (index 13) (country 0 1 2) (kind 3) (shape 8) (quest 56 1) (map 0) (xy 257769 259715 16090) (dir 259769 262715))
+(gennpc (index 14) (country 0 1 2) (kind 3) (shape 8) (quest 57 1) (map 0) (xy 257961 259672 16080) (dir 256961 257672))
+(gennpc (index 15) (country ) (kind 2) (shape 8) (html 26) (map 0) (xy 257392 259323 16121) (dir 0 1))
+(gennpc (index 16) (country 0 1 2) (kind 2) (shape 9) (html 27) (map 0) (xy 256749 259652 16274) (dir 255749 259652))
+(gennpc (index 17) (country 0 1 2) (kind 2) (shape 9) (html 27) (map 0) (xy 257985 259615 16080) (dir 256985 260615))
+(gennpc (index 18) (country 0 1 2) (kind 0) (shape 3) (html 31) (map 0) (xy 265210 261659 16170) (dir 266210 260659) (cid 1) (warrelation 0))
+(gennpc (index 19) (country 0 1 2) (kind 1) (shape 1) (html 67) (map 0) (xy 265342 261851 16180) (dir 266342 261851))
+(gennpc (index 20) (country 0 1 2) (kind 1) (shape 1) (html 68) (map 0) (xy 265232 262081 16180) (dir 265232 261081))
+(gennpc (index 21) (country 0 1 2) (kind 1) (shape 4) (html 69) (map 0) (xy 264781 262248 16160) (dir 265781 261248))
+(gennpc (index 22) (country 0 1 2) (kind 2) (shape 8) (html 70) (map 0) (xy 265609 262613 16360) (dir 266609 261613))
+(gennpc (index 23) (country 0 1 2) (kind 2) (shape 8) (html 70) (map 0) (xy 265695 262534 16360) (dir 264695 263534))
+(gennpc (index 24) (country 0 1 2) (kind 2) (shape 8) (html 70) (map 0) (xy 265146 262795 16300) (dir 265146 263795))
+(gennpc (index 25) (country 0 1 2) (kind 2) (shape 8) (html 70) (map 0) (xy 265770 261476 16214) (dir 264770 261476))
+(gennpc (index 26) (country 0 1 2) (kind 2) (shape 8) (html 70) (map 0) (xy 265633 261373 16190) (dir 266633 262373))
+(gennpc (index 27) (country 0 1 2) (kind 2) (shape 8) (html 70) (map 0) (xy 264700 261098 16115) (dir 263700 261098))
+(gennpc (index 28) (country 0 1 2) (kind 2) (shape 9) (html 71) (map 0) (xy 265575 261384 16182) (dir 264575 265384))
+(gennpc (index 29) (country 0 1 2) (kind 0) (shape 3) (html 35) (map 0) (xy 265212 285091 22650) (dir 266212 285091) (cid 1) (warrelation 0))
+(gennpc (index 30) (country 0 1 2) (kind 0) (shape 3) (html 39) (map 0) (xy 265138 285119 22650) (dir 266138 285119) (cid 1) (warrelation 0))
+(gennpc (index 31) (country 0 1 2) (kind 1) (shape 2) (html 72) (map 0) (xy 265034 285683 22650) (dir 266034 286683))
+(gennpc (index 32) (country 0 1 2) (kind 1) (shape 2) (html 73) (map 0) (xy 265026 285904 22650) (dir 264026 284904))
+(gennpc (index 33) (country 0 1 2) (kind 1) (shape 2) (html 74) (map 0) (xy 265237 285741 22640) (dir 265237 286741))
+(gennpc (index 34) (country 0 1 2) (kind 1) (shape 2) (html 75) (map 0) (xy 265656 285868 22636) (dir 264656 279868))
+(gennpc (index 35) (country 0 1 2) (kind 0) (shape 2) (html 76) (map 0) (xy 267132 283120 24982) (dir 265132 286120))
+(gennpc (index 36) (country 0 1 2) (kind 1) (shape 2) (html 77) (map 0) (xy 267324 283596 25008) (dir 266324 283596))
+(gennpc (index 37) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 265754 285144 22650) (dir 266754 284144))
+(gennpc (index 38) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 265693 285086 22650) (dir 266693 284086))
+(gennpc (index 39) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 266266 285472 22650) (dir 267266 278472))
+(gennpc (index 40) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 266355 285492 22650) (dir 267355 278492))
+(gennpc (index 41) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 266653 283419 24630) (dir 265653 283419))
+(gennpc (index 42) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 266665 283334 24651) (dir 265665 283334))
+(gennpc (index 43) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 264616 283128 24717) (dir 265616 286128))
+(gennpc (index 44) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 264627 283239 24713) (dir 262627 278239))
+(gennpc (index 45) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 265470 282202 22573) (dir 265470 281202))
+(gennpc (index 46) (country 0 1 2) (kind 2) (shape 8) (html 78) (map 0) (xy 265385 282204 22527) (dir 265385 281204))
+(gennpc (index 47) (country 0 1 2) (kind 2) (shape 9) (html 79) (map 0) (xy 266368 285465 22650) (dir 265368 284465))
+(gennpc (index 48) (country 0 1 2) (kind 2) (shape 9) (html 79) (map 0) (xy 266631 283435 24618) (dir 265631 282435))
+(gennpc (index 49) (country 0 1 2) (kind 2) (shape 9) (html 79) (map 0) (xy 264607 283255 24720) (dir 265607 278255))
+(gennpc (index 50) (country 0 1 2) (kind 2) (shape 9) (html 79) (map 0) (xy 265364 282190 22497) (dir 266364 281190))
+(gennpc (index 51) (country 0 1 2) (kind 0) (shape 3) (html 42) (map 0) (xy 256339 288947 27050) (dir 257339 288947) (cid 1) (warrelation 0))
+(gennpc (index 52) (country 0 1 2) (kind 1) (shape 4) (html 80) (map 0) (xy 256381 288253 27070) (dir 257381 288253))
+(gennpc (index 53) (country 0 1 2) (kind 1) (shape 4) (html 81) (map 0) (xy 256265 288696 27050) (dir 257265 285696))
+(gennpc (index 54) (country 0 1 2) (kind 2) (shape 8) (html 82) (map 0) (xy 255695 288035 27070) (dir 254695 285035))
+(gennpc (index 55) (country 0 1 2) (kind 2) (shape 8) (html 82) (map 0) (xy 255584 288096 27070) (dir 254584 285096))
+(gennpc (index 56) (country 0 1 2) (kind 2) (shape 8) (html 82) (map 0) (xy 257011 288917 27060) (dir 258011 288917))
+(gennpc (index 57) (country 0 1 2) (kind 2) (shape 8) (html 82) (map 0) (xy 257018 288806 27061) (dir 258018 288806))
+(gennpc (index 58) (country 0 1 2) (kind 3) (shape 9) (quest 0 28) (map 0) (xy 256162 289597 27177) (dir 255162 285597))
+(gennpc (index 59) (country 0 1 2) (kind 0) (shape 3) (html 28) (map 0) (xy 257016 258556 16140) (dir 269000 257513))
+(gennpc (index 60) (country 0 1 2) (kind 0) (shape 3) (html 49) (map 0) (xy 264928 285248 22650) (dir 265928 288248) (cid 1) (warrelation 0))
+(gennpc (index 61) (country 0 1 2) (kind 0) (shape 3) (html 50) (map 0) (xy 264875 285315 22650) (dir 265875 285315) (cid 1) (warrelation 0))
+(gennpc (index 62) (country 0 1 2) (kind 0) (shape 3) (html 33) (map 0) (xy 265161 261611 16170) (dir 266161 260611) (cid 1) (warrelation 0))
+(gennpc (index 63) (country 0 1 2) (kind 0) (shape 3) (html 34) (map 0) (xy 265167 261542 16170) (dir 266167 261542) (cid 1) (warrelation 0))
+(gennpc (index 64) (country 0 1 2) (kind 0) (shape 4) (html 45) (map 0) (xy 256253 289118 27060) (dir 257253 289118) (cid 1) (warrelation 0))
+(gennpc (index 65) (country 0 1 2) (kind 0) (shape 3) (html 52) (map 0) (xy 265045 285162 22650) (dir 266045 286162) (cid 1) (warrelation 0))
+(gennpc (index 66) (country 0 1 2) (kind 2) (shape 9) (html 53) (map 0) (xy 257392 259323 16121) (dir 257392 260323))
+(gennpc (index 67) (country 0 1 2) (kind 1) (shape 4) (html 63) (map 0) (xy 257345 259655 16125) (dir 257345 258655))
+(gennpc (index 68) (country 0 1 2) (kind 0) (shape 3) (html 84) (map 0) (xy 257012 258477 16150) (dir 258029 258441))
+(gennpc (index 69) (country 0 1 2) (kind 0) (shape 3) (html 85) (map 0) (xy 265273 285073 22650) (dir 265273 286073) (cid 1) (warrelation 0))
+(gennpc (index 70) (country 0 1 2) (kind 0) (shape 3) (html 88) (map 0) (xy 264927 285381 22650) (dir 265927 284381) (cid 1) (warrelation 0))
+(gennpc (index 71) (country ) (kind 36) (shape 3) (html 89) (map 0) (xy 257387 257668 16040) (dir 1 0))
+(gennpc (index 72) (country 0 1 2) (kind 3) (shape 3) (quest 0 1) (map 0) (xy 257032 257425 15960) (dir 257032 258425))
+(gennpc (index 73) (country 0 1 2) (kind 3) (shape 9) (quest 2 1) (map 0) (xy 258364 259226 15951) (dir 257364 259226))
+(gennpc (index 74) (country 0 1 2) (kind 3) (shape 3) (quest 0 2) (map 0) (xy 264854 261369 16092) (dir 266854 260369))
+(gennpc (index 75) (country 0 1 2) (kind 3) (shape 9) (quest 3 1) (map 0) (xy 257614 257926 16137) (dir 257582 257924))
+(gennpc (index 76) (country 0 1 2) (kind 3) (shape 9) (quest 0 3) (map 0) (xy 264974 262227 16180) (dir 264974 263227))
+(gennpc (index 77) (country 0 1 2) (kind 3) (shape 3) (quest 1 3) (map 0) (xy 265183 262364 16208) (dir 264183 270364))
+(gennpc (index 78) (country 0 1 2) (kind 3) (shape 1) (quest 0 17) (map 0) (xy 257190 258988 16090) (dir 277190 259988))
+(gennpc (index 79) (country 0 1 2) (kind 3) (shape 9) (quest 0 18) (map 0) (xy 256838 258080 16145) (dir 257928 258156))
+(gennpc (index 80) (country 0 1 2) (kind 3) (shape 1) (quest 0 4) (map 0) (xy 265131 261996 16180) (dir 266131 262996))
+(gennpc (index 81) (country 0 1 2) (kind 3) (shape 2) (quest 0 5) (map 0) (xy 265121 285614 22650) (dir 266121 287614))
+(gennpc (index 82) (country 0 1 2) (kind 3) (shape 1) (quest 0 6) (map 0) (xy 257543 259049 16070) (dir 256543 260049))
+(gennpc (index 83) (country 0 1 2) (kind 3) (shape 8) (quest 0 7) (map 0) (xy 265026 262810 16257) (dir 265026 263810))
+(gennpc (index 84) (country 0 1 2) (kind 3) (shape 4) (quest 0 8) (map 0) (xy 257314 259663 16129) (dir 257314 258663))
+(gennpc (index 85) (country 0 1 2) (kind 3) (shape 2) (quest 0 10) (map 0) (xy 264904 285787 22650) (dir 266904 284787))
+(gennpc (index 86) (country 0 1 2) (kind 3) (shape 8) (quest 0 12) (map 0) (xy 265263 282210 22574) (dir 265263 281210))
+(gennpc (index 87) (country 0 1 2) (kind 3) (shape 4) (quest 0 11) (map 0) (xy 264778 262175 16160) (dir 264778 263175))
+(gennpc (index 88) (country 0 1 2) (kind 3) (shape 3) (quest 0 15) (map 0) (xy 264976 285455 22650) (dir 266976 284455))
+(gennpc (index 89) (country 0 1 2) (kind 3) (shape 3) (quest 0 13) (map 0) (xy 265120 261453 16170) (dir 265120 260453))
+(gennpc (index 90) (country 0 1 2) (kind 3) (shape 1) (quest 0 16) (map 0) (xy 265175 285287 22650) (dir 265175 284287))
+(gennpc (index 91) (country 0 1 2) (kind 3) (shape 9) (quest 0 9) (map 0) (xy 265681 262508 16360) (dir 264681 262508))
+(gennpc (index 92) (country 0 1 2) (kind 3) (shape 3) (quest 0 14) (map 0) (xy 265319 285312 22657) (dir 267319 284312))
+(gennpc (index 93) (country 0 1 2) (kind 3) (shape 3) (quest 9001 1) (map 0) (xy 256840 258997 16207) (dir 257840 257997))
+(gennpc (index 94) (country 0 1 2) (kind 3) (shape 3) (quest 9002 1) (map 0) (xy 256487 257047 16206) (dir 256487 258047))
+(gennpc (index 95) (country 0 1 2) (kind 3) (shape 9) (quest 9002 3) (map 0) (xy 265577 262004 16335) (dir 261577 261004))
+(gennpc (index 96) (country 0 1 2) (kind 3) (shape 3) (quest 9003 1) (map 0) (xy 264924 285906 22650) (dir 265924 284906))
+(gennpc (index 97) (country 0 1 2) (kind 3) (shape 3) (quest 9004 1) (map 0) (xy 267622 283253 28154) (dir 268622 288253))
+(gennpc (index 98) (country 0 1 2) (kind 36) (shape 3) (html 91) (map 0) (xy 265457 285609 22640) (dir 266457 284609) (cid 1) (warrelation 0))
+(gennpc (index 99) (country 0 1 2) (kind 36) (shape 3) (html 89) (map 0) (xy 257387 257668 16040) (dir 257383 257701))
+(gennpc (index 100) (country 0 1 2) (kind 0) (shape 3) (html 93) (map 0) (xy 269120 243125 19620) (dir 268120 243125) (cid 1) (warrelation 0))
+(gennpc (index 101) (country 0 1 2) (kind 0) (shape 3) (html 100) (map 0) (xy 269128 243082 19620) (dir 268128 243082) (cid 1) (warrelation 0))
+(gennpc (index 102) (country 0 1 2) (kind 0) (shape 3) (html 103) (map 0) (xy 269133 243029 19630) (dir 259133 242029) (cid 1) (warrelation 0))
+(gennpc (index 103) (country 0 1 2) (kind 0) (shape 3) (html 106) (map 0) (xy 269050 242826 19630) (dir 259050 243826) (cid 1) (warrelation 0))
+(gennpc (index 104) (country 0 1 2) (kind 0) (shape 3) (html 109) (map 0) (xy 269035 242763 19630) (dir 268035 243763) (cid 1) (warrelation 0))
+(gennpc (index 105) (country 0 1 2) (kind 0) (shape 3) (html 112) (map 0) (xy 268960 242760 19630) (dir 268960 243760) (cid 1) (warrelation 0))
+(gennpc (index 106) (country 0 1 2) (kind 0) (shape 5) (html 115) (map 0) (xy 267722 243538 19620) (dir 270722 241538))
+(gennpc (index 107) (country 0 1 2) (kind 0) (shape 6) (html 119) (map 0) (xy 268401 242608 19620) (dir 267401 246608))
+(gennpc (index 108) (country 0 1 2) (kind 0) (shape 7) (html 124) (map 0) (xy 268193 242608 19630) (dir 267193 246608))
+(gennpc (index 109) (country 0 1 2) (kind 3) (shape 9) (quest 9006 1) (map 0) (xy 268851 243506 19620) (dir 267851 242506))
+;보루의 새 쪽문 수비병
+(gennpc (index 110) (country 0 1 2) (kind 1) (shape 8) (html 134) (map 0) (xy 267047 242724 19628) (dir 267033 242708))
+(gennpc (index 111) (country 0 1 2) (kind 1) (shape 8) (html 139) (map 0) (xy 267131 242644 19571) (dir 267118 242634))
+
+(gennpc (index 112) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 267232 242721 19630) (dir 267250 242733))
+(gennpc (index 113) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 267823 242249 19630) (dir 267829 242280))
+;숭례문 NPC
+(gennpc (index 114) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 267244 242447 19578) (dir 267234 242443))
+(gennpc (index 115) (country 0 1 2) (kind 1) (shape 8) (html 139) (map 0) (xy 267259 242356 19618) (dir 267246 242353))
+
+(gennpc (index 116) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 258616 244261 19639) (dir 261616 243261))
+(gennpc (index 117) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 268560 244210 19639) (dir 268560 245210))
+(gennpc (index 118) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 268611 244154 19630) (dir 269611 244154))
+(gennpc (index 119) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 268604 244139 19630) (dir 269604 243139))
+(gennpc (index 120) (country 0 1 2) (kind 1) (shape 8) (html 138) (map 0) (xy 268673 244203 19640) (dir 267673 243203))
+(gennpc (index 121) (country 0 1 2) (kind 1) (shape 8) (html 143) (map 0) (xy 268687 244200 19640) (dir 267687 241200))
+(gennpc (index 122) (country 0 1 2) (kind 1) (shape 8) (html 144) (map 0) (xy 268129 242967 19630) (dir 269129 241967))
+(gennpc (index 123) (country 0 1 2) (kind 1) (shape 8) (html 148) (map 0) (xy 268975 243500 19625) (dir 269975 241500))
+(gennpc (index 124) (country 0 1 2) (kind 1) (shape 8) (html 149) (map 0) (xy 268201 243756 19620) (dir 269201 244756))
+(gennpc (index 125) (country 0 1 2) (kind 1) (shape 8) (html 150) (map 0) (xy 267437 243844 19620) (dir 265437 240844))
+(gennpc (index 126) (country 0 1 2) (kind 1) (shape 8) (html 154) (map 0) (xy 268046 244143 19620) (dir 271046 245143))
+(gennpc (index 127) (country 0 1 2) (kind 1) (shape 8) (html 155) (map 0) (xy 267933 243345 19630) (dir 267933 232345))
+(gennpc (index 128) (country 0 1 2) (kind 1) (shape 8) (html 155) (map 0) (xy 267948 243345 19630) (dir 267948 232345))
+(gennpc (index 129) (country 0 1 2) (kind 1) (shape 8) (html 155) (map 0) (xy 267963 243345 19630) (dir 267963 232345))
+(gennpc (index 130) (country 0 1 2) (kind 1) (shape 8) (html 155) (map 0) (xy 267933 243330 19630) (dir 267933 232330))
+(gennpc (index 131) (country 0 1 2) (kind 1) (shape 8) (html 155) (map 0) (xy 267948 243330 19630) (dir 267948 232330))
+(gennpc (index 132) (country 0 1 2) (kind 1) (shape 8) (html 155) (map 0) (xy 267963 243330 19630) (dir 267963 232330))
+(gennpc (index 133) (country 0 1 2) (kind 1) (shape 8) (html 156) (map 0) (xy 267978 243330 19630) (dir 267978 232330))
+(gennpc (index 134) (country 0 1 2) (kind 1) (shape 8) (html 157) (map 0) (xy 267984 243062 19630) (dir 267984 242062))
+(gennpc (index 135) (country 0 1 2) (kind 1) (shape 8) (html 158) (map 0) (xy 268269 243246 19620) (dir 269269 242246))
+(gennpc (index 136) (country 0 1 2) (kind 1) (shape 8) (html 159) (map 0) (xy 268171 242335 19630) (dir 269171 237335))
+(gennpc (index 137) (country 0 1 2) (kind 0) (shape 3) (html 164) (map 0) (xy 269106 242927 19630) (dir 259106 243927) (cid 1) (warrelation 0))
+(gennpc (index 138) (country ) (kind 3) (shape 3) (quest 26 1) (map 0) (xy 258043 259381 16049) (dir -1 0))
+(gennpc (index 139) (country 0 1 2) (kind 1) (shape 5) (html 165) (map 0) (xy 267768 243581 19627) (dir 270768 241581))
+(gennpc (index 140) (country 0 1 2) (kind 1) (shape 6) (html 166) (map 0) (xy 268454 242632 19620) (dir 267454 246632))
+(gennpc (index 141) (country 0 1 2) (kind 1) (shape 7) (html 167) (map 0) (xy 268263 242636 19630) (dir 267263 246636))
+(gennpc (index 142) (country 0 1 2) (kind 8) (shape 10) (html 168) (map 0) (xy 257386 259305 16112) (dir 257386 260305))
+(gennpc (index 143) (country 0 1 2) (kind 8) (shape 10) (html 169) (map 0) (xy 264918 262111 16170) (dir 264918 263111))
+(gennpc (index 144) (country 0 1 2) (kind 1) (shape 10) (html 170) (map 0) (xy 265676 285598 22640) (dir 265676 286598))
+(gennpc (index 145) (country 0 1 2) (kind 1) (shape 10) (html 171) (map 0) (xy 256351 288473 27050) (dir 256351 289473))
+(gennpc (index 146) (country 0 1 2) (kind 1) (shape 10) (html 172) (map 0) (xy 267906 242423 19630) (dir 267906 243423))
+(gennpc (index 147) (country 0 1 2) (kind 36) (shape 3) (html 173) (map 0) (xy 264647 261314 15986) (dir 265647 264314))
+(gennpc (index 148) (country 0 1 2) (kind 36) (shape 3) (html 174) (map 0) (xy 256123 289612 27193) (dir 255123 287612))
+(gennpc (index 149) (country 0 1 2) (kind 36) (shape 3) (html 175) (map 0) (xy 267357 243100 19629) (dir 268357 242100))
+
+(gennpc (index 155) (country 0 1 2) (kind 3) (shape 4) (quest 27 1) (map 0) (xy 267323 242818 19630) (dir 268323 241818))
+(gennpc (index 156) (country 0 1 2) (kind 3) (shape 13) (quest 27 4) (map 0) (xy 265471 240851 18111) (dir 266471 241851))
+(gennpc (index 157) (country 0 1 2) (kind 3) (shape 8) (quest 28 1) (map 0) (xy 266776 242953 19620) (dir 269776 240953))
+
+(gennpc (index 158) (country 0 1 2) (kind 3) (shape 9) (quest 29 1) (map 0) (xy 267796 242254 19630) (dir 267807 242309))
+(gennpc (index 159) (country 0 1 2) (kind 3) (shape 8) (quest 30 1) (map 0) (xy 267190 242796 19623) (dir 267222 242815))
+
+(gennpc (index 160) (country 0 1 2) (kind 3) (shape 8) (quest 31 1) (map 0) (xy 266904 243535 19620) (dir 266904 242535))
+(gennpc (index 161) (country 0 1 2) (kind 3) (shape 8) (quest 32 1) (map 0) (xy 268201 244345 19627) (dir 267201 243345))
+(gennpc (index 162) (country 0 1 2) (kind 3) (shape 8) (quest 33 1) (map 0) (xy 267999 243311 19630) (dir 268999 242311))
+(gennpc (index 163) (country 0 1 2) (kind 3) (shape 8) (quest 34 1) (map 0) (xy 268844 243518 19620) (dir 267844 242518))
+(gennpc (index 164) (country 0 1 2) (kind 3) (shape 8) (quest 35 1) (map 0) (xy 268192 243963 19630) (dir 269192 244963))
+;pc방 이벤트
+;(gennpc (index 165) (country ) (kind 0) (shape 3) (html 176) (map 0) (xy 257912 259193 16072) (dir 0 1))
+(gennpc (index 166) (country 0 1 2) (kind 3) (shape 3) (quest 9005 1) (map 0) (xy 267699 242298 19630) (dir 268699 243298))
+(gennpc (index 167) (country 0 1 2) (kind 3) (shape 3) (quest 9005 3) (map 0) (xy 268472 243389 19620) (dir 268472 242389))
+(gennpc (index 168) (country 0 1 2) (kind 3) (shape 1) (quest 9006 6) (map 0) (xy 268931 243393 19630) (dir 265931 245393))
+(gennpc (index 169) (country 0 1 2) (kind 3) (shape 3) (quest 9006 7) (map 0) (xy 268226 243666 19624) (dir 267226 242666))
+(gennpc (index 170) (country 0 1 2) (kind 3) (shape 3) (quest 9006 8) (map 0) (xy 268958 243775 19629) (dir 266958 244775))
+;어장주인
+;(gennpc (index 171) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 257259 257319 15725) (dir 257259 258319))
+;(gennpc (index 172) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 264637 261854 15721) (dir 265637 262854))
+;(gennpc (index 173) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 258674 258849 15734) (dir 258674 259849))
+;(gennpc (index 174) (country ) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 264346 262294 15720) (dir 0 1))
+(gennpc (index 175) (country 0 1 2) (kind 1) (shape 4) (html 180) (map 0) (xy 257449 258757 16088) (dir 257409 258768))
+(gennpc (index 176) (country 0 1 2) (kind 1) (shape 4) (html 180) (map 0) (xy 265078 261585 16190) (dir 264078 261585))
+(gennpc (index 177) (country 0 1 2) (kind 1) (shape 4) (html 180) (map 0) (xy 264853 285225 22681) (dir 265853 286225))
+(gennpc (index 178) (country 0 1 2) (kind 1) (shape 4) (html 180) (map 0) (xy 268429 243868 19620) (dir 273429 242868))
+;가위바위보 이벤트
+;(gennpc (index 179) (country ) (kind 1) (shape 14) (html 181) (map 0) (xy 257359 258996 16080) (dir 257359 259996))
+;(gennpc (index 180) (country ) (kind 1) (shape 14) (html 181) (map 0) (xy 264962 262471 16180) (dir 0 1))
+;(gennpc (index 181) (country ) (kind 1) (shape 14) (html 181) (map 0) (xy 265799 284985 22650) (dir 0 -1))
+;(gennpc (index 182) (country ) (kind 1) (shape 14) (html 181) (map 0) (xy 267477 242213 19661) (dir 1 1))
+;(gennpc (index 211) (country ) (kind 1) (shape 14) (html 181) (map 0) (xy 255886 288882 27050) (dir -3 2))
+(gennpc (index 183) (country 0 1 2) (kind 1) (shape 10) (html 182) (map 0) (xy 273179 232150 20351) (dir 273179 233150))
+(gennpc (index 184) (country 0 1 2) (kind 3) (shape 3) (quest 36 1) (map 0) (xy 267231 242889 19630) (dir 268231 242889))
+(gennpc (index 185) (country 0 1 2) (kind 3) (shape 3) (quest 36 4) (map 0) (xy 274423 232140 17652) (dir 275423 232140))
+(gennpc (index 186) (country 0 1 2) (kind 3) (shape 14) (quest 37 1) (map 0) (xy 257919 259110 16070) (dir 258919 260110))
+;추천 이벤트
+;(gennpc (index 187) (country ) (kind 1) (shape 3) (html 183) (map 0) (xy 257359 258996 16080) (dir 0 1))
+;(gennpc (index 188) (country ) (kind 1) (shape 3) (html 183) (map 0) (xy 264962 262471 16180) (dir 0 1))
+;(gennpc (index 189) (country ) (kind 1) (shape 3) (html 183) (map 0) (xy 265799 284985 22650) (dir 0 -1))
+;(gennpc (index 190) (country ) (kind 1) (shape 3) (html 183) (map 0) (xy 267477 242213 19661) (dir 1 1))
+(gennpc (index 191) (country 0 1 2) (kind 3) (shape 3) (quest 38 1) (map 0) (xy 267705 243137 19630) (dir 267705 242137))
+(gennpc (index 192) (country 0 1 2) (kind 1) (shape 3) (html 900445) (map 0) (xy 257685 258768 16176) (dir 256685 258768))
+(gennpc (index 193) (country 0 1 2) (kind 3) (shape 3) (quest 38 5) (map 0) (xy 257043 259108 16092) (dir 257043 260108))
+(gennpc (index 194) (country 0 1 2) (kind 3) (shape 3) (quest 38 7) (map 0) (xy 265163 285418 23178) (dir 266163 284418))
+(gennpc (index 195) (country 0 1 2) (kind 3) (shape 9) (quest 39 1) (map 0) (xy 268145 243451 19630) (dir 269145 244451))
+(gennpc (index 196) (country 0 1 2) (kind 3) (shape 9) (quest 40 1) (map 0) (xy 268165 243451 19630) (dir 269165 244451))
+(gennpc (index 197) (country 0 1 2) (kind 3) (shape 9) (quest 41 1) (map 0) (xy 268185 243451 19630) (dir 269185 244451))
+(gennpc (index 198) (country 0 1 2) (kind 3) (shape 9) (quest 42 1) (map 0) (xy 268205 243451 19630) (dir 269205 244451))
+(gennpc (index 199) (country 0 1 2) (kind 3) (shape 9) (quest 43 1) (map 0) (xy 268225 243451 19630) (dir 269225 244451))
+;스파이더맨 이벤트
+(gennpc (index 200) (country ) (kind 3) (shape 3) (quest 8002 1) (map 0) (xy 257409 259688 16103) (dir 0 -1))
+(gennpc (index 201) (country ) (kind 3) (shape 3) (quest 8002 1) (map 0) (xy 265776 285249 22650) (dir 0 1))
+(gennpc (index 202) (country ) (kind 3) (shape 3) (quest 8002 1) (map 0) (xy 267610 243128 19630) (dir -1 -1))
+(gennpc (index 203) (country 0 1 2) (kind 3) (shape 14) (quest 44 1) (map 0) (xy 274412 241958 19907) (dir 274412 242958))
+(gennpc (index 204) (country 0 1 2) (kind 3) (shape 3) (quest 44 5) (map 0) (xy 268266 243057 19625) (dir 269266 242057))
+(gennpc (index 205) (country 0 1 2) (kind 3) (shape 7) (quest 7000 1) (map 0) (xy 257378 259285 16106) (dir 257378 258285))
+(gennpc (index 206) (country 0 1 2) (kind 3) (shape 3) (quest 45 1) (map 0) (xy 271611 237286 17132) (dir 270611 232286))
+(gennpc (index 207) (country 0 1 2) (kind 3) (shape 3) (quest 45 5) (map 0) (xy 268194 242452 19630) (dir 267194 241452))
+(gennpc (index 208) (country 0 1 2) (kind 3) (shape 4) (quest 45 5) (map 0) (xy 268201 242438 19630) (dir 267201 243438))
+(gennpc (index 209) (country 0 1 2) (kind 3) (shape 8) (quest 46 1) (map 0) (xy 263222 225746 17566) (dir 263222 224746))
+(gennpc (index 210) (country 0 1 2) (kind 1) (shape 5) (html 184) (map 0) (xy 268534 243276 19620) (dir 269534 242276))
+;(index 211) 가위바위보 대장
+
+;;자객명부 삭제(나루터 마을)
+(gennpc (index 212) (country 0 1 2) (kind 1) (shape 15) (html 400001) (map 0) (xy 257409 259688 16103) (dir 257409 258688))
+
+;자객가면 NPC
+(gennpc (index 213) (country 0 2) (kind 0) (shape 3) (html 186) (map 0) (xy 267213 243404 19624) (dir 268213 242404))
+
+;공성전 깃발 수정(2007.05.28)
+(gennpc (index 214) (country 0 2) (kind 1) (shape 16) (map 0) (xy 249217 259476 25511) (dir 249207 259579) (cid 1) (warrelation 0))
+;금오본성 까마귀상 수정(2007.05.28)
+(gennpc (index 215) (country 0 2) (kind 1) (shape 10) (html 187) (map 0) (xy 247934 257273 23207) (dir 247935 257316) (cid 1) (warrelation 0))
+;(gennpc (index 216) (country ) (kind 1) (shape 8) (html 189) (map 0) (xy 247866 255714 23196) (dir -1 1))
+(gennpc (index 217) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 252648 262649 17777) (dir 253648 262649) (cid 1) (warrelation 0))
+(gennpc (index 218) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 252371 262466 17726) (dir 252371 261466) (cid 1) (warrelation 0))
+(gennpc (index 219) (country 0 1 2) (kind 1) (shape 15) (html 400001) (map 0) (xy 265776 285249 22650) (dir 265776 286249))
+(gennpc (index 220) (country 0 1 2) (kind 1) (shape 15) (html 400001) (map 0) (xy 267610 243128 19630) (dir 266610 242128))
+(gennpc (index 221) (country 0 1 2) (kind 1) (shape 15) (html 400001) (map 0) (xy 265003 262746 16222) (dir 265003 261746))
+(gennpc (index 222) (country 0 1 2) (kind 1) (shape 15) (html 400001) (map 0) (xy 255610 288196 27070) (dir 258610 289196))
+(gennpc (index 223) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 248812 263518 22466) (dir 249812 264518) (cid 1) (warrelation 0))
+(gennpc (index 224) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 248640 263153 22265) (dir 249640 262153) (cid 1) (warrelation 0))
+;점령전 뒤쪽문 성문지기 제거
+;(gennpc (index 225) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 249659 257624 21639) (dir 249659 256624) (cid 1) (warrelation 0))
+;(gennpc (index 226) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 249661 257979 21708) (dir 249661 258979) (cid 1) (warrelation 0))
+(gennpc (index 227) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 250422 258754 21996) (dir 251422 258754) (cid 1) (warrelation 0))
+(gennpc (index 228) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 250110 258764 22376) (dir 249110 258764) (cid 1) (warrelation 0))
+(gennpc (index 229) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 248657 261640 22880) (dir 248657 262640) (cid 1) (warrelation 0))
+(gennpc (index 230) (country 0 2) (kind 1) (shape 3) (html 188) (map 0) (xy 248542 261011 22840) (dir 248547 260975) (cid 1) (warrelation 0))
+;점령전 뒤쪽문 수비병 제거
+;(gennpc (index 231) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 249625 257743 21527) (dir 250625 256743) (cid 1) (warrelation 1))
+;(gennpc (index 232) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 249532 257742 21499) (dir 250532 256742) (cid 1) (warrelation 1))
+(gennpc (index 233) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 250362 258718 22036) (dir 251362 258718) (cid 1) (warrelation 1))
+(gennpc (index 234) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 250358 258615 22052) (dir 251358 258615) (cid 1) (warrelation 1))
+;점령전 정문 수비병 위치 수정
+(gennpc (index 235) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 248692 261577 22858) (dir 248694 261620) (cid 1) (warrelation 1))
+(gennpc (index 236) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 248584 261583 22777) (dir 248584 262583) (cid 1) (warrelation 1))
+(gennpc (index 237) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 252594 262569 17711) (dir 254594 263569) (cid 1) (warrelation 1))
+(gennpc (index 238) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 252645 262499 17622) (dir 254645 263499) (cid 1) (warrelation 1))
+(gennpc (index 239) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 248792 263436 22364) (dir 249792 264436) (cid 1) (warrelation 1))
+(gennpc (index 240) (country 0 2) (kind 1) (shape 8) (html 189) (map 0) (xy 248835 263378 22449) (dir 249835 264378) (cid 1) (warrelation 1))
+(gennpc (index 241) (country 0 1 2) (kind 1) (shape 6) (html 190) (map 0) (xy 257121 258940 16100) (dir 277121 259940))
+(gennpc (index 242) (country 0 1 2) (kind 1) (shape 6) (html 190) (map 0) (xy 265167 262166 16204) (dir 265167 261166))
+(gennpc (index 243) (country 0 1 2) (kind 1) (shape 6) (html 190) (map 0) (xy 265539 285040 22650) (dir 264539 285040))
+(gennpc (index 244) (country 0 1 2) (kind 1) (shape 6) (html 190) (map 0) (xy 255441 289428 27070) (dir 255441 290428))
+(gennpc (index 245) (country 0 1 2) (kind 1) (shape 6) (html 190) (map 0) (xy 267650 242185 19656) (dir 268650 243185))
+(gennpc (index 246) (country 0 1 2) (kind 1) (shape 6) (html 190) (map 0) (xy 273089 232144 20359) (dir 274089 232144))
+(gennpc (index 247) (country 0 1 2) (kind 0) (shape 3) (html 194) (map 0) (xy 257131 259185 16090) (dir 258131 260185))
+(gennpc (index 248) (country 0 1 2) (kind 0) (shape 3) (html 194) (map 0) (xy 264723 262215 16160) (dir 264723 261215) (cid 1))
+(gennpc (index 249) (country 0 1 2) (kind 0) (shape 3) (html 194) (map 0) (xy 265429 285055 22650) (dir 265429 286055) (cid 1))
+(gennpc (index 250) (country 0 1 2) (kind 0) (shape 3) (html 194) (map 0) (xy 255568 289420 27070) (dir 255568 290420) (cid 1))
+(gennpc (index 251) (country 0 1 2) (kind 0) (shape 3) (html 194) (map 0) (xy 268917 242758 19628) (dir 268917 243758) (cid 1))
+(gennpc (index 252) (country 0 2) (kind 3) (shape 3) (quest 47 1) (map 0) (xy 259389 265165 16090) (dir 260389 266165))
+(gennpc (index 253) (country 0 2) (kind 3) (shape 3) (quest 48 1) (map 0) (xy 264965 268152 18227) (dir 263965 267152))
+(gennpc (index 254) (country 0 2) (kind 3) (shape 3) (quest 49 1) (map 0) (xy 266174 272175 21729) (dir 267174 272175))
+(gennpc (index 255) (country 0 2) (kind 3) (shape 3) (quest 50 1) (map 0) (xy 265417 276915 23240) (dir 265417 277915))
+(gennpc (index 256) (country 0 2) (kind 3) (shape 3) (quest 51 1) (map 0) (xy 258738 264249 16276) (dir 257738 263249))
+(gennpc (index 257) (country 0 2) (kind 3) (shape 3) (quest 52 1) (map 0) (xy 262113 256702 17321) (dir 261113 256702))
+(gennpc (index 258) (country 0 2) (kind 3) (shape 3) (quest 53 1) (map 0) (xy 265893 275953 23260) (dir 265893 274953))
+(gennpc (index 259) (country 0 2) (kind 3) (shape 3) (quest 58 1) (map 0) (xy 269407 243333 19630) (dir 268407 244333))
+(gennpc (index 260) (country 0 2) (kind 3) (shape 3) (quest 0 19) (map 0) (xy 256068 289118 27050) (dir 255068 290118))
+(gennpc (index 261) (country 0 2) (kind 1) (shape 3) (html 191) (map 0) (xy 257369 259296 16112) (dir 257369 258296))
+(gennpc (index 262) (country 0 2) (kind 1) (shape 3) (html 192) (map 0) (xy 257448 258731 16090) (dir 257427 258733) (warrelation 0))
+(gennpc (index 263) (country 0 2) (kind 1) (shape 3) (html 192) (map 0) (xy 256262 289137 27060) (dir 257262 289137) (warrelation 0))
+(gennpc (index 264) (country 0 2) (kind 1) (shape 3) (html 192) (map 0) (xy 268408 243898 19620) (dir 269408 242898) (warrelation 0))
+;점령전 관리인 수정(2007.5.28)
+(gennpc (index 265) (country 0 2) (kind 1) (shape 3) (html 195) (map 0) (xy 248248 259853 22810) (dir 248273 259853) (cid 1) (warrelation 1))
+(gennpc (index 266) (country 0 1 2) (kind 3) (shape 14) (quest 9008 1) (map 0) (xy 273331 232000 20243) (dir 274331 232000))
+(gennpc (index 267) (country 0 2) (kind 1) (shape 5) (html 196) (map 0) (xy 255598 288916 27070) (dir 256598 288916))
+(gennpc (index 268) (country 0 2) (kind 1) (shape 5) (html 197) (map 0) (xy 255600 288966 27070) (dir 256600 288966))
+(gennpc (index 269) (country 0 2) (kind 1) (shape 6) (html 198) (map 0) (xy 255602 289016 27070) (dir 256602 289016))
+(gennpc (index 270) (country 0 2) (kind 1) (shape 6) (html 199) (map 0) (xy 255604 289066 27070) (dir 256604 289066))
+(gennpc (index 271) (country 0 2) (kind 1) (shape 6) (html 200) (map 0) (xy 255606 289116 27070) (dir 256606 289116))
+(gennpc (index 272) (country 0 2) (kind 1) (shape 6) (html 201) (map 0) (xy 255608 289166 27070) (dir 256608 289166))
+;스킬초기화 이벤트 NPC
+;(gennpc (index 273) (country 0) (kind 3) (shape 7) (quest 8006 1) (map 0) (xy 257724 259630 16090) (dir 257695 259573))
+(gennpc (index 274) (country 0 2) (kind 1) (shape 10) (html 202) (map 0) (xy 252484 262442 19470) (dir 253484 263442) (cid 1) (warrelation 2))
+(gennpc (index 275) (country 0 2) (kind 1) (shape 10) (html 203) (map 0) (xy 248668 263318 24010) (dir 249668 264318) (cid 1) (warrelation 2))
+(gennpc (index 276) (country 0 2) (kind 1) (shape 10) (html 204) (map 0) (xy 232802 294675 45300) (dir 233802 294675))
+(gennpc (index 277) (country 0 2) (kind 1) (shape 4) (html 180) (map 0) (xy 236035 295752 45380) (dir 237035 295752))
+(gennpc (index 278) (country 0 2) (kind 0) (shape 3) (html 205) (map 0) (xy 236384 294192 45420) (dir 236384 295192))
+(gennpc (index 279) (country 0 2) (kind 0) (shape 3) (html 194) (map 0) (xy 236807 295329 45380) (dir 235807 295329))
+;가면상인
+(gennpc (index 280) (country 0 2) (kind 0) (shape 3) (html 206) (map 0) (xy 236808 295790 45398) (dir 235808 295790))
+(gennpc (index 281) (country 0 2) (kind 0) (shape 3) (html 207) (map 0) (xy 235900 295175 45418) (dir 235900 294175))
+(gennpc (index 282) (country 0 2) (kind 0) (shape 3) (html 208) (map 0) (xy 235204 295171 45370) (dir 235204 294171))
+(gennpc (index 283) (country 0 2) (kind 0) (shape 3) (html 209) (map 0) (xy 234738 295160 45370) (dir 234738 294160))
+(gennpc (index 284) (country 0 2) (kind 0) (shape 3) (html 210) (map 0) (xy 235679 294177 45390) (dir 235679 295177))
+(gennpc (index 285) (country 0 2) (kind 0) (shape 3) (html 211) (map 0) (xy 235219 294170 45430) (dir 235219 295170))
+(gennpc (index 286) (country 0 2) (kind 0) (shape 3) (html 212) (map 0) (xy 234514 294196 45390) (dir 234514 295196))
+(gennpc (index 287) (country 0 2) (kind 3) (shape 7) (quest 0 29) (map 0) (xy 231715 294703 45300) (dir 232056 294712))
+
+;3차전직 서안
+(gennpc (index 288) (country 0 2) (kind 3) (shape 7) (html 214) (quest 9010 1) (map 0) (xy 231603 294696 45300) (dir 231272 294673))
+
+(gennpc (index 289) (country 0 2) (kind 1) (shape 7) (html 215) (map 0) (xy 231649 294905 45300) (dir 231656 294699))
+(gennpc (index 290) (country 0 2) (kind 1) (shape 7) (html 216) (map 0) (xy 231689 294496 45319) (dir 231656 294699))
+(gennpc (index 291) (country 0 2) (kind 1) (shape 7) (html 217) (map 0) (xy 231732 294318 45310) (dir 231656 294699))
+(gennpc (index 292) (country 0 2) (kind 1) (shape 7) (html 218) (map 0) (xy 231502 294344 45330) (dir 231656 294699))
+
+
+;대장군사부 서필
+(gennpc (index 293) (country 0 2) (kind 1) (shape 7) (html 500) (map 0) (xy 231329 294508 45327) (dir 231656 294699))
+
+;검  신사부 임비
+(gennpc (index 294) (country 0 2) (kind 1) (shape 7) (html 501) (map 0) (xy 231283 294742 45354) (dir 231656 294699))
+
+;견룡군대장군사부 돈중
+(gennpc (index 295) (country 0 2) (kind 1) (shape 7) (html 502) (map 0) (xy 231382 294957 45335) (dir 231656 294699))
+
+;신  궁사부 봉학
+(gennpc (index 296) (country 0 2) (kind 1) (shape 7) (html 503) (map 0) (xy 231591 295072 45300) (dir 231656 294699))
+
+;군  사사부 봉요
+(gennpc (index 297) (country 0 2) (kind 1) (shape 7) (html 504) (map 0) (xy 231822 295037 45300) (dir 231656 294699))
+
+;선  인사부 불로
+(gennpc (index 298) (country 0 2) (kind 1) (shape 7) (html 505) (map 0) (xy 231994 294877 45300) (dir 231656 294699))
+
+
+;암 귀 사부 덕성
+(gennpc (index 299) (country 0 2) (kind 1) (shape 7) (html 525) (map 0) (xy 232038 294645 45300) (dir 231656 294699))
+
+;무형귀 사부 대곤
+(gennpc (index 300) (country 0 2) (kind 1) (shape 7) (html 526) (map 0) (xy 231936 294433 45300) (dir 231656 294699))
+;어장주인
+;(gennpc (index 301) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 233986 294677 45406) (dir 233986 293677))
+;(gennpc (index 302) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 234408 294677 45406) (dir 234408 293677))
+;(gennpc (index 303) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 234899 294677 45413) (dir 234899 293677))
+;(gennpc (index 304) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 235321 294677 45413) (dir 235321 293677))
+;(gennpc (index 305) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 235809 294677 45416) (dir 235809 293677))
+;(gennpc (index 306) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 236234 294677 45416) (dir 236234 293677))
+;(gennpc (index 307) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 233022 293298 45290) (dir 232022 293298))
+;(gennpc (index 308) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 234746 294187 45400) (dir 234746 295187))
+;(gennpc (index 309) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 235915 294172 45390) (dir 235915 295172))
+;(gennpc (index 310) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 236823 296263 45380) (dir 235823 296263))
+;(gennpc (index 311) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 234504 295172 45400) (dir 234504 294172))
+;(gennpc (index 312) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 230947 295369 45280) (dir 231947 294369))
+;(gennpc (index 313) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 231548 293018 45360) (dir 236548 294018))
+;(gennpc (index 314) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 233002 290520 45390) (dir 232002 295520))
+;(gennpc (index 315) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 233954 290541 45390) (dir 234954 295541))
+;(gennpc (index 316) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 233798 291508 45290) (dir 231798 288508))
+;(gennpc (index 317) (country 0 2) (kind 1) (shape 7) (html 230) (map 0) (xy 233051 292367 45280) (dir 232951 292339))
+;(gennpc (index 318) (country 0 2) (kind 1) (shape 8) (html 222) (map 0) (xy 232572 295810 45290) (dir 232576 295868))
+;(gennpc (index 319) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 232047 295596 45280) (dir 232047 294596))
+;(gennpc (index 320) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 232568 295581 45290) (dir 232568 294581))
+;(gennpc (index 321) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 230525 294939 45290) (dir 230218 294917))
+;(gennpc (index 322) (country 0 2) (kind 1) (shape 8) (html 224) (map 0) (xy 230752 294962 45290) (dir 231752 294962))
+;(gennpc (index 323) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 230792 294449 45290) (dir 231792 294449))
+;(gennpc (index 324) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 234700 291046 45310) (dir 235227 290915))
+;(gennpc (index 325) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 234329 290617 45397) (dir 233329 290617))
+;(gennpc (index 326) (country 0 2) (kind 1) (shape 8) (html 226) (map 0) (xy 234574 290579 45360) (dir 234883 290541))
+;(gennpc (index 327) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 234483 291113 45300) (dir 233483 291113))
+;(gennpc (index 328) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 237061 294392 45515) (dir 237204 294388))
+;(gennpc (index 329) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 236778 294393 45427) (dir 236728 294392))
+;(gennpc (index 330) (country 0 2) (kind 1) (shape 8) (html 227) (map 0) (xy 237062 295016 45322) (dir 237267 294906))
+;(gennpc (index 331) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 236778 295016 45380) (dir 236698 295013))
+;(gennpc (index 332) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 236671 296553 45380) (dir 236675 296833))
+;(gennpc (index 333) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 236687 296315 45380) (dir 236694 296255))
+;(gennpc (index 334) (country 0 2) (kind 1) (shape 8) (html 228) (map 0) (xy 236151 296522 45380) (dir 236100 296994))
+;(gennpc (index 335) (country 0 2) (kind 1) (shape 8) (html 223) (map 0) (xy 236169 296282 45380) (dir 236177 296175))
+;(gennpc (index 336) (country 0 2) (kind 1) (shape 3) (html 219) (map 0) (xy 232146 294760 45312) (dir 232936 294741))
+;(gennpc (index 337) (country 0 2) (kind 1) (shape 3) (html 220) (map 0) (xy 232149 294673 45310) (dir 232936 294741))
+;(gennpc (index 338) (country 0 2) (kind 1) (shape 3) (html 221) (map 0) (xy 231180 294627 45348) (dir 230276 294617))
+;(gennpc (index 339) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231178 294710 45319) (dir 230276 294617))
+;어장주인
+;(gennpc (index 340) (country 1) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 232699 291121 45307) (dir 234440 290814))
+(gennpc (index 341) (country 0 2) (kind 36) (shape 4) (html 231) (map 0) (xy 234264 295146 45363) (dir 234259 294880)) ;제사장의 도시 창고npc
+;(gennpc (index 342) (country 0 2) (kind 1) (shape 3) (html 192) (map 0) (xy 234278 294205 45390) (dir 234295 294405))
+;(gennpc (index 343) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 233402 295241 45328) (dir 233122 294895))
+;(gennpc (index 344) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 233042 295496 45290) (dir 232995 295329))
+;(gennpc (index 345) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231544 295609 45287) (dir 231543 295388))
+;(gennpc (index 346) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231133 295513 45290) (dir 231285 295326))
+;(gennpc (index 347) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 230849 294174 45290) (dir 231104 294235))
+;(gennpc (index 348) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231085 293818 45290) (dir 231276 294027))
+;(gennpc (index 349) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231252 293653 45350) (dir 231501 293869))
+;(gennpc (index 350) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231589 292773 45360) (dir 231870 292792))
+;(gennpc (index 351) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 231575 292537 45360) (dir 231819 292525))
+;(gennpc (index 352) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 232774 290511 45420) (dir 232767 290694))
+;(gennpc (index 353) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 233484 290561 45390) (dir 233465 290855))
+;(gennpc (index 354) (country 0 2) (kind 1) (shape 3) (html 229) (map 0) (xy 233719 290574 45390) (dir 233730 290874))
+;(gennpc (index 355) (country 0 2) (kind 1) (shape 5) (html 190) (map 0) (xy 234446 291239 45307) (dir 234362 290960))
+;(gennpc (index 356) (country 0 2) (kind 1) (shape 5) (html 233) (map 0) (xy 234012 291393 45300) (dir 233919 291169))
+;(gennpc (index 357) (country 0 2) (kind 1) (shape 5) (html 234) (map 0) (xy 233404 291771 45298) (dir 233270 291607))
+;(gennpc (index 358) (country 0 2) (kind 1) (shape 6) (html 235) (map 0) (xy 233118 292145 45294) (dir 232961 292082))
+;(gennpc (index 359) (country 0 2) (kind 1) (shape 6) (html 236) (map 0) (xy 232966 292835 45290) (dir 232684 292814))
+;(gennpc (index 360) (country 0 2) (kind 1) (shape 7) (html 237) (map 0) (xy 233082 293545 45303) (dir 232737 293664))
+;(gennpc (index 361) (country 0 2) (kind 1) (shape 7) (html 238) (map 0) (xy 233424 294152 45290) (dir 233138 294414))
+
+;자객명부 삭제 (거조의 동굴)
+(gennpc (index 362) (country 0 2) (kind 1) (shape 15) (html 400001) (map 0) (xy 232622 295591 45300) (dir 232601 295242))
+(gennpc (index 363) (country 0 2) (kind 1) (shape 3) (html 191) (map 0) (xy 264898 261895 16142) (dir 264894 262060))
+(gennpc (index 364) (country 0 1 2) (kind 3) (shape 7) (quest 7000 1) (map 0) (xy 265064 262006 16180) (dir 264949 262180))
+(gennpc (index 365) (country 0 1 2) (kind 3) (shape 7) (quest 7000 1) (map 0) (xy 265799 285408 22642) (dir 265520 285416))
+(gennpc (index 366) (country 0 1 2) (kind 3) (shape 7) (quest 7000 1) (map 0) (xy 255792 288126 27070) (dir 255886 288339))
+(gennpc (index 367) (country 0 1 2) (kind 3) (shape 7) (quest 7000 1) (map 0) (xy 267596 242240 19636) (dir 267779 242525))
+(gennpc (index 368) (country 0 2) (kind 0) (shape 3) (html 239) (map 0) (xy 268507 243254 19620) (dir 268521 243236))
+;복주머니 이벤트
+;(gennpc (index 369) (country ) (kind 1) (shape 3) (html 245) (map 0) (xy 257367 259052 16080) (dir 257379 259178))
+;(gennpc (index 370) (country ) (kind 1) (shape 3) (html 245) (map 0) (xy 267266 243000 19620) (dir 267316 242986))
+;(gennpc (index 371) (country ) (kind 1) (shape 3) (html 245) (map 0) (xy 232778 294673 45300) (dir 232726 294676))
+(gennpc (index 372) (country 0 2) (kind 0) (shape 3) (html 243) (map 0) (xy 267436 243161 19630) (dir 267451 243142))
+(gennpc (index 373) (country 0 2) (kind 0) (shape 3) (html 243) (map 0) (xy 234238 295145 45362) (dir 234241 295081))
+(gennpc (index 374) (country 0 2) (kind 4) (shape 17) (html 248) (scenario 0 645) (map 3) (xy 57366 9926 30799) (dir 57366 9060))
+(gennpc (index 375) (country 0 2) (kind 4) (shape 17) (html 249) (scenario 1 646) (map 3) (xy 58006 9678 30799) (dir 57366 9060))
+(gennpc (index 376) (country 0 2) (kind 4) (shape 17) (html 250) (scenario 2 647) (map 3) (xy 58209 9078 30799) (dir 57366 9060))
+(gennpc (index 377) (country 0 2) (kind 4) (shape 17) (html 251) (scenario 3 648) (map 3) (xy 57997 8467 30799) (dir 57366 9060))
+(gennpc (index 378) (country 0 2) (kind 4) (shape 17) (html 252) (scenario 4 641) (map 3) (xy 57366 8235 30799) (dir 57366 9060))
+(gennpc (index 379) (country 0 2) (kind 4) (shape 17) (html 253) (scenario 5 642) (map 3) (xy 56743 8456 30799) (dir 57366 9060))
+(gennpc (index 380) (country 0 2) (kind 4) (shape 17) (html 254) (scenario 6 643) (map 3) (xy 56504 9080 30799) (dir 57366 9060))
+(gennpc (index 381) (country 0 2) (kind 4) (shape 17) (html 255) (scenario 7 644) (map 3) (xy 56748 9742 30799) (dir 57366 9060))
+(gennpc (index 382) (country 0 2) (kind 1) (shape 3) (html 256) (map 0) (xy 257466 259669 16125) (dir 57365 30969))
+(gennpc (index 383) (country 0 2) (kind 4) (shape 18) (scenario 8 0) (map 3) (xy 57365 9074 30969) (dir 57366 9018))
+;기술 초기화 이벤트
+;(gennpc (index 384) (country 0) (kind 3) (shape 7) (quest 8006 1) (map 0) (xy 265132 262754 16275) (dir 265129 262721))
+;(gennpc (index 385) (country 0) (kind 3) (shape 7) (quest 8006 1) (map 0) (xy 265737 285185 22650) (dir 265690 285245))
+;(gennpc (index 386) (country 0) (kind 3) (shape 7) (quest 8006 1) (map 0) (xy 256935 288798 27070) (dir 256920 288796))
+;(gennpc (index 387) (country 0) (kind 3) (shape 7) (quest 8006 1) (map 0) (xy 267365 242530 19681) (dir 267387 242527))
+;(gennpc (index 388) (country 0) (kind 3) (shape 7) (quest 8006 1) (map 0) (xy 232542 295557 45299) (dir 232543 295539))
+(gennpc (index 389) (country 0 2) (kind 1) (shape 10) (html 258) (map 0) (xy 280940 248932 16390) (dir 280950 248890))
+;주사위의 달인
+;(gennpc (index 390) (country ) (kind 1) (shape 19) (html 257) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 391) (country ) (kind 1) (shape 19) (html 257) (map 0) (xy 265081 262566 16207) (dir 265081 262555))
+;(gennpc (index 392) (country ) (kind 1) (shape 19) (html 257) (map 0) (xy 265579 285210 22650) (dir 265570 285218))
+;(gennpc (index 393) (country ) (kind 1) (shape 19) (html 257) (map 0) (xy 255673 288390 27080) (dir 255673 288390))
+;(gennpc (index 394) (country ) (kind 1) (shape 19) (html 257) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+;(gennpc (index 395) (country ) (kind 1) (shape 19) (html 257) (map 0) (xy 232563 295435 45290) (dir 232563 295425))
+(gennpc (index 396) (country 0 2) (kind 5) (shape 20) (html 259) (teleport 3 57366 10034) (map 3) (xy 57370 7727 29999) (dir 57370 7758)) 
+(gennpc (index 397) (country 0 2) (kind 5) (shape 20) (html 260) (teleport 3 57358 10427) (map 3) (xy 57365 8134 30799) (dir 57365 8178))
+;중국 자객 이벤트
+;(gennpc (index 398) (country ) (kind 0) (shape 19) (html 261) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;중국 추석 이벤트
+;(gennpc (index 399) (country ) (kind 1) (shape 3) (html 262) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 400) (country ) (kind 1) (shape 3) (html 262) (map 0) (xy 265081 262566 16207) (dir 265081 262555))
+;(gennpc (index 401) (country ) (kind 1) (shape 3) (html 262) (map 0) (xy 265579 285210 22650) (dir 265570 285218))
+;(gennpc (index 402) (country ) (kind 1) (shape 3) (html 262) (map 0) (xy 255673 288390 27080) (dir 255673 288390))
+;(gennpc (index 403) (country ) (kind 1) (shape 3) (html 262) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+;개천절 이벤트
+;(gennpc (index 404) (country 0 2) (kind 1) (shape 24) (html 300037) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 405) (country 0 2) (kind 1) (shape 24) (html 300037) (map 0) (xy 265081 262566 16207) (dir 265081 262555))
+;(gennpc (index 406) (country 0 2) (kind 1) (shape 24) (html 300037) (map 0) (xy 265579 285210 22650) (dir 265570 285218))
+;(gennpc (index 407) (country 0 2) (kind 1) (shape 24) (html 300037) (map 0) (xy 255673 288390 27080) (dir 255673 288390))
+;(gennpc (index 408) (country 0 2) (kind 1) (shape 24) (html 300037) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+;(gennpc (index 409) (country 0 2) (kind 1) (shape 24) (html 300037) (map 0) (xy 232571 295492 45290) (dir 232570 295470))
+;도박 시스템
+;(gennpc (index 410) (country 0) (kind 1) (shape 26) (html 265) (map 0) (xy 268378 244227 19631) (dir 268356 244209))
+;(gennpc (index 411) (country 0) (kind 1) (shape 25) (html 264) (map 0) (xy 268425 244174 19627) (dir 268397 244153))
+;(gennpc (index 412) (country 0) (kind 1) (shape 26) (html 265) (map 0) (xy 256853 289206 27070) (dir 256822 289150))
+;(gennpc (index 413) (country 0) (kind 1) (shape 25) (html 264) (map 0) (xy 256798 289247 27091) (dir 256791 289232))
+;(gennpc (index 414) (country 0) (kind 1) (shape 26) (html 265) (map 0) (xy 233208 295391 45317) (dir 233202 295383))
+;(gennpc (index 415) (country 0) (kind 1) (shape 25) (html 264) (map 0) (xy 233272 295350 45317) (dir 233265 295340))
+;(gennpc (index 416) (country ) (kind 1) (shape 27) (html 266) (map 0) (xy 268335 244280 19634) (dir 268321 244270))
+;(gennpc (index 417) (country ) (kind 1) (shape 27) (html 266) (map 0) (xy 256743 289289 27112) (dir 256727 289264))
+;(gennpc (index 418) (country ) (kind 1) (shape 27) (html 266) (map 0) (xy 233138 295435 45305) (dir 233133 295422))
+;(gennpc (index 419) (country 0) (kind 1) (shape 26) (html 265) (map 0) (xy 258121 259586 16068) (dir 258075 259533))
+;(gennpc (index 420) (country 0) (kind 1) (shape 25) (html 264) (map 0) (xy 258167 259530 16060) (dir 258123 259483))
+;(gennpc (index 421) (country 0) (kind 1) (shape 27) (html 266) (map 0) (xy 258215 259476 16072) (dir 258182 259445))
+;1주년 기념 이벤트
+;(gennpc (index 422) (country 2) (kind 1) (shape 3) (html 267) (map 0) (xy 257650 259459 16105) (dir 257602 259354))
+;(gennpc (index 423) (country ) (kind 1) (shape 3) (html 268) (map 0) (xy 257130 259507 16103) (dir 257146 259437))
+;어장 관리인 추가
+(gennpc (index 424) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255802 254560) (teleport 0 255939 255097) (teleport 0 256441 254760) (map 0) (xy 257334 258856 15799) (dir 257334 258756))
+;(gennpc (index 425) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 256317 255321) (teleport 0 256312 254162) (map 0) (xy 258674 258849 15734) (dir 258674 259849))
+;(gennpc (index 426) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255000 255595) (teleport 0 254683 255518) (teleport 0 254391 255383) (teleport 0 254598 255114) (teleport 0 254944 255136) (map 0) (xy 264637 261854 15721) (dir 265637 262854))
+;(gennpc (index 427) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 233986 294677 45406) (dir 233986 293677))
+;(gennpc (index 428) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 234408 294677 45406) (dir 234408 293677))
+;(gennpc (index 429) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 234899 294677 45413) (dir 234899 293677))
+;(gennpc (index 430) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 235321 294677 45413) (dir 235321 293677))
+;(gennpc (index 431) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 235809 294677 45416) (dir 235809 293677))
+;(gennpc (index 432) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 236234 294677 45416) (dir 236234 293677))
+;(gennpc (index 433) (country 0 2) (kind 5) (shape 3) (html 269) (teleport 0 255968 277248) (teleport 0 255557 277631) (teleport 0 255343 277171) (teleport 0 254878 277635) (teleport 0 256442 277043) (map 0) (xy 232699 291121 45307) (dir 234440 290814))
+;어장 주인 변경
+;(gennpc (index 434) (country 0 2) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 255904 254609 15759) (dir 255891 254605))
+;(gennpc (index 435) (country 0 2) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 256080 255143 15741) (dir 256060 255138))
+;(gennpc (index 436) (country 0 2) (kind 3) (shape 3) (quest 6001 1) (map 0) (xy 256484 254892 15746) (dir 256474 254870))
+;(gennpc (index 437) (country 0 2) (kind 3) (shape 3) (quest 6003 1) (map 0) (xy 256342 255437 15788) (dir 256335 255407))
+;(gennpc (index 438) (country 0 2) (kind 3) (shape 3) (quest 6003 1) (map 0) (xy 255074 255082 15754) (dir 255052 255093))
+;(gennpc (index 439) (country 0 2) (kind 3) (shape 3) (quest 6004 1) (map 0) (xy 255059 255689 15766) (dir 255045 255663))
+;(gennpc (index 440) (country 0 2) (kind 3) (shape 3) (quest 6004 1) (map 0) (xy 254581 255534 15750) (dir 254597 255529))
+;(gennpc (index 441) (country 0 2) (kind 3) (shape 3) (quest 6004 1) (map 0) (xy 254268 255311 15742) (dir 254281 255316))
+;(gennpc (index 442) (country 0 2) (kind 3) (shape 3) (quest 6004 1) (map 0) (xy 254482 255086 15749) (dir 254518 255090))
+;
+;(gennpc (index 443) (country 0 2) (kind 3) (shape 3) (quest 6004 1) (map 0) (xy 256370 253989 15723) (dir 256362 254005))
+;
+;(gennpc (index 444) (country 0 2) (kind 3) (shape 3) (quest 6005 1) (map 0) (xy 255964 277125 15782) (dir 255970 277144))
+;(gennpc (index 445) (country 0 2) (kind 3) (shape 3) (quest 6005 1) (map 0) (xy 255632 277724 15749) (dir 255625 277715))
+;(gennpc (index 446) (country 0 2) (kind 3) (shape 3) (quest 6005 1) (map 0) (xy 255362 277066 15762) (dir 255361 277074))
+;(gennpc (index 447) (country 0 2) (kind 3) (shape 3) (quest 6005 1) (map 0) (xy 254817 277599 15800) (dir 254828 277610))
+;(gennpc (index 448) (country 0 2) (kind 3) (shape 3) (quest 6005 1) (map 0) (xy 256581 277032 15730) (dir 256567 277033))
+;Door(문) System
+(gennpc (index 449) (country 0) (kind 6) (shape 28) (html 273) (scenario 30 760) (map 4) (xy 35710 37420 30000) (dir 35716 37411))
+(gennpc (index 450) (country 0) (kind 6) (shape 28) (html 273) (scenario 30 760) (map 4) (xy 20383 51083 29999) (dir 20387 51088))
+(gennpc (index 451) (country 0) (kind 6) (shape 28) (html 273) (scenario 30 760) (map 4) (xy 35101 53683 29635) (dir 35106 53679))
+(gennpc (index 452) (country 0) (kind 6) (shape 28) (html 273) (scenario 30 760) (map 4) (xy 3151 51811 31852) (dir 3149 51801))
+(gennpc (index 453) (country 0) (kind 6) (shape 28) (html 273) (scenario 30 760) (map 4) (xy 3064 67245 31536) (dir 3074 67245))
+(gennpc (index 454) (country 0 2) (kind 6) (shape 28) (html 273) (scenario 30 760) (map 4) (xy 20603 67540 31686) (dir 20613 67541))
+;NEW Door(문) System
+;(gennpc (index 449) (country 0) (kind 9) (shape 28) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 35710 37420 30000) (dir 35716 37411) (teleport 4 35404 37564)) 
+;(gennpc (index 450) (country 0) (kind 9) (shape 28) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 20383 51083 29999) (dir 20387 51088) (teleport 4 20267 50951))
+;(gennpc (index 451) (country 0) (kind 9) (shape 28) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 35101 53683 29635) (dir 35106 53679) (teleport 4 34954 53743))
+;(gennpc (index 452) (country 0) (kind 9) (shape 28) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 3151 51811 31852) (dir 3149 51801) (teleport 4 3158 51871)) 
+;(gennpc (index 453) (country 0) (kind 9) (shape 28) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 3064 67245 31536) (dir 3074 67245) (teleport 4 3008 67223))
+;공성병기 포대 비석
+;점령전 리뉴얼 몇몇 위치 수정(2007.05.28)
+(gennpc (index 455) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 248738 261447 24244) (dir 248737 261429) (sgxy 248738 261499 24354) (sgdir 248736 261603) (cid 1) (warrelation 2))
+(gennpc (index 456) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249814 260518 24355) (dir 249814 260543) (sgxy 249786 260488 24378) (sgdir 249779 260481) (cid 1) (warrelation 2))
+(gennpc (index 457) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 250305 258970 23944) (dir 250325 258968) (sgxy 250265 258996 24053) (sgdir 250258 259003) (cid 1) (warrelation 2))
+(gennpc (index 458) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 250503 258494 24027) (dir 250528 258494) (sgxy 250504 258442 24098) (sgdir 250513 258441) (cid 1) (warrelation 2))
+;점령전 리뉴얼 뒤쪽 대포 삭제
+;(gennpc (index 459) (country 0 2) (kind 7) (shape 29) (html ) (map 0) (xy 249836 257607 23328) (dir 249836 257573) (sgxy 249791 257604 23421) (sgdir 249793 257591) (cid 1) (warrelation 2))
+;(gennpc (index 460) (country 0 2) (kind 7) (shape 29) (html ) (map 0) (xy 249371 257850 23091) (dir 249370 257841) (sgxy 249370 257894 23188) (sgdir 249369 257912) (cid 1) (warrelation 2))
+;(gennpc (index 461) (country 0 2) (kind 7) (shape 29) (html ) (map 0) (xy 248018 260228 24223) (dir 248040 260229) (sgxy 248015 260282 24333) (sgdir 248029 260274) (cid 1) (warrelation 2))
+(gennpc (index 462) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 248770 259885 23705) (dir 248798 259884) (sgxy 248729 259914 23832) (sgdir 248655 259979) (cid 1) (warrelation 2))
+(gennpc (index 463) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249623 259876 23706) (dir 249623 259856) (sgxy 249657 259913 23832) (sgdir 249695 259985) (cid 1) (warrelation 2))
+(gennpc (index 464) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249629 259026 23704) (dir 249607 259027) (sgxy 249657 258996 23832) (sgdir 249856 258880) (cid 1) (warrelation 2))
+(gennpc (index 465) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 248765 259037 23706) (dir 248766 259057) (sgxy 248728 259004 22832) (sgdir 248675 258944) (cid 1) (warrelation 2))
+;공성병기 재료 상인
+(gennpc (index 466) (country 0 2) (kind 0) (shape 3) (html 276) (map 0) (xy 257503 258559 16120) (dir 257486 258546))
+;공성병기 포대 비석 추가
+;점령전 리뉴얼 뒷문 포대 삭제(2007.05.28)
+;(gennpc (index 467) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249449 257079 21965) (dir 249450 257088) (sgxy 249449 257123 22060) (sgdir 249449 257144) (cid 1) (warrelation 2))
+(gennpc (index 468) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 251132 258768 22277) (dir 251091 258766) (sgxy 251091 258766 22372) (sgdir 251075 258765) (cid 1) (warrelation 2))
+(gennpc (index 469) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 248550 262272 23143) (dir 248550 262226) (sgxy 248550 262226 23238) (sgdir 248551 262211) (cid 1) (warrelation 2))
+(gennpc (index 470) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249067 263306 24205) (dir 249039 263357) (sgxy 249039 263357 24299) (sgdir 249053 263369) (cid 1) (warrelation 2))
+(gennpc (index 471) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 252874 262435 19687) (dir 252889 262448) (sgxy 252841 262486 19784) (sgdir 252852 262493) (cid 1) (warrelation 2))
+(gennpc (index 472) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 253173 262932 17547) (dir 253138 262896) (sgxy 253138 262896 17642) (sgdir 253131 262889) (cid 1) (warrelation 2))
+(gennpc (index 473) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249525 263878 20919) (dir 249487 263855) (sgxy 249487 263855 21043) (sgdir 249467 263842) (cid 1) (warrelation 2))
+;점령전 리뉴얼 성내부 대포 2문 & 성문 위 1문
+(gennpc (index 474) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 248539 260590 24280) (dir 248536 260565) (sgxy 248576 260559 24368) (sgdir 248584 260549) (cid 1) (warrelation 2))
+(gennpc (index 459) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 247921 260391 24219) (dir 247901 260389) (sgxy 247959 260363 22820) (sgdir 248037 260334) (cid 1) (warrelation 2))
+(gennpc (index 460) (country 0 2) (kind 7) (shape 29) (html 274) (map 0) (xy 249834 258289 23607) (dir 249844 258279) (sgxy 249800 258325 23695) (sgdir 249721 258479) (cid 1) (warrelation 2))
+
+;조합판 & 조합술사
+(gennpc (index 476) (country 0 2) (kind 5) (shape 36) (html 277) (map 0) (xy 256346 288883 27055) (dir 256364 288883))
+(gennpc (index 477) (country 0 2) (kind 5) (shape 31) (html ) (map 0) (xy 256346 288898 27059) (dir 256377 288899))
+;거점이동 NPC
+(gennpc (index 478) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 256966 259578 16175) (dir 256963 259564))
+(gennpc (index 479) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 265730 262411 16353) (dir 265717 262406))
+(gennpc (index 480) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 265830 285168 22650) (dir 265843 285154))
+(gennpc (index 481) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 256034 288897 27050) (dir 256022 288898))
+(gennpc (index 482) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 268922 243923 19630) (dir 268897 243904))
+(gennpc (index 483) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 232937 291368 45420) (dir 232990 291378))
+(gennpc (index 484) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 273186 232214 20350) (dir 273200 232211))
+(gennpc (index 485) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 259445 265087 16089) (dir 259474 265110))
+(gennpc (index 486) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 265746 275961 23260) (dir 265748 275948))
+(gennpc (index 487) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 255753 280560 24310) (dir 285277 227436))
+;중렙(버려진 무덤) 던전 안
+(gennpc (index 488) (country 0) (kind 8) (shape 33) (html ) (map 2) (xy 50269 34097 20476) (dir 50276 34098))
+;고렙(거밝한 천자의 왕릉) 던전 안
+(gennpc (index 489) (country 0) (kind 8) (shape 33) (html ) (map 1) (xy 1106 1333 20476) (dir 1133 1333))
+(gennpc (index 490) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 242793 297805 33745) (dir 242804 297797))
+(gennpc (index 491) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 281632 248961 16360) (dir 281640 248978))
+;도깨비탑 1층
+(gennpc (index 492) (country 0) (kind 8) (shape 33) (html ) (map 3) (xy 55361 21620 30003) (dir 55360 21600))
+(gennpc (index 493) (country 0) (kind 8) (shape 33) (html ) (map 3) (xy 4289 34796 30003) (dir 4304 34793))
+(gennpc (index 494) (country 0) (kind 8) (shape 33) (html ) (map 3) (xy 22750 38001 30002) (dir 22750 37986))
+(gennpc (index 495) (country 0) (kind 8) (shape 33) (html ) (map 3) (xy 3966 17921 30003) (dir 3965 17943))
+(gennpc (index 496) (country 0) (kind 8) (shape 33) (html ) (map 3) (xy 22426 21121 30003) (dir 22411 21121))
+(gennpc (index 497) (country 0) (kind 8) (shape 33) (html ) (map 3) (xy 36111 18576 30003) (dir 36125 18575))
+;전초기지 입구
+(gennpc (index 498) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 228228 317997 45847) (dir 228232 317973))
+;전초기지 1층(전초기지 입구)
+(gennpc (index 499) (country 0) (kind 8) (shape 33) (html ) (map 0) (xy 227455 318737 46067) (dir 227456 318728))
+(gennpc (index 500) (country 0) (kind 8) (shape 33) (html ) (map 4) (xy 35330 37509 29870) (dir 35328 27516))
+(gennpc (index 501) (country 0) (kind 8) (shape 33) (html ) (map 4) (xy 20302 50927 29901) (dir 20293 50934))
+(gennpc (index 502) (country 0) (kind 8) (shape 33) (html ) (map 4) (xy 34786 53774 29361) (dir 34789 53780))
+(gennpc (index 503) (country 0) (kind 8) (shape 33) (html ) (map 4) (xy 3205 51965 31775) (dir 3186 51968))
+;독도관련 NPC 이삼부 장군
+;(gennpc (index 504) (country 0) (kind 1) (shape 9) (html 278) (map 0) (xy 257215 259123 16090) (dir 257237 259147))
+;영제할아범 나루터
+;(gennpc (index 505) (country 0) (kind 5) (shape 39) (html 279) (teleport 0 219628 221297 16640) (map 0) (xy 257069 257402 15968) (dir 257076 257480))
+;영제할아범 독도
+;(gennpc (index 506) (country 0) (kind 5) (shape 39) (html 280) (teleport 0 257065 257442 16004) (map 0) (xy 219313 220987 16016) (dir 219341 221014))
+;독도 깃발 첫번째 줄
+;(gennpc (index 507) (country 0) (kind 8) (shape 40) (html ) (map 0) (xy 257213 257744 16110) (dir 256382 260303))
+;(gennpc (index 508) (country 0) (kind 8) (shape 43) (html ) (map 0) (xy 257197 257701 16074) (dir 256382 260303))
+;(gennpc (index 509) (country 0) (kind 8) (shape 44) (html ) (map 0) (xy 257171 257631 16029) (dir 256382 260303))
+;(gennpc (index 510) (country 0) (kind 8) (shape 41) (html ) (map 0) (xy 257148 257569 16060) (dir 256382 260303))
+;(gennpc (index 511) (country 0) (kind 8) (shape 42) (html ) (map 0) (xy 257125 257508 16051) (dir 256382 260303))
+;(gennpc (index 512) (country 0) (kind 8) (shape 44) (html ) (map 0) (xy 257123 257447 16023) (dir 256382 260303))
+;(gennpc (index 513) (country 0) (kind 8) (shape 44) (html ) (map 0) (xy 257243 257816 16149) (dir 256382 260303))
+;독도 깃발 두번째 줄
+;(gennpc (index 514) (country 0) (kind 8) (shape 40) (html ) (map 0) (xy 257031 257810 16150) (dir 256382 260303))
+;(gennpc (index 515) (country 0) (kind 8) (shape 43) (html ) (map 0) (xy 257024 257754 16146) (dir 256382 260303))
+;(gennpc (index 516) (country 0) (kind 8) (shape 44) (html ) (map 0) (xy 257020 257702 16105) (dir 256382 260303))
+;(gennpc (index 517) (country 0) (kind 8) (shape 41) (html ) (map 0) (xy 257016 257640 16060) (dir 256382 260303))
+;(gennpc (index 518) (country 0) (kind 8) (shape 42) (html ) (map 0) (xy 257016 257584 16057) (dir 256382 260303))
+;(gennpc (index 519) (country 0) (kind 8) (shape 44) (html ) (map 0) (xy 257014 257501 16017) (dir 256382 260303))
+;(gennpc (index 520) (country 0) (kind 8) (shape 44) (html ) (map 0) (xy 257035 257836 16153) (dir 256382 260303))
+;영문섭 거조의 동굴 철문
+(gennpc (index 521) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 35324 37559 29723) (dir 35357 37576) (teleport 4 18599 53777)) 
+(gennpc (index 522) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 18050 54192 29989) (dir 18082 54160) (teleport 4 35419 37588))
+(gennpc (index 523) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 20228 50910 29647) (dir 20261 50937) (teleport 4 37210 50597)) 
+(gennpc (index 524) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 37305 50474 29816) (dir 37288 50496) (teleport 4 20291 50979)) 
+(gennpc (index 525) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 34761 53803 29276) (dir 34777 53797) (teleport 4 4786 52096)) 
+(gennpc (index 526) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 5012 52145 31374) (dir 5002 52145) (teleport 4 34907 53758)) 
+(gennpc (index 527) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 3185 52069 31586) (dir 3183 52042) (teleport 4 3809 68878)) 
+(gennpc (index 528) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 3778 68978 32109) (dir 3783 68960) (teleport 4 3172 51940)) 
+(gennpc (index 529) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 2961 67300 31426) (dir 3026 67253) (teleport 4 20075 68392)) 
+(gennpc (index 530) (country 2) (kind 9) (shape 45) (html 281) (openhtml 282) (closehtml 283) (scenario 60 760) (map 4) (xy 20120 68439 31792) (dir 20114 68425) (teleport 4 3009 67230)) 
+;영문 썸머 이벤트 2006
+;(gennpc (index 536) (country 0) (kind 3) (shape 39) (html 300039) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 537) (country 0) (kind 3) (shape 39) (html 300039) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+;국내 추석 이벤트 2006
+;(gennpc (index 538) (country 0) (kind 1) (shape 39) (html 300041) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 539) (country 0) (kind 1) (shape 39) (html 300041) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+;중국 추석 이벤트 2006
+;(gennpc (index 540) (country 0) (kind 1) (shape 39) (html 300044) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 541) (country 0) (kind 1) (shape 39) (html 300044) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+; 영문 할로윈 데이 이벤트
+;(gennpc (index 542) (country 0 2) (kind 0) (shape 26) (html 300047) (map 0) (xy 257605 259189 16080) (dir 257569 259262))
+;(gennpc (index 543) (country 0 2) (kind 0) (shape 25) (html 300047) (map 0) (xy 265193 262521 16246) (dir 265136 262482))
+;(gennpc (index 544) (country 0 2) (kind 0) (shape 26) (html 300047) (map 0) (xy 265806 285332 22650) (dir 265728 285399))
+;(gennpc (index 545) (country 0 2) (kind 0) (shape 25) (html 300047) (map 0) (xy 256501 289105 27073) (dir 256436 289056))
+;(gennpc (index 546) (country 0 2) (kind 0) (shape 26) (html 300047) (map 0) (xy 267422 242205 19660) (dir 267493 242224))
+;(gennpc (index 547) (country 0 2) (kind 0) (shape 25) (html 300047) (map 0) (xy 233432 295078 45310) (dir 233336 294994))
+;중국
+;(gennpc (index 548) (country 0 1 2) (kind 0) (shape 9) (html 300048) (map 0) (xy 257526 259511 16156) (dir 257432 259450))
+;시나리오3 거점파괴 등록 NPC 청도깨비
+(gennpc (index 531) (country 0 2) (kind 10) (BattleID 100) (shape 46) (html 284) (openhtml 289) (map 0) (xy 282495 248346 16351) (dir 282442 248383)) 
+;시나리오3 거점파괴 청군 도깨비
+(gennpc (index 534) (country 0 2) (kind 3) (BattleID 100) (shape 46) (quest 8008 4) (map 0) (xy 288839 351166 25713) (dir 288828 351112)) 
+;시나리오3 거점파괴 홍군 도깨비
+(gennpc (index 535) (country 0 2) (kind 3) (BattleID 100) (shape 47) (quest 8009 4) (map 0) (xy 284793 350893 26053) (dir 284807 350928)) 
+;눈 내려라 이벤트
+;(gennpc (index 551) (country 0 2) (kind 1) (shape 7) (html 300055) (map 0) (xy 257193 259568 16123) (dir 257226 259519))
+;; 명예 상인 (나루터 마을)
+(gennpc (index 554) (country 0 2) (kind 11) (shape 9) (html 305) (map 0) (xy 257301 258129 16150) (dir 257287 258149))
+(gennpc (index 555) (country 0 2) (kind 11) (shape 9) (html 322) (map 0) (xy 257337 258135 16150) (dir 257342 258167))
+;; 명예 상인 (임시 보루)
+(gennpc (index 556) (country 0 2) (kind 11) (shape 9) (html 305) (map 0) (xy 268971 243277 19630) (dir 268954 243258))
+(gennpc (index 557) (country 0 2) (kind 11) (shape 9) (html 322) (map 0) (xy 269000 243255 19630) (dir 268977 243224))
+;; 명예 상인 (하늘 고원)
+(gennpc (index 558) (country 0 2) (kind 11) (shape 9) (html 305) (map 0) (xy 232775 291663 45412) (dir 232843 291735))
+(gennpc (index 559) (country 0 2) (kind 11) (shape 9) (html 322) (map 0) (xy 232748 291681 45410) (dir 232836 294694))
+
+;군주 보호 관련 등록 NPC
+;(gennpc (index 560) (country 0 2) (kind 10) (BattleID 101) (shape 47) (html 313) (openhtml 318) (map 0) (xy 282465 248286 16351) (dir 282447 248295)) 
+;군주 보호 시작 위치 문NPC (561이 좌, 562가 우)
+(gennpc (index 561) (country 0 2) (kind 3) (shape 52) (quest 8015 4) (map 0) (xy 308591 284684 16090) (dir 308590 284745) (bfnpc 101))
+(gennpc (index 562) (country 0 2) (kind 3) (shape 52) (quest 8015 4) (map 0) (xy 310271 284668 16090) (dir 310266 284718) (bfnpc 101))
+; 발렌타인데이 NPC(Valentine's Day Event NPC/Gift Giveaway NPC)
+;(gennpc (index 563) (country 0 2) (kind 1) (shape 39) (html 300069) (map 0) (xy 257703 259482 16090) (dir 257681 259438))
+;(gennpc (index 564) (country 0 2) (kind 1) (shape 3) (html 300071) (map 0) (xy 257726 259459 16090) (dir 257703 259409))
+;(gennpc (index 565) (country 0 2) (kind 1) (shape 39) (html 300069) (map 0) (xy 267375 242561 19669) (dir 267391 242563))
+;(gennpc (index 566) (country 0 2) (kind 1) (shape 3) (html 300071) (map 0) (xy 267354 242594 19663) (dir 267383 242598))
+;(gennpc (index 567) (country 0 2) (kind 1) (shape 39) (html 300069) (map 0) (xy 232779 295476 45306) (dir 232777 295459))
+;(gennpc (index 568) (country 0 2) (kind 1) (shape 3) (html 300071) (map 0) (xy 232812 295462 45302) (dir 232807 295447))
+; 설날 NPC(윷놀이 도우미/얼굴변경 도우미)
+;(gennpc (index 569) (country 0) (kind 1) (shape 19) (html 300072) (map 0) (xy 257120 259546 16143) (dir 257129 259534))
+;(gennpc (index 570) (country 0) (kind 1) (shape 3) (html 300073) (map 0) (xy 257192 259587 16132) (dir 257196 259566))
+;(gennpc (index 571) (country 0) (kind 1) (shape 19) (html 300072) (map 0) (xy 268000 242256 19630) (dir 268001 242279))
+;(gennpc (index 572) (country 0) (kind 1) (shape 3) (html 300073) (map 0) (xy 267937 242269 19630) (dir 267932 242291))
+;(gennpc (index 573) (country 0) (kind 1) (shape 19) (html 300072) (map 0) (xy 232101 295021 45305) (dir 232131 295039))
+;(gennpc (index 574) (country 0) (kind 1) (shape 3) (html 300073) (map 0) (xy 232053 295045 45310) (dir 232073 295060))
+; 도깨비 명예 아이템
+(gennpc (index 575) (country 0 2) (kind 1) (shape 9) (html 323) (map 0) (xy 280953 248912 16390) (dir 281005 248888)) 
+
+;비무 NPC(도우미)
+(gennpc (index 576) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 214286 280784 37797) (dir 214298 280816))
+(gennpc (index 577) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 214206 283359 37824) (dir 214527 280593))
+(gennpc (index 578) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 214230 285608 37777) (dir 214240 285640))
+(gennpc (index 579) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 216594 280872 37630) (dir 216606 280904))
+(gennpc (index 580) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 216695 283359 37830) (dir 216707 283390))
+(gennpc (index 581) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 216684 285683 37830) (dir 216667 285682))
+(gennpc (index 582) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 219021 280783 37750) (dir 218984 280811))
+(gennpc (index 583) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 218949 283344 37738) (dir 218918 283371))
+(gennpc (index 584) (country 0 2) (kind 1) (shape 26) (html 328) (map 0) (xy 219100 285646 37823) (dir 219115 285677))
+
+;비무 NPC(접수대)
+(gennpc (index 585) (country 0 2) (kind 3) (shape 27) (quest 8017 11) (map 0) (xy 257685 259139 16080) (dir 257676 259171))
+(gennpc (index 586) (country 0 2) (kind 3) (shape 27) (quest 8017 11) (map 0) (xy 268023 242997 19630) (dir 268001 242979))
+(gennpc (index 587) (country 0 2) (kind 3) (shape 27) (quest 8017 11) (map 0) (xy 232068 294992 45310) (dir 232088 295009))
+
+;유료 던전 NPC
+(gennpc (index 588) (country 0 2) (kind 13) (shape 8) (html 330) (map 0) (xy 255845 257333 15929) (dir 255868 257363))
+
+;낚시 이벤트
+(gennpc (index 589) (country 0 2) (kind 14) (shape 3) (html 333) (map 0) (xy 257452 258840 16080) (dir 257352 258826)) 
+;(gennpc (index 590) (country 0 2) (kind 14) (shape 3) (html 333) (map 0) (xy 264691 261827 15844) (dir 264720 261849)) 
+;(gennpc (index 591) (country 0 2) (kind 14) (shape 3) (html 333) (map 0) (xy 233763 294695 45371) (dir 233738 294706)) 
+
+
+;2007년 크리스마스 이벤트(트리, 요정)
+;(gennpc (index 597) (country 0 2) (kind 15) (shape 51) (html 300074) (map 0) (xy 267726 242617 19630) (dir 267704 242602))
+;(gennpc (index 592) (country 0 2) (kind 16) (shape 55) (html ) (map 0) (xy 267869 242655 19630) (dir 257242 259348))	    ;1단계
+; 인덱스로 단계 구분 ( 이펙트 ) 클라이언트에서 단계별로 인덱스를 사용하기 때문에 해당 인덱스는 고정됨
+;(gennpc (index 593));   2단계
+;(gennpc (index 594));  3단계
+;(gennpc (index 595));   4단계
+;(gennpc (index 596));   5단계
+
+; 2007년 연말 & 2008년 새해 연날리기 이벤트 교환 NPC
+;(gennpc (index 599) (country 0 2) (kind 17) (shape 3) (html 300079) (map 0) (xy 257526 259511 16156) (dir 257525 259499))
+;(gennpc (index 600) (country 0 2) (kind 17) (shape 3) (html 300079) (map 0) (xy 267394 242617 19630) (dir 267405 242619))
+
+;임무 소개인 NPC
+(gennpc (index 601) (country 0 2) (kind 0) (shape 3) (html 300082) (map 0) (xy 257578 259147 16073) (dir 257542 259221))
+(gennpc (index 602) (country 0 2) (kind 0) (shape 3) (html 300082) (map 0) (xy 265280 285281 22657) (dir 265344 285222))
+(gennpc (index 603) (country 0 2) (kind 0) (shape 3) (html 300082) (map 0) (xy 268147 242539 19630) (dir 268068 242513))
+
+;숭례문 복구 전문가 NPC
+;(gennpc (index 604) (country 0 2) (kind 15) (shape 3) (html 300083) (map 0) (xy 267617 242505 19630) (dir 267666 242515))
+;0단계
+(gennpc (index 605) (country 0 2) (kind 16) (shape 60) (html ) (map 0) (xy 267383 242421 19632) (dir 267403 242425))  
+
+;시련의 계곡 관련 등록 NPC
+(gennpc (index 606) (country 0 2) (kind 10) (BattleID 102) (shape 61) (html 350) (openhtml 358) (map 0) (xy 282431 248226 16351) (dir 282371 248267)) 
+;시나리오3 시련의 계곡 청군 도깨비
+(gennpc (index 607) (country 0 2) (kind 3) (BattleID 102) (shape 46) (quest 8018 1) (map 0) (xy 335719 330967 26510) (dir 335719 330987)) 
+;시나리오3 시련의 계곡 홍군 도깨비
+(gennpc (index 608) (country 0 2) (kind 3) (BattleID 102) (shape 47) (quest 8018 1) (map 0) (xy 335552 340734 26509) (dir 335552 340717)) 
+
+;시련의 계곡 시작위치 문NPC
+;청군
+(gennpc (index 609) (country 0 2) (kind 3) (shape 62) (html ) (map 0) (xy 335651 331093 26500) (dir 335647 331220) (bfnpc 102))
+;홍군
+(gennpc (index 610) (country 0 2) (kind 3) (shape 62) (html ) (map 0) (xy 335623 340611 26500) (dir 335651 330966) (bfnpc 102))
+
+
+;십만양병도 NPC
+;NPC1 일반모병관
+(gennpc (index 614) (country 0 2) (kind 18) (BattleID 200) (shape 9) (html 375) (map 0) (xy 256641 257554 16505) (dir 256593 257696))
+;NPC2 정예모병관
+(gennpc (index 615) (country 0 2) (kind 18) (BattleID 201) (shape 9) (html 376) (map 0) (xy 256617 257545 16505) (dir 256593 257696))
+;NPC3 일반 훈련감독관
+(gennpc (index 616) (country 0 2) (kind 19) (BattleID 200) (shape 9) (html 386) (map 0) (xy 256543 257550 16505) (dir 256593 257696))
+;NPC3 정예 훈련감독관
+(gennpc (index 617) (country 0 2) (kind 19) (BattleID 201) (shape 9) (html 386) (map 0) (xy 256516 257561 16505) (dir 256593 257696))
+;전장내 NPC 훈련파견대(레드)
+(gennpc (index 618) (country 0 2) (kind 3) (shape 9) (quest 8019 1) (map 0) (xy 282894 217377 16170) (dir 282783 217266))
+;전장내 NPC 훈련파견대(블루)
+(gennpc (index 619) (country 0 2) (kind 3) (shape 9) (quest 8019 1) (map 0) (xy 274195 208636 16170) (dir 274284 208726))
+;전장내 NPC 북문 (레드)
+(gennpc (index 620) (country 0 2) (kind 3) (shape 63) (html ) (map 0) (xy 282576 217061 16173) (dir 282577 217062) (bfnpc 200))
+;전장내 NPC 남문 (블루)
+(gennpc (index 621) (country 0 2) (kind 3) (shape 64) (html ) (map 0) (xy 274497 208944 16173) (dir 274496 208943) (bfnpc 200))
+;;전장내 NPC 건진									
+(gennpc (index 622) (country 0 2) (kind 3) (shape 65) (html 381) (map 0) (xy 278472 209286 16329) (dir 278473 209287))
+;전장내 NPC 곤진
+(gennpc (index 623) (country 0 2) (kind 3) (shape 65) (html 382) (map 0) (xy 274760 212815 16329) (dir 274761 212816))
+;전장내 NPC 감진
+(gennpc (index 624) (country 0 2) (kind 3) (shape 65) (html 383) (map 0) (xy 278701 216691 16329) (dir 275702 216692))
+;전장내 NPC 리진
+(gennpc (index 625) (country 0 2) (kind 3) (shape 65) (html 384) (map 0) (xy 282218 213037 16329) (dir 282219 213038))
+;전장내 NPC 극진
+(gennpc (index 626) (country 0 2) (kind 3) (shape 65) (html 385) (map 0) (xy 278494 212993 18166) (dir 278495 212994))
+
+
+;;;정령의 숲 제단
+; 불의   제단-남서
+(gennpc (index 627) (country 0 2) (kind 20) (shape 66) (html) (quest 9010 16) (map 0) (xy 229583 275884 38290) (dir 278495 212994))
+; 물의   제단-남
+(gennpc (index 628) (country 0 2) (kind 20) (shape 66) (html) (quest 9010 17) (map 0) (xy 235869 273074 38529) (dir 278495 212994))
+; 나무의 제단-남동
+(gennpc (index 629) (country 0 2) (kind 20) (shape 66) (html) (quest 9010 18) (map 0) (xy 241367 275348 44523) (dir 278495 212994))
+; 쇠의   제단-북동
+(gennpc (index 630) (country 0 2) (kind 20) (shape 66) (html) (quest 9010 19) (map 0) (xy 243862 283775 36157) (dir 278495 212994))
+; 흙의   제단-북서
+(gennpc (index 631) (country 0 2) (kind 20) (shape 66) (html) (quest 9010 20) (map 0) (xy 231221 283546 38830) (dir 278495 212994))
+
+
+;불완전 원소 반납NPC(화은)
+(gennpc (index 632) (country 0 2) (kind 21) (shape 5) (html 900671) (map 0) (xy 232110 294946 45310) (dir 232175 295021))
+
+;사직제사장(영학)
+;(gennpc (index 633) (country 0 2) (kind 1) (shape 5) (html 900672) (map 0) (xy 257394 259289 16101) (dir 257399 259265))
+
+;복귀자 이벤트 NPC(나루터)
+;(gennpc (index 634) (country 0 2) (kind 22) (shape 5) (html 300090) (map 0) (xy 257394 259289 16101) (dir 257399 259265))
+;복귀자 이벤트 NPC(금오이성보루)
+;(gennpc (index 635) (country 0 2) (kind 22) (shape 5) (html 300090) (map 0) (xy 267857 242255 19630) (dir 267846 242291))
+
+;도적방어구상인 NPC(나루터)
+(gennpc (index 636) (country 0  2) (kind 0) (shape 3) (html 506) (map 0) (xy 257000 258513 16144) (dir 257035 258485))
+;도적방어구상인 NPC(광산)
+(gennpc (index 637) (country 0  2) (kind 0) (shape 3) (html 507) (map 0) (xy 264991 285218 22650) (dir 265004 285267))
+;도적무기상인 NPC(광산)
+(gennpc (index 638) (country 0  2) (kind 0) (shape 3) (html 508) (map 0) (xy 265323 285075 22650) (dir 265321 285136))
+;도적방어구상인 NPC(금오이성)
+(gennpc (index 639) (country 0  2) (kind 0) (shape 3) (html 509) (map 0) (xy 269039 242865 19630) (dir 268998 242844))
+;도적무기상인 NPC(금오이성)
+(gennpc (index 640) (country 0  2) (kind 0) (shape 3) (html 510) (map 0) (xy 269124 242978 19630) (dir 269105 242982))
+;도적방어구상인 NPC(제사장의도시)
+(gennpc (index 641) (country 0  2) (kind 0) (shape 3) (html 511) (map 0) (xy 234011 294216 45380) (dir 234014 294240))
+;도적무기상인 NPC(제사장의도시)
+(gennpc (index 642) (country 0  2) (kind 0) (shape 3) (html 512) (map 0) (xy 234044 295164 45359) (dir 234043 295136))
+
+;도적사부기본 NPC(나루터)
+(gennpc (index 643) (country 0  2) (kind 1) (shape 5) (html 513) (map 0) (xy 256538 257837 16505) (dir 256553 257821))
+;도적사부2차전직1 NPC(거조주막)
+(gennpc (index 644) (country 0  2) (kind 1) (shape 5) (html 514) (map 0) (xy 255617 289303 27070) (dir 255647 289335))
+;도적사부2차전직2 NPC(거조주막)
+(gennpc (index 645) (country 0  2) (kind 1) (shape 5) (html 515) (map 0) (xy 255605 289335 27070) (dir 255647 289335))
+;도적사부기본 NPC(금오이성)
+(gennpc (index 646) (country 0  2) (kind 1) (shape 5) (html 516) (map 0) (xy 268841 243428 19620) (dir 268825 243409))
+;도적사부1차전직 NPC(금오이성)
+(gennpc (index 647) (country 0  2) (kind 1) (shape 5) (html 517) (map 0) (xy 268887 243420 19628) (dir 268867 243395))
+;도적사부2차전직1 NPC(제사장의탑)
+(gennpc (index 648) (country 0  2) (kind 1) (shape 5) (html 518) (map 0) (xy 233051 291149 45420) (dir 233042 291167))
+;도적사부2차전직2 NPC(제사장의탑)
+(gennpc (index 649) (country 0  2) (kind 1) (shape 5) (html 519) (map 0) (xy 233038 291111 45420) (dir 233016 291121))
+
+
+;서버 이전 신청 관리자(나루터)
+;(gennpc (index 650) (country 0  2) (kind 23) (shape 5) (html 300088) (map 0) (xy 257307 259309 16139 ) (dir 257304 259229 ))
+
+;서버 이전 신청 관리자(금오이성)
+;(gennpc (index 651) (country 0  2) (kind 23) (shape 5) (html 300088) (map 0) (xy 267859 242411 19630 ) (dir 267862 242382 ))
+
+;공격대 팀 관리 NPC
+(gennpc (index 652) (country 0  2) (kind 31 ) (shape 5) (html 527) (map 21) (xy 117413 35506 27399 ) (dir 117414 35493 ))
+
+;제사장의 탑 일자
+(gennpc (index 653) (country 0 2) (kind 3) (shape 7) (html 424) (quest 10000 1) (map 0) (xy 235968 279757 44690) (dir 235973 279730))
+
+;이계의 조각 반납NPC(문용)
+(gennpc (index 654) (country 0 2) (kind 24) (shape 5) (html 520) (map 0) (xy 232129 294916 45310) (dir 232194 294991) (itemreturn 1 (1621)))
+
+;일라이어의방 문npc
+(gennpc (index 656) (country 0 2) (kind 25) (shape 67) (html 1) (map 21) (xy 117338 35710 27399) (dir 117338 35506) (fielddoor 100))
+
+;일라이어를 잡아라 안보이는 이벤트 처리 NPC
+;(gennpc (index 657) (country 0 2) (kind 26) (shape 1) (html 1) (map 21) (xy 117307 36830 28986) (dir 117338 35506) (fielddoor 100))
+
+;1층 낙인석
+(gennpc (index 658) (country 0 2) (kind 24) (shape 68) (html ) (map 11) (xy 70180 51342 24094) (dir 267899 242279))
+
+;4층 낙인석
+(gennpc (index 659) (country 0 2) (kind 24) (shape 68) (html ) (map 22) (xy 118154 51856 22589) (dir 267899 242279))
+
+;6층 낙인석
+(gennpc (index 660) (country 0 2) (kind 24) (shape 68) (html ) (map 24) (xy 150673 52057 23603) (dir 267899 242279))
+
+;7층 낙인석
+(gennpc (index 661) (country 0 2) (kind 24) (shape 68) (html ) (map 17) (xy 71155 37736 39446) (dir 267899 242279))
+
+;8층 낙인석
+(gennpc (index 662) (country 0 2) (kind 24) (shape 68) (html ) (map 15) (xy 87542 39743 39453) (dir 267899 242279))
+
+;9층 낙인석
+(gennpc (index 663) (country 0 2) (kind 24) (shape 68) (html ) (map 18) (xy 102661 39377 21447) (dir 267899 242279))
+
+;; 명예 아이템 수집가 (나루터 마을)
+(gennpc (index 664) (country 0 1 2) (kind 11) (shape 3) (html 533) (map 0) (xy 257363 258110 16150) (dir 257410 258117))
+
+;; 명예 아이템 수집가 (제사장의 도시)
+(gennpc (index 665) (country 0 1 2) (kind 0) (shape 3) (html 533) (map 0) (xy 232703 291700 45416) (dir 232733 291795))
+
+
+
+;; 도화원 관원 [정이국] (지옥도 입장 NPC)
+(gennpc (index 667) (country 0 1 2) (kind 27 1) (shape 84) (html 528) (map 0) (xy 266164 285492 22650) (dir 266165 285449))
+
+;지옥도 축생 그림
+(gennpc (index 668) (country 0 1 2) (kind 27) (shape 85) (html ) (map 0) (xy 266186 285501 22650) (dir 266184 285484))
+
+
+;지형 NPC---------------------
+;스탠드 횟불
+(gennpc (index 669) (country 0 1 2) (kind 28) (shape 86) (html ) (size 1 1) (map ) (xy ) (dir ))
+(gennpc (index 670) (country 0 1 2) (kind 28) (shape 87) (html ) (size 1 1) (map ) (xy ) (dir ))
+(gennpc (index 671) (country 0 1 2) (kind 28) (shape 88) (html ) (size 1 1) (map ) (xy ) (dir ))
+(gennpc (index 672) (country 0 1 2) (kind 28) (shape 89) (html ) (size 1 1) (map ) (xy ) (dir ))
+
+;고통의 기둥
+(gennpc (index 673) (country 0 1 2) (kind 28) (shape 90) (html ) (size 1 1) (map ) (xy ) (dir ))
+(gennpc (index 674) (country 0 1 2) (kind 28) (shape 91) (html ) (size 1 1) (map ) (xy ) (dir ))
+(gennpc (index 675) (country 0 1 2) (kind 28) (shape 92) (html ) (size 1 1) (map ) (xy ) (dir ))
+(gennpc (index 676) (country 0 1 2) (kind 28) (shape 93) (html ) (size 1 1) (map ) (xy ) (dir ))
+;(gennpc (index 677) (country 0 1 2) (kind 28) (shape 94) (html ) (size 1 1) (map ) (xy ) (dir ))
+
+;벽 구조물 가로
+(gennpc (index 678) (country 0 1 2) (kind 28) (shape 95) (html ) (size 4 1) (map ) (xy ) (dir ))
+(gennpc (index 679) (country 0 1 2) (kind 28) (shape 96) (html ) (size 4 1) (map ) (xy ) (dir ))
+(gennpc (index 680) (country 0 1 2) (kind 28) (shape 97) (html ) (size 4 1) (map ) (xy ) (dir ))
+(gennpc (index 681) (country 0 1 2) (kind 28) (shape 98) (html ) (size 4 1) (map ) (xy ) (dir ))
+
+;벽 구조물 세로
+(gennpc (index 682) (country 0 1 2) (kind 28) (shape 99) (html ) (size 1 4) (map ) (xy ) (dir ))
+(gennpc (index 683) (country 0 1 2) (kind 28) (shape 100) (html ) (size 1 4) (map ) (xy ) (dir ))
+(gennpc (index 684) (country 0 1 2) (kind 28) (shape 101) (html ) (size 1 4) (map ) (xy ) (dir ))
+(gennpc (index 685) (country 0 1 2) (kind 28) (shape 102) (html ) (size 1 4) (map ) (xy ) (dir ))
+
+;인면 바위
+(gennpc (index 686) (country 0 1 2) (kind 28) (shape 103) (html ) (size 2 2) (map ) (xy ) (dir ))
+(gennpc (index 687) (country 0 1 2) (kind 28) (shape 104) (html ) (size 2 2) (map ) (xy ) (dir ))
+(gennpc (index 688) (country 0 1 2) (kind 28) (shape 114) (html ) (size 2 2) (map ) (xy ) (dir ))
+;==================================================
+
+;천자의 가호 NPC
+(gennpc (index 689) (country 0 1 2) (kind 29) (shape 5) (html 536) (map 0) (xy 257163 259576 16131) (dir 257163 259476))
+(gennpc (index 690) (country 0 1 2) (kind 29) (shape 5) (html 536) (map 0) (xy 265809 285604 22640) (dir 265790 285600))
+(gennpc (index 691) (country 0 1 2) (kind 29) (shape 5) (html 536) (map 0) (xy 267713 242191 19644) (dir 267727 242229))
+
+; 1000번대 이후는 데바 관련 NPC 추가 예정입니다. 1000번대 이후 인덱스 사용 시 전대리에게 확인을... .
+; 데바 천지연NPC
+(gennpc (index 1000) (country 0 2) (kind 3) (shape 70) (quest 0 20) (html ) (map 100) (xy 361661 187380 42381) (dir 361649 187379)) ;수련
+(gennpc (index 1001) (country 0 2) (kind 3) (shape 78) (quest 0 22) (html ) (map 100) (xy 359519 188621 41998) (dir 359522 188628)) ;연화(여자공용 어린)
+;(gennpc (index 1003) (country 0 2) (kind 24) (itemreturn 1 (1826)) (shape 80) (html 702 ) (map 100) (xy 360727 186619 41940) (dir 360731 186618)) ;서은(여자공용 노인)
+(gennpc (index 1004) (country 0 2) (kind 3) (shape 81) (quest 0 21) (html ) (map 100) (xy 359528 186386 42428) (dir 359528 186379)) ;대길(남자공용 어린)
+(gennpc (index 1005) (country 0 2) (kind 24) (itemreturn 1 (1825)) (shape 82) (html 706 ) (map 100) (xy 358197 188893 42383) (dir 358191 188882)) ;창선(남자공용 중년)
+(gennpc (index 1006) (country 0 2) (kind 3) (shape 83) (quest 10009 1) (html ) (map 0) (xy 360887 188044 42254) (dir 360887 188039)) ;범수(남자공용 노인)
+(gennpc (index 1007) (country 0 2) (kind 3) (shape 73) (quest 0 23) (html ) (map 100) (xy 356641 218340 18660) (dir 356646 218341)) ;길 잃은 여행가
+(gennpc (index 1029) (country 0 2) (kind 0) (shape 78)  (html 810) (map 100) (xy 360885 186824 42063) (dir 360891 186850)) ;잡화 상인[유란]
+
+; 데바 혼델 야영지 NPC
+(gennpc (index 1011) (country 0 2) (kind 0) (shape 77)  (html 405000) (map 100) (xy 360022 234002 29386) (dir 360019 233994)) ;일일 퀘스트[노이니르]
+(gennpc (index 1020) (country 0 2) (kind 0) (shape 78)  (html 802) (map 100) (xy 359636 233629 28608) (dir 359628 233642)) ;잡화 상인[유화]
+(gennpc (index 1021) (country 0 2) (kind 0) (shape 79)  (html 803) (map 100) (xy 359620 233604 28594) (dir 359612 233625)) ;음식 상인[정화]
+(gennpc (index 1022) (country 0 2) (kind 1) (shape 76) (quest 0 23) (html 806) (map 100) (xy 359545 233598 28593) (dir 359535 233641)) ;요리 제작[메리시아]
+(gennpc (index 1023) (country 0 2) (kind 0) (shape 81)  (html 804) (map 100) (xy 360128 234018 29445) (dir 360127 234006)) ;임무소개인[영진]
+(gennpc (index 1024) (country 0 2) (kind 36) (shape 82)  (html 805) (map 100) (xy 359681 233970 28836) (dir 359703 233957)) ;창고지기[권철]
+(gennpc (index 1026) (country 0 2) (kind 1) (shape 74) (quest 0 23) (html 401000) (map 100) (xy 359987 234019 29343) (dir 359982 234008)) ;반복 퀘스트 [제이드]
+(gennpc (index 1027) (country 0 2) (kind 1) (shape 75) (quest 0 23) (html 807) (map 100) (xy 360325 234056 29481) (dir 360317 234048)) ;포션 제작[어겐]
+(gennpc (index 1028) (country 0 2) (kind 1) (shape 10) (html 809) (map 100) (xy 359621 233760 28718) (dir 359618 233756)) ;혼델 까마귀상
+
+
+; PvP전용템 상인 오준세
+(gennpc (index 692) (country 0 1 2) (kind 0) (shape 3) (html 538) (map 0) (xy 267743 242238 19630) (dir 267727 242229));4번 마을
+;(gennpc (index 693) (country 0 1 2) (kind 0) (shape 3) (html 538) (map 0) (xy 267703 242238 19630) (dir 267727 242229));9번 마을
+(gennpc (index 693) (country 0 1 2) (kind 0) (shape 3) (html 538) (map 0) (xy 232715 291692 45413) (dir 232745 291787));9번 마을
+
+;데바의 사자 NPC 진흔
+(gennpc (index 694) (country 0 1 2) (kind 3) (shape 5) (quest 0 24) (html ) (map 0) (xy 266256 288108 20970) (dir 266248 288100))
+
+;태후이벤트 독도이동관리인 [건아] 나루터
+;(gennpc (index 695) (country 0  2) (kind 30) (shape 5) (html 300102) (map 0) (xy 257264 257212 15951 ) (dir 257266 257215 ))
+;태후이벤트 독도이동관리인 [건아] 죽서하적장
+;(gennpc (index 696) (country 0  2) (kind 30) (shape 5) (html 300102) (map 0) (xy 264395 262093 16097 ) (dir 264401 262095 ))
+;태후이벤트 독도이동관리인 [건아] 독도
+;(gennpc (index 697) (country 0  2) (kind 30) (shape 5) (html 300103) (map 31) (xy 219346 221032 16016 ) (dir 219348 221033 ))
+
+;천지연 독수리상ㅋ
+(gennpc (index 1012) (country 0 2) (kind 1) (shape 10) (html 557) (map 100) (xy 360888 187186 42140) (dir 360876 187186) (cid 0) (warrelation 0))
+
+;지옥도_수라 NPC, 그림 추가.
+;도화원 관원 [정일국] (지옥도_수라 입장 NPC)
+(gennpc (index 698) (country 0 1 2) (kind 27 2) (shape 84) (html 635) (map 0) (xy 232080 294451 45310) (dir 232089 294444))
+
+;지옥도_수라 그림
+(gennpc (index 699) (country 0 1 2) (kind 27) (shape 85) (html ) (map 0) (xy 232095 294476 45317) (dir 232103 294471))
+
+;할로윈 경매이벤트npc
+;나루터 이벤트 상인 [가람(Garam)]
+;(gennpc (index 700) (country 0 1 2) (kind 33) (shape 3) (html 300109) (map 0) (xy 258225 258892 15990) (dir 258224 258900));0번 마을
+;금오이성 임시보루 이벤트 상인 [건군(KeonKun)]
+;(gennpc (index 701) (country 0 1 2) (kind 33) (shape 3) (html 300109) (map 0) (xy 267465 242583 19649) (dir 2674169 242585));4번 마을
+
+;천자의 비기
+(gennpc (index 704) (country 0 1 2) (kind 29) (shape 5) (html 801) (map 0) (xy 231654 294758 45310) (dir 231654 294769)) ;9번 마을
+
+;성탄절 이벤트 눈사람 NPC
+;(gennpc (index 705) (country 0 1 2) (kind 1) (shape 119) (html ) (map 0) (xy 267455 242608 19650) (dir 267466 242613)) ;4번 마을
+
+;성탄절 이벤트 산타클로스 NPC
+;(gennpc (index 706) (country 0 1 2) (kind 3) (shape 120) (quest 98 1) (html ) (map 0) (xy 267463 242629 19645) (dir 267464 242629)) ;4번 마을
+
+;성탄절 이벤트 산타클로스 NPC
+;(gennpc (index 707) (country 0 1 2) (kind 3) (shape 120) (quest 98 1) (html ) (map 0) (xy 257190 259579 16129) (dir 257190 259578)) ;0번 마을
+
+;성탄절 이벤트 눈사람 NPC
+;(gennpc (index 708) (country 0 1 2) (kind 1) (shape 119) (html ) (map 0) (xy 257216 259586 16139) (dir 257217 259583)) ;0번 마을
+
+;성탄절 이벤트 산타클로스 NPC
+;(gennpc (index 709) (country 0 1 2) (kind 3) (shape 120) (quest 98 1) (html ) (map 0) (xy 232196 294610 45310) (dir 232204 294609)) ;9번 마을
+
+;성탄절 이벤트 눈사람 NPC
+;(gennpc (index 710) (country 0 1 2) (kind 1) (shape 119) (html ) (map 0) (xy 232198 294584 45310) (dir 232207 294585)) ;9번 마을
+
+;펫 판매npc 상인 [현승]
+(gennpc (index 1013) (country 0 1 2) (kind 0) (shape 3) (html 641) (map 0) (xy 256251 289085 27060) (dir 256266 289088));거조의 주막
+
+;설날 이벤트 독도 관리인 NPC (나루터)
+;(gennpc (index 711) (country 0 1 2) (kind 34) (shape 5) (html 300118) (map 0) (xy 256984 257446 15959) (dir 257005 257462) (teleport 31 219640 221278 16640));0번 마을
+
+;설날 이벤트 독도 관리인 NPC (독도)
+;(gennpc (index 717) (country 0 1 2) (kind 34) (shape 5) (html 300121) (map 31) (xy 219346 221032 16016 ) (dir 219348 221033 ) (teleport 0 257046 258157 15959));독도
+
+
+;경매시스템npc, kind외에 모두 입력.
+;금오이성 임시보루 [한동]
+(gennpc (index 702) (country 0 1 2) (kind 1) (shape 3) (html 699) (map 0) (xy 267990 242278 19630 ) (dir 267990 242278));4번 마을
+;제사장의 탑[홍기]
+(gennpc (index 703) (country 0 1 2) (kind 1) (shape 3) (html 699) (map 0) (xy 232148 294877 45310 ) (dir 232148 294877));9번 마을
+
+;가이드 도우미 npc [서학]
+(gennpc (index 719) (country 0 1 2) (kind 1) (shape 7) (html 767) (map 0) (xy 257190 259579 16129) (dir 257190 259578)) ;나루터(0번 마을)
+(gennpc (index 720) (country 0 1 2) (kind 1) (shape 7) (html 767) (map 0) (xy 264758 262038 16077) (dir 264777 262041)) ;죽서 하적장(1번 마을)
+(gennpc (index 721) (country 0 1 2) (kind 1) (shape 7) (html 767) (map 0) (xy 265753 285235 22650) (dir 265750 285237)) ;금오 광산(2번 마을)
+(gennpc (index 722) (country 0 1 2) (kind 1) (shape 7) (html 767) (map 0) (xy 256555 289127 27125) (dir 256548 289118)) ;거조의 주막(3번 마을)
+(gennpc (index 723) (country 0 1 2) (kind 1) (shape 7) (html 767) (map 0) (xy 267465 242583 19649) (dir 2674169 242585)) ;금오이성 임시보루(4번 마을)
+(gennpc (index 724) (country 0 1 2) (kind 1) (shape 7) (html 767) (map 0) (xy 232147 294581 45310) (dir 232151 294581)) ;제사장의 도시(9번 마을)
+
+;장인의 혼 상인 [현승]
+(gennpc (index 725) (country 0 1 2) (kind 0) (shape 3) (html 800) (map 0) (xy 268214 242333 19630) (dir 268204 242346));금오이성 임시보루
+(gennpc (index 726) (country 0 1 2) (kind 0) (shape 3) (html 800) (map 0) (xy 231839 295151 45310) (dir 231842 295173));제사장의 도시
+
+;인스턴스 세력장 감독관
+(gennpc (index 718) (country 0 1 2) (kind 1) (shape 7) (html 300133) (map 0) (xy 257740 259154 16080) (dir 257740 259158)) ;나루터(0번 마을)
+
+;;;;;;인스턴스 세력전
+; 캐릭터 진영의 받침대 npc
+( gennpc (index 729) (country 0 1 2) (kind 1) (shape 144) (html ) (map 31) (xy 217216 252820 16553) (dir 217209 252806) (IFTeam 1)) ;천자의 신물
+
+; 캐릭터 진영의 상징물 npc
+( gennpc (index 732) (country 0 1 2) (kind 1) (shape 145) (html ) (map 31) (xy 217216 252820 16553) (dir 217209 252806) (IFTeam 1)) ;천자의 신물
+
+; 도깨비 진영의 받침대 npc
+( gennpc (index 730) (country 0 1 2) (kind 1) (shape 144) (html ) (map 31) (xy 219553 257648 21030) (dir 219549 257632) (IFTeam 2)) ;도깨비의 신물
+
+; 도깨비 진영의 상징물 npc
+( gennpc (index 733) (country 0 1 2) (kind 1) (shape 147) (html ) (map 31) (xy 219553 257648 21030) (dir 219549 257632) (IFTeam 2)) ;도깨비의 신물
+
+; 마구니 진영의 받침대 npc
+( gennpc (index 731) (country 0 1 2) (kind 1) (shape 144) (html ) (map 31) (xy 222712 252652 18591) (dir 252644 18591) (IFTeam 3)) ;마구니의 신물
+
+; 마구니 진영의 상징물 npc
+( gennpc (index 734) (country 0 1 2) (kind 0) (shape 146) (html ) (map 31) (xy 222712 252652 18591) (dir 252644 18591) (IFTeam 3)) ;마구니의 신물
+
+;여름 이벤트 npc (나루터)
+;(gennpc (index 736) (country 0 1 2) (kind 1) (shape 3)  (html 300139) (map 0) (xy 257409 259650 16110) (dir 257345 258655))
+
+;재료수집교환&성장형무기 npc (나루터)
+;(gennpc (index 736) (country 0 1 2) (kind 1) (shape 3)  (html 300140) (map 0) (xy 257409 259650 16110) (dir 257345 258655))
+
+;프리미엄 패키지 npc (나루터)
+(gennpc (index 737) (country 0  2) (kind 1) (shape 39)  (html 300141) (map 0) (xy 257279 259669 16136) (dir 257345 258655))
+
+
+;샌드맨npc
+;토찰사 초우 
+(gennpc (index 739) (country 0 2) (kind 1) (shape 36)  (html 300152) (map 100) (xy 359559 233861 28801) (dir 359703 233862))
+
+;쇠의 정령사 1번방
+(gennpc (index 740) (country 0 2) (kind 1) (shape 152)  (html 811) (map 0) (xy 389050 289290 22670) (dir 389050 289291))
+;나무의 정령사 1번방
+(gennpc (index 741) (country 0 2) (kind 1) (shape 153)  (html 812) (map 0) (xy 389164 289302 22670) (dir 389164 289303))
+;물의 정령사 1번방 
+(gennpc (index 742) (country 0 2) (kind 1) (shape 154)  (html 813) (map 0) (xy 389318 289320 22670) (dir 389318 289321))
+;중재자 은향 [아이템 리소스 교환npc)
+(gennpc (index 743) (country 0 2) (kind 24) (shape 80)  (html 300158) (map 100) (xy 359597 233891 28856) (dir 359703 233892))
+
+;샌드맨 포탈
+(gennpc (index 745) (country 0 2) (kind 1) (shape 155)	(html 300151) (map 100) (xy 356695 245519 29535) (dir 356694 245519))
+
+;쇠의 정령사 2번방
+(gennpc (index 744) (country 0 2) (kind 1) (shape 152)  (html 811) (map 0) (xy 388138 286059 22670) (dir 388137 286059))
+;나무의 정령사 2번방
+(gennpc (index 746) (country 0 2) (kind 1) (shape 153)  (html 812) (map 0) (xy 388119 286142 22670)(dir 388118 286142))
+;물의 정령사 2번방 
+(gennpc (index 747) (country 0 2) (kind 1) (shape 154)  (html 813) (map 0) (xy 388106 286260 22670) (dir 388105 286260))
+
+;쇠의 정령사 3번방
+(gennpc (index 748) (country 0 2) (kind 1) (shape 152)  (html 811) (map 0) (xy 388087 282271 22670)  (dir 388088 282271))
+;나무의 정령사 3번방
+(gennpc (index 749) (country 0 2) (kind 1) (shape 153)  (html 812) (map 0) (xy 388112 282154 22670)  (dir 388113 282154))
+;물의 정령사 3번방 
+(gennpc (index 750) (country 0 2) (kind 1) (shape 154)  (html 813) (map 0) (xy 388088 282042 22670)  (dir 388089 282042))
+
+;쇠의 정령사 4번방
+(gennpc (index 751) (country 0 2) (kind 1) (shape 152)  (html 811) (map 0) (xy 382165 282174 22670) (dir 382164 285603))
+;나무의 정령사 4번방
+(gennpc (index 752) (country 0 2) (kind 1) (shape 153)  (html 812) (map 0) (xy 382165 282332 22670) (dir 382164 285603))
+;물의 정령사 4번방 
+(gennpc (index 753) (country 0 2) (kind 1) (shape 154)  (html 813) (map 0) (xy 382165 282456 22670) (dir 382164 285603))
+
+;쇠의 정령사 5번방
+(gennpc (index 754) (country 0 2) (kind 1) (shape 152)  (html 811) (map 0) (xy 381859 286239 22670) (dir 381860 286239))
+;나무의 정령사 5번방
+(gennpc (index 755) (country 0 2) (kind 1) (shape 153)  (html 812) (map 0) (xy 381871 286150 22670) (dir 381872 286150))
+;물의 정령사 5번방 
+(gennpc (index 756) (country 0 2) (kind 1) (shape 154)  (html 813) (map 0) (xy 381878 286018 22670) (dir 381879 286018))
+
+;쇠의 정령사 6번방
+(gennpc (index 757) (country 0 2) (kind 1) (shape 152)  (html 811) (map 0) (xy 381496 291189 22670) (dir 381496 291188))
+;나무의 정령사 6번방
+(gennpc (index 758) (country 0 2) (kind 1) (shape 153)  (html 812) (map 0) (xy 381372 291168 22670) (dir 381372 291167))
+;물의 정령사 6번방 
+(gennpc (index 759) (country 0 2) (kind 1) (shape 154)  (html 813) (map 0) (xy 381220 291152 22670) (dir 381220 291151))
+
+;마우타레타 이벤트 (모래방랑자)
+;(gennpc (index 1031) (country 0  2) (kind 1) (shape 9 )  (html 300161) (map 0) (xy 339885 257522 17142) (dir -340602 -258053))
+
+;올림픽 금메달 이벤트 도우미
+;(gennpc (index 569) (country 0  2) (kind 1) (shape 19) (html 300072) (map 0) (xy 257120 259546 16143) (dir 257129 259534))
+
+;거조의 동굴 이동 Npc
+(gennpc (index 760) (country 0  1  2) (kind 5) (shape 14) (html 816) (teleport 0 228260 318162) (map 0) (xy 236825 296230 45390) (dir 232787 294633))
+
+;거밝한 천자의 왕릉 이동 Npc
+(gennpc (index 761) (country 0  1  2) (kind 5) (shape 14) (html 815) (teleport 0 246051 295643) (map 0) (xy 256746 288635 27086) (dir 232787 294633))
+
+;금전장 관리인 금천
+(gennpc (index 1032) (country 0  1  2) (kind 1) (shape 82) (html 817) (map 0) (xy 257597 257807 16087) (dir 257547 257839))
+
+;금전장 관리인 금강
+(gennpc (index 1033) (country 0  1  2) (kind 1) (shape 82) (html 818) (map 0) (xy 267701 243343 19630) (dir 267712 243350))
+
+;금전장 관리인 금해
+(gennpc (index 1034) (country 0  1  2) (kind 1) (shape 82) (html 819) (map 0) (xy 233233 295403 45320) (dir 233225 295392))
+
+; 2012년 10월 글로벌 서비스  할로윈 데이 이벤트
+;(gennpc (index 542) (country 0 1 2) (kind 0) (shape 14) (html 300047) (map 0) (xy 257099 259563 16170) (dir 257104 259527))
+;(gennpc (index 543) (country 0 1 2) (kind 0) (shape 14) (html 300047) (map 0) (xy 267617 242338 19630) (dir 267629 242341))
+;(gennpc (index 544) (country 0 1 2) (kind 0) (shape 14) (html 300047) (map 0) (xy 233432 295078 45310) (dir 233336 294994))
+
+;천지연 지역 퀘스트 NPC
+;임무 퀘스트
+(gennpc (index 1035) (country 0  2) (kind 0) (shape 84 )  (html 814) (map 100) (xy 360438 187346 42106) (dir 360439 187346))
+;반복 퀘스트
+(gennpc (index 1036) (country 0  2) (kind 1) (shape 4 )  (html 400100) (map 100) (xy 360835 187249 42140) (dir 360830 187249))
+;일일 퀘스트
+(gennpc (index 1037) (country 0  2) (kind 0) (shape 79 )  (html 405100) (map 100) (xy 360768 186781 42027) (dir 360765 186781))
+
+;2012년 12월 크리스마스 이벤트
+;빨간 산타크로스(나루터 마을)
+;(gennpc (index 1042) (country 0 1 2) (kind 0) (shape 120) (html 802000) (map 0) (xy 257677 259393 16090) (dir 257669 259376))
+;초록 산타크로스(금오광산)
+;(gennpc (index 1043) (country 0 1 2) (kind 0) (shape 156) (html 802111) (map 0) (xy 265538 285359 22640) (dir 265525 285370))
+;골드 산타크로스(금오이성 임시보루)
+;(gennpc (index 1044) (country 0 1 2) (kind 0) (shape 157) (html 802311) (map 0) (xy 267848 242977 19630) (dir 267840 242957))
+
+;크리스마스 트리(나루터 마을)
+;(gennpc (index 1045) (country 0 1 2) (kind 0) (shape 111) (html 802411) (map 0) (xy 257561 259440 16155) (dir 257669 259376))
+;크리스마스 트리(금오광산)
+;(gennpc (index 1046) (country 0 1 2) (kind 0) (shape 111) (html 802411) (map 0) (xy 265602 285423 22640) (dir 265525 285370))
+;크리스마스 트리(금오이성 임시보루)
+;(gennpc (index 1047) (country 0 1 2) (kind 0) (shape 111) (html 802411) (map 0) (xy 267871 243108 19630) (dir 267857 243052))
+;크리스마스 트리(제사장의 도시)
+;(gennpc (index 1048) (country 0 1 2) (kind 0) (shape 113) (map 0) (xy 233459 294692 45300) (dir 233441 294690))
+;크리스마스 트리(천지연)
+;(gennpc (index 1049) (country 0 1 2) (kind 0) (shape 113) (map 100) (xy 361079 187021 42110) (dir 361079 187021))
+
+;이계연무장 - 의학박사[해우]
+(gennpc (index 1059) (country 0 2) (kind 35) (shape 7) (html 839) (map 0) (xy 248251 259880 22810) (dir 248289 259884) (warrelation 1))
+;이계연무장 - 관리인
+(gennpc (index 1060) (country 0 2) (kind 35) (shape 9) (html 840) (map 0) (xy 247996 251856 18900) (dir 248066 251926))
+
+;데바의 탑 입장 NPC
+(gennpc (index 1061) (country 0 2) (kind 1) (shape 170) (html 841) (map 0) (xy 363008 245052 27232) (dir 363008 244952))
+
+;채석장 감독관
+(gennpc (index 1062) (country 0 1 2) (kind 1) (shape 2) (html 842) (map 0) (xy 268119 284771 26970) (dir 268119 284671))
+(gennpc (index 1063) (country 0 1 2) (kind 1) (shape 2) (html 842) (map 0) (xy 262878 282506 27860) (dir 262937 282586))
+(gennpc (index 1064) (country 0 1 2) (kind 1) (shape 2) (html 844) (map 0) (xy 255495 291445 27620) (dir 255492 291544))
+(gennpc (index 1065) (country 0 1 2) (kind 1) (shape 2) (html 842) (map 0) (xy 263691 284707 29710) (dir 263691 284607))
+
+;장인 도깨비(광물 가공, 아이템 생산)
+(gennpc (index 1066) (country 0 1 2) (kind 1) (shape 14) (html 843) (map 0) (xy 267158 283172 24998) (dir 267089 283244))
+
+;장인 도깨비(광물 가공, 아이템 생산)
+(gennpc (index 1067) (country 0 1 2) (kind 1) (shape 14) (html 854) (map 0) (xy 257171 259094 16090) (dir 257245 259183 ))
+
+
+
+;2013 할로윈 이벤트 
+;(gennpc (index 1067) (country 0 1 2) (kind 1) (shape 13) (html 300164) (map 0) (xy 257158 259575 16132) (dir 257182 259534))
+
+;채광 이벤트 석공예 장인 NPC
+;(gennpc (index 1068) (country 0 1 2) (kind 1) (shape 39) (html 300165) (map 0) (xy 267179 283211 25016) (dir 267139 283220))
+
+;2013년 12월 크리스마스 이벤트
+;빨간 산타크로스(나루터 마을)
+;(gennpc (index 1070) (country 0 1 2) (kind 3) (shape 120) (quest 8026 3) (html ) (map 0) (xy 257874 258226 16114) (dir 257938 258239))
+;빨간 산타크로스(금오이성 임시보루)
+;(gennpc (index 1071) (country 0 1 2) (kind 3) (shape 120) (quest 8026 3) (html ) (map 0) (xy 266944 243039 19629) (dir 266948 243019))
+;빨간 산타크로스(제사장의 도시)
+;(gennpc (index 1072) (country 0 1 2) (kind 3) (shape 120) (quest 8026 3) (html ) (map 0) (xy 236417 294199 45420) (dir 236414 294240))
+;검은 산타크로스(금오광산)
+;(gennpc (index 1073) (country 0 1 2) (kind 3) (shape 159) (quest 8025 1) (html ) (map 0) (xy 265350 285866 22640) (dir 265414 285930))
+
+;랭킹 확인용 빨간 산타크로스
+;(gennpc (index 1074) (country 0 1 2) (kind 0) (shape 120) (html 300194) (map 0) (xy 258275 259436 16079) (dir 258238 259407))
+;(gennpc (index 1075) (country 0 1 2) (kind 0) (shape 120) (html 300194) (map 0) (xy 267426 242734 19630) (dir 267477 242783))
+;(gennpc (index 1076) (country 0 1 2) (kind 0) (shape 120) (html 300194) (map 0) (xy 234131 290590 45390) (dir 234149 290686))
+
+;랭킹 확인용 초록 산타크로스
+;(gennpc (index 1077) (country 0 1 2) (kind 0) (shape 156) (html 300195) (map 0) (xy 256926 259187 16098) (dir 256997 259256))
+;(gennpc (index 1078) (country 0 1 2) (kind 0) (shape 156) (html 300195) (map 0) (xy 268314 243970 19630) (dir 268359 244047))
+;(gennpc (index 1079) (country 0 1 2) (kind 0) (shape 156) (html 300195) (map 0) (xy 231407 294249 45342) (dir 231396 294205))
+
+;랭킹 확인용 노랑 산타크로스
+;(gennpc (index 1080) (country 0 1 2) (kind 0) (shape 157) (html 300196) (map 0) (xy 257149 257573 16060) (dir 257100 257590))
+;(gennpc (index 1081) (country 0 1 2) (kind 0) (shape 157) (html 300196) (map 0) (xy 267748 243737 19666) (dir 267804 243730))
+;(gennpc (index 1082) (country 0 1 2) (kind 0) (shape 157) (html 300196) (map 0) (xy 233765 294635 45360) (dir 233735 294666))
+
+;크리스마스 트리(나루터 마을)
+;(gennpc (index 1083) (country 0 1 2) (kind 0) (shape 111) (html 300193) (map 0) (xy 257561 259440 16155) (dir 257669 259376))
+;크리스마스 트리(금오광산)
+;(gennpc (index 1084) (country 0 1 2) (kind 0) (shape 111) (html 300193) (map 0) (xy 265602 285423 22640) (dir 265525 285370))
+;크리스마스 트리(금오이성 임시보루)
+;(gennpc (index 1085) (country 0 1 2) (kind 0) (shape 111) (html 300193) (map 0) (xy 267871 243108 19630) (dir 267857 243052))
+;크리스마스 트리(제사장의 도시)
+;(gennpc (index 1086) (country 0 1 2) (kind 0) (shape 111) (html 300193)	(map 0) (xy 233459 294692 45300) (dir 233441 294690))
+;크리스마스 트리(천지연)
+;(gennpc (index 1087) (country 0 1 2) (kind 0) (shape 111) (html 300193)	(map 100) (xy 361079 187021 42110) (dir 361079 187021))
+
+;2014 크리스마스 트리 아무 기능 없음
+;크리스마스 트리(나루터 마을)
+;(gennpc (index 1083) (country 0 2) (kind 0) (shape 113) (map 0) (xy 257561 259440 16155) (dir 257669 259376))
+;크리스마스 트리(금오광산)
+;(gennpc (index 1084) (country 0 2) (kind 0) (shape 113) (map 0) (xy 265602 285423 22640) (dir 265525 285370))
+;크리스마스 트리(금오이성 임시보루)
+;(gennpc (index 1085) (country 0 2) (kind 0) (shape 113) (map 0) (xy 267871 243108 19630) (dir 267857 243052))
+;크리스마스 트리(제사장의 도시)
+;(gennpc (index 1086) (country 0 2) (kind 0) (shape 113) (map 0) (xy 233459 294692 45300) (dir 233441 294690))
+;크리스마스 트리(천지연)
+;(gennpc (index 1087) (country 0 2) (kind 0) (shape 113) (map 100) (xy 361079 187021 42110) (dir 361079 187021))
+
+;올림픽 금메달 이벤트 도우미
+;(gennpc (index 1088) (country 0 1 2) (kind 0) (shape 119) (html 300072) (map 0) (xy 257360 259323 16137) (dir 257349 259330))
+;(gennpc (index 1089) (country 0 1 2) (kind 0) (shape 119) (html 300072) (map 0) (xy 267881 242439 19630) (dir 267862 242448))
+;(gennpc (index 1090) (country 0 1 2) (kind 0) (shape 119) (html 300072) (map 0) (xy 232830 294672 45300) (dir 232843 294674))
+;(gennpc (index 1091) (country 0 1 2) (kind 0) (shape 119) (html 300072) (map 0) (xy 267120 283100 24981) (dir 267060 283135))
+
+;데바의 탑 중간보스 소환 비석
+;(gennpc (index 1092) (country 0 1 2) (kind 1) (shape 68) (html 0) (map 0) (xy 267120 283100 24981) (dir 267060 283135))
+
+;2014월드컵 이벤트
+;축구공 상인
+;(gennpc (index 1094) (country 0 2) (kind 3) (shape 39) (quest 30014 0) (html 0) (map 0) (xy 257401 259363 16142) (dir 257416 259461))
+
+; 대도 혜민(각성퀘스트)
+(gennpc (index 1200) (country 0 1 2) (kind 3) (shape 7) (quest 0 27) (map 0) (xy 256460 257801 16505) (dir 256445 257700))
+
+; 연금술사[거담]
+(gennpc (index 1201) (country 0 1 2) (kind 1) (shape 36) (html 848) (map 0) (xy 267090 283006 24983) (dir 267035 282993))
+
+
+; 데바의탑 2층 출입구 비석
+(gennpc (index 1202) (country 0 1 2) (kind 1) (shape 155) (html 849) (map 0) (xy 73896 21461 21899) (dir 73855 21463))
+
+; 데바의 방 봉쇄 오브젝트 설정
+(gennpc (index 1203) (country 0 1 2) (kind 6) (shape 28) (map 0) (xy 90274 20390 21095) (dir 90276 20640))
+
+; 마공석 제련 NPC
+(gennpc (index 1204) (country 0 1 2) (kind 1) (shape 31) (html 850)(map 0) (xy 256426 257810 16505) (dir 256425 257782))
+
+; 감찰 어사 (나루터 마을)
+(gennpc (index 1205) (country 0 2) (kind 1) (shape 5) (html 10000) (map 0) (xy 258024 259614 16080) (dir 258024 259514) )
+
+; 감찰 어사 (금오 광산)
+(gennpc (index 1206) (country 0 2) (kind 1) (shape 5) (html 10200) (map 0) (xy 265639 285091 22650) (dir 265600 285183) )
+
+; 임무 게시판 (금오 광산)
+(gennpc (index 1207) (country 0 2) (kind 1) (shape 15) (html 11800) (map 0) (xy 265612 285080 22650) (dir 265573 285172) )
+
+; 감찰 어사 (금오 이성 임시 보루)
+(gennpc (index 1208) (country 0 2) (kind 1) (shape 5) (html 10600) (map 0) (xy 267485 242524 19650) (dir 267583 242543) )
+
+; 임무 게시판 (금오 이성 임시 보루)
+(gennpc (index 1209) (country 0 2) (kind 1) (shape 15) (html 12200) (map 0) (xy 267479 242553 19652) (dir 267577 242572) )
+
+; 감찰 어사 (거조의 주막)
+(gennpc (index 1210) (country 0 2) (kind 1) (shape 5) (html 11300) (map 0) (xy 256524 289183 27074) (dir 256429 289149) )
+
+; 임무 게시판 (거조의 주막)
+(gennpc (index 1211) (country 0 2) (kind 1) (shape 15) (html 13400) (map 0) (xy 256534 289154 27104) (dir 256446 289105) )
+
+; 방어구 상인 낭철 추가 (죽서하선장) 
+(gennpc (index 1212) (country 0  2) (kind 0) (shape 3) (html 1024) (map 0) (xy 265167 261561 16170) (dir 265266 261547) (cid 1))
+
+; 복귀자 장비 보급관(나루터 마을)
+;(gennpc (index 1216) (country 0  2) (kind 1) (shape 6) (html 1030) (map 0) (xy 257418 259305 16105) (dir 257518 259303))
+
+; 복귀자 장비 보급관(금오이성 임시보루)
+;(gennpc (index 1217) (country 0  2) (kind 1) (shape 6) (html 1030) (map 0) (xy 267925 242450 19630) (dir 267981 242532))
+
+; 복귀자 장비 보급관(제사장의 도시)
+;(gennpc (index 1218) (country 0  2) (kind 1) (shape 6) (html 1030) (map 0) (xy 232805 294699 45300) (dir 232831 294795))
+
+; 일반유저 장비 보급관(나루터 마을)
+;(gennpc (index 1219) (country 0  2) (kind 1) (shape 7) (html 1040) (map 0) (xy 257408 259319 16114) (dir 257485 259382))
+
+; 일반유저 장비 보급관(금오이성 임시보루)
+;(gennpc (index 1220) (country 0  2) (kind 1) (shape 7) (html 1040) (map 0) (xy 267906 242453 19630) (dir 267903 242552))
+
+; 일반유저 장비 보급관(제사장의 도시)
+;(gennpc (index 1221) (country 0  2) (kind 1) (shape 7) (html 1040) (map 0) (xy 232774 294681 45300) (dir 232678 294711))
+
+;탈 것 판매 NPC (자모전)
+(gennpc (index 1222) (country 0 2) (kind 0) (shape 75)	(html 80336)	(map 0) (xy 268064 243867 19620) (dir 267981 243818) )
+
+;탈 것 판매 NPC (명예)
+(gennpc	(index 1223) (country 0 2) (kind 11) (shape 75)	(html 80337)	(map 0) (xy 268149 243764 19620)	(dir 268088 243672) )
+
+;가이드 NPC (도깨비 두령)
+(gennpc (index 1224) (country 0  2) (kind 3) (shape 163) (quest 0 30) (map 0) (xy 257192 258801 16090) (dir 257239 258651))
+
+;마켓 안내 NPC(시장관리인)
+(gennpc (index 1225) (country 0  2) (kind 1) (shape 79)(html 900778) (map 0) (xy 258040 259207 16024) (dir 258017 259304)) ;나루터 마을
+(gennpc (index 1226) (country 0  2) (kind 1) (shape 79)(html 900778) (map 0) (xy 266089 284152 22650) (dir 266020 284224)) ;금오광산
+
+
+;핫한 할로윈 축제 NPC
+;(gennpc (index 1227) (country 0 2)	(kind 5)	(shape 79)	(html 400026)	(map 0)	(xy 256827 259365 16175)	(dir 256906 259444))
+
+;크리스마스 NPC
+;(gennpc (index 1227) (country 0 2)	(kind 1)	(shape 51)	(html 100026)	(map 0)	(xy 256827 259365 16175)	(dir 256906 259444))
+
+;흑품 관리인
+(gennpc (index 1228) (country 0 2)	(kind 5)	(shape 164)	(html 400200)	(map 0)	(xy 256851 259336 16162)	(dir 256919 259408))
+
+;데바 2층 -> 3층 순간이동 비석
+(gennpc (index 1230) (country 0 1 2)(kind 1) (shape 155) (html 851) (map 0) (xy 90282 21463 21899) (dir 90282 21363))
+
+;데바 3층 -> 2층 순간이동 비석
+(gennpc (index 1231) (country 0 1 2)(kind 1) (shape 155) (html 853) (map 0) (xy 100862 20358 19950) (dir 100862 20258))
+;=======
+
+;kind 0 상인
+;kind 1 대화
+;kind 2 경비
+;kind 3 퀘스트
+;kind 4 시나리오
+;kind 5 텔레포트
+;kind 6 Door System
+;kind 7 공성병기
+;kind 8 거점
+;kind 9 New Door System
+;kind 10 전장 NPC
+;kind 11 명예 상인
+;kind 13 유료 던전 : 이목도
+;kind 14 낚시왕 이벤트 NPC
+
+

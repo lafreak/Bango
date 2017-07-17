@@ -6,12 +6,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <memory>
+#include <signal.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
 #include <minwindef.h>
+#include <common.h>
 
 #include <Socket/CSocket.h>
+
+#include "../CServer.h"
 
 class CMainSocket
 {
@@ -20,11 +25,13 @@ class CMainSocket
 
 public:
 	static bool Start(WORD wPort);
-	static bool Close();
+	static void Close(int);
 	static void Accept();
 	static PVOID Process(PVOID packet);
+	static void Process(Packet& packet);
 
 	static bool Write(BYTE byType, ...);
+	static bool WritePacket(Packet packet);
 
-	static void DebugRawPacket(Packet *packet);
+	static void DebugRawPacket(Packet& packet);
 };

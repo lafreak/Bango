@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_836f9d7e54c2cc0af8fd3971621cd658" kind="dir">
+    <compoundname>MainServer</compoundname>
+    <innerdir refid="dir_beb692f4164bbd78dc9400d326a6ceaf">MainServer/GameCharacter</innerdir>
+    <innerdir refid="dir_e25d6e90754e973d5bd4d424e75e7344">MainServer/Item</innerdir>
+    <innerdir refid="dir_5646b00e89867c20ab198117a080641b">MainServer/Macro</innerdir>
+    <innerdir refid="dir_53339adb868f227fa56a1df0eac89d30">MainServer/Map</innerdir>
+    <innerdir refid="dir_4f72de8a51355b6a8f5cdc81904a47ca">MainServer/Socket</innerdir>
+    <innerfile refid="CClient_8cpp">CClient.cpp</innerfile>
+    <innerfile refid="CClient_8h">CClient.h</innerfile>
+    <innerfile refid="MainServer_2CServer_8cpp">CServer.cpp</innerfile>
+    <innerfile refid="MainServer_2CServer_8h">CServer.h</innerfile>
+    <innerfile refid="MainServer_2main_8cpp">main.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/"/>
+  </compounddef>
+</doxygen>

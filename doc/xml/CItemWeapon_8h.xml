@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemWeapon_8h" kind="file" language="C++">
+    <compoundname>CItemWeapon.h</compoundname>
+    <includes refid="CItem_8h" local="yes">CItem.h</includes>
+    <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
+    <includedby refid="CItemWeapon_8cpp" local="yes">MainServer/Item/CItemWeapon.cpp</includedby>
+    <incdepgraph>
+      <node id="1270">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1264" relation="include">
+        </childnode>
+        <childnode refid="1271" relation="include">
+        </childnode>
+        <childnode refid="1272" relation="include">
+        </childnode>
+        <childnode refid="1273" relation="include">
+        </childnode>
+        <childnode refid="1274" relation="include">
+        </childnode>
+        <childnode refid="1276" relation="include">
+        </childnode>
+      </node>
+      <node id="1269">
+        <label>access.h</label>
+      </node>
+      <node id="1264">
+        <label>map</label>
+      </node>
+      <node id="1267">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1272">
+        <label>fstream</label>
+      </node>
+      <node id="1263">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1264" relation="include">
+        </childnode>
+        <childnode refid="1265" relation="include">
+        </childnode>
+        <childnode refid="1266" relation="include">
+        </childnode>
+        <childnode refid="1267" relation="include">
+        </childnode>
+        <childnode refid="1268" relation="include">
+        </childnode>
+        <childnode refid="1269" relation="include">
+        </childnode>
+        <childnode refid="1270" relation="include">
+        </childnode>
+      </node>
+      <node id="1268">
+        <label>common.h</label>
+      </node>
+      <node id="1265">
+        <label>unistd.h</label>
+      </node>
+      <node id="1271">
+        <label>sstream</label>
+      </node>
+      <node id="1276">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1275" relation="include">
+        </childnode>
+      </node>
+      <node id="1274">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1275" relation="include">
+        </childnode>
+      </node>
+      <node id="1273">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1266">
+        <label>mutex</label>
+      </node>
+      <node id="1275">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1267" relation="include">
+        </childnode>
+        <childnode refid="1268" relation="include">
+        </childnode>
+      </node>
+      <node id="1262">
+        <label>MainServer/Item/CItemWeapon.h</label>
+        <link refid="CItemWeapon_8h"/>
+        <childnode refid="1263" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCItemWeapon" prot="public">CItemWeapon</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CITEMWEAPON_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CITEMWEAPON_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CItemWeapon:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CItem</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>CItemWeapon(ITEMINFO_DESC&amp;<sp/>desc,<sp/>CItemInfo*<sp/>pMacro);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOn(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOff(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItemWeapon.h"/>
+  </compounddef>
+</doxygen>

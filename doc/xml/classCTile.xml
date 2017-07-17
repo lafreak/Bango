@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCTile" kind="class" language="C++" prot="public">
+    <compoundname>CTile</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCTile_1a6604480536eb0c2ba5b2a52b0fabd5bf" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex CTile::m_mxThis</definition>
+        <argsstring></argsstring>
+        <name>m_mxThis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="13" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCTile_1af5b5a8f01a7ccecd54f0213238bd50b0" prot="private" static="no" mutable="no">
+        <type>PlayerMap</type>
+        <definition>PlayerMap CTile::m_mPlayer</definition>
+        <argsstring></argsstring>
+        <name>m_mPlayer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="17" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCTile_1a642e9d942b0853db407e5db74c7796ca" prot="private" static="no" mutable="no">
+        <type>NPCMap</type>
+        <definition>NPCMap CTile::m_mNPC</definition>
+        <argsstring></argsstring>
+        <name>m_mNPC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="18" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCTile_1a052439c0e53462fc83cefa2afbb3bc50" prot="private" static="no" mutable="no">
+        <type>MonsterMap</type>
+        <definition>MonsterMap CTile::m_mMonster</definition>
+        <argsstring></argsstring>
+        <name>m_mMonster</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="19" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CTile::CTile</definition>
+        <argsstring>()</argsstring>
+        <name>CTile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="22" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::Add</definition>
+        <argsstring>(CCharacter *pCharacter)</argsstring>
+        <name>Add</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="24" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="3" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a70bd90fe9bf75fd5240a024716f08e8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::Remove</definition>
+        <argsstring>(CCharacter *pCharacter)</argsstring>
+        <name>Remove</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="25" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="28" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1ab3fd197f9c845168067def319945ebbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="27" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="28" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::GetCharacterListAround</definition>
+        <argsstring>(CCharacter *pCharacter, int nDistance, CharacterList &amp;list)</argsstring>
+        <name>GetCharacterListAround</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nDistance</declname>
+        </param>
+        <param>
+          <type>CharacterList &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="31" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="62" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a06c572865aef65b63a2665f93ee1560b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::GetPlayerListAround</definition>
+        <argsstring>(CCharacter *pCharacter, int nDistance, PlayerList &amp;list)</argsstring>
+        <name>GetPlayerListAround</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nDistance</declname>
+        </param>
+        <param>
+          <type>PlayerList &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="32" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="99" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a500887d419a5fa9b93f2885a82180eb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::GetMonsterListAround</definition>
+        <argsstring>(CCharacter *pCharacter, int nDistance, MonsterList &amp;list)</argsstring>
+        <name>GetMonsterListAround</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nDistance</declname>
+        </param>
+        <param>
+          <type>MonsterList &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="33" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="116" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1aa9c2599bc4e1e6f951bb887d30aba111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::SendPacket</definition>
+        <argsstring>(CCharacter *pCharacter, Packet &amp;packet)</argsstring>
+        <name>SendPacket</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="35" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="133" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a34f85c8e4a1be51229b723fcadb72aa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::SendMoveAction</definition>
+        <argsstring>(CCharacter *pCharacter, char byX, char byY, Packet &amp;createPacket, Packet &amp;petPacket, Packet &amp;deletePacket, Packet &amp;movePacket)</argsstring>
+        <name>SendMoveAction</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byX</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byY</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>createPacket</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>petPacket</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>deletePacket</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>movePacket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="37" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="153" bodyend="232"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Map/CTile.h" line="12" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="11" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b" prot="public" virt="non-virtual"><scope>CTile</scope><name>Add</name></member>
+      <member refid="classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b" prot="public" virt="non-virtual"><scope>CTile</scope><name>CTile</name></member>
+      <member refid="classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f" prot="public" virt="non-virtual"><scope>CTile</scope><name>GetCharacterListAround</name></member>
+      <member refid="classCTile_1a500887d419a5fa9b93f2885a82180eb2" prot="public" virt="non-virtual"><scope>CTile</scope><name>GetMonsterListAround</name></member>
+      <member refid="classCTile_1a06c572865aef65b63a2665f93ee1560b" prot="public" virt="non-virtual"><scope>CTile</scope><name>GetPlayerListAround</name></member>
+      <member refid="classCTile_1ab3fd197f9c845168067def319945ebbd" prot="public" virt="non-virtual"><scope>CTile</scope><name>Lock</name></member>
+      <member refid="classCTile_1a052439c0e53462fc83cefa2afbb3bc50" prot="private" virt="non-virtual"><scope>CTile</scope><name>m_mMonster</name></member>
+      <member refid="classCTile_1a642e9d942b0853db407e5db74c7796ca" prot="private" virt="non-virtual"><scope>CTile</scope><name>m_mNPC</name></member>
+      <member refid="classCTile_1af5b5a8f01a7ccecd54f0213238bd50b0" prot="private" virt="non-virtual"><scope>CTile</scope><name>m_mPlayer</name></member>
+      <member refid="classCTile_1a6604480536eb0c2ba5b2a52b0fabd5bf" prot="private" virt="non-virtual"><scope>CTile</scope><name>m_mxThis</name></member>
+      <member refid="classCTile_1a70bd90fe9bf75fd5240a024716f08e8a" prot="public" virt="non-virtual"><scope>CTile</scope><name>Remove</name></member>
+      <member refid="classCTile_1a34f85c8e4a1be51229b723fcadb72aa4" prot="public" virt="non-virtual"><scope>CTile</scope><name>SendMoveAction</name></member>
+      <member refid="classCTile_1aa9c2599bc4e1e6f951bb887d30aba111" prot="public" virt="non-virtual"><scope>CTile</scope><name>SendPacket</name></member>
+      <member refid="classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3" prot="public" virt="non-virtual"><scope>CTile</scope><name>Unlock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

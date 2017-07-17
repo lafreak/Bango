@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_4f72de8a51355b6a8f5cdc81904a47ca" kind="dir">
+    <compoundname>MainServer/Socket</compoundname>
+    <innerfile refid="CClientSocket_8cpp">CClientSocket.cpp</innerfile>
+    <innerfile refid="CClientSocket_8h">CClientSocket.h</innerfile>
+    <innerfile refid="CDBSocket_8cpp">CDBSocket.cpp</innerfile>
+    <innerfile refid="CDBSocket_8h">CDBSocket.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Socket/"/>
+  </compounddef>
+</doxygen>

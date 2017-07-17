@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCMonsterMaguni" kind="class" language="C++" prot="public">
+    <compoundname>CMonsterMaguni</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CMonster</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCMonsterMaguni_1a8f50ebb8a6e6b9cea105909f4101171c" prot="private" static="no" mutable="no">
+        <type>DWORD</type>
+        <definition>DWORD CMonsterMaguni::m_dwDeadTime</definition>
+        <argsstring></argsstring>
+        <name>m_dwDeadTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/Monster/CMonsterMaguni.h" line="8" column="1" bodyfile="MainServer/GameCharacter/Monster/CMonsterMaguni.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CMonsterMaguni::CMonsterMaguni</definition>
+        <argsstring>(CMonsterInfo *pMacro, int nX, int nY)</argsstring>
+        <name>CMonsterMaguni</name>
+        <param>
+          <type>CMonsterInfo *</type>
+          <declname>pMacro</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/Monster/CMonsterMaguni.h" line="11" column="1" bodyfile="MainServer/GameCharacter/Monster/CMonsterMaguni.h" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CMonsterMaguni::Die</definition>
+        <argsstring>() override</argsstring>
+        <name>Die</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/Monster/CMonsterMaguni.h" line="13" column="1" bodyfile="MainServer/GameCharacter/Monster/CMonsterMaguni.cpp" bodystart="3" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CMonsterMaguni::Tick</definition>
+        <argsstring>() override</argsstring>
+        <name>Tick</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/Monster/CMonsterMaguni.h" line="14" column="1" bodyfile="MainServer/GameCharacter/Monster/CMonsterMaguni.cpp" bodystart="13" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/GameCharacter/Monster/CMonsterMaguni.h" line="7" column="1" bodyfile="MainServer/GameCharacter/Monster/CMonsterMaguni.h" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classCMonster_1a2d71aea56fb8b7b1ea16b4c85368c80a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Add</name></member>
+      <member refid="classCCharacter_1af38c38bdb5d7c371e786e2c933a9466a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AddGState</name></member>
+      <member refid="classCCharacter_1a45e2cc520af9e829b399f1ba0e7dd82e" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AddGStateEx</name></member>
+      <member refid="classCCharacter_1aefea6662e4aef15ae8c734697eaaac25" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AddMState</name></member>
+      <member refid="classCCharacter_1a86c04d0aacd6c83484c7bd4a69c0f2e4" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AddMStateEx</name></member>
+      <member refid="classCMonster_1a8e84ec4618ba917cf31cb60a901e7052" prot="public" virt="virtual"><scope>CMonsterMaguni</scope><name>AI</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AI_STATE</name></member>
+      <member refid="classCMonster_1ae13954eb631ffda8737126defe75595d" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIAll</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a9c14448f11068f9d5a35493feb93a3eb" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_ATTACK</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758af852cec4f4b3c15de1fe307f0d62a552" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_CHASE</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758aac3657b2907e8b05e15e18243a22e7a4" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_DEAD</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a8939772a39b2663ab4e54965ca47b7fa" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_FORCEATTACK</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a8bb00d36f1c99972fe74195ad25715dd" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_IDLE</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a3e1f96b21cc5967320636c03da83dde2" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_KNEE</name></member>
+      <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a6edbbe1775c999251b870200070ed2f9" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>AIS_WALK</name></member>
+      <member refid="classCMonster_1a3da2c9537b0a47d96779d05f61685268" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Attack</name></member>
+      <member refid="classCCharacter_1a94574d74f605d70d70acb96e01233adf" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>CCharacter</name></member>
+      <member refid="classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Chase</name></member>
+      <member refid="classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>CheckHit</name></member>
+      <member refid="classCMonster_1a32b5519b2c5d14881927b69436972c8f" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>CMonster</name></member>
+      <member refid="classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>CMonsterMaguni</name></member>
+      <member refid="classCMonster_1a80b03e33ba82584835f76b2f11e97afa" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>CreateMonster</name></member>
+      <member refid="classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Damage</name></member>
+      <member refid="classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Die</name></member>
+      <member refid="classCMonster_1a84af762c988b9bf79b262cb771521645" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>FindMonster</name></member>
+      <member refid="classCMonster_1a1e2e711e1cf80e21b9f913618136614a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>FindMonsterByIndex</name></member>
+      <member refid="classCCharacter_1af0a04962f7a18a85bbdd696d80a0294a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>g_mxID</name></member>
+      <member refid="classCCharacter_1a22d70f2fde82348ab230b22dc57ce106" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>g_nID</name></member>
+      <member refid="classCMonster_1aaebb18996775b6910623e8b468afb15b" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GenerateCreatePacket</name></member>
+      <member refid="classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GenerateDeletePacket</name></member>
+      <member refid="classCMonster_1a36c4a1434097b4663dc9e425642759c5" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GenerateMovePacket</name></member>
+      <member refid="classCMonster_1ad998626b6c7037fde9963aba1e949949" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GeneratePetPacket</name></member>
+      <member refid="classCMonster_1a4c89df0e2e869953f069c025ff72affe" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetAbsorb</name></member>
+      <member refid="classCMonster_1a54207d4061d825c5702b1d2edf00acc1" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetAgi</name></member>
+      <member refid="classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetAIS</name></member>
+      <member refid="classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetAttack</name></member>
+      <member refid="classCMonster_1a57f3ffe3d5cc777f141722234cc63053" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetAttackSpeed</name></member>
+      <member refid="classCCharacter_1ad23b140d84b130c0424bfa334972fb0e" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetClass</name></member>
+      <member refid="classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetCloseSight</name></member>
+      <member refid="classCMonster_1a04207d77ca28962f187c7eb195c21502" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetClosestNormalPlayer</name></member>
+      <member refid="classCCharacter_1a15ad355680c7702eb4b1e86e5df5d118" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetCurHP</name></member>
+      <member refid="classCCharacter_1a8eeda86886aa7c0a652109823190fe89" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetCurMP</name></member>
+      <member refid="classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetDefense</name></member>
+      <member refid="classCCharacter_1ac8b2b38e896c0b82210a7c2d6b2c67d4" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetDir</name></member>
+      <member refid="classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetDistance</name></member>
+      <member refid="classCMonster_1a8a259592a5dfb88fc087f0561b252f7d" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetDodge</name></member>
+      <member refid="classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetFarSight</name></member>
+      <member refid="classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetFatalDamage</name></member>
+      <member refid="classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetFinalDamage</name></member>
+      <member refid="classCCharacter_1abb9fb45114752bd3e127c79e32d3b5f4" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetGState</name></member>
+      <member refid="classCCharacter_1aa8f2c178d15eda870a7ac001069cfd03" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetGStateEx</name></member>
+      <member refid="classCMonster_1ae2baaa85bbc125cdcd97b87d6e2a4018" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetHit</name></member>
+      <member refid="classCMonster_1abe75aa7d1e1fc575329bf141d3968936" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetHth</name></member>
+      <member refid="classCCharacter_1ad7f5f1742dc177fd2209648690b30190" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetID</name></member>
+      <member refid="classCMonster_1a1646f77a24fa39435d018715886b1a41" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetIndex</name></member>
+      <member refid="classCMonster_1abe6a411372dbc1f9ce80b349e125f068" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetInt</name></member>
+      <member refid="classCCharacter_1af268189e36a1bea406a5bbaa6670302d" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetKind</name></member>
+      <member refid="classCMonster_1a25481d93a1846d61c5669523a046b30e" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetLevel</name></member>
+      <member refid="classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMagic</name></member>
+      <member refid="classCMonster_1a3b1074c3953f2cc5f37923bb2ed84c5d" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMaxAttack</name></member>
+      <member refid="classCMonster_1a524e9af6974fae1133f6696bbc6b4b07" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMaxHP</name></member>
+      <member refid="classCMonster_1abc571b26b8f78c5c0b7a000cbfcc7505" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMaxMagic</name></member>
+      <member refid="classCMonster_1ae4af787fa0bca32d846f1710e1b788bf" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMaxMP</name></member>
+      <member refid="classCMonster_1a897e6cbae9eca095be13ee460d79803f" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMinAttack</name></member>
+      <member refid="classCMonster_1afc4a6486c348db9411aa1246c6e18387" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMinMagic</name></member>
+      <member refid="classCCharacter_1a60939bf801ffa3abc0799338445b953e" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMoveAction</name></member>
+      <member refid="classCCharacter_1aa0a340e1becaead14f794ff013f39cae" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMState</name></member>
+      <member refid="classCCharacter_1a325a9a67f4565ea58e5d5ef3d2960a64" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetMStateEx</name></member>
+      <member refid="classCMonster_1a5951e0b264526d6b693a79cfff5de93a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetRace</name></member>
+      <member refid="classCMonster_1ac2f91ca1773289b6079dad01c4b00153" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetRange</name></member>
+      <member refid="classCMonster_1a42c7bb7d9c13d7449a20daac57a99dc4" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetResist</name></member>
+      <member refid="classCMonster_1a51f0e1e2bdef76192d41ebc9245ecd33" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetRunSpeed</name></member>
+      <member refid="classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetStr</name></member>
+      <member refid="classCMonster_1a9882ba63a0c0d7e73ec92db540deac93" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetTarget</name></member>
+      <member refid="classCMonster_1a0b2d80ce5652aea191e6f93931fe2e0a" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetWalkSpeed</name></member>
+      <member refid="classCMonster_1a703b84211544a29e42f664e4aaae06c5" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetWis</name></member>
+      <member refid="classCCharacter_1ab43af4e964cc23dde5b75840a77acd5e" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetX</name></member>
+      <member refid="classCCharacter_1a849ceb26d2c01ec720f2fbd8ab1619d4" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetY</name></member>
+      <member refid="classCCharacter_1a74b10ffeef48e680bca8c761d84aca29" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>GetZ</name></member>
+      <member refid="classCCharacter_1a854edafae6cdccd8250aab74e6991486" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>IsGState</name></member>
+      <member refid="classCCharacter_1acbef8d19711780d3042290df28df8e97" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>IsGStateEx</name></member>
+      <member refid="classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>IsMState</name></member>
+      <member refid="classCCharacter_1a3998f7bb41290e11bce58171152c0895" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>IsMStateEx</name></member>
+      <member refid="classCCharacter_1aafda97f59c31a5213d2c3891137f03ca" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>IsNormal</name></member>
+      <member refid="classCCharacter_1a1c3cf4b18b5fc184d62770f10fa81851" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Lock</name></member>
+      <member refid="classCCharacter_1a7c09b343980598688a971ce13995b884" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_Access</name></member>
+      <member refid="classCCharacter_1a3fa27ddd90e660b4611b2e02c2128313" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_byClass</name></member>
+      <member refid="classCCharacter_1a6d5bea65ba62c3392077f4a851f7d770" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_byKind</name></member>
+      <member refid="classCMonsterMaguni_1a8f50ebb8a6e6b9cea105909f4101171c" prot="private" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_dwDeadTime</name></member>
+      <member refid="classCCharacter_1ac970b808f13dcb0871540d81b61a0494" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_dwMaxHPAdd</name></member>
+      <member refid="classCCharacter_1a3ee4eea5b273de4f9d60a0d3e993b9dd" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_n64GState</name></member>
+      <member refid="classCCharacter_1a57a0d5731bda059fe301957c115cc909" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_n64GStateEx</name></member>
+      <member refid="classCCharacter_1a0ffb595a7f713235f2e4db171c6df5d0" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_n64MState</name></member>
+      <member refid="classCCharacter_1a394aca418b2a9fdb79b5de2aa0b8456c" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_n64MStateEx</name></member>
+      <member refid="classCCharacter_1a233168733923400c942e8db32153fd93" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_nCurHP</name></member>
+      <member refid="classCCharacter_1a5100b377fbde4fe13ee4bed308139519" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_nID</name></member>
+      <member refid="classCCharacter_1a575aaf88f15cbcf470d24c9daf108031" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_nX</name></member>
+      <member refid="classCCharacter_1abfcc5499774eaa139a48d05bb5ddb89d" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_nY</name></member>
+      <member refid="classCCharacter_1afa7d5ce0dc10dc4e14e7b1a0d4c73256" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_nZ</name></member>
+      <member refid="classCCharacter_1a7c2e8eaef126696d9b2c8d1598c8f218" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wCurMP</name></member>
+      <member refid="classCCharacter_1a146be16d3e5e67df90bb49591d5cac5b" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wDexAdd</name></member>
+      <member refid="classCCharacter_1ada406988f032855f9aed19145db3076e" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wDir</name></member>
+      <member refid="classCCharacter_1a6bee344fec334262c3f9037379953a7f" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wDodgeAdd</name></member>
+      <member refid="classCCharacter_1af77f7347c4a427d76bcfc417f346d336" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wHitAdd</name></member>
+      <member refid="classCCharacter_1a6dfef75d0df714aac08bd03625228ab7" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wHthAdd</name></member>
+      <member refid="classCCharacter_1ad0a9a9780e0b9b2c75f1784c9af75da3" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wIntAdd</name></member>
+      <member refid="classCCharacter_1a56e544a4b59c4b23ebcbada5db7c20be" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wMaxAttackAdd</name></member>
+      <member refid="classCCharacter_1acab6d919bb5e7cb1df0054450920b1fc" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wMaxMagicAdd</name></member>
+      <member refid="classCCharacter_1aa6e8742b8d3c7998496095899d6c2dd2" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wMaxMPAdd</name></member>
+      <member refid="classCCharacter_1aae5f38b035432bb180ae18ef1260cbb1" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wMinAttackAdd</name></member>
+      <member refid="classCCharacter_1a691b8d50ec927a5663455515e1b8c9c6" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wMinMagicAdd</name></member>
+      <member refid="classCCharacter_1adf134d13bd080a71f0ee77e832bd606f" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wResistCurseAdd</name></member>
+      <member refid="classCCharacter_1a0382beebaccc6b3581526aaa6a64f45f" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wResistFireAdd</name></member>
+      <member refid="classCCharacter_1ac4863e7c549efbf181891340d84d96d2" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wResistIceAdd</name></member>
+      <member refid="classCCharacter_1a8613bea5d897b0afead970258c3c6473" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wResistLitningAdd</name></member>
+      <member refid="classCCharacter_1a3029ff4022f676a8465f51cc738764ca" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wResistPalsyAdd</name></member>
+      <member refid="classCCharacter_1a1bb083b5de32db494e01c80e20e682d1" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wStrAdd</name></member>
+      <member refid="classCCharacter_1a12152eb9465ec3d5e3d30d9de65ac77d" prot="protected" virt="non-virtual"><scope>CMonsterMaguni</scope><name>m_wWisAdd</name></member>
+      <member refid="classCMonster_1a50baf7e342893c3fc492d3cc1edae898" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Move</name></member>
+      <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cde" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>MOVE_TYPE</name></member>
+      <member refid="classCMonster_1ad886aa0094a13ec89beaab7ef9f74ec9" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>MOVE_TYPEEX</name></member>
+      <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cdea5a496502dda8df23bce3c76ce88bc454" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>MT_RUN</name></member>
+      <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cdea471a6d3586e2ec41ef55f8839e6b1ebf" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>MT_WALK</name></member>
+      <member refid="classCMonster_1ad886aa0094a13ec89beaab7ef9f74ec9ac5b86d8154e9906c49a250457275eb28" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>MTEX_MOVEEND</name></member>
+      <member refid="classCCharacter_1acf91ea1a4492f55129e0e880c8e269fb" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>NewID</name></member>
+      <member refid="classCMonster_1ab2f9e33a290652bf026541e9b2f4412f" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Remove</name></member>
+      <member refid="classCMonster_1abccca2937a627ac7c23b2bff489ffef5" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SendPacket</name></member>
+      <member refid="classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SendPacketInSight</name></member>
+      <member refid="classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SetAIS</name></member>
+      <member refid="classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SetDirection</name></member>
+      <member refid="classCCharacter_1ad10316950dde5427e21eeed010f8922c" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SetDirection</name></member>
+      <member refid="classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SetTarget</name></member>
+      <member refid="classCCharacter_1ac55904391a0295a865e8d7593f5f61b8" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SubGState</name></member>
+      <member refid="classCCharacter_1ae80b266496b646cadbe3fc5a4b1eff24" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SubGStateEx</name></member>
+      <member refid="classCCharacter_1a73a3e166928352776f2be316767730a6" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SubMState</name></member>
+      <member refid="classCCharacter_1a29926f9323d2091c8d824ff3325024b5" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>SubMStateEx</name></member>
+      <member refid="classCMonster_1a2d64e70cf021f0bf9377d0180264e14b" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Summon</name></member>
+      <member refid="classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Tick</name></member>
+      <member refid="classCMonster_1a6c5653f70c69ff555bb2fce71751d24b" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>TickAll</name></member>
+      <member refid="classCCharacter_1a75454c5b85705b5f118bfb775085ae76" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Unlock</name></member>
+      <member refid="classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>Walk</name></member>
+      <member refid="classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>WriteInSight</name></member>
+      <member refid="classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d" prot="public" virt="non-virtual"><scope>CMonsterMaguni</scope><name>~CMonster</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

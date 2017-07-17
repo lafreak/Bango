@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItem_8cpp" kind="file" language="C++">
+    <compoundname>CItem.cpp</compoundname>
+    <includes refid="CItem_8h" local="yes">CItem.h</includes>
+    <includes refid="CItemGeneral_8h" local="yes">CItemGeneral.h</includes>
+    <includes refid="CItemWeapon_8h" local="yes">CItemWeapon.h</includes>
+    <includes refid="CItemDefense_8h" local="yes">CItemDefense.h</includes>
+    <includes refid="CItemYinyang_8h" local="yes">CItemYinyang.h</includes>
+    <includes refid="CItemPet_8h" local="yes">CItemPet.h</includes>
+    <includes refid="CItemOrnament_8h" local="yes">CItemOrnament.h</includes>
+    <includes refid="CItemTransform_8h" local="yes">CItemTransform.h</includes>
+    <includes refid="CItemRide_8h" local="yes">CItemRide.h</includes>
+    <includes refid="CPlayer_8h" local="yes">../GameCharacter/CPlayer.h</includes>
+    <incdepgraph>
+      <node id="846">
+        <label>list</label>
+      </node>
+      <node id="839">
+        <label>../GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="840" relation="include">
+        </childnode>
+        <childnode refid="841" relation="include">
+        </childnode>
+        <childnode refid="842" relation="include">
+        </childnode>
+        <childnode refid="843" relation="include">
+        </childnode>
+        <childnode refid="844" relation="include">
+        </childnode>
+        <childnode refid="817" relation="include">
+        </childnode>
+        <childnode refid="851" relation="include">
+        </childnode>
+        <childnode refid="852" relation="include">
+        </childnode>
+      </node>
+      <node id="824">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="818" relation="include">
+        </childnode>
+        <childnode refid="825" relation="include">
+        </childnode>
+        <childnode refid="826" relation="include">
+        </childnode>
+        <childnode refid="827" relation="include">
+        </childnode>
+        <childnode refid="828" relation="include">
+        </childnode>
+        <childnode refid="830" relation="include">
+        </childnode>
+      </node>
+      <node id="823">
+        <label>access.h</label>
+      </node>
+      <node id="831">
+        <label>CItemGeneral.h</label>
+        <link refid="CItemGeneral_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="844">
+        <label>CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="840" relation="include">
+        </childnode>
+        <childnode refid="820" relation="include">
+        </childnode>
+        <childnode refid="845" relation="include">
+        </childnode>
+        <childnode refid="846" relation="include">
+        </childnode>
+        <childnode refid="818" relation="include">
+        </childnode>
+        <childnode refid="819" relation="include">
+        </childnode>
+        <childnode refid="823" relation="include">
+        </childnode>
+        <childnode refid="847" relation="include">
+        </childnode>
+        <childnode refid="843" relation="include">
+        </childnode>
+        <childnode refid="848" relation="include">
+        </childnode>
+        <childnode refid="849" relation="include">
+        </childnode>
+        <childnode refid="850" relation="include">
+        </childnode>
+        <childnode refid="821" relation="include">
+        </childnode>
+        <childnode refid="822" relation="include">
+        </childnode>
+      </node>
+      <node id="816">
+        <label>MainServer/Item/CItem.cpp</label>
+        <link refid="CItem_8cpp"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+        <childnode refid="831" relation="include">
+        </childnode>
+        <childnode refid="832" relation="include">
+        </childnode>
+        <childnode refid="833" relation="include">
+        </childnode>
+        <childnode refid="834" relation="include">
+        </childnode>
+        <childnode refid="835" relation="include">
+        </childnode>
+        <childnode refid="836" relation="include">
+        </childnode>
+        <childnode refid="837" relation="include">
+        </childnode>
+        <childnode refid="838" relation="include">
+        </childnode>
+        <childnode refid="839" relation="include">
+        </childnode>
+      </node>
+      <node id="847">
+        <label>cstdarg</label>
+      </node>
+      <node id="840">
+        <label>string</label>
+      </node>
+      <node id="850">
+        <label>Protocol/MainProtocol.h</label>
+      </node>
+      <node id="818">
+        <label>map</label>
+      </node>
+      <node id="821">
+        <label>minwindef.h</label>
+      </node>
+      <node id="826">
+        <label>fstream</label>
+      </node>
+      <node id="817">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="818" relation="include">
+        </childnode>
+        <childnode refid="819" relation="include">
+        </childnode>
+        <childnode refid="820" relation="include">
+        </childnode>
+        <childnode refid="821" relation="include">
+        </childnode>
+        <childnode refid="822" relation="include">
+        </childnode>
+        <childnode refid="823" relation="include">
+        </childnode>
+        <childnode refid="824" relation="include">
+        </childnode>
+      </node>
+      <node id="822">
+        <label>common.h</label>
+      </node>
+      <node id="835">
+        <label>CItemPet.h</label>
+        <link refid="CItemPet_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="843">
+        <label>string.h</label>
+      </node>
+      <node id="838">
+        <label>CItemRide.h</label>
+        <link refid="CItemRide_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="851">
+        <label>CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="844" relation="include">
+        </childnode>
+        <childnode refid="824" relation="include">
+        </childnode>
+      </node>
+      <node id="819">
+        <label>unistd.h</label>
+      </node>
+      <node id="852">
+        <label>CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="818" relation="include">
+        </childnode>
+        <childnode refid="819" relation="include">
+        </childnode>
+        <childnode refid="820" relation="include">
+        </childnode>
+        <childnode refid="846" relation="include">
+        </childnode>
+        <childnode refid="853" relation="include">
+        </childnode>
+        <childnode refid="823" relation="include">
+        </childnode>
+        <childnode refid="848" relation="include">
+        </childnode>
+        <childnode refid="849" relation="include">
+        </childnode>
+        <childnode refid="841" relation="include">
+        </childnode>
+        <childnode refid="842" relation="include">
+        </childnode>
+        <childnode refid="843" relation="include">
+        </childnode>
+        <childnode refid="854" relation="include">
+        </childnode>
+        <childnode refid="839" relation="include">
+        </childnode>
+      </node>
+      <node id="853">
+        <label>vector</label>
+      </node>
+      <node id="825">
+        <label>sstream</label>
+      </node>
+      <node id="830">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="829" relation="include">
+        </childnode>
+      </node>
+      <node id="845">
+        <label>math.h</label>
+      </node>
+      <node id="849">
+        <label>Socket/CSocket.h</label>
+      </node>
+      <node id="842">
+        <label>cstdlib</label>
+      </node>
+      <node id="828">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="829" relation="include">
+        </childnode>
+      </node>
+      <node id="827">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="834">
+        <label>CItemYinyang.h</label>
+        <link refid="CItemYinyang_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="848">
+        <label>Protocol/Packet.h</label>
+      </node>
+      <node id="820">
+        <label>mutex</label>
+      </node>
+      <node id="833">
+        <label>CItemDefense.h</label>
+        <link refid="CItemDefense_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="854">
+        <label>algorithm</label>
+      </node>
+      <node id="841">
+        <label>cstring</label>
+      </node>
+      <node id="837">
+        <label>CItemTransform.h</label>
+        <link refid="CItemTransform_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="836">
+        <label>CItemOrnament.h</label>
+        <link refid="CItemOrnament_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+      <node id="829">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="821" relation="include">
+        </childnode>
+        <childnode refid="822" relation="include">
+        </childnode>
+      </node>
+      <node id="832">
+        <label>CItemWeapon.h</label>
+        <link refid="CItemWeapon_8h_source"/>
+        <childnode refid="817" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;CItem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemGeneral.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemWeapon.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemDefense.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemYinyang.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemPet.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemOrnament.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemTransform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemRide.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../GameCharacter/CPlayer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CItem::g_nMaxIID;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">std::mutex<sp/>CItem::g_mxMaxIID;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">CItem::CItem(ITEMINFO_DESC&amp;<sp/>desc,<sp/>CItemInfo<sp/>*pMacro)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>m_desc<sp/>=<sp/>desc;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>m_pMacro<sp/>=<sp/>pMacro;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">CItem::~CItem()</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(m_Access.IsBusy())<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;CItem::~CItem:<sp/>Item<sp/>is<sp/>in<sp/>use,<sp/>can&apos;t<sp/>delete!<sp/>Retrying<sp/>in<sp/>10ms...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>usleep(10000);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CItem::NewIID()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>g_mxMaxIID.lock();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>g_nMaxIID++;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>g_mxMaxIID.unlock();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>g_nMaxIID;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>CItem::CanUse(CPlayer<sp/>*pPlayer)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>DWORD<sp/>dwTimeNow<sp/>=<sp/>GetTickCount();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pPlayer-&gt;GetLevel()<sp/>&lt;<sp/>m_pMacro-&gt;m_byReqLevel)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(KRED<sp/></highlight><highlight class="stringliteral">&quot;CItem::CanUse:<sp/>Level<sp/>is<sp/>too<sp/>low.\n&quot;</highlight><highlight class="normal"><sp/>KNRM);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_pMacro-&gt;m_byReqClass<sp/>!=<sp/>0xFF<sp/>&amp;&amp;<sp/>m_pMacro-&gt;m_byReqClass<sp/>!=<sp/>pPlayer-&gt;GetClass())<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(KRED<sp/></highlight><highlight class="stringliteral">&quot;CItem::CanUse:<sp/>Wrong<sp/>class.\n&quot;</highlight><highlight class="normal"><sp/>KNRM);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(dwTimeNow<sp/>&lt;<sp/>m_dwLastUsage<sp/>+<sp/>m_pMacro-&gt;m_nCooltime)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>printf(KRED<sp/>&quot;CItem::CanUse:<sp/>Cooldown<sp/>hack.\n&quot;<sp/>KNRM);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>CItem::CanTrash(CPlayer<sp/>*pPlayer)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsState(ITEM_PUTON))</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">CItem*<sp/>CItem::CreateItem(ITEMINFO_DESC&amp;<sp/>desc)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>CItemInfo*<sp/>pMacro<sp/>=<sp/>(CItemInfo*)<sp/>CMacroDB::FindMacro(CMacro::MT_ITEM,<sp/>desc.wIndex);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!pMacro)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(KRED<sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>item<sp/>index:<sp/>%d\n&quot;</highlight><highlight class="normal"><sp/>KNRM,<sp/>desc.wIndex);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>CItem<sp/>*pItem=NULL;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(pMacro-&gt;m_byClass)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_GENERAL:</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemGeneral(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_WEAPON:</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemWeapon(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_DEFENSE:</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemDefense(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_YINYANG:</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemYinyang(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_PET:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemPet(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_ORNAMENT:</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemOrnament(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_TRANSFORM:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemTransform(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>IC_RIDE:</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemRide(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(KRED<sp/></highlight><highlight class="stringliteral">&quot;Unknown<sp/>item<sp/>class<sp/>(%d).\n&quot;</highlight><highlight class="normal"><sp/>KNRM,<sp/>pMacro-&gt;m_byClass);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pItem<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>CItemGeneral(desc,<sp/>pMacro);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pItem;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItem.cpp"/>
+  </compounddef>
+</doxygen>

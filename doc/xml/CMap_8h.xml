@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CMap_8h" kind="file" language="C++">
+    <compoundname>CMap.h</compoundname>
+    <includes refid="CTile_8h" local="yes">CTile.h</includes>
+    <includedby refid="MainServer_2CServer_8h" local="yes">MainServer/CServer.h</includedby>
+    <includedby refid="CCharacter_8cpp" local="yes">MainServer/GameCharacter/CCharacter.cpp</includedby>
+    <includedby refid="CMonster_8cpp" local="yes">MainServer/GameCharacter/CMonster.cpp</includedby>
+    <includedby refid="CNPC_8cpp" local="yes">MainServer/GameCharacter/CNPC.cpp</includedby>
+    <includedby refid="MainServer_2main_8cpp" local="yes">MainServer/main.cpp</includedby>
+    <includedby refid="CMap_8cpp" local="yes">MainServer/Map/CMap.cpp</includedby>
+    <includedby refid="CClientSocket_8cpp" local="yes">MainServer/Socket/CClientSocket.cpp</includedby>
+    <incdepgraph>
+      <node id="1513">
+        <label>list</label>
+      </node>
+      <node id="1535">
+        <label>../GameCharacter/CNPC.h</label>
+        <link refid="CNPC_8h_source"/>
+        <childnode refid="1511" relation="include">
+        </childnode>
+        <childnode refid="1512" relation="include">
+        </childnode>
+      </node>
+      <node id="1507">
+        <label>../GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="1508" relation="include">
+        </childnode>
+        <childnode refid="1509" relation="include">
+        </childnode>
+        <childnode refid="1510" relation="include">
+        </childnode>
+        <childnode refid="1511" relation="include">
+        </childnode>
+        <childnode refid="1512" relation="include">
+        </childnode>
+        <childnode refid="1523" relation="include">
+        </childnode>
+        <childnode refid="1531" relation="include">
+        </childnode>
+        <childnode refid="1532" relation="include">
+        </childnode>
+      </node>
+      <node id="1524">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1525" relation="include">
+        </childnode>
+        <childnode refid="1526" relation="include">
+        </childnode>
+        <childnode refid="1527" relation="include">
+        </childnode>
+        <childnode refid="1528" relation="include">
+        </childnode>
+        <childnode refid="1530" relation="include">
+        </childnode>
+      </node>
+      <node id="1516">
+        <label>access.h</label>
+      </node>
+      <node id="1512">
+        <label>CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="1508" relation="include">
+        </childnode>
+        <childnode refid="1505" relation="include">
+        </childnode>
+        <childnode refid="1506" relation="include">
+        </childnode>
+        <childnode refid="1513" relation="include">
+        </childnode>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1515" relation="include">
+        </childnode>
+        <childnode refid="1516" relation="include">
+        </childnode>
+        <childnode refid="1517" relation="include">
+        </childnode>
+        <childnode refid="1511" relation="include">
+        </childnode>
+        <childnode refid="1518" relation="include">
+        </childnode>
+        <childnode refid="1519" relation="include">
+        </childnode>
+        <childnode refid="1520" relation="include">
+        </childnode>
+        <childnode refid="1521" relation="include">
+        </childnode>
+        <childnode refid="1522" relation="include">
+        </childnode>
+      </node>
+      <node id="1517">
+        <label>cstdarg</label>
+      </node>
+      <node id="1508">
+        <label>string</label>
+      </node>
+      <node id="1520">
+        <label>Protocol/MainProtocol.h</label>
+      </node>
+      <node id="1514">
+        <label>map</label>
+      </node>
+      <node id="1521">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1526">
+        <label>fstream</label>
+      </node>
+      <node id="1523">
+        <label>../Item/CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1515" relation="include">
+        </childnode>
+        <childnode refid="1505" relation="include">
+        </childnode>
+        <childnode refid="1521" relation="include">
+        </childnode>
+        <childnode refid="1522" relation="include">
+        </childnode>
+        <childnode refid="1516" relation="include">
+        </childnode>
+        <childnode refid="1524" relation="include">
+        </childnode>
+      </node>
+      <node id="1522">
+        <label>common.h</label>
+      </node>
+      <node id="1511">
+        <label>string.h</label>
+      </node>
+      <node id="1531">
+        <label>CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="1512" relation="include">
+        </childnode>
+        <childnode refid="1524" relation="include">
+        </childnode>
+      </node>
+      <node id="1515">
+        <label>unistd.h</label>
+      </node>
+      <node id="1532">
+        <label>CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="1514" relation="include">
+        </childnode>
+        <childnode refid="1515" relation="include">
+        </childnode>
+        <childnode refid="1505" relation="include">
+        </childnode>
+        <childnode refid="1513" relation="include">
+        </childnode>
+        <childnode refid="1533" relation="include">
+        </childnode>
+        <childnode refid="1516" relation="include">
+        </childnode>
+        <childnode refid="1518" relation="include">
+        </childnode>
+        <childnode refid="1519" relation="include">
+        </childnode>
+        <childnode refid="1509" relation="include">
+        </childnode>
+        <childnode refid="1510" relation="include">
+        </childnode>
+        <childnode refid="1511" relation="include">
+        </childnode>
+        <childnode refid="1534" relation="include">
+        </childnode>
+        <childnode refid="1507" relation="include">
+        </childnode>
+      </node>
+      <node id="1533">
+        <label>vector</label>
+      </node>
+      <node id="1504">
+        <label>CTile.h</label>
+        <link refid="CTile_8h_source"/>
+        <childnode refid="1505" relation="include">
+        </childnode>
+        <childnode refid="1506" relation="include">
+        </childnode>
+        <childnode refid="1507" relation="include">
+        </childnode>
+        <childnode refid="1535" relation="include">
+        </childnode>
+        <childnode refid="1531" relation="include">
+        </childnode>
+      </node>
+      <node id="1525">
+        <label>sstream</label>
+      </node>
+      <node id="1530">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1529" relation="include">
+        </childnode>
+      </node>
+      <node id="1506">
+        <label>math.h</label>
+      </node>
+      <node id="1519">
+        <label>Socket/CSocket.h</label>
+      </node>
+      <node id="1510">
+        <label>cstdlib</label>
+      </node>
+      <node id="1528">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1529" relation="include">
+        </childnode>
+      </node>
+      <node id="1527">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1518">
+        <label>Protocol/Packet.h</label>
+      </node>
+      <node id="1505">
+        <label>mutex</label>
+      </node>
+      <node id="1503">
+        <label>MainServer/Map/CMap.h</label>
+        <link refid="CMap_8h"/>
+        <childnode refid="1504" relation="include">
+        </childnode>
+      </node>
+      <node id="1534">
+        <label>algorithm</label>
+      </node>
+      <node id="1509">
+        <label>cstring</label>
+      </node>
+      <node id="1529">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1521" relation="include">
+        </childnode>
+        <childnode refid="1522" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1537">
+        <label>MainServer/CServer.h</label>
+        <link refid="MainServer_2CServer_8h_source"/>
+        <childnode refid="1538" relation="include">
+        </childnode>
+      </node>
+      <node id="1538">
+        <label>MainServer/Socket/CClientSocket.h</label>
+        <link refid="CClientSocket_8h_source"/>
+      </node>
+      <node id="1536">
+        <label>MainServer/Map/CMap.h</label>
+        <link refid="CMap_8h"/>
+        <childnode refid="1537" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structMapInfo" prot="public">MapInfo</innerclass>
+    <innerclass refid="classCMap" prot="public">CMap</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16" prot="public" static="no">
+        <name>TILE_LEN</name>
+        <initializer>400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="6" column="9" bodyfile="MainServer/Map/CMap.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="CMap_8h_1a680a225f3d8c6064c7d49883d0e25841" prot="public" static="no">
+        <name>MAP_LEN</name>
+        <initializer>50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CMap.h" line="7" column="9" bodyfile="MainServer/Map/CMap.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CMAP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CMAP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CTile.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TILE_LEN<sp/>400</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAP_LEN<sp/>50</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">MapInfo</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>wTileX,<sp/>wTileY;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>WORD<sp/>wOffsetX,<sp/>wOffsetY;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>equalTile(MapInfo&amp;<sp/>mapInfo)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mapInfo.wTileX<sp/>==<sp/>wTileX<sp/>&amp;&amp;<sp/>mapInfo.wTileY<sp/>==<sp/>wTileY;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CMap</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CTile<sp/>*g_Tiles[TILE_LEN][TILE_LEN];</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LoadMaps();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UnloadMaps();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Add(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTileX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTileY,<sp/>CCharacter<sp/>*pCharacter);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Add(MapInfo<sp/>mapInfo,<sp/>CCharacter<sp/>*pCharacter);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Add(CCharacter<sp/>*pCharacter);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Remove(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTileX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTileY,<sp/>CCharacter<sp/>*pCharacter);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Remove(MapInfo<sp/>mapInfo,<sp/>CCharacter<sp/>*pCharacter);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Remove(CCharacter<sp/>*pCharacter);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SendPacket(CCharacter<sp/>*pCharacter,<sp/>Packet&amp;<sp/>packet);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remember<sp/>to<sp/>run<sp/>m_Access.Release<sp/>on<sp/>each<sp/>used<sp/>object<sp/>in<sp/>the<sp/>list.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GetCharacterListAround(CCharacter<sp/>*pCharacter,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nDistance,<sp/>CharacterList&amp;<sp/>list);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GetPlayerListAround(CCharacter<sp/>*pCharacter,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nDistance,<sp/>PlayerList&amp;<sp/>list);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GetMonsterListAround(CCharacter<sp/>*pCharacter,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nDistance,<sp/>MonsterList&amp;<sp/>list);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CPlayer*<sp/>GetClosestNormalPlayer(CCharacter<sp/>*pCharacter,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nDistance);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>CTile*<sp/>GetTile(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTileX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTileY);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>MapInfo<sp/>GetMapInfo(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nY);<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Map/CMap.h"/>
+  </compounddef>
+</doxygen>

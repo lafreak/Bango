@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <mysql>
+    <hostname>127.0.0.1</hostname>
+    <port>3306</port>
+    <user>root</user>
+    <password>pass</password>
+    <schema>kalonline</schema>
+  </mysql>
+  <listen>
+    <port>2999</port>
+  </listen>
+</configuration>

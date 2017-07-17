@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CClientSocket_8h" kind="file" language="C++">
+    <compoundname>CClientSocket.h</compoundname>
+    <includes local="no">string.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">sys/socket.h</includes>
+    <includes local="no">netinet/in.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">pthread.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includes local="no">signal.h</includes>
+    <includes local="no">Protocol/Packet.h</includes>
+    <includes local="no">Protocol/MainProtocol.h</includes>
+    <includes local="no">minwindef.h</includes>
+    <includes local="no">common.h</includes>
+    <includes refid="MainServer_2CServer_8h" local="yes">../CServer.h</includes>
+    <includedby refid="MainServer_2main_8cpp" local="yes">MainServer/main.cpp</includedby>
+    <includedby refid="CClientSocket_8cpp" local="yes">MainServer/Socket/CClientSocket.cpp</includedby>
+    <incdepgraph>
+      <node id="1683">
+        <label>list</label>
+      </node>
+      <node id="1698">
+        <label>../GameCharacter/CNPC.h</label>
+        <link refid="CNPC_8h_source"/>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1681" relation="include">
+        </childnode>
+      </node>
+      <node id="1678">
+        <label>../GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="1660" relation="include">
+        </childnode>
+        <childnode refid="1679" relation="include">
+        </childnode>
+        <childnode refid="1680" relation="include">
+        </childnode>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1681" relation="include">
+        </childnode>
+        <childnode refid="1684" relation="include">
+        </childnode>
+        <childnode refid="1692" relation="include">
+        </childnode>
+        <childnode refid="1693" relation="include">
+        </childnode>
+      </node>
+      <node id="1659">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="1685">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1686" relation="include">
+        </childnode>
+        <childnode refid="1687" relation="include">
+        </childnode>
+        <childnode refid="1688" relation="include">
+        </childnode>
+        <childnode refid="1689" relation="include">
+        </childnode>
+        <childnode refid="1691" relation="include">
+        </childnode>
+      </node>
+      <node id="1662">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1676">
+        <label>access.h</label>
+      </node>
+      <node id="1681">
+        <label>CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="1660" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1682" relation="include">
+        </childnode>
+        <childnode refid="1683" relation="include">
+        </childnode>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1676" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1675" relation="include">
+        </childnode>
+        <childnode refid="1667" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+      </node>
+      <node id="1674">
+        <label>cstdarg</label>
+      </node>
+      <node id="1660">
+        <label>string</label>
+      </node>
+      <node id="1667">
+        <label>Protocol/MainProtocol.h</label>
+      </node>
+      <node id="1671">
+        <label>map</label>
+      </node>
+      <node id="1668">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1687">
+        <label>fstream</label>
+      </node>
+      <node id="1684">
+        <label>../Item/CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+        <childnode refid="1676" relation="include">
+        </childnode>
+        <childnode refid="1685" relation="include">
+        </childnode>
+      </node>
+      <node id="1669">
+        <label>common.h</label>
+      </node>
+      <node id="1663">
+        <label>pthread.h</label>
+      </node>
+      <node id="1657">
+        <label>sys/types.h</label>
+      </node>
+      <node id="1656">
+        <label>string.h</label>
+      </node>
+      <node id="1673">
+        <label>CClient.h</label>
+        <link refid="CClient_8h_source"/>
+        <childnode refid="1660" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1674" relation="include">
+        </childnode>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1667" relation="include">
+        </childnode>
+        <childnode refid="1675" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+        <childnode refid="1676" relation="include">
+        </childnode>
+        <childnode refid="1677" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+      </node>
+      <node id="1692">
+        <label>CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="1681" relation="include">
+        </childnode>
+        <childnode refid="1685" relation="include">
+        </childnode>
+      </node>
+      <node id="1664">
+        <label>unistd.h</label>
+      </node>
+      <node id="1693">
+        <label>CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1683" relation="include">
+        </childnode>
+        <childnode refid="1694" relation="include">
+        </childnode>
+        <childnode refid="1676" relation="include">
+        </childnode>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1675" relation="include">
+        </childnode>
+        <childnode refid="1679" relation="include">
+        </childnode>
+        <childnode refid="1680" relation="include">
+        </childnode>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1695" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+      </node>
+      <node id="1694">
+        <label>vector</label>
+      </node>
+      <node id="1665">
+        <label>signal.h</label>
+      </node>
+      <node id="1670">
+        <label>../CServer.h</label>
+        <link refid="MainServer_2CServer_8h_source"/>
+        <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1673" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+        <childnode refid="1692" relation="include">
+        </childnode>
+        <childnode refid="1693" relation="include">
+        </childnode>
+        <childnode refid="1696" relation="include">
+        </childnode>
+      </node>
+      <node id="1697">
+        <label>CTile.h</label>
+        <link refid="CTile_8h_source"/>
+        <childnode refid="1672" relation="include">
+        </childnode>
+        <childnode refid="1682" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+        <childnode refid="1698" relation="include">
+        </childnode>
+        <childnode refid="1692" relation="include">
+        </childnode>
+      </node>
+      <node id="1686">
+        <label>sstream</label>
+      </node>
+      <node id="1691">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1690" relation="include">
+        </childnode>
+      </node>
+      <node id="1682">
+        <label>math.h</label>
+      </node>
+      <node id="1675">
+        <label>Socket/CSocket.h</label>
+      </node>
+      <node id="1680">
+        <label>cstdlib</label>
+      </node>
+      <node id="1689">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1690" relation="include">
+        </childnode>
+      </node>
+      <node id="1688">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1655">
+        <label>MainServer/Socket/CClientSocket.h</label>
+        <link refid="CClientSocket_8h"/>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1657" relation="include">
+        </childnode>
+        <childnode refid="1658" relation="include">
+        </childnode>
+        <childnode refid="1659" relation="include">
+        </childnode>
+        <childnode refid="1660" relation="include">
+        </childnode>
+        <childnode refid="1661" relation="include">
+        </childnode>
+        <childnode refid="1662" relation="include">
+        </childnode>
+        <childnode refid="1663" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1665" relation="include">
+        </childnode>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1667" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+        <childnode refid="1670" relation="include">
+        </childnode>
+      </node>
+      <node id="1666">
+        <label>Protocol/Packet.h</label>
+      </node>
+      <node id="1677">
+        <label>Socket/CDBSocket.h</label>
+        <link refid="CDBSocket_8h_source"/>
+        <childnode refid="1656" relation="include">
+        </childnode>
+        <childnode refid="1657" relation="include">
+        </childnode>
+        <childnode refid="1658" relation="include">
+        </childnode>
+        <childnode refid="1659" relation="include">
+        </childnode>
+        <childnode refid="1660" relation="include">
+        </childnode>
+        <childnode refid="1661" relation="include">
+        </childnode>
+        <childnode refid="1662" relation="include">
+        </childnode>
+        <childnode refid="1663" relation="include">
+        </childnode>
+        <childnode refid="1664" relation="include">
+        </childnode>
+        <childnode refid="1666" relation="include">
+        </childnode>
+        <childnode refid="1667" relation="include">
+        </childnode>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+        <childnode refid="1673" relation="include">
+        </childnode>
+        <childnode refid="1678" relation="include">
+        </childnode>
+      </node>
+      <node id="1672">
+        <label>mutex</label>
+      </node>
+      <node id="1696">
+        <label>Map/CMap.h</label>
+        <link refid="CMap_8h_source"/>
+        <childnode refid="1697" relation="include">
+        </childnode>
+      </node>
+      <node id="1658">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="1695">
+        <label>algorithm</label>
+      </node>
+      <node id="1661">
+        <label>stdio.h</label>
+      </node>
+      <node id="1679">
+        <label>cstring</label>
+      </node>
+      <node id="1690">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1668" relation="include">
+        </childnode>
+        <childnode refid="1669" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCClientSocket" prot="public">CClientSocket</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CCLIENTSOCKET_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CCLIENTSOCKET_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/socket.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pthread.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Protocol/Packet.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Protocol/MainProtocol.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;minwindef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;common.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../CServer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CClientSocket</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>SOCKET<sp/>g_pSocket;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Start(WORD<sp/>wPort);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Close(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Accept();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>PVOID<sp/>Await(PVOID<sp/>client);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugRawPacket(Packet&amp;<sp/>packet);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Socket/CClientSocket.h"/>
+  </compounddef>
+</doxygen>

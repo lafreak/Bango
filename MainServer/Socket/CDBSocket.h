@@ -1,3 +1,6 @@
+#ifndef _CDBSOCKET_
+#define _CDBSOCKET_
+
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -6,14 +9,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
 #include <minwindef.h>
+#include <common.h>
 
-#include <Socket/CSocket.h>
-
-#include "../CServer.h"
+#include "../CClient.h"
+#include "../GameCharacter/CPlayer.h"
 
 class CDBSocket
 {
@@ -22,10 +26,13 @@ class CDBSocket
 public:
 	static bool Connect(WORD wPort);
 	static bool Close();
-	static PVOID ProcessDB(PVOID packet);
+	static PVOID Await(PVOID packet);
 	static PVOID Process(PVOID packet);
+	static void Process(Packet& packet);
 
 	static bool Write(BYTE byType, ...);
 
-	static void DebugRawPacket(Packet *packet);
+	static void DebugRawPacket(Packet& packet);
 };
+
+#endif

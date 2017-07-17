@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classCClientSocket" kind="class" language="C++" prot="public">
+    <compoundname>CClientSocket</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classCClientSocket_1ab1d03ec08be5c72cfae94731bdf755cf" prot="private" static="yes" mutable="no">
+        <type>SOCKET</type>
+        <definition>SOCKET CClientSocket::g_pSocket</definition>
+        <argsstring></argsstring>
+        <name>g_pSocket</name>
+        <initializer>= INVALID_SOCKET</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Socket/CClientSocket.h" line="24" column="1" bodyfile="MainServer/Socket/CClientSocket.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classCClientSocket_1a231b06ed69fbf255d615b751b1267b72" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CClientSocket::Start</definition>
+        <argsstring>(WORD wPort)</argsstring>
+        <name>Start</name>
+        <param>
+          <type>WORD</type>
+          <declname>wPort</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Socket/CClientSocket.h" line="27" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="9" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classCClientSocket_1a079e9c4e171766ac6db0a4dc7ad1d30b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CClientSocket::Close</definition>
+        <argsstring>(int)</argsstring>
+        <name>Close</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Socket/CClientSocket.h" line="28" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="43" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classCClientSocket_1a5c5bf4c3b439771e336d7bf5f8d67f8c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CClientSocket::Accept</definition>
+        <argsstring>()</argsstring>
+        <name>Accept</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Socket/CClientSocket.h" line="29" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="79" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classCClientSocket_1a78846a86441a077c232af46d2badd6ca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PVOID</type>
+        <definition>PVOID CClientSocket::Await</definition>
+        <argsstring>(PVOID client)</argsstring>
+        <name>Await</name>
+        <param>
+          <type>PVOID</type>
+          <declname>client</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Socket/CClientSocket.h" line="30" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="101" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classCClientSocket_1a8fed9869c1e61ff21688a28f67de6cde" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CClientSocket::DebugRawPacket</definition>
+        <argsstring>(Packet &amp;packet)</argsstring>
+        <name>DebugRawPacket</name>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Socket/CClientSocket.h" line="32" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="151" bodyend="162"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Socket/CClientSocket.h" line="23" column="1" bodyfile="MainServer/Socket/CClientSocket.h" bodystart="22" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classCClientSocket_1a5c5bf4c3b439771e336d7bf5f8d67f8c" prot="public" virt="non-virtual"><scope>CClientSocket</scope><name>Accept</name></member>
+      <member refid="classCClientSocket_1a78846a86441a077c232af46d2badd6ca" prot="public" virt="non-virtual"><scope>CClientSocket</scope><name>Await</name></member>
+      <member refid="classCClientSocket_1a079e9c4e171766ac6db0a4dc7ad1d30b" prot="public" virt="non-virtual"><scope>CClientSocket</scope><name>Close</name></member>
+      <member refid="classCClientSocket_1a8fed9869c1e61ff21688a28f67de6cde" prot="public" virt="non-virtual"><scope>CClientSocket</scope><name>DebugRawPacket</name></member>
+      <member refid="classCClientSocket_1ab1d03ec08be5c72cfae94731bdf755cf" prot="private" virt="non-virtual"><scope>CClientSocket</scope><name>g_pSocket</name></member>
+      <member refid="classCClientSocket_1a231b06ed69fbf255d615b751b1267b72" prot="public" virt="non-virtual"><scope>CClientSocket</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

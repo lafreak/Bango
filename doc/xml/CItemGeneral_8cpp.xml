@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemGeneral_8cpp" kind="file" language="C++">
+    <compoundname>CItemGeneral.cpp</compoundname>
+    <includes refid="CItemGeneral_8h" local="yes">CItemGeneral.h</includes>
+    <includes refid="CPlayer_8h" local="yes">../GameCharacter/CPlayer.h</includes>
+    <incdepgraph>
+      <node id="967">
+        <label>list</label>
+      </node>
+      <node id="960">
+        <label>../GameCharacter/CPlayer.h</label>
+        <link refid="CPlayer_8h_source"/>
+        <childnode refid="961" relation="include">
+        </childnode>
+        <childnode refid="962" relation="include">
+        </childnode>
+        <childnode refid="963" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+        <childnode refid="965" relation="include">
+        </childnode>
+        <childnode refid="946" relation="include">
+        </childnode>
+        <childnode refid="972" relation="include">
+        </childnode>
+        <childnode refid="973" relation="include">
+        </childnode>
+      </node>
+      <node id="953">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="954" relation="include">
+        </childnode>
+        <childnode refid="955" relation="include">
+        </childnode>
+        <childnode refid="956" relation="include">
+        </childnode>
+        <childnode refid="957" relation="include">
+        </childnode>
+        <childnode refid="959" relation="include">
+        </childnode>
+      </node>
+      <node id="952">
+        <label>access.h</label>
+      </node>
+      <node id="945">
+        <label>CItemGeneral.h</label>
+        <link refid="CItemGeneral_8h_source"/>
+        <childnode refid="946" relation="include">
+        </childnode>
+      </node>
+      <node id="965">
+        <label>CCharacter.h</label>
+        <link refid="CCharacter_8h_source"/>
+        <childnode refid="961" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="966" relation="include">
+        </childnode>
+        <childnode refid="967" relation="include">
+        </childnode>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="968" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+        <childnode refid="969" relation="include">
+        </childnode>
+        <childnode refid="970" relation="include">
+        </childnode>
+        <childnode refid="971" relation="include">
+        </childnode>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+      </node>
+      <node id="968">
+        <label>cstdarg</label>
+      </node>
+      <node id="961">
+        <label>string</label>
+      </node>
+      <node id="971">
+        <label>Protocol/MainProtocol.h</label>
+      </node>
+      <node id="947">
+        <label>map</label>
+      </node>
+      <node id="950">
+        <label>minwindef.h</label>
+      </node>
+      <node id="955">
+        <label>fstream</label>
+      </node>
+      <node id="946">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+      </node>
+      <node id="951">
+        <label>common.h</label>
+      </node>
+      <node id="964">
+        <label>string.h</label>
+      </node>
+      <node id="972">
+        <label>CMonster.h</label>
+        <link refid="CMonster_8h_source"/>
+        <childnode refid="965" relation="include">
+        </childnode>
+        <childnode refid="953" relation="include">
+        </childnode>
+      </node>
+      <node id="948">
+        <label>unistd.h</label>
+      </node>
+      <node id="973">
+        <label>CParty.h</label>
+        <link refid="CParty_8h_source"/>
+        <childnode refid="947" relation="include">
+        </childnode>
+        <childnode refid="948" relation="include">
+        </childnode>
+        <childnode refid="949" relation="include">
+        </childnode>
+        <childnode refid="967" relation="include">
+        </childnode>
+        <childnode refid="974" relation="include">
+        </childnode>
+        <childnode refid="952" relation="include">
+        </childnode>
+        <childnode refid="969" relation="include">
+        </childnode>
+        <childnode refid="970" relation="include">
+        </childnode>
+        <childnode refid="962" relation="include">
+        </childnode>
+        <childnode refid="963" relation="include">
+        </childnode>
+        <childnode refid="964" relation="include">
+        </childnode>
+        <childnode refid="975" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+      </node>
+      <node id="974">
+        <label>vector</label>
+      </node>
+      <node id="954">
+        <label>sstream</label>
+      </node>
+      <node id="959">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="958" relation="include">
+        </childnode>
+      </node>
+      <node id="966">
+        <label>math.h</label>
+      </node>
+      <node id="970">
+        <label>Socket/CSocket.h</label>
+      </node>
+      <node id="963">
+        <label>cstdlib</label>
+      </node>
+      <node id="957">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="958" relation="include">
+        </childnode>
+      </node>
+      <node id="956">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="969">
+        <label>Protocol/Packet.h</label>
+      </node>
+      <node id="949">
+        <label>mutex</label>
+      </node>
+      <node id="944">
+        <label>MainServer/Item/CItemGeneral.cpp</label>
+        <link refid="CItemGeneral_8cpp"/>
+        <childnode refid="945" relation="include">
+        </childnode>
+        <childnode refid="960" relation="include">
+        </childnode>
+      </node>
+      <node id="975">
+        <label>algorithm</label>
+      </node>
+      <node id="962">
+        <label>cstring</label>
+      </node>
+      <node id="958">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="950" relation="include">
+        </childnode>
+        <childnode refid="951" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;CItemGeneral.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../GameCharacter/CPlayer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>CItemGeneral::Use(CPlayer<sp/>*pPlayer)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CanUse(pPlayer))</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_pMacro-&gt;m_bySubClass<sp/>==<sp/>ISC_REFRESH)<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPlayer-&gt;Lock();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPlayer-&gt;UpdateProperty(P_CURHP,<sp/>m_pMacro-&gt;m_nRefresh[CItemInfo::R_HP]);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPlayer-&gt;UpdateProperty(P_CURMP,<sp/>m_pMacro-&gt;m_nRefresh[CItemInfo::R_MP]);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPlayer-&gt;Unlock();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_pMacro-&gt;m_byEffect)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pPlayer-&gt;WriteInSight(S2C_EFFECT,<sp/></highlight><highlight class="stringliteral">&quot;db&quot;</highlight><highlight class="normal">,<sp/>pPlayer-&gt;GetID(),<sp/>m_pMacro-&gt;m_byEffect);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItemGeneral.cpp"/>
+  </compounddef>
+</doxygen>

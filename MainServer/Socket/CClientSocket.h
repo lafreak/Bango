@@ -1,3 +1,6 @@
+#ifndef _CCLIENTSOCKET_
+#define _CCLIENTSOCKET_
+
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -6,12 +9,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
+#include <signal.h>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
 #include <minwindef.h>
-
-#include <Socket/CSocket.h>
+#include <common.h>
 
 #include "../CServer.h"
 
@@ -21,12 +25,11 @@ class CClientSocket
 
 public:
 	static bool Start(WORD wPort);
-	static bool Close();
+	static void Close(int);
 	static void Accept();
 	static PVOID Await(PVOID client);
-	static void Process(CClient *pClient, Packet packet);
 
-	static bool Write(SOCKET client, BYTE byType, ...);
-
-	static void DebugRawPacket(Packet packet);
+	static void DebugRawPacket(Packet& packet);
 };
+
+#endif

@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemTransform_8h" kind="file" language="C++">
+    <compoundname>CItemTransform.h</compoundname>
+    <includes refid="CItem_8h" local="yes">CItem.h</includes>
+    <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
+    <includedby refid="CItemTransform_8cpp" local="yes">MainServer/Item/CItemTransform.cpp</includedby>
+    <incdepgraph>
+      <node id="1213">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1207" relation="include">
+        </childnode>
+        <childnode refid="1214" relation="include">
+        </childnode>
+        <childnode refid="1215" relation="include">
+        </childnode>
+        <childnode refid="1216" relation="include">
+        </childnode>
+        <childnode refid="1217" relation="include">
+        </childnode>
+        <childnode refid="1219" relation="include">
+        </childnode>
+      </node>
+      <node id="1212">
+        <label>access.h</label>
+      </node>
+      <node id="1207">
+        <label>map</label>
+      </node>
+      <node id="1210">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1215">
+        <label>fstream</label>
+      </node>
+      <node id="1206">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1207" relation="include">
+        </childnode>
+        <childnode refid="1208" relation="include">
+        </childnode>
+        <childnode refid="1209" relation="include">
+        </childnode>
+        <childnode refid="1210" relation="include">
+        </childnode>
+        <childnode refid="1211" relation="include">
+        </childnode>
+        <childnode refid="1212" relation="include">
+        </childnode>
+        <childnode refid="1213" relation="include">
+        </childnode>
+      </node>
+      <node id="1211">
+        <label>common.h</label>
+      </node>
+      <node id="1208">
+        <label>unistd.h</label>
+      </node>
+      <node id="1214">
+        <label>sstream</label>
+      </node>
+      <node id="1219">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1218" relation="include">
+        </childnode>
+      </node>
+      <node id="1217">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1218" relation="include">
+        </childnode>
+      </node>
+      <node id="1216">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1209">
+        <label>mutex</label>
+      </node>
+      <node id="1205">
+        <label>MainServer/Item/CItemTransform.h</label>
+        <link refid="CItemTransform_8h"/>
+        <childnode refid="1206" relation="include">
+        </childnode>
+      </node>
+      <node id="1218">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1210" relation="include">
+        </childnode>
+        <childnode refid="1211" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCItemTransform" prot="public">CItemTransform</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CITEMTRANSFORM_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CITEMTRANSFORM_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CItemTransform:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CItem</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>CItemTransform(ITEMINFO_DESC&amp;<sp/>desc,<sp/>CItemInfo*<sp/>pMacro);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOn(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOff(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItemTransform.h"/>
+  </compounddef>
+</doxygen>

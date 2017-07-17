@@ -1,0 +1,875 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="classCAccount" kind="class"><name>CAccount</name>
+    <member refid="classCAccount_1aa1c05f8482aba50a71dd20e9f764de63" kind="variable"><name>m_mxThis</name></member>
+    <member refid="classCAccount_1a96c43fb7921e89ea537ac83dba436c73" kind="variable"><name>m_nClientID</name></member>
+    <member refid="classCAccount_1a60e46cfaaaae4c96373f99880510707d" kind="variable"><name>m_nAccountID</name></member>
+    <member refid="classCAccount_1a35a6203c4d62dee2dce8fb49c3b1284f" kind="variable"><name>m_szLogin</name></member>
+    <member refid="classCAccount_1af1aeb5b804d9af7cd1867a5551d9efdb" kind="variable"><name>m_szPassword</name></member>
+    <member refid="classCAccount_1a1af8bada86a56529ac37fd152e9e510b" kind="variable"><name>m_szSecondary</name></member>
+    <member refid="classCAccount_1a5ff8890236e4f128901a4df9912ad14e" kind="variable"><name>g_wDebugItems</name></member>
+    <member refid="classCAccount_1aeadec51d154df15e0527a084cc7552d8" kind="variable"><name>m_Access</name></member>
+    <member refid="classCAccount_1a71fcf22852f152f88fc3eec7d3b1dece" kind="function"><name>CAccount</name></member>
+    <member refid="classCAccount_1aea90b7725a7f2dca17b24e8010735b11" kind="function"><name>~CAccount</name></member>
+    <member refid="classCAccount_1a5d01c40991060a6d15a3da34ce5a2efd" kind="function"><name>Lock</name></member>
+    <member refid="classCAccount_1a0585bc1edbc5a884da2107ab02d0325d" kind="function"><name>Unlock</name></member>
+    <member refid="classCAccount_1a9a5e97de4d010c2d6ec3438e13f25340" kind="function"><name>GetAID</name></member>
+    <member refid="classCAccount_1a08bd903c24ad2231c7368aa0ac9f1e7e" kind="function"><name>GetCID</name></member>
+    <member refid="classCAccount_1ab9909b5e60335e30fc8f50084865b521" kind="function"><name>GetLogin</name></member>
+    <member refid="classCAccount_1a34c3797b77cf1f80e6d8d0db8d3e366b" kind="function"><name>GetPassword</name></member>
+    <member refid="classCAccount_1a5bee37079ee7d004de3afdaaed9ab46d" kind="function"><name>GetSecondary</name></member>
+    <member refid="classCAccount_1a3224a50f3a821e05526cd0ddcd6d0d87" kind="function"><name>SetSecondary</name></member>
+    <member refid="classCAccount_1a5082d85afb038c010d4a4cda8eddcb4e" kind="function"><name>SendPlayerInfo</name></member>
+  </compound>
+  <compound refid="classCCharacter" kind="class"><name>CCharacter</name>
+    <member refid="classCCharacter_1a5b467f2dc9b5bd10cc457df1c90db5ea" kind="variable"><name>m_mxThis</name></member>
+    <member refid="classCCharacter_1a5100b377fbde4fe13ee4bed308139519" kind="variable"><name>m_nID</name></member>
+    <member refid="classCCharacter_1a1bb083b5de32db494e01c80e20e682d1" kind="variable"><name>m_wStrAdd</name></member>
+    <member refid="classCCharacter_1a6dfef75d0df714aac08bd03625228ab7" kind="variable"><name>m_wHthAdd</name></member>
+    <member refid="classCCharacter_1ad0a9a9780e0b9b2c75f1784c9af75da3" kind="variable"><name>m_wIntAdd</name></member>
+    <member refid="classCCharacter_1a12152eb9465ec3d5e3d30d9de65ac77d" kind="variable"><name>m_wWisAdd</name></member>
+    <member refid="classCCharacter_1a146be16d3e5e67df90bb49591d5cac5b" kind="variable"><name>m_wDexAdd</name></member>
+    <member refid="classCCharacter_1a233168733923400c942e8db32153fd93" kind="variable"><name>m_nCurHP</name></member>
+    <member refid="classCCharacter_1a7c2e8eaef126696d9b2c8d1598c8f218" kind="variable"><name>m_wCurMP</name></member>
+    <member refid="classCCharacter_1a575aaf88f15cbcf470d24c9daf108031" kind="variable"><name>m_nX</name></member>
+    <member refid="classCCharacter_1abfcc5499774eaa139a48d05bb5ddb89d" kind="variable"><name>m_nY</name></member>
+    <member refid="classCCharacter_1afa7d5ce0dc10dc4e14e7b1a0d4c73256" kind="variable"><name>m_nZ</name></member>
+    <member refid="classCCharacter_1a3fa27ddd90e660b4611b2e02c2128313" kind="variable"><name>m_byClass</name></member>
+    <member refid="classCCharacter_1af77f7347c4a427d76bcfc417f346d336" kind="variable"><name>m_wHitAdd</name></member>
+    <member refid="classCCharacter_1a6bee344fec334262c3f9037379953a7f" kind="variable"><name>m_wDodgeAdd</name></member>
+    <member refid="classCCharacter_1ac970b808f13dcb0871540d81b61a0494" kind="variable"><name>m_dwMaxHPAdd</name></member>
+    <member refid="classCCharacter_1aa6e8742b8d3c7998496095899d6c2dd2" kind="variable"><name>m_wMaxMPAdd</name></member>
+    <member refid="classCCharacter_1aae5f38b035432bb180ae18ef1260cbb1" kind="variable"><name>m_wMinAttackAdd</name></member>
+    <member refid="classCCharacter_1a56e544a4b59c4b23ebcbada5db7c20be" kind="variable"><name>m_wMaxAttackAdd</name></member>
+    <member refid="classCCharacter_1a691b8d50ec927a5663455515e1b8c9c6" kind="variable"><name>m_wMinMagicAdd</name></member>
+    <member refid="classCCharacter_1acab6d919bb5e7cb1df0054450920b1fc" kind="variable"><name>m_wMaxMagicAdd</name></member>
+    <member refid="classCCharacter_1a0382beebaccc6b3581526aaa6a64f45f" kind="variable"><name>m_wResistFireAdd</name></member>
+    <member refid="classCCharacter_1ac4863e7c549efbf181891340d84d96d2" kind="variable"><name>m_wResistIceAdd</name></member>
+    <member refid="classCCharacter_1a8613bea5d897b0afead970258c3c6473" kind="variable"><name>m_wResistLitningAdd</name></member>
+    <member refid="classCCharacter_1adf134d13bd080a71f0ee77e832bd606f" kind="variable"><name>m_wResistCurseAdd</name></member>
+    <member refid="classCCharacter_1a3029ff4022f676a8465f51cc738764ca" kind="variable"><name>m_wResistPalsyAdd</name></member>
+    <member refid="classCCharacter_1ada406988f032855f9aed19145db3076e" kind="variable"><name>m_wDir</name></member>
+    <member refid="classCCharacter_1a3ee4eea5b273de4f9d60a0d3e993b9dd" kind="variable"><name>m_n64GState</name></member>
+    <member refid="classCCharacter_1a0ffb595a7f713235f2e4db171c6df5d0" kind="variable"><name>m_n64MState</name></member>
+    <member refid="classCCharacter_1a57a0d5731bda059fe301957c115cc909" kind="variable"><name>m_n64GStateEx</name></member>
+    <member refid="classCCharacter_1a394aca418b2a9fdb79b5de2aa0b8456c" kind="variable"><name>m_n64MStateEx</name></member>
+    <member refid="classCCharacter_1a6d5bea65ba62c3392077f4a851f7d770" kind="variable"><name>m_byKind</name></member>
+    <member refid="classCCharacter_1a22d70f2fde82348ab230b22dc57ce106" kind="variable"><name>g_nID</name></member>
+    <member refid="classCCharacter_1af0a04962f7a18a85bbdd696d80a0294a" kind="variable"><name>g_mxID</name></member>
+    <member refid="classCCharacter_1a7c09b343980598688a971ce13995b884" kind="variable"><name>m_Access</name></member>
+    <member refid="classCCharacter_1acf91ea1a4492f55129e0e880c8e269fb" kind="function"><name>NewID</name></member>
+    <member refid="classCCharacter_1a94574d74f605d70d70acb96e01233adf" kind="function"><name>CCharacter</name></member>
+    <member refid="classCCharacter_1a1c3cf4b18b5fc184d62770f10fa81851" kind="function"><name>Lock</name></member>
+    <member refid="classCCharacter_1a75454c5b85705b5f118bfb775085ae76" kind="function"><name>Unlock</name></member>
+    <member refid="classCCharacter_1ad7f5f1742dc177fd2209648690b30190" kind="function"><name>GetID</name></member>
+    <member refid="classCCharacter_1af268189e36a1bea406a5bbaa6670302d" kind="function"><name>GetKind</name></member>
+    <member refid="classCCharacter_1ad23b140d84b130c0424bfa334972fb0e" kind="function"><name>GetClass</name></member>
+    <member refid="classCCharacter_1a58744cb98cc68993d943e0ec2647306a" kind="function"><name>GetStr</name></member>
+    <member refid="classCCharacter_1a5240b51c5308228a33ba02e9f1dd2279" kind="function"><name>GetHth</name></member>
+    <member refid="classCCharacter_1aa6d3cd9981516a834e16bf7b1158c224" kind="function"><name>GetInt</name></member>
+    <member refid="classCCharacter_1ab5a1b339e78d7581131aaf19fc398b06" kind="function"><name>GetWis</name></member>
+    <member refid="classCCharacter_1a60ed981680f1ae170d8f94f44accf080" kind="function"><name>GetAgi</name></member>
+    <member refid="classCCharacter_1a15ad355680c7702eb4b1e86e5df5d118" kind="function"><name>GetCurHP</name></member>
+    <member refid="classCCharacter_1a8eeda86886aa7c0a652109823190fe89" kind="function"><name>GetCurMP</name></member>
+    <member refid="classCCharacter_1a2c280eb02bd39dd245b48370db35ee2b" kind="function"><name>GetMaxHP</name></member>
+    <member refid="classCCharacter_1a210fba6eac3e87aae59c681195c48369" kind="function"><name>GetMaxMP</name></member>
+    <member refid="classCCharacter_1ab43af4e964cc23dde5b75840a77acd5e" kind="function"><name>GetX</name></member>
+    <member refid="classCCharacter_1a849ceb26d2c01ec720f2fbd8ab1619d4" kind="function"><name>GetY</name></member>
+    <member refid="classCCharacter_1a74b10ffeef48e680bca8c761d84aca29" kind="function"><name>GetZ</name></member>
+    <member refid="classCCharacter_1ac8b2b38e896c0b82210a7c2d6b2c67d4" kind="function"><name>GetDir</name></member>
+    <member refid="classCCharacter_1a377cc0f6a658e0416c742ccdcad4372f" kind="function"><name>GetLevel</name></member>
+    <member refid="classCCharacter_1a56435a6058690cffe37840e76eeeca87" kind="function"><name>GetHit</name></member>
+    <member refid="classCCharacter_1afff27b3e1caa3764f7a23f0d927e5af7" kind="function"><name>GetDodge</name></member>
+    <member refid="classCCharacter_1a6cccec4a70a9534265aff8c70ee10d5f" kind="function"><name>GetDefense</name></member>
+    <member refid="classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e" kind="function"><name>GetAbsorb</name></member>
+    <member refid="classCCharacter_1a7e9ccca9b9c5515fb358829cd1ca3db6" kind="function"><name>GetMinAttack</name></member>
+    <member refid="classCCharacter_1a72aca8cd8b2f435ea57c842fa6c06991" kind="function"><name>GetMaxAttack</name></member>
+    <member refid="classCCharacter_1ae5f14202b5ee6c43930462b7c9632d30" kind="function"><name>GetMinMagic</name></member>
+    <member refid="classCCharacter_1a1fc2bd31eea1bc2907077a5dd8e9fdf8" kind="function"><name>GetMaxMagic</name></member>
+    <member refid="classCCharacter_1ad1b2b1bc32824f8b446e04e59079caab" kind="function"><name>GetResist</name></member>
+    <member refid="classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a" kind="function"><name>GetAttack</name></member>
+    <member refid="classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a" kind="function"><name>GetMagic</name></member>
+    <member refid="classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e" kind="function"><name>CheckHit</name></member>
+    <member refid="classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31" kind="function"><name>GetFinalDamage</name></member>
+    <member refid="classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1" kind="function"><name>GetFatalDamage</name></member>
+    <member refid="classCCharacter_1abb9fb45114752bd3e127c79e32d3b5f4" kind="function"><name>GetGState</name></member>
+    <member refid="classCCharacter_1aa0a340e1becaead14f794ff013f39cae" kind="function"><name>GetMState</name></member>
+    <member refid="classCCharacter_1aa8f2c178d15eda870a7ac001069cfd03" kind="function"><name>GetGStateEx</name></member>
+    <member refid="classCCharacter_1a325a9a67f4565ea58e5d5ef3d2960a64" kind="function"><name>GetMStateEx</name></member>
+    <member refid="classCCharacter_1af38c38bdb5d7c371e786e2c933a9466a" kind="function"><name>AddGState</name></member>
+    <member refid="classCCharacter_1aefea6662e4aef15ae8c734697eaaac25" kind="function"><name>AddMState</name></member>
+    <member refid="classCCharacter_1a45e2cc520af9e829b399f1ba0e7dd82e" kind="function"><name>AddGStateEx</name></member>
+    <member refid="classCCharacter_1a86c04d0aacd6c83484c7bd4a69c0f2e4" kind="function"><name>AddMStateEx</name></member>
+    <member refid="classCCharacter_1ac55904391a0295a865e8d7593f5f61b8" kind="function"><name>SubGState</name></member>
+    <member refid="classCCharacter_1a73a3e166928352776f2be316767730a6" kind="function"><name>SubMState</name></member>
+    <member refid="classCCharacter_1ae80b266496b646cadbe3fc5a4b1eff24" kind="function"><name>SubGStateEx</name></member>
+    <member refid="classCCharacter_1a29926f9323d2091c8d824ff3325024b5" kind="function"><name>SubMStateEx</name></member>
+    <member refid="classCCharacter_1a854edafae6cdccd8250aab74e6991486" kind="function"><name>IsGState</name></member>
+    <member refid="classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171" kind="function"><name>IsMState</name></member>
+    <member refid="classCCharacter_1acbef8d19711780d3042290df28df8e97" kind="function"><name>IsGStateEx</name></member>
+    <member refid="classCCharacter_1a3998f7bb41290e11bce58171152c0895" kind="function"><name>IsMStateEx</name></member>
+    <member refid="classCCharacter_1a1216080cae148f57013556a9c71d5d47" kind="function"><name>GenerateCreatePacket</name></member>
+    <member refid="classCCharacter_1a2c02db3ce7549a8e756b5e6ed513f466" kind="function"><name>GeneratePetPacket</name></member>
+    <member refid="classCCharacter_1a96920fc061d3700cb16dc948d655dfe1" kind="function"><name>GenerateDeletePacket</name></member>
+    <member refid="classCCharacter_1a9e94e75db0314d6ccfea4b16f5042f25" kind="function"><name>GenerateMovePacket</name></member>
+    <member refid="classCCharacter_1a0f29e023de5beddb6455d0f3b04950dd" kind="function"><name>SendPacket</name></member>
+    <member refid="classCCharacter_1aec35ea939b95c689e3afddbe504987f8" kind="function"><name>Tick</name></member>
+    <member refid="classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66" kind="function"><name>WriteInSight</name></member>
+    <member refid="classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc" kind="function"><name>SendPacketInSight</name></member>
+    <member refid="classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482" kind="function"><name>SetDirection</name></member>
+    <member refid="classCCharacter_1ad10316950dde5427e21eeed010f8922c" kind="function"><name>SetDirection</name></member>
+    <member refid="classCCharacter_1aafda97f59c31a5213d2c3891137f03ca" kind="function"><name>IsNormal</name></member>
+    <member refid="classCCharacter_1ac83eb913462cc822b7a8603a1e78fd97" kind="function"><name>Damage</name></member>
+    <member refid="classCCharacter_1af5ed7b39fc9af23953936bbf7d4190b4" kind="function"><name>Die</name></member>
+    <member refid="classCCharacter_1a60939bf801ffa3abc0799338445b953e" kind="function"><name>GetMoveAction</name></member>
+    <member refid="classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb" kind="function"><name>GetDistance</name></member>
+  </compound>
+  <compound refid="classCClient" kind="class"><name>CClient</name>
+    <member refid="classCClient_1a9c74d21caa63c47b45d53526046af9c3" kind="variable"><name>m_mxThis</name></member>
+    <member refid="classCClient_1afadeeecb5c920af77b67f41f3855e365" kind="variable"><name>m_nCID</name></member>
+    <member refid="classCClient_1ac4bdc41325535d878f9913774ee46a58" kind="variable"><name>m_szMac</name></member>
+    <member refid="classCClient_1a33804c0392aaaa3b74c37f4a94ecd987" kind="variable"><name>m_szLogin</name></member>
+    <member refid="classCClient_1af02a5782156bc1d15ac3e34ba8c561f8" kind="variable"><name>m_szPassword</name></member>
+    <member refid="classCClient_1a1cb353fd226a99d9727fb114f2f19089" kind="variable"><name>m_pPlayer</name></member>
+    <member refid="classCClient_1adb2dbfc0aca4e475b41d9f65b1b2f15e" kind="variable"><name>m_Access</name></member>
+    <member refid="classCClient_1a4092fee044e82df0fb5164b36a56d401" kind="function"><name>CClient</name></member>
+    <member refid="classCClient_1adfec5dfb8d13c1245020e52aac0812b1" kind="function"><name>~CClient</name></member>
+    <member refid="classCClient_1acaf14202e441a6f768baba78ae8657ba" kind="function"><name>Write</name></member>
+    <member refid="classCClient_1a1362876b107a0215647c59cd5a5451c9" kind="function"><name>Process</name></member>
+    <member refid="classCClient_1af920a05bd08aae9358b2b3cf44700f71" kind="function"><name>Lock</name></member>
+    <member refid="classCClient_1a86533589cea9105bc648dd6fb04435f5" kind="function"><name>Unlock</name></member>
+    <member refid="classCClient_1a25f5afad884d5189e5c5323caadbd515" kind="function"><name>SetMAC</name></member>
+    <member refid="classCClient_1af64bc448af86fd34517f03d580900529" kind="function"><name>GetMAC</name></member>
+    <member refid="classCClient_1a4fe2ece49363de49add4013531a29a6d" kind="function"><name>SetLogin</name></member>
+    <member refid="classCClient_1a27459bf9bebd7cfa95d274b513079950" kind="function"><name>GetLogin</name></member>
+    <member refid="classCClient_1a89236ebf751c30c1f4c21a60c5777c07" kind="function"><name>SetPassword</name></member>
+    <member refid="classCClient_1a70271a57361ec5cfa25a4ddefa2c3728" kind="function"><name>GetPassword</name></member>
+    <member refid="classCClient_1a81eaf7cd6de91784fdbf2e0410f3b593" kind="function"><name>GetCID</name></member>
+    <member refid="classCClient_1a5b1516cd6b0c6908160c03fddc35c095" kind="function"><name>GetPlayer</name></member>
+    <member refid="classCClient_1a3b4ab8844e7415c3b0c58c5db123a739" kind="function"><name>RemovePlayer</name></member>
+    <member refid="classCClient_1af86a2bd31a3928d8ce1da75d55cae277" kind="function"><name>OnLogin</name></member>
+    <member refid="classCClient_1a40593b06716a5f2ab93a283035416632" kind="function"><name>OnLoadPlayer</name></member>
+    <member refid="classCClient_1ae388aca737d8706c0d78d851b993fd81" kind="function"><name>OnLoadItems</name></member>
+  </compound>
+  <compound refid="classCClientSocket" kind="class"><name>CClientSocket</name>
+    <member refid="classCClientSocket_1ab1d03ec08be5c72cfae94731bdf755cf" kind="variable"><name>g_pSocket</name></member>
+    <member refid="classCClientSocket_1a231b06ed69fbf255d615b751b1267b72" kind="function"><name>Start</name></member>
+    <member refid="classCClientSocket_1a079e9c4e171766ac6db0a4dc7ad1d30b" kind="function"><name>Close</name></member>
+    <member refid="classCClientSocket_1a5c5bf4c3b439771e336d7bf5f8d67f8c" kind="function"><name>Accept</name></member>
+    <member refid="classCClientSocket_1a78846a86441a077c232af46d2badd6ca" kind="function"><name>Await</name></member>
+    <member refid="classCClientSocket_1a8fed9869c1e61ff21688a28f67de6cde" kind="function"><name>DebugRawPacket</name></member>
+  </compound>
+  <compound refid="classCDatabase" kind="class"><name>CDatabase</name>
+    <member refid="classCDatabase_1a45b346e409280fda95be12309254d580" kind="variable"><name>g_mxThis</name></member>
+    <member refid="classCDatabase_1a29743af878cadd830c9a4ffe2fbfbcf2" kind="variable"><name>g_pUrl</name></member>
+    <member refid="classCDatabase_1a0f9e99de0530ce1af9fb595d8a83d816" kind="variable"><name>g_pConnectionPool</name></member>
+    <member refid="classCDatabase_1a9a8bbf79726125eae7b3625d328fc733" kind="function"><name>Lock</name></member>
+    <member refid="classCDatabase_1a3404cd3a8c6fa7d0796c7545d7cbd544" kind="function"><name>Unlock</name></member>
+    <member refid="classCDatabase_1ab3b871c7343a47ce65e817250f0b2f38" kind="function"><name>Connect</name></member>
+    <member refid="classCDatabase_1a506ee27a44a8e221bc287ff63f604575" kind="function"><name>Close</name></member>
+  </compound>
+  <compound refid="classCDBSocket" kind="class"><name>CDBSocket</name>
+    <member refid="classCDBSocket_1a72c21901a2cd4a970a5e0cc5df56fcea" kind="variable"><name>g_pDBSocket</name></member>
+    <member refid="classCDBSocket_1ac1336b30c054974a18e8d6138bd6411b" kind="function"><name>Connect</name></member>
+    <member refid="classCDBSocket_1a90fd2b782bf63ab8fe07d911202572fb" kind="function"><name>Close</name></member>
+    <member refid="classCDBSocket_1a51dca6cceee9734306445b0476b64722" kind="function"><name>Await</name></member>
+    <member refid="classCDBSocket_1a0384f3479c8a02568b7483283f12cd93" kind="function"><name>Process</name></member>
+    <member refid="classCDBSocket_1ab24efb46e84a1bf7c608acfc585342ca" kind="function"><name>Process</name></member>
+    <member refid="classCDBSocket_1a4f8e4b414a55de763cc4643f394f3ea2" kind="function"><name>Write</name></member>
+    <member refid="classCDBSocket_1a58794d2b70a14ef96de1d68d264a2467" kind="function"><name>DebugRawPacket</name></member>
+  </compound>
+  <compound refid="classCItem" kind="class"><name>CItem</name>
+    <member refid="classCItem_1a4e324af341937bffad0493254ce40265" kind="variable"><name>m_desc</name></member>
+    <member refid="classCItem_1acb6d6f0949cc68721d2b4f536b32bf16" kind="variable"><name>m_pMacro</name></member>
+    <member refid="classCItem_1a8861ef25a1545a969a4893640f66e0f1" kind="variable"><name>m_byWearType</name></member>
+    <member refid="classCItem_1a1be269ae356f44e14ec53ce783198923" kind="variable"><name>m_mxThis</name></member>
+    <member refid="classCItem_1a92e3a99d8ff321faa8e7a91ca2901a82" kind="variable"><name>g_nMaxIID</name></member>
+    <member refid="classCItem_1a3f9ba7914876d594045249c819174883" kind="variable"><name>g_mxMaxIID</name></member>
+    <member refid="classCItem_1a0b2e1cfa343aa2de2fe16c427677ed2c" kind="variable"><name>m_Access</name></member>
+    <member refid="classCItem_1a62bf6c3fe1b2c6aa616d60f1e9754d8b" kind="function"><name>NewIID</name></member>
+    <member refid="classCItem_1af631567a1bb5871a5b9b5df4e3941320" kind="function"><name>CreateItem</name></member>
+    <member refid="classCItem_1a3b0faf4a5b905b09697a002910cc22d7" kind="function"><name>CItem</name></member>
+    <member refid="classCItem_1a2487c6e822ed0e850544f1745b43f584" kind="function"><name>~CItem</name></member>
+    <member refid="classCItem_1a6397b70896999b6e281a68da540ae8e3" kind="function"><name>GetIID</name></member>
+    <member refid="classCItem_1a65c14c3be072bbd1f10cb597a3afb524" kind="function"><name>GetInfo</name></member>
+    <member refid="classCItem_1ae7e44327c71d7b0a73c522be9be49fc2" kind="function"><name>GetNum</name></member>
+    <member refid="classCItem_1ae3d488c1f9fe85b86ed70ed0045d1c42" kind="function"><name>SetNum</name></member>
+    <member refid="classCItem_1a429b6bbc45c497966208f4787614b848" kind="function"><name>GetIndex</name></member>
+    <member refid="classCItem_1ac3c97b8250fb9ed4e05643d8cf8be1d1" kind="function"><name>GetLevel</name></member>
+    <member refid="classCItem_1a0d1dd3dcf572d3b926db29c79ae3c957" kind="function"><name>GetClass</name></member>
+    <member refid="classCItem_1ac7821b2e12b09c89b503bc7edb1cc5a9" kind="function"><name>GetSubClass</name></member>
+    <member refid="classCItem_1a21b7f4f0fe897093d3cc483064b6a834" kind="function"><name>GetWearType</name></member>
+    <member refid="classCItem_1a8b8ac7b6818894f971187a6573a7051a" kind="function"><name>GetMacro</name></member>
+    <member refid="classCItem_1abd9c949506f4ee46222311a07a63aadc" kind="function"><name>IsState</name></member>
+    <member refid="classCItem_1af52c7b0acb76aeef010a6b6932676d69" kind="function"><name>AddState</name></member>
+    <member refid="classCItem_1abbe08f4912ce874800cff8205aa2f6eb" kind="function"><name>SubState</name></member>
+    <member refid="classCItem_1a131ecdd784e0b986befce1f577f0e2fc" kind="function"><name>Lock</name></member>
+    <member refid="classCItem_1a6cc30317104d1e0350e03628ec13b27f" kind="function"><name>Unlock</name></member>
+    <member refid="classCItem_1ad68ff7df8ad358daab91dd61cc50ac4f" kind="function"><name>Use</name></member>
+    <member refid="classCItem_1a55d0c2c1090517a608bb26fff1ec5fe9" kind="function"><name>PutOn</name></member>
+    <member refid="classCItem_1a0f704fc3afb7ecb419296f0b0b56af71" kind="function"><name>PutOff</name></member>
+    <member refid="classCItem_1af029cc1aad0740d70a68286b391c7b55" kind="function"><name>CanUse</name></member>
+    <member refid="classCItem_1a137daf554896f4f6052ac506bc6c19fe" kind="function"><name>CanTrash</name></member>
+  </compound>
+  <compound refid="classCItemDefense" kind="class"><name>CItemDefense</name>
+    <member refid="classCItemDefense_1ada1904fbee80348cf03325419e106832" kind="function"><name>CItemDefense</name></member>
+    <member refid="classCItemDefense_1a0efa605ca2e725a2081cb8670e568b80" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemDefense_1a6e2d4a0d5f9161d97170f80ad692255f" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="classCItemGeneral" kind="class"><name>CItemGeneral</name>
+    <member refid="classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa" kind="function"><name>CItemGeneral</name></member>
+    <member refid="classCItemGeneral_1a03f509f4da265b293553930570d0eef1" kind="function"><name>Use</name></member>
+  </compound>
+  <compound refid="structCItemInfo" kind="struct"><name>CItemInfo</name>
+    <member refid="structCItemInfo_1a488a7948c3dac8af41be20cec272c20b" kind="enum"><name>REFRESH</name></member>
+    <member refid="structCItemInfo_1a488a7948c3dac8af41be20cec272c20ba5ee784d99ab35d531d6fdc0c385ffe6d" kind="enumvalue"><name>R_HP</name></member>
+    <member refid="structCItemInfo_1a488a7948c3dac8af41be20cec272c20ba8701079bc374b7294260e13fc3bdeeb8" kind="enumvalue"><name>R_MP</name></member>
+    <member refid="structCItemInfo_1a76934b07053447467ac7cc6d0a293df1" kind="variable"><name>m_wIndex</name></member>
+    <member refid="structCItemInfo_1a2439bdfe283e25ae066084dee37c9e35" kind="variable"><name>m_byClass</name></member>
+    <member refid="structCItemInfo_1aa6373a624fecb0957b50ec98450b1a7d" kind="variable"><name>m_bySubClass</name></member>
+    <member refid="structCItemInfo_1a9daf58f73e2ee03d7f825f44424b2427" kind="variable"><name>m_byLevel</name></member>
+    <member refid="structCItemInfo_1a700234e12c866e8471fd576a74314c32" kind="variable"><name>m_bWear</name></member>
+    <member refid="structCItemInfo_1a6ceef77eff51d0aebb093257a237f0a4" kind="variable"><name>m_byReqClass</name></member>
+    <member refid="structCItemInfo_1a3fb4da114f8d4f563d31b7a016b2cbe0" kind="variable"><name>m_byReqLevel</name></member>
+    <member refid="structCItemInfo_1ab2247b3d4b23f521920029ff550d5a57" kind="variable"><name>m_nRange</name></member>
+    <member refid="structCItemInfo_1a19bcf28fb6d3ee7c62ccdd0eae2a4b67" kind="variable"><name>m_nBuy</name></member>
+    <member refid="structCItemInfo_1a1314a803259248085444fc0beef2d735" kind="variable"><name>m_nSell</name></member>
+    <member refid="structCItemInfo_1af1a7e5251f8148a42767c3edf8c92218" kind="variable"><name>m_byEndurance</name></member>
+    <member refid="structCItemInfo_1a480c1cff45290d84cc8bd62b91eb3f3c" kind="variable"><name>m_bPlural</name></member>
+    <member refid="structCItemInfo_1ae54533224232f7ef1ca6daaadb4e902c" kind="variable"><name>m_bUse</name></member>
+    <member refid="structCItemInfo_1ad36c89d3ea744f4f746e4e8a77836301" kind="variable"><name>m_nCooltime</name></member>
+    <member refid="structCItemInfo_1aacbba761386ebfd931e34a857dfe4716" kind="variable"><name>m_byEffect</name></member>
+    <member refid="structCItemInfo_1ab32ef75c6bc26ac30ffbc837cd534aed" kind="variable"><name>m_nRefresh</name></member>
+    <member refid="structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448" kind="variable"><name>m_nBuffId</name></member>
+    <member refid="structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0" kind="variable"><name>m_nBuffTime</name></member>
+    <member refid="structCItemInfo_1a55716f963c98983b29f86d15d74f11e9" kind="variable"><name>m_nBuffValue</name></member>
+    <member refid="structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98" kind="variable"><name>m_wDefense</name></member>
+    <member refid="structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed" kind="variable"><name>m_wHit</name></member>
+    <member refid="structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91" kind="variable"><name>m_wDodge</name></member>
+    <member refid="structCItemInfo_1a68b2665eab373021688916a2c2e57ccb" kind="variable"><name>m_wAbsorb</name></member>
+    <member refid="structCItemInfo_1a699b3e66037b53735ca99be91a6bfe77" kind="variable"><name>m_wResistFire</name></member>
+    <member refid="structCItemInfo_1aa26de24aa9420cd4c46e3a8ca89fe756" kind="variable"><name>m_wResistIce</name></member>
+    <member refid="structCItemInfo_1a67551a98cd7ae370c097349cf26bcd6a" kind="variable"><name>m_wResistLitning</name></member>
+    <member refid="structCItemInfo_1ab683ac93d924c1b0cbc5073c1d3580b2" kind="variable"><name>m_wResistCurse</name></member>
+    <member refid="structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3" kind="variable"><name>m_wResistPalsy</name></member>
+    <member refid="structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f" kind="variable"><name>m_dwHP</name></member>
+    <member refid="structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3" kind="variable"><name>m_dwMP</name></member>
+    <member refid="structCItemInfo_1ab5dc077635bdab3db04a0075477f8237" kind="variable"><name>m_wMinAttack</name></member>
+    <member refid="structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e" kind="variable"><name>m_wMaxAttack</name></member>
+    <member refid="structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c" kind="variable"><name>m_wMinMagic</name></member>
+    <member refid="structCItemInfo_1a2fc639e34056e5397bec89a2fd309391" kind="variable"><name>m_wMaxMagic</name></member>
+    <member refid="structCItemInfo_1ab3828a32ae0cc4718c965d10e703a852" kind="variable"><name>m_wStr</name></member>
+    <member refid="structCItemInfo_1aecf4da12e1bcde7a12b3b89bff3f8596" kind="variable"><name>m_wHth</name></member>
+    <member refid="structCItemInfo_1a1aa7cb7639769f0565f5406d6bdff54d" kind="variable"><name>m_wInt</name></member>
+    <member refid="structCItemInfo_1a407be745faf5785d3ff968271606796c" kind="variable"><name>m_wWis</name></member>
+    <member refid="structCItemInfo_1aabd05081ae1ec47d7273f22b4d5a34a0" kind="variable"><name>m_wDex</name></member>
+    <member refid="structCItemInfo_1a1c40648b42e421bebf1666b450650f44" kind="function"><name>CItemInfo</name></member>
+  </compound>
+  <compound refid="classCItemOrnament" kind="class"><name>CItemOrnament</name>
+    <member refid="classCItemOrnament_1abf03d27f6fc74849a8a2fe9931f6e6a6" kind="function"><name>CItemOrnament</name></member>
+    <member refid="classCItemOrnament_1a2ec0f313e1a5f5749542cfa915eacfb0" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemOrnament_1a4e8cda616f2ca290b7caacabe36ada4f" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="classCItemPet" kind="class"><name>CItemPet</name>
+    <member refid="classCItemPet_1aaff2dc5ef2a45bcde79ecb942860db51" kind="function"><name>CItemPet</name></member>
+    <member refid="classCItemPet_1a54d6d4d63c11d114373edf758bd5e23b" kind="function"><name>GetPetType</name></member>
+    <member refid="classCItemPet_1aab0406ba21d9f116085077ac74aef62f" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemPet_1a8d029571677633f9bc5f241211604cc2" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="classCItemRide" kind="class"><name>CItemRide</name>
+    <member refid="classCItemRide_1ab0dbab5248b49db64152db88d7afaef7" kind="function"><name>CItemRide</name></member>
+    <member refid="classCItemRide_1aa219424f24541db4e26cb5c594cebaaf" kind="function"><name>GetRideType</name></member>
+    <member refid="classCItemRide_1abfb88d8bcb4bd6f3f806cb7037d91097" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemRide_1a13d46d91096135d1ccf2e4341267a3fc" kind="function"><name>PutOff</name></member>
+    <member refid="classCItemRide_1a391f7f19c2f3f35bf5a27d64fcfecc5e" kind="function"><name>Use</name></member>
+  </compound>
+  <compound refid="classCItemTransform" kind="class"><name>CItemTransform</name>
+    <member refid="classCItemTransform_1aa81efd06c90d5e5111d76f49ae883b20" kind="function"><name>CItemTransform</name></member>
+    <member refid="classCItemTransform_1a8bee1bfe36dae5512b8d7220d3465f8f" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemTransform_1a0ec282a4217e80726ecd7b6f0d95ee4f" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="classCItemWeapon" kind="class"><name>CItemWeapon</name>
+    <member refid="classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22" kind="function"><name>CItemWeapon</name></member>
+    <member refid="classCItemWeapon_1a94194adc4794ea181c21d9f56215af73" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="classCItemYinyang" kind="class"><name>CItemYinyang</name>
+    <member refid="classCItemYinyang_1a379efc3d9f39b3a2914802a3d913df7c" kind="function"><name>CItemYinyang</name></member>
+    <member refid="classCItemYinyang_1a6f53e13baa92fe4a3eff9fa772ae4495" kind="function"><name>PutOn</name></member>
+    <member refid="classCItemYinyang_1ad3e574020b8cda66e2e88f7959266a11" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="structCMacro" kind="struct"><name>CMacro</name>
+    <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835" kind="enum"><name>MACRO_TYPE</name></member>
+    <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a28d7e7aa52ecf18d3db84d9faff2f1e6" kind="enumvalue"><name>MT_NPC</name></member>
+    <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a36fb171ec5d057fa5df16c58bbb9ba8d" kind="enumvalue"><name>MT_ITEM</name></member>
+    <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a03e59fc7bae9ba55308fd18d87d8b801" kind="enumvalue"><name>MT_MONSTER</name></member>
+  </compound>
+  <compound refid="classCMacroDB" kind="class"><name>CMacroDB</name>
+    <member refid="classCMacroDB_1a39835fc4a515db65b47dc524aba41073" kind="variable"><name>g_mMacro</name></member>
+    <member refid="classCMacroDB_1a1cfeec5fe71e9ca62f0aa0328c2a8b9a" kind="variable"><name>g_mKey</name></member>
+    <member refid="classCMacroDB_1ac8a9876db7ea2099b38fc70a57d01abb" kind="function"><name>LoadInitItem</name></member>
+    <member refid="classCMacroDB_1a453b840d6122afa51f9124ec55483379" kind="function"><name>LoadInitMonster</name></member>
+    <member refid="classCMacroDB_1ac6b6637d1249e02767110315be94a3d9" kind="function"><name>Initialize</name></member>
+    <member refid="classCMacroDB_1a6c3c954ee2e19439c27c5896ea92713a" kind="function"><name>UnloadInitItem</name></member>
+    <member refid="classCMacroDB_1aec2c6cf84fc8e9551c7e65506c010120" kind="function"><name>UnloadInitMonster</name></member>
+    <member refid="classCMacroDB_1a1a670f4dcf519f7de4dc04e0b762f76b" kind="function"><name>FindMacro</name></member>
+    <member refid="classCMacroDB_1af60e76fa6aa8459cb1a443f25934a5e4" kind="function"><name>FindKey</name></member>
+  </compound>
+  <compound refid="classCMainSocket" kind="class"><name>CMainSocket</name>
+    <member refid="classCMainSocket_1a0a32e563061b4916f3ee533ba9ece517" kind="variable"><name>g_pDBSocket</name></member>
+    <member refid="classCMainSocket_1aa3212bdd61b108e02ff133a7ee6fd49b" kind="variable"><name>g_pMainSocket</name></member>
+    <member refid="classCMainSocket_1a5c00fe0058e191fae553788ee347a814" kind="function"><name>Start</name></member>
+    <member refid="classCMainSocket_1a1c194dc437b1b7f6b5612fd5d9f3f6ad" kind="function"><name>Close</name></member>
+    <member refid="classCMainSocket_1aac41106b3d9b978d08398a20f0955480" kind="function"><name>Accept</name></member>
+    <member refid="classCMainSocket_1a79c84f4f6135a266adeaf5148992d9f2" kind="function"><name>Process</name></member>
+    <member refid="classCMainSocket_1a54f68d8e72a2d1b974868ba2464760ad" kind="function"><name>Process</name></member>
+    <member refid="classCMainSocket_1a4998318855afa6871465bff0a1a22498" kind="function"><name>Write</name></member>
+    <member refid="classCMainSocket_1a752a3d8dce2907937d865811ec2a6d54" kind="function"><name>WritePacket</name></member>
+    <member refid="classCMainSocket_1a647d60aa593d0874374df3e779081f68" kind="function"><name>DebugRawPacket</name></member>
+  </compound>
+  <compound refid="classCMap" kind="class"><name>CMap</name>
+    <member refid="classCMap_1a9deb7d742bc74c00736220fb610d7415" kind="variable"><name>g_Tiles</name></member>
+    <member refid="classCMap_1aac0bc867d1de83aa14ec785bab04fc58" kind="function"><name>LoadMaps</name></member>
+    <member refid="classCMap_1a23d454b1bc4869dd8a60471624a6ddab" kind="function"><name>UnloadMaps</name></member>
+    <member refid="classCMap_1a5e29f61487976765f7ba2a41ddc6f839" kind="function"><name>Add</name></member>
+    <member refid="classCMap_1ac3c3948faa738e56d0fc943cc14e81a6" kind="function"><name>Add</name></member>
+    <member refid="classCMap_1a5270edc5f719e341d7e0a2954fdc0001" kind="function"><name>Add</name></member>
+    <member refid="classCMap_1acd36ffe4b1469975a573552f05933c10" kind="function"><name>Remove</name></member>
+    <member refid="classCMap_1a41e598253dc24b82c10221182e93e67e" kind="function"><name>Remove</name></member>
+    <member refid="classCMap_1a924382fd7d3e547497cb3ead1e8eff24" kind="function"><name>Remove</name></member>
+    <member refid="classCMap_1a1700121e244326c94a23a6384a36637e" kind="function"><name>SendPacket</name></member>
+    <member refid="classCMap_1ad514689ee257a7a503c6d8892211069a" kind="function"><name>GetCharacterListAround</name></member>
+    <member refid="classCMap_1abb89fe0e38943f405df20afde6ad2e6a" kind="function"><name>GetPlayerListAround</name></member>
+    <member refid="classCMap_1a600fd17c11f85e04c212766e21879ad9" kind="function"><name>GetMonsterListAround</name></member>
+    <member refid="classCMap_1a2248c0c83be7727ed45687c52222dc64" kind="function"><name>GetClosestNormalPlayer</name></member>
+    <member refid="classCMap_1ac572d9fcb7a9155263adcc602f472591" kind="function"><name>GetTile</name></member>
+    <member refid="classCMap_1ad1f728f1541c669f0d86f7e02d290920" kind="function"><name>GetMapInfo</name></member>
+  </compound>
+  <compound refid="classCMonster" kind="class"><name>CMonster</name>
+    <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cde" kind="enum"><name>MOVE_TYPE</name></member>
+    <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cdea471a6d3586e2ec41ef55f8839e6b1ebf" kind="enumvalue"><name>MT_WALK</name></member>
+    <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cdea5a496502dda8df23bce3c76ce88bc454" kind="enumvalue"><name>MT_RUN</name></member>
+    <member refid="classCMonster_1ad886aa0094a13ec89beaab7ef9f74ec9" kind="enum"><name>MOVE_TYPEEX</name></member>
+    <member refid="classCMonster_1ad886aa0094a13ec89beaab7ef9f74ec9ac5b86d8154e9906c49a250457275eb28" kind="enumvalue"><name>MTEX_MOVEEND</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758" kind="enum"><name>AI_STATE</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a8bb00d36f1c99972fe74195ad25715dd" kind="enumvalue"><name>AIS_IDLE</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a6edbbe1775c999251b870200070ed2f9" kind="enumvalue"><name>AIS_WALK</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758af852cec4f4b3c15de1fe307f0d62a552" kind="enumvalue"><name>AIS_CHASE</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a8939772a39b2663ab4e54965ca47b7fa" kind="enumvalue"><name>AIS_FORCEATTACK</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a9c14448f11068f9d5a35493feb93a3eb" kind="enumvalue"><name>AIS_ATTACK</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758aac3657b2907e8b05e15e18243a22e7a4" kind="enumvalue"><name>AIS_DEAD</name></member>
+    <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a3e1f96b21cc5967320636c03da83dde2" kind="enumvalue"><name>AIS_KNEE</name></member>
+    <member refid="classCMonster_1a65d353c9b36f84c6edf08173652fad65" kind="variable"><name>m_wIndex</name></member>
+    <member refid="classCMonster_1a5610f9603531419b6a4965cffebd5029" kind="variable"><name>m_pMacro</name></member>
+    <member refid="classCMonster_1a0bf7d9cc371075e23a1149045a6e891e" kind="variable"><name>m_pTarget</name></member>
+    <member refid="classCMonster_1a6d4c0576246fa111902236248a63a9c0" kind="variable"><name>m_byAIState</name></member>
+    <member refid="classCMonster_1aab914c2bc5834ade4abb5210fb004a20" kind="variable"><name>m_dwWalkTime</name></member>
+    <member refid="classCMonster_1a4d1d92ae0e529e88dc946b0ec1571099" kind="variable"><name>m_dwLastWalkStep</name></member>
+    <member refid="classCMonster_1a70ac0a7fcca7d97978e38f446de89451" kind="variable"><name>m_dwLastChaseStep</name></member>
+    <member refid="classCMonster_1afceb356003b990a4accef06f53f9dce1" kind="variable"><name>m_dwLastAttackTime</name></member>
+    <member refid="classCMonster_1a8075208849282a36f125c07045206f57" kind="variable"><name>g_mMonster</name></member>
+    <member refid="classCMonster_1a67d039e3d370dfc59ecfc5427f4de94d" kind="variable"><name>g_mxMonster</name></member>
+    <member refid="classCMonster_1a32b5519b2c5d14881927b69436972c8f" kind="function"><name>CMonster</name></member>
+    <member refid="classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d" kind="function"><name>~CMonster</name></member>
+    <member refid="classCMonster_1aaebb18996775b6910623e8b468afb15b" kind="function"><name>GenerateCreatePacket</name></member>
+    <member refid="classCMonster_1ad998626b6c7037fde9963aba1e949949" kind="function"><name>GeneratePetPacket</name></member>
+    <member refid="classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793" kind="function"><name>GenerateDeletePacket</name></member>
+    <member refid="classCMonster_1a36c4a1434097b4663dc9e425642759c5" kind="function"><name>GenerateMovePacket</name></member>
+    <member refid="classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875" kind="function"><name>GetStr</name></member>
+    <member refid="classCMonster_1abe75aa7d1e1fc575329bf141d3968936" kind="function"><name>GetHth</name></member>
+    <member refid="classCMonster_1abe6a411372dbc1f9ce80b349e125f068" kind="function"><name>GetInt</name></member>
+    <member refid="classCMonster_1a703b84211544a29e42f664e4aaae06c5" kind="function"><name>GetWis</name></member>
+    <member refid="classCMonster_1a54207d4061d825c5702b1d2edf00acc1" kind="function"><name>GetAgi</name></member>
+    <member refid="classCMonster_1ae2baaa85bbc125cdcd97b87d6e2a4018" kind="function"><name>GetHit</name></member>
+    <member refid="classCMonster_1a8a259592a5dfb88fc087f0561b252f7d" kind="function"><name>GetDodge</name></member>
+    <member refid="classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915" kind="function"><name>GetDefense</name></member>
+    <member refid="classCMonster_1a4c89df0e2e869953f069c025ff72affe" kind="function"><name>GetAbsorb</name></member>
+    <member refid="classCMonster_1a524e9af6974fae1133f6696bbc6b4b07" kind="function"><name>GetMaxHP</name></member>
+    <member refid="classCMonster_1ae4af787fa0bca32d846f1710e1b788bf" kind="function"><name>GetMaxMP</name></member>
+    <member refid="classCMonster_1a897e6cbae9eca095be13ee460d79803f" kind="function"><name>GetMinAttack</name></member>
+    <member refid="classCMonster_1a3b1074c3953f2cc5f37923bb2ed84c5d" kind="function"><name>GetMaxAttack</name></member>
+    <member refid="classCMonster_1afc4a6486c348db9411aa1246c6e18387" kind="function"><name>GetMinMagic</name></member>
+    <member refid="classCMonster_1abc571b26b8f78c5c0b7a000cbfcc7505" kind="function"><name>GetMaxMagic</name></member>
+    <member refid="classCMonster_1a42c7bb7d9c13d7449a20daac57a99dc4" kind="function"><name>GetResist</name></member>
+    <member refid="classCMonster_1a1646f77a24fa39435d018715886b1a41" kind="function"><name>GetIndex</name></member>
+    <member refid="classCMonster_1a5951e0b264526d6b693a79cfff5de93a" kind="function"><name>GetRace</name></member>
+    <member refid="classCMonster_1a25481d93a1846d61c5669523a046b30e" kind="function"><name>GetLevel</name></member>
+    <member refid="classCMonster_1ac2f91ca1773289b6079dad01c4b00153" kind="function"><name>GetRange</name></member>
+    <member refid="classCMonster_1a0b2d80ce5652aea191e6f93931fe2e0a" kind="function"><name>GetWalkSpeed</name></member>
+    <member refid="classCMonster_1a51f0e1e2bdef76192d41ebc9245ecd33" kind="function"><name>GetRunSpeed</name></member>
+    <member refid="classCMonster_1a57f3ffe3d5cc777f141722234cc63053" kind="function"><name>GetAttackSpeed</name></member>
+    <member refid="classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd" kind="function"><name>GetCloseSight</name></member>
+    <member refid="classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513" kind="function"><name>GetFarSight</name></member>
+    <member refid="classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156" kind="function"><name>GetAIS</name></member>
+    <member refid="classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae" kind="function"><name>SetAIS</name></member>
+    <member refid="classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09" kind="function"><name>SetTarget</name></member>
+    <member refid="classCMonster_1a9882ba63a0c0d7e73ec92db540deac93" kind="function"><name>GetTarget</name></member>
+    <member refid="classCMonster_1a9470fac20c62bdcc22047ceac3a1a51c" kind="function"><name>Tick</name></member>
+    <member refid="classCMonster_1a8e84ec4618ba917cf31cb60a901e7052" kind="function"><name>AI</name></member>
+    <member refid="classCMonster_1a50baf7e342893c3fc492d3cc1edae898" kind="function"><name>Move</name></member>
+    <member refid="classCMonster_1a3da2c9537b0a47d96779d05f61685268" kind="function"><name>Attack</name></member>
+    <member refid="classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa" kind="function"><name>Chase</name></member>
+    <member refid="classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca" kind="function"><name>Walk</name></member>
+    <member refid="classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496" kind="function"><name>Damage</name></member>
+    <member refid="classCMonster_1abccca2937a627ac7c23b2bff489ffef5" kind="function"><name>SendPacket</name></member>
+    <member refid="classCMonster_1a04207d77ca28962f187c7eb195c21502" kind="function"><name>GetClosestNormalPlayer</name></member>
+    <member refid="classCMonster_1a80b03e33ba82584835f76b2f11e97afa" kind="function"><name>CreateMonster</name></member>
+    <member refid="classCMonster_1a2d64e70cf021f0bf9377d0180264e14b" kind="function"><name>Summon</name></member>
+    <member refid="classCMonster_1a2d71aea56fb8b7b1ea16b4c85368c80a" kind="function"><name>Add</name></member>
+    <member refid="classCMonster_1ab2f9e33a290652bf026541e9b2f4412f" kind="function"><name>Remove</name></member>
+    <member refid="classCMonster_1a6c5653f70c69ff555bb2fce71751d24b" kind="function"><name>TickAll</name></member>
+    <member refid="classCMonster_1ae13954eb631ffda8737126defe75595d" kind="function"><name>AIAll</name></member>
+    <member refid="classCMonster_1a84af762c988b9bf79b262cb771521645" kind="function"><name>FindMonster</name></member>
+    <member refid="classCMonster_1a1e2e711e1cf80e21b9f913618136614a" kind="function"><name>FindMonsterByIndex</name></member>
+  </compound>
+  <compound refid="structCMonsterInfo" kind="struct"><name>CMonsterInfo</name>
+    <member refid="structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232" kind="variable"><name>m_wIndex</name></member>
+    <member refid="structCMonsterInfo_1aa6a0da27614bb6e12ce24e5b8a267bcc" kind="variable"><name>m_byRace</name></member>
+    <member refid="structCMonsterInfo_1af51dd9f92e3c39cff3d2586f29c3bae5" kind="variable"><name>m_byLevel</name></member>
+    <member refid="structCMonsterInfo_1abeb38493bf01835786a3526818e3148f" kind="variable"><name>m_byAI</name></member>
+    <member refid="structCMonsterInfo_1ab6672eaa7c9dcd23d4125412950dfebb" kind="variable"><name>m_wRange</name></member>
+    <member refid="structCMonsterInfo_1a3ad06f707931eed8844497793e8b581f" kind="variable"><name>m_wCloseSight</name></member>
+    <member refid="structCMonsterInfo_1a92cb55f43d52be5d7b28a202aa69430e" kind="variable"><name>m_wFarSight</name></member>
+    <member refid="structCMonsterInfo_1aad4403f33d4255623b03cec89e98194b" kind="variable"><name>m_n64Exp</name></member>
+    <member refid="structCMonsterInfo_1ad529ddd263cf9e68e5227b7fa50cce25" kind="variable"><name>m_wWalkSpeed</name></member>
+    <member refid="structCMonsterInfo_1ac51bd28674f8c9cae8498e2cc1b9fb7c" kind="variable"><name>m_wRunSpeed</name></member>
+    <member refid="structCMonsterInfo_1a2606ae8216541893d3f329e4fffc8cda" kind="variable"><name>m_wAttackSpeed</name></member>
+    <member refid="structCMonsterInfo_1a077bcb6158ca1d0a45d930cbccb33a46" kind="variable"><name>m_wStr</name></member>
+    <member refid="structCMonsterInfo_1a762fb128f9a62ef821f4fb7009e97d3f" kind="variable"><name>m_wHth</name></member>
+    <member refid="structCMonsterInfo_1a73e33b8accdfbcbe4c795bc630227f93" kind="variable"><name>m_wInt</name></member>
+    <member refid="structCMonsterInfo_1a064d63f4c02d248c717a121c30ad31d4" kind="variable"><name>m_wWis</name></member>
+    <member refid="structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35" kind="variable"><name>m_wDex</name></member>
+    <member refid="structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f" kind="variable"><name>m_dwHP</name></member>
+    <member refid="structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5" kind="variable"><name>m_dwMP</name></member>
+    <member refid="structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d" kind="variable"><name>m_wDefense</name></member>
+    <member refid="structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4" kind="variable"><name>m_wHit</name></member>
+    <member refid="structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1" kind="variable"><name>m_wDodge</name></member>
+    <member refid="structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3" kind="variable"><name>m_wAbsorb</name></member>
+    <member refid="structCMonsterInfo_1ab90f43b23fb76bef8cfb07b43173b72f" kind="variable"><name>m_wResistFire</name></member>
+    <member refid="structCMonsterInfo_1a70f8a1a41f3c4badb17731f476dbb237" kind="variable"><name>m_wResistIce</name></member>
+    <member refid="structCMonsterInfo_1a0a2ff1d3742794e0da57f676b25f424b" kind="variable"><name>m_wResistLitning</name></member>
+    <member refid="structCMonsterInfo_1aad4764813468a16db18c5ab65e659f48" kind="variable"><name>m_wResistCurse</name></member>
+    <member refid="structCMonsterInfo_1ac29435267add159dc68881fe385a6f80" kind="variable"><name>m_wResistPalsy</name></member>
+    <member refid="structCMonsterInfo_1ab24c395f81ab71caefff657c8af6d700" kind="variable"><name>m_wMinAttack</name></member>
+    <member refid="structCMonsterInfo_1a8591f1a3a2fb809a2e36c10fb14b191a" kind="variable"><name>m_wMaxAttack</name></member>
+    <member refid="structCMonsterInfo_1a039745d705c73743ae62f624bcf7b7b7" kind="variable"><name>m_wMinMagic</name></member>
+    <member refid="structCMonsterInfo_1abffd3931f2a166c64302ee5ac2a37c6e" kind="variable"><name>m_wMaxMagic</name></member>
+    <member refid="structCMonsterInfo_1afbe8ef3d7e35dee06c309bee0d1107fa" kind="variable"><name>m_wSize</name></member>
+    <member refid="structCMonsterInfo_1a8dde7a427a752dd840a9911379d66a51" kind="function"><name>CMonsterInfo</name></member>
+  </compound>
+  <compound refid="classCMonsterMaguni" kind="class"><name>CMonsterMaguni</name>
+    <member refid="classCMonsterMaguni_1a8f50ebb8a6e6b9cea105909f4101171c" kind="variable"><name>m_dwDeadTime</name></member>
+    <member refid="classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990" kind="function"><name>CMonsterMaguni</name></member>
+    <member refid="classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27" kind="function"><name>Die</name></member>
+    <member refid="classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42" kind="function"><name>Tick</name></member>
+  </compound>
+  <compound refid="classCMonsterReal" kind="class"><name>CMonsterReal</name>
+    <member refid="classCMonsterReal_1a5f870bceef461c11ac5dba3bc0d4d44c" kind="function"><name>CMonsterReal</name></member>
+    <member refid="classCMonsterReal_1a9bec24d9b20c0bf8722892ccd70694ed" kind="function"><name>Die</name></member>
+  </compound>
+  <compound refid="classCNPC" kind="class"><name>CNPC</name>
+    <member refid="classCNPC_1adc030cf4a07c111314519f69e87a217b" kind="variable"><name>m_wIndex</name></member>
+    <member refid="classCNPC_1a977a9919d7525ff6f778b408aeeef864" kind="variable"><name>m_nShape</name></member>
+    <member refid="classCNPC_1a590adc2e3a28365a74c8fe4d8eefa510" kind="variable"><name>m_nHtml</name></member>
+    <member refid="classCNPC_1a0b73d4beff91c95ea40cbeff3697cc86" kind="variable"><name>g_mNPC</name></member>
+    <member refid="classCNPC_1a4299ff5a4c64e4d41adedafcef38e322" kind="variable"><name>g_mxNPC</name></member>
+    <member refid="classCNPC_1a441f45b092391de84d52b07392c5de7b" kind="function"><name>CNPC</name></member>
+    <member refid="classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2" kind="function"><name>GetHTML</name></member>
+    <member refid="classCNPC_1a80eaf3493958ca2de09e590ed0b27f77" kind="function"><name>GenerateCreatePacket</name></member>
+    <member refid="classCNPC_1a9e50a1c043c84e063af01f8f3766787b" kind="function"><name>GeneratePetPacket</name></member>
+    <member refid="classCNPC_1aa2ade1c301076c2d0b838dd17602f14b" kind="function"><name>GenerateDeletePacket</name></member>
+    <member refid="classCNPC_1a61b21ec3797dbd782cbdb738da521e75" kind="function"><name>GenerateMovePacket</name></member>
+    <member refid="classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce" kind="function"><name>SendPacket</name></member>
+    <member refid="classCNPC_1a9261d699e4c513a63afdfac7beff02b4" kind="function"><name>Tick</name></member>
+    <member refid="classCNPC_1ac8f234fa07c788d8acd87f38cb81b12a" kind="function"><name>LoadNPC</name></member>
+    <member refid="classCNPC_1a3654caa12b148bb1242924e9d92e9712" kind="function"><name>UnloadNPC</name></member>
+    <member refid="classCNPC_1ad67dca51b67cb8db29184017345329fc" kind="function"><name>Add</name></member>
+    <member refid="classCNPC_1a948580bbf9ad0e4449d2a3310aa3ad52" kind="function"><name>Remove</name></member>
+    <member refid="classCNPC_1a1b5c9340d5340e36662826e28fa10a25" kind="function"><name>FindNPC</name></member>
+  </compound>
+  <compound refid="classCParty" kind="class"><name>CParty</name>
+    <member refid="classCParty_1a2780cec936761c0c63e33b734a322eee" kind="variable"><name>m_nID</name></member>
+    <member refid="classCParty_1a5797434f5f4a4fdafc8cc1caf39c394a" kind="variable"><name>m_vMembers</name></member>
+    <member refid="classCParty_1a4696f19953273ee3f075fcae4bead56e" kind="variable"><name>m_mxThis</name></member>
+    <member refid="classCParty_1a78208a60865ff3a3d23e36d5380d1691" kind="variable"><name>g_mParty</name></member>
+    <member refid="classCParty_1a3c147ccbd45911d2ed3668abb9069456" kind="variable"><name>g_mxParty</name></member>
+    <member refid="classCParty_1a019865dcfa8ea02cdcd52f3c042890be" kind="variable"><name>g_nMaxID</name></member>
+    <member refid="classCParty_1a7897481908ef9fff1b00f67a2bb29929" kind="variable"><name>g_mxMaxID</name></member>
+    <member refid="classCParty_1ac3e5b32446a861d0c6995821bcfa3f24" kind="variable"><name>m_Access</name></member>
+    <member refid="classCParty_1a4af53de1b337d87a83cffab15c4894b5" kind="function"><name>NewID</name></member>
+    <member refid="classCParty_1a82425992dab14d9448e61fe6552d5dcb" kind="function"><name>Add</name></member>
+    <member refid="classCParty_1a76398be52a8ead39ffc5ebc3211f8149" kind="function"><name>Remove</name></member>
+    <member refid="classCParty_1a5bc8c57492583cb90e95fccffe8b91d4" kind="function"><name>CParty</name></member>
+    <member refid="classCParty_1af644bea4e9858a9f6611da9530d67068" kind="function"><name>~CParty</name></member>
+    <member refid="classCParty_1a16b86dbcb785c1a1a27ccff53a065f66" kind="function"><name>GetID</name></member>
+    <member refid="classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713" kind="function"><name>GetSize</name></member>
+    <member refid="classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0" kind="function"><name>IsHead</name></member>
+    <member refid="classCParty_1a705e833cada5faed26ce8b5c04f3b4e2" kind="function"><name>Discard</name></member>
+    <member refid="classCParty_1ac13046f8b7e23785cc9962728fe3e6a0" kind="function"><name>AddMember</name></member>
+    <member refid="classCParty_1ab9a01f6cf295c33c4cf79659c966557f" kind="function"><name>RemoveMember</name></member>
+    <member refid="classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7" kind="function"><name>UpdateMemberHP</name></member>
+    <member refid="classCParty_1a18e32064380190344131144f41e1f6f7" kind="function"><name>UpdateMemberLevel</name></member>
+    <member refid="classCParty_1a255416d9ffe853b5bd7b0af497f00132" kind="function"><name>SendPartyInfo</name></member>
+    <member refid="classCParty_1a5883da3a529af5b03909a8a3489942b4" kind="function"><name>SendPositionInfo</name></member>
+    <member refid="classCParty_1a1efabe746539b197733a150bb5f04f3c" kind="function"><name>Tick</name></member>
+    <member refid="classCParty_1aa6308c6b9659b2033852efa4dae3b75f" kind="function"><name>Broadcast</name></member>
+    <member refid="classCParty_1af2141329a51494ea76985442dcddd0d9" kind="function"><name>Broadcast</name></member>
+    <member refid="classCParty_1a6079709521807c4476da967c9a65723d" kind="function"><name>TickAll</name></member>
+    <member refid="classCParty_1a51620ed2703390426b9dc015220ac9db" kind="function"><name>FindParty</name></member>
+  </compound>
+  <compound refid="classCPlayer" kind="class"><name>CPlayer</name>
+    <member refid="classCPlayer_1aaec91bf01324adbdcce9384951f51ceb" kind="variable"><name>m_nCID</name></member>
+    <member refid="classCPlayer_1aa4b770816d35a620aee6d81320dccc9f" kind="variable"><name>m_nAID</name></member>
+    <member refid="classCPlayer_1a3dace322d18a4f1e298590462dcb8844" kind="variable"><name>m_nPID</name></member>
+    <member refid="classCPlayer_1ae8f852723080a289e8726d412c361a4e" kind="variable"><name>m_wPUPoint</name></member>
+    <member refid="classCPlayer_1a42af986d2e1f8e22c5206aba9ea8060e" kind="variable"><name>m_wSUPoint</name></member>
+    <member refid="classCPlayer_1a5d0ab3a2540964cce606f311368feb37" kind="variable"><name>m_wContribute</name></member>
+    <member refid="classCPlayer_1ab70bba6f78a37c0bd9fd57704ec89d55" kind="variable"><name>m_nAnger</name></member>
+    <member refid="classCPlayer_1a3ad54b8e0973c1e7920b716170e831cb" kind="variable"><name>m_n64Exp</name></member>
+    <member refid="classCPlayer_1a04f0040f1b67f1b8c52af6628f691527" kind="variable"><name>m_wStr</name></member>
+    <member refid="classCPlayer_1a4bff015a64902d794faa45f6d8d315cd" kind="variable"><name>m_wHth</name></member>
+    <member refid="classCPlayer_1a0afe101552604da8ea038679300c4ead" kind="variable"><name>m_wInt</name></member>
+    <member refid="classCPlayer_1ac947b62bd20b19da16296f43342f9723" kind="variable"><name>m_wWis</name></member>
+    <member refid="classCPlayer_1a67488c7ae2800273380733411a719582" kind="variable"><name>m_wDex</name></member>
+    <member refid="classCPlayer_1a14f2e912c157438a50e73e31595e4ad9" kind="variable"><name>m_byLevel</name></member>
+    <member refid="classCPlayer_1a124bb18b9fa3532243e5784c5e219145" kind="variable"><name>m_wDefense</name></member>
+    <member refid="classCPlayer_1af5bd1cb635069e7b741572e464275447" kind="variable"><name>m_byAbsorb</name></member>
+    <member refid="classCPlayer_1a62e99c3ca41dac5d197076472c4abcf2" kind="variable"><name>m_byGrade</name></member>
+    <member refid="classCPlayer_1a6a768c0bf4a39da5fae05755d181c6e0" kind="variable"><name>m_szGuildName</name></member>
+    <member refid="classCPlayer_1a5088f4a19a980bb8c7384fcee57b1eaa" kind="variable"><name>m_byGRole</name></member>
+    <member refid="classCPlayer_1ad6e0ef76edf72663d335d6d2c896d6b1" kind="variable"><name>m_szName</name></member>
+    <member refid="classCPlayer_1af5e1c66ff901b52c788e17c485f32352" kind="variable"><name>m_byJob</name></member>
+    <member refid="classCPlayer_1ac176f8bc9b2e4b97c6d827c024bff599" kind="variable"><name>m_byFace</name></member>
+    <member refid="classCPlayer_1ab2efc81ce8891483a76da03ea531e471" kind="variable"><name>m_byHair</name></member>
+    <member refid="classCPlayer_1a0420a94d6b41d794274c97a224c4b238" kind="variable"><name>m_szGuildClass</name></member>
+    <member refid="classCPlayer_1a902e77590df150096012e1767c4626f8" kind="variable"><name>m_nGID</name></member>
+    <member refid="classCPlayer_1a689da807663d1d03d68044a5dd4be837" kind="variable"><name>m_byFlag</name></member>
+    <member refid="classCPlayer_1a864bea339ce61614b173da5e51cdfb4d" kind="variable"><name>m_nFlagItem</name></member>
+    <member refid="classCPlayer_1a001bd2839f418a70d8cdde724998b152" kind="variable"><name>m_nHonorGrade</name></member>
+    <member refid="classCPlayer_1ae9540539123800dde56f3c7c18b13bff" kind="variable"><name>m_nHonorOption</name></member>
+    <member refid="classCPlayer_1aba4febb45ff16a871bfdc4d053bc8975" kind="variable"><name>m_nOnTeleportX</name></member>
+    <member refid="classCPlayer_1a8df7cd2b4a60692e188e21330f23634e" kind="variable"><name>m_nOnTeleportY</name></member>
+    <member refid="classCPlayer_1af3a70483c3272d5041f03612dae9c77a" kind="variable"><name>m_n64WearState</name></member>
+    <member refid="classCPlayer_1a778d2d952f6f0b6215f21e052a5dbc7b" kind="variable"><name>m_Gear</name></member>
+    <member refid="classCPlayer_1a0aa348cec1b68b3be751cb720c82b20e" kind="variable"><name>m_GearIndex</name></member>
+    <member refid="classCPlayer_1af82c6ce229c6f4e465ccecef8449a71b" kind="variable"><name>m_byTrigramLevel</name></member>
+    <member refid="classCPlayer_1afb20577881236ddb1824b5feda862711" kind="variable"><name>m_byShortcutState</name></member>
+    <member refid="classCPlayer_1a660c09e8633fd0bace13727dd2d9da7a" kind="variable"><name>m_nPartyID</name></member>
+    <member refid="classCPlayer_1a9354f9cb560f59941ee22455e23dc9a9" kind="variable"><name>m_nPartyInviterID</name></member>
+    <member refid="classCPlayer_1a983af424a4079449c5384ebf35a6798e" kind="variable"><name>m_mItem</name></member>
+    <member refid="classCPlayer_1a7d7320fa386f18a038e6a4de720c937f" kind="variable"><name>m_mxItem</name></member>
+    <member refid="classCPlayer_1a3ab121f3f17a5413e796a36d348760c5" kind="variable"><name>g_mPlayer</name></member>
+    <member refid="classCPlayer_1a561ff0873a48b9efcd42701c8fc8b749" kind="variable"><name>g_mxPlayer</name></member>
+    <member refid="classCPlayer_1a188a2d1ddfae18bd1281031fbb4d5e38" kind="function"><name>CPlayer</name></member>
+    <member refid="classCPlayer_1ad02df04887bccfe3b82298895da24af6" kind="function"><name>~CPlayer</name></member>
+    <member refid="classCPlayer_1a048b7e0a5eb6324a6396c79ac19f1fa7" kind="function"><name>GetAID</name></member>
+    <member refid="classCPlayer_1a8b3eeffe39bd10c1ca442abf522c3d3a" kind="function"><name>GetPID</name></member>
+    <member refid="classCPlayer_1ae63162d22c160863a7cfc575b8e04722" kind="function"><name>GetCID</name></member>
+    <member refid="classCPlayer_1a12b1cc4176b930081cd65578850adec4" kind="function"><name>GetStr</name></member>
+    <member refid="classCPlayer_1a95334779906a25556f928c11e56f7b56" kind="function"><name>GetHth</name></member>
+    <member refid="classCPlayer_1af72d874a5af5b52d9ec2938779c3fbfa" kind="function"><name>GetInt</name></member>
+    <member refid="classCPlayer_1a47548e6b4199eb573d8d10127a074145" kind="function"><name>GetWis</name></member>
+    <member refid="classCPlayer_1a7a38f160048d70f365307223f5759692" kind="function"><name>GetAgi</name></member>
+    <member refid="classCPlayer_1a34efe8d8fd94399e34ed86e3f8d4216f" kind="function"><name>GetPUPoint</name></member>
+    <member refid="classCPlayer_1a24b7234e0c8d14ef168c94bc7fe76af5" kind="function"><name>GetSUPoint</name></member>
+    <member refid="classCPlayer_1ad4df1acf599fe2d577fe792b0bacdb93" kind="function"><name>GetContribute</name></member>
+    <member refid="classCPlayer_1a3831255da9326e7c263de568fbf63257" kind="function"><name>GetAnger</name></member>
+    <member refid="classCPlayer_1ad10ef4ef34dd4e1035d94e9240a5c09b" kind="function"><name>GetLevel</name></member>
+    <member refid="classCPlayer_1a81798f3557fcdf8494da043e3c1b6c82" kind="function"><name>GetHit</name></member>
+    <member refid="classCPlayer_1a578c2e4f1ed228c4685e425995e910ac" kind="function"><name>GetDodge</name></member>
+    <member refid="classCPlayer_1ac7f7759cf31aec584fcd2025df813abb" kind="function"><name>GetDefense</name></member>
+    <member refid="classCPlayer_1aae6df796a50ca12187e3e8b6c9913ac7" kind="function"><name>GetAbsorb</name></member>
+    <member refid="classCPlayer_1a076c69138624fb583d71fa3cc934d40e" kind="function"><name>GetMaxHP</name></member>
+    <member refid="classCPlayer_1a0d60b187885fb7fae265ec9765787cdf" kind="function"><name>GetMaxMP</name></member>
+    <member refid="classCPlayer_1aac4c02f19a838eaaeaa99e49b3715214" kind="function"><name>GetMinAttack</name></member>
+    <member refid="classCPlayer_1a27c50b595315a28a4bdd386d43e7a0de" kind="function"><name>GetMaxAttack</name></member>
+    <member refid="classCPlayer_1a02aa68f148233dc6b2583679d2e09e85" kind="function"><name>GetMinMagic</name></member>
+    <member refid="classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b" kind="function"><name>GetMaxMagic</name></member>
+    <member refid="classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a" kind="function"><name>GetResist</name></member>
+    <member refid="classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b" kind="function"><name>GetExp</name></member>
+    <member refid="classCPlayer_1a04d9afd2b1373b1b1faa47956ff59496" kind="function"><name>GetGrade</name></member>
+    <member refid="classCPlayer_1a80103fc73f68c01bf2ca828ca21b8b06" kind="function"><name>GetGuildName</name></member>
+    <member refid="classCPlayer_1a5da8be16c93e8fa15ac2fe14dff41eaf" kind="function"><name>GetGuildClass</name></member>
+    <member refid="classCPlayer_1a3462bdefacb2ffa40bf5ddfb298193e9" kind="function"><name>GetGID</name></member>
+    <member refid="classCPlayer_1afc3ba28f3219207b2611a8438b9a498a" kind="function"><name>GetGRole</name></member>
+    <member refid="classCPlayer_1a9800223dcf5110569422872cdcd26777" kind="function"><name>GetName</name></member>
+    <member refid="classCPlayer_1a18b06e272e8ae2327c28f5b032058991" kind="function"><name>GetSpecialty</name></member>
+    <member refid="classCPlayer_1a724bbfffe8b8c25639ef965f25be1958" kind="function"><name>GetHair</name></member>
+    <member refid="classCPlayer_1ae538e492b44fcd7779cb96db1163c5ae" kind="function"><name>GetFace</name></member>
+    <member refid="classCPlayer_1a195d618ca74e78d773c931ef437e301b" kind="function"><name>GetFlag</name></member>
+    <member refid="classCPlayer_1a38cba46d6a535fa7241dc2cc0f3fd4b7" kind="function"><name>GetFlagItem</name></member>
+    <member refid="classCPlayer_1ac20c08fe8b5d6f1c489e97d0092eba89" kind="function"><name>GetHonorGrade</name></member>
+    <member refid="classCPlayer_1a90d37bce7d8eeed5e16e07afd61f21fc" kind="function"><name>GetHonorOption</name></member>
+    <member refid="classCPlayer_1a1f1b456ff15b8ee7e4b0557812d984cb" kind="function"><name>GetTrigramLevel</name></member>
+    <member refid="classCPlayer_1a9869086cc18c037d35d8ce89b4329bd2" kind="function"><name>GetGear</name></member>
+    <member refid="classCPlayer_1af73f72d6dbea618f8abf94fcfefa4604" kind="function"><name>OnPutOnGear</name></member>
+    <member refid="classCPlayer_1ae95e4f94f9302b5f68809195a5f6a32f" kind="function"><name>OnPutOffGear</name></member>
+    <member refid="classCPlayer_1abe3edf815b4200d626e1d388d64d622c" kind="function"><name>IsWState</name></member>
+    <member refid="classCPlayer_1afec9b8f2aa3338355faa46932704b0c3" kind="function"><name>IsAnyTrigramState</name></member>
+    <member refid="classCPlayer_1a2a3d2c22aca7de4e7d53316b4c23e97d" kind="function"><name>IsAllTrigramState</name></member>
+    <member refid="classCPlayer_1af02ed0fe00a02c621e51feff73aa2d6a" kind="function"><name>AddWState</name></member>
+    <member refid="classCPlayer_1a3198e19e08884be776026742ee77e468" kind="function"><name>SubWState</name></member>
+    <member refid="classCPlayer_1a9974f64ad73cb961fc2e60ea439adbdd" kind="function"><name>GetReqPU</name></member>
+    <member refid="classCPlayer_1ad7b5f46be6d153bb65c39d0375520107" kind="function"><name>Write</name></member>
+    <member refid="classCPlayer_1a4c247e341ba63d7a87c98ae88ab026c2" kind="function"><name>SendPacket</name></member>
+    <member refid="classCPlayer_1a00b932835db9866881bc96756abc3657" kind="function"><name>GenerateCreatePacket</name></member>
+    <member refid="classCPlayer_1a52bfdfdcfc96a0fbf5009a9de583ee04" kind="function"><name>GeneratePetPacket</name></member>
+    <member refid="classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b" kind="function"><name>GenerateDeletePacket</name></member>
+    <member refid="classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed" kind="function"><name>GenerateMovePacket</name></member>
+    <member refid="classCPlayer_1a618e99ee1c2a0ae81130a2468748838e" kind="function"><name>Process</name></member>
+    <member refid="classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce" kind="function"><name>Tick</name></member>
+    <member refid="classCPlayer_1a44552908ba4a38ae9c69e68962376d43" kind="function"><name>OnLoadPlayer</name></member>
+    <member refid="classCPlayer_1a73e13fe05b734d20b9fc2222285afc21" kind="function"><name>OnLoadItems</name></member>
+    <member refid="classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f" kind="function"><name>GameStart</name></member>
+    <member refid="classCPlayer_1ade947d3c70f95c6b0d06f1910a0c4570" kind="function"><name>GameRestart</name></member>
+    <member refid="classCPlayer_1a266c70cd463694f6b6a85df3879abaea" kind="function"><name>CanMove</name></member>
+    <member refid="classCPlayer_1a09cd92ba2e8c02fc988e131451b71947" kind="function"><name>OnMove</name></member>
+    <member refid="classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5" kind="function"><name>Rest</name></member>
+    <member refid="classCPlayer_1a88c5bae35d7e2c53454b4f51024ede89" kind="function"><name>ProcessMsg</name></member>
+    <member refid="classCPlayer_1ad521bb1c30a2c4a898a780b9c56d1937" kind="function"><name>ChatCommand</name></member>
+    <member refid="classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133" kind="function"><name>UpdateProperty</name></member>
+    <member refid="classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262" kind="function"><name>Teleport</name></member>
+    <member refid="classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf" kind="function"><name>OnTeleport</name></member>
+    <member refid="classCPlayer_1a8950f3ae31c929fe3ef291cc19de7deb" kind="function"><name>InsertItem</name></member>
+    <member refid="classCPlayer_1a9e6e45ebe10f4ed34ba5a8431c7c5faf" kind="function"><name>MergeItem</name></member>
+    <member refid="classCPlayer_1abe919deb009679672f8b749100fcad9c" kind="function"><name>UseItem</name></member>
+    <member refid="classCPlayer_1ab76927857016659cdd172c1e480b4c29" kind="function"><name>PutOnItem</name></member>
+    <member refid="classCPlayer_1ac78ab733d3fdc84a855b93ea0165647c" kind="function"><name>PutOffItem</name></member>
+    <member refid="classCPlayer_1ade03bd4c423364b93dbbb87c9f1701ef" kind="function"><name>Damage</name></member>
+    <member refid="classCPlayer_1aea5393068e04bd1f5ee2f37f28650de5" kind="function"><name>Die</name></member>
+    <member refid="classCPlayer_1a6388bcc9a284184363be8d01f83db44f" kind="function"><name>Revival</name></member>
+    <member refid="classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15" kind="function"><name>Attack</name></member>
+    <member refid="classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd" kind="function"><name>RemoveItem</name></member>
+    <member refid="classCPlayer_1a2c5a636b4bca0d2843199ea09f0accfa" kind="function"><name>RemoveItem</name></member>
+    <member refid="classCPlayer_1aaa8c88a78b3562a82459de23e6b9ad77" kind="function"><name>SaveAllProperty</name></member>
+    <member refid="classCPlayer_1ab20b931268d1e2fa873f21fd4d19ab45" kind="function"><name>SendProperty</name></member>
+    <member refid="classCPlayer_1a20c76a872e4b67be38755eaa3ccbe3d7" kind="function"><name>ApplySpec</name></member>
+    <member refid="classCPlayer_1ac35c72e50408c7ed7a519d45c06f1a39" kind="function"><name>FreeSpec</name></member>
+    <member refid="classCPlayer_1a41f01f7472f592975eba70265d9b6eca" kind="function"><name>GetPartyID</name></member>
+    <member refid="classCPlayer_1ae9801e3bf59477037d93cfdf1d155592" kind="function"><name>SetPartyID</name></member>
+    <member refid="classCPlayer_1ade6b21dfe81ae894f58d206904f5d7b8" kind="function"><name>SetPartyInviterID</name></member>
+    <member refid="classCPlayer_1ad656bf549083b5009bac49c4baa5c6d5" kind="function"><name>GetPartyInviterID</name></member>
+    <member refid="classCPlayer_1a2a6260ab8ce10eeb3df9443c7b62c449" kind="function"><name>HasParty</name></member>
+    <member refid="classCPlayer_1a6230984fa6040d6decb1793c883b746a" kind="function"><name>AskParty</name></member>
+    <member refid="classCPlayer_1a1382ab608b108bf4dd4dd8ddb55e3d91" kind="function"><name>LeaveParty</name></member>
+    <member refid="classCPlayer_1a542f63a05b151ea4fa6688d201448f11" kind="function"><name>RemoveAggro</name></member>
+    <member refid="classCPlayer_1ac604286ac82475d0afee168e5374f785" kind="function"><name>IntoInven</name></member>
+    <member refid="classCPlayer_1a63166723e4154efed1c48a67051da82d" kind="function"><name>OutofInven</name></member>
+    <member refid="classCPlayer_1a4daa6280bc84d3e3633d92832594dea6" kind="function"><name>EmptyInven</name></member>
+    <member refid="classCPlayer_1a002feea76f8ff73aae3d19504b2d4335" kind="function"><name>FindItem</name></member>
+    <member refid="classCPlayer_1a140483d4beb5a9dae7a929d2562feaa0" kind="function"><name>FindItemByIID</name></member>
+    <member refid="classCPlayer_1aa212eecbc016d5cd1f53e76e44c83f02" kind="function"><name>Add</name></member>
+    <member refid="classCPlayer_1ad025e612b5ad3514bb8cca435e43bb0e" kind="function"><name>Remove</name></member>
+    <member refid="classCPlayer_1a63d392a349d3b049b3c869788a2a77c5" kind="function"><name>TickAll</name></member>
+    <member refid="classCPlayer_1ab8293aeb0e62ee99d5f28c4b29c71ee4" kind="function"><name>FindPlayer</name></member>
+    <member refid="classCPlayer_1a40e94876bbc60e4c44eba0782ec57597" kind="function"><name>FindPlayerByName</name></member>
+    <member refid="classCPlayer_1abf48405905f5b88b5b043e4c6bec70b7" kind="function"><name>WriteAll</name></member>
+  </compound>
+  <compound refid="classCServer" kind="class"><name>CServer</name>
+    <member refid="classCServer_1ab857a8ebd9bcd732d9c12bbde47ccc0e" kind="variable"><name>g_mAccount</name></member>
+    <member refid="classCServer_1a814abecd3029421421381defbb4ff50d" kind="variable"><name>g_mxAccount</name></member>
+    <member refid="classCServer_1a392c275b4de2c570383e2bd18959225e" kind="variable"><name>g_mClient</name></member>
+    <member refid="classCServer_1ad21b15b899ed7316e46ad658111f0e13" kind="variable"><name>g_mxClient</name></member>
+    <member refid="classCServer_1accdbd1f711901ec8b2a4021b8bfaad36" kind="function"><name>Add</name></member>
+    <member refid="classCServer_1ad5eb631d9d31671fbd1e8098d829d3e8" kind="function"><name>Remove</name></member>
+    <member refid="classCServer_1ac00676792629c87190524e8addc33c80" kind="function"><name>FindAccount</name></member>
+    <member refid="classCServer_1ae1ef3eb4ea844ae99060a3d53ae12ea7" kind="function"><name>FindAccountByAID</name></member>
+    <member refid="classCServer_1aef0335b7a43b3d3b8fcdca721382f89b" kind="function"><name>EmptyAccount</name></member>
+    <member refid="classCServer_1a90ca82d07905b169fb234d7554ea3281" kind="function"><name>Add</name></member>
+    <member refid="classCServer_1a60c3d521b3cd2cebd30e27db11470ae4" kind="function"><name>Remove</name></member>
+    <member refid="classCServer_1a6be9dff04112af65f2337fc9fa4c1a66" kind="function"><name>EmptyClient</name></member>
+    <member refid="classCServer_1a963a4427bada8ebc0c9030c16401e94d" kind="function"><name>Start</name></member>
+    <member refid="classCServer_1a44ae4c0d1a5e3aeff6fad4c95a039726" kind="function"><name>Timer</name></member>
+    <member refid="classCServer_1a5f54a283db011822aa5bff737ebaefee" kind="function"><name>FindClient</name></member>
+  </compound>
+  <compound refid="classCTile" kind="class"><name>CTile</name>
+    <member refid="classCTile_1a6604480536eb0c2ba5b2a52b0fabd5bf" kind="variable"><name>m_mxThis</name></member>
+    <member refid="classCTile_1af5b5a8f01a7ccecd54f0213238bd50b0" kind="variable"><name>m_mPlayer</name></member>
+    <member refid="classCTile_1a642e9d942b0853db407e5db74c7796ca" kind="variable"><name>m_mNPC</name></member>
+    <member refid="classCTile_1a052439c0e53462fc83cefa2afbb3bc50" kind="variable"><name>m_mMonster</name></member>
+    <member refid="classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b" kind="function"><name>CTile</name></member>
+    <member refid="classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b" kind="function"><name>Add</name></member>
+    <member refid="classCTile_1a70bd90fe9bf75fd5240a024716f08e8a" kind="function"><name>Remove</name></member>
+    <member refid="classCTile_1ab3fd197f9c845168067def319945ebbd" kind="function"><name>Lock</name></member>
+    <member refid="classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3" kind="function"><name>Unlock</name></member>
+    <member refid="classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f" kind="function"><name>GetCharacterListAround</name></member>
+    <member refid="classCTile_1a06c572865aef65b63a2665f93ee1560b" kind="function"><name>GetPlayerListAround</name></member>
+    <member refid="classCTile_1a500887d419a5fa9b93f2885a82180eb2" kind="function"><name>GetMonsterListAround</name></member>
+    <member refid="classCTile_1aa9c2599bc4e1e6f951bb887d30aba111" kind="function"><name>SendPacket</name></member>
+    <member refid="classCTile_1a34f85c8e4a1be51229b723fcadb72aa4" kind="function"><name>SendMoveAction</name></member>
+  </compound>
+  <compound refid="structMapInfo" kind="struct"><name>MapInfo</name>
+    <member refid="structMapInfo_1ad09be2746b03c866a544869de5c90248" kind="variable"><name>wTileX</name></member>
+    <member refid="structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a" kind="variable"><name>wTileY</name></member>
+    <member refid="structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b" kind="variable"><name>wOffsetX</name></member>
+    <member refid="structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d" kind="variable"><name>wOffsetY</name></member>
+    <member refid="structMapInfo_1af521faa869e28cf4084e13ed0d50478b" kind="function"><name>equalTile</name></member>
+  </compound>
+  <compound refid="namespacetinyxml2" kind="namespace"><name>tinyxml2</name>
+  </compound>
+  <compound refid="CAccount_8cpp" kind="file"><name>CAccount.cpp</name>
+  </compound>
+  <compound refid="CAccount_8h" kind="file"><name>CAccount.h</name>
+  </compound>
+  <compound refid="DBServer_2CServer_8cpp" kind="file"><name>CServer.cpp</name>
+  </compound>
+  <compound refid="MainServer_2CServer_8cpp" kind="file"><name>CServer.cpp</name>
+  </compound>
+  <compound refid="DBServer_2CServer_8h" kind="file"><name>CServer.h</name>
+    <member refid="DBServer_2CServer_8h_1a315a460477a871a85e07e997e3a200f7" kind="typedef"><name>AccountMap</name></member>
+  </compound>
+  <compound refid="MainServer_2CServer_8h" kind="file"><name>CServer.h</name>
+    <member refid="MainServer_2CServer_8h_1ab242f04e69069b8b9a96d742e6d7da04" kind="typedef"><name>ClientMap</name></member>
+  </compound>
+  <compound refid="CDatabase_8cpp" kind="file"><name>CDatabase.cpp</name>
+  </compound>
+  <compound refid="CDatabase_8h" kind="file"><name>CDatabase.h</name>
+  </compound>
+  <compound refid="DBServer_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="MainServer_2main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="MainServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="CMainSocket_8cpp" kind="file"><name>CMainSocket.cpp</name>
+  </compound>
+  <compound refid="CMainSocket_8h" kind="file"><name>CMainSocket.h</name>
+  </compound>
+  <compound refid="CClient_8cpp" kind="file"><name>CClient.cpp</name>
+  </compound>
+  <compound refid="CClient_8h" kind="file"><name>CClient.h</name>
+  </compound>
+  <compound refid="CCharacter_8cpp" kind="file"><name>CCharacter.cpp</name>
+  </compound>
+  <compound refid="CCharacter_8h" kind="file"><name>CCharacter.h</name>
+    <member refid="CCharacter_8h_1ab5a1ec0de3c95709792707e9db58c452" kind="typedef"><name>CharacterMap</name></member>
+    <member refid="CCharacter_8h_1ac592dd37084f3a87b94dcbc8a46b68d1" kind="typedef"><name>CharacterList</name></member>
+  </compound>
+  <compound refid="CMonster_8cpp" kind="file"><name>CMonster.cpp</name>
+  </compound>
+  <compound refid="CMonster_8h" kind="file"><name>CMonster.h</name>
+    <member refid="CMonster_8h_1a5b7eae3edb8b301b111c691bc53249f9" kind="define"><name>MONSTER_WALK_FREQUENCY</name></member>
+    <member refid="CMonster_8h_1a689452730e78553fb130430444bfc605" kind="define"><name>MONSTER_WALK_TIME</name></member>
+    <member refid="CMonster_8h_1a604352dcba3c0a6ded78830b5af4bc64" kind="typedef"><name>MonsterMap</name></member>
+    <member refid="CMonster_8h_1a9d7f3ce9caffb251dfe024b342550664" kind="typedef"><name>MonsterList</name></member>
+  </compound>
+  <compound refid="CNPC_8cpp" kind="file"><name>CNPC.cpp</name>
+  </compound>
+  <compound refid="CNPC_8h" kind="file"><name>CNPC.h</name>
+    <member refid="CNPC_8h_1a681bd4ed53a6f8876211f738f9ddb135" kind="typedef"><name>NPCMap</name></member>
+    <member refid="CNPC_8h_1a6dfe3a88a70e2288a18735bb15b162f5" kind="typedef"><name>NPCList</name></member>
+  </compound>
+  <compound refid="CParty_8cpp" kind="file"><name>CParty.cpp</name>
+  </compound>
+  <compound refid="CParty_8h" kind="file"><name>CParty.h</name>
+    <member refid="CParty_8h_1a81feaf43a139c1ec01309eda18f228cd" kind="typedef"><name>PlayerVector</name></member>
+    <member refid="CParty_8h_1ae49a532994fddc5c7911773d84caa3a7" kind="typedef"><name>PartyMap</name></member>
+  </compound>
+  <compound refid="CPlayer_8cpp" kind="file"><name>CPlayer.cpp</name>
+  </compound>
+  <compound refid="CPlayer_8h" kind="file"><name>CPlayer.h</name>
+    <member refid="CPlayer_8h_1ac2937dbb016e4437d5968d8d0aa230ad" kind="define"><name>GEAR_NUM</name></member>
+    <member refid="CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43" kind="define"><name>GEAR_VISIBLE_NUM</name></member>
+    <member refid="CPlayer_8h_1a401c15f3b5c7d232655b93b97a8e205c" kind="typedef"><name>PlayerMap</name></member>
+    <member refid="CPlayer_8h_1a95e356a0c9bccaf0fdc0423d7a34de13" kind="typedef"><name>PlayerList</name></member>
+  </compound>
+  <compound refid="CMonsterMaguni_8cpp" kind="file"><name>CMonsterMaguni.cpp</name>
+  </compound>
+  <compound refid="CMonsterMaguni_8h" kind="file"><name>CMonsterMaguni.h</name>
+  </compound>
+  <compound refid="CMonsterReal_8cpp" kind="file"><name>CMonsterReal.cpp</name>
+  </compound>
+  <compound refid="CMonsterReal_8h" kind="file"><name>CMonsterReal.h</name>
+  </compound>
+  <compound refid="CItem_8cpp" kind="file"><name>CItem.cpp</name>
+  </compound>
+  <compound refid="CItem_8h" kind="file"><name>CItem.h</name>
+    <member refid="CItem_8h_1a4cdacacaa00921ab4202da127190a096" kind="typedef"><name>ItemMap</name></member>
+  </compound>
+  <compound refid="CItemDefense_8cpp" kind="file"><name>CItemDefense.cpp</name>
+  </compound>
+  <compound refid="CItemDefense_8h" kind="file"><name>CItemDefense.h</name>
+  </compound>
+  <compound refid="CItemGeneral_8cpp" kind="file"><name>CItemGeneral.cpp</name>
+  </compound>
+  <compound refid="CItemGeneral_8h" kind="file"><name>CItemGeneral.h</name>
+  </compound>
+  <compound refid="CItemOrnament_8cpp" kind="file"><name>CItemOrnament.cpp</name>
+  </compound>
+  <compound refid="CItemOrnament_8h" kind="file"><name>CItemOrnament.h</name>
+  </compound>
+  <compound refid="CItemPet_8cpp" kind="file"><name>CItemPet.cpp</name>
+  </compound>
+  <compound refid="CItemPet_8h" kind="file"><name>CItemPet.h</name>
+  </compound>
+  <compound refid="CItemRide_8cpp" kind="file"><name>CItemRide.cpp</name>
+  </compound>
+  <compound refid="CItemRide_8h" kind="file"><name>CItemRide.h</name>
+  </compound>
+  <compound refid="CItemTransform_8cpp" kind="file"><name>CItemTransform.cpp</name>
+  </compound>
+  <compound refid="CItemTransform_8h" kind="file"><name>CItemTransform.h</name>
+  </compound>
+  <compound refid="CItemWeapon_8cpp" kind="file"><name>CItemWeapon.cpp</name>
+  </compound>
+  <compound refid="CItemWeapon_8h" kind="file"><name>CItemWeapon.h</name>
+  </compound>
+  <compound refid="CItemYinyang_8cpp" kind="file"><name>CItemYinyang.cpp</name>
+  </compound>
+  <compound refid="CItemYinyang_8h" kind="file"><name>CItemYinyang.h</name>
+  </compound>
+  <compound refid="CItemInfo_8cpp" kind="file"><name>CItemInfo.cpp</name>
+  </compound>
+  <compound refid="CItemInfo_8h" kind="file"><name>CItemInfo.h</name>
+  </compound>
+  <compound refid="CMacro_8cpp" kind="file"><name>CMacro.cpp</name>
+  </compound>
+  <compound refid="CMacro_8h" kind="file"><name>CMacro.h</name>
+  </compound>
+  <compound refid="CMacroDB_8cpp" kind="file"><name>CMacroDB.cpp</name>
+  </compound>
+  <compound refid="CMacroDB_8h" kind="file"><name>CMacroDB.h</name>
+    <member refid="CMacroDB_8h_1a130f24c4a286d869e25cd912444c7e94" kind="typedef"><name>MacroMap</name></member>
+    <member refid="CMacroDB_8h_1a0b0c9ff13b46e474fb4f66d39a313c93" kind="typedef"><name>KeyMap</name></member>
+  </compound>
+  <compound refid="CMonsterInfo_8h" kind="file"><name>CMonsterInfo.h</name>
+  </compound>
+  <compound refid="CMap_8cpp" kind="file"><name>CMap.cpp</name>
+  </compound>
+  <compound refid="CMap_8h" kind="file"><name>CMap.h</name>
+    <member refid="CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16" kind="define"><name>TILE_LEN</name></member>
+    <member refid="CMap_8h_1a680a225f3d8c6064c7d49883d0e25841" kind="define"><name>MAP_LEN</name></member>
+  </compound>
+  <compound refid="CTile_8cpp" kind="file"><name>CTile.cpp</name>
+  </compound>
+  <compound refid="CTile_8h" kind="file"><name>CTile.h</name>
+  </compound>
+  <compound refid="CClientSocket_8cpp" kind="file"><name>CClientSocket.cpp</name>
+  </compound>
+  <compound refid="CClientSocket_8h" kind="file"><name>CClientSocket.h</name>
+  </compound>
+  <compound refid="CDBSocket_8cpp" kind="file"><name>CDBSocket.cpp</name>
+  </compound>
+  <compound refid="CDBSocket_8h" kind="file"><name>CDBSocket.h</name>
+  </compound>
+  <compound refid="dir_b6707d65141ca7c914abd1abe77993eb" kind="dir"><name>DBServer/Database</name>
+  </compound>
+  <compound refid="dir_cc17f50e7dce704d44f224f180678eb8" kind="dir"><name>DBServer</name>
+  </compound>
+  <compound refid="dir_beb692f4164bbd78dc9400d326a6ceaf" kind="dir"><name>MainServer/GameCharacter</name>
+  </compound>
+  <compound refid="dir_e25d6e90754e973d5bd4d424e75e7344" kind="dir"><name>MainServer/Item</name>
+  </compound>
+  <compound refid="dir_5646b00e89867c20ab198117a080641b" kind="dir"><name>MainServer/Macro</name>
+  </compound>
+  <compound refid="dir_836f9d7e54c2cc0af8fd3971621cd658" kind="dir"><name>MainServer</name>
+  </compound>
+  <compound refid="dir_53339adb868f227fa56a1df0eac89d30" kind="dir"><name>MainServer/Map</name>
+  </compound>
+  <compound refid="dir_b32a857cb35a3a5ed143c5750aa7326b" kind="dir"><name>MainServer/GameCharacter/Monster</name>
+  </compound>
+  <compound refid="dir_b390245a59d614499d73bc2cac8d26d6" kind="dir"><name>DBServer/Socket</name>
+  </compound>
+  <compound refid="dir_4f72de8a51355b6a8f5cdc81904a47ca" kind="dir"><name>MainServer/Socket</name>
+  </compound>
+</doxygenindex>

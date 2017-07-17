@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="DBServer_2main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="CMainSocket_8h" local="yes">Socket/CMainSocket.h</includes>
+    <includes refid="CDatabase_8h" local="yes">Database/CDatabase.h</includes>
+    <includes local="no">Config/CConfig.h</includes>
+    <incdepgraph>
+      <node id="166">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="161">
+        <label>DBServer/main.cpp</label>
+        <link refid="DBServer_2main_8cpp"/>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+      </node>
+      <node id="169">
+        <label>stdlib.h</label>
+      </node>
+      <node id="183">
+        <label>access.h</label>
+      </node>
+      <node id="167">
+        <label>string</label>
+      </node>
+      <node id="174">
+        <label>Protocol/MainProtocol.h</label>
+      </node>
+      <node id="179">
+        <label>map</label>
+      </node>
+      <node id="178">
+        <label>../CServer.h</label>
+        <link refid="DBServer_2CServer_8h_source"/>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="180" relation="include">
+        </childnode>
+      </node>
+      <node id="175">
+        <label>minwindef.h</label>
+      </node>
+      <node id="176">
+        <label>common.h</label>
+      </node>
+      <node id="170">
+        <label>pthread.h</label>
+      </node>
+      <node id="164">
+        <label>sys/types.h</label>
+      </node>
+      <node id="163">
+        <label>string.h</label>
+      </node>
+      <node id="182">
+        <label>unistd.h</label>
+      </node>
+      <node id="172">
+        <label>signal.h</label>
+      </node>
+      <node id="162">
+        <label>Socket/CMainSocket.h</label>
+        <link refid="CMainSocket_8h_source"/>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="177">
+        <label>Socket/CSocket.h</label>
+      </node>
+      <node id="184">
+        <label>zdb.h</label>
+      </node>
+      <node id="173">
+        <label>Protocol/Packet.h</label>
+      </node>
+      <node id="185">
+        <label>Database/CDatabase.h</label>
+        <link refid="CDatabase_8h_source"/>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+      </node>
+      <node id="180">
+        <label>CAccount.h</label>
+        <link refid="CAccount_8h_source"/>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>mutex</label>
+      </node>
+      <node id="165">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="186">
+        <label>Config/CConfig.h</label>
+      </node>
+      <node id="168">
+        <label>stdio.h</label>
+      </node>
+      <node id="171">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DBServer/main.cpp" line="6" column="1" bodyfile="DBServer/main.cpp" bodystart="6" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Socket/CMainSocket.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Database/CDatabase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Config/CConfig.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>DBCONFIG<sp/>dbconf;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(CConfig::Read(dbconf)<sp/>==<sp/>CConfig::READ_ERROR)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CDatabase::Connect(dbconf.szHostname,<sp/>dbconf.szPort,<sp/>dbconf.szUser,<sp/>dbconf.szPassword,<sp/>dbconf.szSchema))</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CMainSocket::Start(dbconf.wListenPort))</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(KGRN<sp/></highlight><highlight class="stringliteral">&quot;DBServer<sp/>started<sp/>on<sp/>port<sp/>%d.\n&quot;</highlight><highlight class="normal"><sp/>KNRM,<sp/>dbconf.wListenPort);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>CMainSocket::Accept();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DBServer/main.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemYinyang_8h" kind="file" language="C++">
+    <compoundname>CItemYinyang.h</compoundname>
+    <includes refid="CItem_8h" local="yes">CItem.h</includes>
+    <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
+    <includedby refid="CItemYinyang_8cpp" local="yes">MainServer/Item/CItemYinyang.cpp</includedby>
+    <incdepgraph>
+      <node id="1327">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1321" relation="include">
+        </childnode>
+        <childnode refid="1328" relation="include">
+        </childnode>
+        <childnode refid="1329" relation="include">
+        </childnode>
+        <childnode refid="1330" relation="include">
+        </childnode>
+        <childnode refid="1331" relation="include">
+        </childnode>
+        <childnode refid="1333" relation="include">
+        </childnode>
+      </node>
+      <node id="1326">
+        <label>access.h</label>
+      </node>
+      <node id="1321">
+        <label>map</label>
+      </node>
+      <node id="1324">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1329">
+        <label>fstream</label>
+      </node>
+      <node id="1320">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1321" relation="include">
+        </childnode>
+        <childnode refid="1322" relation="include">
+        </childnode>
+        <childnode refid="1323" relation="include">
+        </childnode>
+        <childnode refid="1324" relation="include">
+        </childnode>
+        <childnode refid="1325" relation="include">
+        </childnode>
+        <childnode refid="1326" relation="include">
+        </childnode>
+        <childnode refid="1327" relation="include">
+        </childnode>
+      </node>
+      <node id="1325">
+        <label>common.h</label>
+      </node>
+      <node id="1322">
+        <label>unistd.h</label>
+      </node>
+      <node id="1328">
+        <label>sstream</label>
+      </node>
+      <node id="1333">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1332" relation="include">
+        </childnode>
+      </node>
+      <node id="1331">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1332" relation="include">
+        </childnode>
+      </node>
+      <node id="1330">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1319">
+        <label>MainServer/Item/CItemYinyang.h</label>
+        <link refid="CItemYinyang_8h"/>
+        <childnode refid="1320" relation="include">
+        </childnode>
+      </node>
+      <node id="1323">
+        <label>mutex</label>
+      </node>
+      <node id="1332">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1324" relation="include">
+        </childnode>
+        <childnode refid="1325" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCItemYinyang" prot="public">CItemYinyang</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CITEMYINYANG_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CITEMYINYANG_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CItemYinyang:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CItem</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>CItemYinyang(ITEMINFO_DESC&amp;<sp/>desc,<sp/>CItemInfo*<sp/>pMacro);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOn(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOff(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItemYinyang.h"/>
+  </compounddef>
+</doxygen>

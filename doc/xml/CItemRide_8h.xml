@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemRide_8h" kind="file" language="C++">
+    <compoundname>CItemRide.h</compoundname>
+    <includes refid="CItem_8h" local="yes">CItem.h</includes>
+    <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
+    <includedby refid="CItemRide_8cpp" local="yes">MainServer/Item/CItemRide.cpp</includedby>
+    <incdepgraph>
+      <node id="1156">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="1150" relation="include">
+        </childnode>
+        <childnode refid="1157" relation="include">
+        </childnode>
+        <childnode refid="1158" relation="include">
+        </childnode>
+        <childnode refid="1159" relation="include">
+        </childnode>
+        <childnode refid="1160" relation="include">
+        </childnode>
+        <childnode refid="1162" relation="include">
+        </childnode>
+      </node>
+      <node id="1155">
+        <label>access.h</label>
+      </node>
+      <node id="1150">
+        <label>map</label>
+      </node>
+      <node id="1153">
+        <label>minwindef.h</label>
+      </node>
+      <node id="1158">
+        <label>fstream</label>
+      </node>
+      <node id="1149">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="1150" relation="include">
+        </childnode>
+        <childnode refid="1151" relation="include">
+        </childnode>
+        <childnode refid="1152" relation="include">
+        </childnode>
+        <childnode refid="1153" relation="include">
+        </childnode>
+        <childnode refid="1154" relation="include">
+        </childnode>
+        <childnode refid="1155" relation="include">
+        </childnode>
+        <childnode refid="1156" relation="include">
+        </childnode>
+      </node>
+      <node id="1154">
+        <label>common.h</label>
+      </node>
+      <node id="1148">
+        <label>MainServer/Item/CItemRide.h</label>
+        <link refid="CItemRide_8h"/>
+        <childnode refid="1149" relation="include">
+        </childnode>
+      </node>
+      <node id="1151">
+        <label>unistd.h</label>
+      </node>
+      <node id="1157">
+        <label>sstream</label>
+      </node>
+      <node id="1162">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="1161" relation="include">
+        </childnode>
+      </node>
+      <node id="1160">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="1161" relation="include">
+        </childnode>
+      </node>
+      <node id="1159">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="1152">
+        <label>mutex</label>
+      </node>
+      <node id="1161">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="1153" relation="include">
+        </childnode>
+        <childnode refid="1154" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCItemRide" prot="public">CItemRide</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CITEMRIDE_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CITEMRIDE_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CItemRide:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CItem</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>CItemRide(ITEMINFO_DESC&amp;<sp/>desc,<sp/>CItemInfo*<sp/>pMacro);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>BYTE<sp/>GetRideType()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pMacro-&gt;m_nBuffValue;<sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOn(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PutOff(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Use(CPlayer<sp/>*pPlayer)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItemRide.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemGeneral_8h" kind="file" language="C++">
+    <compoundname>CItemGeneral.h</compoundname>
+    <includes refid="CItem_8h" local="yes">CItem.h</includes>
+    <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
+    <includedby refid="CItemGeneral_8cpp" local="yes">MainServer/Item/CItemGeneral.cpp</includedby>
+    <incdepgraph>
+      <node id="985">
+        <label>../Macro/CMacroDB.h</label>
+        <link refid="CMacroDB_8h_source"/>
+        <childnode refid="979" relation="include">
+        </childnode>
+        <childnode refid="986" relation="include">
+        </childnode>
+        <childnode refid="987" relation="include">
+        </childnode>
+        <childnode refid="988" relation="include">
+        </childnode>
+        <childnode refid="989" relation="include">
+        </childnode>
+        <childnode refid="991" relation="include">
+        </childnode>
+      </node>
+      <node id="984">
+        <label>access.h</label>
+      </node>
+      <node id="977">
+        <label>MainServer/Item/CItemGeneral.h</label>
+        <link refid="CItemGeneral_8h"/>
+        <childnode refid="978" relation="include">
+        </childnode>
+      </node>
+      <node id="979">
+        <label>map</label>
+      </node>
+      <node id="982">
+        <label>minwindef.h</label>
+      </node>
+      <node id="987">
+        <label>fstream</label>
+      </node>
+      <node id="978">
+        <label>CItem.h</label>
+        <link refid="CItem_8h_source"/>
+        <childnode refid="979" relation="include">
+        </childnode>
+        <childnode refid="980" relation="include">
+        </childnode>
+        <childnode refid="981" relation="include">
+        </childnode>
+        <childnode refid="982" relation="include">
+        </childnode>
+        <childnode refid="983" relation="include">
+        </childnode>
+        <childnode refid="984" relation="include">
+        </childnode>
+        <childnode refid="985" relation="include">
+        </childnode>
+      </node>
+      <node id="983">
+        <label>common.h</label>
+      </node>
+      <node id="980">
+        <label>unistd.h</label>
+      </node>
+      <node id="986">
+        <label>sstream</label>
+      </node>
+      <node id="991">
+        <label>CMonsterInfo.h</label>
+        <link refid="CMonsterInfo_8h_source"/>
+        <childnode refid="990" relation="include">
+        </childnode>
+      </node>
+      <node id="989">
+        <label>CItemInfo.h</label>
+        <link refid="CItemInfo_8h_source"/>
+        <childnode refid="990" relation="include">
+        </childnode>
+      </node>
+      <node id="988">
+        <label>TinyXML2/tinyxml2.h</label>
+      </node>
+      <node id="981">
+        <label>mutex</label>
+      </node>
+      <node id="990">
+        <label>CMacro.h</label>
+        <link refid="CMacro_8h_source"/>
+        <childnode refid="982" relation="include">
+        </childnode>
+        <childnode refid="983" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classCItemGeneral" prot="public">CItemGeneral</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CITEMGENERAL_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CITEMGENERAL_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CItemGeneral:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>CItem</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>CItemGeneral(ITEMINFO_DESC&amp;<sp/>desc,<sp/>CItemInfo*<sp/>pMacro):<sp/>CItem(desc,<sp/>pMacro)<sp/>{}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Use(CPlayer<sp/>*pPlayer);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/Item/CItemGeneral.h"/>
+  </compounddef>
+</doxygen>

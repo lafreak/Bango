@@ -1,0 +1,45 @@
+;p = ReadPacket( p,
+;				"wdddwddIIsbdsIIb",
+;				&wCodeNo,
+;				&nPID,
+;				&nX,
+;				&nY,
+;				&wDir,
+;				&nHp,
+;				&nHpMax,
+;				&dwGState,
+;				&n64MState,
+;				&szGuildName,
+;				&byRace, 
+;				&nGID, 
+;				&szUserName,
+;				&n64GStateEX, //Ăß°ˇµČ GStateEX °Ş
+;
+;#ifdef DEF_UI_RENEWALL_081016
+;				&n64MStateEX, //Ăß°ˇµČ MStateEX °Ş
+;#else
+;				&n64MStateEX //Ăß°ˇµČ MStateEX °Ş
+;#endif
+;
+;
+;#ifdef DEF_UI_RENEWALL_081016
+;				&byLevel
+;#endif // DEF_UI_RENEWALL_081016
+;
+;				);
+w 557
+d 696969
+d 361021
+d 186967
+w 0
+d 5
+d 5
+I 0
+I 0
+s gname
+b 0
+d 0
+s gpos
+I 0
+I 0
+b 0

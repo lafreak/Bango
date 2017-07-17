@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_5646b00e89867c20ab198117a080641b" kind="dir">
+    <compoundname>MainServer/Macro</compoundname>
+    <innerfile refid="CItemInfo_8cpp">CItemInfo.cpp</innerfile>
+    <innerfile refid="CItemInfo_8h">CItemInfo.h</innerfile>
+    <innerfile refid="CMacro_8cpp">CMacro.cpp</innerfile>
+    <innerfile refid="CMacro_8h">CMacro.h</innerfile>
+    <innerfile refid="CMacroDB_8cpp">CMacroDB.cpp</innerfile>
+    <innerfile refid="CMacroDB_8h">CMacroDB.h</innerfile>
+    <innerfile refid="CMonsterInfo_8h">CMonsterInfo.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Macro/"/>
+  </compounddef>
+</doxygen>

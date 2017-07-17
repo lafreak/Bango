@@ -1,28 +1,92 @@
 #include "CServer.h"
 
-std::map<SOCKET, CClient*> CServer::g_mClient;
+ClientMap CServer::g_mClient;
+std::mutex CServer::g_mxClient;
 
 void CServer::Add(CClient *pClient)
 {
-	if (g_mClient.find(pClient->GetSocket()) != g_mClient.end())
-		return;
+	g_mxClient.lock();
 
-	g_mClient[pClient->GetSocket()] = pClient;
+	if (g_mClient.find(pClient->GetCID()) == g_mClient.end())
+		g_mClient[pClient->GetCID()] = pClient;
+
+	g_mxClient.unlock();
 }
 
 void CServer::Remove(CClient *pClient)
 {
-	std::map<SOCKET, CClient*>::iterator it = g_mClient.find(pClient->GetSocket());
+	g_mxClient.lock();
+
+	ClientMap::iterator it = g_mClient.find(pClient->GetCID());
 	if (it != g_mClient.end()) {
 		g_mClient.erase(it);
 		delete pClient;
-	}
+ 	}
+
+ 	g_mxClient.unlock();
 }
 
-CClient* CServer::FindClient(SOCKET socket)
+void CServer::EmptyClient()
 {
-	if (g_mClient.find(socket) == g_mClient.end())
-		return NULL;
+	g_mxClient.lock();
 
-	return g_mClient[socket];
+	for (auto& a: g_mClient) {
+		delete a.second;
+	}
+
+	g_mClient.clear();
+
+ 	g_mxClient.unlock();
+}
+
+CClient* CServer::FindClient(int nCID)
+{
+	CClient* pClient=NULL;
+
+	g_mxClient.lock();
+
+	if (g_mClient.find(nCID) != g_mClient.end()) {
+		pClient = g_mClient[nCID];
+		pClient->m_Access.Grant();
+	}
+
+	g_mxClient.unlock();
+
+	return pClient;
+}
+
+bool CServer::Start()
+{
+	pthread_t t;
+
+	if (pthread_create(&t, NULL, &CServer::Timer, NULL) != THREAD_SUCCESS) 
+	{
+		printf(KRED "ERROR: Couldn't start thread.\n" KNRM);
+		return false;
+	}
+
+	return true;
+}
+
+PVOID CServer::Timer(PVOID)
+{
+	DWORD dwTickTime = GetTickCount();
+
+	while (true)
+	{
+		usleep(30000);
+
+		DWORD dwNow = GetTickCount();
+
+		if (dwNow - dwTickTime >= 1000) 
+		{
+			CPlayer::TickAll();
+			CMonster::TickAll();
+			CParty::TickAll();
+
+			dwTickTime = dwNow;
+		}
+
+		CMonster::AIAll();
+	}
 }

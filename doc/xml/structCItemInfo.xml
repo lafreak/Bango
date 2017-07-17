@@ -1,0 +1,611 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structCItemInfo" kind="struct" language="C++" prot="public">
+    <compoundname>CItemInfo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">CMacro</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structCItemInfo_1a488a7948c3dac8af41be20cec272c20b" prot="public" static="no">
+        <name>REFRESH</name>
+        <enumvalue id="structCItemInfo_1a488a7948c3dac8af41be20cec272c20ba5ee784d99ab35d531d6fdc0c385ffe6d" prot="public">
+          <name>R_HP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structCItemInfo_1a488a7948c3dac8af41be20cec272c20ba8701079bc374b7294260e13fc3bdeeb8" prot="public">
+          <name>R_MP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="54" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="53" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structCItemInfo_1a76934b07053447467ac7cc6d0a293df1" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wIndex</definition>
+        <argsstring></argsstring>
+        <name>m_wIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="8" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a2439bdfe283e25ae066084dee37c9e35" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_byClass</definition>
+        <argsstring></argsstring>
+        <name>m_byClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="9" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1aa6373a624fecb0957b50ec98450b1a7d" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_bySubClass</definition>
+        <argsstring></argsstring>
+        <name>m_bySubClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="10" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a9daf58f73e2ee03d7f825f44424b2427" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_byLevel</definition>
+        <argsstring></argsstring>
+        <name>m_byLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="11" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a700234e12c866e8471fd576a74314c32" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CItemInfo::m_bWear</definition>
+        <argsstring></argsstring>
+        <name>m_bWear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="12" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a6ceef77eff51d0aebb093257a237f0a4" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_byReqClass</definition>
+        <argsstring></argsstring>
+        <name>m_byReqClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="13" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a3fb4da114f8d4f563d31b7a016b2cbe0" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_byReqLevel</definition>
+        <argsstring></argsstring>
+        <name>m_byReqLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="14" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ab2247b3d4b23f521920029ff550d5a57" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nRange</definition>
+        <argsstring></argsstring>
+        <name>m_nRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="15" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a19bcf28fb6d3ee7c62ccdd0eae2a4b67" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nBuy</definition>
+        <argsstring></argsstring>
+        <name>m_nBuy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="16" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a1314a803259248085444fc0beef2d735" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nSell</definition>
+        <argsstring></argsstring>
+        <name>m_nSell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="17" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1af1a7e5251f8148a42767c3edf8c92218" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_byEndurance</definition>
+        <argsstring></argsstring>
+        <name>m_byEndurance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="18" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a480c1cff45290d84cc8bd62b91eb3f3c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CItemInfo::m_bPlural</definition>
+        <argsstring></argsstring>
+        <name>m_bPlural</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="19" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ae54533224232f7ef1ca6daaadb4e902c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CItemInfo::m_bUse</definition>
+        <argsstring></argsstring>
+        <name>m_bUse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="20" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ad36c89d3ea744f4f746e4e8a77836301" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nCooltime</definition>
+        <argsstring></argsstring>
+        <name>m_nCooltime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="21" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1aacbba761386ebfd931e34a857dfe4716" prot="public" static="no" mutable="no">
+        <type>BYTE</type>
+        <definition>BYTE CItemInfo::m_byEffect</definition>
+        <argsstring></argsstring>
+        <name>m_byEffect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="22" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ab32ef75c6bc26ac30ffbc837cd534aed" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nRefresh[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>m_nRefresh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="23" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nBuffId</definition>
+        <argsstring></argsstring>
+        <name>m_nBuffId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="24" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nBuffTime</definition>
+        <argsstring></argsstring>
+        <name>m_nBuffTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="25" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a55716f963c98983b29f86d15d74f11e9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CItemInfo::m_nBuffValue</definition>
+        <argsstring></argsstring>
+        <name>m_nBuffValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="26" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wDefense</definition>
+        <argsstring></argsstring>
+        <name>m_wDefense</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="28" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wHit</definition>
+        <argsstring></argsstring>
+        <name>m_wHit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="29" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wDodge</definition>
+        <argsstring></argsstring>
+        <name>m_wDodge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="30" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a68b2665eab373021688916a2c2e57ccb" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wAbsorb</definition>
+        <argsstring></argsstring>
+        <name>m_wAbsorb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="31" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a699b3e66037b53735ca99be91a6bfe77" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wResistFire</definition>
+        <argsstring></argsstring>
+        <name>m_wResistFire</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="33" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1aa26de24aa9420cd4c46e3a8ca89fe756" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wResistIce</definition>
+        <argsstring></argsstring>
+        <name>m_wResistIce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="34" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a67551a98cd7ae370c097349cf26bcd6a" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wResistLitning</definition>
+        <argsstring></argsstring>
+        <name>m_wResistLitning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="35" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ab683ac93d924c1b0cbc5073c1d3580b2" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wResistCurse</definition>
+        <argsstring></argsstring>
+        <name>m_wResistCurse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="36" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wResistPalsy</definition>
+        <argsstring></argsstring>
+        <name>m_wResistPalsy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="37" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f" prot="public" static="no" mutable="no">
+        <type>DWORD</type>
+        <definition>DWORD CItemInfo::m_dwHP</definition>
+        <argsstring></argsstring>
+        <name>m_dwHP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="39" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3" prot="public" static="no" mutable="no">
+        <type>DWORD</type>
+        <definition>DWORD CItemInfo::m_dwMP</definition>
+        <argsstring></argsstring>
+        <name>m_dwMP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="40" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ab5dc077635bdab3db04a0075477f8237" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wMinAttack</definition>
+        <argsstring></argsstring>
+        <name>m_wMinAttack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="42" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wMaxAttack</definition>
+        <argsstring></argsstring>
+        <name>m_wMaxAttack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="43" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wMinMagic</definition>
+        <argsstring></argsstring>
+        <name>m_wMinMagic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="44" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a2fc639e34056e5397bec89a2fd309391" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wMaxMagic</definition>
+        <argsstring></argsstring>
+        <name>m_wMaxMagic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="45" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1ab3828a32ae0cc4718c965d10e703a852" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wStr</definition>
+        <argsstring></argsstring>
+        <name>m_wStr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="47" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1aecf4da12e1bcde7a12b3b89bff3f8596" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wHth</definition>
+        <argsstring></argsstring>
+        <name>m_wHth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="48" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a1aa7cb7639769f0565f5406d6bdff54d" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wInt</definition>
+        <argsstring></argsstring>
+        <name>m_wInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="49" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1a407be745faf5785d3ff968271606796c" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wWis</definition>
+        <argsstring></argsstring>
+        <name>m_wWis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="50" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCItemInfo_1aabd05081ae1ec47d7273f22b4d5a34a0" prot="public" static="no" mutable="no">
+        <type>WORD</type>
+        <definition>WORD CItemInfo::m_wDex</definition>
+        <argsstring></argsstring>
+        <name>m_wDex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="51" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structCItemInfo_1a1c40648b42e421bebf1666b450650f44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CItemInfo::CItemInfo</definition>
+        <argsstring>()</argsstring>
+        <name>CItemInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Macro/CItemInfo.h" line="59" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="59" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/Macro/CItemInfo.h" line="7" column="1" bodyfile="MainServer/Macro/CItemInfo.h" bodystart="6" bodyend="102"/>
+    <listofallmembers>
+      <member refid="structCItemInfo_1a1c40648b42e421bebf1666b450650f44" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>CItemInfo</name></member>
+      <member refid="structCItemInfo_1a480c1cff45290d84cc8bd62b91eb3f3c" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_bPlural</name></member>
+      <member refid="structCItemInfo_1ae54533224232f7ef1ca6daaadb4e902c" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_bUse</name></member>
+      <member refid="structCItemInfo_1a700234e12c866e8471fd576a74314c32" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_bWear</name></member>
+      <member refid="structCItemInfo_1a2439bdfe283e25ae066084dee37c9e35" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_byClass</name></member>
+      <member refid="structCItemInfo_1aacbba761386ebfd931e34a857dfe4716" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_byEffect</name></member>
+      <member refid="structCItemInfo_1af1a7e5251f8148a42767c3edf8c92218" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_byEndurance</name></member>
+      <member refid="structCItemInfo_1a9daf58f73e2ee03d7f825f44424b2427" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_byLevel</name></member>
+      <member refid="structCItemInfo_1a6ceef77eff51d0aebb093257a237f0a4" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_byReqClass</name></member>
+      <member refid="structCItemInfo_1a3fb4da114f8d4f563d31b7a016b2cbe0" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_byReqLevel</name></member>
+      <member refid="structCItemInfo_1aa6373a624fecb0957b50ec98450b1a7d" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_bySubClass</name></member>
+      <member refid="structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_dwHP</name></member>
+      <member refid="structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_dwMP</name></member>
+      <member refid="structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nBuffId</name></member>
+      <member refid="structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nBuffTime</name></member>
+      <member refid="structCItemInfo_1a55716f963c98983b29f86d15d74f11e9" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nBuffValue</name></member>
+      <member refid="structCItemInfo_1a19bcf28fb6d3ee7c62ccdd0eae2a4b67" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nBuy</name></member>
+      <member refid="structCItemInfo_1ad36c89d3ea744f4f746e4e8a77836301" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nCooltime</name></member>
+      <member refid="structCItemInfo_1ab2247b3d4b23f521920029ff550d5a57" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nRange</name></member>
+      <member refid="structCItemInfo_1ab32ef75c6bc26ac30ffbc837cd534aed" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nRefresh</name></member>
+      <member refid="structCItemInfo_1a1314a803259248085444fc0beef2d735" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_nSell</name></member>
+      <member refid="structCItemInfo_1a68b2665eab373021688916a2c2e57ccb" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wAbsorb</name></member>
+      <member refid="structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wDefense</name></member>
+      <member refid="structCItemInfo_1aabd05081ae1ec47d7273f22b4d5a34a0" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wDex</name></member>
+      <member refid="structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wDodge</name></member>
+      <member refid="structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wHit</name></member>
+      <member refid="structCItemInfo_1aecf4da12e1bcde7a12b3b89bff3f8596" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wHth</name></member>
+      <member refid="structCItemInfo_1a76934b07053447467ac7cc6d0a293df1" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wIndex</name></member>
+      <member refid="structCItemInfo_1a1aa7cb7639769f0565f5406d6bdff54d" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wInt</name></member>
+      <member refid="structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wMaxAttack</name></member>
+      <member refid="structCItemInfo_1a2fc639e34056e5397bec89a2fd309391" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wMaxMagic</name></member>
+      <member refid="structCItemInfo_1ab5dc077635bdab3db04a0075477f8237" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wMinAttack</name></member>
+      <member refid="structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wMinMagic</name></member>
+      <member refid="structCItemInfo_1ab683ac93d924c1b0cbc5073c1d3580b2" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wResistCurse</name></member>
+      <member refid="structCItemInfo_1a699b3e66037b53735ca99be91a6bfe77" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wResistFire</name></member>
+      <member refid="structCItemInfo_1aa26de24aa9420cd4c46e3a8ca89fe756" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wResistIce</name></member>
+      <member refid="structCItemInfo_1a67551a98cd7ae370c097349cf26bcd6a" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wResistLitning</name></member>
+      <member refid="structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wResistPalsy</name></member>
+      <member refid="structCItemInfo_1ab3828a32ae0cc4718c965d10e703a852" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wStr</name></member>
+      <member refid="structCItemInfo_1a407be745faf5785d3ff968271606796c" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>m_wWis</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>MACRO_TYPE</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a36fb171ec5d057fa5df16c58bbb9ba8d" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>MT_ITEM</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a03e59fc7bae9ba55308fd18d87d8b801" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>MT_MONSTER</name></member>
+      <member refid="structCMacro_1ab8f7eb80a0a7c55942ed59bf50056835a28d7e7aa52ecf18d3db84d9faff2f1e6" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>MT_NPC</name></member>
+      <member refid="structCItemInfo_1a488a7948c3dac8af41be20cec272c20ba5ee784d99ab35d531d6fdc0c385ffe6d" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>R_HP</name></member>
+      <member refid="structCItemInfo_1a488a7948c3dac8af41be20cec272c20ba8701079bc374b7294260e13fc3bdeeb8" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>R_MP</name></member>
+      <member refid="structCItemInfo_1a488a7948c3dac8af41be20cec272c20b" prot="public" virt="non-virtual"><scope>CItemInfo</scope><name>REFRESH</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

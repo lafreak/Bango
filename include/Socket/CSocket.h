@@ -5,6 +5,10 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <fstream>
+#include <sstream>
 
 #include <Protocol/Packet.h>
 #include <Protocol/MainProtocol.h>
@@ -13,9 +17,13 @@
 class CSocket
 {
 public:
-	static char* WriteV(char* packet, va_list va);
+	static bool g_bDebug;
 
+	static char* WriteV(char* packet, va_list va);
+	
+	static char* WritePacket(char* packet, const char* format, ...);
+	static char* WritePacketFromFile(char* packet, const char* fileName);
 	static char* ReadPacket(char* packet, const char* format, ...);
 };
 
-#endif _CSOCKET_
+#endif
