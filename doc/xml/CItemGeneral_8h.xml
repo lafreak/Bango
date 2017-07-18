@@ -6,91 +6,91 @@
     <includedby refid="CItem_8cpp" local="yes">MainServer/Item/CItem.cpp</includedby>
     <includedby refid="CItemGeneral_8cpp" local="yes">MainServer/Item/CItemGeneral.cpp</includedby>
     <incdepgraph>
-      <node id="985">
+      <node id="1051">
         <label>../Macro/CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="979" relation="include">
+        <childnode refid="1045" relation="include">
         </childnode>
-        <childnode refid="986" relation="include">
+        <childnode refid="1052" relation="include">
         </childnode>
-        <childnode refid="987" relation="include">
+        <childnode refid="1053" relation="include">
         </childnode>
-        <childnode refid="988" relation="include">
+        <childnode refid="1054" relation="include">
         </childnode>
-        <childnode refid="989" relation="include">
+        <childnode refid="1055" relation="include">
         </childnode>
-        <childnode refid="991" relation="include">
+        <childnode refid="1057" relation="include">
         </childnode>
       </node>
-      <node id="984">
+      <node id="1050">
         <label>access.h</label>
       </node>
-      <node id="977">
+      <node id="1043">
         <label>MainServer/Item/CItemGeneral.h</label>
         <link refid="CItemGeneral_8h"/>
-        <childnode refid="978" relation="include">
+        <childnode refid="1044" relation="include">
         </childnode>
       </node>
-      <node id="979">
+      <node id="1045">
         <label>map</label>
       </node>
-      <node id="982">
+      <node id="1048">
         <label>minwindef.h</label>
       </node>
-      <node id="987">
+      <node id="1053">
         <label>fstream</label>
       </node>
-      <node id="978">
+      <node id="1044">
         <label>CItem.h</label>
         <link refid="CItem_8h_source"/>
-        <childnode refid="979" relation="include">
+        <childnode refid="1045" relation="include">
         </childnode>
-        <childnode refid="980" relation="include">
+        <childnode refid="1046" relation="include">
         </childnode>
-        <childnode refid="981" relation="include">
+        <childnode refid="1047" relation="include">
         </childnode>
-        <childnode refid="982" relation="include">
+        <childnode refid="1048" relation="include">
         </childnode>
-        <childnode refid="983" relation="include">
+        <childnode refid="1049" relation="include">
         </childnode>
-        <childnode refid="984" relation="include">
+        <childnode refid="1050" relation="include">
         </childnode>
-        <childnode refid="985" relation="include">
+        <childnode refid="1051" relation="include">
         </childnode>
       </node>
-      <node id="983">
+      <node id="1049">
         <label>common.h</label>
       </node>
-      <node id="980">
+      <node id="1046">
         <label>unistd.h</label>
       </node>
-      <node id="986">
+      <node id="1052">
         <label>sstream</label>
       </node>
-      <node id="991">
+      <node id="1057">
         <label>CMonsterInfo.h</label>
         <link refid="CMonsterInfo_8h_source"/>
-        <childnode refid="990" relation="include">
+        <childnode refid="1056" relation="include">
         </childnode>
       </node>
-      <node id="989">
+      <node id="1055">
         <label>CItemInfo.h</label>
         <link refid="CItemInfo_8h_source"/>
-        <childnode refid="990" relation="include">
+        <childnode refid="1056" relation="include">
         </childnode>
       </node>
-      <node id="988">
+      <node id="1054">
         <label>TinyXML2/tinyxml2.h</label>
       </node>
-      <node id="981">
+      <node id="1047">
         <label>mutex</label>
       </node>
-      <node id="990">
+      <node id="1056">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="982" relation="include">
+        <childnode refid="1048" relation="include">
         </childnode>
-        <childnode refid="983" relation="include">
+        <childnode refid="1049" relation="include">
         </childnode>
       </node>
     </incdepgraph>

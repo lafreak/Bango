@@ -108,12 +108,12 @@
     <member refid="classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171" kind="function"><name>IsMState</name></member>
     <member refid="classCCharacter_1acbef8d19711780d3042290df28df8e97" kind="function"><name>IsGStateEx</name></member>
     <member refid="classCCharacter_1a3998f7bb41290e11bce58171152c0895" kind="function"><name>IsMStateEx</name></member>
-    <member refid="classCCharacter_1a1216080cae148f57013556a9c71d5d47" kind="function"><name>GenerateCreatePacket</name></member>
-    <member refid="classCCharacter_1a2c02db3ce7549a8e756b5e6ed513f466" kind="function"><name>GeneratePetPacket</name></member>
-    <member refid="classCCharacter_1a96920fc061d3700cb16dc948d655dfe1" kind="function"><name>GenerateDeletePacket</name></member>
-    <member refid="classCCharacter_1a9e94e75db0314d6ccfea4b16f5042f25" kind="function"><name>GenerateMovePacket</name></member>
-    <member refid="classCCharacter_1a0f29e023de5beddb6455d0f3b04950dd" kind="function"><name>SendPacket</name></member>
-    <member refid="classCCharacter_1aec35ea939b95c689e3afddbe504987f8" kind="function"><name>Tick</name></member>
+    <member refid="classCCharacter_1a96f8788d5511e2dc05b300518b73ebdb" kind="function"><name>GenerateCreatePacket</name></member>
+    <member refid="classCCharacter_1a4f0669edcafe73a3eea7f153614f545d" kind="function"><name>GeneratePetPacket</name></member>
+    <member refid="classCCharacter_1ab3debdc7f346843d009acb7c2a42e5ba" kind="function"><name>GenerateDeletePacket</name></member>
+    <member refid="classCCharacter_1a408dc692b77e60db7a6871332ada6d84" kind="function"><name>GenerateMovePacket</name></member>
+    <member refid="classCCharacter_1ad3570e1c2917721b4d6bdc132402bfc1" kind="function"><name>SendPacket</name></member>
+    <member refid="classCCharacter_1aaa3ad354eeb4fa16acf29211b89641ac" kind="function"><name>Tick</name></member>
     <member refid="classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66" kind="function"><name>WriteInSight</name></member>
     <member refid="classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc" kind="function"><name>SendPacketInSight</name></member>
     <member refid="classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482" kind="function"><name>SetDirection</name></member>
@@ -215,6 +215,8 @@
     <member refid="classCItemDefense_1ada1904fbee80348cf03325419e106832" kind="function"><name>CItemDefense</name></member>
     <member refid="classCItemDefense_1a0efa605ca2e725a2081cb8670e568b80" kind="function"><name>PutOn</name></member>
     <member refid="classCItemDefense_1a6e2d4a0d5f9161d97170f80ad692255f" kind="function"><name>PutOff</name></member>
+  </compound>
+  <compound refid="classCItemDrop" kind="class"><name>CItemDrop</name>
   </compound>
   <compound refid="classCItemGeneral" kind="class"><name>CItemGeneral</name>
     <member refid="classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa" kind="function"><name>CItemGeneral</name></member>
@@ -372,7 +374,6 @@
     <member refid="classCMonster_1a32b5519b2c5d14881927b69436972c8f" kind="function"><name>CMonster</name></member>
     <member refid="classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d" kind="function"><name>~CMonster</name></member>
     <member refid="classCMonster_1aaebb18996775b6910623e8b468afb15b" kind="function"><name>GenerateCreatePacket</name></member>
-    <member refid="classCMonster_1ad998626b6c7037fde9963aba1e949949" kind="function"><name>GeneratePetPacket</name></member>
     <member refid="classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793" kind="function"><name>GenerateDeletePacket</name></member>
     <member refid="classCMonster_1a36c4a1434097b4663dc9e425642759c5" kind="function"><name>GenerateMovePacket</name></member>
     <member refid="classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875" kind="function"><name>GetStr</name></member>
@@ -400,27 +401,34 @@
     <member refid="classCMonster_1a57f3ffe3d5cc777f141722234cc63053" kind="function"><name>GetAttackSpeed</name></member>
     <member refid="classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd" kind="function"><name>GetCloseSight</name></member>
     <member refid="classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513" kind="function"><name>GetFarSight</name></member>
+    <member refid="classCMonster_1a0a3adc8c44ad84ddc2cd4dda8a55969b" kind="function"><name>GetSize</name></member>
     <member refid="classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156" kind="function"><name>GetAIS</name></member>
     <member refid="classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae" kind="function"><name>SetAIS</name></member>
     <member refid="classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09" kind="function"><name>SetTarget</name></member>
     <member refid="classCMonster_1a9882ba63a0c0d7e73ec92db540deac93" kind="function"><name>GetTarget</name></member>
-    <member refid="classCMonster_1a9470fac20c62bdcc22047ceac3a1a51c" kind="function"><name>Tick</name></member>
-    <member refid="classCMonster_1a8e84ec4618ba917cf31cb60a901e7052" kind="function"><name>AI</name></member>
+    <member refid="classCMonster_1a729a91a7d77275414420ca0b33c61698" kind="function"><name>Tick</name></member>
+    <member refid="classCMonster_1ade33da94e0ab0cf8cd2745a7eb8c0058" kind="function"><name>AI</name></member>
     <member refid="classCMonster_1a50baf7e342893c3fc492d3cc1edae898" kind="function"><name>Move</name></member>
     <member refid="classCMonster_1a3da2c9537b0a47d96779d05f61685268" kind="function"><name>Attack</name></member>
     <member refid="classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa" kind="function"><name>Chase</name></member>
     <member refid="classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca" kind="function"><name>Walk</name></member>
     <member refid="classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496" kind="function"><name>Damage</name></member>
-    <member refid="classCMonster_1abccca2937a627ac7c23b2bff489ffef5" kind="function"><name>SendPacket</name></member>
+    <member refid="classCMonster_1a4564ee9d1505a874aefc283e1e620b07" kind="function"><name>ScanSight</name></member>
+    <member refid="classCMonster_1a32fa534488bc60df3006fd2f50b2be18" kind="function"><name>OnWalk</name></member>
+    <member refid="classCMonster_1ad042edbe7a8b97cbdee38916d9925a6b" kind="function"><name>OnChase</name></member>
+    <member refid="classCMonster_1a1d5aa5527a1275e23b59691510f9d3a9" kind="function"><name>OnForceAttack</name></member>
+    <member refid="classCMonster_1ae2b4d010e8adb89afe41b62d6ee07b1d" kind="function"><name>OnAttack</name></member>
+    <member refid="classCMonster_1a487dd6e938cf50ae39463f12930421ba" kind="function"><name>OnRemove</name></member>
     <member refid="classCMonster_1a04207d77ca28962f187c7eb195c21502" kind="function"><name>GetClosestNormalPlayer</name></member>
     <member refid="classCMonster_1a80b03e33ba82584835f76b2f11e97afa" kind="function"><name>CreateMonster</name></member>
     <member refid="classCMonster_1a2d64e70cf021f0bf9377d0180264e14b" kind="function"><name>Summon</name></member>
+    <member refid="classCMonster_1a84af762c988b9bf79b262cb771521645" kind="function"><name>FindMonster</name></member>
+    <member refid="classCMonster_1a1e2e711e1cf80e21b9f913618136614a" kind="function"><name>FindMonsterByIndex</name></member>
+    <member refid="classCMonster_1ad815245806527df664ef6ef30b6995ec" kind="function"><name>UnloadMonsters</name></member>
     <member refid="classCMonster_1a2d71aea56fb8b7b1ea16b4c85368c80a" kind="function"><name>Add</name></member>
     <member refid="classCMonster_1ab2f9e33a290652bf026541e9b2f4412f" kind="function"><name>Remove</name></member>
     <member refid="classCMonster_1a6c5653f70c69ff555bb2fce71751d24b" kind="function"><name>TickAll</name></member>
-    <member refid="classCMonster_1ae13954eb631ffda8737126defe75595d" kind="function"><name>AIAll</name></member>
-    <member refid="classCMonster_1a84af762c988b9bf79b262cb771521645" kind="function"><name>FindMonster</name></member>
-    <member refid="classCMonster_1a1e2e711e1cf80e21b9f913618136614a" kind="function"><name>FindMonsterByIndex</name></member>
+    <member refid="classCMonster_1a89ff6a535620ccf2d6d4d86a0ed58356" kind="function"><name>AIAll</name></member>
   </compound>
   <compound refid="structCMonsterInfo" kind="struct"><name>CMonsterInfo</name>
     <member refid="structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232" kind="variable"><name>m_wIndex</name></member>
@@ -461,7 +469,6 @@
     <member refid="classCMonsterMaguni_1a8f50ebb8a6e6b9cea105909f4101171c" kind="variable"><name>m_dwDeadTime</name></member>
     <member refid="classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990" kind="function"><name>CMonsterMaguni</name></member>
     <member refid="classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27" kind="function"><name>Die</name></member>
-    <member refid="classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42" kind="function"><name>Tick</name></member>
   </compound>
   <compound refid="classCMonsterReal" kind="class"><name>CMonsterReal</name>
     <member refid="classCMonsterReal_1a5f870bceef461c11ac5dba3bc0d4d44c" kind="function"><name>CMonsterReal</name></member>
@@ -474,13 +481,9 @@
     <member refid="classCNPC_1a0b73d4beff91c95ea40cbeff3697cc86" kind="variable"><name>g_mNPC</name></member>
     <member refid="classCNPC_1a4299ff5a4c64e4d41adedafcef38e322" kind="variable"><name>g_mxNPC</name></member>
     <member refid="classCNPC_1a441f45b092391de84d52b07392c5de7b" kind="function"><name>CNPC</name></member>
-    <member refid="classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2" kind="function"><name>GetHTML</name></member>
+    <member refid="classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7" kind="function"><name>GetHTML</name></member>
     <member refid="classCNPC_1a80eaf3493958ca2de09e590ed0b27f77" kind="function"><name>GenerateCreatePacket</name></member>
-    <member refid="classCNPC_1a9e50a1c043c84e063af01f8f3766787b" kind="function"><name>GeneratePetPacket</name></member>
     <member refid="classCNPC_1aa2ade1c301076c2d0b838dd17602f14b" kind="function"><name>GenerateDeletePacket</name></member>
-    <member refid="classCNPC_1a61b21ec3797dbd782cbdb738da521e75" kind="function"><name>GenerateMovePacket</name></member>
-    <member refid="classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce" kind="function"><name>SendPacket</name></member>
-    <member refid="classCNPC_1a9261d699e4c513a63afdfac7beff02b4" kind="function"><name>Tick</name></member>
     <member refid="classCNPC_1ac8f234fa07c788d8acd87f38cb81b12a" kind="function"><name>LoadNPC</name></member>
     <member refid="classCNPC_1a3654caa12b148bb1242924e9d92e9712" kind="function"><name>UnloadNPC</name></member>
     <member refid="classCNPC_1ad67dca51b67cb8db29184017345329fc" kind="function"><name>Add</name></member>
@@ -617,7 +620,7 @@
     <member refid="classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b" kind="function"><name>GenerateDeletePacket</name></member>
     <member refid="classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed" kind="function"><name>GenerateMovePacket</name></member>
     <member refid="classCPlayer_1a618e99ee1c2a0ae81130a2468748838e" kind="function"><name>Process</name></member>
-    <member refid="classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce" kind="function"><name>Tick</name></member>
+    <member refid="classCPlayer_1ae4c64cd8d2e808114db23593ff6c5816" kind="function"><name>Tick</name></member>
     <member refid="classCPlayer_1a44552908ba4a38ae9c69e68962376d43" kind="function"><name>OnLoadPlayer</name></member>
     <member refid="classCPlayer_1a73e13fe05b734d20b9fc2222285afc21" kind="function"><name>OnLoadItems</name></member>
     <member refid="classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f" kind="function"><name>GameStart</name></member>
@@ -697,6 +700,15 @@
     <member refid="classCTile_1a500887d419a5fa9b93f2885a82180eb2" kind="function"><name>GetMonsterListAround</name></member>
     <member refid="classCTile_1aa9c2599bc4e1e6f951bb887d30aba111" kind="function"><name>SendPacket</name></member>
     <member refid="classCTile_1a34f85c8e4a1be51229b723fcadb72aa4" kind="function"><name>SendMoveAction</name></member>
+    <member refid="classCTile_1a6f71e25bfc3f826639300abc127fdd25" kind="function"><name>ExchangeMoveActionWithPlayers</name></member>
+    <member refid="classCTile_1ae7f50d3589419005ffb900182fd3d488" kind="function"><name>ExchangeMoveActionWithMonsters</name></member>
+    <member refid="classCTile_1a30da262666aa379fa7f436496e8150c7" kind="function"><name>ExchangeMoveActionWithNPCs</name></member>
+  </compound>
+  <compound refid="classIAppearable" kind="class"><name>IAppearable</name>
+    <member refid="classIAppearable_1ac0262a965a30119375a1a48d626ad6f3" kind="function"><name>GenerateCreatePacket</name></member>
+    <member refid="classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c" kind="function"><name>GeneratePetPacket</name></member>
+    <member refid="classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6" kind="function"><name>GenerateDeletePacket</name></member>
+    <member refid="classIAppearable_1a2294d79323944687a5a16ac097d1de88" kind="function"><name>GenerateMovePacket</name></member>
   </compound>
   <compound refid="structMapInfo" kind="struct"><name>MapInfo</name>
     <member refid="structMapInfo_1ad09be2746b03c866a544869de5c90248" kind="variable"><name>wTileX</name></member>
@@ -745,6 +757,10 @@
     <member refid="CCharacter_8h_1ab5a1ec0de3c95709792707e9db58c452" kind="typedef"><name>CharacterMap</name></member>
     <member refid="CCharacter_8h_1ac592dd37084f3a87b94dcbc8a46b68d1" kind="typedef"><name>CharacterList</name></member>
   </compound>
+  <compound refid="CItemDrop_8cpp" kind="file"><name>CItemDrop.cpp</name>
+  </compound>
+  <compound refid="CItemDrop_8h" kind="file"><name>CItemDrop.h</name>
+  </compound>
   <compound refid="CMonster_8cpp" kind="file"><name>CMonster.cpp</name>
   </compound>
   <compound refid="CMonster_8h" kind="file"><name>CMonster.h</name>
@@ -772,6 +788,10 @@
     <member refid="CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43" kind="define"><name>GEAR_VISIBLE_NUM</name></member>
     <member refid="CPlayer_8h_1a401c15f3b5c7d232655b93b97a8e205c" kind="typedef"><name>PlayerMap</name></member>
     <member refid="CPlayer_8h_1a95e356a0c9bccaf0fdc0423d7a34de13" kind="typedef"><name>PlayerList</name></member>
+  </compound>
+  <compound refid="IAppearable_8cpp" kind="file"><name>IAppearable.cpp</name>
+  </compound>
+  <compound refid="IAppearable_8h" kind="file"><name>IAppearable.h</name>
   </compound>
   <compound refid="CMonsterMaguni_8cpp" kind="file"><name>CMonsterMaguni.cpp</name>
   </compound>

@@ -54,9 +54,9 @@
       <member refid="classCCharacter_1a45e2cc520af9e829b399f1ba0e7dd82e" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AddGStateEx</name></member>
       <member refid="classCCharacter_1aefea6662e4aef15ae8c734697eaaac25" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AddMState</name></member>
       <member refid="classCCharacter_1a86c04d0aacd6c83484c7bd4a69c0f2e4" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AddMStateEx</name></member>
-      <member refid="classCMonster_1a8e84ec4618ba917cf31cb60a901e7052" prot="public" virt="virtual"><scope>CMonsterReal</scope><name>AI</name></member>
+      <member refid="classCMonster_1ade33da94e0ab0cf8cd2745a7eb8c0058" prot="public" virt="virtual"><scope>CMonsterReal</scope><name>AI</name></member>
       <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AI_STATE</name></member>
-      <member refid="classCMonster_1ae13954eb631ffda8737126defe75595d" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AIAll</name></member>
+      <member refid="classCMonster_1a89ff6a535620ccf2d6d4d86a0ed58356" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AIAll</name></member>
       <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758a9c14448f11068f9d5a35493feb93a3eb" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AIS_ATTACK</name></member>
       <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758af852cec4f4b3c15de1fe307f0d62a552" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AIS_CHASE</name></member>
       <member refid="classCMonster_1abc52cf7f4b445f2156a4a3d10dc78758aac3657b2907e8b05e15e18243a22e7a4" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>AIS_DEAD</name></member>
@@ -80,7 +80,7 @@
       <member refid="classCMonster_1aaebb18996775b6910623e8b468afb15b" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GenerateCreatePacket</name></member>
       <member refid="classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GenerateDeletePacket</name></member>
       <member refid="classCMonster_1a36c4a1434097b4663dc9e425642759c5" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GenerateMovePacket</name></member>
-      <member refid="classCMonster_1ad998626b6c7037fde9963aba1e949949" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GeneratePetPacket</name></member>
+      <member refid="classCCharacter_1a4f0669edcafe73a3eea7f153614f545d" prot="public" virt="virtual"><scope>CMonsterReal</scope><name>GeneratePetPacket</name></member>
       <member refid="classCMonster_1a4c89df0e2e869953f069c025ff72affe" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetAbsorb</name></member>
       <member refid="classCMonster_1a54207d4061d825c5702b1d2edf00acc1" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetAgi</name></member>
       <member refid="classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetAIS</name></member>
@@ -121,6 +121,7 @@
       <member refid="classCMonster_1ac2f91ca1773289b6079dad01c4b00153" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetRange</name></member>
       <member refid="classCMonster_1a42c7bb7d9c13d7449a20daac57a99dc4" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetResist</name></member>
       <member refid="classCMonster_1a51f0e1e2bdef76192d41ebc9245ecd33" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetRunSpeed</name></member>
+      <member refid="classCMonster_1a0a3adc8c44ad84ddc2cd4dda8a55969b" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetSize</name></member>
       <member refid="classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetStr</name></member>
       <member refid="classCMonster_1a9882ba63a0c0d7e73ec92db540deac93" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetTarget</name></member>
       <member refid="classCMonster_1a0b2d80ce5652aea191e6f93931fe2e0a" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>GetWalkSpeed</name></member>
@@ -173,8 +174,14 @@
       <member refid="classCMonster_1a5edb1f9f8fc0bd17155cd4e0a3590cdea471a6d3586e2ec41ef55f8839e6b1ebf" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>MT_WALK</name></member>
       <member refid="classCMonster_1ad886aa0094a13ec89beaab7ef9f74ec9ac5b86d8154e9906c49a250457275eb28" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>MTEX_MOVEEND</name></member>
       <member refid="classCCharacter_1acf91ea1a4492f55129e0e880c8e269fb" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>NewID</name></member>
+      <member refid="classCMonster_1ae2b4d010e8adb89afe41b62d6ee07b1d" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>OnAttack</name></member>
+      <member refid="classCMonster_1ad042edbe7a8b97cbdee38916d9925a6b" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>OnChase</name></member>
+      <member refid="classCMonster_1a1d5aa5527a1275e23b59691510f9d3a9" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>OnForceAttack</name></member>
+      <member refid="classCMonster_1a487dd6e938cf50ae39463f12930421ba" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>OnRemove</name></member>
+      <member refid="classCMonster_1a32fa534488bc60df3006fd2f50b2be18" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>OnWalk</name></member>
       <member refid="classCMonster_1ab2f9e33a290652bf026541e9b2f4412f" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>Remove</name></member>
-      <member refid="classCMonster_1abccca2937a627ac7c23b2bff489ffef5" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>SendPacket</name></member>
+      <member refid="classCMonster_1a4564ee9d1505a874aefc283e1e620b07" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>ScanSight</name></member>
+      <member refid="classCCharacter_1ad3570e1c2917721b4d6bdc132402bfc1" prot="public" virt="virtual"><scope>CMonsterReal</scope><name>SendPacket</name></member>
       <member refid="classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>SendPacketInSight</name></member>
       <member refid="classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>SetAIS</name></member>
       <member refid="classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>SetDirection</name></member>
@@ -185,8 +192,9 @@
       <member refid="classCCharacter_1a73a3e166928352776f2be316767730a6" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>SubMState</name></member>
       <member refid="classCCharacter_1a29926f9323d2091c8d824ff3325024b5" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>SubMStateEx</name></member>
       <member refid="classCMonster_1a2d64e70cf021f0bf9377d0180264e14b" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>Summon</name></member>
-      <member refid="classCMonster_1a9470fac20c62bdcc22047ceac3a1a51c" prot="public" virt="virtual"><scope>CMonsterReal</scope><name>Tick</name></member>
+      <member refid="classCMonster_1a729a91a7d77275414420ca0b33c61698" prot="public" virt="virtual"><scope>CMonsterReal</scope><name>Tick</name></member>
       <member refid="classCMonster_1a6c5653f70c69ff555bb2fce71751d24b" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>TickAll</name></member>
+      <member refid="classCMonster_1ad815245806527df664ef6ef30b6995ec" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>UnloadMonsters</name></member>
       <member refid="classCCharacter_1a75454c5b85705b5f118bfb775085ae76" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>Unlock</name></member>
       <member refid="classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>Walk</name></member>
       <member refid="classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66" prot="public" virt="non-virtual"><scope>CMonsterReal</scope><name>WriteInSight</name></member>

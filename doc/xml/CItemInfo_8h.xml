@@ -6,173 +6,173 @@
     <includedby refid="CMacroDB_8h" local="yes">MainServer/Macro/CMacroDB.h</includedby>
     <includedby refid="CItemInfo_8cpp" local="yes">MainServer/Macro/CItemInfo.cpp</includedby>
     <incdepgraph>
-      <node id="1343">
+      <node id="1415">
         <label>minwindef.h</label>
       </node>
-      <node id="1344">
+      <node id="1416">
         <label>common.h</label>
       </node>
-      <node id="1341">
+      <node id="1413">
         <label>MainServer/Macro/CItemInfo.h</label>
         <link refid="CItemInfo_8h"/>
-        <childnode refid="1342" relation="include">
+        <childnode refid="1414" relation="include">
         </childnode>
       </node>
-      <node id="1342">
+      <node id="1414">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="1343" relation="include">
+        <childnode refid="1415" relation="include">
         </childnode>
-        <childnode refid="1344" relation="include">
+        <childnode refid="1416" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1348">
+      <node id="1420">
         <label>MainServer/GameCharacter/CPlayer.h</label>
         <link refid="CPlayer_8h_source"/>
-        <childnode refid="1349" relation="include">
+        <childnode refid="1421" relation="include">
         </childnode>
-        <childnode refid="1353" relation="include">
+        <childnode refid="1425" relation="include">
         </childnode>
-        <childnode refid="1350" relation="include">
+        <childnode refid="1422" relation="include">
         </childnode>
-        <childnode refid="1351" relation="include">
+        <childnode refid="1423" relation="include">
         </childnode>
-        <childnode refid="1354" relation="include">
+        <childnode refid="1426" relation="include">
         </childnode>
       </node>
-      <node id="1346">
+      <node id="1418">
         <label>MainServer/Macro/CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="1347" relation="include">
+        <childnode refid="1419" relation="include">
         </childnode>
-        <childnode refid="1364" relation="include">
+        <childnode refid="1436" relation="include">
         </childnode>
       </node>
-      <node id="1366">
+      <node id="1438">
         <label>MainServer/GameCharacter/Monster/CMonsterMaguni.h</label>
         <link refid="CMonsterMaguni_8h_source"/>
       </node>
-      <node id="1357">
+      <node id="1429">
         <label>MainServer/Item/CItemGeneral.h</label>
         <link refid="CItemGeneral_8h_source"/>
       </node>
-      <node id="1365">
+      <node id="1437">
         <label>MainServer/GameCharacter/Monster/CMonsterReal.h</label>
         <link refid="CMonsterReal_8h_source"/>
       </node>
-      <node id="1347">
+      <node id="1419">
         <label>MainServer/Item/CItem.h</label>
         <link refid="CItem_8h_source"/>
-        <childnode refid="1348" relation="include">
+        <childnode refid="1420" relation="include">
         </childnode>
-        <childnode refid="1356" relation="include">
+        <childnode refid="1428" relation="include">
         </childnode>
-        <childnode refid="1357" relation="include">
+        <childnode refid="1429" relation="include">
         </childnode>
-        <childnode refid="1358" relation="include">
+        <childnode refid="1430" relation="include">
         </childnode>
-        <childnode refid="1359" relation="include">
+        <childnode refid="1431" relation="include">
         </childnode>
-        <childnode refid="1360" relation="include">
+        <childnode refid="1432" relation="include">
         </childnode>
-        <childnode refid="1361" relation="include">
+        <childnode refid="1433" relation="include">
         </childnode>
-        <childnode refid="1362" relation="include">
+        <childnode refid="1434" relation="include">
         </childnode>
-        <childnode refid="1363" relation="include">
+        <childnode refid="1435" relation="include">
         </childnode>
       </node>
-      <node id="1356">
+      <node id="1428">
         <label>MainServer/Item/CItemPet.h</label>
         <link refid="CItemPet_8h_source"/>
       </node>
-      <node id="1350">
+      <node id="1422">
         <label>MainServer/CClient.h</label>
         <link refid="CClient_8h_source"/>
-        <childnode refid="1349" relation="include">
+        <childnode refid="1421" relation="include">
         </childnode>
-        <childnode refid="1351" relation="include">
+        <childnode refid="1423" relation="include">
         </childnode>
       </node>
-      <node id="1363">
+      <node id="1435">
         <label>MainServer/Item/CItemRide.h</label>
         <link refid="CItemRide_8h_source"/>
       </node>
-      <node id="1364">
+      <node id="1436">
         <label>MainServer/GameCharacter/CMonster.h</label>
         <link refid="CMonster_8h_source"/>
-        <childnode refid="1348" relation="include">
+        <childnode refid="1420" relation="include">
         </childnode>
-        <childnode refid="1351" relation="include">
+        <childnode refid="1423" relation="include">
         </childnode>
-        <childnode refid="1354" relation="include">
+        <childnode refid="1426" relation="include">
         </childnode>
-        <childnode refid="1365" relation="include">
+        <childnode refid="1437" relation="include">
         </childnode>
-        <childnode refid="1366" relation="include">
+        <childnode refid="1438" relation="include">
         </childnode>
       </node>
-      <node id="1353">
+      <node id="1425">
         <label>MainServer/GameCharacter/CParty.h</label>
         <link refid="CParty_8h_source"/>
-        <childnode refid="1348" relation="include">
+        <childnode refid="1420" relation="include">
         </childnode>
-        <childnode refid="1351" relation="include">
+        <childnode refid="1423" relation="include">
         </childnode>
       </node>
-      <node id="1351">
+      <node id="1423">
         <label>MainServer/CServer.h</label>
         <link refid="MainServer_2CServer_8h_source"/>
-        <childnode refid="1352" relation="include">
+        <childnode refid="1424" relation="include">
         </childnode>
       </node>
-      <node id="1354">
+      <node id="1426">
         <label>MainServer/Map/CTile.h</label>
         <link refid="CTile_8h_source"/>
-        <childnode refid="1355" relation="include">
+        <childnode refid="1427" relation="include">
         </childnode>
       </node>
-      <node id="1345">
+      <node id="1417">
         <label>MainServer/Macro/CItemInfo.h</label>
         <link refid="CItemInfo_8h"/>
-        <childnode refid="1346" relation="include">
+        <childnode refid="1418" relation="include">
         </childnode>
       </node>
-      <node id="1352">
+      <node id="1424">
         <label>MainServer/Socket/CClientSocket.h</label>
         <link refid="CClientSocket_8h_source"/>
       </node>
-      <node id="1360">
+      <node id="1432">
         <label>MainServer/Item/CItemYinyang.h</label>
         <link refid="CItemYinyang_8h_source"/>
       </node>
-      <node id="1349">
+      <node id="1421">
         <label>MainServer/Socket/CDBSocket.h</label>
         <link refid="CDBSocket_8h_source"/>
-        <childnode refid="1350" relation="include">
+        <childnode refid="1422" relation="include">
         </childnode>
       </node>
-      <node id="1355">
+      <node id="1427">
         <label>MainServer/Map/CMap.h</label>
         <link refid="CMap_8h_source"/>
-        <childnode refid="1351" relation="include">
+        <childnode refid="1423" relation="include">
         </childnode>
       </node>
-      <node id="1359">
+      <node id="1431">
         <label>MainServer/Item/CItemDefense.h</label>
         <link refid="CItemDefense_8h_source"/>
       </node>
-      <node id="1362">
+      <node id="1434">
         <label>MainServer/Item/CItemTransform.h</label>
         <link refid="CItemTransform_8h_source"/>
       </node>
-      <node id="1361">
+      <node id="1433">
         <label>MainServer/Item/CItemOrnament.h</label>
         <link refid="CItemOrnament_8h_source"/>
       </node>
-      <node id="1358">
+      <node id="1430">
         <label>MainServer/Item/CItemWeapon.h</label>
         <link refid="CItemWeapon_8h_source"/>
       </node>

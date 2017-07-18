@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/Socket/CClientSocket.h" line="28" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="43" bodyend="77"/>
+        <location file="MainServer/Socket/CClientSocket.h" line="28" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="43" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="classCClientSocket_1a5c5bf4c3b439771e336d7bf5f8d67f8c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/Socket/CClientSocket.h" line="29" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="79" bodyend="99"/>
+        <location file="MainServer/Socket/CClientSocket.h" line="29" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="81" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="classCClientSocket_1a78846a86441a077c232af46d2badd6ca" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>PVOID</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/Socket/CClientSocket.h" line="30" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="101" bodyend="149"/>
+        <location file="MainServer/Socket/CClientSocket.h" line="30" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="103" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="classCClientSocket_1a8fed9869c1e61ff21688a28f67de6cde" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/Socket/CClientSocket.h" line="32" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="151" bodyend="162"/>
+        <location file="MainServer/Socket/CClientSocket.h" line="32" column="1" bodyfile="MainServer/Socket/CClientSocket.cpp" bodystart="153" bodyend="164"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

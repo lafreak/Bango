@@ -18,6 +18,7 @@
 `class `[`CDBSocket`](#classCDBSocket) | 
 `class `[`CItem`](#classCItem) | 
 `class `[`CItemDefense`](#classCItemDefense) | 
+`class `[`CItemDrop`](#classCItemDrop) | 
 `class `[`CItemGeneral`](#classCItemGeneral) | 
 `class `[`CItemOrnament`](#classCItemOrnament) | 
 `class `[`CItemPet`](#classCItemPet) | 
@@ -36,6 +37,7 @@
 `class `[`CPlayer`](#classCPlayer) | 
 `class `[`CServer`](#classCServer) | 
 `class `[`CTile`](#classCTile) | 
+`class `[`IAppearable`](#classIAppearable) | 
 `struct `[`CItemInfo`](#structCItemInfo) | 
 `struct `[`CMacro`](#structCMacro) | 
 `struct `[`CMonsterInfo`](#structCMonsterInfo) | 
@@ -43,23 +45,23 @@
 
 ## Members
 
-#### `define `[`MONSTER_WALK_FREQUENCY`](#CMonster_8h_1a5b7eae3edb8b301b111c691bc53249f9) {#CMonster_8h_1a5b7eae3edb8b301b111c691bc53249f9}
+#### `define `[`MONSTER_WALK_FREQUENCY`](#CMonster_8h_1a5b7eae3edb8b301b111c691bc53249f9) 
 
-#### `define `[`MONSTER_WALK_TIME`](#CMonster_8h_1a689452730e78553fb130430444bfc605) {#CMonster_8h_1a689452730e78553fb130430444bfc605}
+#### `define `[`MONSTER_WALK_TIME`](#CMonster_8h_1a689452730e78553fb130430444bfc605) 
 
-#### `define `[`GEAR_NUM`](#CPlayer_8h_1ac2937dbb016e4437d5968d8d0aa230ad) {#CPlayer_8h_1ac2937dbb016e4437d5968d8d0aa230ad}
+#### `define `[`GEAR_NUM`](#CPlayer_8h_1ac2937dbb016e4437d5968d8d0aa230ad) 
 
-#### `define `[`GEAR_VISIBLE_NUM`](#CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43) {#CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43}
+#### `define `[`GEAR_VISIBLE_NUM`](#CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43) 
 
-#### `define `[`TILE_LEN`](#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16) {#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16}
+#### `define `[`TILE_LEN`](#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16) 
 
-#### `define `[`MAP_LEN`](#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841) {#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841}
+#### `define `[`MAP_LEN`](#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841) 
 
-#### `public int `[`main`](#DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()` {#DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4}
+#### `public int `[`main`](#DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()` 
 
-#### `public int `[`main`](#MainServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()` {#MainServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4}
+#### `public int `[`main`](#MainServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()` 
 
-# class `CAccount` {#classCAccount}
+# class `CAccount` 
 
 ## Summary
 
@@ -80,31 +82,31 @@
 
 ## Members
 
-#### `public Access `[`m_Access`](#classCAccount_1aeadec51d154df15e0527a084cc7552d8) {#classCAccount_1aeadec51d154df15e0527a084cc7552d8}
+#### `public Access `[`m_Access`](#classCAccount_1aeadec51d154df15e0527a084cc7552d8) 
 
-#### `public inline  `[`CAccount`](#classCAccount_1a71fcf22852f152f88fc3eec7d3b1dece)`(int nClientID,int nAccountID,std::string szLogin,std::string szPassword,std::string szSecondary)` {#classCAccount_1a71fcf22852f152f88fc3eec7d3b1dece}
+#### `public inline  `[`CAccount`](#classCAccount_1a71fcf22852f152f88fc3eec7d3b1dece)`(int nClientID,int nAccountID,std::string szLogin,std::string szPassword,std::string szSecondary)` 
 
-#### `public  `[`~CAccount`](#classCAccount_1aea90b7725a7f2dca17b24e8010735b11)`()` {#classCAccount_1aea90b7725a7f2dca17b24e8010735b11}
+#### `public  `[`~CAccount`](#classCAccount_1aea90b7725a7f2dca17b24e8010735b11)`()` 
 
-#### `public inline void `[`Lock`](#classCAccount_1a5d01c40991060a6d15a3da34ce5a2efd)`()` {#classCAccount_1a5d01c40991060a6d15a3da34ce5a2efd}
+#### `public inline void `[`Lock`](#classCAccount_1a5d01c40991060a6d15a3da34ce5a2efd)`()` 
 
-#### `public inline void `[`Unlock`](#classCAccount_1a0585bc1edbc5a884da2107ab02d0325d)`()` {#classCAccount_1a0585bc1edbc5a884da2107ab02d0325d}
+#### `public inline void `[`Unlock`](#classCAccount_1a0585bc1edbc5a884da2107ab02d0325d)`()` 
 
-#### `public inline int `[`GetAID`](#classCAccount_1a9a5e97de4d010c2d6ec3438e13f25340)`() const` {#classCAccount_1a9a5e97de4d010c2d6ec3438e13f25340}
+#### `public inline int `[`GetAID`](#classCAccount_1a9a5e97de4d010c2d6ec3438e13f25340)`() const` 
 
-#### `public inline int `[`GetCID`](#classCAccount_1a08bd903c24ad2231c7368aa0ac9f1e7e)`() const` {#classCAccount_1a08bd903c24ad2231c7368aa0ac9f1e7e}
+#### `public inline int `[`GetCID`](#classCAccount_1a08bd903c24ad2231c7368aa0ac9f1e7e)`() const` 
 
-#### `public inline std::string `[`GetLogin`](#classCAccount_1ab9909b5e60335e30fc8f50084865b521)`() const` {#classCAccount_1ab9909b5e60335e30fc8f50084865b521}
+#### `public inline std::string `[`GetLogin`](#classCAccount_1ab9909b5e60335e30fc8f50084865b521)`() const` 
 
-#### `public inline std::string `[`GetPassword`](#classCAccount_1a34c3797b77cf1f80e6d8d0db8d3e366b)`() const` {#classCAccount_1a34c3797b77cf1f80e6d8d0db8d3e366b}
+#### `public inline std::string `[`GetPassword`](#classCAccount_1a34c3797b77cf1f80e6d8d0db8d3e366b)`() const` 
 
-#### `public inline std::string `[`GetSecondary`](#classCAccount_1a5bee37079ee7d004de3afdaaed9ab46d)`() const` {#classCAccount_1a5bee37079ee7d004de3afdaaed9ab46d}
+#### `public inline std::string `[`GetSecondary`](#classCAccount_1a5bee37079ee7d004de3afdaaed9ab46d)`() const` 
 
-#### `public inline void `[`SetSecondary`](#classCAccount_1a3224a50f3a821e05526cd0ddcd6d0d87)`(std::string szSecondary)` {#classCAccount_1a3224a50f3a821e05526cd0ddcd6d0d87}
+#### `public inline void `[`SetSecondary`](#classCAccount_1a3224a50f3a821e05526cd0ddcd6d0d87)`(std::string szSecondary)` 
 
-#### `public void `[`SendPlayerInfo`](#classCAccount_1a5082d85afb038c010d4a4cda8eddcb4e)`(Connection_T con)` {#classCAccount_1a5082d85afb038c010d4a4cda8eddcb4e}
+#### `public void `[`SendPlayerInfo`](#classCAccount_1a5082d85afb038c010d4a4cda8eddcb4e)`(Connection_T con)` 
 
-# class `CCharacter` {#classCCharacter}
+# class `CCharacter` 
 
 ## Summary
 
@@ -161,12 +163,12 @@
 `public bool `[`IsMState`](#classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171)`(__int64 n64MState)` | 
 `public bool `[`IsGStateEx`](#classCCharacter_1acbef8d19711780d3042290df28df8e97)`(__int64 n64GStateEx)` | 
 `public bool `[`IsMStateEx`](#classCCharacter_1a3998f7bb41290e11bce58171152c0895)`(__int64 n64MStateEx)` | 
-`public Packet `[`GenerateCreatePacket`](#classCCharacter_1a1216080cae148f57013556a9c71d5d47)`(bool bHero)` | 
-`public Packet `[`GeneratePetPacket`](#classCCharacter_1a2c02db3ce7549a8e756b5e6ed513f466)`()` | 
-`public Packet `[`GenerateDeletePacket`](#classCCharacter_1a96920fc061d3700cb16dc948d655dfe1)`()` | 
-`public Packet `[`GenerateMovePacket`](#classCCharacter_1a9e94e75db0314d6ccfea4b16f5042f25)`(BYTE byType,char byX,char byY,char byZ)` | 
-`public void `[`SendPacket`](#classCCharacter_1a0f29e023de5beddb6455d0f3b04950dd)`(Packet & packet)` | 
-`public bool `[`Tick`](#classCCharacter_1aec35ea939b95c689e3afddbe504987f8)`()` | 
+`public virtual Packet `[`GenerateCreatePacket`](#classCCharacter_1a96f8788d5511e2dc05b300518b73ebdb)`(bool bHero)` | 
+`public virtual Packet `[`GeneratePetPacket`](#classCCharacter_1a4f0669edcafe73a3eea7f153614f545d)`()` | 
+`public virtual Packet `[`GenerateDeletePacket`](#classCCharacter_1ab3debdc7f346843d009acb7c2a42e5ba)`()` | 
+`public virtual Packet `[`GenerateMovePacket`](#classCCharacter_1a408dc692b77e60db7a6871332ada6d84)`(BYTE byType,char byX,char byY,char byZ)` | 
+`public inline virtual void `[`SendPacket`](#classCCharacter_1ad3570e1c2917721b4d6bdc132402bfc1)`(Packet & packet)` | 
+`public inline virtual void `[`Tick`](#classCCharacter_1aaa3ad354eeb4fa16acf29211b89641ac)`()` | 
 `public bool `[`WriteInSight`](#classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66)`(BYTE byType,...)` | 
 `public void `[`SendPacketInSight`](#classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc)`(Packet & packet)` | 
 `public void `[`SetDirection`](#classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482)`(int nX,int nY)` | 
@@ -210,201 +212,201 @@
 
 ## Members
 
-#### `public Access `[`m_Access`](#classCCharacter_1a7c09b343980598688a971ce13995b884) {#classCCharacter_1a7c09b343980598688a971ce13995b884}
+#### `public Access `[`m_Access`](#classCCharacter_1a7c09b343980598688a971ce13995b884) 
 
-#### `public  `[`CCharacter`](#classCCharacter_1a94574d74f605d70d70acb96e01233adf)`()` {#classCCharacter_1a94574d74f605d70d70acb96e01233adf}
+#### `public  `[`CCharacter`](#classCCharacter_1a94574d74f605d70d70acb96e01233adf)`()` 
 
-#### `public inline void `[`Lock`](#classCCharacter_1a1c3cf4b18b5fc184d62770f10fa81851)`()` {#classCCharacter_1a1c3cf4b18b5fc184d62770f10fa81851}
+#### `public inline void `[`Lock`](#classCCharacter_1a1c3cf4b18b5fc184d62770f10fa81851)`()` 
 
-#### `public inline void `[`Unlock`](#classCCharacter_1a75454c5b85705b5f118bfb775085ae76)`()` {#classCCharacter_1a75454c5b85705b5f118bfb775085ae76}
+#### `public inline void `[`Unlock`](#classCCharacter_1a75454c5b85705b5f118bfb775085ae76)`()` 
 
-#### `public inline int `[`GetID`](#classCCharacter_1ad7f5f1742dc177fd2209648690b30190)`() const` {#classCCharacter_1ad7f5f1742dc177fd2209648690b30190}
+#### `public inline int `[`GetID`](#classCCharacter_1ad7f5f1742dc177fd2209648690b30190)`() const` 
 
-#### `public inline BYTE `[`GetKind`](#classCCharacter_1af268189e36a1bea406a5bbaa6670302d)`() const` {#classCCharacter_1af268189e36a1bea406a5bbaa6670302d}
+#### `public inline BYTE `[`GetKind`](#classCCharacter_1af268189e36a1bea406a5bbaa6670302d)`() const` 
 
-#### `public inline BYTE `[`GetClass`](#classCCharacter_1ad23b140d84b130c0424bfa334972fb0e)`() const` {#classCCharacter_1ad23b140d84b130c0424bfa334972fb0e}
+#### `public inline BYTE `[`GetClass`](#classCCharacter_1ad23b140d84b130c0424bfa334972fb0e)`() const` 
 
-#### `public inline virtual WORD `[`GetStr`](#classCCharacter_1a58744cb98cc68993d943e0ec2647306a)`() const` {#classCCharacter_1a58744cb98cc68993d943e0ec2647306a}
+#### `public inline virtual WORD `[`GetStr`](#classCCharacter_1a58744cb98cc68993d943e0ec2647306a)`() const` 
 
-#### `public inline virtual WORD `[`GetHth`](#classCCharacter_1a5240b51c5308228a33ba02e9f1dd2279)`() const` {#classCCharacter_1a5240b51c5308228a33ba02e9f1dd2279}
+#### `public inline virtual WORD `[`GetHth`](#classCCharacter_1a5240b51c5308228a33ba02e9f1dd2279)`() const` 
 
-#### `public inline virtual WORD `[`GetInt`](#classCCharacter_1aa6d3cd9981516a834e16bf7b1158c224)`() const` {#classCCharacter_1aa6d3cd9981516a834e16bf7b1158c224}
+#### `public inline virtual WORD `[`GetInt`](#classCCharacter_1aa6d3cd9981516a834e16bf7b1158c224)`() const` 
 
-#### `public inline virtual WORD `[`GetWis`](#classCCharacter_1ab5a1b339e78d7581131aaf19fc398b06)`() const` {#classCCharacter_1ab5a1b339e78d7581131aaf19fc398b06}
+#### `public inline virtual WORD `[`GetWis`](#classCCharacter_1ab5a1b339e78d7581131aaf19fc398b06)`() const` 
 
-#### `public inline virtual WORD `[`GetAgi`](#classCCharacter_1a60ed981680f1ae170d8f94f44accf080)`() const` {#classCCharacter_1a60ed981680f1ae170d8f94f44accf080}
+#### `public inline virtual WORD `[`GetAgi`](#classCCharacter_1a60ed981680f1ae170d8f94f44accf080)`() const` 
 
-#### `public inline DWORD `[`GetCurHP`](#classCCharacter_1a15ad355680c7702eb4b1e86e5df5d118)`() const` {#classCCharacter_1a15ad355680c7702eb4b1e86e5df5d118}
+#### `public inline DWORD `[`GetCurHP`](#classCCharacter_1a15ad355680c7702eb4b1e86e5df5d118)`() const` 
 
-#### `public inline WORD `[`GetCurMP`](#classCCharacter_1a8eeda86886aa7c0a652109823190fe89)`() const` {#classCCharacter_1a8eeda86886aa7c0a652109823190fe89}
+#### `public inline WORD `[`GetCurMP`](#classCCharacter_1a8eeda86886aa7c0a652109823190fe89)`() const` 
 
-#### `public inline virtual DWORD `[`GetMaxHP`](#classCCharacter_1a2c280eb02bd39dd245b48370db35ee2b)`() const` {#classCCharacter_1a2c280eb02bd39dd245b48370db35ee2b}
+#### `public inline virtual DWORD `[`GetMaxHP`](#classCCharacter_1a2c280eb02bd39dd245b48370db35ee2b)`() const` 
 
-#### `public inline virtual WORD `[`GetMaxMP`](#classCCharacter_1a210fba6eac3e87aae59c681195c48369)`() const` {#classCCharacter_1a210fba6eac3e87aae59c681195c48369}
+#### `public inline virtual WORD `[`GetMaxMP`](#classCCharacter_1a210fba6eac3e87aae59c681195c48369)`() const` 
 
-#### `public inline int `[`GetX`](#classCCharacter_1ab43af4e964cc23dde5b75840a77acd5e)`() const` {#classCCharacter_1ab43af4e964cc23dde5b75840a77acd5e}
+#### `public inline int `[`GetX`](#classCCharacter_1ab43af4e964cc23dde5b75840a77acd5e)`() const` 
 
-#### `public inline int `[`GetY`](#classCCharacter_1a849ceb26d2c01ec720f2fbd8ab1619d4)`() const` {#classCCharacter_1a849ceb26d2c01ec720f2fbd8ab1619d4}
+#### `public inline int `[`GetY`](#classCCharacter_1a849ceb26d2c01ec720f2fbd8ab1619d4)`() const` 
 
-#### `public inline int `[`GetZ`](#classCCharacter_1a74b10ffeef48e680bca8c761d84aca29)`() const` {#classCCharacter_1a74b10ffeef48e680bca8c761d84aca29}
+#### `public inline int `[`GetZ`](#classCCharacter_1a74b10ffeef48e680bca8c761d84aca29)`() const` 
 
-#### `public inline WORD `[`GetDir`](#classCCharacter_1ac8b2b38e896c0b82210a7c2d6b2c67d4)`() const` {#classCCharacter_1ac8b2b38e896c0b82210a7c2d6b2c67d4}
+#### `public inline WORD `[`GetDir`](#classCCharacter_1ac8b2b38e896c0b82210a7c2d6b2c67d4)`() const` 
 
-#### `public inline virtual BYTE `[`GetLevel`](#classCCharacter_1a377cc0f6a658e0416c742ccdcad4372f)`() const` {#classCCharacter_1a377cc0f6a658e0416c742ccdcad4372f}
+#### `public inline virtual BYTE `[`GetLevel`](#classCCharacter_1a377cc0f6a658e0416c742ccdcad4372f)`() const` 
 
-#### `public inline virtual WORD `[`GetHit`](#classCCharacter_1a56435a6058690cffe37840e76eeeca87)`() const` {#classCCharacter_1a56435a6058690cffe37840e76eeeca87}
+#### `public inline virtual WORD `[`GetHit`](#classCCharacter_1a56435a6058690cffe37840e76eeeca87)`() const` 
 
-#### `public inline virtual WORD `[`GetDodge`](#classCCharacter_1afff27b3e1caa3764f7a23f0d927e5af7)`() const` {#classCCharacter_1afff27b3e1caa3764f7a23f0d927e5af7}
+#### `public inline virtual WORD `[`GetDodge`](#classCCharacter_1afff27b3e1caa3764f7a23f0d927e5af7)`() const` 
 
-#### `public inline virtual WORD `[`GetDefense`](#classCCharacter_1a6cccec4a70a9534265aff8c70ee10d5f)`() const` {#classCCharacter_1a6cccec4a70a9534265aff8c70ee10d5f}
+#### `public inline virtual WORD `[`GetDefense`](#classCCharacter_1a6cccec4a70a9534265aff8c70ee10d5f)`() const` 
 
-#### `public inline virtual BYTE `[`GetAbsorb`](#classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e)`() const` {#classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e}
+#### `public inline virtual BYTE `[`GetAbsorb`](#classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e)`() const` 
 
-#### `public inline virtual WORD `[`GetMinAttack`](#classCCharacter_1a7e9ccca9b9c5515fb358829cd1ca3db6)`() const` {#classCCharacter_1a7e9ccca9b9c5515fb358829cd1ca3db6}
+#### `public inline virtual WORD `[`GetMinAttack`](#classCCharacter_1a7e9ccca9b9c5515fb358829cd1ca3db6)`() const` 
 
-#### `public inline virtual WORD `[`GetMaxAttack`](#classCCharacter_1a72aca8cd8b2f435ea57c842fa6c06991)`() const` {#classCCharacter_1a72aca8cd8b2f435ea57c842fa6c06991}
+#### `public inline virtual WORD `[`GetMaxAttack`](#classCCharacter_1a72aca8cd8b2f435ea57c842fa6c06991)`() const` 
 
-#### `public inline virtual WORD `[`GetMinMagic`](#classCCharacter_1ae5f14202b5ee6c43930462b7c9632d30)`() const` {#classCCharacter_1ae5f14202b5ee6c43930462b7c9632d30}
+#### `public inline virtual WORD `[`GetMinMagic`](#classCCharacter_1ae5f14202b5ee6c43930462b7c9632d30)`() const` 
 
-#### `public inline virtual WORD `[`GetMaxMagic`](#classCCharacter_1a1fc2bd31eea1bc2907077a5dd8e9fdf8)`() const` {#classCCharacter_1a1fc2bd31eea1bc2907077a5dd8e9fdf8}
+#### `public inline virtual WORD `[`GetMaxMagic`](#classCCharacter_1a1fc2bd31eea1bc2907077a5dd8e9fdf8)`() const` 
 
-#### `public inline virtual WORD `[`GetResist`](#classCCharacter_1ad1b2b1bc32824f8b446e04e59079caab)`(BYTE byResist) const` {#classCCharacter_1ad1b2b1bc32824f8b446e04e59079caab}
+#### `public inline virtual WORD `[`GetResist`](#classCCharacter_1ad1b2b1bc32824f8b446e04e59079caab)`(BYTE byResist) const` 
 
-#### `public WORD `[`GetAttack`](#classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a)`() const` {#classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a}
+#### `public WORD `[`GetAttack`](#classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a)`() const` 
 
-#### `public WORD `[`GetMagic`](#classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a)`() const` {#classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a}
+#### `public WORD `[`GetMagic`](#classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a)`() const` 
 
-#### `public bool `[`CheckHit`](#classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e)`(CCharacter * pTarget) const` {#classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e}
+#### `public bool `[`CheckHit`](#classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e)`(CCharacter * pTarget) const` 
 
-#### `public DWORD `[`GetFinalDamage`](#classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31)`(CCharacter * pAttacker,DWORD dwDamage)` {#classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31}
+#### `public DWORD `[`GetFinalDamage`](#classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31)`(CCharacter * pAttacker,DWORD dwDamage)` 
 
-#### `public DWORD `[`GetFatalDamage`](#classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1)`(DWORD dwFinalDamage,BYTE & byType)` {#classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1}
+#### `public DWORD `[`GetFatalDamage`](#classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1)`(DWORD dwFinalDamage,BYTE & byType)` 
 
-#### `public inline __int64 `[`GetGState`](#classCCharacter_1abb9fb45114752bd3e127c79e32d3b5f4)`() const` {#classCCharacter_1abb9fb45114752bd3e127c79e32d3b5f4}
+#### `public inline __int64 `[`GetGState`](#classCCharacter_1abb9fb45114752bd3e127c79e32d3b5f4)`() const` 
 
-#### `public inline __int64 `[`GetMState`](#classCCharacter_1aa0a340e1becaead14f794ff013f39cae)`() const` {#classCCharacter_1aa0a340e1becaead14f794ff013f39cae}
+#### `public inline __int64 `[`GetMState`](#classCCharacter_1aa0a340e1becaead14f794ff013f39cae)`() const` 
 
-#### `public inline __int64 `[`GetGStateEx`](#classCCharacter_1aa8f2c178d15eda870a7ac001069cfd03)`() const` {#classCCharacter_1aa8f2c178d15eda870a7ac001069cfd03}
+#### `public inline __int64 `[`GetGStateEx`](#classCCharacter_1aa8f2c178d15eda870a7ac001069cfd03)`() const` 
 
-#### `public inline __int64 `[`GetMStateEx`](#classCCharacter_1a325a9a67f4565ea58e5d5ef3d2960a64)`() const` {#classCCharacter_1a325a9a67f4565ea58e5d5ef3d2960a64}
+#### `public inline __int64 `[`GetMStateEx`](#classCCharacter_1a325a9a67f4565ea58e5d5ef3d2960a64)`() const` 
 
-#### `public void `[`AddGState`](#classCCharacter_1af38c38bdb5d7c371e786e2c933a9466a)`(__int64 n64GState)` {#classCCharacter_1af38c38bdb5d7c371e786e2c933a9466a}
+#### `public void `[`AddGState`](#classCCharacter_1af38c38bdb5d7c371e786e2c933a9466a)`(__int64 n64GState)` 
 
-#### `public void `[`AddMState`](#classCCharacter_1aefea6662e4aef15ae8c734697eaaac25)`(__int64 n64MState)` {#classCCharacter_1aefea6662e4aef15ae8c734697eaaac25}
+#### `public void `[`AddMState`](#classCCharacter_1aefea6662e4aef15ae8c734697eaaac25)`(__int64 n64MState)` 
 
-#### `public void `[`AddGStateEx`](#classCCharacter_1a45e2cc520af9e829b399f1ba0e7dd82e)`(__int64 n64GStateEx)` {#classCCharacter_1a45e2cc520af9e829b399f1ba0e7dd82e}
+#### `public void `[`AddGStateEx`](#classCCharacter_1a45e2cc520af9e829b399f1ba0e7dd82e)`(__int64 n64GStateEx)` 
 
-#### `public void `[`AddMStateEx`](#classCCharacter_1a86c04d0aacd6c83484c7bd4a69c0f2e4)`(__int64 n64MStateEx)` {#classCCharacter_1a86c04d0aacd6c83484c7bd4a69c0f2e4}
+#### `public void `[`AddMStateEx`](#classCCharacter_1a86c04d0aacd6c83484c7bd4a69c0f2e4)`(__int64 n64MStateEx)` 
 
-#### `public void `[`SubGState`](#classCCharacter_1ac55904391a0295a865e8d7593f5f61b8)`(__int64 n64GState)` {#classCCharacter_1ac55904391a0295a865e8d7593f5f61b8}
+#### `public void `[`SubGState`](#classCCharacter_1ac55904391a0295a865e8d7593f5f61b8)`(__int64 n64GState)` 
 
-#### `public void `[`SubMState`](#classCCharacter_1a73a3e166928352776f2be316767730a6)`(__int64 n64MState)` {#classCCharacter_1a73a3e166928352776f2be316767730a6}
+#### `public void `[`SubMState`](#classCCharacter_1a73a3e166928352776f2be316767730a6)`(__int64 n64MState)` 
 
-#### `public void `[`SubGStateEx`](#classCCharacter_1ae80b266496b646cadbe3fc5a4b1eff24)`(__int64 n64GStateEx)` {#classCCharacter_1ae80b266496b646cadbe3fc5a4b1eff24}
+#### `public void `[`SubGStateEx`](#classCCharacter_1ae80b266496b646cadbe3fc5a4b1eff24)`(__int64 n64GStateEx)` 
 
-#### `public void `[`SubMStateEx`](#classCCharacter_1a29926f9323d2091c8d824ff3325024b5)`(__int64 n64MStateEx)` {#classCCharacter_1a29926f9323d2091c8d824ff3325024b5}
+#### `public void `[`SubMStateEx`](#classCCharacter_1a29926f9323d2091c8d824ff3325024b5)`(__int64 n64MStateEx)` 
 
-#### `public bool `[`IsGState`](#classCCharacter_1a854edafae6cdccd8250aab74e6991486)`(__int64 n64GState)` {#classCCharacter_1a854edafae6cdccd8250aab74e6991486}
+#### `public bool `[`IsGState`](#classCCharacter_1a854edafae6cdccd8250aab74e6991486)`(__int64 n64GState)` 
 
-#### `public bool `[`IsMState`](#classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171)`(__int64 n64MState)` {#classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171}
+#### `public bool `[`IsMState`](#classCCharacter_1a8d6040120fa1c55e7469d7d2cbdfb171)`(__int64 n64MState)` 
 
-#### `public bool `[`IsGStateEx`](#classCCharacter_1acbef8d19711780d3042290df28df8e97)`(__int64 n64GStateEx)` {#classCCharacter_1acbef8d19711780d3042290df28df8e97}
+#### `public bool `[`IsGStateEx`](#classCCharacter_1acbef8d19711780d3042290df28df8e97)`(__int64 n64GStateEx)` 
 
-#### `public bool `[`IsMStateEx`](#classCCharacter_1a3998f7bb41290e11bce58171152c0895)`(__int64 n64MStateEx)` {#classCCharacter_1a3998f7bb41290e11bce58171152c0895}
+#### `public bool `[`IsMStateEx`](#classCCharacter_1a3998f7bb41290e11bce58171152c0895)`(__int64 n64MStateEx)` 
 
-#### `public Packet `[`GenerateCreatePacket`](#classCCharacter_1a1216080cae148f57013556a9c71d5d47)`(bool bHero)` {#classCCharacter_1a1216080cae148f57013556a9c71d5d47}
+#### `public virtual Packet `[`GenerateCreatePacket`](#classCCharacter_1a96f8788d5511e2dc05b300518b73ebdb)`(bool bHero)` 
 
-#### `public Packet `[`GeneratePetPacket`](#classCCharacter_1a2c02db3ce7549a8e756b5e6ed513f466)`()` {#classCCharacter_1a2c02db3ce7549a8e756b5e6ed513f466}
+#### `public virtual Packet `[`GeneratePetPacket`](#classCCharacter_1a4f0669edcafe73a3eea7f153614f545d)`()` 
 
-#### `public Packet `[`GenerateDeletePacket`](#classCCharacter_1a96920fc061d3700cb16dc948d655dfe1)`()` {#classCCharacter_1a96920fc061d3700cb16dc948d655dfe1}
+#### `public virtual Packet `[`GenerateDeletePacket`](#classCCharacter_1ab3debdc7f346843d009acb7c2a42e5ba)`()` 
 
-#### `public Packet `[`GenerateMovePacket`](#classCCharacter_1a9e94e75db0314d6ccfea4b16f5042f25)`(BYTE byType,char byX,char byY,char byZ)` {#classCCharacter_1a9e94e75db0314d6ccfea4b16f5042f25}
+#### `public virtual Packet `[`GenerateMovePacket`](#classCCharacter_1a408dc692b77e60db7a6871332ada6d84)`(BYTE byType,char byX,char byY,char byZ)` 
 
-#### `public void `[`SendPacket`](#classCCharacter_1a0f29e023de5beddb6455d0f3b04950dd)`(Packet & packet)` {#classCCharacter_1a0f29e023de5beddb6455d0f3b04950dd}
+#### `public inline virtual void `[`SendPacket`](#classCCharacter_1ad3570e1c2917721b4d6bdc132402bfc1)`(Packet & packet)` 
 
-#### `public bool `[`Tick`](#classCCharacter_1aec35ea939b95c689e3afddbe504987f8)`()` {#classCCharacter_1aec35ea939b95c689e3afddbe504987f8}
+#### `public inline virtual void `[`Tick`](#classCCharacter_1aaa3ad354eeb4fa16acf29211b89641ac)`()` 
 
-#### `public bool `[`WriteInSight`](#classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66)`(BYTE byType,...)` {#classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66}
+#### `public bool `[`WriteInSight`](#classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66)`(BYTE byType,...)` 
 
-#### `public void `[`SendPacketInSight`](#classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc)`(Packet & packet)` {#classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc}
+#### `public void `[`SendPacketInSight`](#classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc)`(Packet & packet)` 
 
-#### `public void `[`SetDirection`](#classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482)`(int nX,int nY)` {#classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482}
+#### `public void `[`SetDirection`](#classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482)`(int nX,int nY)` 
 
-#### `public inline void `[`SetDirection`](#classCCharacter_1ad10316950dde5427e21eeed010f8922c)`(CCharacter * pCharacter)` {#classCCharacter_1ad10316950dde5427e21eeed010f8922c}
+#### `public inline void `[`SetDirection`](#classCCharacter_1ad10316950dde5427e21eeed010f8922c)`(CCharacter * pCharacter)` 
 
-#### `public inline bool `[`IsNormal`](#classCCharacter_1aafda97f59c31a5213d2c3891137f03ca)`()` {#classCCharacter_1aafda97f59c31a5213d2c3891137f03ca}
+#### `public inline bool `[`IsNormal`](#classCCharacter_1aafda97f59c31a5213d2c3891137f03ca)`()` 
 
-#### `public inline virtual void `[`Damage`](#classCCharacter_1ac83eb913462cc822b7a8603a1e78fd97)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` {#classCCharacter_1ac83eb913462cc822b7a8603a1e78fd97}
+#### `public inline virtual void `[`Damage`](#classCCharacter_1ac83eb913462cc822b7a8603a1e78fd97)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` 
 
-#### `public inline virtual void `[`Die`](#classCCharacter_1af5ed7b39fc9af23953936bbf7d4190b4)`()` {#classCCharacter_1af5ed7b39fc9af23953936bbf7d4190b4}
+#### `public inline virtual void `[`Die`](#classCCharacter_1af5ed7b39fc9af23953936bbf7d4190b4)`()` 
 
-#### `public BYTE `[`GetMoveAction`](#classCCharacter_1a60939bf801ffa3abc0799338445b953e)`(CCharacter * pCharacter,char byX,char byY)` {#classCCharacter_1a60939bf801ffa3abc0799338445b953e}
+#### `public BYTE `[`GetMoveAction`](#classCCharacter_1a60939bf801ffa3abc0799338445b953e)`(CCharacter * pCharacter,char byX,char byY)` 
 
-#### `public int `[`GetDistance`](#classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb)`(CCharacter * pCharacter)` {#classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb}
+#### `public int `[`GetDistance`](#classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb)`(CCharacter * pCharacter)` 
 
-#### `protected int `[`m_nID`](#classCCharacter_1a5100b377fbde4fe13ee4bed308139519) {#classCCharacter_1a5100b377fbde4fe13ee4bed308139519}
+#### `protected int `[`m_nID`](#classCCharacter_1a5100b377fbde4fe13ee4bed308139519) 
 
-#### `protected WORD `[`m_wStrAdd`](#classCCharacter_1a1bb083b5de32db494e01c80e20e682d1) {#classCCharacter_1a1bb083b5de32db494e01c80e20e682d1}
+#### `protected WORD `[`m_wStrAdd`](#classCCharacter_1a1bb083b5de32db494e01c80e20e682d1) 
 
-#### `protected WORD `[`m_wHthAdd`](#classCCharacter_1a6dfef75d0df714aac08bd03625228ab7) {#classCCharacter_1a6dfef75d0df714aac08bd03625228ab7}
+#### `protected WORD `[`m_wHthAdd`](#classCCharacter_1a6dfef75d0df714aac08bd03625228ab7) 
 
-#### `protected WORD `[`m_wIntAdd`](#classCCharacter_1ad0a9a9780e0b9b2c75f1784c9af75da3) {#classCCharacter_1ad0a9a9780e0b9b2c75f1784c9af75da3}
+#### `protected WORD `[`m_wIntAdd`](#classCCharacter_1ad0a9a9780e0b9b2c75f1784c9af75da3) 
 
-#### `protected WORD `[`m_wWisAdd`](#classCCharacter_1a12152eb9465ec3d5e3d30d9de65ac77d) {#classCCharacter_1a12152eb9465ec3d5e3d30d9de65ac77d}
+#### `protected WORD `[`m_wWisAdd`](#classCCharacter_1a12152eb9465ec3d5e3d30d9de65ac77d) 
 
-#### `protected WORD `[`m_wDexAdd`](#classCCharacter_1a146be16d3e5e67df90bb49591d5cac5b) {#classCCharacter_1a146be16d3e5e67df90bb49591d5cac5b}
+#### `protected WORD `[`m_wDexAdd`](#classCCharacter_1a146be16d3e5e67df90bb49591d5cac5b) 
 
-#### `protected DWORD `[`m_nCurHP`](#classCCharacter_1a233168733923400c942e8db32153fd93) {#classCCharacter_1a233168733923400c942e8db32153fd93}
+#### `protected DWORD `[`m_nCurHP`](#classCCharacter_1a233168733923400c942e8db32153fd93) 
 
-#### `protected WORD `[`m_wCurMP`](#classCCharacter_1a7c2e8eaef126696d9b2c8d1598c8f218) {#classCCharacter_1a7c2e8eaef126696d9b2c8d1598c8f218}
+#### `protected WORD `[`m_wCurMP`](#classCCharacter_1a7c2e8eaef126696d9b2c8d1598c8f218) 
 
-#### `protected int `[`m_nX`](#classCCharacter_1a575aaf88f15cbcf470d24c9daf108031) {#classCCharacter_1a575aaf88f15cbcf470d24c9daf108031}
+#### `protected int `[`m_nX`](#classCCharacter_1a575aaf88f15cbcf470d24c9daf108031) 
 
-#### `protected int `[`m_nY`](#classCCharacter_1abfcc5499774eaa139a48d05bb5ddb89d) {#classCCharacter_1abfcc5499774eaa139a48d05bb5ddb89d}
+#### `protected int `[`m_nY`](#classCCharacter_1abfcc5499774eaa139a48d05bb5ddb89d) 
 
-#### `protected int `[`m_nZ`](#classCCharacter_1afa7d5ce0dc10dc4e14e7b1a0d4c73256) {#classCCharacter_1afa7d5ce0dc10dc4e14e7b1a0d4c73256}
+#### `protected int `[`m_nZ`](#classCCharacter_1afa7d5ce0dc10dc4e14e7b1a0d4c73256) 
 
-#### `protected BYTE `[`m_byClass`](#classCCharacter_1a3fa27ddd90e660b4611b2e02c2128313) {#classCCharacter_1a3fa27ddd90e660b4611b2e02c2128313}
+#### `protected BYTE `[`m_byClass`](#classCCharacter_1a3fa27ddd90e660b4611b2e02c2128313) 
 
-#### `protected WORD `[`m_wHitAdd`](#classCCharacter_1af77f7347c4a427d76bcfc417f346d336) {#classCCharacter_1af77f7347c4a427d76bcfc417f346d336}
+#### `protected WORD `[`m_wHitAdd`](#classCCharacter_1af77f7347c4a427d76bcfc417f346d336) 
 
-#### `protected WORD `[`m_wDodgeAdd`](#classCCharacter_1a6bee344fec334262c3f9037379953a7f) {#classCCharacter_1a6bee344fec334262c3f9037379953a7f}
+#### `protected WORD `[`m_wDodgeAdd`](#classCCharacter_1a6bee344fec334262c3f9037379953a7f) 
 
-#### `protected DWORD `[`m_dwMaxHPAdd`](#classCCharacter_1ac970b808f13dcb0871540d81b61a0494) {#classCCharacter_1ac970b808f13dcb0871540d81b61a0494}
+#### `protected DWORD `[`m_dwMaxHPAdd`](#classCCharacter_1ac970b808f13dcb0871540d81b61a0494) 
 
-#### `protected WORD `[`m_wMaxMPAdd`](#classCCharacter_1aa6e8742b8d3c7998496095899d6c2dd2) {#classCCharacter_1aa6e8742b8d3c7998496095899d6c2dd2}
+#### `protected WORD `[`m_wMaxMPAdd`](#classCCharacter_1aa6e8742b8d3c7998496095899d6c2dd2) 
 
-#### `protected WORD `[`m_wMinAttackAdd`](#classCCharacter_1aae5f38b035432bb180ae18ef1260cbb1) {#classCCharacter_1aae5f38b035432bb180ae18ef1260cbb1}
+#### `protected WORD `[`m_wMinAttackAdd`](#classCCharacter_1aae5f38b035432bb180ae18ef1260cbb1) 
 
-#### `protected WORD `[`m_wMaxAttackAdd`](#classCCharacter_1a56e544a4b59c4b23ebcbada5db7c20be) {#classCCharacter_1a56e544a4b59c4b23ebcbada5db7c20be}
+#### `protected WORD `[`m_wMaxAttackAdd`](#classCCharacter_1a56e544a4b59c4b23ebcbada5db7c20be) 
 
-#### `protected WORD `[`m_wMinMagicAdd`](#classCCharacter_1a691b8d50ec927a5663455515e1b8c9c6) {#classCCharacter_1a691b8d50ec927a5663455515e1b8c9c6}
+#### `protected WORD `[`m_wMinMagicAdd`](#classCCharacter_1a691b8d50ec927a5663455515e1b8c9c6) 
 
-#### `protected WORD `[`m_wMaxMagicAdd`](#classCCharacter_1acab6d919bb5e7cb1df0054450920b1fc) {#classCCharacter_1acab6d919bb5e7cb1df0054450920b1fc}
+#### `protected WORD `[`m_wMaxMagicAdd`](#classCCharacter_1acab6d919bb5e7cb1df0054450920b1fc) 
 
-#### `protected WORD `[`m_wResistFireAdd`](#classCCharacter_1a0382beebaccc6b3581526aaa6a64f45f) {#classCCharacter_1a0382beebaccc6b3581526aaa6a64f45f}
+#### `protected WORD `[`m_wResistFireAdd`](#classCCharacter_1a0382beebaccc6b3581526aaa6a64f45f) 
 
-#### `protected WORD `[`m_wResistIceAdd`](#classCCharacter_1ac4863e7c549efbf181891340d84d96d2) {#classCCharacter_1ac4863e7c549efbf181891340d84d96d2}
+#### `protected WORD `[`m_wResistIceAdd`](#classCCharacter_1ac4863e7c549efbf181891340d84d96d2) 
 
-#### `protected WORD `[`m_wResistLitningAdd`](#classCCharacter_1a8613bea5d897b0afead970258c3c6473) {#classCCharacter_1a8613bea5d897b0afead970258c3c6473}
+#### `protected WORD `[`m_wResistLitningAdd`](#classCCharacter_1a8613bea5d897b0afead970258c3c6473) 
 
-#### `protected WORD `[`m_wResistCurseAdd`](#classCCharacter_1adf134d13bd080a71f0ee77e832bd606f) {#classCCharacter_1adf134d13bd080a71f0ee77e832bd606f}
+#### `protected WORD `[`m_wResistCurseAdd`](#classCCharacter_1adf134d13bd080a71f0ee77e832bd606f) 
 
-#### `protected WORD `[`m_wResistPalsyAdd`](#classCCharacter_1a3029ff4022f676a8465f51cc738764ca) {#classCCharacter_1a3029ff4022f676a8465f51cc738764ca}
+#### `protected WORD `[`m_wResistPalsyAdd`](#classCCharacter_1a3029ff4022f676a8465f51cc738764ca) 
 
-#### `protected WORD `[`m_wDir`](#classCCharacter_1ada406988f032855f9aed19145db3076e) {#classCCharacter_1ada406988f032855f9aed19145db3076e}
+#### `protected WORD `[`m_wDir`](#classCCharacter_1ada406988f032855f9aed19145db3076e) 
 
-#### `protected __int64 `[`m_n64GState`](#classCCharacter_1a3ee4eea5b273de4f9d60a0d3e993b9dd) {#classCCharacter_1a3ee4eea5b273de4f9d60a0d3e993b9dd}
+#### `protected __int64 `[`m_n64GState`](#classCCharacter_1a3ee4eea5b273de4f9d60a0d3e993b9dd) 
 
-#### `protected __int64 `[`m_n64MState`](#classCCharacter_1a0ffb595a7f713235f2e4db171c6df5d0) {#classCCharacter_1a0ffb595a7f713235f2e4db171c6df5d0}
+#### `protected __int64 `[`m_n64MState`](#classCCharacter_1a0ffb595a7f713235f2e4db171c6df5d0) 
 
-#### `protected __int64 `[`m_n64GStateEx`](#classCCharacter_1a57a0d5731bda059fe301957c115cc909) {#classCCharacter_1a57a0d5731bda059fe301957c115cc909}
+#### `protected __int64 `[`m_n64GStateEx`](#classCCharacter_1a57a0d5731bda059fe301957c115cc909) 
 
-#### `protected __int64 `[`m_n64MStateEx`](#classCCharacter_1a394aca418b2a9fdb79b5de2aa0b8456c) {#classCCharacter_1a394aca418b2a9fdb79b5de2aa0b8456c}
+#### `protected __int64 `[`m_n64MStateEx`](#classCCharacter_1a394aca418b2a9fdb79b5de2aa0b8456c) 
 
-#### `protected BYTE `[`m_byKind`](#classCCharacter_1a6d5bea65ba62c3392077f4a851f7d770) {#classCCharacter_1a6d5bea65ba62c3392077f4a851f7d770}
+#### `protected BYTE `[`m_byKind`](#classCCharacter_1a6d5bea65ba62c3392077f4a851f7d770) 
 
-# class `CClient` {#classCClient}
+# class `CClient` 
 
 ## Summary
 
@@ -432,54 +434,45 @@
 
 ## Members
 
-#### `public Access `[`m_Access`](#classCClient_1adb2dbfc0aca4e475b41d9f65b1b2f15e) {#classCClient_1adb2dbfc0aca4e475b41d9f65b1b2f15e}
+#### `public Access `[`m_Access`](#classCClient_1adb2dbfc0aca4e475b41d9f65b1b2f15e) 
 
-#### `public inline  `[`CClient`](#classCClient_1a4092fee044e82df0fb5164b36a56d401)`(int nCID)` {#classCClient_1a4092fee044e82df0fb5164b36a56d401}
+#### `public inline  `[`CClient`](#classCClient_1a4092fee044e82df0fb5164b36a56d401)`(int nCID)` 
 
-#### `public  `[`~CClient`](#classCClient_1adfec5dfb8d13c1245020e52aac0812b1)`()` {#classCClient_1adfec5dfb8d13c1245020e52aac0812b1}
+#### `public  `[`~CClient`](#classCClient_1adfec5dfb8d13c1245020e52aac0812b1)`()` 
 
-#### `public bool `[`Write`](#classCClient_1acaf14202e441a6f768baba78ae8657ba)`(BYTE byType,...)` {#classCClient_1acaf14202e441a6f768baba78ae8657ba}
+#### `public bool `[`Write`](#classCClient_1acaf14202e441a6f768baba78ae8657ba)`(BYTE byType,...)` 
 
-#### `public void `[`Process`](#classCClient_1a1362876b107a0215647c59cd5a5451c9)`(Packet packet)` {#classCClient_1a1362876b107a0215647c59cd5a5451c9}
+#### `public void `[`Process`](#classCClient_1a1362876b107a0215647c59cd5a5451c9)`(Packet packet)` 
 
-#### `public inline void `[`Lock`](#classCClient_1af920a05bd08aae9358b2b3cf44700f71)`()` {#classCClient_1af920a05bd08aae9358b2b3cf44700f71}
+#### `public inline void `[`Lock`](#classCClient_1af920a05bd08aae9358b2b3cf44700f71)`()` 
 
-#### `public inline void `[`Unlock`](#classCClient_1a86533589cea9105bc648dd6fb04435f5)`()` {#classCClient_1a86533589cea9105bc648dd6fb04435f5}
+#### `public inline void `[`Unlock`](#classCClient_1a86533589cea9105bc648dd6fb04435f5)`()` 
 
-#### `public inline void `[`SetMAC`](#classCClient_1a25f5afad884d5189e5c5323caadbd515)`(std::string szMac)` {#classCClient_1a25f5afad884d5189e5c5323caadbd515}
+#### `public inline void `[`SetMAC`](#classCClient_1a25f5afad884d5189e5c5323caadbd515)`(std::string szMac)` 
 
-#### `public inline std::string `[`GetMAC`](#classCClient_1af64bc448af86fd34517f03d580900529)`() const` {#classCClient_1af64bc448af86fd34517f03d580900529}
+#### `public inline std::string `[`GetMAC`](#classCClient_1af64bc448af86fd34517f03d580900529)`() const` 
 
-#### `public inline void `[`SetLogin`](#classCClient_1a4fe2ece49363de49add4013531a29a6d)`(std::string szLogin)` {#classCClient_1a4fe2ece49363de49add4013531a29a6d}
+#### `public inline void `[`SetLogin`](#classCClient_1a4fe2ece49363de49add4013531a29a6d)`(std::string szLogin)` 
 
-#### `public inline std::string `[`GetLogin`](#classCClient_1a27459bf9bebd7cfa95d274b513079950)`() const` {#classCClient_1a27459bf9bebd7cfa95d274b513079950}
+#### `public inline std::string `[`GetLogin`](#classCClient_1a27459bf9bebd7cfa95d274b513079950)`() const` 
 
-#### `public inline void `[`SetPassword`](#classCClient_1a89236ebf751c30c1f4c21a60c5777c07)`(std::string szPassword)` {#classCClient_1a89236ebf751c30c1f4c21a60c5777c07}
+#### `public inline void `[`SetPassword`](#classCClient_1a89236ebf751c30c1f4c21a60c5777c07)`(std::string szPassword)` 
 
-#### `public inline std::string `[`GetPassword`](#classCClient_1a70271a57361ec5cfa25a4ddefa2c3728)`() const` {#classCClient_1a70271a57361ec5cfa25a4ddefa2c3728}
+#### `public inline std::string `[`GetPassword`](#classCClient_1a70271a57361ec5cfa25a4ddefa2c3728)`() const` 
 
-#### `public inline int `[`GetCID`](#classCClient_1a81eaf7cd6de91784fdbf2e0410f3b593)`() const` {#classCClient_1a81eaf7cd6de91784fdbf2e0410f3b593}
+#### `public inline int `[`GetCID`](#classCClient_1a81eaf7cd6de91784fdbf2e0410f3b593)`() const` 
 
-#### `public inline CPlayer * `[`GetPlayer`](#classCClient_1a5b1516cd6b0c6908160c03fddc35c095)`() const` {#classCClient_1a5b1516cd6b0c6908160c03fddc35c095}
+#### `public inline CPlayer * `[`GetPlayer`](#classCClient_1a5b1516cd6b0c6908160c03fddc35c095)`() const` 
 
-#### `public inline void `[`RemovePlayer`](#classCClient_1a3b4ab8844e7415c3b0c58c5db123a739)`()` {#classCClient_1a3b4ab8844e7415c3b0c58c5db123a739}
+#### `public inline void `[`RemovePlayer`](#classCClient_1a3b4ab8844e7415c3b0c58c5db123a739)`()` 
 
-#### `public void `[`OnLogin`](#classCClient_1af86a2bd31a3928d8ce1da75d55cae277)`(char * p)` {#classCClient_1af86a2bd31a3928d8ce1da75d55cae277}
+#### `public void `[`OnLogin`](#classCClient_1af86a2bd31a3928d8ce1da75d55cae277)`(char * p)` 
 
-#### `public char * `[`OnLoadPlayer`](#classCClient_1a40593b06716a5f2ab93a283035416632)`(char * p)` {#classCClient_1a40593b06716a5f2ab93a283035416632}
+#### `public char * `[`OnLoadPlayer`](#classCClient_1a40593b06716a5f2ab93a283035416632)`(char * p)` 
 
-#### `public void `[`OnLoadItems`](#classCClient_1ae388aca737d8706c0d78d851b993fd81)`(char * p)` {#classCClient_1ae388aca737d8706c0d78d851b993fd81}
+#### `public void `[`OnLoadItems`](#classCClient_1ae388aca737d8706c0d78d851b993fd81)`(char * p)` 
 
-# class `CClientSocket` {#classCClientSocket}
-
-## Summary
-
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-
-## Members
-
-# class `CDatabase` {#classCDatabase}
+# class `CClientSocket` 
 
 ## Summary
 
@@ -488,7 +481,7 @@
 
 ## Members
 
-# class `CDBSocket` {#classCDBSocket}
+# class `CDatabase` 
 
 ## Summary
 
@@ -497,7 +490,16 @@
 
 ## Members
 
-# class `CItem` {#classCItem}
+# class `CDBSocket` 
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+
+## Members
+
+# class `CItem` 
 
 ## Summary
 
@@ -533,61 +535,61 @@
 
 ## Members
 
-#### `public Access `[`m_Access`](#classCItem_1a0b2e1cfa343aa2de2fe16c427677ed2c) {#classCItem_1a0b2e1cfa343aa2de2fe16c427677ed2c}
+#### `public Access `[`m_Access`](#classCItem_1a0b2e1cfa343aa2de2fe16c427677ed2c) 
 
-#### `public  `[`CItem`](#classCItem_1a3b0faf4a5b905b09697a002910cc22d7)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItem_1a3b0faf4a5b905b09697a002910cc22d7}
+#### `public  `[`CItem`](#classCItem_1a3b0faf4a5b905b09697a002910cc22d7)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public  `[`~CItem`](#classCItem_1a2487c6e822ed0e850544f1745b43f584)`()` {#classCItem_1a2487c6e822ed0e850544f1745b43f584}
+#### `public  `[`~CItem`](#classCItem_1a2487c6e822ed0e850544f1745b43f584)`()` 
 
-#### `public inline int `[`GetIID`](#classCItem_1a6397b70896999b6e281a68da540ae8e3)`() const` {#classCItem_1a6397b70896999b6e281a68da540ae8e3}
+#### `public inline int `[`GetIID`](#classCItem_1a6397b70896999b6e281a68da540ae8e3)`() const` 
 
-#### `public inline int `[`GetInfo`](#classCItem_1a65c14c3be072bbd1f10cb597a3afb524)`() const` {#classCItem_1a65c14c3be072bbd1f10cb597a3afb524}
+#### `public inline int `[`GetInfo`](#classCItem_1a65c14c3be072bbd1f10cb597a3afb524)`() const` 
 
-#### `public inline int `[`GetNum`](#classCItem_1ae7e44327c71d7b0a73c522be9be49fc2)`() const` {#classCItem_1ae7e44327c71d7b0a73c522be9be49fc2}
+#### `public inline int `[`GetNum`](#classCItem_1ae7e44327c71d7b0a73c522be9be49fc2)`() const` 
 
-#### `public inline void `[`SetNum`](#classCItem_1ae3d488c1f9fe85b86ed70ed0045d1c42)`(int nNum)` {#classCItem_1ae3d488c1f9fe85b86ed70ed0045d1c42}
+#### `public inline void `[`SetNum`](#classCItem_1ae3d488c1f9fe85b86ed70ed0045d1c42)`(int nNum)` 
 
-#### `public inline WORD `[`GetIndex`](#classCItem_1a429b6bbc45c497966208f4787614b848)`() const` {#classCItem_1a429b6bbc45c497966208f4787614b848}
+#### `public inline WORD `[`GetIndex`](#classCItem_1a429b6bbc45c497966208f4787614b848)`() const` 
 
-#### `public inline BYTE `[`GetLevel`](#classCItem_1ac3c97b8250fb9ed4e05643d8cf8be1d1)`() const` {#classCItem_1ac3c97b8250fb9ed4e05643d8cf8be1d1}
+#### `public inline BYTE `[`GetLevel`](#classCItem_1ac3c97b8250fb9ed4e05643d8cf8be1d1)`() const` 
 
-#### `public inline BYTE `[`GetClass`](#classCItem_1a0d1dd3dcf572d3b926db29c79ae3c957)`() const` {#classCItem_1a0d1dd3dcf572d3b926db29c79ae3c957}
+#### `public inline BYTE `[`GetClass`](#classCItem_1a0d1dd3dcf572d3b926db29c79ae3c957)`() const` 
 
-#### `public inline BYTE `[`GetSubClass`](#classCItem_1ac7821b2e12b09c89b503bc7edb1cc5a9)`() const` {#classCItem_1ac7821b2e12b09c89b503bc7edb1cc5a9}
+#### `public inline BYTE `[`GetSubClass`](#classCItem_1ac7821b2e12b09c89b503bc7edb1cc5a9)`() const` 
 
-#### `public inline BYTE `[`GetWearType`](#classCItem_1a21b7f4f0fe897093d3cc483064b6a834)`() const` {#classCItem_1a21b7f4f0fe897093d3cc483064b6a834}
+#### `public inline BYTE `[`GetWearType`](#classCItem_1a21b7f4f0fe897093d3cc483064b6a834)`() const` 
 
-#### `public inline CItemInfo * `[`GetMacro`](#classCItem_1a8b8ac7b6818894f971187a6573a7051a)`() const` {#classCItem_1a8b8ac7b6818894f971187a6573a7051a}
+#### `public inline CItemInfo * `[`GetMacro`](#classCItem_1a8b8ac7b6818894f971187a6573a7051a)`() const` 
 
-#### `public inline bool `[`IsState`](#classCItem_1abd9c949506f4ee46222311a07a63aadc)`(int nState)` {#classCItem_1abd9c949506f4ee46222311a07a63aadc}
+#### `public inline bool `[`IsState`](#classCItem_1abd9c949506f4ee46222311a07a63aadc)`(int nState)` 
 
-#### `public inline void `[`AddState`](#classCItem_1af52c7b0acb76aeef010a6b6932676d69)`(int nState)` {#classCItem_1af52c7b0acb76aeef010a6b6932676d69}
+#### `public inline void `[`AddState`](#classCItem_1af52c7b0acb76aeef010a6b6932676d69)`(int nState)` 
 
-#### `public inline void `[`SubState`](#classCItem_1abbe08f4912ce874800cff8205aa2f6eb)`(int nState)` {#classCItem_1abbe08f4912ce874800cff8205aa2f6eb}
+#### `public inline void `[`SubState`](#classCItem_1abbe08f4912ce874800cff8205aa2f6eb)`(int nState)` 
 
-#### `public inline void `[`Lock`](#classCItem_1a131ecdd784e0b986befce1f577f0e2fc)`()` {#classCItem_1a131ecdd784e0b986befce1f577f0e2fc}
+#### `public inline void `[`Lock`](#classCItem_1a131ecdd784e0b986befce1f577f0e2fc)`()` 
 
-#### `public inline void `[`Unlock`](#classCItem_1a6cc30317104d1e0350e03628ec13b27f)`()` {#classCItem_1a6cc30317104d1e0350e03628ec13b27f}
+#### `public inline void `[`Unlock`](#classCItem_1a6cc30317104d1e0350e03628ec13b27f)`()` 
 
-#### `public inline virtual bool `[`Use`](#classCItem_1ad68ff7df8ad358daab91dd61cc50ac4f)`(CPlayer * pPlayer)` {#classCItem_1ad68ff7df8ad358daab91dd61cc50ac4f}
+#### `public inline virtual bool `[`Use`](#classCItem_1ad68ff7df8ad358daab91dd61cc50ac4f)`(CPlayer * pPlayer)` 
 
-#### `public inline virtual void `[`PutOn`](#classCItem_1a55d0c2c1090517a608bb26fff1ec5fe9)`(CPlayer * pPlayer)` {#classCItem_1a55d0c2c1090517a608bb26fff1ec5fe9}
+#### `public inline virtual void `[`PutOn`](#classCItem_1a55d0c2c1090517a608bb26fff1ec5fe9)`(CPlayer * pPlayer)` 
 
-#### `public inline virtual void `[`PutOff`](#classCItem_1a0f704fc3afb7ecb419296f0b0b56af71)`(CPlayer * pPlayer)` {#classCItem_1a0f704fc3afb7ecb419296f0b0b56af71}
+#### `public inline virtual void `[`PutOff`](#classCItem_1a0f704fc3afb7ecb419296f0b0b56af71)`(CPlayer * pPlayer)` 
 
-#### `public bool `[`CanUse`](#classCItem_1af029cc1aad0740d70a68286b391c7b55)`(CPlayer * pPlayer)` {#classCItem_1af029cc1aad0740d70a68286b391c7b55}
+#### `public bool `[`CanUse`](#classCItem_1af029cc1aad0740d70a68286b391c7b55)`(CPlayer * pPlayer)` 
 
-#### `public bool `[`CanTrash`](#classCItem_1a137daf554896f4f6052ac506bc6c19fe)`(CPlayer * pPlayer)` {#classCItem_1a137daf554896f4f6052ac506bc6c19fe}
+#### `public bool `[`CanTrash`](#classCItem_1a137daf554896f4f6052ac506bc6c19fe)`(CPlayer * pPlayer)` 
 
-#### `protected ITEMINFO_DESC `[`m_desc`](#classCItem_1a4e324af341937bffad0493254ce40265) {#classCItem_1a4e324af341937bffad0493254ce40265}
+#### `protected ITEMINFO_DESC `[`m_desc`](#classCItem_1a4e324af341937bffad0493254ce40265) 
 
-#### `protected CItemInfo * `[`m_pMacro`](#classCItem_1acb6d6f0949cc68721d2b4f536b32bf16) {#classCItem_1acb6d6f0949cc68721d2b4f536b32bf16}
+#### `protected CItemInfo * `[`m_pMacro`](#classCItem_1acb6d6f0949cc68721d2b4f536b32bf16) 
 
-#### `protected BYTE `[`m_byWearType`](#classCItem_1a8861ef25a1545a969a4893640f66e0f1) {#classCItem_1a8861ef25a1545a969a4893640f66e0f1}
+#### `protected BYTE `[`m_byWearType`](#classCItem_1a8861ef25a1545a969a4893640f66e0f1) 
 
-#### `protected std::mutex `[`m_mxThis`](#classCItem_1a1be269ae356f44e14ec53ce783198923) {#classCItem_1a1be269ae356f44e14ec53ce783198923}
+#### `protected std::mutex `[`m_mxThis`](#classCItem_1a1be269ae356f44e14ec53ce783198923) 
 
-# class `CItemDefense` {#classCItemDefense}
+# class `CItemDefense` 
 
 ```
 class CItemDefense
@@ -604,13 +606,22 @@ class CItemDefense
 
 ## Members
 
-#### `public  `[`CItemDefense`](#classCItemDefense_1ada1904fbee80348cf03325419e106832)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemDefense_1ada1904fbee80348cf03325419e106832}
+#### `public  `[`CItemDefense`](#classCItemDefense_1ada1904fbee80348cf03325419e106832)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public void `[`PutOn`](#classCItemDefense_1a0efa605ca2e725a2081cb8670e568b80)`(CPlayer * pPlayer)` {#classCItemDefense_1a0efa605ca2e725a2081cb8670e568b80}
+#### `public void `[`PutOn`](#classCItemDefense_1a0efa605ca2e725a2081cb8670e568b80)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemDefense_1a6e2d4a0d5f9161d97170f80ad692255f)`(CPlayer * pPlayer)` {#classCItemDefense_1a6e2d4a0d5f9161d97170f80ad692255f}
+#### `public void `[`PutOff`](#classCItemDefense_1a6e2d4a0d5f9161d97170f80ad692255f)`(CPlayer * pPlayer)` 
 
-# class `CItemGeneral` {#classCItemGeneral}
+# class `CItemDrop` 
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+
+## Members
+
+# class `CItemGeneral` 
 
 ```
 class CItemGeneral
@@ -626,11 +637,11 @@ class CItemGeneral
 
 ## Members
 
-#### `public inline  `[`CItemGeneral`](#classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa}
+#### `public inline  `[`CItemGeneral`](#classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public bool `[`Use`](#classCItemGeneral_1a03f509f4da265b293553930570d0eef1)`(CPlayer * pPlayer)` {#classCItemGeneral_1a03f509f4da265b293553930570d0eef1}
+#### `public bool `[`Use`](#classCItemGeneral_1a03f509f4da265b293553930570d0eef1)`(CPlayer * pPlayer)` 
 
-# class `CItemOrnament` {#classCItemOrnament}
+# class `CItemOrnament` 
 
 ```
 class CItemOrnament
@@ -647,13 +658,13 @@ class CItemOrnament
 
 ## Members
 
-#### `public  `[`CItemOrnament`](#classCItemOrnament_1abf03d27f6fc74849a8a2fe9931f6e6a6)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemOrnament_1abf03d27f6fc74849a8a2fe9931f6e6a6}
+#### `public  `[`CItemOrnament`](#classCItemOrnament_1abf03d27f6fc74849a8a2fe9931f6e6a6)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public void `[`PutOn`](#classCItemOrnament_1a2ec0f313e1a5f5749542cfa915eacfb0)`(CPlayer * pPlayer)` {#classCItemOrnament_1a2ec0f313e1a5f5749542cfa915eacfb0}
+#### `public void `[`PutOn`](#classCItemOrnament_1a2ec0f313e1a5f5749542cfa915eacfb0)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemOrnament_1a4e8cda616f2ca290b7caacabe36ada4f)`(CPlayer * pPlayer)` {#classCItemOrnament_1a4e8cda616f2ca290b7caacabe36ada4f}
+#### `public void `[`PutOff`](#classCItemOrnament_1a4e8cda616f2ca290b7caacabe36ada4f)`(CPlayer * pPlayer)` 
 
-# class `CItemPet` {#classCItemPet}
+# class `CItemPet` 
 
 ```
 class CItemPet
@@ -671,15 +682,15 @@ class CItemPet
 
 ## Members
 
-#### `public  `[`CItemPet`](#classCItemPet_1aaff2dc5ef2a45bcde79ecb942860db51)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemPet_1aaff2dc5ef2a45bcde79ecb942860db51}
+#### `public  `[`CItemPet`](#classCItemPet_1aaff2dc5ef2a45bcde79ecb942860db51)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public inline BYTE `[`GetPetType`](#classCItemPet_1a54d6d4d63c11d114373edf758bd5e23b)`()` {#classCItemPet_1a54d6d4d63c11d114373edf758bd5e23b}
+#### `public inline BYTE `[`GetPetType`](#classCItemPet_1a54d6d4d63c11d114373edf758bd5e23b)`()` 
 
-#### `public void `[`PutOn`](#classCItemPet_1aab0406ba21d9f116085077ac74aef62f)`(CPlayer * pPlayer)` {#classCItemPet_1aab0406ba21d9f116085077ac74aef62f}
+#### `public void `[`PutOn`](#classCItemPet_1aab0406ba21d9f116085077ac74aef62f)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemPet_1a8d029571677633f9bc5f241211604cc2)`(CPlayer * pPlayer)` {#classCItemPet_1a8d029571677633f9bc5f241211604cc2}
+#### `public void `[`PutOff`](#classCItemPet_1a8d029571677633f9bc5f241211604cc2)`(CPlayer * pPlayer)` 
 
-# class `CItemRide` {#classCItemRide}
+# class `CItemRide` 
 
 ```
 class CItemRide
@@ -698,17 +709,17 @@ class CItemRide
 
 ## Members
 
-#### `public  `[`CItemRide`](#classCItemRide_1ab0dbab5248b49db64152db88d7afaef7)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemRide_1ab0dbab5248b49db64152db88d7afaef7}
+#### `public  `[`CItemRide`](#classCItemRide_1ab0dbab5248b49db64152db88d7afaef7)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public inline BYTE `[`GetRideType`](#classCItemRide_1aa219424f24541db4e26cb5c594cebaaf)`() const` {#classCItemRide_1aa219424f24541db4e26cb5c594cebaaf}
+#### `public inline BYTE `[`GetRideType`](#classCItemRide_1aa219424f24541db4e26cb5c594cebaaf)`() const` 
 
-#### `public void `[`PutOn`](#classCItemRide_1abfb88d8bcb4bd6f3f806cb7037d91097)`(CPlayer * pPlayer)` {#classCItemRide_1abfb88d8bcb4bd6f3f806cb7037d91097}
+#### `public void `[`PutOn`](#classCItemRide_1abfb88d8bcb4bd6f3f806cb7037d91097)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemRide_1a13d46d91096135d1ccf2e4341267a3fc)`(CPlayer * pPlayer)` {#classCItemRide_1a13d46d91096135d1ccf2e4341267a3fc}
+#### `public void `[`PutOff`](#classCItemRide_1a13d46d91096135d1ccf2e4341267a3fc)`(CPlayer * pPlayer)` 
 
-#### `public bool `[`Use`](#classCItemRide_1a391f7f19c2f3f35bf5a27d64fcfecc5e)`(CPlayer * pPlayer)` {#classCItemRide_1a391f7f19c2f3f35bf5a27d64fcfecc5e}
+#### `public bool `[`Use`](#classCItemRide_1a391f7f19c2f3f35bf5a27d64fcfecc5e)`(CPlayer * pPlayer)` 
 
-# class `CItemTransform` {#classCItemTransform}
+# class `CItemTransform` 
 
 ```
 class CItemTransform
@@ -725,13 +736,13 @@ class CItemTransform
 
 ## Members
 
-#### `public  `[`CItemTransform`](#classCItemTransform_1aa81efd06c90d5e5111d76f49ae883b20)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemTransform_1aa81efd06c90d5e5111d76f49ae883b20}
+#### `public  `[`CItemTransform`](#classCItemTransform_1aa81efd06c90d5e5111d76f49ae883b20)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public void `[`PutOn`](#classCItemTransform_1a8bee1bfe36dae5512b8d7220d3465f8f)`(CPlayer * pPlayer)` {#classCItemTransform_1a8bee1bfe36dae5512b8d7220d3465f8f}
+#### `public void `[`PutOn`](#classCItemTransform_1a8bee1bfe36dae5512b8d7220d3465f8f)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemTransform_1a0ec282a4217e80726ecd7b6f0d95ee4f)`(CPlayer * pPlayer)` {#classCItemTransform_1a0ec282a4217e80726ecd7b6f0d95ee4f}
+#### `public void `[`PutOff`](#classCItemTransform_1a0ec282a4217e80726ecd7b6f0d95ee4f)`(CPlayer * pPlayer)` 
 
-# class `CItemWeapon` {#classCItemWeapon}
+# class `CItemWeapon` 
 
 ```
 class CItemWeapon
@@ -748,13 +759,13 @@ class CItemWeapon
 
 ## Members
 
-#### `public  `[`CItemWeapon`](#classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22}
+#### `public  `[`CItemWeapon`](#classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public void `[`PutOn`](#classCItemWeapon_1a94194adc4794ea181c21d9f56215af73)`(CPlayer * pPlayer)` {#classCItemWeapon_1a94194adc4794ea181c21d9f56215af73}
+#### `public void `[`PutOn`](#classCItemWeapon_1a94194adc4794ea181c21d9f56215af73)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8)`(CPlayer * pPlayer)` {#classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8}
+#### `public void `[`PutOff`](#classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8)`(CPlayer * pPlayer)` 
 
-# class `CItemYinyang` {#classCItemYinyang}
+# class `CItemYinyang` 
 
 ```
 class CItemYinyang
@@ -771,22 +782,13 @@ class CItemYinyang
 
 ## Members
 
-#### `public  `[`CItemYinyang`](#classCItemYinyang_1a379efc3d9f39b3a2914802a3d913df7c)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` {#classCItemYinyang_1a379efc3d9f39b3a2914802a3d913df7c}
+#### `public  `[`CItemYinyang`](#classCItemYinyang_1a379efc3d9f39b3a2914802a3d913df7c)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public void `[`PutOn`](#classCItemYinyang_1a6f53e13baa92fe4a3eff9fa772ae4495)`(CPlayer * pPlayer)` {#classCItemYinyang_1a6f53e13baa92fe4a3eff9fa772ae4495}
+#### `public void `[`PutOn`](#classCItemYinyang_1a6f53e13baa92fe4a3eff9fa772ae4495)`(CPlayer * pPlayer)` 
 
-#### `public void `[`PutOff`](#classCItemYinyang_1ad3e574020b8cda66e2e88f7959266a11)`(CPlayer * pPlayer)` {#classCItemYinyang_1ad3e574020b8cda66e2e88f7959266a11}
+#### `public void `[`PutOff`](#classCItemYinyang_1ad3e574020b8cda66e2e88f7959266a11)`(CPlayer * pPlayer)` 
 
-# class `CMacroDB` {#classCMacroDB}
-
-## Summary
-
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-
-## Members
-
-# class `CMainSocket` {#classCMainSocket}
+# class `CMacroDB` 
 
 ## Summary
 
@@ -795,7 +797,7 @@ class CItemYinyang
 
 ## Members
 
-# class `CMap` {#classCMap}
+# class `CMainSocket` 
 
 ## Summary
 
@@ -804,11 +806,21 @@ class CItemYinyang
 
 ## Members
 
-# class `CMonster` {#classCMonster}
+# class `CMap` 
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+
+## Members
+
+# class `CMonster` 
 
 ```
 class CMonster
   : public CCharacter
+  : public ITimer
 ```  
 
 ## Summary
@@ -818,7 +830,6 @@ class CMonster
 `public  `[`CMonster`](#classCMonster_1a32b5519b2c5d14881927b69436972c8f)`(CMonsterInfo * pMacro,int nX,int nY)` | 
 `public  `[`~CMonster`](#classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d)`()` | 
 `public Packet `[`GenerateCreatePacket`](#classCMonster_1aaebb18996775b6910623e8b468afb15b)`(bool bHero)` | 
-`public Packet `[`GeneratePetPacket`](#classCMonster_1ad998626b6c7037fde9963aba1e949949)`()` | 
 `public Packet `[`GenerateDeletePacket`](#classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793)`()` | 
 `public Packet `[`GenerateMovePacket`](#classCMonster_1a36c4a1434097b4663dc9e425642759c5)`(BYTE byType,char byX,char byY,char byZ)` | 
 `public inline WORD `[`GetStr`](#classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875)`() const` | 
@@ -846,113 +857,127 @@ class CMonster
 `public inline WORD `[`GetAttackSpeed`](#classCMonster_1a57f3ffe3d5cc777f141722234cc63053)`() const` | 
 `public inline WORD `[`GetCloseSight`](#classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd)`() const` | 
 `public inline WORD `[`GetFarSight`](#classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513)`() const` | 
+`public inline WORD `[`GetSize`](#classCMonster_1a0a3adc8c44ad84ddc2cd4dda8a55969b)`() const` | 
 `public inline BYTE `[`GetAIS`](#classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156)`() const` | 
 `public inline void `[`SetAIS`](#classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae)`(BYTE byState)` | 
 `public void `[`SetTarget`](#classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09)`(CPlayer * pPlayer)` | 
 `public inline CPlayer * `[`GetTarget`](#classCMonster_1a9882ba63a0c0d7e73ec92db540deac93)`() const` | 
-`public virtual bool `[`Tick`](#classCMonster_1a9470fac20c62bdcc22047ceac3a1a51c)`()` | Returns false if Monster should be deleted.
-`public virtual void `[`AI`](#classCMonster_1a8e84ec4618ba917cf31cb60a901e7052)`()` | 
+`public virtual void `[`Tick`](#classCMonster_1a729a91a7d77275414420ca0b33c61698)`()` | 
+`public inline virtual void `[`AI`](#classCMonster_1ade33da94e0ab0cf8cd2745a7eb8c0058)`(DWORD dwNow)` | 
 `public void `[`Move`](#classCMonster_1a50baf7e342893c3fc492d3cc1edae898)`(char byX,char byY,BYTE byType)` | 
 `public void `[`Attack`](#classCMonster_1a3da2c9537b0a47d96779d05f61685268)`(CPlayer * pTarget)` | 
 `public void `[`Chase`](#classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa)`()` | 
 `public void `[`Walk`](#classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca)`()` | 
 `public void `[`Damage`](#classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` | 
-`public inline void `[`SendPacket`](#classCMonster_1abccca2937a627ac7c23b2bff489ffef5)`(Packet & packet)` | 
+`public void `[`ScanSight`](#classCMonster_1a4564ee9d1505a874aefc283e1e620b07)`()` | 
+`public void `[`OnWalk`](#classCMonster_1a32fa534488bc60df3006fd2f50b2be18)`()` | 
+`public void `[`OnChase`](#classCMonster_1ad042edbe7a8b97cbdee38916d9925a6b)`()` | 
+`public void `[`OnForceAttack`](#classCMonster_1a1d5aa5527a1275e23b59691510f9d3a9)`()` | 
+`public void `[`OnAttack`](#classCMonster_1ae2b4d010e8adb89afe41b62d6ee07b1d)`()` | 
+`public void `[`OnRemove`](#classCMonster_1a487dd6e938cf50ae39463f12930421ba)`()` | 
 `public CPlayer * `[`GetClosestNormalPlayer`](#classCMonster_1a04207d77ca28962f187c7eb195c21502)`()` | 
 
 ## Members
 
-#### `public  `[`CMonster`](#classCMonster_1a32b5519b2c5d14881927b69436972c8f)`(CMonsterInfo * pMacro,int nX,int nY)` {#classCMonster_1a32b5519b2c5d14881927b69436972c8f}
+#### `public  `[`CMonster`](#classCMonster_1a32b5519b2c5d14881927b69436972c8f)`(CMonsterInfo * pMacro,int nX,int nY)` 
 
-#### `public  `[`~CMonster`](#classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d)`()` {#classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d}
+#### `public  `[`~CMonster`](#classCMonster_1ab65729aa7d7b0e4f9092f8ae5e33b34d)`()` 
 
-#### `public Packet `[`GenerateCreatePacket`](#classCMonster_1aaebb18996775b6910623e8b468afb15b)`(bool bHero)` {#classCMonster_1aaebb18996775b6910623e8b468afb15b}
+#### `public Packet `[`GenerateCreatePacket`](#classCMonster_1aaebb18996775b6910623e8b468afb15b)`(bool bHero)` 
 
-#### `public Packet `[`GeneratePetPacket`](#classCMonster_1ad998626b6c7037fde9963aba1e949949)`()` {#classCMonster_1ad998626b6c7037fde9963aba1e949949}
+#### `public Packet `[`GenerateDeletePacket`](#classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793)`()` 
 
-#### `public Packet `[`GenerateDeletePacket`](#classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793)`()` {#classCMonster_1a1421dbb2db974af7b5c3a2d167e8e793}
+#### `public Packet `[`GenerateMovePacket`](#classCMonster_1a36c4a1434097b4663dc9e425642759c5)`(BYTE byType,char byX,char byY,char byZ)` 
 
-#### `public Packet `[`GenerateMovePacket`](#classCMonster_1a36c4a1434097b4663dc9e425642759c5)`(BYTE byType,char byX,char byY,char byZ)` {#classCMonster_1a36c4a1434097b4663dc9e425642759c5}
+#### `public inline WORD `[`GetStr`](#classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875)`() const` 
 
-#### `public inline WORD `[`GetStr`](#classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875)`() const` {#classCMonster_1a3ae5c18a6c0822c88f074e18e73e5875}
+#### `public inline WORD `[`GetHth`](#classCMonster_1abe75aa7d1e1fc575329bf141d3968936)`() const` 
 
-#### `public inline WORD `[`GetHth`](#classCMonster_1abe75aa7d1e1fc575329bf141d3968936)`() const` {#classCMonster_1abe75aa7d1e1fc575329bf141d3968936}
+#### `public inline WORD `[`GetInt`](#classCMonster_1abe6a411372dbc1f9ce80b349e125f068)`() const` 
 
-#### `public inline WORD `[`GetInt`](#classCMonster_1abe6a411372dbc1f9ce80b349e125f068)`() const` {#classCMonster_1abe6a411372dbc1f9ce80b349e125f068}
+#### `public inline WORD `[`GetWis`](#classCMonster_1a703b84211544a29e42f664e4aaae06c5)`() const` 
 
-#### `public inline WORD `[`GetWis`](#classCMonster_1a703b84211544a29e42f664e4aaae06c5)`() const` {#classCMonster_1a703b84211544a29e42f664e4aaae06c5}
+#### `public inline WORD `[`GetAgi`](#classCMonster_1a54207d4061d825c5702b1d2edf00acc1)`() const` 
 
-#### `public inline WORD `[`GetAgi`](#classCMonster_1a54207d4061d825c5702b1d2edf00acc1)`() const` {#classCMonster_1a54207d4061d825c5702b1d2edf00acc1}
+#### `public WORD `[`GetHit`](#classCMonster_1ae2baaa85bbc125cdcd97b87d6e2a4018)`() const` 
 
-#### `public WORD `[`GetHit`](#classCMonster_1ae2baaa85bbc125cdcd97b87d6e2a4018)`() const` {#classCMonster_1ae2baaa85bbc125cdcd97b87d6e2a4018}
+#### `public WORD `[`GetDodge`](#classCMonster_1a8a259592a5dfb88fc087f0561b252f7d)`() const` 
 
-#### `public WORD `[`GetDodge`](#classCMonster_1a8a259592a5dfb88fc087f0561b252f7d)`() const` {#classCMonster_1a8a259592a5dfb88fc087f0561b252f7d}
+#### `public inline WORD `[`GetDefense`](#classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915)`() const` 
 
-#### `public inline WORD `[`GetDefense`](#classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915)`() const` {#classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915}
+#### `public inline BYTE `[`GetAbsorb`](#classCMonster_1a4c89df0e2e869953f069c025ff72affe)`() const` 
 
-#### `public inline BYTE `[`GetAbsorb`](#classCMonster_1a4c89df0e2e869953f069c025ff72affe)`() const` {#classCMonster_1a4c89df0e2e869953f069c025ff72affe}
+#### `public DWORD `[`GetMaxHP`](#classCMonster_1a524e9af6974fae1133f6696bbc6b4b07)`() const` 
 
-#### `public DWORD `[`GetMaxHP`](#classCMonster_1a524e9af6974fae1133f6696bbc6b4b07)`() const` {#classCMonster_1a524e9af6974fae1133f6696bbc6b4b07}
+#### `public WORD `[`GetMaxMP`](#classCMonster_1ae4af787fa0bca32d846f1710e1b788bf)`() const` 
 
-#### `public WORD `[`GetMaxMP`](#classCMonster_1ae4af787fa0bca32d846f1710e1b788bf)`() const` {#classCMonster_1ae4af787fa0bca32d846f1710e1b788bf}
+#### `public WORD `[`GetMinAttack`](#classCMonster_1a897e6cbae9eca095be13ee460d79803f)`() const` 
 
-#### `public WORD `[`GetMinAttack`](#classCMonster_1a897e6cbae9eca095be13ee460d79803f)`() const` {#classCMonster_1a897e6cbae9eca095be13ee460d79803f}
+#### `public WORD `[`GetMaxAttack`](#classCMonster_1a3b1074c3953f2cc5f37923bb2ed84c5d)`() const` 
 
-#### `public WORD `[`GetMaxAttack`](#classCMonster_1a3b1074c3953f2cc5f37923bb2ed84c5d)`() const` {#classCMonster_1a3b1074c3953f2cc5f37923bb2ed84c5d}
+#### `public WORD `[`GetMinMagic`](#classCMonster_1afc4a6486c348db9411aa1246c6e18387)`() const` 
 
-#### `public WORD `[`GetMinMagic`](#classCMonster_1afc4a6486c348db9411aa1246c6e18387)`() const` {#classCMonster_1afc4a6486c348db9411aa1246c6e18387}
+#### `public WORD `[`GetMaxMagic`](#classCMonster_1abc571b26b8f78c5c0b7a000cbfcc7505)`() const` 
 
-#### `public WORD `[`GetMaxMagic`](#classCMonster_1abc571b26b8f78c5c0b7a000cbfcc7505)`() const` {#classCMonster_1abc571b26b8f78c5c0b7a000cbfcc7505}
+#### `public WORD `[`GetResist`](#classCMonster_1a42c7bb7d9c13d7449a20daac57a99dc4)`(BYTE byResist) const` 
 
-#### `public WORD `[`GetResist`](#classCMonster_1a42c7bb7d9c13d7449a20daac57a99dc4)`(BYTE byResist) const` {#classCMonster_1a42c7bb7d9c13d7449a20daac57a99dc4}
+#### `public inline WORD `[`GetIndex`](#classCMonster_1a1646f77a24fa39435d018715886b1a41)`() const` 
 
-#### `public inline WORD `[`GetIndex`](#classCMonster_1a1646f77a24fa39435d018715886b1a41)`() const` {#classCMonster_1a1646f77a24fa39435d018715886b1a41}
+#### `public inline BYTE `[`GetRace`](#classCMonster_1a5951e0b264526d6b693a79cfff5de93a)`() const` 
 
-#### `public inline BYTE `[`GetRace`](#classCMonster_1a5951e0b264526d6b693a79cfff5de93a)`() const` {#classCMonster_1a5951e0b264526d6b693a79cfff5de93a}
+#### `public inline BYTE `[`GetLevel`](#classCMonster_1a25481d93a1846d61c5669523a046b30e)`() const` 
 
-#### `public inline BYTE `[`GetLevel`](#classCMonster_1a25481d93a1846d61c5669523a046b30e)`() const` {#classCMonster_1a25481d93a1846d61c5669523a046b30e}
+#### `public inline WORD `[`GetRange`](#classCMonster_1ac2f91ca1773289b6079dad01c4b00153)`() const` 
 
-#### `public inline WORD `[`GetRange`](#classCMonster_1ac2f91ca1773289b6079dad01c4b00153)`() const` {#classCMonster_1ac2f91ca1773289b6079dad01c4b00153}
+#### `public inline WORD `[`GetWalkSpeed`](#classCMonster_1a0b2d80ce5652aea191e6f93931fe2e0a)`() const` 
 
-#### `public inline WORD `[`GetWalkSpeed`](#classCMonster_1a0b2d80ce5652aea191e6f93931fe2e0a)`() const` {#classCMonster_1a0b2d80ce5652aea191e6f93931fe2e0a}
+#### `public inline WORD `[`GetRunSpeed`](#classCMonster_1a51f0e1e2bdef76192d41ebc9245ecd33)`() const` 
 
-#### `public inline WORD `[`GetRunSpeed`](#classCMonster_1a51f0e1e2bdef76192d41ebc9245ecd33)`() const` {#classCMonster_1a51f0e1e2bdef76192d41ebc9245ecd33}
+#### `public inline WORD `[`GetAttackSpeed`](#classCMonster_1a57f3ffe3d5cc777f141722234cc63053)`() const` 
 
-#### `public inline WORD `[`GetAttackSpeed`](#classCMonster_1a57f3ffe3d5cc777f141722234cc63053)`() const` {#classCMonster_1a57f3ffe3d5cc777f141722234cc63053}
+#### `public inline WORD `[`GetCloseSight`](#classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd)`() const` 
 
-#### `public inline WORD `[`GetCloseSight`](#classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd)`() const` {#classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd}
+#### `public inline WORD `[`GetFarSight`](#classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513)`() const` 
 
-#### `public inline WORD `[`GetFarSight`](#classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513)`() const` {#classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513}
+#### `public inline WORD `[`GetSize`](#classCMonster_1a0a3adc8c44ad84ddc2cd4dda8a55969b)`() const` 
 
-#### `public inline BYTE `[`GetAIS`](#classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156)`() const` {#classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156}
+#### `public inline BYTE `[`GetAIS`](#classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156)`() const` 
 
-#### `public inline void `[`SetAIS`](#classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae)`(BYTE byState)` {#classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae}
+#### `public inline void `[`SetAIS`](#classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae)`(BYTE byState)` 
 
-#### `public void `[`SetTarget`](#classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09)`(CPlayer * pPlayer)` {#classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09}
+#### `public void `[`SetTarget`](#classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09)`(CPlayer * pPlayer)` 
 
-#### `public inline CPlayer * `[`GetTarget`](#classCMonster_1a9882ba63a0c0d7e73ec92db540deac93)`() const` {#classCMonster_1a9882ba63a0c0d7e73ec92db540deac93}
+#### `public inline CPlayer * `[`GetTarget`](#classCMonster_1a9882ba63a0c0d7e73ec92db540deac93)`() const` 
 
-#### `public virtual bool `[`Tick`](#classCMonster_1a9470fac20c62bdcc22047ceac3a1a51c)`()` {#classCMonster_1a9470fac20c62bdcc22047ceac3a1a51c}
+#### `public virtual void `[`Tick`](#classCMonster_1a729a91a7d77275414420ca0b33c61698)`()` 
 
-Returns false if Monster should be deleted.
+#### `public inline virtual void `[`AI`](#classCMonster_1ade33da94e0ab0cf8cd2745a7eb8c0058)`(DWORD dwNow)` 
 
-#### `public virtual void `[`AI`](#classCMonster_1a8e84ec4618ba917cf31cb60a901e7052)`()` {#classCMonster_1a8e84ec4618ba917cf31cb60a901e7052}
+#### `public void `[`Move`](#classCMonster_1a50baf7e342893c3fc492d3cc1edae898)`(char byX,char byY,BYTE byType)` 
 
-#### `public void `[`Move`](#classCMonster_1a50baf7e342893c3fc492d3cc1edae898)`(char byX,char byY,BYTE byType)` {#classCMonster_1a50baf7e342893c3fc492d3cc1edae898}
+#### `public void `[`Attack`](#classCMonster_1a3da2c9537b0a47d96779d05f61685268)`(CPlayer * pTarget)` 
 
-#### `public void `[`Attack`](#classCMonster_1a3da2c9537b0a47d96779d05f61685268)`(CPlayer * pTarget)` {#classCMonster_1a3da2c9537b0a47d96779d05f61685268}
+#### `public void `[`Chase`](#classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa)`()` 
 
-#### `public void `[`Chase`](#classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa)`()` {#classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa}
+#### `public void `[`Walk`](#classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca)`()` 
 
-#### `public void `[`Walk`](#classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca)`()` {#classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca}
+#### `public void `[`Damage`](#classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` 
 
-#### `public void `[`Damage`](#classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` {#classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496}
+#### `public void `[`ScanSight`](#classCMonster_1a4564ee9d1505a874aefc283e1e620b07)`()` 
 
-#### `public inline void `[`SendPacket`](#classCMonster_1abccca2937a627ac7c23b2bff489ffef5)`(Packet & packet)` {#classCMonster_1abccca2937a627ac7c23b2bff489ffef5}
+#### `public void `[`OnWalk`](#classCMonster_1a32fa534488bc60df3006fd2f50b2be18)`()` 
 
-#### `public CPlayer * `[`GetClosestNormalPlayer`](#classCMonster_1a04207d77ca28962f187c7eb195c21502)`()` {#classCMonster_1a04207d77ca28962f187c7eb195c21502}
+#### `public void `[`OnChase`](#classCMonster_1ad042edbe7a8b97cbdee38916d9925a6b)`()` 
 
-# class `CMonsterMaguni` {#classCMonsterMaguni}
+#### `public void `[`OnForceAttack`](#classCMonster_1a1d5aa5527a1275e23b59691510f9d3a9)`()` 
+
+#### `public void `[`OnAttack`](#classCMonster_1ae2b4d010e8adb89afe41b62d6ee07b1d)`()` 
+
+#### `public void `[`OnRemove`](#classCMonster_1a487dd6e938cf50ae39463f12930421ba)`()` 
+
+#### `public CPlayer * `[`GetClosestNormalPlayer`](#classCMonster_1a04207d77ca28962f187c7eb195c21502)`()` 
+
+# class `CMonsterMaguni` 
 
 ```
 class CMonsterMaguni
@@ -965,17 +990,14 @@ class CMonsterMaguni
 --------------------------------|---------------------------------------------
 `public inline  `[`CMonsterMaguni`](#classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990)`(CMonsterInfo * pMacro,int nX,int nY)` | 
 `public void `[`Die`](#classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27)`()` | 
-`public bool `[`Tick`](#classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42)`()` | 
 
 ## Members
 
-#### `public inline  `[`CMonsterMaguni`](#classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990)`(CMonsterInfo * pMacro,int nX,int nY)` {#classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990}
+#### `public inline  `[`CMonsterMaguni`](#classCMonsterMaguni_1a746ef64815005361d9e14f7bfe1f7990)`(CMonsterInfo * pMacro,int nX,int nY)` 
 
-#### `public void `[`Die`](#classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27)`()` {#classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27}
+#### `public void `[`Die`](#classCMonsterMaguni_1a835b6b8524f862cfce79232167475a27)`()` 
 
-#### `public bool `[`Tick`](#classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42)`()` {#classCMonsterMaguni_1a96ba6dc6f75c0c618adfa27fcec26a42}
-
-# class `CMonsterReal` {#classCMonsterReal}
+# class `CMonsterReal` 
 
 ```
 class CMonsterReal
@@ -991,11 +1013,11 @@ class CMonsterReal
 
 ## Members
 
-#### `public inline  `[`CMonsterReal`](#classCMonsterReal_1a5f870bceef461c11ac5dba3bc0d4d44c)`(CMonsterInfo * pMacro,int nX,int nY)` {#classCMonsterReal_1a5f870bceef461c11ac5dba3bc0d4d44c}
+#### `public inline  `[`CMonsterReal`](#classCMonsterReal_1a5f870bceef461c11ac5dba3bc0d4d44c)`(CMonsterInfo * pMacro,int nX,int nY)` 
 
-#### `public void `[`Die`](#classCMonsterReal_1a9bec24d9b20c0bf8722892ccd70694ed)`()` {#classCMonsterReal_1a9bec24d9b20c0bf8722892ccd70694ed}
+#### `public void `[`Die`](#classCMonsterReal_1a9bec24d9b20c0bf8722892ccd70694ed)`()` 
 
-# class `CNPC` {#classCNPC}
+# class `CNPC` 
 
 ```
 class CNPC
@@ -1009,77 +1031,40 @@ Class representation of NPC such as merchants and more.
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
 `public  `[`CNPC`](#classCNPC_1a441f45b092391de84d52b07392c5de7b)`(NPC_DESC & desc)` | Basic constructor for NPC. Assigns macro values from InitNPC.xml. 
-`public inline int `[`GetHTML`](#classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2)`()` | Example: if X is returned, could be used to open e.pk s00000X.dat 
-`public Packet `[`GenerateCreatePacket`](#classCNPC_1a80eaf3493958ca2de09e590ed0b27f77)`(bool bHero)` | Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appears in sight. 
-`public Packet `[`GeneratePetPacket`](#classCNPC_1a9e50a1c043c84e063af01f8f3766787b)`()` | Generates pet item information. Since NPC does not use pets, it always returns empty, invalid packet. 
+`public inline int `[`GetHTML`](#classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7)`() const` | Example: if X is returned, could be used to open e.pk s00000X.dat 
+`public Packet `[`GenerateCreatePacket`](#classCNPC_1a80eaf3493958ca2de09e590ed0b27f77)`(bool bHero)` | Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appear in sight. 
 `public Packet `[`GenerateDeletePacket`](#classCNPC_1aa2ade1c301076c2d0b838dd17602f14b)`()` | Generates information about NPC deletion. Prepares packet for distribution among clients that disappear from its sight. 
-`public Packet `[`GenerateMovePacket`](#classCNPC_1a61b21ec3797dbd782cbdb738da521e75)`(BYTE byType,char byX,char byY,char byZ)` | Generates information about NPC move. Since NPC does not move, it always returns empty, invalid packet. 
-`public inline void `[`SendPacket`](#classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce)`(Packet & packet)` | Sends packet to socket contained by NPC. Since NPC does not have socket, it does nothing. 
-`public inline bool `[`Tick`](#classCNPC_1a9261d699e4c513a63afdfac7beff02b4)`()` | Will get executed once a second once it's needed. Should be called inside TickAll when needed. 
 
 ## Members
 
-#### `public  `[`CNPC`](#classCNPC_1a441f45b092391de84d52b07392c5de7b)`(NPC_DESC & desc)` {#classCNPC_1a441f45b092391de84d52b07392c5de7b}
+#### `public  `[`CNPC`](#classCNPC_1a441f45b092391de84d52b07392c5de7b)`(NPC_DESC & desc)` 
 
 Basic constructor for NPC. Assigns macro values from InitNPC.xml. 
 #### Parameters
 * `desc` Description struct loaded from InitNPC.xml
 
-#### `public inline int `[`GetHTML`](#classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2)`()` {#classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2}
+#### `public inline int `[`GetHTML`](#classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7)`() const` 
 
 Example: if X is returned, could be used to open e.pk s00000X.dat 
 #### Returns
 File index linked to e.pk.
 
-#### `public Packet `[`GenerateCreatePacket`](#classCNPC_1a80eaf3493958ca2de09e590ed0b27f77)`(bool bHero)` {#classCNPC_1a80eaf3493958ca2de09e590ed0b27f77}
+#### `public Packet `[`GenerateCreatePacket`](#classCNPC_1a80eaf3493958ca2de09e590ed0b27f77)`(bool bHero)` 
 
-Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appears in sight. 
+Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appear in sight. 
 #### Parameters
-* `bHero` Dummy. 
+* `bHero` Neither true or false does not affect NPC. 
 
 #### Returns
 Generated packet ready to be sent.
 
-#### `public Packet `[`GeneratePetPacket`](#classCNPC_1a9e50a1c043c84e063af01f8f3766787b)`()` {#classCNPC_1a9e50a1c043c84e063af01f8f3766787b}
-
-Generates pet item information. Since NPC does not use pets, it always returns empty, invalid packet. 
-#### Returns
-Empty packet.
-
-#### `public Packet `[`GenerateDeletePacket`](#classCNPC_1aa2ade1c301076c2d0b838dd17602f14b)`()` {#classCNPC_1aa2ade1c301076c2d0b838dd17602f14b}
+#### `public Packet `[`GenerateDeletePacket`](#classCNPC_1aa2ade1c301076c2d0b838dd17602f14b)`()` 
 
 Generates information about NPC deletion. Prepares packet for distribution among clients that disappear from its sight. 
 #### Returns
 Generated packet ready to be sent.
 
-#### `public Packet `[`GenerateMovePacket`](#classCNPC_1a61b21ec3797dbd782cbdb738da521e75)`(BYTE byType,char byX,char byY,char byZ)` {#classCNPC_1a61b21ec3797dbd782cbdb738da521e75}
-
-Generates information about NPC move. Since NPC does not move, it always returns empty, invalid packet. 
-#### Parameters
-* `byType` Dummy. 
-
-* `byX` Dummy. 
-
-* `byY` Dummy. 
-
-* `byZ` Dummy. 
-
-#### Returns
-Empty packet.
-
-#### `public inline void `[`SendPacket`](#classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce)`(Packet & packet)` {#classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce}
-
-Sends packet to socket contained by NPC. Since NPC does not have socket, it does nothing. 
-#### Parameters
-* `packet` Packet to be sent (dummy).
-
-#### `public inline bool `[`Tick`](#classCNPC_1a9261d699e4c513a63afdfac7beff02b4)`()` {#classCNPC_1a9261d699e4c513a63afdfac7beff02b4}
-
-Will get executed once a second once it's needed. Should be called inside TickAll when needed. 
-#### Returns
-false if instance should be deleted, true otherwise
-
-# class `CParty` {#classCParty}
+# class `CParty` 
 
 ## Summary
 
@@ -1104,39 +1089,39 @@ false if instance should be deleted, true otherwise
 
 ## Members
 
-#### `public Access `[`m_Access`](#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24) {#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24}
+#### `public Access `[`m_Access`](#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24) 
 
-#### `public  `[`CParty`](#classCParty_1a5bc8c57492583cb90e95fccffe8b91d4)`(CPlayer * pPlayer,CPlayer * pPlayer2)` {#classCParty_1a5bc8c57492583cb90e95fccffe8b91d4}
+#### `public  `[`CParty`](#classCParty_1a5bc8c57492583cb90e95fccffe8b91d4)`(CPlayer * pPlayer,CPlayer * pPlayer2)` 
 
-#### `public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` {#classCParty_1af644bea4e9858a9f6611da9530d67068}
+#### `public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` 
 
-#### `public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` {#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66}
+#### `public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` 
 
-#### `public inline int `[`GetSize`](#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713)`() const` {#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713}
+#### `public inline int `[`GetSize`](#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713)`() const` 
 
-#### `public bool `[`IsHead`](#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0)`(CPlayer * pPlayer)` {#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0}
+#### `public bool `[`IsHead`](#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0)`(CPlayer * pPlayer)` 
 
-#### `public void `[`Discard`](#classCParty_1a705e833cada5faed26ce8b5c04f3b4e2)`()` {#classCParty_1a705e833cada5faed26ce8b5c04f3b4e2}
+#### `public void `[`Discard`](#classCParty_1a705e833cada5faed26ce8b5c04f3b4e2)`()` 
 
-#### `public void `[`AddMember`](#classCParty_1ac13046f8b7e23785cc9962728fe3e6a0)`(CPlayer * pPlayer)` {#classCParty_1ac13046f8b7e23785cc9962728fe3e6a0}
+#### `public void `[`AddMember`](#classCParty_1ac13046f8b7e23785cc9962728fe3e6a0)`(CPlayer * pPlayer)` 
 
-#### `public void `[`RemoveMember`](#classCParty_1ab9a01f6cf295c33c4cf79659c966557f)`(CPlayer * pPlayer)` {#classCParty_1ab9a01f6cf295c33c4cf79659c966557f}
+#### `public void `[`RemoveMember`](#classCParty_1ab9a01f6cf295c33c4cf79659c966557f)`(CPlayer * pPlayer)` 
 
-#### `public void `[`UpdateMemberHP`](#classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7)`(CPlayer * pPlayer)` {#classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7}
+#### `public void `[`UpdateMemberHP`](#classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7)`(CPlayer * pPlayer)` 
 
-#### `public void `[`UpdateMemberLevel`](#classCParty_1a18e32064380190344131144f41e1f6f7)`(CPlayer * pPlayer)` {#classCParty_1a18e32064380190344131144f41e1f6f7}
+#### `public void `[`UpdateMemberLevel`](#classCParty_1a18e32064380190344131144f41e1f6f7)`(CPlayer * pPlayer)` 
 
-#### `public void `[`SendPartyInfo`](#classCParty_1a255416d9ffe853b5bd7b0af497f00132)`()` {#classCParty_1a255416d9ffe853b5bd7b0af497f00132}
+#### `public void `[`SendPartyInfo`](#classCParty_1a255416d9ffe853b5bd7b0af497f00132)`()` 
 
-#### `public void `[`SendPositionInfo`](#classCParty_1a5883da3a529af5b03909a8a3489942b4)`()` {#classCParty_1a5883da3a529af5b03909a8a3489942b4}
+#### `public void `[`SendPositionInfo`](#classCParty_1a5883da3a529af5b03909a8a3489942b4)`()` 
 
-#### `public void `[`Tick`](#classCParty_1a1efabe746539b197733a150bb5f04f3c)`()` {#classCParty_1a1efabe746539b197733a150bb5f04f3c}
+#### `public void `[`Tick`](#classCParty_1a1efabe746539b197733a150bb5f04f3c)`()` 
 
-#### `public void `[`Broadcast`](#classCParty_1aa6308c6b9659b2033852efa4dae3b75f)`(BYTE byType,...)` {#classCParty_1aa6308c6b9659b2033852efa4dae3b75f}
+#### `public void `[`Broadcast`](#classCParty_1aa6308c6b9659b2033852efa4dae3b75f)`(BYTE byType,...)` 
 
-#### `public void `[`Broadcast`](#classCParty_1af2141329a51494ea76985442dcddd0d9)`(Packet & packet)` {#classCParty_1af2141329a51494ea76985442dcddd0d9}
+#### `public void `[`Broadcast`](#classCParty_1af2141329a51494ea76985442dcddd0d9)`(Packet & packet)` 
 
-# class `CPlayer` {#classCPlayer}
+# class `CPlayer` 
 
 ```
 class CPlayer
@@ -1204,7 +1189,7 @@ class CPlayer
 `public Packet `[`GenerateDeletePacket`](#classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b)`()` | 
 `public Packet `[`GenerateMovePacket`](#classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed)`(BYTE byType,char byX,char byY,char byZ)` | 
 `public void `[`Process`](#classCPlayer_1a618e99ee1c2a0ae81130a2468748838e)`(Packet packet)` | 
-`public bool `[`Tick`](#classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce)`()` | 
+`public void `[`Tick`](#classCPlayer_1ae4c64cd8d2e808114db23593ff6c5816)`()` | 
 `public void `[`OnLoadPlayer`](#classCPlayer_1a44552908ba4a38ae9c69e68962376d43)`()` | 
 `public void `[`OnLoadItems`](#classCPlayer_1a73e13fe05b734d20b9fc2222285afc21)`(char * p)` | 
 `public void `[`GameStart`](#classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f)`()` | 
@@ -1248,203 +1233,203 @@ class CPlayer
 
 ## Members
 
-#### `public  `[`CPlayer`](#classCPlayer_1a188a2d1ddfae18bd1281031fbb4d5e38)`(int nCID,D2S_LOADPLAYER_DESC & desc)` {#classCPlayer_1a188a2d1ddfae18bd1281031fbb4d5e38}
+#### `public  `[`CPlayer`](#classCPlayer_1a188a2d1ddfae18bd1281031fbb4d5e38)`(int nCID,D2S_LOADPLAYER_DESC & desc)` 
 
-#### `public  `[`~CPlayer`](#classCPlayer_1ad02df04887bccfe3b82298895da24af6)`()` {#classCPlayer_1ad02df04887bccfe3b82298895da24af6}
+#### `public  `[`~CPlayer`](#classCPlayer_1ad02df04887bccfe3b82298895da24af6)`()` 
 
-#### `public inline int `[`GetAID`](#classCPlayer_1a048b7e0a5eb6324a6396c79ac19f1fa7)`() const` {#classCPlayer_1a048b7e0a5eb6324a6396c79ac19f1fa7}
+#### `public inline int `[`GetAID`](#classCPlayer_1a048b7e0a5eb6324a6396c79ac19f1fa7)`() const` 
 
-#### `public inline int `[`GetPID`](#classCPlayer_1a8b3eeffe39bd10c1ca442abf522c3d3a)`() const` {#classCPlayer_1a8b3eeffe39bd10c1ca442abf522c3d3a}
+#### `public inline int `[`GetPID`](#classCPlayer_1a8b3eeffe39bd10c1ca442abf522c3d3a)`() const` 
 
-#### `public inline int `[`GetCID`](#classCPlayer_1ae63162d22c160863a7cfc575b8e04722)`() const` {#classCPlayer_1ae63162d22c160863a7cfc575b8e04722}
+#### `public inline int `[`GetCID`](#classCPlayer_1ae63162d22c160863a7cfc575b8e04722)`() const` 
 
-#### `public inline WORD `[`GetStr`](#classCPlayer_1a12b1cc4176b930081cd65578850adec4)`() const` {#classCPlayer_1a12b1cc4176b930081cd65578850adec4}
+#### `public inline WORD `[`GetStr`](#classCPlayer_1a12b1cc4176b930081cd65578850adec4)`() const` 
 
-#### `public inline WORD `[`GetHth`](#classCPlayer_1a95334779906a25556f928c11e56f7b56)`() const` {#classCPlayer_1a95334779906a25556f928c11e56f7b56}
+#### `public inline WORD `[`GetHth`](#classCPlayer_1a95334779906a25556f928c11e56f7b56)`() const` 
 
-#### `public inline WORD `[`GetInt`](#classCPlayer_1af72d874a5af5b52d9ec2938779c3fbfa)`() const` {#classCPlayer_1af72d874a5af5b52d9ec2938779c3fbfa}
+#### `public inline WORD `[`GetInt`](#classCPlayer_1af72d874a5af5b52d9ec2938779c3fbfa)`() const` 
 
-#### `public inline WORD `[`GetWis`](#classCPlayer_1a47548e6b4199eb573d8d10127a074145)`() const` {#classCPlayer_1a47548e6b4199eb573d8d10127a074145}
+#### `public inline WORD `[`GetWis`](#classCPlayer_1a47548e6b4199eb573d8d10127a074145)`() const` 
 
-#### `public inline WORD `[`GetAgi`](#classCPlayer_1a7a38f160048d70f365307223f5759692)`() const` {#classCPlayer_1a7a38f160048d70f365307223f5759692}
+#### `public inline WORD `[`GetAgi`](#classCPlayer_1a7a38f160048d70f365307223f5759692)`() const` 
 
-#### `public inline WORD `[`GetPUPoint`](#classCPlayer_1a34efe8d8fd94399e34ed86e3f8d4216f)`() const` {#classCPlayer_1a34efe8d8fd94399e34ed86e3f8d4216f}
+#### `public inline WORD `[`GetPUPoint`](#classCPlayer_1a34efe8d8fd94399e34ed86e3f8d4216f)`() const` 
 
-#### `public inline WORD `[`GetSUPoint`](#classCPlayer_1a24b7234e0c8d14ef168c94bc7fe76af5)`() const` {#classCPlayer_1a24b7234e0c8d14ef168c94bc7fe76af5}
+#### `public inline WORD `[`GetSUPoint`](#classCPlayer_1a24b7234e0c8d14ef168c94bc7fe76af5)`() const` 
 
-#### `public inline WORD `[`GetContribute`](#classCPlayer_1ad4df1acf599fe2d577fe792b0bacdb93)`() const` {#classCPlayer_1ad4df1acf599fe2d577fe792b0bacdb93}
+#### `public inline WORD `[`GetContribute`](#classCPlayer_1ad4df1acf599fe2d577fe792b0bacdb93)`() const` 
 
-#### `public inline int `[`GetAnger`](#classCPlayer_1a3831255da9326e7c263de568fbf63257)`() const` {#classCPlayer_1a3831255da9326e7c263de568fbf63257}
+#### `public inline int `[`GetAnger`](#classCPlayer_1a3831255da9326e7c263de568fbf63257)`() const` 
 
-#### `public inline BYTE `[`GetLevel`](#classCPlayer_1ad10ef4ef34dd4e1035d94e9240a5c09b)`() const` {#classCPlayer_1ad10ef4ef34dd4e1035d94e9240a5c09b}
+#### `public inline BYTE `[`GetLevel`](#classCPlayer_1ad10ef4ef34dd4e1035d94e9240a5c09b)`() const` 
 
-#### `public WORD `[`GetHit`](#classCPlayer_1a81798f3557fcdf8494da043e3c1b6c82)`() const` {#classCPlayer_1a81798f3557fcdf8494da043e3c1b6c82}
+#### `public WORD `[`GetHit`](#classCPlayer_1a81798f3557fcdf8494da043e3c1b6c82)`() const` 
 
-#### `public WORD `[`GetDodge`](#classCPlayer_1a578c2e4f1ed228c4685e425995e910ac)`() const` {#classCPlayer_1a578c2e4f1ed228c4685e425995e910ac}
+#### `public WORD `[`GetDodge`](#classCPlayer_1a578c2e4f1ed228c4685e425995e910ac)`() const` 
 
-#### `public inline WORD `[`GetDefense`](#classCPlayer_1ac7f7759cf31aec584fcd2025df813abb)`() const` {#classCPlayer_1ac7f7759cf31aec584fcd2025df813abb}
+#### `public inline WORD `[`GetDefense`](#classCPlayer_1ac7f7759cf31aec584fcd2025df813abb)`() const` 
 
-#### `public inline BYTE `[`GetAbsorb`](#classCPlayer_1aae6df796a50ca12187e3e8b6c9913ac7)`() const` {#classCPlayer_1aae6df796a50ca12187e3e8b6c9913ac7}
+#### `public inline BYTE `[`GetAbsorb`](#classCPlayer_1aae6df796a50ca12187e3e8b6c9913ac7)`() const` 
 
-#### `public DWORD `[`GetMaxHP`](#classCPlayer_1a076c69138624fb583d71fa3cc934d40e)`() const` {#classCPlayer_1a076c69138624fb583d71fa3cc934d40e}
+#### `public DWORD `[`GetMaxHP`](#classCPlayer_1a076c69138624fb583d71fa3cc934d40e)`() const` 
 
-#### `public WORD `[`GetMaxMP`](#classCPlayer_1a0d60b187885fb7fae265ec9765787cdf)`() const` {#classCPlayer_1a0d60b187885fb7fae265ec9765787cdf}
+#### `public WORD `[`GetMaxMP`](#classCPlayer_1a0d60b187885fb7fae265ec9765787cdf)`() const` 
 
-#### `public WORD `[`GetMinAttack`](#classCPlayer_1aac4c02f19a838eaaeaa99e49b3715214)`() const` {#classCPlayer_1aac4c02f19a838eaaeaa99e49b3715214}
+#### `public WORD `[`GetMinAttack`](#classCPlayer_1aac4c02f19a838eaaeaa99e49b3715214)`() const` 
 
-#### `public WORD `[`GetMaxAttack`](#classCPlayer_1a27c50b595315a28a4bdd386d43e7a0de)`() const` {#classCPlayer_1a27c50b595315a28a4bdd386d43e7a0de}
+#### `public WORD `[`GetMaxAttack`](#classCPlayer_1a27c50b595315a28a4bdd386d43e7a0de)`() const` 
 
-#### `public WORD `[`GetMinMagic`](#classCPlayer_1a02aa68f148233dc6b2583679d2e09e85)`() const` {#classCPlayer_1a02aa68f148233dc6b2583679d2e09e85}
+#### `public WORD `[`GetMinMagic`](#classCPlayer_1a02aa68f148233dc6b2583679d2e09e85)`() const` 
 
-#### `public WORD `[`GetMaxMagic`](#classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b)`() const` {#classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b}
+#### `public WORD `[`GetMaxMagic`](#classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b)`() const` 
 
-#### `public WORD `[`GetResist`](#classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a)`(BYTE byResist) const` {#classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a}
+#### `public WORD `[`GetResist`](#classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a)`(BYTE byResist) const` 
 
-#### `public inline __int64 `[`GetExp`](#classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b)`() const` {#classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b}
+#### `public inline __int64 `[`GetExp`](#classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b)`() const` 
 
-#### `public inline BYTE `[`GetGrade`](#classCPlayer_1a04d9afd2b1373b1b1faa47956ff59496)`() const` {#classCPlayer_1a04d9afd2b1373b1b1faa47956ff59496}
+#### `public inline BYTE `[`GetGrade`](#classCPlayer_1a04d9afd2b1373b1b1faa47956ff59496)`() const` 
 
-#### `public inline std::string `[`GetGuildName`](#classCPlayer_1a80103fc73f68c01bf2ca828ca21b8b06)`() const` {#classCPlayer_1a80103fc73f68c01bf2ca828ca21b8b06}
+#### `public inline std::string `[`GetGuildName`](#classCPlayer_1a80103fc73f68c01bf2ca828ca21b8b06)`() const` 
 
-#### `public inline std::string `[`GetGuildClass`](#classCPlayer_1a5da8be16c93e8fa15ac2fe14dff41eaf)`() const` {#classCPlayer_1a5da8be16c93e8fa15ac2fe14dff41eaf}
+#### `public inline std::string `[`GetGuildClass`](#classCPlayer_1a5da8be16c93e8fa15ac2fe14dff41eaf)`() const` 
 
-#### `public inline int `[`GetGID`](#classCPlayer_1a3462bdefacb2ffa40bf5ddfb298193e9)`() const` {#classCPlayer_1a3462bdefacb2ffa40bf5ddfb298193e9}
+#### `public inline int `[`GetGID`](#classCPlayer_1a3462bdefacb2ffa40bf5ddfb298193e9)`() const` 
 
-#### `public inline BYTE `[`GetGRole`](#classCPlayer_1afc3ba28f3219207b2611a8438b9a498a)`() const` {#classCPlayer_1afc3ba28f3219207b2611a8438b9a498a}
+#### `public inline BYTE `[`GetGRole`](#classCPlayer_1afc3ba28f3219207b2611a8438b9a498a)`() const` 
 
-#### `public inline std::string `[`GetName`](#classCPlayer_1a9800223dcf5110569422872cdcd26777)`() const` {#classCPlayer_1a9800223dcf5110569422872cdcd26777}
+#### `public inline std::string `[`GetName`](#classCPlayer_1a9800223dcf5110569422872cdcd26777)`() const` 
 
-#### `public inline BYTE `[`GetSpecialty`](#classCPlayer_1a18b06e272e8ae2327c28f5b032058991)`() const` {#classCPlayer_1a18b06e272e8ae2327c28f5b032058991}
+#### `public inline BYTE `[`GetSpecialty`](#classCPlayer_1a18b06e272e8ae2327c28f5b032058991)`() const` 
 
-#### `public inline BYTE `[`GetHair`](#classCPlayer_1a724bbfffe8b8c25639ef965f25be1958)`() const` {#classCPlayer_1a724bbfffe8b8c25639ef965f25be1958}
+#### `public inline BYTE `[`GetHair`](#classCPlayer_1a724bbfffe8b8c25639ef965f25be1958)`() const` 
 
-#### `public inline BYTE `[`GetFace`](#classCPlayer_1ae538e492b44fcd7779cb96db1163c5ae)`() const` {#classCPlayer_1ae538e492b44fcd7779cb96db1163c5ae}
+#### `public inline BYTE `[`GetFace`](#classCPlayer_1ae538e492b44fcd7779cb96db1163c5ae)`() const` 
 
-#### `public inline BYTE `[`GetFlag`](#classCPlayer_1a195d618ca74e78d773c931ef437e301b)`() const` {#classCPlayer_1a195d618ca74e78d773c931ef437e301b}
+#### `public inline BYTE `[`GetFlag`](#classCPlayer_1a195d618ca74e78d773c931ef437e301b)`() const` 
 
-#### `public inline int `[`GetFlagItem`](#classCPlayer_1a38cba46d6a535fa7241dc2cc0f3fd4b7)`() const` {#classCPlayer_1a38cba46d6a535fa7241dc2cc0f3fd4b7}
+#### `public inline int `[`GetFlagItem`](#classCPlayer_1a38cba46d6a535fa7241dc2cc0f3fd4b7)`() const` 
 
-#### `public inline int `[`GetHonorGrade`](#classCPlayer_1ac20c08fe8b5d6f1c489e97d0092eba89)`() const` {#classCPlayer_1ac20c08fe8b5d6f1c489e97d0092eba89}
+#### `public inline int `[`GetHonorGrade`](#classCPlayer_1ac20c08fe8b5d6f1c489e97d0092eba89)`() const` 
 
-#### `public inline int `[`GetHonorOption`](#classCPlayer_1a90d37bce7d8eeed5e16e07afd61f21fc)`() const` {#classCPlayer_1a90d37bce7d8eeed5e16e07afd61f21fc}
+#### `public inline int `[`GetHonorOption`](#classCPlayer_1a90d37bce7d8eeed5e16e07afd61f21fc)`() const` 
 
-#### `public inline BYTE `[`GetTrigramLevel`](#classCPlayer_1a1f1b456ff15b8ee7e4b0557812d984cb)`() const` {#classCPlayer_1a1f1b456ff15b8ee7e4b0557812d984cb}
+#### `public inline BYTE `[`GetTrigramLevel`](#classCPlayer_1a1f1b456ff15b8ee7e4b0557812d984cb)`() const` 
 
-#### `public inline int `[`GetGear`](#classCPlayer_1a9869086cc18c037d35d8ce89b4329bd2)`(BYTE byType) const` {#classCPlayer_1a9869086cc18c037d35d8ce89b4329bd2}
+#### `public inline int `[`GetGear`](#classCPlayer_1a9869086cc18c037d35d8ce89b4329bd2)`(BYTE byType) const` 
 
-#### `public void `[`OnPutOnGear`](#classCPlayer_1af73f72d6dbea618f8abf94fcfefa4604)`(CItem * pItem)` {#classCPlayer_1af73f72d6dbea618f8abf94fcfefa4604}
+#### `public void `[`OnPutOnGear`](#classCPlayer_1af73f72d6dbea618f8abf94fcfefa4604)`(CItem * pItem)` 
 
-#### `public void `[`OnPutOffGear`](#classCPlayer_1ae95e4f94f9302b5f68809195a5f6a32f)`(CItem * pItem)` {#classCPlayer_1ae95e4f94f9302b5f68809195a5f6a32f}
+#### `public void `[`OnPutOffGear`](#classCPlayer_1ae95e4f94f9302b5f68809195a5f6a32f)`(CItem * pItem)` 
 
-#### `public inline bool `[`IsWState`](#classCPlayer_1abe3edf815b4200d626e1d388d64d622c)`(__int64 n64WState) const` {#classCPlayer_1abe3edf815b4200d626e1d388d64d622c}
+#### `public inline bool `[`IsWState`](#classCPlayer_1abe3edf815b4200d626e1d388d64d622c)`(__int64 n64WState) const` 
 
-#### `public inline bool `[`IsAnyTrigramState`](#classCPlayer_1afec9b8f2aa3338355faa46932704b0c3)`() const` {#classCPlayer_1afec9b8f2aa3338355faa46932704b0c3}
+#### `public inline bool `[`IsAnyTrigramState`](#classCPlayer_1afec9b8f2aa3338355faa46932704b0c3)`() const` 
 
-#### `public inline bool `[`IsAllTrigramState`](#classCPlayer_1a2a3d2c22aca7de4e7d53316b4c23e97d)`() const` {#classCPlayer_1a2a3d2c22aca7de4e7d53316b4c23e97d}
+#### `public inline bool `[`IsAllTrigramState`](#classCPlayer_1a2a3d2c22aca7de4e7d53316b4c23e97d)`() const` 
 
-#### `public inline void `[`AddWState`](#classCPlayer_1af02ed0fe00a02c621e51feff73aa2d6a)`(__int64 n64WState)` {#classCPlayer_1af02ed0fe00a02c621e51feff73aa2d6a}
+#### `public inline void `[`AddWState`](#classCPlayer_1af02ed0fe00a02c621e51feff73aa2d6a)`(__int64 n64WState)` 
 
-#### `public inline void `[`SubWState`](#classCPlayer_1a3198e19e08884be776026742ee77e468)`(__int64 n64WState)` {#classCPlayer_1a3198e19e08884be776026742ee77e468}
+#### `public inline void `[`SubWState`](#classCPlayer_1a3198e19e08884be776026742ee77e468)`(__int64 n64WState)` 
 
-#### `public WORD `[`GetReqPU`](#classCPlayer_1a9974f64ad73cb961fc2e60ea439adbdd)`(BYTE * byStats)` {#classCPlayer_1a9974f64ad73cb961fc2e60ea439adbdd}
+#### `public WORD `[`GetReqPU`](#classCPlayer_1a9974f64ad73cb961fc2e60ea439adbdd)`(BYTE * byStats)` 
 
-#### `public bool `[`Write`](#classCPlayer_1ad7b5f46be6d153bb65c39d0375520107)`(BYTE byType,...)` {#classCPlayer_1ad7b5f46be6d153bb65c39d0375520107}
+#### `public bool `[`Write`](#classCPlayer_1ad7b5f46be6d153bb65c39d0375520107)`(BYTE byType,...)` 
 
-#### `public void `[`SendPacket`](#classCPlayer_1a4c247e341ba63d7a87c98ae88ab026c2)`(Packet & packet)` {#classCPlayer_1a4c247e341ba63d7a87c98ae88ab026c2}
+#### `public void `[`SendPacket`](#classCPlayer_1a4c247e341ba63d7a87c98ae88ab026c2)`(Packet & packet)` 
 
-#### `public Packet `[`GenerateCreatePacket`](#classCPlayer_1a00b932835db9866881bc96756abc3657)`(bool bHero)` {#classCPlayer_1a00b932835db9866881bc96756abc3657}
+#### `public Packet `[`GenerateCreatePacket`](#classCPlayer_1a00b932835db9866881bc96756abc3657)`(bool bHero)` 
 
-#### `public Packet `[`GeneratePetPacket`](#classCPlayer_1a52bfdfdcfc96a0fbf5009a9de583ee04)`()` {#classCPlayer_1a52bfdfdcfc96a0fbf5009a9de583ee04}
+#### `public Packet `[`GeneratePetPacket`](#classCPlayer_1a52bfdfdcfc96a0fbf5009a9de583ee04)`()` 
 
-#### `public Packet `[`GenerateDeletePacket`](#classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b)`()` {#classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b}
+#### `public Packet `[`GenerateDeletePacket`](#classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b)`()` 
 
-#### `public Packet `[`GenerateMovePacket`](#classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed)`(BYTE byType,char byX,char byY,char byZ)` {#classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed}
+#### `public Packet `[`GenerateMovePacket`](#classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed)`(BYTE byType,char byX,char byY,char byZ)` 
 
-#### `public void `[`Process`](#classCPlayer_1a618e99ee1c2a0ae81130a2468748838e)`(Packet packet)` {#classCPlayer_1a618e99ee1c2a0ae81130a2468748838e}
+#### `public void `[`Process`](#classCPlayer_1a618e99ee1c2a0ae81130a2468748838e)`(Packet packet)` 
 
-#### `public bool `[`Tick`](#classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce)`()` {#classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce}
+#### `public void `[`Tick`](#classCPlayer_1ae4c64cd8d2e808114db23593ff6c5816)`()` 
 
-#### `public void `[`OnLoadPlayer`](#classCPlayer_1a44552908ba4a38ae9c69e68962376d43)`()` {#classCPlayer_1a44552908ba4a38ae9c69e68962376d43}
+#### `public void `[`OnLoadPlayer`](#classCPlayer_1a44552908ba4a38ae9c69e68962376d43)`()` 
 
-#### `public void `[`OnLoadItems`](#classCPlayer_1a73e13fe05b734d20b9fc2222285afc21)`(char * p)` {#classCPlayer_1a73e13fe05b734d20b9fc2222285afc21}
+#### `public void `[`OnLoadItems`](#classCPlayer_1a73e13fe05b734d20b9fc2222285afc21)`(char * p)` 
 
-#### `public void `[`GameStart`](#classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f)`()` {#classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f}
+#### `public void `[`GameStart`](#classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f)`()` 
 
-#### `public void `[`GameRestart`](#classCPlayer_1ade947d3c70f95c6b0d06f1910a0c4570)`()` {#classCPlayer_1ade947d3c70f95c6b0d06f1910a0c4570}
+#### `public void `[`GameRestart`](#classCPlayer_1ade947d3c70f95c6b0d06f1910a0c4570)`()` 
 
-#### `public bool `[`CanMove`](#classCPlayer_1a266c70cd463694f6b6a85df3879abaea)`()` {#classCPlayer_1a266c70cd463694f6b6a85df3879abaea}
+#### `public bool `[`CanMove`](#classCPlayer_1a266c70cd463694f6b6a85df3879abaea)`()` 
 
-#### `public void `[`OnMove`](#classCPlayer_1a09cd92ba2e8c02fc988e131451b71947)`(char byX,char byY,char byZ,char byType)` {#classCPlayer_1a09cd92ba2e8c02fc988e131451b71947}
+#### `public void `[`OnMove`](#classCPlayer_1a09cd92ba2e8c02fc988e131451b71947)`(char byX,char byY,char byZ,char byType)` 
 
-#### `public void `[`Rest`](#classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5)`(BYTE byType)` {#classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5}
+#### `public void `[`Rest`](#classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5)`(BYTE byType)` 
 
-#### `public void `[`ProcessMsg`](#classCPlayer_1a88c5bae35d7e2c53454b4f51024ede89)`(char * szMsg)` {#classCPlayer_1a88c5bae35d7e2c53454b4f51024ede89}
+#### `public void `[`ProcessMsg`](#classCPlayer_1a88c5bae35d7e2c53454b4f51024ede89)`(char * szMsg)` 
 
-#### `public void `[`ChatCommand`](#classCPlayer_1ad521bb1c30a2c4a898a780b9c56d1937)`(char * szCommand)` {#classCPlayer_1ad521bb1c30a2c4a898a780b9c56d1937}
+#### `public void `[`ChatCommand`](#classCPlayer_1ad521bb1c30a2c4a898a780b9c56d1937)`(char * szCommand)` 
 
-#### `public void `[`UpdateProperty`](#classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133)`(BYTE byProperty,__int64 n64Amount)` {#classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133}
+#### `public void `[`UpdateProperty`](#classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133)`(BYTE byProperty,__int64 n64Amount)` 
 
-#### `public void `[`Teleport`](#classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262)`(int nX,int,int nZ)` {#classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262}
+#### `public void `[`Teleport`](#classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262)`(int nX,int,int nZ)` 
 
-#### `public void `[`OnTeleport`](#classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf)`(BYTE byAnswer,int nZ)` {#classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf}
+#### `public void `[`OnTeleport`](#classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf)`(BYTE byAnswer,int nZ)` 
 
-#### `public void `[`InsertItem`](#classCPlayer_1a8950f3ae31c929fe3ef291cc19de7deb)`(WORD wIndex,int nNum,BYTE byLogType,bool bOwn,bool bForceSingular,BYTE byPrefix,BYTE byXAttack,BYTE byXMagic,BYTE byXHit,BYTE byEBlow,int nInfo,BYTE byXDodge,BYTE byXDefense,FUSION_DESC * pFuse,BYTE byShot,WORD wPerforation,int nGongLeft,int nGongRight)` {#classCPlayer_1a8950f3ae31c929fe3ef291cc19de7deb}
+#### `public void `[`InsertItem`](#classCPlayer_1a8950f3ae31c929fe3ef291cc19de7deb)`(WORD wIndex,int nNum,BYTE byLogType,bool bOwn,bool bForceSingular,BYTE byPrefix,BYTE byXAttack,BYTE byXMagic,BYTE byXHit,BYTE byEBlow,int nInfo,BYTE byXDodge,BYTE byXDefense,FUSION_DESC * pFuse,BYTE byShot,WORD wPerforation,int nGongLeft,int nGongRight)` 
 
-#### `public bool `[`MergeItem`](#classCPlayer_1a9e6e45ebe10f4ed34ba5a8431c7c5faf)`(WORD wIndex,int nNum,BYTE byLogType,bool bOwn)` {#classCPlayer_1a9e6e45ebe10f4ed34ba5a8431c7c5faf}
+#### `public bool `[`MergeItem`](#classCPlayer_1a9e6e45ebe10f4ed34ba5a8431c7c5faf)`(WORD wIndex,int nNum,BYTE byLogType,bool bOwn)` 
 
-#### `public bool `[`UseItem`](#classCPlayer_1abe919deb009679672f8b749100fcad9c)`(CItem * pItem)` {#classCPlayer_1abe919deb009679672f8b749100fcad9c}
+#### `public bool `[`UseItem`](#classCPlayer_1abe919deb009679672f8b749100fcad9c)`(CItem * pItem)` 
 
-#### `public void `[`PutOnItem`](#classCPlayer_1ab76927857016659cdd172c1e480b4c29)`(CItem * pItem)` {#classCPlayer_1ab76927857016659cdd172c1e480b4c29}
+#### `public void `[`PutOnItem`](#classCPlayer_1ab76927857016659cdd172c1e480b4c29)`(CItem * pItem)` 
 
-#### `public void `[`PutOffItem`](#classCPlayer_1ac78ab733d3fdc84a855b93ea0165647c)`(CItem * pItem)` {#classCPlayer_1ac78ab733d3fdc84a855b93ea0165647c}
+#### `public void `[`PutOffItem`](#classCPlayer_1ac78ab733d3fdc84a855b93ea0165647c)`(CItem * pItem)` 
 
-#### `public void `[`Damage`](#classCPlayer_1ade03bd4c423364b93dbbb87c9f1701ef)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` {#classCPlayer_1ade03bd4c423364b93dbbb87c9f1701ef}
+#### `public void `[`Damage`](#classCPlayer_1ade03bd4c423364b93dbbb87c9f1701ef)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` 
 
-#### `public void `[`Die`](#classCPlayer_1aea5393068e04bd1f5ee2f37f28650de5)`()` {#classCPlayer_1aea5393068e04bd1f5ee2f37f28650de5}
+#### `public void `[`Die`](#classCPlayer_1aea5393068e04bd1f5ee2f37f28650de5)`()` 
 
-#### `public void `[`Revival`](#classCPlayer_1a6388bcc9a284184363be8d01f83db44f)`()` {#classCPlayer_1a6388bcc9a284184363be8d01f83db44f}
+#### `public void `[`Revival`](#classCPlayer_1a6388bcc9a284184363be8d01f83db44f)`()` 
 
-#### `public void `[`Attack`](#classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15)`(CCharacter * pTarget)` {#classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15}
+#### `public void `[`Attack`](#classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15)`(CCharacter * pTarget)` 
 
-#### `public bool `[`RemoveItem`](#classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd)`(CItem * pItem,int nNum,BYTE byLogType)` {#classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd}
+#### `public bool `[`RemoveItem`](#classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd)`(CItem * pItem,int nNum,BYTE byLogType)` 
 
-#### `public void `[`RemoveItem`](#classCPlayer_1a2c5a636b4bca0d2843199ea09f0accfa)`(WORD wIndex,int nNum,BYTE byLogType)` {#classCPlayer_1a2c5a636b4bca0d2843199ea09f0accfa}
+#### `public void `[`RemoveItem`](#classCPlayer_1a2c5a636b4bca0d2843199ea09f0accfa)`(WORD wIndex,int nNum,BYTE byLogType)` 
 
-#### `public void `[`SaveAllProperty`](#classCPlayer_1aaa8c88a78b3562a82459de23e6b9ad77)`()` {#classCPlayer_1aaa8c88a78b3562a82459de23e6b9ad77}
+#### `public void `[`SaveAllProperty`](#classCPlayer_1aaa8c88a78b3562a82459de23e6b9ad77)`()` 
 
-#### `public void `[`SendProperty`](#classCPlayer_1ab20b931268d1e2fa873f21fd4d19ab45)`()` {#classCPlayer_1ab20b931268d1e2fa873f21fd4d19ab45}
+#### `public void `[`SendProperty`](#classCPlayer_1ab20b931268d1e2fa873f21fd4d19ab45)`()` 
 
-#### `public void `[`ApplySpec`](#classCPlayer_1a20c76a872e4b67be38755eaa3ccbe3d7)`(CItem * pItem)` {#classCPlayer_1a20c76a872e4b67be38755eaa3ccbe3d7}
+#### `public void `[`ApplySpec`](#classCPlayer_1a20c76a872e4b67be38755eaa3ccbe3d7)`(CItem * pItem)` 
 
-#### `public void `[`FreeSpec`](#classCPlayer_1ac35c72e50408c7ed7a519d45c06f1a39)`(CItem * pItem)` {#classCPlayer_1ac35c72e50408c7ed7a519d45c06f1a39}
+#### `public void `[`FreeSpec`](#classCPlayer_1ac35c72e50408c7ed7a519d45c06f1a39)`(CItem * pItem)` 
 
-#### `public inline int `[`GetPartyID`](#classCPlayer_1a41f01f7472f592975eba70265d9b6eca)`() const` {#classCPlayer_1a41f01f7472f592975eba70265d9b6eca}
+#### `public inline int `[`GetPartyID`](#classCPlayer_1a41f01f7472f592975eba70265d9b6eca)`() const` 
 
-#### `public inline void `[`SetPartyID`](#classCPlayer_1ae9801e3bf59477037d93cfdf1d155592)`(int nID)` {#classCPlayer_1ae9801e3bf59477037d93cfdf1d155592}
+#### `public inline void `[`SetPartyID`](#classCPlayer_1ae9801e3bf59477037d93cfdf1d155592)`(int nID)` 
 
-#### `public inline void `[`SetPartyInviterID`](#classCPlayer_1ade6b21dfe81ae894f58d206904f5d7b8)`(int nID)` {#classCPlayer_1ade6b21dfe81ae894f58d206904f5d7b8}
+#### `public inline void `[`SetPartyInviterID`](#classCPlayer_1ade6b21dfe81ae894f58d206904f5d7b8)`(int nID)` 
 
-#### `public inline int `[`GetPartyInviterID`](#classCPlayer_1ad656bf549083b5009bac49c4baa5c6d5)`() const` {#classCPlayer_1ad656bf549083b5009bac49c4baa5c6d5}
+#### `public inline int `[`GetPartyInviterID`](#classCPlayer_1ad656bf549083b5009bac49c4baa5c6d5)`() const` 
 
-#### `public inline bool `[`HasParty`](#classCPlayer_1a2a6260ab8ce10eeb3df9443c7b62c449)`() const` {#classCPlayer_1a2a6260ab8ce10eeb3df9443c7b62c449}
+#### `public inline bool `[`HasParty`](#classCPlayer_1a2a6260ab8ce10eeb3df9443c7b62c449)`() const` 
 
-#### `public void `[`AskParty`](#classCPlayer_1a6230984fa6040d6decb1793c883b746a)`(CPlayer * pPlayer)` {#classCPlayer_1a6230984fa6040d6decb1793c883b746a}
+#### `public void `[`AskParty`](#classCPlayer_1a6230984fa6040d6decb1793c883b746a)`(CPlayer * pPlayer)` 
 
-#### `public void `[`LeaveParty`](#classCPlayer_1a1382ab608b108bf4dd4dd8ddb55e3d91)`()` {#classCPlayer_1a1382ab608b108bf4dd4dd8ddb55e3d91}
+#### `public void `[`LeaveParty`](#classCPlayer_1a1382ab608b108bf4dd4dd8ddb55e3d91)`()` 
 
-#### `public void `[`RemoveAggro`](#classCPlayer_1a542f63a05b151ea4fa6688d201448f11)`()` {#classCPlayer_1a542f63a05b151ea4fa6688d201448f11}
+#### `public void `[`RemoveAggro`](#classCPlayer_1a542f63a05b151ea4fa6688d201448f11)`()` 
 
-#### `public void `[`IntoInven`](#classCPlayer_1ac604286ac82475d0afee168e5374f785)`(CItem * pItem)` {#classCPlayer_1ac604286ac82475d0afee168e5374f785}
+#### `public void `[`IntoInven`](#classCPlayer_1ac604286ac82475d0afee168e5374f785)`(CItem * pItem)` 
 
-#### `public void `[`OutofInven`](#classCPlayer_1a63166723e4154efed1c48a67051da82d)`(CItem * pItem)` {#classCPlayer_1a63166723e4154efed1c48a67051da82d}
+#### `public void `[`OutofInven`](#classCPlayer_1a63166723e4154efed1c48a67051da82d)`(CItem * pItem)` 
 
-#### `public void `[`EmptyInven`](#classCPlayer_1a4daa6280bc84d3e3633d92832594dea6)`()` {#classCPlayer_1a4daa6280bc84d3e3633d92832594dea6}
+#### `public void `[`EmptyInven`](#classCPlayer_1a4daa6280bc84d3e3633d92832594dea6)`()` 
 
-#### `public CItem * `[`FindItem`](#classCPlayer_1a002feea76f8ff73aae3d19504b2d4335)`(WORD wIndex,BYTE byOwn)` {#classCPlayer_1a002feea76f8ff73aae3d19504b2d4335}
+#### `public CItem * `[`FindItem`](#classCPlayer_1a002feea76f8ff73aae3d19504b2d4335)`(WORD wIndex,BYTE byOwn)` 
 
-#### `public CItem * `[`FindItemByIID`](#classCPlayer_1a140483d4beb5a9dae7a929d2562feaa0)`(int nIID)` {#classCPlayer_1a140483d4beb5a9dae7a929d2562feaa0}
+#### `public CItem * `[`FindItemByIID`](#classCPlayer_1a140483d4beb5a9dae7a929d2562feaa0)`(int nIID)` 
 
-# class `CServer` {#classCServer}
+# class `CServer` 
 
 ## Summary
 
@@ -1453,7 +1438,7 @@ class CPlayer
 
 ## Members
 
-# class `CTile` {#classCTile}
+# class `CTile` 
 
 ## Summary
 
@@ -1469,30 +1454,60 @@ class CPlayer
 `public void `[`GetMonsterListAround`](#classCTile_1a500887d419a5fa9b93f2885a82180eb2)`(CCharacter * pCharacter,int nDistance,MonsterList & list)` | 
 `public void `[`SendPacket`](#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111)`(CCharacter * pCharacter,Packet & packet)` | 
 `public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` | 
+`public void `[`ExchangeMoveActionWithPlayers`](#classCTile_1a6f71e25bfc3f826639300abc127fdd25)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` | 
+`public void `[`ExchangeMoveActionWithMonsters`](#classCTile_1ae7f50d3589419005ffb900182fd3d488)`(CPlayer * pPlayer,char byX,char byY)` | 
+`public void `[`ExchangeMoveActionWithNPCs`](#classCTile_1a30da262666aa379fa7f436496e8150c7)`(CPlayer * pPlayer,char byX,char byY)` | 
 
 ## Members
 
-#### `public inline  `[`CTile`](#classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b)`()` {#classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b}
+#### `public inline  `[`CTile`](#classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b)`()` 
 
-#### `public void `[`Add`](#classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b)`(CCharacter * pCharacter)` {#classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b}
+#### `public void `[`Add`](#classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b)`(CCharacter * pCharacter)` 
 
-#### `public void `[`Remove`](#classCTile_1a70bd90fe9bf75fd5240a024716f08e8a)`(CCharacter * pCharacter)` {#classCTile_1a70bd90fe9bf75fd5240a024716f08e8a}
+#### `public void `[`Remove`](#classCTile_1a70bd90fe9bf75fd5240a024716f08e8a)`(CCharacter * pCharacter)` 
 
-#### `public inline void `[`Lock`](#classCTile_1ab3fd197f9c845168067def319945ebbd)`()` {#classCTile_1ab3fd197f9c845168067def319945ebbd}
+#### `public inline void `[`Lock`](#classCTile_1ab3fd197f9c845168067def319945ebbd)`()` 
 
-#### `public inline void `[`Unlock`](#classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3)`()` {#classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3}
+#### `public inline void `[`Unlock`](#classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3)`()` 
 
-#### `public void `[`GetCharacterListAround`](#classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f)`(CCharacter * pCharacter,int nDistance,CharacterList & list)` {#classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f}
+#### `public void `[`GetCharacterListAround`](#classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f)`(CCharacter * pCharacter,int nDistance,CharacterList & list)` 
 
-#### `public void `[`GetPlayerListAround`](#classCTile_1a06c572865aef65b63a2665f93ee1560b)`(CCharacter * pCharacter,int nDistance,PlayerList & list)` {#classCTile_1a06c572865aef65b63a2665f93ee1560b}
+#### `public void `[`GetPlayerListAround`](#classCTile_1a06c572865aef65b63a2665f93ee1560b)`(CCharacter * pCharacter,int nDistance,PlayerList & list)` 
 
-#### `public void `[`GetMonsterListAround`](#classCTile_1a500887d419a5fa9b93f2885a82180eb2)`(CCharacter * pCharacter,int nDistance,MonsterList & list)` {#classCTile_1a500887d419a5fa9b93f2885a82180eb2}
+#### `public void `[`GetMonsterListAround`](#classCTile_1a500887d419a5fa9b93f2885a82180eb2)`(CCharacter * pCharacter,int nDistance,MonsterList & list)` 
 
-#### `public void `[`SendPacket`](#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111)`(CCharacter * pCharacter,Packet & packet)` {#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111}
+#### `public void `[`SendPacket`](#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111)`(CCharacter * pCharacter,Packet & packet)` 
 
-#### `public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` {#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4}
+#### `public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` 
 
-# struct `CItemInfo` {#structCItemInfo}
+#### `public void `[`ExchangeMoveActionWithPlayers`](#classCTile_1a6f71e25bfc3f826639300abc127fdd25)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` 
+
+#### `public void `[`ExchangeMoveActionWithMonsters`](#classCTile_1ae7f50d3589419005ffb900182fd3d488)`(CPlayer * pPlayer,char byX,char byY)` 
+
+#### `public void `[`ExchangeMoveActionWithNPCs`](#classCTile_1a30da262666aa379fa7f436496e8150c7)`(CPlayer * pPlayer,char byX,char byY)` 
+
+# class `IAppearable` 
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public virtual Packet `[`GenerateCreatePacket`](#classIAppearable_1ac0262a965a30119375a1a48d626ad6f3)`(bool bHero)` | 
+`public virtual Packet `[`GeneratePetPacket`](#classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c)`()` | 
+`public virtual Packet `[`GenerateDeletePacket`](#classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6)`()` | 
+`public virtual Packet `[`GenerateMovePacket`](#classIAppearable_1a2294d79323944687a5a16ac097d1de88)`(BYTE byType,char byX,char byY,char byZ)` | 
+
+## Members
+
+#### `public virtual Packet `[`GenerateCreatePacket`](#classIAppearable_1ac0262a965a30119375a1a48d626ad6f3)`(bool bHero)` 
+
+#### `public virtual Packet `[`GeneratePetPacket`](#classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c)`()` 
+
+#### `public virtual Packet `[`GenerateDeletePacket`](#classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6)`()` 
+
+#### `public virtual Packet `[`GenerateMovePacket`](#classIAppearable_1a2294d79323944687a5a16ac097d1de88)`(BYTE byType,char byX,char byY,char byZ)` 
+
+# struct `CItemInfo` 
 
 ```
 struct CItemInfo
@@ -1546,87 +1561,87 @@ struct CItemInfo
 
 ## Members
 
-#### `public WORD `[`m_wIndex`](#structCItemInfo_1a76934b07053447467ac7cc6d0a293df1) {#structCItemInfo_1a76934b07053447467ac7cc6d0a293df1}
+#### `public WORD `[`m_wIndex`](#structCItemInfo_1a76934b07053447467ac7cc6d0a293df1) 
 
-#### `public BYTE `[`m_byClass`](#structCItemInfo_1a2439bdfe283e25ae066084dee37c9e35) {#structCItemInfo_1a2439bdfe283e25ae066084dee37c9e35}
+#### `public BYTE `[`m_byClass`](#structCItemInfo_1a2439bdfe283e25ae066084dee37c9e35) 
 
-#### `public BYTE `[`m_bySubClass`](#structCItemInfo_1aa6373a624fecb0957b50ec98450b1a7d) {#structCItemInfo_1aa6373a624fecb0957b50ec98450b1a7d}
+#### `public BYTE `[`m_bySubClass`](#structCItemInfo_1aa6373a624fecb0957b50ec98450b1a7d) 
 
-#### `public BYTE `[`m_byLevel`](#structCItemInfo_1a9daf58f73e2ee03d7f825f44424b2427) {#structCItemInfo_1a9daf58f73e2ee03d7f825f44424b2427}
+#### `public BYTE `[`m_byLevel`](#structCItemInfo_1a9daf58f73e2ee03d7f825f44424b2427) 
 
-#### `public bool `[`m_bWear`](#structCItemInfo_1a700234e12c866e8471fd576a74314c32) {#structCItemInfo_1a700234e12c866e8471fd576a74314c32}
+#### `public bool `[`m_bWear`](#structCItemInfo_1a700234e12c866e8471fd576a74314c32) 
 
-#### `public BYTE `[`m_byReqClass`](#structCItemInfo_1a6ceef77eff51d0aebb093257a237f0a4) {#structCItemInfo_1a6ceef77eff51d0aebb093257a237f0a4}
+#### `public BYTE `[`m_byReqClass`](#structCItemInfo_1a6ceef77eff51d0aebb093257a237f0a4) 
 
-#### `public BYTE `[`m_byReqLevel`](#structCItemInfo_1a3fb4da114f8d4f563d31b7a016b2cbe0) {#structCItemInfo_1a3fb4da114f8d4f563d31b7a016b2cbe0}
+#### `public BYTE `[`m_byReqLevel`](#structCItemInfo_1a3fb4da114f8d4f563d31b7a016b2cbe0) 
 
-#### `public int `[`m_nRange`](#structCItemInfo_1ab2247b3d4b23f521920029ff550d5a57) {#structCItemInfo_1ab2247b3d4b23f521920029ff550d5a57}
+#### `public int `[`m_nRange`](#structCItemInfo_1ab2247b3d4b23f521920029ff550d5a57) 
 
-#### `public int `[`m_nBuy`](#structCItemInfo_1a19bcf28fb6d3ee7c62ccdd0eae2a4b67) {#structCItemInfo_1a19bcf28fb6d3ee7c62ccdd0eae2a4b67}
+#### `public int `[`m_nBuy`](#structCItemInfo_1a19bcf28fb6d3ee7c62ccdd0eae2a4b67) 
 
-#### `public int `[`m_nSell`](#structCItemInfo_1a1314a803259248085444fc0beef2d735) {#structCItemInfo_1a1314a803259248085444fc0beef2d735}
+#### `public int `[`m_nSell`](#structCItemInfo_1a1314a803259248085444fc0beef2d735) 
 
-#### `public BYTE `[`m_byEndurance`](#structCItemInfo_1af1a7e5251f8148a42767c3edf8c92218) {#structCItemInfo_1af1a7e5251f8148a42767c3edf8c92218}
+#### `public BYTE `[`m_byEndurance`](#structCItemInfo_1af1a7e5251f8148a42767c3edf8c92218) 
 
-#### `public bool `[`m_bPlural`](#structCItemInfo_1a480c1cff45290d84cc8bd62b91eb3f3c) {#structCItemInfo_1a480c1cff45290d84cc8bd62b91eb3f3c}
+#### `public bool `[`m_bPlural`](#structCItemInfo_1a480c1cff45290d84cc8bd62b91eb3f3c) 
 
-#### `public bool `[`m_bUse`](#structCItemInfo_1ae54533224232f7ef1ca6daaadb4e902c) {#structCItemInfo_1ae54533224232f7ef1ca6daaadb4e902c}
+#### `public bool `[`m_bUse`](#structCItemInfo_1ae54533224232f7ef1ca6daaadb4e902c) 
 
-#### `public int `[`m_nCooltime`](#structCItemInfo_1ad36c89d3ea744f4f746e4e8a77836301) {#structCItemInfo_1ad36c89d3ea744f4f746e4e8a77836301}
+#### `public int `[`m_nCooltime`](#structCItemInfo_1ad36c89d3ea744f4f746e4e8a77836301) 
 
-#### `public BYTE `[`m_byEffect`](#structCItemInfo_1aacbba761386ebfd931e34a857dfe4716) {#structCItemInfo_1aacbba761386ebfd931e34a857dfe4716}
+#### `public BYTE `[`m_byEffect`](#structCItemInfo_1aacbba761386ebfd931e34a857dfe4716) 
 
-#### `public int `[`m_nRefresh`](#structCItemInfo_1ab32ef75c6bc26ac30ffbc837cd534aed) {#structCItemInfo_1ab32ef75c6bc26ac30ffbc837cd534aed}
+#### `public int `[`m_nRefresh`](#structCItemInfo_1ab32ef75c6bc26ac30ffbc837cd534aed) 
 
-#### `public int `[`m_nBuffId`](#structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448) {#structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448}
+#### `public int `[`m_nBuffId`](#structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448) 
 
-#### `public int `[`m_nBuffTime`](#structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0) {#structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0}
+#### `public int `[`m_nBuffTime`](#structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0) 
 
-#### `public int `[`m_nBuffValue`](#structCItemInfo_1a55716f963c98983b29f86d15d74f11e9) {#structCItemInfo_1a55716f963c98983b29f86d15d74f11e9}
+#### `public int `[`m_nBuffValue`](#structCItemInfo_1a55716f963c98983b29f86d15d74f11e9) 
 
-#### `public WORD `[`m_wDefense`](#structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98) {#structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98}
+#### `public WORD `[`m_wDefense`](#structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98) 
 
-#### `public WORD `[`m_wHit`](#structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed) {#structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed}
+#### `public WORD `[`m_wHit`](#structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed) 
 
-#### `public WORD `[`m_wDodge`](#structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91) {#structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91}
+#### `public WORD `[`m_wDodge`](#structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91) 
 
-#### `public WORD `[`m_wAbsorb`](#structCItemInfo_1a68b2665eab373021688916a2c2e57ccb) {#structCItemInfo_1a68b2665eab373021688916a2c2e57ccb}
+#### `public WORD `[`m_wAbsorb`](#structCItemInfo_1a68b2665eab373021688916a2c2e57ccb) 
 
-#### `public WORD `[`m_wResistFire`](#structCItemInfo_1a699b3e66037b53735ca99be91a6bfe77) {#structCItemInfo_1a699b3e66037b53735ca99be91a6bfe77}
+#### `public WORD `[`m_wResistFire`](#structCItemInfo_1a699b3e66037b53735ca99be91a6bfe77) 
 
-#### `public WORD `[`m_wResistIce`](#structCItemInfo_1aa26de24aa9420cd4c46e3a8ca89fe756) {#structCItemInfo_1aa26de24aa9420cd4c46e3a8ca89fe756}
+#### `public WORD `[`m_wResistIce`](#structCItemInfo_1aa26de24aa9420cd4c46e3a8ca89fe756) 
 
-#### `public WORD `[`m_wResistLitning`](#structCItemInfo_1a67551a98cd7ae370c097349cf26bcd6a) {#structCItemInfo_1a67551a98cd7ae370c097349cf26bcd6a}
+#### `public WORD `[`m_wResistLitning`](#structCItemInfo_1a67551a98cd7ae370c097349cf26bcd6a) 
 
-#### `public WORD `[`m_wResistCurse`](#structCItemInfo_1ab683ac93d924c1b0cbc5073c1d3580b2) {#structCItemInfo_1ab683ac93d924c1b0cbc5073c1d3580b2}
+#### `public WORD `[`m_wResistCurse`](#structCItemInfo_1ab683ac93d924c1b0cbc5073c1d3580b2) 
 
-#### `public WORD `[`m_wResistPalsy`](#structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3) {#structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3}
+#### `public WORD `[`m_wResistPalsy`](#structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3) 
 
-#### `public DWORD `[`m_dwHP`](#structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f) {#structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f}
+#### `public DWORD `[`m_dwHP`](#structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f) 
 
-#### `public DWORD `[`m_dwMP`](#structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3) {#structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3}
+#### `public DWORD `[`m_dwMP`](#structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3) 
 
-#### `public WORD `[`m_wMinAttack`](#structCItemInfo_1ab5dc077635bdab3db04a0075477f8237) {#structCItemInfo_1ab5dc077635bdab3db04a0075477f8237}
+#### `public WORD `[`m_wMinAttack`](#structCItemInfo_1ab5dc077635bdab3db04a0075477f8237) 
 
-#### `public WORD `[`m_wMaxAttack`](#structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e) {#structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e}
+#### `public WORD `[`m_wMaxAttack`](#structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e) 
 
-#### `public WORD `[`m_wMinMagic`](#structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c) {#structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c}
+#### `public WORD `[`m_wMinMagic`](#structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c) 
 
-#### `public WORD `[`m_wMaxMagic`](#structCItemInfo_1a2fc639e34056e5397bec89a2fd309391) {#structCItemInfo_1a2fc639e34056e5397bec89a2fd309391}
+#### `public WORD `[`m_wMaxMagic`](#structCItemInfo_1a2fc639e34056e5397bec89a2fd309391) 
 
-#### `public WORD `[`m_wStr`](#structCItemInfo_1ab3828a32ae0cc4718c965d10e703a852) {#structCItemInfo_1ab3828a32ae0cc4718c965d10e703a852}
+#### `public WORD `[`m_wStr`](#structCItemInfo_1ab3828a32ae0cc4718c965d10e703a852) 
 
-#### `public WORD `[`m_wHth`](#structCItemInfo_1aecf4da12e1bcde7a12b3b89bff3f8596) {#structCItemInfo_1aecf4da12e1bcde7a12b3b89bff3f8596}
+#### `public WORD `[`m_wHth`](#structCItemInfo_1aecf4da12e1bcde7a12b3b89bff3f8596) 
 
-#### `public WORD `[`m_wInt`](#structCItemInfo_1a1aa7cb7639769f0565f5406d6bdff54d) {#structCItemInfo_1a1aa7cb7639769f0565f5406d6bdff54d}
+#### `public WORD `[`m_wInt`](#structCItemInfo_1a1aa7cb7639769f0565f5406d6bdff54d) 
 
-#### `public WORD `[`m_wWis`](#structCItemInfo_1a407be745faf5785d3ff968271606796c) {#structCItemInfo_1a407be745faf5785d3ff968271606796c}
+#### `public WORD `[`m_wWis`](#structCItemInfo_1a407be745faf5785d3ff968271606796c) 
 
-#### `public WORD `[`m_wDex`](#structCItemInfo_1aabd05081ae1ec47d7273f22b4d5a34a0) {#structCItemInfo_1aabd05081ae1ec47d7273f22b4d5a34a0}
+#### `public WORD `[`m_wDex`](#structCItemInfo_1aabd05081ae1ec47d7273f22b4d5a34a0) 
 
-#### `public inline  `[`CItemInfo`](#structCItemInfo_1a1c40648b42e421bebf1666b450650f44)`()` {#structCItemInfo_1a1c40648b42e421bebf1666b450650f44}
+#### `public inline  `[`CItemInfo`](#structCItemInfo_1a1c40648b42e421bebf1666b450650f44)`()` 
 
-# struct `CMacro` {#structCMacro}
+# struct `CMacro` 
 
 ## Summary
 
@@ -1635,7 +1650,7 @@ struct CItemInfo
 
 ## Members
 
-# struct `CMonsterInfo` {#structCMonsterInfo}
+# struct `CMonsterInfo` 
 
 ```
 struct CMonsterInfo
@@ -1682,73 +1697,73 @@ struct CMonsterInfo
 
 ## Members
 
-#### `public WORD `[`m_wIndex`](#structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232) {#structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232}
+#### `public WORD `[`m_wIndex`](#structCMonsterInfo_1ac05f39a8c3b2a0cadc15a36d00289232) 
 
-#### `public BYTE `[`m_byRace`](#structCMonsterInfo_1aa6a0da27614bb6e12ce24e5b8a267bcc) {#structCMonsterInfo_1aa6a0da27614bb6e12ce24e5b8a267bcc}
+#### `public BYTE `[`m_byRace`](#structCMonsterInfo_1aa6a0da27614bb6e12ce24e5b8a267bcc) 
 
-#### `public BYTE `[`m_byLevel`](#structCMonsterInfo_1af51dd9f92e3c39cff3d2586f29c3bae5) {#structCMonsterInfo_1af51dd9f92e3c39cff3d2586f29c3bae5}
+#### `public BYTE `[`m_byLevel`](#structCMonsterInfo_1af51dd9f92e3c39cff3d2586f29c3bae5) 
 
-#### `public BYTE `[`m_byAI`](#structCMonsterInfo_1abeb38493bf01835786a3526818e3148f) {#structCMonsterInfo_1abeb38493bf01835786a3526818e3148f}
+#### `public BYTE `[`m_byAI`](#structCMonsterInfo_1abeb38493bf01835786a3526818e3148f) 
 
-#### `public WORD `[`m_wRange`](#structCMonsterInfo_1ab6672eaa7c9dcd23d4125412950dfebb) {#structCMonsterInfo_1ab6672eaa7c9dcd23d4125412950dfebb}
+#### `public WORD `[`m_wRange`](#structCMonsterInfo_1ab6672eaa7c9dcd23d4125412950dfebb) 
 
-#### `public WORD `[`m_wCloseSight`](#structCMonsterInfo_1a3ad06f707931eed8844497793e8b581f) {#structCMonsterInfo_1a3ad06f707931eed8844497793e8b581f}
+#### `public WORD `[`m_wCloseSight`](#structCMonsterInfo_1a3ad06f707931eed8844497793e8b581f) 
 
-#### `public WORD `[`m_wFarSight`](#structCMonsterInfo_1a92cb55f43d52be5d7b28a202aa69430e) {#structCMonsterInfo_1a92cb55f43d52be5d7b28a202aa69430e}
+#### `public WORD `[`m_wFarSight`](#structCMonsterInfo_1a92cb55f43d52be5d7b28a202aa69430e) 
 
-#### `public __int64 `[`m_n64Exp`](#structCMonsterInfo_1aad4403f33d4255623b03cec89e98194b) {#structCMonsterInfo_1aad4403f33d4255623b03cec89e98194b}
+#### `public __int64 `[`m_n64Exp`](#structCMonsterInfo_1aad4403f33d4255623b03cec89e98194b) 
 
-#### `public WORD `[`m_wWalkSpeed`](#structCMonsterInfo_1ad529ddd263cf9e68e5227b7fa50cce25) {#structCMonsterInfo_1ad529ddd263cf9e68e5227b7fa50cce25}
+#### `public WORD `[`m_wWalkSpeed`](#structCMonsterInfo_1ad529ddd263cf9e68e5227b7fa50cce25) 
 
-#### `public WORD `[`m_wRunSpeed`](#structCMonsterInfo_1ac51bd28674f8c9cae8498e2cc1b9fb7c) {#structCMonsterInfo_1ac51bd28674f8c9cae8498e2cc1b9fb7c}
+#### `public WORD `[`m_wRunSpeed`](#structCMonsterInfo_1ac51bd28674f8c9cae8498e2cc1b9fb7c) 
 
-#### `public WORD `[`m_wAttackSpeed`](#structCMonsterInfo_1a2606ae8216541893d3f329e4fffc8cda) {#structCMonsterInfo_1a2606ae8216541893d3f329e4fffc8cda}
+#### `public WORD `[`m_wAttackSpeed`](#structCMonsterInfo_1a2606ae8216541893d3f329e4fffc8cda) 
 
-#### `public WORD `[`m_wStr`](#structCMonsterInfo_1a077bcb6158ca1d0a45d930cbccb33a46) {#structCMonsterInfo_1a077bcb6158ca1d0a45d930cbccb33a46}
+#### `public WORD `[`m_wStr`](#structCMonsterInfo_1a077bcb6158ca1d0a45d930cbccb33a46) 
 
-#### `public WORD `[`m_wHth`](#structCMonsterInfo_1a762fb128f9a62ef821f4fb7009e97d3f) {#structCMonsterInfo_1a762fb128f9a62ef821f4fb7009e97d3f}
+#### `public WORD `[`m_wHth`](#structCMonsterInfo_1a762fb128f9a62ef821f4fb7009e97d3f) 
 
-#### `public WORD `[`m_wInt`](#structCMonsterInfo_1a73e33b8accdfbcbe4c795bc630227f93) {#structCMonsterInfo_1a73e33b8accdfbcbe4c795bc630227f93}
+#### `public WORD `[`m_wInt`](#structCMonsterInfo_1a73e33b8accdfbcbe4c795bc630227f93) 
 
-#### `public WORD `[`m_wWis`](#structCMonsterInfo_1a064d63f4c02d248c717a121c30ad31d4) {#structCMonsterInfo_1a064d63f4c02d248c717a121c30ad31d4}
+#### `public WORD `[`m_wWis`](#structCMonsterInfo_1a064d63f4c02d248c717a121c30ad31d4) 
 
-#### `public WORD `[`m_wDex`](#structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35) {#structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35}
+#### `public WORD `[`m_wDex`](#structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35) 
 
-#### `public DWORD `[`m_dwHP`](#structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f) {#structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f}
+#### `public DWORD `[`m_dwHP`](#structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f) 
 
-#### `public DWORD `[`m_dwMP`](#structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5) {#structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5}
+#### `public DWORD `[`m_dwMP`](#structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5) 
 
-#### `public WORD `[`m_wDefense`](#structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d) {#structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d}
+#### `public WORD `[`m_wDefense`](#structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d) 
 
-#### `public WORD `[`m_wHit`](#structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4) {#structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4}
+#### `public WORD `[`m_wHit`](#structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4) 
 
-#### `public WORD `[`m_wDodge`](#structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1) {#structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1}
+#### `public WORD `[`m_wDodge`](#structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1) 
 
-#### `public WORD `[`m_wAbsorb`](#structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3) {#structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3}
+#### `public WORD `[`m_wAbsorb`](#structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3) 
 
-#### `public WORD `[`m_wResistFire`](#structCMonsterInfo_1ab90f43b23fb76bef8cfb07b43173b72f) {#structCMonsterInfo_1ab90f43b23fb76bef8cfb07b43173b72f}
+#### `public WORD `[`m_wResistFire`](#structCMonsterInfo_1ab90f43b23fb76bef8cfb07b43173b72f) 
 
-#### `public WORD `[`m_wResistIce`](#structCMonsterInfo_1a70f8a1a41f3c4badb17731f476dbb237) {#structCMonsterInfo_1a70f8a1a41f3c4badb17731f476dbb237}
+#### `public WORD `[`m_wResistIce`](#structCMonsterInfo_1a70f8a1a41f3c4badb17731f476dbb237) 
 
-#### `public WORD `[`m_wResistLitning`](#structCMonsterInfo_1a0a2ff1d3742794e0da57f676b25f424b) {#structCMonsterInfo_1a0a2ff1d3742794e0da57f676b25f424b}
+#### `public WORD `[`m_wResistLitning`](#structCMonsterInfo_1a0a2ff1d3742794e0da57f676b25f424b) 
 
-#### `public WORD `[`m_wResistCurse`](#structCMonsterInfo_1aad4764813468a16db18c5ab65e659f48) {#structCMonsterInfo_1aad4764813468a16db18c5ab65e659f48}
+#### `public WORD `[`m_wResistCurse`](#structCMonsterInfo_1aad4764813468a16db18c5ab65e659f48) 
 
-#### `public WORD `[`m_wResistPalsy`](#structCMonsterInfo_1ac29435267add159dc68881fe385a6f80) {#structCMonsterInfo_1ac29435267add159dc68881fe385a6f80}
+#### `public WORD `[`m_wResistPalsy`](#structCMonsterInfo_1ac29435267add159dc68881fe385a6f80) 
 
-#### `public WORD `[`m_wMinAttack`](#structCMonsterInfo_1ab24c395f81ab71caefff657c8af6d700) {#structCMonsterInfo_1ab24c395f81ab71caefff657c8af6d700}
+#### `public WORD `[`m_wMinAttack`](#structCMonsterInfo_1ab24c395f81ab71caefff657c8af6d700) 
 
-#### `public WORD `[`m_wMaxAttack`](#structCMonsterInfo_1a8591f1a3a2fb809a2e36c10fb14b191a) {#structCMonsterInfo_1a8591f1a3a2fb809a2e36c10fb14b191a}
+#### `public WORD `[`m_wMaxAttack`](#structCMonsterInfo_1a8591f1a3a2fb809a2e36c10fb14b191a) 
 
-#### `public WORD `[`m_wMinMagic`](#structCMonsterInfo_1a039745d705c73743ae62f624bcf7b7b7) {#structCMonsterInfo_1a039745d705c73743ae62f624bcf7b7b7}
+#### `public WORD `[`m_wMinMagic`](#structCMonsterInfo_1a039745d705c73743ae62f624bcf7b7b7) 
 
-#### `public WORD `[`m_wMaxMagic`](#structCMonsterInfo_1abffd3931f2a166c64302ee5ac2a37c6e) {#structCMonsterInfo_1abffd3931f2a166c64302ee5ac2a37c6e}
+#### `public WORD `[`m_wMaxMagic`](#structCMonsterInfo_1abffd3931f2a166c64302ee5ac2a37c6e) 
 
-#### `public WORD `[`m_wSize`](#structCMonsterInfo_1afbe8ef3d7e35dee06c309bee0d1107fa) {#structCMonsterInfo_1afbe8ef3d7e35dee06c309bee0d1107fa}
+#### `public WORD `[`m_wSize`](#structCMonsterInfo_1afbe8ef3d7e35dee06c309bee0d1107fa) 
 
-#### `public inline  `[`CMonsterInfo`](#structCMonsterInfo_1a8dde7a427a752dd840a9911379d66a51)`()` {#structCMonsterInfo_1a8dde7a427a752dd840a9911379d66a51}
+#### `public inline  `[`CMonsterInfo`](#structCMonsterInfo_1a8dde7a427a752dd840a9911379d66a51)`()` 
 
-# struct `MapInfo` {#structMapInfo}
+# struct `MapInfo` 
 
 ## Summary
 
@@ -1762,14 +1777,14 @@ struct CMonsterInfo
 
 ## Members
 
-#### `public WORD `[`wTileX`](#structMapInfo_1ad09be2746b03c866a544869de5c90248) {#structMapInfo_1ad09be2746b03c866a544869de5c90248}
+#### `public WORD `[`wTileX`](#structMapInfo_1ad09be2746b03c866a544869de5c90248) 
 
-#### `public WORD `[`wTileY`](#structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a) {#structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a}
+#### `public WORD `[`wTileY`](#structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a) 
 
-#### `public WORD `[`wOffsetX`](#structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b) {#structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b}
+#### `public WORD `[`wOffsetX`](#structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b) 
 
-#### `public WORD `[`wOffsetY`](#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d) {#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d}
+#### `public WORD `[`wOffsetY`](#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d) 
 
-#### `public inline bool `[`equalTile`](#structMapInfo_1af521faa869e28cf4084e13ed0d50478b)`(MapInfo & mapInfo)` {#structMapInfo_1af521faa869e28cf4084e13ed0d50478b}
+#### `public inline bool `[`equalTile`](#structMapInfo_1af521faa869e28cf4084e13ed0d50478b)`(MapInfo & mapInfo)` 
 
 Generated by [Moxygen](https://sourcey.com/moxygen)

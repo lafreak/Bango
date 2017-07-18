@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="CItemDrop_8h" kind="file" language="C++">
+    <compoundname>CItemDrop.h</compoundname>
+    <includes local="no">string.h</includes>
+    <includes refid="CItemDrop_8h" local="yes">CItemDrop.h</includes>
+    <includedby refid="CItemDrop_8cpp" local="yes">MainServer/GameCharacter/CItemDrop.cpp</includedby>
+    <includedby refid="CItemDrop_8h" local="yes">MainServer/GameCharacter/CItemDrop.h</includedby>
+    <incdepgraph>
+      <node id="478">
+        <label>string.h</label>
+      </node>
+      <node id="477">
+        <label>MainServer/GameCharacter/CItemDrop.h</label>
+        <link refid="CItemDrop_8h"/>
+        <childnode refid="478" relation="include">
+        </childnode>
+        <childnode refid="477" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="479">
+        <label>MainServer/GameCharacter/CItemDrop.h</label>
+        <link refid="CItemDrop_8h"/>
+        <childnode refid="479" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classCItemDrop" prot="public">CItemDrop</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CITEMDROP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CITEMDROP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CItemDrop.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CItemDrop</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="MainServer/GameCharacter/CItemDrop.h"/>
+  </compounddef>
+</doxygen>

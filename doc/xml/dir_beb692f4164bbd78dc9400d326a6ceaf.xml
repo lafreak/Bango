@@ -5,6 +5,8 @@
     <innerdir refid="dir_b32a857cb35a3a5ed143c5750aa7326b">MainServer/GameCharacter/Monster</innerdir>
     <innerfile refid="CCharacter_8cpp">CCharacter.cpp</innerfile>
     <innerfile refid="CCharacter_8h">CCharacter.h</innerfile>
+    <innerfile refid="CItemDrop_8cpp">CItemDrop.cpp</innerfile>
+    <innerfile refid="CItemDrop_8h">CItemDrop.h</innerfile>
     <innerfile refid="CMonster_8cpp">CMonster.cpp</innerfile>
     <innerfile refid="CMonster_8h">CMonster.h</innerfile>
     <innerfile refid="CNPC_8cpp">CNPC.cpp</innerfile>
@@ -13,6 +15,8 @@
     <innerfile refid="CParty_8h">CParty.h</innerfile>
     <innerfile refid="CPlayer_8cpp">CPlayer.cpp</innerfile>
     <innerfile refid="CPlayer_8h">CPlayer.h</innerfile>
+    <innerfile refid="IAppearable_8cpp">IAppearable.cpp</innerfile>
+    <innerfile refid="IAppearable_8h">IAppearable.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

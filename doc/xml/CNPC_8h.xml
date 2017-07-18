@@ -9,116 +9,116 @@
     <includedby refid="MainServer_2main_8cpp" local="yes">MainServer/main.cpp</includedby>
     <includedby refid="CClientSocket_8cpp" local="yes">MainServer/Socket/CClientSocket.cpp</includedby>
     <incdepgraph>
-      <node id="546">
+      <node id="595">
         <label>list</label>
       </node>
-      <node id="540">
+      <node id="589">
         <label>MainServer/GameCharacter/CNPC.h</label>
         <link refid="CNPC_8h"/>
-        <childnode refid="541" relation="include">
+        <childnode refid="590" relation="include">
         </childnode>
-        <childnode refid="542" relation="include">
+        <childnode refid="591" relation="include">
         </childnode>
       </node>
-      <node id="549">
+      <node id="598">
         <label>access.h</label>
       </node>
-      <node id="542">
+      <node id="591">
         <label>CCharacter.h</label>
         <link refid="CCharacter_8h_source"/>
-        <childnode refid="543" relation="include">
+        <childnode refid="592" relation="include">
         </childnode>
-        <childnode refid="544" relation="include">
+        <childnode refid="593" relation="include">
         </childnode>
-        <childnode refid="545" relation="include">
+        <childnode refid="594" relation="include">
         </childnode>
-        <childnode refid="546" relation="include">
+        <childnode refid="595" relation="include">
         </childnode>
-        <childnode refid="547" relation="include">
+        <childnode refid="596" relation="include">
         </childnode>
-        <childnode refid="548" relation="include">
+        <childnode refid="597" relation="include">
         </childnode>
-        <childnode refid="549" relation="include">
+        <childnode refid="598" relation="include">
         </childnode>
-        <childnode refid="550" relation="include">
+        <childnode refid="599" relation="include">
         </childnode>
-        <childnode refid="541" relation="include">
+        <childnode refid="590" relation="include">
         </childnode>
-        <childnode refid="551" relation="include">
+        <childnode refid="600" relation="include">
         </childnode>
-        <childnode refid="552" relation="include">
+        <childnode refid="601" relation="include">
         </childnode>
-        <childnode refid="553" relation="include">
+        <childnode refid="602" relation="include">
         </childnode>
-        <childnode refid="554" relation="include">
+        <childnode refid="603" relation="include">
         </childnode>
-        <childnode refid="555" relation="include">
+        <childnode refid="604" relation="include">
         </childnode>
       </node>
-      <node id="550">
+      <node id="599">
         <label>cstdarg</label>
       </node>
-      <node id="543">
+      <node id="592">
         <label>string</label>
       </node>
-      <node id="553">
+      <node id="602">
         <label>Protocol/MainProtocol.h</label>
       </node>
-      <node id="547">
+      <node id="596">
         <label>map</label>
       </node>
-      <node id="554">
+      <node id="603">
         <label>minwindef.h</label>
       </node>
-      <node id="555">
+      <node id="604">
         <label>common.h</label>
       </node>
-      <node id="541">
+      <node id="590">
         <label>string.h</label>
       </node>
-      <node id="548">
+      <node id="597">
         <label>unistd.h</label>
       </node>
-      <node id="545">
+      <node id="594">
         <label>math.h</label>
       </node>
-      <node id="552">
+      <node id="601">
         <label>Socket/CSocket.h</label>
       </node>
-      <node id="551">
+      <node id="600">
         <label>Protocol/Packet.h</label>
       </node>
-      <node id="544">
+      <node id="593">
         <label>mutex</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="556">
+      <node id="605">
         <label>MainServer/GameCharacter/CNPC.h</label>
         <link refid="CNPC_8h"/>
-        <childnode refid="557" relation="include">
+        <childnode refid="606" relation="include">
         </childnode>
       </node>
-      <node id="559">
+      <node id="608">
         <label>MainServer/CServer.h</label>
         <link refid="MainServer_2CServer_8h_source"/>
-        <childnode refid="560" relation="include">
+        <childnode refid="609" relation="include">
         </childnode>
       </node>
-      <node id="557">
+      <node id="606">
         <label>MainServer/Map/CTile.h</label>
         <link refid="CTile_8h_source"/>
-        <childnode refid="558" relation="include">
+        <childnode refid="607" relation="include">
         </childnode>
       </node>
-      <node id="560">
+      <node id="609">
         <label>MainServer/Socket/CClientSocket.h</label>
         <link refid="CClientSocket_8h_source"/>
       </node>
-      <node id="558">
+      <node id="607">
         <label>MainServer/Map/CMap.h</label>
         <link refid="CMap_8h_source"/>
-        <childnode refid="559" relation="include">
+        <childnode refid="608" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -135,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="117" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="117" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="85" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="CNPC_8h_1a6dfe3a88a70e2288a18735bb15b162f5" prot="public" static="no">
         <type>std::list&lt; <ref refid="classCNPC" kindref="compound">CNPC</ref> * &gt;</type>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="118" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="118" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="86" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -175,7 +175,7 @@
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCNPC_1a441f45b092391de84d52b07392c5de7b" kindref="member">CNPC</ref>(NPC_DESC&amp;<sp/>desc);</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32" refid="classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2" kindref="member">GetHTML</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_nHtml;<sp/>}</highlight></codeline>
+<codeline lineno="32" refid="classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7" kindref="member">GetHTML</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_nHtml;<sp/>}</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCNPC_1ac8f234fa07c788d8acd87f38cb81b12a" kindref="member">LoadNPC</ref>();</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
@@ -189,21 +189,13 @@
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
 <codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/><ref refid="classCNPC_1a80eaf3493958ca2de09e590ed0b27f77" kindref="member">GenerateCreatePacket</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bHero=</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/><ref refid="classCNPC_1a9e50a1c043c84e063af01f8f3766787b" kindref="member">GeneratePetPacket</ref>();</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/><ref refid="classCNPC_1aa2ade1c301076c2d0b838dd17602f14b" kindref="member">GenerateDeletePacket</ref>();</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/><ref refid="classCNPC_1a61b21ec3797dbd782cbdb738da521e75" kindref="member">GenerateMovePacket</ref>(BYTE<sp/>byType,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byX,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byY,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>byZ);</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107" refid="classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce" kindref="member">SendPacket</ref>(Packet&amp;<sp/>packet)<sp/>{}</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114" refid="classCNPC_1a9261d699e4c513a63afdfac7beff02b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCNPC_1a9261d699e4c513a63afdfac7beff02b4" kindref="member">Tick</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
-<codeline lineno="115"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;int,<sp/>CNPC*&gt;<sp/>NPCMap;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::list&lt;CNPC*&gt;<sp/>NPCList;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>Packet<sp/><ref refid="classCNPC_1aa2ade1c301076c2d0b838dd17602f14b" kindref="member">GenerateDeletePacket</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::map&lt;int,<sp/>CNPC*&gt;<sp/>NPCMap;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::list&lt;CNPC*&gt;<sp/>NPCList;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="MainServer/GameCharacter/CNPC.h"/>
   </compounddef>

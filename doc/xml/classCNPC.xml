@@ -99,10 +99,10 @@
         </inbodydescription>
         <location file="MainServer/GameCharacter/CNPC.h" line="26" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="11" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
         <definition>int CNPC::GetHTML</definition>
-        <argsstring>()</argsstring>
+        <argsstring>() const</argsstring>
         <name>GetHTML</name>
         <briefdescription>
         </briefdescription>
@@ -126,12 +126,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appears in sight. <parameterlist kind="param"><parameteritem>
+<para>Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appear in sight. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>bHero</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Dummy. </para></parameterdescription>
+<para>Neither true or false does not affect NPC. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Generated packet ready to be sent. </para></simplesect>
@@ -139,20 +139,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="MainServer/GameCharacter/CNPC.h" line="75" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="27" bodyend="42"/>
-      </memberdef>
-      <memberdef kind="function" id="classCNPC_1a9e50a1c043c84e063af01f8f3766787b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>Packet</type>
-        <definition>Packet CNPC::GeneratePetPacket</definition>
-        <argsstring>()</argsstring>
-        <name>GeneratePetPacket</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Generates pet item information. Since NPC does not use pets, it always returns empty, invalid packet. <simplesect kind="return"><para>Empty packet. </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="82" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="44" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classCNPC_1aa2ade1c301076c2d0b838dd17602f14b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Packet</type>
@@ -166,105 +152,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="89" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="52" bodyend="64"/>
-      </memberdef>
-      <memberdef kind="function" id="classCNPC_1a61b21ec3797dbd782cbdb738da521e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>Packet</type>
-        <definition>Packet CNPC::GenerateMovePacket</definition>
-        <argsstring>(BYTE byType, char byX, char byY, char byZ)</argsstring>
-        <name>GenerateMovePacket</name>
-        <param>
-          <type>BYTE</type>
-          <declname>byType</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>byX</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>byY</declname>
-        </param>
-        <param>
-          <type>char</type>
-          <declname>byZ</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Generates information about NPC move. Since NPC does not move, it always returns empty, invalid packet. <parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>byType</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Dummy. </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>byX</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Dummy. </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>byY</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Dummy. </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>byZ</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Dummy. </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>Empty packet. </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="100" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="66" bodyend="72"/>
-      </memberdef>
-      <memberdef kind="function" id="classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void CNPC::SendPacket</definition>
-        <argsstring>(Packet &amp;packet)</argsstring>
-        <name>SendPacket</name>
-        <param>
-          <type>Packet &amp;</type>
-          <declname>packet</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Sends packet to socket contained by NPC. Since NPC does not have socket, it does nothing. <parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>packet</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Packet to be sent (dummy). </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="107" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="107" bodyend="107"/>
-      </memberdef>
-      <memberdef kind="function" id="classCNPC_1a9261d699e4c513a63afdfac7beff02b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool CNPC::Tick</definition>
-        <argsstring>()</argsstring>
-        <name>Tick</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Will get executed once a second once it&apos;s needed. Should be called inside TickAll when needed. <simplesect kind="return"><para>false if instance should be deleted, true otherwise </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="114" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="114" bodyend="114"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="82" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="44" bodyend="56"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -280,7 +168,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="39" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="74" bodyend="115"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="39" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="58" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="classCNPC_1a3654caa12b148bb1242924e9d92e9712" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -293,7 +181,7 @@
 <para>Unloads all NPCs and deallocates its memory. Should be called <bold>only</bold> once at server close. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="45" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="117" bodyend="127"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="45" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="101" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="classCNPC_1ad67dca51b67cb8db29184017345329fc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -318,7 +206,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="52" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="129" bodyend="137"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="52" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="113" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="classCNPC_1a948580bbf9ad0e4449d2a3310aa3ad52" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -343,7 +231,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="59" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="139" bodyend="148"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="59" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="123" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classCNPC_1a1b5c9340d5340e36662826e28fa10a25" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classCNPC" kindref="compound">CNPC</ref> *</type>
@@ -369,14 +257,14 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CNPC.h" line="67" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="150" bodyend="164"/>
+        <location file="MainServer/GameCharacter/CNPC.h" line="67" column="1" bodyfile="MainServer/GameCharacter/CNPC.cpp" bodystart="134" bodyend="148"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Class representation of NPC such as merchants and more. </para>    </detaileddescription>
-    <location file="MainServer/GameCharacter/CNPC.h" line="12" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="11" bodyend="115"/>
+    <location file="MainServer/GameCharacter/CNPC.h" line="12" column="1" bodyfile="MainServer/GameCharacter/CNPC.h" bodystart="11" bodyend="83"/>
     <listofallmembers>
       <member refid="classCNPC_1ad67dca51b67cb8db29184017345329fc" prot="public" virt="non-virtual"><scope>CNPC</scope><name>Add</name></member>
       <member refid="classCCharacter_1af38c38bdb5d7c371e786e2c933a9466a" prot="public" virt="non-virtual"><scope>CNPC</scope><name>AddGState</name></member>
@@ -395,8 +283,8 @@
       <member refid="classCCharacter_1a22d70f2fde82348ab230b22dc57ce106" prot="public" virt="non-virtual"><scope>CNPC</scope><name>g_nID</name></member>
       <member refid="classCNPC_1a80eaf3493958ca2de09e590ed0b27f77" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GenerateCreatePacket</name></member>
       <member refid="classCNPC_1aa2ade1c301076c2d0b838dd17602f14b" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GenerateDeletePacket</name></member>
-      <member refid="classCNPC_1a61b21ec3797dbd782cbdb738da521e75" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GenerateMovePacket</name></member>
-      <member refid="classCNPC_1a9e50a1c043c84e063af01f8f3766787b" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GeneratePetPacket</name></member>
+      <member refid="classCCharacter_1a408dc692b77e60db7a6871332ada6d84" prot="public" virt="virtual"><scope>CNPC</scope><name>GenerateMovePacket</name></member>
+      <member refid="classCCharacter_1a4f0669edcafe73a3eea7f153614f545d" prot="public" virt="virtual"><scope>CNPC</scope><name>GeneratePetPacket</name></member>
       <member refid="classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e" prot="public" virt="virtual"><scope>CNPC</scope><name>GetAbsorb</name></member>
       <member refid="classCCharacter_1a60ed981680f1ae170d8f94f44accf080" prot="public" virt="virtual"><scope>CNPC</scope><name>GetAgi</name></member>
       <member refid="classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GetAttack</name></member>
@@ -413,7 +301,7 @@
       <member refid="classCCharacter_1aa8f2c178d15eda870a7ac001069cfd03" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GetGStateEx</name></member>
       <member refid="classCCharacter_1a56435a6058690cffe37840e76eeeca87" prot="public" virt="virtual"><scope>CNPC</scope><name>GetHit</name></member>
       <member refid="classCCharacter_1a5240b51c5308228a33ba02e9f1dd2279" prot="public" virt="virtual"><scope>CNPC</scope><name>GetHth</name></member>
-      <member refid="classCNPC_1a01f4b4a6df16a6a9e5a87f195af5a9e2" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GetHTML</name></member>
+      <member refid="classCNPC_1a2068c2b84830ac3951ea25ac88fc4bd7" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GetHTML</name></member>
       <member refid="classCCharacter_1ad7f5f1742dc177fd2209648690b30190" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GetID</name></member>
       <member refid="classCCharacter_1aa6d3cd9981516a834e16bf7b1158c224" prot="public" virt="virtual"><scope>CNPC</scope><name>GetInt</name></member>
       <member refid="classCCharacter_1af268189e36a1bea406a5bbaa6670302d" prot="public" virt="non-virtual"><scope>CNPC</scope><name>GetKind</name></member>
@@ -478,7 +366,7 @@
       <member refid="classCCharacter_1a12152eb9465ec3d5e3d30d9de65ac77d" prot="protected" virt="non-virtual"><scope>CNPC</scope><name>m_wWisAdd</name></member>
       <member refid="classCCharacter_1acf91ea1a4492f55129e0e880c8e269fb" prot="public" virt="non-virtual"><scope>CNPC</scope><name>NewID</name></member>
       <member refid="classCNPC_1a948580bbf9ad0e4449d2a3310aa3ad52" prot="public" virt="non-virtual"><scope>CNPC</scope><name>Remove</name></member>
-      <member refid="classCNPC_1ac1dbe33f8c06fdeb63073d58cedeb9ce" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SendPacket</name></member>
+      <member refid="classCCharacter_1ad3570e1c2917721b4d6bdc132402bfc1" prot="public" virt="virtual"><scope>CNPC</scope><name>SendPacket</name></member>
       <member refid="classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SendPacketInSight</name></member>
       <member refid="classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SetDirection</name></member>
       <member refid="classCCharacter_1ad10316950dde5427e21eeed010f8922c" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SetDirection</name></member>
@@ -486,7 +374,7 @@
       <member refid="classCCharacter_1ae80b266496b646cadbe3fc5a4b1eff24" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SubGStateEx</name></member>
       <member refid="classCCharacter_1a73a3e166928352776f2be316767730a6" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SubMState</name></member>
       <member refid="classCCharacter_1a29926f9323d2091c8d824ff3325024b5" prot="public" virt="non-virtual"><scope>CNPC</scope><name>SubMStateEx</name></member>
-      <member refid="classCNPC_1a9261d699e4c513a63afdfac7beff02b4" prot="public" virt="non-virtual"><scope>CNPC</scope><name>Tick</name></member>
+      <member refid="classCCharacter_1aaa3ad354eeb4fa16acf29211b89641ac" prot="public" virt="virtual"><scope>CNPC</scope><name>Tick</name></member>
       <member refid="classCNPC_1a3654caa12b148bb1242924e9d92e9712" prot="public" virt="non-virtual"><scope>CNPC</scope><name>UnloadNPC</name></member>
       <member refid="classCCharacter_1a75454c5b85705b5f118bfb775085ae76" prot="public" virt="non-virtual"><scope>CNPC</scope><name>Unlock</name></member>
       <member refid="classCCharacter_1a6c2c1dbb58c8341270104f745c0cde66" prot="public" virt="non-virtual"><scope>CNPC</scope><name>WriteInSight</name></member>

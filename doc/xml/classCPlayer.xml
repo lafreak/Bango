@@ -573,7 +573,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="78" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="10" bodyend="48"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="78" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="10" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ad02df04887bccfe3b82298895da24af6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -586,7 +586,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="79" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="50" bodyend="70"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="79" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="55" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a048b7e0a5eb6324a6396c79ac19f1fa7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -768,7 +768,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="102" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="736" bodyend="739"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="102" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="741" bodyend="744"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a578c2e4f1ed228c4685e425995e910ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -781,7 +781,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="103" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="741" bodyend="744"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="103" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="746" bodyend="749"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ac7f7759cf31aec584fcd2025df813abb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>WORD</type>
@@ -820,7 +820,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="106" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="746" bodyend="755"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="106" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="751" bodyend="760"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a0d60b187885fb7fae265ec9765787cdf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -833,7 +833,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="107" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="757" bodyend="766"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="107" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="762" bodyend="771"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1aac4c02f19a838eaaeaa99e49b3715214" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -846,7 +846,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="108" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="768" bodyend="771"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="108" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="773" bodyend="776"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a27c50b595315a28a4bdd386d43e7a0de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -859,7 +859,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="109" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="773" bodyend="776"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="109" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="778" bodyend="781"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a02aa68f148233dc6b2583679d2e09e85" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -872,7 +872,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="110" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="778" bodyend="781"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="110" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="783" bodyend="786"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -885,7 +885,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="111" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="783" bodyend="786"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="111" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="788" bodyend="791"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>WORD</type>
@@ -902,7 +902,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="112" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="788" bodyend="803"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="112" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="793" bodyend="808"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>__int64</type>
@@ -1131,7 +1131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="130" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="144" bodyend="161"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="130" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="149" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ae95e4f94f9302b5f68809195a5f6a32f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1148,7 +1148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="131" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="163" bodyend="180"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="131" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="168" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1abe3edf815b4200d626e1d388d64d622c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -1242,7 +1242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="141" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="486" bodyend="509"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="141" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="491" bodyend="514"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ad7b5f46be6d153bb65c39d0375520107" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1262,7 +1262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="145" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="537" bodyend="555"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="145" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="542" bodyend="560"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a4c247e341ba63d7a87c98ae88ab026c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1279,7 +1279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="147" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="557" bodyend="561"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="147" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="562" bodyend="566"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a00b932835db9866881bc96756abc3657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Packet</type>
@@ -1297,7 +1297,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="149" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="563" bodyend="619"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="149" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="568" bodyend="624"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a52bfdfdcfc96a0fbf5009a9de583ee04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Packet</type>
@@ -1310,7 +1310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="150" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="621" bodyend="634"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="150" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="626" bodyend="639"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a7e4b4e01e827869456f0066f9f25a81b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Packet</type>
@@ -1323,7 +1323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="151" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="636" bodyend="648"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="151" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="641" bodyend="653"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1afb5c71e1a2c66d3a71d315760d4082ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Packet</type>
@@ -1352,7 +1352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="152" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="650" bodyend="662"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="152" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="655" bodyend="667"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a618e99ee1c2a0ae81130a2468748838e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1369,11 +1369,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="154" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="805" bodyend="1183"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="154" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="810" bodyend="1188"/>
       </memberdef>
-      <memberdef kind="function" id="classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool CPlayer::Tick</definition>
+      <memberdef kind="function" id="classCPlayer_1ae4c64cd8d2e808114db23593ff6c5816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CPlayer::Tick</definition>
         <argsstring>()</argsstring>
         <name>Tick</name>
         <briefdescription>
@@ -1382,7 +1382,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="156" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2440" bodyend="2447"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="156" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2444" bodyend="2449"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a44552908ba4a38ae9c69e68962376d43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1395,7 +1395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="157" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1185" bodyend="1222"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="157" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1190" bodyend="1227"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a73e13fe05b734d20b9fc2222285afc21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1412,7 +1412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="158" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1224" bodyend="1343"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="158" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1229" bodyend="1348"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1425,7 +1425,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="159" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1345" bodyend="1374"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="159" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1350" bodyend="1379"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ade947d3c70f95c6b0d06f1910a0c4570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1438,7 +1438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="160" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1376" bodyend="1396"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="160" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1381" bodyend="1401"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a266c70cd463694f6b6a85df3879abaea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1451,7 +1451,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="161" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1398" bodyend="1411"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="161" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1403" bodyend="1416"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a09cd92ba2e8c02fc988e131451b71947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1480,7 +1480,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="162" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1413" bodyend="1446"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="162" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1418" bodyend="1451"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1497,7 +1497,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="163" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1448" bodyend="1466"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="163" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1453" bodyend="1471"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a88c5bae35d7e2c53454b4f51024ede89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1514,7 +1514,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="164" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1468" bodyend="1494"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="164" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1473" bodyend="1499"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ad521bb1c30a2c4a898a780b9c56d1937" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1531,7 +1531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="165" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1496" bodyend="1669"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="165" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1501" bodyend="1674"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1552,7 +1552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="166" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1671" bodyend="2033"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="166" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="1676" bodyend="2038"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1578,7 +1578,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="167" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2035" bodyend="2045"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="167" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2040" bodyend="2050"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1599,7 +1599,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="168" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2047" bodyend="2099"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="168" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2052" bodyend="2104"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a8950f3ae31c929fe3ef291cc19de7deb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1701,7 +1701,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="169" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2101" bodyend="2199"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="169" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2106" bodyend="2204"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a9e6e45ebe10f4ed34ba5a8431c7c5faf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1732,7 +1732,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="170" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2201" bodyend="2216"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="170" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2206" bodyend="2221"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1abe919deb009679672f8b749100fcad9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1749,7 +1749,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="171" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2218" bodyend="2224"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="171" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2223" bodyend="2229"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ab76927857016659cdd172c1e480b4c29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1766,7 +1766,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="172" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2262" bodyend="2265"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="172" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2267" bodyend="2270"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ac78ab733d3fdc84a855b93ea0165647c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1783,7 +1783,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="173" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2267" bodyend="2270"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="173" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2272" bodyend="2275"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ade03bd4c423364b93dbbb87c9f1701ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1808,7 +1808,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="174" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2449" bodyend="2478"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="174" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2451" bodyend="2481"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1aea5393068e04bd1f5ee2f37f28650de5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1821,7 +1821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="175" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2480" bodyend="2484"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="175" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2483" bodyend="2487"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a6388bcc9a284184363be8d01f83db44f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1834,7 +1834,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="176" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2486" bodyend="2497"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="176" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2489" bodyend="2500"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1851,7 +1851,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="177" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2499" bodyend="2521"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="177" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2502" bodyend="2524"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1878,7 +1878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="180" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2226" bodyend="2250"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="180" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2231" bodyend="2255"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a2c5a636b4bca0d2843199ea09f0accfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1905,7 +1905,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="182" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2252" bodyend="2260"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="182" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2257" bodyend="2265"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1aaa8c88a78b3562a82459de23e6b9ad77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1918,7 +1918,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="183" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2272" bodyend="2287"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="183" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2277" bodyend="2292"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ab20b931268d1e2fa873f21fd4d19ab45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1931,7 +1931,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="185" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2289" bodyend="2323"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="185" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2294" bodyend="2328"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a20c76a872e4b67be38755eaa3ccbe3d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1948,7 +1948,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="187" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2325" bodyend="2347"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="187" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2330" bodyend="2352"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ac35c72e50408c7ed7a519d45c06f1a39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1965,7 +1965,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="188" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2349" bodyend="2371"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="188" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2354" bodyend="2376"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a41f01f7472f592975eba70265d9b6eca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -2055,7 +2055,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="196" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2373" bodyend="2398"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="196" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2378" bodyend="2403"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a1382ab608b108bf4dd4dd8ddb55e3d91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2068,7 +2068,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="197" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2400" bodyend="2419"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="197" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2405" bodyend="2424"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a542f63a05b151ea4fa6688d201448f11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2081,7 +2081,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="199" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2421" bodyend="2438"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="199" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="2426" bodyend="2442"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ac604286ac82475d0afee168e5374f785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2098,7 +2098,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="202" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="72" bodyend="80"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="202" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="77" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a63166723e4154efed1c48a67051da82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2115,7 +2115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="203" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="82" bodyend="91"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="203" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="87" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a4daa6280bc84d3e3633d92832594dea6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2128,7 +2128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="204" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="93" bodyend="101"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="204" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="98" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a002feea76f8ff73aae3d19504b2d4335" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CItem *</type>
@@ -2150,7 +2150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="207" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="103" bodyend="126"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="207" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="108" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a140483d4beb5a9dae7a929d2562feaa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CItem *</type>
@@ -2167,7 +2167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="208" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="128" bodyend="142"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="208" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="133" bodyend="147"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -2186,7 +2186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="81" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="664" bodyend="674"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="81" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="669" bodyend="679"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ad025e612b5ad3514bb8cca435e43bb0e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2203,7 +2203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="82" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="676" bodyend="685"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="82" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="681" bodyend="690"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a63d392a349d3b049b3c869788a2a77c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2216,7 +2216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="83" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="687" bodyend="699"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="83" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="692" bodyend="704"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1ab8293aeb0e62ee99d5f28c4b29c71ee4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CPlayer *</type>
@@ -2233,7 +2233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="86" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="701" bodyend="715"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="86" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="706" bodyend="720"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1a40e94876bbc60e4c44eba0782ec57597" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CPlayer *</type>
@@ -2250,7 +2250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="87" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="717" bodyend="734"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="87" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="722" bodyend="739"/>
       </memberdef>
       <memberdef kind="function" id="classCPlayer_1abf48405905f5b88b5b043e4c6bec70b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2270,7 +2270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CPlayer.h" line="143" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="511" bodyend="535"/>
+        <location file="MainServer/GameCharacter/CPlayer.h" line="143" column="1" bodyfile="MainServer/GameCharacter/CPlayer.cpp" bodystart="516" bodyend="540"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -2491,7 +2491,7 @@
       <member refid="classCCharacter_1a29926f9323d2091c8d824ff3325024b5" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>SubMStateEx</name></member>
       <member refid="classCPlayer_1a3198e19e08884be776026742ee77e468" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>SubWState</name></member>
       <member refid="classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>Teleport</name></member>
-      <member refid="classCPlayer_1a612d1630b208bc3f2eb00e5765e5c6ce" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>Tick</name></member>
+      <member refid="classCPlayer_1ae4c64cd8d2e808114db23593ff6c5816" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>Tick</name></member>
       <member refid="classCPlayer_1a63d392a349d3b049b3c869788a2a77c5" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>TickAll</name></member>
       <member refid="classCCharacter_1a75454c5b85705b5f118bfb775085ae76" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>Unlock</name></member>
       <member refid="classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133" prot="public" virt="non-virtual"><scope>CPlayer</scope><name>UpdateProperty</name></member>

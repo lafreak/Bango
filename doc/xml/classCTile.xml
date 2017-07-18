@@ -265,17 +265,111 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/Map/CTile.h" line="37" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="153" bodyend="232"/>
+        <location file="MainServer/Map/CTile.h" line="37" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="236" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a6f71e25bfc3f826639300abc127fdd25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::ExchangeMoveActionWithPlayers</definition>
+        <argsstring>(CCharacter *pCharacter, char byX, char byY, Packet &amp;createPacket, Packet &amp;petPacket, Packet &amp;deletePacket, Packet &amp;movePacket)</argsstring>
+        <name>ExchangeMoveActionWithPlayers</name>
+        <param>
+          <type>CCharacter *</type>
+          <declname>pCharacter</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byX</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byY</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>createPacket</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>petPacket</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>deletePacket</declname>
+        </param>
+        <param>
+          <type>Packet &amp;</type>
+          <declname>movePacket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="40" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="257" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1ae7f50d3589419005ffb900182fd3d488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::ExchangeMoveActionWithMonsters</definition>
+        <argsstring>(CPlayer *pPlayer, char byX, char byY)</argsstring>
+        <name>ExchangeMoveActionWithMonsters</name>
+        <param>
+          <type>CPlayer *</type>
+          <declname>pPlayer</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byX</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="42" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="302" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classCTile_1a30da262666aa379fa7f436496e8150c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CTile::ExchangeMoveActionWithNPCs</definition>
+        <argsstring>(CPlayer *pPlayer, char byX, char byY)</argsstring>
+        <name>ExchangeMoveActionWithNPCs</name>
+        <param>
+          <type>CPlayer *</type>
+          <declname>pPlayer</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byX</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/Map/CTile.h" line="43" column="1" bodyfile="MainServer/Map/CTile.cpp" bodystart="332" bodyend="360"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="MainServer/Map/CTile.h" line="12" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="11" bodyend="39"/>
+    <location file="MainServer/Map/CTile.h" line="12" column="1" bodyfile="MainServer/Map/CTile.h" bodystart="11" bodyend="44"/>
     <listofallmembers>
       <member refid="classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b" prot="public" virt="non-virtual"><scope>CTile</scope><name>Add</name></member>
       <member refid="classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b" prot="public" virt="non-virtual"><scope>CTile</scope><name>CTile</name></member>
+      <member refid="classCTile_1ae7f50d3589419005ffb900182fd3d488" prot="public" virt="non-virtual"><scope>CTile</scope><name>ExchangeMoveActionWithMonsters</name></member>
+      <member refid="classCTile_1a30da262666aa379fa7f436496e8150c7" prot="public" virt="non-virtual"><scope>CTile</scope><name>ExchangeMoveActionWithNPCs</name></member>
+      <member refid="classCTile_1a6f71e25bfc3f826639300abc127fdd25" prot="public" virt="non-virtual"><scope>CTile</scope><name>ExchangeMoveActionWithPlayers</name></member>
       <member refid="classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f" prot="public" virt="non-virtual"><scope>CTile</scope><name>GetCharacterListAround</name></member>
       <member refid="classCTile_1a500887d419a5fa9b93f2885a82180eb2" prot="public" virt="non-virtual"><scope>CTile</scope><name>GetMonsterListAround</name></member>
       <member refid="classCTile_1a06c572865aef65b63a2665f93ee1560b" prot="public" virt="non-virtual"><scope>CTile</scope><name>GetPlayerListAround</name></member>

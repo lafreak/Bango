@@ -76,20 +76,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a441f45b092391de84d52b07392c5de7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a441f45b092391de84d52b07392c5de7b">CNPC</a> (NPC_DESC &amp;desc)</td></tr>
 <tr class="separator:a441f45b092391de84d52b07392c5de7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01f4b4a6df16a6a9e5a87f195af5a9e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a01f4b4a6df16a6a9e5a87f195af5a9e2">GetHTML</a> ()</td></tr>
-<tr class="separator:a01f4b4a6df16a6a9e5a87f195af5a9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2068c2b84830ac3951ea25ac88fc4bd7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a2068c2b84830ac3951ea25ac88fc4bd7">GetHTML</a> () const</td></tr>
+<tr class="separator:a2068c2b84830ac3951ea25ac88fc4bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80eaf3493958ca2de09e590ed0b27f77"><td class="memItemLeft" align="right" valign="top">Packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a80eaf3493958ca2de09e590ed0b27f77">GenerateCreatePacket</a> (bool bHero=false)</td></tr>
 <tr class="separator:a80eaf3493958ca2de09e590ed0b27f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e50a1c043c84e063af01f8f3766787b"><td class="memItemLeft" align="right" valign="top">Packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a9e50a1c043c84e063af01f8f3766787b">GeneratePetPacket</a> ()</td></tr>
-<tr class="separator:a9e50a1c043c84e063af01f8f3766787b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2ade1c301076c2d0b838dd17602f14b"><td class="memItemLeft" align="right" valign="top">Packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#aa2ade1c301076c2d0b838dd17602f14b">GenerateDeletePacket</a> ()</td></tr>
 <tr class="separator:aa2ade1c301076c2d0b838dd17602f14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61b21ec3797dbd782cbdb738da521e75"><td class="memItemLeft" align="right" valign="top">Packet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a61b21ec3797dbd782cbdb738da521e75">GenerateMovePacket</a> (BYTE byType, char byX, char byY, char byZ)</td></tr>
-<tr class="separator:a61b21ec3797dbd782cbdb738da521e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1dbe33f8c06fdeb63073d58cedeb9ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#ac1dbe33f8c06fdeb63073d58cedeb9ce">SendPacket</a> (Packet &amp;packet)</td></tr>
-<tr class="separator:ac1dbe33f8c06fdeb63073d58cedeb9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9261d699e4c513a63afdfac7beff02b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNPC.html#a9261d699e4c513a63afdfac7beff02b4">Tick</a> ()</td></tr>
-<tr class="separator:a9261d699e4c513a63afdfac7beff02b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -212,9 +204,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appears in sight. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates packet with information how NPC looks and behave. It is required to distribute this packet to clients each time they appear in sight. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bHero</td><td>Dummy. </td></tr>
+    <tr><td class="paramname">bHero</td><td>Neither true or false does not affect NPC. </td></tr>
   </table>
   </dd>
 </dl>
@@ -240,76 +232,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a61b21ec3797dbd782cbdb738da521e75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61b21ec3797dbd782cbdb738da521e75">&#9670;&nbsp;</a></span>GenerateMovePacket()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Packet CNPC::GenerateMovePacket </td>
-          <td>(</td>
-          <td class="paramtype">BYTE&#160;</td>
-          <td class="paramname"><em>byType</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>byX</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>byY</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>byZ</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Generates information about NPC move. Since NPC does not move, it always returns empty, invalid packet. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">byType</td><td>Dummy. </td></tr>
-    <tr><td class="paramname">byX</td><td>Dummy. </td></tr>
-    <tr><td class="paramname">byY</td><td>Dummy. </td></tr>
-    <tr><td class="paramname">byZ</td><td>Dummy. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Empty packet. </dd></dl>
-
-</div>
-</div>
-<a id="a9e50a1c043c84e063af01f8f3766787b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e50a1c043c84e063af01f8f3766787b">&#9670;&nbsp;</a></span>GeneratePetPacket()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Packet CNPC::GeneratePetPacket </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Generates pet item information. Since NPC does not use pets, it always returns empty, invalid packet. </p><dl class="section return"><dt>Returns</dt><dd>Empty packet. </dd></dl>
-
-</div>
-</div>
-<a id="a01f4b4a6df16a6a9e5a87f195af5a9e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01f4b4a6df16a6a9e5a87f195af5a9e2">&#9670;&nbsp;</a></span>GetHTML()</h2>
+<a id="a2068c2b84830ac3951ea25ac88fc4bd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2068c2b84830ac3951ea25ac88fc4bd7">&#9670;&nbsp;</a></span>GetHTML()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +245,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">int CNPC::GetHTML </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -389,64 +313,6 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ac1dbe33f8c06fdeb63073d58cedeb9ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1dbe33f8c06fdeb63073d58cedeb9ce">&#9670;&nbsp;</a></span>SendPacket()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CNPC::SendPacket </td>
-          <td>(</td>
-          <td class="paramtype">Packet &amp;&#160;</td>
-          <td class="paramname"><em>packet</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Sends packet to socket contained by NPC. Since NPC does not have socket, it does nothing. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">packet</td><td>Packet to be sent (dummy). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9261d699e4c513a63afdfac7beff02b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9261d699e4c513a63afdfac7beff02b4">&#9670;&nbsp;</a></span>Tick()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool CNPC::Tick </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Will get executed once a second once it's needed. Should be called inside TickAll when needed. </p><dl class="section return"><dt>Returns</dt><dd>false if instance should be deleted, true otherwise </dd></dl>
 
 </div>
 </div>

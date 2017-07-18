@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classIAppearable" kind="class" language="C++" prot="public">
+    <compoundname>IAppearable</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIAppearable_1ac0262a965a30119375a1a48d626ad6f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Packet</type>
+        <definition>Packet IAppearable::GenerateCreatePacket</definition>
+        <argsstring>(bool bHero=false)</argsstring>
+        <name>GenerateCreatePacket</name>
+        <param>
+          <type>bool</type>
+          <declname>bHero</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/IAppearable.h" line="7" column="1" bodyfile="MainServer/GameCharacter/IAppearable.cpp" bodystart="5" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Packet</type>
+        <definition>Packet IAppearable::GeneratePetPacket</definition>
+        <argsstring>()</argsstring>
+        <name>GeneratePetPacket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/IAppearable.h" line="8" column="1" bodyfile="MainServer/GameCharacter/IAppearable.cpp" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Packet</type>
+        <definition>Packet IAppearable::GenerateDeletePacket</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateDeletePacket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/IAppearable.h" line="9" column="1" bodyfile="MainServer/GameCharacter/IAppearable.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classIAppearable_1a2294d79323944687a5a16ac097d1de88" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Packet</type>
+        <definition>Packet IAppearable::GenerateMovePacket</definition>
+        <argsstring>(BYTE byType, char byX, char byY, char byZ=0)</argsstring>
+        <name>GenerateMovePacket</name>
+        <param>
+          <type>BYTE</type>
+          <declname>byType</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byX</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byY</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>byZ</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/IAppearable.h" line="10" column="1" bodyfile="MainServer/GameCharacter/IAppearable.cpp" bodystart="26" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MainServer/GameCharacter/IAppearable.h" line="5" column="1" bodyfile="MainServer/GameCharacter/IAppearable.h" bodystart="4" bodyend="11"/>
+    <listofallmembers>
+      <member refid="classIAppearable_1ac0262a965a30119375a1a48d626ad6f3" prot="public" virt="virtual"><scope>IAppearable</scope><name>GenerateCreatePacket</name></member>
+      <member refid="classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6" prot="public" virt="virtual"><scope>IAppearable</scope><name>GenerateDeletePacket</name></member>
+      <member refid="classIAppearable_1a2294d79323944687a5a16ac097d1de88" prot="public" virt="virtual"><scope>IAppearable</scope><name>GenerateMovePacket</name></member>
+      <member refid="classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c" prot="public" virt="virtual"><scope>IAppearable</scope><name>GeneratePetPacket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

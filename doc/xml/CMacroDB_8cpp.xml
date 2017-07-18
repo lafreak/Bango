@@ -4,64 +4,64 @@
     <compoundname>CMacroDB.cpp</compoundname>
     <includes refid="CMacroDB_8h" local="yes">CMacroDB.h</includes>
     <incdepgraph>
-      <node id="1400">
+      <node id="1472">
         <label>CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="1401" relation="include">
+        <childnode refid="1473" relation="include">
         </childnode>
-        <childnode refid="1402" relation="include">
+        <childnode refid="1474" relation="include">
         </childnode>
-        <childnode refid="1403" relation="include">
+        <childnode refid="1475" relation="include">
         </childnode>
-        <childnode refid="1404" relation="include">
+        <childnode refid="1476" relation="include">
         </childnode>
-        <childnode refid="1405" relation="include">
+        <childnode refid="1477" relation="include">
         </childnode>
-        <childnode refid="1409" relation="include">
+        <childnode refid="1481" relation="include">
         </childnode>
       </node>
-      <node id="1401">
+      <node id="1473">
         <label>map</label>
       </node>
-      <node id="1407">
+      <node id="1479">
         <label>minwindef.h</label>
       </node>
-      <node id="1403">
+      <node id="1475">
         <label>fstream</label>
       </node>
-      <node id="1399">
+      <node id="1471">
         <label>MainServer/Macro/CMacroDB.cpp</label>
         <link refid="CMacroDB_8cpp"/>
-        <childnode refid="1400" relation="include">
+        <childnode refid="1472" relation="include">
         </childnode>
       </node>
-      <node id="1408">
+      <node id="1480">
         <label>common.h</label>
       </node>
-      <node id="1402">
+      <node id="1474">
         <label>sstream</label>
       </node>
-      <node id="1409">
+      <node id="1481">
         <label>CMonsterInfo.h</label>
         <link refid="CMonsterInfo_8h_source"/>
-        <childnode refid="1406" relation="include">
+        <childnode refid="1478" relation="include">
         </childnode>
       </node>
-      <node id="1405">
+      <node id="1477">
         <label>CItemInfo.h</label>
         <link refid="CItemInfo_8h_source"/>
-        <childnode refid="1406" relation="include">
+        <childnode refid="1478" relation="include">
         </childnode>
       </node>
-      <node id="1404">
+      <node id="1476">
         <label>TinyXML2/tinyxml2.h</label>
       </node>
-      <node id="1406">
+      <node id="1478">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="1407" relation="include">
+        <childnode refid="1479" relation="include">
         </childnode>
-        <childnode refid="1408" relation="include">
+        <childnode refid="1480" relation="include">
         </childnode>
       </node>
     </incdepgraph>

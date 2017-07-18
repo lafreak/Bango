@@ -4,143 +4,148 @@
     <compoundname>CMonsterReal.cpp</compoundname>
     <includes refid="CMonsterReal_8h" local="yes">CMonsterReal.h</includes>
     <incdepgraph>
-      <node id="772">
+      <node id="833">
         <label>list</label>
       </node>
-      <node id="783">
+      <node id="845">
         <label>../Macro/CMacroDB.h</label>
         <link refid="CMacroDB_8h_source"/>
-        <childnode refid="773" relation="include">
+        <childnode refid="834" relation="include">
         </childnode>
-        <childnode refid="784" relation="include">
+        <childnode refid="846" relation="include">
         </childnode>
-        <childnode refid="785" relation="include">
+        <childnode refid="847" relation="include">
         </childnode>
-        <childnode refid="786" relation="include">
+        <childnode refid="848" relation="include">
         </childnode>
-        <childnode refid="787" relation="include">
+        <childnode refid="849" relation="include">
         </childnode>
-        <childnode refid="789" relation="include">
+        <childnode refid="851" relation="include">
         </childnode>
       </node>
-      <node id="765">
+      <node id="826">
         <label>MainServer/GameCharacter/Monster/CMonsterReal.cpp</label>
         <link refid="CMonsterReal_8cpp"/>
-        <childnode refid="766" relation="include">
+        <childnode refid="827" relation="include">
         </childnode>
       </node>
-      <node id="775">
+      <node id="836">
         <label>access.h</label>
       </node>
-      <node id="766">
+      <node id="827">
         <label>CMonsterReal.h</label>
         <link refid="CMonsterReal_8h_source"/>
-        <childnode refid="767" relation="include">
+        <childnode refid="828" relation="include">
         </childnode>
       </node>
-      <node id="768">
+      <node id="844">
+        <label>ITimer.h</label>
+      </node>
+      <node id="829">
         <label>CCharacter.h</label>
         <link refid="CCharacter_8h_source"/>
-        <childnode refid="769" relation="include">
+        <childnode refid="830" relation="include">
         </childnode>
-        <childnode refid="770" relation="include">
+        <childnode refid="831" relation="include">
         </childnode>
-        <childnode refid="771" relation="include">
+        <childnode refid="832" relation="include">
         </childnode>
-        <childnode refid="772" relation="include">
+        <childnode refid="833" relation="include">
         </childnode>
-        <childnode refid="773" relation="include">
+        <childnode refid="834" relation="include">
         </childnode>
-        <childnode refid="774" relation="include">
+        <childnode refid="835" relation="include">
         </childnode>
-        <childnode refid="775" relation="include">
+        <childnode refid="836" relation="include">
         </childnode>
-        <childnode refid="776" relation="include">
+        <childnode refid="837" relation="include">
         </childnode>
-        <childnode refid="777" relation="include">
+        <childnode refid="838" relation="include">
         </childnode>
-        <childnode refid="778" relation="include">
+        <childnode refid="839" relation="include">
         </childnode>
-        <childnode refid="779" relation="include">
+        <childnode refid="840" relation="include">
         </childnode>
-        <childnode refid="780" relation="include">
+        <childnode refid="841" relation="include">
         </childnode>
-        <childnode refid="781" relation="include">
+        <childnode refid="842" relation="include">
         </childnode>
-        <childnode refid="782" relation="include">
+        <childnode refid="843" relation="include">
         </childnode>
       </node>
-      <node id="776">
+      <node id="837">
         <label>cstdarg</label>
       </node>
-      <node id="769">
+      <node id="830">
         <label>string</label>
       </node>
-      <node id="780">
+      <node id="841">
         <label>Protocol/MainProtocol.h</label>
       </node>
-      <node id="773">
+      <node id="834">
         <label>map</label>
       </node>
-      <node id="781">
+      <node id="842">
         <label>minwindef.h</label>
       </node>
-      <node id="785">
+      <node id="847">
         <label>fstream</label>
       </node>
-      <node id="782">
+      <node id="843">
         <label>common.h</label>
       </node>
-      <node id="777">
+      <node id="838">
         <label>string.h</label>
       </node>
-      <node id="767">
+      <node id="828">
         <label>../CMonster.h</label>
         <link refid="CMonster_8h_source"/>
-        <childnode refid="768" relation="include">
+        <childnode refid="829" relation="include">
         </childnode>
-        <childnode refid="783" relation="include">
+        <childnode refid="844" relation="include">
+        </childnode>
+        <childnode refid="845" relation="include">
         </childnode>
       </node>
-      <node id="774">
+      <node id="835">
         <label>unistd.h</label>
       </node>
-      <node id="784">
+      <node id="846">
         <label>sstream</label>
       </node>
-      <node id="789">
+      <node id="851">
         <label>CMonsterInfo.h</label>
         <link refid="CMonsterInfo_8h_source"/>
-        <childnode refid="788" relation="include">
+        <childnode refid="850" relation="include">
         </childnode>
       </node>
-      <node id="771">
+      <node id="832">
         <label>math.h</label>
       </node>
-      <node id="779">
+      <node id="840">
         <label>Socket/CSocket.h</label>
       </node>
-      <node id="787">
+      <node id="849">
         <label>CItemInfo.h</label>
         <link refid="CItemInfo_8h_source"/>
-        <childnode refid="788" relation="include">
+        <childnode refid="850" relation="include">
         </childnode>
       </node>
-      <node id="786">
+      <node id="848">
         <label>TinyXML2/tinyxml2.h</label>
       </node>
-      <node id="778">
+      <node id="839">
         <label>Protocol/Packet.h</label>
       </node>
-      <node id="770">
+      <node id="831">
         <label>mutex</label>
       </node>
-      <node id="788">
+      <node id="850">
         <label>CMacro.h</label>
         <link refid="CMacro_8h_source"/>
-        <childnode refid="781" relation="include">
+        <childnode refid="842" relation="include">
         </childnode>
-        <childnode refid="782" relation="include">
+        <childnode refid="843" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -155,7 +160,7 @@
 <codeline lineno="4"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>AddGState(CGS_KO);</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>SetTarget(NULL);</highlight></codeline>
-<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>SetAIS(AIS_DEAD);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>SetTimer(std::bind(&amp;CMonster::OnRemove,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">),<sp/>0);</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>WriteInSight(S2C_ACTION,<sp/></highlight><highlight class="stringliteral">&quot;db&quot;</highlight><highlight class="normal">,<sp/>GetID(),<sp/>AT_DIE);</highlight></codeline>
 <codeline lineno="9"><highlight class="normal">}</highlight></codeline>
     </programlisting>
