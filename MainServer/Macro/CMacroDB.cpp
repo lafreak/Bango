@@ -122,6 +122,7 @@ bool CMacroDB::LoadInitItem()
 		pItem->m_bUse = 		pItemInfo->IntAttribute("use") == 1;
 		pItem->m_nCooltime = 	pItemInfo->IntAttribute("cooltime");
 		pItem->m_byEffect = 	pItemInfo->IntAttribute("effect");
+		pItem->m_wRange =		pItemInfo->IntAttribute("range");
 
 		XMLElement *pItemSpecialtyList = pItemInfo->FirstChildElement("specialty");
 

@@ -107,6 +107,7 @@ public:
 	virtual WORD GetMinMagic() const { return 0; }
 	virtual WORD GetMaxMagic() const { return 0; }
 	virtual WORD GetResist(BYTE byResist) const { return 0; }
+	virtual WORD GetSize() const { return 0; }
 	WORD GetAttack() const;
 	WORD GetMagic() const;
 	virtual bool CanAttack(CCharacter *pTarget) const;
@@ -154,7 +155,7 @@ public:
 	virtual void Die() {}
 
 	BYTE GetMoveAction(CCharacter *pCharacter, char byX, char byY);
-	int  GetDistance(CCharacter *pCharacter);
+	int  GetDistance(CCharacter *pCharacter) const;
 };
 
 typedef std::map<int, CCharacter*> CharacterMap;

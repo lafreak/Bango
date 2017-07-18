@@ -74,7 +74,7 @@ public:
 	WORD GetAttackSpeed() const { return m_pMacro->m_wAttackSpeed; }
 	WORD GetCloseSight() const { return m_pMacro->m_wCloseSight; }
 	WORD GetFarSight() const { return m_pMacro->m_wFarSight; }
-	WORD GetSize() const { return m_pMacro->m_wSize; }
+	WORD GetSize() const override { return m_pMacro->m_wSize; }
 
 	BYTE GetAIS() const { return m_byAIState; }
 	void SetAIS(BYTE byState) { m_byAIState = byState; }

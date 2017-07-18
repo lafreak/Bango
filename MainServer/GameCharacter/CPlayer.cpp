@@ -164,7 +164,10 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 		m_byTrigramLevel = pItem->GetLevel();
 
 	if (pItem->GetWearType() == WS_WEAPON)
+	{
 		m_wAttackSpeed = ((CItemWeapon*)pItem)->GetAttackSpeed();
+		m_wAttackRange = ((CItemWeapon*)pItem)->GetRange();
+	}
 
 	AddWState(pItem->GetWearType());
 }
@@ -183,7 +186,10 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 		SubWState(WS_2HANDWEAPON);
 
 	if (pItem->GetWearType() == WS_WEAPON)
+	{
 		m_wAttackSpeed = 0;
+		m_wAttackRange = 0;
+	}
 
 	SubWState(pItem->GetWearType());
 
@@ -191,310 +197,6 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 		m_byTrigramLevel = 0;
 }
 
-/*
-void CPlayer::OnPutOnGear(CItem *pItem)
-{
-	ApplySpec(pItem);
-
-	switch (pItem->GetMacro()->m_bySubClass)
-	{
-		case ISC_SWORD:
-		case ISC_WAND:
-		case ISC_BOW:
-		case ISC_DAGGER:
-			m_Gear[WS_WEAPON] = pItem->GetIID();
-			m_GearIndex[WS_WEAPON] = pItem->GetIndex();
-			AddWState(WS_WEAPON);
-			break;
-
-		case ISC_SWORD2HAND:
-			m_Gear[WS_WEAPON] = pItem->GetIID();
-			m_GearIndex[WS_WEAPON] = pItem->GetIndex();
-			AddWState(WS_WEAPON);
-			AddWState(WS_2HANDWEAPON);
-			break;
-		
-		case ISC_SHIELD:
-			m_Gear[WS_SHIELD] = pItem->GetIID();
-			m_GearIndex[WS_SHIELD] = pItem->GetIndex();
-			AddWState(WS_SHIELD);
-			break;
-
-		case ISC_HELMET:
-			m_Gear[WS_HELMET] = pItem->GetIID();
-			m_GearIndex[WS_HELMET] = pItem->GetIndex();
-			AddWState(WS_HELMET);
-			break;
-
-		case ISC_UPPERARMOR:
-			m_Gear[WS_UPPERARMOR] = pItem->GetIID();
-			m_GearIndex[WS_UPPERARMOR] = pItem->GetIndex();
-			AddWState(WS_UPPERARMOR);
-			break;
-
-		case ISC_LOWERARMOR:
-			m_Gear[WS_LOWERARMOR] = pItem->GetIID();
-			m_GearIndex[WS_LOWERARMOR] = pItem->GetIndex();
-			AddWState(WS_LOWERARMOR);
-			break;
-
-		case ISC_GAUNTLET:
-			m_Gear[WS_GAUNTLET] = pItem->GetIID();
-			m_GearIndex[WS_GAUNTLET] = pItem->GetIndex();
-			AddWState(WS_GAUNTLET);
-			break;
-
-		case ISC_BOOTS:
-			m_Gear[WS_BOOTS] = pItem->GetIID();
-			m_GearIndex[WS_BOOTS] = pItem->GetIndex();
-			AddWState(WS_BOOTS);
-			break;
-
-		case ISC_YINYANGMIRROR:
-			m_Gear[WS_MIRROR] = pItem->GetIID();
-			AddWState(WS_MIRROR);
-			break;
-
-		case ISC_TAEGEUK:
-			m_Gear[WS_TAEGEUK] = pItem->GetIID();
-			AddWState(WS_TAEGEUK);
-			break;
-
-		case ISC_TRIGRAM1:
-			m_Gear[WS_TRIGRAM1] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM1);
-			break;
-
-		case ISC_TRIGRAM2:
-			m_Gear[WS_TRIGRAM2] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM2);
-			break;
-
-		case ISC_TRIGRAM3:
-			m_Gear[WS_TRIGRAM3] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM3);
-			break;
-
-		case ISC_TRIGRAM4:
-			m_Gear[WS_TRIGRAM4] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM4);
-			break;
-
-		case ISC_TRIGRAM5:
-			m_Gear[WS_TRIGRAM5] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM5);
-			break;
-
-		case ISC_TRIGRAM6:
-			m_Gear[WS_TRIGRAM6] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM6);
-			break;
-
-		case ISC_TRIGRAM7:
-			m_Gear[WS_TRIGRAM7] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM7);
-			break;
-
-		case ISC_TRIGRAM8:
-			m_Gear[WS_TRIGRAM8] = pItem->GetIID();
-			m_byTrigramLevel = pItem->GetLevel();
-			AddWState(WS_TRIGRAM8);
-			break;
-
-		case ISC_EGG:
-			m_Gear[WS_PET] = pItem->GetIID();
-			m_GearIndex[WS_PET] = pItem->GetIndex();
-			AddWState(WS_PET);
-			break;
-
-		case ISC_RING:
-			m_Gear[WS_RING] = pItem->GetIID();
-			AddWState(WS_RING);
-			break;
-
-		case ISC_NECKLACE:
-			m_Gear[WS_NECKLACE] = pItem->GetIID();
-			AddWState(WS_NECKLACE);
-			break;
-
-		case ISC_TRINKET:
-			m_Gear[WS_TRINKET] = pItem->GetIID();
-			AddWState(WS_TRINKET);
-			break;
-
-		case ISC_RESISTNECKLACE2:
-			m_Gear[WS_RESISTNECKLACE2] = pItem->GetIID();
-			AddWState(WS_RESISTNECKLACE2);
-			break;
-	}
-
-	switch (pItem->GetMacro()->m_byClass)
-	{
-		case IC_RIDE:
-		{
-			m_Gear[WS_RIDE] = pItem->GetIID();
-			AddWState(WS_RIDE);
-			break;
-		}
-	}
-}
-
-void CPlayer::OnPutOffGear(CItem *pItem)
-{
-	FreeSpec(pItem);
-
-	switch (pItem->GetMacro()->m_bySubClass)
-	{
-		case ISC_SWORD:
-		case ISC_WAND:
-		case ISC_BOW:
-		case ISC_DAGGER:
-			m_Gear[WS_WEAPON] = 0;
-			m_GearIndex[WS_WEAPON] = 0;
-			SubWState(WS_WEAPON);
-			break;
-
-		case ISC_SWORD2HAND:
-			m_Gear[WS_WEAPON] = 0;
-			m_GearIndex[WS_WEAPON] = 0;
-			SubWState(WS_WEAPON);
-			SubWState(WS_2HANDWEAPON);
-			break;
-		
-		case ISC_SHIELD:
-			m_Gear[WS_SHIELD] = 0;
-			m_GearIndex[WS_SHIELD] = 0;
-			SubWState(WS_SHIELD);
-			break;
-
-		case ISC_HELMET:
-			m_Gear[WS_HELMET] = 0;
-			m_GearIndex[WS_HELMET] = 0;
-			SubWState(WS_HELMET);
-			break;
-
-		case ISC_UPPERARMOR:
-			m_Gear[WS_UPPERARMOR] = 0;
-			m_GearIndex[WS_UPPERARMOR] = 0;
-			SubWState(WS_UPPERARMOR);
-			break;
-
-		case ISC_LOWERARMOR:
-			m_Gear[WS_LOWERARMOR] = 0;
-			m_GearIndex[WS_LOWERARMOR] = 0;
-			SubWState(WS_LOWERARMOR);
-			break;
-
-		case ISC_GAUNTLET:
-			m_Gear[WS_GAUNTLET] = 0;
-			m_GearIndex[WS_GAUNTLET] = 0;
-			SubWState(WS_GAUNTLET);
-			break;
-
-		case ISC_BOOTS:
-			m_Gear[WS_BOOTS] = 0;
-			m_GearIndex[WS_BOOTS] = 0;
-			SubWState(WS_BOOTS);
-			break;
-
-		case ISC_YINYANGMIRROR:
-			m_Gear[WS_MIRROR] = 0;
-			SubWState(WS_MIRROR);
-			break;
-
-		case ISC_TAEGEUK:
-			m_Gear[WS_TAEGEUK] = 0;
-			SubWState(WS_TAEGEUK);
-			break;
-
-		case ISC_TRIGRAM1:
-			m_Gear[WS_TRIGRAM1] = 0;
-			SubWState(WS_TRIGRAM1);
-			break;
-
-		case ISC_TRIGRAM2:
-			m_Gear[WS_TRIGRAM2] = 0;
-			SubWState(WS_TRIGRAM2);
-			break;
-
-		case ISC_TRIGRAM3:
-			m_Gear[WS_TRIGRAM3] = 0;
-			SubWState(WS_TRIGRAM3);
-			break;
-
-		case ISC_TRIGRAM4:
-			m_Gear[WS_TRIGRAM4] = 0;
-			SubWState(WS_TRIGRAM4);
-			break;
-
-		case ISC_TRIGRAM5:
-			m_Gear[WS_TRIGRAM5] = 0;
-			SubWState(WS_TRIGRAM5);
-			break;
-
-		case ISC_TRIGRAM6:
-			m_Gear[WS_TRIGRAM6] = 0;
-			SubWState(WS_TRIGRAM6);
-			break;
-
-		case ISC_TRIGRAM7:
-			m_Gear[WS_TRIGRAM7] = 0;
-			SubWState(WS_TRIGRAM7);
-			break;
-
-		case ISC_TRIGRAM8:
-			m_Gear[WS_TRIGRAM8] = 0;
-			SubWState(WS_TRIGRAM8);
-			break;
-
-		case ISC_EGG:
-			m_Gear[WS_PET] = 0;
-			m_GearIndex[WS_PET]=0;
-			SubWState(WS_PET);
-			break;
-
-		case ISC_RING:
-			m_Gear[WS_RING] = 0;
-			SubWState(WS_RING);
-			break;
-
-		case ISC_NECKLACE:
-			m_Gear[WS_NECKLACE] = 0;
-			SubWState(WS_NECKLACE);
-			break;
-
-		case ISC_TRINKET:
-			m_Gear[WS_TRINKET] = 0;
-			SubWState(WS_TRINKET);
-			break;
-
-		case ISC_RESISTNECKLACE2:
-			m_Gear[WS_RESISTNECKLACE2] = 0;
-			SubWState(WS_RESISTNECKLACE2);
-			break;
-	}
-
-	switch (pItem->GetMacro()->m_byClass)
-	{
-		case IC_RIDE:
-		{
-			m_Gear[WS_RIDE] = pItem->GetIID();
-			AddWState(WS_RIDE);
-			break;
-		}
-	}
-
-	if (!IsAnyTrigramState())
-		m_byTrigramLevel=0;
-}
-*/
 WORD CPlayer::GetReqPU(BYTE *byStats)
 {
 	WORD wReqPU=0;
@@ -1429,6 +1131,23 @@ bool CPlayer::CanAttack(CCharacter * pTarget) const
 
 	if (!IsWState(WS_WEAPON))
 		return false;
+
+	if (m_wAttackSpeed == 0)
+		return false;
+
+	if (m_dwLastAttackTime + m_wAttackSpeed > GetTickCount())
+		return false; // TODO: It is better to decrease damage instead ignoring it completely
+
+	int nDistance = GetDistance(pTarget);// -GetSize() - pTarget->GetSize();
+	if (nDistance > m_wAttackRange)
+	{
+		printf(KRED "Too far away from monster Current[%d] Allowed[%d]\n" KNRM, nDistance, m_wAttackRange);
+		//return false;
+	}
+	else
+	{
+		printf(KGRN "Range is OK Current[%d] Allowed[%d]\n" KNRM, nDistance, m_wAttackRange);
+	}
 
 	return true;
 }
@@ -2525,15 +2244,7 @@ void CPlayer::Attack(CCharacter *pTarget)
 	if (!CanAttack(pTarget))
 		return;
 
-	if (m_wAttackSpeed == 0)
-		return;
-
-	DWORD dwNow = GetTickCount();
-
-	if (m_dwLastAttackTime + m_wAttackSpeed > dwNow)
-		return;
-
-	m_dwLastAttackTime = dwNow;
+	m_dwLastAttackTime = GetTickCount();
 
 	SetDirection(pTarget);
 

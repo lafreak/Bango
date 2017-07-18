@@ -70,6 +70,7 @@ class CPlayer: public CCharacter
 
 	DWORD m_dwLastAttackTime;
 	WORD m_wAttackSpeed;
+	WORD m_wAttackRange;
 
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
@@ -113,6 +114,7 @@ public:
 	WORD GetMinMagic() const override;
 	WORD GetMaxMagic() const override;
 	WORD GetResist(BYTE byResist) const override;
+	WORD GetSize() const override { return 0; } //! Should be more, deduce it while PVP testing
 	__int64 GetExp() const { return m_n64Exp; }
 	BYTE GetGrade() const { return m_byGrade; }
 	std::string GetGuildName() const { return m_szGuildName; }

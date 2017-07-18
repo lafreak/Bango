@@ -384,6 +384,12 @@ public:
 					pEle->SetAttribute("effect", n);
 				}
 
+				else if (name == "range") {
+					int n;
+					iss >> n;
+					pEle->SetAttribute("range", n);
+				}
+
 				else if (name == "specialty") {
 					XMLElement *pSpecList = doc.NewElement("specialty")->ToElement();
 
