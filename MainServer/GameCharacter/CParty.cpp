@@ -117,9 +117,32 @@ bool CParty::IsHead(CPlayer *pPlayer)
 
 void CParty::Discard()
 {
+	if (GetSize() != 1)
+	{
+		printf(KRED "Trying to discard valid party.\n" KNRM);
+		return;
+	}
+
 	m_vMembers[0]->m_Access.Grant();
 	RemoveMember(m_vMembers[0]);
 	m_vMembers[0]->m_Access.Release();
+}
+
+CPlayer * CParty::FindLeader()
+{
+	CPlayer *pLeader = NULL;
+
+	m_mxThis.lock();
+
+	if (GetSize() > 0)
+	{
+		m_vMembers[0]->m_Access.Grant();
+		pLeader = m_vMembers[0];
+	}
+
+	m_mxThis.unlock();
+
+	return pLeader;
 }
 
 CParty* CParty::FindParty(int nID)
@@ -165,7 +188,6 @@ void CParty::TickAll()
 	g_mxParty.unlock();
 }
 
-//Intervall might be too fast.
 void CParty::Tick()
 {
 	SendPositionInfo();

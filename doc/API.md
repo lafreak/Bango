@@ -33,7 +33,7 @@
 `class `[`CMonsterMaguni`](#classCMonsterMaguni) | 
 `class `[`CMonsterReal`](#classCMonsterReal) | 
 `class `[`CNPC`](#classCNPC) | Class representation of NPC such as merchants and more.
-`class `[`CParty`](#classCParty) | 
+`class `[`CParty`](#classCParty) | Class representation of ingame Party. Group of Players playing together.
 `class `[`CPlayer`](#classCPlayer) | 
 `class `[`CServer`](#classCServer) | 
 `class `[`CTile`](#classCTile) | 
@@ -1066,60 +1066,127 @@ Generated packet ready to be sent.
 
 # class `CParty` 
 
+Class representation of ingame Party. Group of Players playing together.
+
 ## Summary
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public Access `[`m_Access`](#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24) | 
-`public  `[`CParty`](#classCParty_1a5bc8c57492583cb90e95fccffe8b91d4)`(CPlayer * pPlayer,CPlayer * pPlayer2)` | 
-`public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` | 
-`public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` | 
-`public inline int `[`GetSize`](#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713)`() const` | 
-`public bool `[`IsHead`](#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0)`(CPlayer * pPlayer)` | 
-`public void `[`Discard`](#classCParty_1a705e833cada5faed26ce8b5c04f3b4e2)`()` | 
-`public void `[`AddMember`](#classCParty_1ac13046f8b7e23785cc9962728fe3e6a0)`(CPlayer * pPlayer)` | 
-`public void `[`RemoveMember`](#classCParty_1ab9a01f6cf295c33c4cf79659c966557f)`(CPlayer * pPlayer)` | 
-`public void `[`UpdateMemberHP`](#classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7)`(CPlayer * pPlayer)` | 
-`public void `[`UpdateMemberLevel`](#classCParty_1a18e32064380190344131144f41e1f6f7)`(CPlayer * pPlayer)` | 
-`public void `[`SendPartyInfo`](#classCParty_1a255416d9ffe853b5bd7b0af497f00132)`()` | 
-`public void `[`SendPositionInfo`](#classCParty_1a5883da3a529af5b03909a8a3489942b4)`()` | 
-`public void `[`Tick`](#classCParty_1a1efabe746539b197733a150bb5f04f3c)`()` | 
-`public void `[`Broadcast`](#classCParty_1aa6308c6b9659b2033852efa4dae3b75f)`(BYTE byType,...)` | 
-`public void `[`Broadcast`](#classCParty_1af2141329a51494ea76985442dcddd0d9)`(Packet & packet)` | 
+`public Access `[`m_Access`](#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24) | Keeps track if instance is busy or not.
+`public  `[`CParty`](#classCParty_1a872fa5aa5fd489176e7292b6710c2fac)`(CPlayer * pLeader,CPlayer * pPlayer)` | Basic party constructor. Takes two players which start a new party. 
+`public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` | Basic destructor. Removes party from global party list before destruction.
+`public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` | Retrieves party ID assigned while creation. Party IDs are assigned starting from 1 up to MAX INT value. 
+`public inline int `[`GetSize`](#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713)`() const` | #### Returns
+`public bool `[`IsHead`](#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0)`(CPlayer * pPlayer)` | Finds out whether player is currently a leader or not. Leadership may change during party lifetime. 
+`public void `[`Discard`](#classCParty_1a705e833cada5faed26ce8b5c04f3b4e2)`()` | Removes last member from party. Should be called only once per party, right before deletion. WARNING: Depreciated
+`public CPlayer * `[`FindLeader`](#classCParty_1a52f4a3135d2eab55983e22cb1860d5a8)`()` | Finds leader of the party. Grants access, so it **must** be released after usage. 
+`public void `[`AddMember`](#classCParty_1ac13046f8b7e23785cc9962728fe3e6a0)`(CPlayer * pPlayer)` | Adds member to last position of the party. Assigns party ID to player and resets his party invitation ID. Additionally, it distributes new player list packet among all party members. 
+`public void `[`RemoveMember`](#classCParty_1ab9a01f6cf295c33c4cf79659c966557f)`(CPlayer * pPlayer)` | If given player is a member, removes him. Resets player party ID and sends party exit packet. Broadcasts new party list packet to other party members. 
+`public void `[`UpdateMemberHP`](#classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7)`(CPlayer * pPlayer)` | Sends packet with CurHP & MaxHP update information to all party members. 
+`public void `[`UpdateMemberLevel`](#classCParty_1a18e32064380190344131144f41e1f6f7)`(CPlayer * pPlayer)` | Send packet with level update information to all party members. 
+`public void `[`SendPartyInfo`](#classCParty_1a255416d9ffe853b5bd7b0af497f00132)`()` | Sends information about ID, Name, Class, Level, CurHP, MaxHP of all party members to all party members. Does nothing if party is invalid (size smaller than 2). Client uses the information to update party window.
+`public void `[`SendPositionInfo`](#classCParty_1a5883da3a529af5b03909a8a3489942b4)`()` | Sends information about position (ID, X, Y) of all party members to all party members. Does nothing if party is invalid (size smaller than 2). Client uses the information to update minimap.
+`public void `[`Tick`](#classCParty_1a1efabe746539b197733a150bb5f04f3c)`()` | Gets executed once a second.
+`public void `[`Broadcast`](#classCParty_1aa6308c6b9659b2033852efa4dae3b75f)`(BYTE byType,...)` | Distributes packet among all party members. 
+`public void `[`Broadcast`](#classCParty_1af2141329a51494ea76985442dcddd0d9)`(Packet & packet)` | Distributes packet among all party members. 
 
 ## Members
 
 #### `public Access `[`m_Access`](#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24) 
 
-#### `public  `[`CParty`](#classCParty_1a5bc8c57492583cb90e95fccffe8b91d4)`(CPlayer * pPlayer,CPlayer * pPlayer2)` 
+Keeps track if instance is busy or not.
+
+#### `public  `[`CParty`](#classCParty_1a872fa5aa5fd489176e7292b6710c2fac)`(CPlayer * pLeader,CPlayer * pPlayer)` 
+
+Basic party constructor. Takes two players which start a new party. 
+#### Parameters
+* `pLeader` Leader of newly created party. 
+
+* `pPlayer` Second player of newly created party.
 
 #### `public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` 
 
+Basic destructor. Removes party from global party list before destruction.
+
 #### `public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` 
+
+Retrieves party ID assigned while creation. Party IDs are assigned starting from 1 up to MAX INT value. 
+#### Returns
+Party ID
 
 #### `public inline int `[`GetSize`](#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713)`() const` 
 
+#### Returns
+Amount of members currently in the party.
+
 #### `public bool `[`IsHead`](#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0)`(CPlayer * pPlayer)` 
+
+Finds out whether player is currently a leader or not. Leadership may change during party lifetime. 
+#### Parameters
+* `pPlayer` Player to be checked for leadership 
+
+#### Returns
+true if player is head, false otherwise
 
 #### `public void `[`Discard`](#classCParty_1a705e833cada5faed26ce8b5c04f3b4e2)`()` 
 
+Removes last member from party. Should be called only once per party, right before deletion. WARNING: Depreciated
+
+#### `public CPlayer * `[`FindLeader`](#classCParty_1a52f4a3135d2eab55983e22cb1860d5a8)`()` 
+
+Finds leader of the party. Grants access, so it **must** be released after usage. 
+#### Returns
+NULL if party is empty, leader player otherwise
+
 #### `public void `[`AddMember`](#classCParty_1ac13046f8b7e23785cc9962728fe3e6a0)`(CPlayer * pPlayer)` 
+
+Adds member to last position of the party. Assigns party ID to player and resets his party invitation ID. Additionally, it distributes new player list packet among all party members. 
+#### Parameters
+* `pPlayer` New player to be added to party
 
 #### `public void `[`RemoveMember`](#classCParty_1ab9a01f6cf295c33c4cf79659c966557f)`(CPlayer * pPlayer)` 
 
+If given player is a member, removes him. Resets player party ID and sends party exit packet. Broadcasts new party list packet to other party members. 
+#### Parameters
+* `pPlayer` Player to be removed from party
+
 #### `public void `[`UpdateMemberHP`](#classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7)`(CPlayer * pPlayer)` 
+
+Sends packet with CurHP & MaxHP update information to all party members. 
+#### Parameters
+* `pPlayer` Player whose HP has been changed Client uses the information to update party window.
 
 #### `public void `[`UpdateMemberLevel`](#classCParty_1a18e32064380190344131144f41e1f6f7)`(CPlayer * pPlayer)` 
 
+Send packet with level update information to all party members. 
+#### Parameters
+* `pPlayer` Player whose level has been changed Client uses the information to update party window.
+
 #### `public void `[`SendPartyInfo`](#classCParty_1a255416d9ffe853b5bd7b0af497f00132)`()` 
+
+Sends information about ID, Name, Class, Level, CurHP, MaxHP of all party members to all party members. Does nothing if party is invalid (size smaller than 2). Client uses the information to update party window.
 
 #### `public void `[`SendPositionInfo`](#classCParty_1a5883da3a529af5b03909a8a3489942b4)`()` 
 
+Sends information about position (ID, X, Y) of all party members to all party members. Does nothing if party is invalid (size smaller than 2). Client uses the information to update minimap.
+
 #### `public void `[`Tick`](#classCParty_1a1efabe746539b197733a150bb5f04f3c)`()` 
+
+Gets executed once a second.
 
 #### `public void `[`Broadcast`](#classCParty_1aa6308c6b9659b2033852efa4dae3b75f)`(BYTE byType,...)` 
 
+Distributes packet among all party members. 
+#### Parameters
+* `byType` Packet header ID (from MainProtocol.h) 
+
+* `...` First goes data format (ex. "bddb") and then values matching that format. Example: Broadcast(S2C_CHATTING, "sd", "String", 150);
+
 #### `public void `[`Broadcast`](#classCParty_1af2141329a51494ea76985442dcddd0d9)`(Packet & packet)` 
+
+Distributes packet among all party members. 
+#### Parameters
+* `packet` Generated packet ready to be sent.
 
 # class `CPlayer` 
 

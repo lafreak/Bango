@@ -355,7 +355,7 @@
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>desc.nDirX<sp/>=<sp/>pNPCInfo-&gt;IntAttribute(</highlight><highlight class="stringliteral">&quot;dirx&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>desc.nDirY<sp/>=<sp/>pNPCInfo-&gt;IntAttribute(</highlight><highlight class="stringliteral">&quot;diry&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pNPC<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCNPC_1a441f45b092391de84d52b07392c5de7b" kindref="member">CNPC</ref>(desc);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pNPC<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classCNPC" kindref="compound">CNPC</ref>(desc);</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CMap::Add(pNPC);</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCNPC_1ad67dca51b67cb8db29184017345329fc" kindref="member">CNPC::Add</ref>(pNPC);</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"></highlight></codeline>

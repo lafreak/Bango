@@ -2412,7 +2412,10 @@ void CPlayer::LeaveParty()
 
 		if (pParty->GetSize() == 1)
 		{
-			pParty->Discard();
+			//pParty->Discard();
+			auto pLeader = pParty->FindLeader();
+			pParty->RemoveMember(pLeader);
+			pLeader->m_Access.Release();
 			pParty->m_Access.Release();
 			delete pParty;
 		}

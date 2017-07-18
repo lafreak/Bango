@@ -502,12 +502,13 @@
     <member refid="classCParty_1a4af53de1b337d87a83cffab15c4894b5" kind="function"><name>NewID</name></member>
     <member refid="classCParty_1a82425992dab14d9448e61fe6552d5dcb" kind="function"><name>Add</name></member>
     <member refid="classCParty_1a76398be52a8ead39ffc5ebc3211f8149" kind="function"><name>Remove</name></member>
-    <member refid="classCParty_1a5bc8c57492583cb90e95fccffe8b91d4" kind="function"><name>CParty</name></member>
+    <member refid="classCParty_1a872fa5aa5fd489176e7292b6710c2fac" kind="function"><name>CParty</name></member>
     <member refid="classCParty_1af644bea4e9858a9f6611da9530d67068" kind="function"><name>~CParty</name></member>
     <member refid="classCParty_1a16b86dbcb785c1a1a27ccff53a065f66" kind="function"><name>GetID</name></member>
     <member refid="classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713" kind="function"><name>GetSize</name></member>
     <member refid="classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0" kind="function"><name>IsHead</name></member>
     <member refid="classCParty_1a705e833cada5faed26ce8b5c04f3b4e2" kind="function"><name>Discard</name></member>
+    <member refid="classCParty_1a52f4a3135d2eab55983e22cb1860d5a8" kind="function"><name>FindLeader</name></member>
     <member refid="classCParty_1ac13046f8b7e23785cc9962728fe3e6a0" kind="function"><name>AddMember</name></member>
     <member refid="classCParty_1ab9a01f6cf295c33c4cf79659c966557f" kind="function"><name>RemoveMember</name></member>
     <member refid="classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7" kind="function"><name>UpdateMemberHP</name></member>

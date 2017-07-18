@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cnpc',['CNPC',['../classCNPC.html',1,'CNPC'],['../classCNPC.html#a441f45b092391de84d52b07392c5de7b',1,'CNPC::CNPC()']]]
+  ['broadcast',['Broadcast',['../classCParty.html#aa6308c6b9659b2033852efa4dae3b75f',1,'CParty::Broadcast(BYTE byType,...)'],['../classCParty.html#af2141329a51494ea76985442dcddd0d9',1,'CParty::Broadcast(Packet &amp;packet)']]]
 ];

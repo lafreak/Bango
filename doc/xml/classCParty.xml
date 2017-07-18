@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="classCParty" kind="class" language="C++" prot="public">
     <compoundname>CParty</compoundname>
+    <includes refid="CParty_8h" local="no">CParty.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classCParty_1a2780cec936761c0c63e33b734a322eee" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -14,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="32" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="32" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="36" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classCParty_1a5797434f5f4a4fdafc8cc1caf39c394a" prot="private" static="no" mutable="no">
         <type>PlayerVector</type>
@@ -27,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="34" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="34" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="38" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classCParty_1a4696f19953273ee3f075fcae4bead56e" prot="private" static="no" mutable="no">
         <type>std::mutex</type>
@@ -40,12 +41,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="35" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="35" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="39" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-attrib">
       <memberdef kind="variable" id="classCParty_1a78208a60865ff3a3d23e36d5380d1691" prot="private" static="yes" mutable="no">
-        <type>std::map&lt; int, CParty * &gt;</type>
+        <type>std::map&lt; int, <ref refid="classCParty" kindref="compound">CParty</ref> * &gt;</type>
         <definition>PartyMap CParty::g_mParty</definition>
         <argsstring></argsstring>
         <name>g_mParty</name>
@@ -55,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="37" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="37" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="41" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classCParty_1a3c147ccbd45911d2ed3668abb9069456" prot="private" static="yes" mutable="no">
         <type>std::mutex</type>
@@ -68,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="38" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="38" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="42" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classCParty_1a019865dcfa8ea02cdcd52f3c042890be" prot="private" static="yes" mutable="no">
         <type>int</type>
@@ -82,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="40" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="40" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="44" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classCParty_1a7897481908ef9fff1b00f67a2bb29929" prot="private" static="yes" mutable="no">
         <type>std::mutex</type>
@@ -95,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="41" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="41" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="45" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -107,10 +108,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Keeps track if instance is busy or not. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="48" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="48" bodyend="-1"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="55" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -125,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="43" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="43" bodyend="50"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="47" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="43" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a82425992dab14d9448e61fe6552d5dcb" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -133,7 +134,7 @@
         <argsstring>(CParty *pParty)</argsstring>
         <name>Add</name>
         <param>
-          <type>CParty *</type>
+          <type><ref refid="classCParty" kindref="compound">CParty</ref> *</type>
           <declname>pParty</declname>
         </param>
         <briefdescription>
@@ -142,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="44" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="52" bodyend="60"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="48" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="52" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a76398be52a8ead39ffc5ebc3211f8149" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -150,7 +151,7 @@
         <argsstring>(CParty *pParty)</argsstring>
         <name>Remove</name>
         <param>
-          <type>CParty *</type>
+          <type><ref refid="classCParty" kindref="compound">CParty</ref> *</type>
           <declname>pParty</declname>
         </param>
         <briefdescription>
@@ -159,30 +160,45 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="45" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="62" bodyend="71"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="49" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="62" bodyend="71"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classCParty_1a5bc8c57492583cb90e95fccffe8b91d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classCParty_1a872fa5aa5fd489176e7292b6710c2fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>CParty::CParty</definition>
-        <argsstring>(CPlayer *pPlayer, CPlayer *pPlayer2)</argsstring>
+        <argsstring>(CPlayer *pLeader, CPlayer *pPlayer)</argsstring>
         <name>CParty</name>
+        <param>
+          <type>CPlayer *</type>
+          <declname>pLeader</declname>
+        </param>
         <param>
           <type>CPlayer *</type>
           <declname>pPlayer</declname>
         </param>
-        <param>
-          <type>CPlayer *</type>
-          <declname>pPlayer2</declname>
-        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Basic party constructor. Takes two players which start a new party. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pLeader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Leader of newly created party. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second player of newly created party. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="50" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="9" bodyend="31"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="63" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="9" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1af644bea4e9858a9f6611da9530d67068" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -192,10 +208,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Basic destructor. Removes party from global party list before destruction. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="51" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="33" bodyend="41"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="69" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="33" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a16b86dbcb785c1a1a27ccff53a065f66" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -205,10 +221,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Retrieves party ID assigned while creation. Party IDs are assigned starting from 1 up to MAX INT value. <simplesect kind="return"><para>Party ID </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="56" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="56" bodyend="56"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="90" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="90" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -218,10 +235,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>Amount of members currently in the party. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="57" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="57" bodyend="57"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="95" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="95" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -235,10 +253,19 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Finds out whether player is currently a leader or not. Leadership may change during party lifetime. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player to be checked for leadership </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if player is head, false otherwise </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="58" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="107" bodyend="116"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="103" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="107" bodyend="116"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a705e833cada5faed26ce8b5c04f3b4e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -248,10 +275,24 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Removes last member from party. Should be called only once per party, right before deletion. WARNING: Depreciated </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="59" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="118" bodyend="123"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="110" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="118" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classCParty_1a52f4a3135d2eab55983e22cb1860d5a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CPlayer *</type>
+        <definition>CPlayer * CParty::FindLeader</definition>
+        <argsstring>()</argsstring>
+        <name>FindLeader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds leader of the party. Grants access, so it <bold>must</bold> be released after usage. <simplesect kind="return"><para>NULL if party is empty, leader player otherwise </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MainServer/GameCharacter/CParty.h" line="117" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="131" bodyend="146"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1ac13046f8b7e23785cc9962728fe3e6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -265,10 +306,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Adds member to last position of the party. Assigns party ID to player and resets his party invitation ID. Additionally, it distributes new player list packet among all party members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New player to be added to party </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="60" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="73" bodyend="87"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="125" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="73" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1ab9a01f6cf295c33c4cf79659c966557f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -282,10 +331,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>If given player is a member, removes him. Resets player party ID and sends party exit packet. Broadcasts new party list packet to other party members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player to be removed from party </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="61" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="89" bodyend="105"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="133" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="89" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1aea4bf8fe276d1e3ce497a00af4842ea7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -299,10 +356,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Sends packet with CurHP &amp; MaxHP update information to all party members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player whose HP has been changed Client uses the information to update party window. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="62" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="144" bodyend="147"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="140" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="167" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a18e32064380190344131144f41e1f6f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -316,10 +381,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Send packet with level update information to all party members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pPlayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Player whose level has been changed Client uses the information to update party window. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="63" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="149" bodyend="152"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="147" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="172" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a255416d9ffe853b5bd7b0af497f00132" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -329,10 +402,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Sends information about ID, Name, Class, Level, CurHP, MaxHP of all party members to all party members. Does nothing if party is invalid (size smaller than 2). Client uses the information to update party window. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="64" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="226" bodyend="253"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="154" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="248" bodyend="275"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a5883da3a529af5b03909a8a3489942b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -342,10 +415,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Sends information about position (ID, X, Y) of all party members to all party members. Does nothing if party is invalid (size smaller than 2). Client uses the information to update minimap. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="65" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="203" bodyend="224"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="161" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="225" bodyend="246"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a1efabe746539b197733a150bb5f04f3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -355,10 +428,10 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Gets executed once a second. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="66" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="169" bodyend="172"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="166" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="191" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1aa6308c6b9659b2033852efa4dae3b75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -375,10 +448,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Distributes packet among all party members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Packet header ID (from MainProtocol.h) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First goes data format (ex. &quot;bddb&quot;) and then values matching that format. Example: Broadcast(S2C_CHATTING, &quot;sd&quot;, &quot;String&quot;, 150); </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="67" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="174" bodyend="191"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="174" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="196" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1af2141329a51494ea76985442dcddd0d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -392,10 +480,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Distributes packet among all party members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>packet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Generated packet ready to be sent. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="68" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="193" bodyend="201"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="180" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="215" bodyend="223"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -407,13 +503,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Iterates through all parties ingame and calls Tick method on it. Gets called once a second. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="53" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="154" bodyend="166"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="75" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="177" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="classCParty_1a51620ed2703390426b9dc015220ac9db" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>CParty *</type>
+        <type><ref refid="classCParty" kindref="compound">CParty</ref> *</type>
         <definition>CParty * CParty::FindParty</definition>
         <argsstring>(int nID)</argsstring>
         <name>FindParty</name>
@@ -424,24 +520,34 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>Find Party with certain ID. Grants m_Access, so it is a <bold>must</bold> to Release it after usage. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Party ID identifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Party with certain ID. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MainServer/GameCharacter/CParty.h" line="54" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="125" bodyend="142"/>
+        <location file="MainServer/GameCharacter/CParty.h" line="83" column="1" bodyfile="MainServer/GameCharacter/CParty.cpp" bodystart="148" bodyend="165"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-    </detaileddescription>
-    <location file="MainServer/GameCharacter/CParty.h" line="30" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="29" bodyend="69"/>
+<para>Class representation of ingame Party. Group of Players playing together. </para>    </detaileddescription>
+    <location file="MainServer/GameCharacter/CParty.h" line="34" column="1" bodyfile="MainServer/GameCharacter/CParty.h" bodystart="33" bodyend="181"/>
     <listofallmembers>
       <member refid="classCParty_1a82425992dab14d9448e61fe6552d5dcb" prot="private" virt="non-virtual"><scope>CParty</scope><name>Add</name></member>
       <member refid="classCParty_1ac13046f8b7e23785cc9962728fe3e6a0" prot="public" virt="non-virtual"><scope>CParty</scope><name>AddMember</name></member>
       <member refid="classCParty_1aa6308c6b9659b2033852efa4dae3b75f" prot="public" virt="non-virtual"><scope>CParty</scope><name>Broadcast</name></member>
       <member refid="classCParty_1af2141329a51494ea76985442dcddd0d9" prot="public" virt="non-virtual"><scope>CParty</scope><name>Broadcast</name></member>
-      <member refid="classCParty_1a5bc8c57492583cb90e95fccffe8b91d4" prot="public" virt="non-virtual"><scope>CParty</scope><name>CParty</name></member>
+      <member refid="classCParty_1a872fa5aa5fd489176e7292b6710c2fac" prot="public" virt="non-virtual"><scope>CParty</scope><name>CParty</name></member>
       <member refid="classCParty_1a705e833cada5faed26ce8b5c04f3b4e2" prot="public" virt="non-virtual"><scope>CParty</scope><name>Discard</name></member>
+      <member refid="classCParty_1a52f4a3135d2eab55983e22cb1860d5a8" prot="public" virt="non-virtual"><scope>CParty</scope><name>FindLeader</name></member>
       <member refid="classCParty_1a51620ed2703390426b9dc015220ac9db" prot="public" virt="non-virtual"><scope>CParty</scope><name>FindParty</name></member>
       <member refid="classCParty_1a78208a60865ff3a3d23e36d5380d1691" prot="private" virt="non-virtual"><scope>CParty</scope><name>g_mParty</name></member>
       <member refid="classCParty_1a7897481908ef9fff1b00f67a2bb29929" prot="private" virt="non-virtual"><scope>CParty</scope><name>g_mxMaxID</name></member>

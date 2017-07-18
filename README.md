@@ -1,15 +1,19 @@
 # Bango
 KalOnline MMORPG Server Emulator written in C++ for Linux 64bit OS.  
 
-# Quick installation
+## Quick installation
 Install MySQL Server: `sudo apt-get install mysql-server`  
 Install Libzdb: `sudo apt-get install libzdb-dev`  
 Run `\. build.sql` in your database.
 
-# Tutorial
+## Tutorial
 http://forum.ragezone.com/f389/bango-server-emulator-linux-1134723/
 
-# Progress
+## Documentation
+- [CNPC](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-cnpc)
+- [CParty](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-cparty)
+
+## Progress
 
 ###### Player
 - [x] Movement
