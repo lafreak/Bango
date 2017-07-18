@@ -14,6 +14,12 @@ bool CClientSocket::Start(WORD wPort)
 		return false;
 	}
 
+	int nYes=1;
+	if (setsockopt(CClientSocket::g_pSocket, SOL_SOCKET, SO_REUSEADDR, &nYes, sizeof(nYes)) == SOCKET_ERROR) {
+		printf(KRED "SetSockOpt error.\n" KNRM);
+		return false;
+	}
+
 	struct sockaddr_in serv_addr;
 	memset(&serv_addr, 0, sizeof(sockaddr_in));
 
