@@ -508,7 +508,11 @@ public:
 							int val = 0; d >> val;
 							pSpecList->SetAttribute("dex", val);
 						}
-						
+
+						else if (specname == "aspeed") {
+							int val = 0; d >> val;
+							pSpecList->SetAttribute("attackspeed", val);
+						}
 					}
 
 					pEle->InsertEndChild(pSpecList);

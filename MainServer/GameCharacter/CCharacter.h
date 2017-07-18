@@ -109,7 +109,8 @@ public:
 	virtual WORD GetResist(BYTE byResist) const { return 0; }
 	WORD GetAttack() const;
 	WORD GetMagic() const;
-	bool CheckHit(CCharacter *pTarget) const;
+	virtual bool CanAttack(CCharacter *pTarget) const;
+	virtual bool CheckHit(CCharacter *pTarget) const;
 	DWORD GetFinalDamage(CCharacter *pAttacker, DWORD dwDamage);
 	DWORD GetFatalDamage(DWORD dwFinalDamage, BYTE& byType);
 
@@ -147,7 +148,7 @@ public:
 	void SetDirection(int nX, int nY);
 	void SetDirection(CCharacter* pCharacter) { SetDirection(pCharacter->GetX() - GetX(), pCharacter->GetY() - GetY()); }
 
-	bool IsNormal() { return GetCurHP() > 0; }
+	bool IsNormal() const { return GetCurHP() > 0; }
 
 	virtual void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) {}
 	virtual void Die() {}

@@ -146,6 +146,8 @@ bool CMacroDB::LoadInitItem()
 			pItem->m_wInt =		pItemSpecialtyList->IntAttribute("int");
 			pItem->m_wWis =		pItemSpecialtyList->IntAttribute("wis");
 			pItem->m_wDex =		pItemSpecialtyList->IntAttribute("dex");
+			pItem->m_wAttackSpeed = pItemSpecialtyList->IntAttribute("attackspeed");
+
 
 			XMLNode *pSpecialty = pItemSpecialtyList->FirstChild();
 

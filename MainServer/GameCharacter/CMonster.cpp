@@ -546,7 +546,7 @@ void CMonster::Move(char byX, char byY, BYTE byType)
 
 void CMonster::Attack(CPlayer *pTarget)
 {
-	if (!pTarget->IsNormal())
+	if (!CanAttack(pTarget))
 	{
 		SetTarget(NULL);
 		return;

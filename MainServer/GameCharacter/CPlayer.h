@@ -68,6 +68,9 @@ class CPlayer: public CCharacter
 	int m_nPartyID;
 	int m_nPartyInviterID;
 
+	DWORD m_dwLastAttackTime;
+	WORD m_wAttackSpeed;
+
 	ItemMap m_mItem;
 	std::mutex m_mxItem;
 
@@ -159,6 +162,7 @@ public:
 	void GameStart();
 	void GameRestart();
 	bool CanMove();
+	bool CanAttack(CCharacter *pTarget) const override;
 	void OnMove(char byX, char byY, char byZ, char byType);
 	void Rest(BYTE byType);
 	void ProcessMsg(char* szMsg);

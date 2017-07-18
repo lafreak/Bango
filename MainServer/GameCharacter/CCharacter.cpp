@@ -89,6 +89,17 @@ WORD CCharacter::GetMagic() const
 	return wMinMagic + (rand() % (wMaxMagic+1 - wMinMagic));
 }
 
+bool CCharacter::CanAttack(CCharacter * pTarget) const
+{
+	if (!IsNormal())
+		return false;
+
+	if (!pTarget->IsNormal())
+		return false;
+
+	return true;
+}
+
 bool CCharacter::CheckHit(CCharacter * pTarget) const
 {
 	return true; // Not implemented

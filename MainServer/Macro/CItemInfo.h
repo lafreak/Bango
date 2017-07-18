@@ -24,6 +24,7 @@ struct CItemInfo: public CMacro
 	int m_nBuffId;
 	int m_nBuffTime;
 	int m_nBuffValue;
+	WORD m_wAttackSpeed;
 
 	WORD m_wDefense,
 		m_wHit,
@@ -95,7 +96,8 @@ struct CItemInfo: public CMacro
 		m_wHth(0),
 		m_wInt(0),
 		m_wWis(0),
-		m_wDex(0)
+		m_wDex(0),
+		m_wAttackSpeed(0)
 	{
 		m_nRefresh[0] = m_nRefresh[1] = 0;
 	}

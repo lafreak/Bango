@@ -3,6 +3,7 @@
 #include "CPlayer.h"
 #include "../CServer.h"
 #include "../Item/CItemPet.h"
+#include "../Item/CItemWeapon.h"
 
 PlayerMap CPlayer::g_mPlayer;
 std::mutex CPlayer::g_mxPlayer;
@@ -162,6 +163,9 @@ void CPlayer::OnPutOnGear(CItem *pItem)
 	if (pItem->GetMacro()->m_bySubClass >= ISC_TRIGRAM1 && pItem->GetMacro()->m_bySubClass <= ISC_TRIGRAM8)
 		m_byTrigramLevel = pItem->GetLevel();
 
+	if (pItem->GetWearType() == WS_WEAPON)
+		m_wAttackSpeed = ((CItemWeapon*)pItem)->GetAttackSpeed();
+
 	AddWState(pItem->GetWearType());
 }
 
@@ -177,6 +181,9 @@ void CPlayer::OnPutOffGear(CItem *pItem)
 
 	if (pItem->GetMacro()->m_bySubClass == ISC_SWORD2HAND)
 		SubWState(WS_2HANDWEAPON);
+
+	if (pItem->GetWearType() == WS_WEAPON)
+		m_wAttackSpeed = 0;
 
 	SubWState(pItem->GetWearType());
 
@@ -1415,6 +1422,17 @@ bool CPlayer::CanMove()
 	return true;
 }
 
+bool CPlayer::CanAttack(CCharacter * pTarget) const
+{
+	if (!CCharacter::CanAttack(pTarget))
+		return false;
+
+	if (!IsWState(WS_WEAPON))
+		return false;
+
+	return true;
+}
+
 void CPlayer::OnMove(char byX, char byY, char byZ, char byType)
 {
 	MapInfo mapInfoCur = CMap::GetMapInfo(m_nX, m_nY);
@@ -2504,14 +2522,23 @@ void CPlayer::Revival()
 
 void CPlayer::Attack(CCharacter *pTarget)
 {
-	if (!pTarget->IsNormal())
+	if (!CanAttack(pTarget))
 		return;
+
+	if (m_wAttackSpeed == 0)
+		return;
+
+	DWORD dwNow = GetTickCount();
+
+	if (m_dwLastAttackTime + m_wAttackSpeed > dwNow)
+		return;
+
+	m_dwLastAttackTime = dwNow;
 
 	SetDirection(pTarget);
 
-	// TODO: Distance check, attack speed corrupted check
+	// TODO: Distance check
 	// TODO: Player OnPVP Check
-	// TODO: CanAttack check
 
 	DWORD dwDamage = GetAttack();
 	DWORD dwExplosiveBlow = 0;
