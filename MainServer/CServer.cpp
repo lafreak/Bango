@@ -87,6 +87,6 @@ PVOID CServer::Timer(PVOID)
 			dwTickTime = dwNow;
 		}
 
-		CMonster::AIAll();
+		CMonster::AIAll(dwNow);
 	}
 }

@@ -273,7 +273,7 @@ void CMonster::TickAll()
 	g_mxMonster.unlock();
 }
 
-void CMonster::AIAll()
+void CMonster::AIAll(DWORD dwNow)
 {
 	g_mxMonster.lock();
 
@@ -289,7 +289,7 @@ void CMonster::AIAll()
 		else
 		{
 			pMonster->m_Access.Grant();
-			pMonster->AI();
+			pMonster->AI(dwNow);
 			pMonster->m_Access.Release();
 			++it;
 		}
@@ -348,6 +348,18 @@ CMonster* CMonster::FindMonsterByIndex(WORD wIndex)
 	g_mxMonster.unlock();
 
 	return pMonster;
+}
+
+void CMonster::UnloadMonsters()
+{
+	g_mxMonster.lock();
+
+	for (auto& a : g_mMonster)
+		delete a.second;
+
+	g_mMonster.clear();
+
+	g_mxMonster.unlock();
 }
 
 CPlayer* CMonster::GetClosestNormalPlayer()

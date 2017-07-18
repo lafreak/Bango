@@ -17,9 +17,8 @@ public:
 		m_fnAction = fnAction;
 	}
 
-	void ExecuteTimer()
+	void ExecuteTimer(DWORD dwNow)
 	{
-		DWORD dwNow = GetTickCount();
 		if (m_dwTime && m_dwTime < dwNow)
 		{
 			m_dwTime = 0;

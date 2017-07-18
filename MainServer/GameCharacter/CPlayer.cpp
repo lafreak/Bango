@@ -16,6 +16,8 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_szName = std::string(desc.szName);
 	m_byClass = desc.byClass;
 	m_byJob = desc.byJob;
+	m_byFace = desc.byFace;
+	m_byHair = desc.byHair;
 	m_byLevel = desc.byLevel;
 	m_wStr = desc.wStats[P_STR];
 	m_wHth = desc.wStats[P_HTH];
@@ -32,6 +34,9 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nX = desc.nX;
 	m_nY = desc.nY;
 	m_nZ = desc.nZ;
+
+	m_nOnTeleportX = 0;
+	m_nOnTeleportY = 0;
 
 	m_n64WearState = 0;
 	m_byTrigramLevel = 0;

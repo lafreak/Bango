@@ -179,28 +179,28 @@ bool CCharacter::IsMStateEx(__int64 n64MStateEx)
 Packet CCharacter::GenerateCreatePacket(bool bHero)
 {
 	Packet packet;
-	packet.wSize = 0;
+	memset(&packet, 0, sizeof(Packet));
 	return packet;
 }
 
 Packet CCharacter::GeneratePetPacket()
 {
 	Packet packet;
-	packet.wSize = 0;
+	memset(&packet, 0, sizeof(Packet));
 	return packet;
 }
 
 Packet CCharacter::GenerateDeletePacket()
 {
 	Packet packet;
-	packet.wSize = 0;
+	memset(&packet, 0, sizeof(Packet));
 	return packet;
 }
 
 Packet CCharacter::GenerateMovePacket(BYTE byType, char byX, char byY, char byZ)
 {
 	Packet packet;
-	packet.wSize = 0;
+	memset(&packet, 0, sizeof(Packet));
 	return packet;
 }
 

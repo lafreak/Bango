@@ -41,6 +41,8 @@ public:
 	static CMonster* FindMonster(int nID);
 	static CMonster* FindMonsterByIndex(WORD wIndex);
 
+	static void UnloadMonsters();
+
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GenerateDeletePacket();
 	Packet GenerateMovePacket(BYTE byType, char byX, char byY, char byZ = 0);
@@ -83,10 +85,10 @@ public:
 	static void Add(CMonster *pMonster);
 	static void Remove(CMonster *pMonster);
 	static void TickAll();
-	static void AIAll();
+	static void AIAll(DWORD dwNow);
 
 	virtual void Tick();
-	virtual void AI() { Lock(); ExecuteTimer(); Unlock(); }
+	virtual void AI(DWORD dwNow) { Lock(); ExecuteTimer(dwNow); Unlock(); }
 	void Move(char byX, char byY, BYTE byType);
 	void Attack(CPlayer *pTarget);
 	void Chase();

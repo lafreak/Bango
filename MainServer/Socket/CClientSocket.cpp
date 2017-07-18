@@ -69,6 +69,8 @@ void CClientSocket::Close(int)
 
 	close(CClientSocket::g_pSocket);
 
+	CMonster::UnloadMonsters();
+
 	CMacroDB::UnloadInitItem();
 	CMap::UnloadMaps();
 	CNPC::UnloadNPC();
