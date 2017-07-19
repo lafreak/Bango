@@ -20,6 +20,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"ride", 		IC_RIDE },
 
 	// Item Sub Class
+	{"etc", 	    ISC_ETC },
 	{"fish", 		ISC_FISH },
 	{"sword", 		ISC_SWORD },
 	{"sword2h", 	ISC_SWORD2HAND },
@@ -147,9 +148,7 @@ bool CMacroDB::LoadInitItem()
 			pItem->m_wInt =		pItemSpecialtyList->IntAttribute("int");
 			pItem->m_wWis =		pItemSpecialtyList->IntAttribute("wis");
 			pItem->m_wDex =		pItemSpecialtyList->IntAttribute("dex");
-			pItem->m_wAttackSpeed = pItemSpecialtyList->IntAttribute("attackspeed");
-
-
+	
 			XMLNode *pSpecialty = pItemSpecialtyList->FirstChild();
 
 			while (pSpecialty != NULL) {
@@ -167,6 +166,23 @@ bool CMacroDB::LoadInitItem()
 					pItem->m_nBuffId = pElement->IntAttribute("id");
 					pItem->m_nBuffTime = pElement->IntAttribute("time");
 					pItem->m_nBuffValue = pElement->IntAttribute("value");
+				}
+
+				else if (strcmp(pSpecialty->ToElement()->Name(), "teleport") == 0) {
+					XMLElement *pElement = pSpecialty->ToElement();
+					
+					if (pItem->m_byReqLevel > 0)
+					{
+						pItem->m_nX = pElement->IntAttribute("val");
+						pItem->m_nTeleportKind = pElement->IntAttribute("val2");
+						pItem->m_nY = pElement->IntAttribute("val3");
+					}
+					else
+					{
+						pItem->m_nTeleportKind = pElement->IntAttribute("val");
+						pItem->m_bTeleportType = pElement->IntAttribute("val2");
+						pItem->m_wTeleportID = pElement->IntAttribute("val3");
+					}
 				}
 
 				pSpecialty = pSpecialty->NextSibling();

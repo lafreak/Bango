@@ -383,13 +383,11 @@ public:
 					iss >> n;
 					pEle->SetAttribute("effect", n);
 				}
-
 				else if (name == "range") {
-					int n;
-					iss >> n;
-					pEle->SetAttribute("range", n);
-				}
-
+ 					int n;
+ 					iss >> n;
+ 					pEle->SetAttribute("range", n);
+ 				}
 				else if (name == "specialty") {
 					XMLElement *pSpecList = doc.NewElement("specialty")->ToElement();
 
@@ -420,6 +418,17 @@ public:
 							pSpec->SetAttribute("id", id);
 							pSpec->SetAttribute("time", time);
 							pSpec->SetAttribute("value", value);
+							pSpecList->InsertEndChild(pSpec);
+						}
+
+						else if (specname == "teleport") {
+							int val = 0, val2 = 0, val3 = 0;
+							d >> val >> val2 >> val3;
+							
+							pSpec->SetAttribute("val", val);
+							pSpec->SetAttribute("val2", val2);
+							pSpec->SetAttribute("val3", val3);
+
 							pSpecList->InsertEndChild(pSpec);
 						}
 
@@ -624,12 +633,7 @@ public:
 					iss >> n;
 					pEle->SetAttribute("exp", n);
 				}
-				else if (name == "aspeed") {
-					int64_t n = 0;
-					iss >> n;
-					pEle->SetAttribute("attackspeed", n);
-				}
-
+		
 				else if (name == "defense") {
 					int close, far; close=far= 0; iss >> close>>far;
 					pEle->SetAttribute("defense", close);

@@ -245,6 +245,16 @@ void CParty::SendPositionInfo()
 	Broadcast(packet);
 }
 
+void CParty::Teleport(int nX, int nY)
+{
+	m_mxThis.lock();
+
+	for (auto &a : m_vMembers)
+		a->Teleport(nX, nY);
+
+	m_mxThis.unlock();
+}
+
 void CParty::SendPartyInfo()
 {
 	if (GetSize() < 2)
