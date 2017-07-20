@@ -41,6 +41,14 @@ struct CItemInfo: public CMacro
 	DWORD m_dwHP,
 		m_dwMP;
 
+	//Id = Naro / Cop etc | Kind = coordinates or not? | Type = Party / Indiv
+	WORD m_nTeleportKind;
+
+	WORD m_wTeleportID;
+	bool m_bTeleportType;
+	int m_nX, 
+		m_nY;
+
 	WORD m_wMinAttack,
 		m_wMaxAttack,
 		m_wMinMagic,
@@ -98,6 +106,11 @@ struct CItemInfo: public CMacro
 		m_wInt(0),
 		m_wWis(0),
 		m_wDex(0),
+		m_nTeleportKind(-1),
+		m_wTeleportID(0),
+		m_bTeleportType(0),
+		m_nX(0),
+		m_nY(0),
 		m_wAttackSpeed(0),
 		m_wRange(0)
 	{
