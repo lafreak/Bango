@@ -13,7 +13,7 @@ CoordsMap CItemTeleport::g_mTeleportCoords = {
 	{ HONDEL,  {359758, 233913} }
 };
 
-#define ITEMTELEPORT_SPREAD 30
+#define ITEMTELEPORT_SPREAD 50
 
 bool CItemTeleport::Use(CPlayer *pPlayer)
 {

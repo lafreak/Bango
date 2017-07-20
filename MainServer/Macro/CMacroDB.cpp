@@ -285,7 +285,7 @@ bool CMacroDB::LoadInitMonster()
 	return true;
 }
 
-void CMacroDB::UnloadInitItem()
+void CMacroDB::Destroy()
 {
 	for (auto& a: g_mMacro)
 		delete a.second;

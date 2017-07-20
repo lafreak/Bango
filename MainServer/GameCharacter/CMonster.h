@@ -41,7 +41,7 @@ public:
 	static CMonster* FindMonster(int nID);
 	static CMonster* FindMonsterByIndex(WORD wIndex);
 
-	static void UnloadMonsters();
+	static void DestroyAll();
 
 	Packet GenerateCreatePacket(bool bHero=false);
 	Packet GenerateDeletePacket();

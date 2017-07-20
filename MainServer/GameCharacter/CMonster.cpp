@@ -350,7 +350,7 @@ CMonster* CMonster::FindMonsterByIndex(WORD wIndex)
 	return pMonster;
 }
 
-void CMonster::UnloadMonsters()
+void CMonster::DestroyAll()
 {
 	g_mxMonster.lock();
 

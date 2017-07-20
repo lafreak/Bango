@@ -75,9 +75,9 @@ void CClientSocket::Close(int)
 
 	close(CClientSocket::g_pSocket);
 
-	CMonster::UnloadMonsters();
+	CMonster::DestroyAll();
 
-	CMacroDB::UnloadInitItem();
+	CMacroDB::Destroy();
 	CMap::UnloadMaps();
 	CNPC::UnloadNPC();
 
