@@ -452,52 +452,52 @@
     <item index="186" class="general" subclass="etc" buy="0"/>
     <item index="187" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
         <specialty>
-            <teleport val="0" val2="0" val3="0"/>
+            <teleport v1="0" v2="0" v3="0"/>
         </specialty>
     </item>
     <item index="188" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
         <specialty>
-            <teleport val="0" val2="0" val3="1"/>
+            <teleport v1="0" v2="0" v3="1"/>
         </specialty>
     </item>
     <item index="189" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
         <specialty>
-            <teleport val="0" val2="0" val3="2"/>
+            <teleport v1="0" v2="0" v3="2"/>
         </specialty>
     </item>
     <item index="190" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
         <specialty>
-            <teleport val="0" val2="0" val3="3"/>
+            <teleport v1="0" v2="0" v3="3"/>
         </specialty>
     </item>
     <item index="191" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
         <specialty>
-            <teleport val="0" val2="0" val3="4"/>
+            <teleport v1="0" v2="0" v3="4"/>
         </specialty>
     </item>
     <item index="192" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
         <specialty>
-            <teleport val="0" val2="1" val3="0"/>
+            <teleport v1="0" v2="1" v3="0"/>
         </specialty>
     </item>
     <item index="193" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
         <specialty>
-            <teleport val="0" val2="1" val3="1"/>
+            <teleport v1="0" v2="1" v3="1"/>
         </specialty>
     </item>
     <item index="194" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
         <specialty>
-            <teleport val="0" val2="1" val3="2"/>
+            <teleport v1="0" v2="1" v3="2"/>
         </specialty>
     </item>
     <item index="195" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
         <specialty>
-            <teleport val="0" val2="1" val3="3"/>
+            <teleport v1="0" v2="1" v3="3"/>
         </specialty>
     </item>
     <item index="196" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
         <specialty>
-            <teleport val="0" val2="1" val3="4"/>
+            <teleport v1="0" v2="1" v3="4"/>
         </specialty>
     </item>
     <item index="202" class="ornament" subclass="trinket" wear="1" buy="0" sell="3000" endurance="10">
@@ -1275,12 +1275,12 @@
     </item>
     <item index="484" class="general" subclass="etc" use="1" plural="1" buy="1000" sell="100">
         <specialty>
-            <teleport val="0" val2="0" val3="5"/>
+            <teleport v1="0" v2="0" v3="5"/>
         </specialty>
     </item>
     <item index="485" class="general" subclass="etc" use="1" plural="1" buy="400" sell="50">
         <specialty>
-            <teleport val="0" val2="1" val3="5"/>
+            <teleport v1="0" v2="1" v3="5"/>
         </specialty>
     </item>
     <item index="503" class="defense" subclass="standard" wear="1" buy="0" sell="4000">
@@ -3647,7 +3647,7 @@
     <item index="1619" class="general" subclass="etc" buy="0" sell="0"/>
     <item index="1620" class="quest" subclass="common" use="1" plural="1" buy="0" sell="0">
         <specialty>
-            <teleport val="1" val2="1" val3="7"/>
+            <teleport v1="1" v2="1" v3="7"/>
         </specialty>
     </item>
     <item index="1621" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
@@ -4672,22 +4672,22 @@
     <item index="2102" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
     <item index="2157" class="general" subclass="etc" use="1" plural="1" buy="1500" sell="150">
         <specialty>
-            <teleport val="0" val2="0" val3="7"/>
+            <teleport v1="0" v2="0" v3="7"/>
         </specialty>
     </item>
     <item index="2158" class="general" subclass="etc" use="1" plural="1" buy="900" sell="100">
         <specialty>
-            <teleport val="0" val2="1" val3="7"/>
+            <teleport v1="0" v2="1" v3="7"/>
         </specialty>
     </item>
     <item index="2159" class="general" subclass="etc" use="1" plural="1" buy="1500" sell="150">
         <specialty>
-            <teleport val="0" val2="0" val3="8"/>
+            <teleport v1="0" v2="0" v3="8"/>
         </specialty>
     </item>
     <item index="2160" class="general" subclass="etc" use="1" plural="1" buy="900" sell="100">
         <specialty>
-            <teleport val="0" val2="1" val3="8"/>
+            <teleport v1="0" v2="1" v3="8"/>
         </specialty>
     </item>
     <item index="1878" class="defense" subclass="upperarmor" level="70" wear="1" reqclass="knight" reqlevel="70" buy="0" sell="780000" endurance="24">
@@ -5420,7 +5420,7 @@
     </item>
     <item index="2508" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0">
         <specialty>
-            <teleport val="0" val2="1" val3="7"/>
+            <teleport v1="0" v2="1" v3="7"/>
         </specialty>
     </item>
     <item index="2513" class="general" subclass="etc" use="1" plural="1">
@@ -7408,57 +7408,57 @@
     </item>
     <item index="3463" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="100">
         <specialty>
-            <teleport val="100859" val2="2" val3="18516"/>
+            <teleport v1="100859" v2="2" v3="18516"/>
         </specialty>
     </item>
     <item index="3500" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="69464" val2="2" val3="17223"/>
+            <teleport v1="69464" v2="2" v3="17223"/>
         </specialty>
     </item>
     <item index="3501" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="69464" val2="3" val3="832"/>
+            <teleport v1="69464" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3502" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="85858" val2="3" val3="832"/>
+            <teleport v1="85858" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3503" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="102234" val2="3" val3="832"/>
+            <teleport v1="102234" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3504" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="167757" val2="3" val3="832"/>
+            <teleport v1="167757" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3505" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="85850" val2="2" val3="17170"/>
+            <teleport v1="85850" v2="2" v3="17170"/>
         </specialty>
     </item>
     <item index="3506" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="118618" val2="3" val3="832"/>
+            <teleport v1="118618" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3507" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="135002" val2="3" val3="832"/>
+            <teleport v1="135002" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3508" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="151386" val2="3" val3="832"/>
+            <teleport v1="151386" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="3509" class="general" subclass="etc" use="1" plural="1" buy="100000" sell="100" reqclass="all" reqlevel="80">
         <specialty>
-            <teleport val="184159" val2="3" val3="832"/>
+            <teleport v1="184159" v2="3" v3="832"/>
         </specialty>
     </item>
     <item index="4101" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>

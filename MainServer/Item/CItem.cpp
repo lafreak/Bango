@@ -7,6 +7,8 @@
 #include "CItemOrnament.h"
 #include "CItemTransform.h"
 #include "CItemRide.h"
+#include "ItemGeneral/CItemTeleport.h"
+#include "ItemGeneral/CItemRefresh.h"
 
 #include "../GameCharacter/CPlayer.h"
 
@@ -79,7 +81,12 @@ CItem* CItem::CreateItem(ITEMINFO_DESC& desc)
 	switch (pMacro->m_byClass)
 	{
 		case IC_GENERAL:
-			pItem = new CItemGeneral(desc, pMacro);
+			if (pMacro->m_nTeleport[1] >= 0)
+				pItem = new CItemTeleport(desc, pMacro);
+			else if (pMacro->m_bySubClass == ISC_REFRESH)
+				pItem = new CItemRefresh(desc, pMacro);
+			else
+				pItem = new CItemGeneral(desc, pMacro);
 			break;
 		case IC_WEAPON:
 			pItem = new CItemWeapon(desc, pMacro);

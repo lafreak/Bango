@@ -42,12 +42,15 @@ struct CItemInfo: public CMacro
 		m_dwMP;
 
 	//Id = Naro / Cop etc | Kind = coordinates or not? | Type = Party / Indiv
+	/*
 	WORD m_nTeleportKind;
 
 	WORD m_wTeleportID;
 	bool m_bTeleportType;
 	int m_nX, 
 		m_nY;
+		*/
+	int m_nTeleport[3];
 
 	WORD m_wMinAttack,
 		m_wMaxAttack,
@@ -64,6 +67,14 @@ struct CItemInfo: public CMacro
 	{
 		R_HP,
 		R_MP
+	};
+
+	enum TELEPORT
+	{
+		T_PARTY,
+		T_SINGLE,
+		T_DUNGEON,
+		T_DAWN
 	};
 
 	CItemInfo()
@@ -106,15 +117,16 @@ struct CItemInfo: public CMacro
 		m_wInt(0),
 		m_wWis(0),
 		m_wDex(0),
-		m_nTeleportKind(-1),
-		m_wTeleportID(0),
-		m_bTeleportType(0),
-		m_nX(0),
-		m_nY(0),
+		//m_nTeleportKind(-1),
+		//m_wTeleportID(0),
+		//m_bTeleportType(0),
+		//m_nX(0),
+		//m_nY(0),
 		m_wAttackSpeed(0),
 		m_wRange(0)
 	{
 		m_nRefresh[0] = m_nRefresh[1] = 0;
+		m_nTeleport[0] = m_nTeleport[1] = m_nTeleport[2] = -1;
 	}
 };
 

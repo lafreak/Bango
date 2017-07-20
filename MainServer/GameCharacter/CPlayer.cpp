@@ -1333,7 +1333,7 @@ void CPlayer::ChatCommand(char* szCommand)
 		if (token)
 			nZ = atoi(token);
 
-		Teleport(nX, nY, nZ);
+		Teleport(nX, nY, 0, nZ);
 	}
 
 	else if (!strcmp(token, "/moveto")) {
@@ -1774,8 +1774,14 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 	}
 }
 
-void CPlayer::Teleport(int nX, int nY, int nZ)
+void CPlayer::Teleport(int nX, int nY, int nSpread, int nZ)
 {
+	if (nSpread > 0)
+	{
+		nX += ((rand() % nSpread) - nSpread / 2);
+		nY += ((rand() % nSpread) - nSpread / 2);
+	}
+
 	Lock();
 	m_nOnTeleportX = nX;
 	m_nOnTeleportY = nY;

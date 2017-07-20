@@ -170,7 +170,11 @@ bool CMacroDB::LoadInitItem()
 
 				else if (strcmp(pSpecialty->ToElement()->Name(), "teleport") == 0) {
 					XMLElement *pElement = pSpecialty->ToElement();
-					
+
+					pItem->m_nTeleport[0] = pElement->IntAttribute("v1");
+					pItem->m_nTeleport[1] = pElement->IntAttribute("v2");
+					pItem->m_nTeleport[2] = pElement->IntAttribute("v3");
+					/*
 					if (pItem->m_byReqLevel > 0)
 					{
 						pItem->m_nX = pElement->IntAttribute("val");
@@ -183,6 +187,7 @@ bool CMacroDB::LoadInitItem()
 						pItem->m_bTeleportType = pElement->IntAttribute("val2");
 						pItem->m_wTeleportID = pElement->IntAttribute("val3");
 					}
+					*/
 				}
 
 				pSpecialty = pSpecialty->NextSibling();

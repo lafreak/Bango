@@ -245,12 +245,12 @@ void CParty::SendPositionInfo()
 	Broadcast(packet);
 }
 
-void CParty::Teleport(int nX, int nY)
+void CParty::Teleport(int nX, int nY, int nSpread)
 {
 	m_mxThis.lock();
 
 	for (auto &a : m_vMembers)
-		a->Teleport(nX, nY);
+		a->Teleport(nX, nY, nSpread);
 
 	m_mxThis.unlock();
 }

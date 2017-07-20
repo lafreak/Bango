@@ -425,9 +425,9 @@ public:
 							int val = 0, val2 = 0, val3 = 0;
 							d >> val >> val2 >> val3;
 							
-							pSpec->SetAttribute("val", val);
-							pSpec->SetAttribute("val2", val2);
-							pSpec->SetAttribute("val3", val3);
+							pSpec->SetAttribute("v1", val);
+							pSpec->SetAttribute("v2", val2);
+							pSpec->SetAttribute("v3", val3);
 
 							pSpecList->InsertEndChild(pSpec);
 						}

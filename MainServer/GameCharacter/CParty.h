@@ -83,10 +83,12 @@ public:
 	static CParty* FindParty(int nID);
 
 	/**
-	Loops through member vec and teleports all members
-
+		Teleports all party members to given position.
+		\param nX X map coordinate.
+		\param nY Y map coordinate.
 	*/
-	void Teleport(int nX, int nY);
+	void Teleport(int nX, int nY, int nSpread =0);
+
 	/**
 		Retrieves party ID assigned while creation.
 		Party IDs are assigned starting from 1 up to MAX INT value.
