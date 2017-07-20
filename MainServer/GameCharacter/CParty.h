@@ -84,8 +84,10 @@ public:
 
 	/**
 		Teleports all party members to given position.
+		Given spread value, it will randomize position in certain distance.
 		\param nX X map coordinate.
 		\param nY Y map coordinate.
+		\param nSpread Distance around X and Y.
 	*/
 	void Teleport(int nX, int nY, int nSpread =0);
 

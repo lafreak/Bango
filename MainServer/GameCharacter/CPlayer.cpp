@@ -339,7 +339,9 @@ Packet CPlayer::GeneratePetPacket()
 
 	packet.byType = S2C_ATTACH_PET;
 
-	char *end = CSocket::WritePacket(packet.data, "dwdb", m_nID, m_GearIndex[WS_PET], m_Gear[WS_PET], 
+	printf(KCYN "PET IID: %d\n" KNRM, m_Gear[WS_PET]);
+
+	char *end = CSocket::WritePacket(packet.data, "dwdb", m_nID, m_GearIndex[WS_PET], m_Gear[WS_PET],
 		(m_GearIndex[WS_PET] >= 2004 && m_GearIndex[WS_PET] <= 2007) ? 1 : 0);
 
 	packet.wSize = end - ((char*)&packet);

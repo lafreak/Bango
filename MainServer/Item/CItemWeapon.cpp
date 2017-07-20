@@ -61,7 +61,7 @@ void CItemWeapon::PutOn(CPlayer *pPlayer)
 
 void CItemWeapon::PutOff(CPlayer *pPlayer)
 {
-	if (!pPlayer->IsWState(WS_WEAPON)) {
+	if (!pPlayer->IsWState(m_byWearType)) {
 		printf(KRED "CItemWeapon::PutOff: Trying to put off item while having no item put on.\n" KNRM);
 		return;
 	}

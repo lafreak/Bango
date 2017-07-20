@@ -633,6 +633,12 @@ public:
 					iss >> n;
 					pEle->SetAttribute("exp", n);
 				}
+
+				else if (name == "aspeed") {
+					int n = 0;
+					iss >> n;
+					pEle->SetAttribute("attackspeed", n);
+				}
 		
 				else if (name == "defense") {
 					int close, far; close=far= 0; iss >> close>>far;
