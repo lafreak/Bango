@@ -18,13 +18,13 @@ class CMonster: public CCharacter, public ITimer
 
 	CPlayer* m_pTarget;
 
-	BYTE m_byAIState;
+	//BYTE m_byAIState;
 
-	DWORD m_dwWalkTime;
+	//DWORD m_dwWalkTime;
 
-	DWORD m_dwLastWalkStep;
-	DWORD m_dwLastChaseStep;
-	DWORD m_dwLastAttackTime;
+	//DWORD m_dwLastWalkStep;
+	//DWORD m_dwLastChaseStep;
+	//DWORD m_dwLastAttackTime;
 
 	static std::map<int, CMonster*> g_mMonster;
 	static std::mutex g_mxMonster;
@@ -76,8 +76,8 @@ public:
 	WORD GetFarSight() const { return m_pMacro->m_wFarSight; }
 	WORD GetSize() const override { return m_pMacro->m_wSize; }
 
-	BYTE GetAIS() const { return m_byAIState; }
-	void SetAIS(BYTE byState) { m_byAIState = byState; }
+	//BYTE GetAIS() const { return m_byAIState; }
+	//void SetAIS(BYTE byState) { m_byAIState = byState; }
 	// Sets new target, starts chasing him and Releases access of last target if was any.
 	void SetTarget(CPlayer *pPlayer);
 	CPlayer* GetTarget() const { return m_pTarget; }

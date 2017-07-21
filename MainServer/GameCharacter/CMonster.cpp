@@ -20,13 +20,13 @@ CMonster::CMonster(CMonsterInfo *pMacro, int nX, int nY)
 
 	m_pTarget = NULL;
 
-	m_byAIState = AIS_IDLE;
+	//m_byAIState = AIS_IDLE;
 
-	m_dwWalkTime = GetTickCount() + (rand() % (MONSTER_WALK_FREQUENCY * 1000));
+	//m_dwWalkTime = GetTickCount() + (rand() % (MONSTER_WALK_FREQUENCY * 1000));
 
-	m_dwLastWalkStep = 0;
-	m_dwLastChaseStep = 0;
-	m_dwLastAttackTime = 0;
+	//m_dwLastWalkStep = 0;
+	//m_dwLastChaseStep = 0;
+	//m_dwLastAttackTime = 0;
 
 	SetTimer(std::bind(&CMonster::ScanSight, this), MONSTER_WALK_FREQUENCY * 1000);
 
@@ -601,7 +601,7 @@ void CMonster::Walk()
 	if ((rand() % MONSTER_WALK_TIME) == 0)
 	{
 		Move(dx, dy, MT_WALK | MTEX_MOVEEND);
-		m_byAIState = AIS_IDLE;
+		//m_byAIState = AIS_IDLE;
 	}
 	else
 	{
