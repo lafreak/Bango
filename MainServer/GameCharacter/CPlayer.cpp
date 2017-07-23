@@ -1135,9 +1135,6 @@ bool CPlayer::CanAttack(CCharacter * pTarget) const
 	if (m_wAttackSpeed == 0)
 		return false;
 
-	if (m_dwLastAttackTime + m_wAttackSpeed > GetTickCount())
-		return false; // TODO: It is better to decrease damage instead ignoring it completely
-
 	int nDistance = GetDistance(pTarget);// -GetSize() - pTarget->GetSize();
 	if (nDistance > m_wAttackRange)
 	{
@@ -2250,16 +2247,26 @@ void CPlayer::Attack(CCharacter *pTarget)
 	if (!CanAttack(pTarget))
 		return;
 
-	m_dwLastAttackTime = GetTickCount();
+	DWORD dwNow = GetTickCount();
+	
+	double fReducePercentage = (double) (dwNow - m_dwLastAttackTime) / (double) m_wAttackSpeed;
+	if (fReducePercentage > 1.f)
+		fReducePercentage = 1.f;
+
+	if (fReducePercentage < 0.6f)
+		return;
+
+	m_dwLastAttackTime = dwNow;
 
 	SetDirection(pTarget);
 
-	// TODO: Distance check
 	// TODO: Player OnPVP Check
 
 	DWORD dwDamage = GetAttack();
 	DWORD dwExplosiveBlow = 0;
 	BYTE byType = 0;
+
+	dwDamage = dwDamage * fReducePercentage;
 
 	if (CheckHit(pTarget))
 		pTarget->Damage(this, dwDamage, byType);
