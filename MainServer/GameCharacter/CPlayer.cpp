@@ -2274,5 +2274,6 @@ void CPlayer::Attack(CCharacter *pTarget)
 		dwDamage = 0;
 
 	// TODO: Bugfix - last hit doesn't display damage on monster.
+	// TODO: Bugfix - avoid/evade/block battle messages do not appear.
 	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }

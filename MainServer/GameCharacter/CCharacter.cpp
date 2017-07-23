@@ -100,9 +100,34 @@ bool CCharacter::CanAttack(CCharacter * pTarget) const
 	return true;
 }
 
-bool CCharacter::CheckHit(CCharacter * pTarget) const
+bool CCharacter::CheckHit(CCharacter * pTarget, int nAdd) const
 {
-	return true; // Not implemented
+	int nLevelDiff = (int) GetLevel() - (int) pTarget->GetLevel();
+	
+	if (nLevelDiff > 100)
+		nLevelDiff = 100;
+	else if (nLevelDiff < -100)
+		nLevelDiff = -100;
+	
+	int nLevelOTP = g_nAddOTPLv[abs(nLevelDiff)];
+	nLevelOTP = nLevelDiff < 0 ? -nLevelOTP : nLevelOTP;
+
+	int nTotalHitPoint = GetHit() - pTarget->GetDodge() + nLevelOTP + nAdd;
+
+	if (nTotalHitPoint > 41)
+		nTotalHitPoint = 41;
+	else if (nTotalHitPoint < -41)
+		nTotalHitPoint = -41;
+
+	int nChance = 0;
+	if (nTotalHitPoint < 0)
+		nChance = 100 - g_nHitChance[abs(nTotalHitPoint)];
+	else
+		nChance = g_nHitChance[nTotalHitPoint];
+
+	printf(KGRN "I had %d chance.\n" KNRM, nChance);
+
+	return nChance >= (rand() % 100 + 1);
 }
 
 DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage)

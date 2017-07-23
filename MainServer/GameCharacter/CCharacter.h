@@ -111,7 +111,7 @@ public:
 	WORD GetAttack() const;
 	WORD GetMagic() const;
 	virtual bool CanAttack(CCharacter *pTarget) const;
-	virtual bool CheckHit(CCharacter *pTarget) const;
+	virtual bool CheckHit(CCharacter *pTarget, int nAdd=0) const;
 	DWORD GetFinalDamage(CCharacter *pAttacker, DWORD dwDamage);
 	DWORD GetFatalDamage(DWORD dwFinalDamage, BYTE& byType);
 
