@@ -554,14 +554,27 @@ void CMonster::Attack(CPlayer *pTarget)
 
 	SetDirection(pTarget);
 
+	if (pTarget->CheckBlock(this))
+	{
+		// TODO: Bugfix: Block message does not appear, avoid instead.
+		SetTimer(std::bind(&CMonster::OnAttack, this), GetAttackSpeed());
+		WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), 0, 0, 4);
+		return;
+	}
+
 	DWORD dwDamage = GetAttack();
 	DWORD dwExplosiveBlow = 0;
 	BYTE byType = 0;
 
 	if (CheckHit(pTarget))
+	{
 		pTarget->Damage(this, dwDamage, byType);
+	}
 	else
+	{
+		byType = ATF_BLOCK; //? To make Avoid/Evade appear
 		dwDamage = 0;
+	}
 
 	if (pTarget->IsNormal())
 		SetTimer(std::bind(&CMonster::OnAttack, this), GetAttackSpeed());

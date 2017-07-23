@@ -2260,6 +2260,13 @@ void CPlayer::Attack(CCharacter *pTarget)
 
 	SetDirection(pTarget);
 
+	if (pTarget->CheckBlock(this))
+	{
+		// TODO: Bugfix: Block message does not appear, avoid instead.
+		WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), 0, 0, 4);
+		return;
+	}
+
 	// TODO: Player OnPVP Check
 
 	DWORD dwDamage = GetAttack();
@@ -2269,11 +2276,20 @@ void CPlayer::Attack(CCharacter *pTarget)
 	dwDamage = dwDamage * fReducePercentage;
 
 	if (CheckHit(pTarget))
+	{
 		pTarget->Damage(this, dwDamage, byType);
+	}
 	else
+	{
+		byType = ATF_BLOCK; //? To make Avoid/Evade appear
 		dwDamage = 0;
+	}
 
 	// TODO: Bugfix - last hit doesn't display damage on monster.
-	// TODO: Bugfix - avoid/evade/block battle messages do not appear.
 	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
+}
+
+bool CPlayer::CheckBlock(CCharacter * pAttacker) const
+{
+	return false; // Not implemented
 }

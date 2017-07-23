@@ -112,6 +112,7 @@ public:
 	WORD GetMagic() const;
 	virtual bool CanAttack(CCharacter *pTarget) const;
 	virtual bool CheckHit(CCharacter *pTarget, int nAdd=0) const;
+	virtual bool CheckBlock(CCharacter *pAttacker) const { return false; }
 	DWORD GetFinalDamage(CCharacter *pAttacker, DWORD dwDamage);
 	DWORD GetFatalDamage(DWORD dwFinalDamage, BYTE& byType);
 

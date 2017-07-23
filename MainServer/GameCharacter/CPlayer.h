@@ -114,7 +114,7 @@ public:
 	WORD GetMinMagic() const override;
 	WORD GetMaxMagic() const override;
 	WORD GetResist(BYTE byResist) const override;
-	WORD GetSize() const override { return 0; } //! Should be more, deduce it while PVP testing
+	WORD GetSize() const override { return 0; } //??
 	__int64 GetExp() const { return m_n64Exp; }
 	BYTE GetGrade() const { return m_byGrade; }
 	std::string GetGuildName() const { return m_szGuildName; }
@@ -181,6 +181,8 @@ public:
 	void Die() override;
 	void Revival();
 	void Attack(CCharacter *pTarget);
+
+	bool CheckBlock(CCharacter *pAttacker) const override;
 
 	// Remember not to call m_Access.Release if method returns false.
 	bool RemoveItem(CItem *pItem, int nNum=0, BYTE byLogType=TL_DELETE);

@@ -125,8 +125,6 @@ bool CCharacter::CheckHit(CCharacter * pTarget, int nAdd) const
 	else
 		nChance = g_nHitChance[nTotalHitPoint];
 
-	printf(KGRN "I had %d chance.\n" KNRM, nChance);
-
 	return nChance >= (rand() % 100 + 1);
 }
 
