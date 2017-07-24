@@ -32,6 +32,10 @@ CItemDefense::CItemDefense(ITEMINFO_DESC& desc, CItemInfo* pMacro): CItem(desc, 
 			m_byWearType = WS_BOOTS;
 			break;
 
+		case ISC_COSTUME:
+			m_byWearType = WS_COSTUME;
+			break;
+
 		default:
 			printf(KRED "CItemDefense::CItemDefense: Unknown SubClass.\n" KNRM);
 			m_byWearType = WS_SHIELD;

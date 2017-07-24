@@ -307,7 +307,7 @@ Packet CPlayer::GenerateCreatePacket(bool bHero)
 		m_GearIndex[WS_LOWERARMOR],
 		m_GearIndex[WS_GAUNTLET],
 		m_GearIndex[WS_BOOTS],
-		0,//m_GearIndex[WS_PET], // no effect?
+		m_GearIndex[WS_COSTUME],//0,//m_GearIndex[WS_PET], // no effect?
 		m_byFace, 
 		m_byHair, 
 		m_n64MState, 

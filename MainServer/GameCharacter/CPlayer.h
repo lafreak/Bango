@@ -13,8 +13,8 @@
 #include "CMonster.h"
 #include "CParty.h"
 
-#define GEAR_NUM 26
-#define GEAR_VISIBLE_NUM 9
+#define GEAR_NUM 28
+#define GEAR_VISIBLE_NUM 10
 
 class CPlayer: public CCharacter
 {

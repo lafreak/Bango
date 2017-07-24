@@ -57,6 +57,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"trigramSlot8", ISC_TRIGRAM8 },
 	{"egg", 		ISC_EGG },
 	{"enchantnecklace", ISC_ENCHANTNECKLAKE },
+	{"cost",		ISC_COSTUME },
 
 	// Player Class
 	{"knight",		PC_KNIGHT },

@@ -51,9 +51,9 @@ void CAccount::SendPlayerInfo(Connection_T con)
 
 	while (ResultSet_next(r)) {
 		PreparedStatement_T i = Connection_prepareStatement(con,
-			"SELECT `index` FROM item WHERE idplayer=? AND (info & 1) LIMIT 8");
+			"SELECT `index` FROM item WHERE idplayer=? AND (info & 1)");
 		PreparedStatement_T icnt = Connection_prepareStatement(con,
-			"SELECT COUNT(*) FROM item WHERE idplayer=? AND (info & 1) LIMIT 8");
+			"SELECT COUNT(*) FROM item WHERE idplayer=? AND (info & 1)");
 
 		PreparedStatement_setInt(i, 1, ResultSet_getIntByName(r, "idplayer"));
 		PreparedStatement_setInt(icnt, 1, ResultSet_getIntByName(r, "idplayer"));
@@ -67,7 +67,8 @@ void CAccount::SendPlayerInfo(Connection_T con)
 
 		int nGID=0;
 		BYTE byClass = ResultSet_getIntByName(r, "class");
-		p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", ResultSet_getIntByName(r, "idplayer"),
+		p = CSocket::WritePacket(p, "dsbbbdwwwwwbbb", 
+			ResultSet_getIntByName(r, "idplayer"),
 			ResultSet_getStringByName(r, "name"),
 			byClass, ResultSet_getIntByName(r, "job"), ResultSet_getIntByName(r, "level"), nGID,
 			ResultSet_getIntByName(r, "strength"), ResultSet_getIntByName(r, "health"), ResultSet_getIntByName(r, "inteligence"),
