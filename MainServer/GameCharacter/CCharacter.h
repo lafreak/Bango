@@ -100,7 +100,7 @@ public:
 	virtual BYTE GetLevel() const { return 0; }
 	virtual WORD GetHit() const { return 0; }
 	virtual WORD GetDodge() const { return 0; }
-	virtual WORD GetDefense() const { return 0; }
+	virtual WORD GetDefense(BYTE byType) const { return 0; }
 	virtual BYTE GetAbsorb() const { return 0; }
 	virtual WORD GetMinAttack() const { return 0; }
 	virtual WORD GetMaxAttack() const { return 0; }
@@ -113,7 +113,7 @@ public:
 	virtual bool CanAttack(CCharacter *pTarget) const;
 	virtual bool CheckHit(CCharacter *pTarget, int nAdd=0) const;
 	virtual bool CheckBlock(CCharacter *pAttacker) const { return false; }
-	DWORD GetFinalDamage(CCharacter *pAttacker, DWORD dwDamage);
+	DWORD GetFinalDamage(CCharacter *pAttacker, DWORD dwDamage, BYTE byType=0);
 	DWORD GetFatalDamage(DWORD dwFinalDamage, BYTE& byType);
 
 	__int64 GetGState() const { return m_n64GState; }

@@ -26,7 +26,7 @@ struct CMonsterInfo: public CMacro
 	DWORD m_dwHP,
 		m_dwMP;
 
-	WORD m_wDefense,
+	WORD m_wDefense[2],
 		m_wHit,
 		m_wDodge,
 		m_wAbsorb;
@@ -57,7 +57,6 @@ struct CMonsterInfo: public CMacro
 		m_wWalkSpeed(0),
 		m_wRunSpeed(0),
 		m_wAttackSpeed(0),
-		m_wDefense(0),
 		m_wHit(0),
 		m_wDodge(0),
 		m_wAbsorb(0),
@@ -79,6 +78,8 @@ struct CMonsterInfo: public CMacro
 		m_wDex(0),
 		m_wSize(0)
 	{
+		m_wDefense[DT_CLOSE] = 0;
+		m_wDefense[DT_FAR] = 0;
 	}
 };
 

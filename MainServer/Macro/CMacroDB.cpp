@@ -249,13 +249,14 @@ bool CMacroDB::LoadInitMonster()
 		pMonster->m_wRunSpeed =		pMonsterInfo->IntAttribute("runspeed");
 		pMonster->m_wAttackSpeed =  pMonsterInfo->IntAttribute("attackspeed");
 
-		pMonster->m_wDefense =		pMonsterInfo->IntAttribute("defense");
+		pMonster->m_wDefense[DT_CLOSE] =pMonsterInfo->IntAttribute("closedefense");
+		pMonster->m_wDefense[DT_FAR] =  pMonsterInfo->IntAttribute("fardefense");
 		pMonster->m_wHit =			pMonsterInfo->IntAttribute("hit");
 		pMonster->m_wDodge =		pMonsterInfo->IntAttribute("dodge");
 		pMonster->m_wAbsorb =		pMonsterInfo->IntAttribute("absorb");
 		pMonster->m_wResistFire =	pMonsterInfo->IntAttribute("resistfire");
 		pMonster->m_wResistIce =	pMonsterInfo->IntAttribute("resistice");
-		pMonster->m_wResistLitning = pMonsterInfo->IntAttribute("resistlitning");
+		pMonster->m_wResistLitning =pMonsterInfo->IntAttribute("resistlitning");
 		pMonster->m_wResistCurse =	pMonsterInfo->IntAttribute("resistcurse");
 		pMonster->m_wResistPalsy =	pMonsterInfo->IntAttribute("resistpalsy");
 		pMonster->m_dwHP =			pMonsterInfo->IntAttribute("hp");

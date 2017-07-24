@@ -55,7 +55,7 @@ public:
 
 	WORD GetHit() const override; //unsure
 	WORD GetDodge() const override; //unsure
-	WORD GetDefense() const override { return m_pMacro->m_wDefense; }
+	WORD GetDefense(BYTE byType) const override { return m_pMacro->m_wDefense[byType]; }
 	BYTE GetAbsorb() const override { return m_pMacro->m_wAbsorb; }
 	DWORD GetMaxHP() const override; //unsure
 	WORD GetMaxMP() const override; //unsure

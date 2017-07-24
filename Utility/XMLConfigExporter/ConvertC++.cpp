@@ -642,8 +642,8 @@ public:
 		
 				else if (name == "defense") {
 					int close, far; close=far= 0; iss >> close>>far;
-					pEle->SetAttribute("defense", close);
-					// far?
+					pEle->SetAttribute("closedefense", close);
+					pEle->SetAttribute("fardefense", far);
 				}
 
 				else if (name == "hit") {

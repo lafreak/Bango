@@ -457,6 +457,11 @@ WORD CPlayer::GetDodge() const
 	return GetAgi() / 3 + m_wDodgeAdd;
 }
 
+WORD CPlayer::GetDefense(BYTE byType) const
+{
+	return m_wDefense[byType];
+}
+
 DWORD CPlayer::GetMaxHP() const
 {
 	return ((GetLevel() >= 96 ? 195 :
@@ -903,7 +908,8 @@ void CPlayer::OnLoadPlayer()
 	m_byGrade = 1;
 	m_szGuildName = "\0";
 	m_byGRole = 1;
-	m_wDefense = 0;
+	m_wDefense[DT_CLOSE] = 0;
+	m_wDefense[DT_FAR] = 0;
 	m_byAbsorb = 0;
 
 	m_szGuildClass = "\0";
@@ -1591,11 +1597,13 @@ void CPlayer::UpdateProperty(BYTE byProperty, __int64 n64Amount)
 
 		case P_DEFENSE:
 		{
-			if ((-n64Amount) > m_wDefense)
-				n64Amount = -m_wDefense;
+			//if ((-n64Amount) > m_wDefense[DT_CLOSE])
+			//	n64Amount = -m_wDefense;
 
-			m_wDefense += n64Amount;
-			Write(S2C_UPDATEPROPERTY, "bww", P_DEFENSE, GetDefense(), GetDefense());
+			m_wDefense[DT_CLOSE] += n64Amount;
+			m_wDefense[DT_FAR] += n64Amount;
+
+			Write(S2C_UPDATEPROPERTY, "bww", P_DEFENSE, GetDefense(DT_CLOSE), GetDefense(DT_CLOSE));
 			break;
 		}
 
@@ -2050,7 +2058,7 @@ void CPlayer::SendProperty()
 		GetMaxMP(),
 		GetHit(),
 		GetDodge(),
-		m_wDefense,
+		GetDefense(DT_CLOSE),//m_wDefense,
 		m_byAbsorb,
 		m_n64Exp,
 		GetMinAttack(),

@@ -36,7 +36,7 @@ class CPlayer: public CCharacter
 
 	BYTE m_byLevel;
 
-	WORD m_wDefense;
+	WORD m_wDefense[2];
 	BYTE m_byAbsorb;
 
 	BYTE m_byGrade;
@@ -105,7 +105,7 @@ public:
 	BYTE GetLevel() const override { return m_byLevel; }
 	WORD GetHit() const override;
 	WORD GetDodge() const override;
-	WORD GetDefense() const override { return m_wDefense; }
+	WORD GetDefense(BYTE byType) const override;// { return m_wDefense; }
 	BYTE GetAbsorb() const override { return m_byAbsorb; }
 	DWORD GetMaxHP() const override;
 	WORD GetMaxMP() const override;

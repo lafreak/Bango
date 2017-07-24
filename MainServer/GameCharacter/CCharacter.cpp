@@ -128,16 +128,35 @@ bool CCharacter::CheckHit(CCharacter * pTarget, int nAdd) const
 	return nChance >= (rand() % 100 + 1);
 }
 
-DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage)
+DWORD CCharacter::GetFinalDamage(CCharacter * pAttacker, DWORD dwDamage, BYTE byType)
 {
-	int byLevelDiff = (int) pAttacker->GetLevel() - (int) GetLevel();
+	__int64 n64Damage = dwDamage;
+	int byLevelDiff = (int)pAttacker->GetLevel() - (int)GetLevel();
 
-	int nDamage = (int) dwDamage + byLevelDiff * abs(byLevelDiff) / 4;
+	if (byType)
+	{
+		// Level based for mages
+		n64Damage = n64Damage + byLevelDiff * abs(byLevelDiff) / 4;
+	}
+	else
+	{
+		// Defense based for PA
+		if (true || true && abs(byLevelDiff) < 100) // Could not reverse what are these 2 contidtions
+		{
+			if (byLevelDiff < 0)
+				n64Damage -= g_nAddDefLv[abs(byLevelDiff)];
+			else
+				n64Damage += g_nAddDefLv[abs(byLevelDiff)];
+		}
 
-	if (nDamage < 0)
-		nDamage = 0;
+		n64Damage -= GetDefense(DT_CLOSE); // Far?
+		n64Damage -= n64Damage * GetAbsorb() / 100;
+	}
 
-	return (DWORD) nDamage;
+	if (n64Damage < 0)
+		n64Damage = 0;
+
+	return (DWORD)n64Damage;
 }
 
 DWORD CCharacter::GetFatalDamage(DWORD dwFinalDamage, BYTE& byType)
