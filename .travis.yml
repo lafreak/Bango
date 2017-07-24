@@ -1,0 +1,11 @@
+language: cpp
+sudo: required
+dist: trusty
+compiler:
+- g++
+os:
+- linux
+before_install:
+- apt-get install mysql-server
+- apt-get install libzdb-dev
+script: ./BUILD
