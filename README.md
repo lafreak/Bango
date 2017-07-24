@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lafreak/Bango.svg?branch=master)](https://travis-ci.org/lafreak/Bango)
+
 # Bango
 KalOnline MMORPG Server Emulator written in C++ for Linux 64bit OS.  
 
