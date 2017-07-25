@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/lafreak/Bango.svg?branch=master)](https://travis-ci.org/lafreak/Bango)
-
-# Bango
+# Bango [![Build Status](https://travis-ci.org/lafreak/Bango.svg?branch=master)](https://travis-ci.org/lafreak/Bango)
 KalOnline MMORPG Server Emulator written in C++ for Linux 64bit OS.  
 
 ## Quick installation
@@ -8,8 +6,8 @@ Install MySQL Server: `sudo apt-get install mysql-server`
 Install Libzdb: `sudo apt-get install libzdb-dev`  
 Run `\. build.sql` in your database.
 
-## Tutorial
-http://forum.ragezone.com/f389/bango-server-emulator-linux-1134723/
+## Getting started
+https://github.com/lafreak/Bango/wiki/Getting-started
 
 ## Documentation
 - [CNPC](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-cnpc)
@@ -29,6 +27,7 @@ http://forum.ragezone.com/f389/bango-server-emulator-linux-1134723/
 - [x] Animation
 - [x] Load/save skillbar shortcuts
 - [x] Base attack
+- [x] Damage, evade calculation
 - [x] Final stats calculation
 - [ ] Trade
 - [ ] Stall
@@ -64,7 +63,7 @@ http://forum.ragezone.com/f389/bango-server-emulator-linux-1134723/
 - [ ] New AI
 - [ ] Other AIs
 - [x] Appear disappear in sight
-- [ ] Die
+- [x] Die
 - [ ] Aggro with hostility
 - [ ] Item drop
 - [ ] EXP distrubution
