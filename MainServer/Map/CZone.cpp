@@ -35,33 +35,11 @@ bool CZone::Load()
 		return false;
 	}
 
-	char* bytes = new char[256 * 256 * 4];
+	m_data = new char[256 * 256 * 4];
 
 	ksm.ignore(4);
-	ksm.read(bytes, 256 * 256 * 4);
+	ksm.read(m_data, 256 * 256 * 4);
 	ksm.close();
-
-	m_data = new char**[256];
-	for (int i = 0; i < 256; i++)
-		m_data[i] = new char*[256];
-
-	for (int i = 0; i < 256; i++)
-		for (int j = 0; j < 256; j++)
-			m_data[i][j] = new char[4];
-
-	for (int i = 0; i < 256; i++)
-	{
-		for (int j = 0; j < 256; j++)
-		{
-			int k = i + j * 256;
-			k *= 4;
-
-			for (int l = 0; l < 4; l++)
-				m_data[i][j][l] = bytes[k+l];
-		}
-	}
-
-	delete[] bytes;
 
 	return true;
 }
@@ -82,7 +60,7 @@ bool CZone::Check(int nX, int nY, BYTE byType)
 	int nZoneX = nOffsetX / 32;
 	int nZoneY = nOffsetY / 32;
 
-	char* data = m_data[nZoneX][nZoneY];
+	char* data = m_data + ((nZoneX + nZoneY * 256) * 4);
 
 	switch (byType)
 	{
@@ -104,15 +82,5 @@ bool CZone::Check(int nX, int nY, BYTE byType)
 void CZone::Destroy()
 {
 	if (m_data)
-	{
-		for (int i = 0; i < KSM_SIZE; i++)
-		{
-			for (int j = 0; j < KSM_SIZE; j++)
-				delete[] m_data[i][j];
-
-			delete[] m_data[i];
-		}
-
 		delete[] m_data;
-	}
 }

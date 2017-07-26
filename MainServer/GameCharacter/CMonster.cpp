@@ -667,7 +667,7 @@ void CMonster::OnWalk()
 
 	if (CMap::CheckZone(GetX() + dx, GetY() + dy, ZT_SAFEZONE))
 	{
-		SetTimer(std::bind(&CMonster::ScanSight, this), MONSTER_WALK_FREQUENCY * 1000);
+		SetTimer(std::bind(&CMonster::OnWalk, this), GetWalkSpeed());
 		return;
 	}
 

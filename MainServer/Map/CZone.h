@@ -9,7 +9,7 @@
 
 class CZone
 {
-	char*** m_data;
+	char* m_data;
 	int m_nZoneX, m_nZoneY;
 
 	void Destroy();
