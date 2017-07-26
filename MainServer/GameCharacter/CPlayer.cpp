@@ -47,6 +47,10 @@ CPlayer::CPlayer(int nCID, D2S_LOADPLAYER_DESC& desc): CCharacter()
 	m_nPartyID = 0;
 	m_nPartyInviterID = 0;
 
+	m_dwLastAttackTime = 0;
+	m_wAttackSpeed = 0;
+	m_wAttackRange = 0;
+
 	memset(m_Gear, 0, sizeof(int) * GEAR_NUM);
 	memset(m_GearIndex, 0, sizeof(WORD) * GEAR_VISIBLE_NUM);
 

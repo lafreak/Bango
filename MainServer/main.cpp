@@ -22,9 +22,6 @@ int main()
 	if (!CDBSocket::Connect(mainconf.wDBPort))
 		return 1;
 
-	if (!CClientSocket::Start(mainconf.wMainPort))
-		return 1;
-
 	if (!CMacroDB::Initialize())
 		return 1;
 
@@ -33,6 +30,9 @@ int main()
 
 	printf("Loading NPC...\n");
 	if (!CNPC::LoadNPC())
+		return 1;
+
+	if (!CClientSocket::Start(mainconf.wMainPort))
 		return 1;
 
 	if (!CServer::Start())
