@@ -8,37 +8,37 @@ CZone::CZone(int nZoneX, int nZoneY)
 	m_nZoneX = nZoneX;
 	m_nZoneY = nZoneY;
 
+	m_nAnchorX = nZoneX * 8192;
+	m_nAnchorY = nZoneY * 8192;
+
 	Load();
 }
 
 bool CZone::Load()
 {
-	Destroy();
-
-	char buf[32];
+	char buf[20];
 	sprintf(buf, "Maps/n_%03d_%03d.ksm", m_nZoneX, m_nZoneY);
 
 	std::ifstream ksm(buf, std::ios::binary);
-	if (!ksm) {
-		//printf(KRED "CZone::Load Cannot open KSM [%d,%d]\n" KNRM, m_nZoneX, m_nZoneY);
-		return false;
-	}
 
-	std::streampos fsize = 0;
+	if (!ksm) 
+		return false;
+
 	ksm.seekg(0, std::ios::end);
-	fsize = ksm.tellg() - fsize;
+	int size = (int) ksm.tellg();
 	ksm.seekg(0, std::ios::beg);
 	
-	if (fsize != 0x40004) {
+	if (size != KSM_TOTAL_SIZE) {
 		ksm.close();
-		printf(KRED "CZone::Load KSM size is wrong [0x%08X]\n" KNRM, (int) fsize);
+		printf(KRED "CZone::Load KSM size is wrong [0x%08X]\n" KNRM, size);
 		return false;
 	}
-
-	m_data = new char[256 * 256 * 4];
+	
+	Destroy();
+	m_data = new char[KSM_TOTAL_CELLS_SIZE];
 
 	ksm.ignore(4);
-	ksm.read(m_data, 256 * 256 * 4);
+	ksm.read(m_data, KSM_TOTAL_CELLS_SIZE);
 	ksm.close();
 
 	return true;
@@ -48,32 +48,32 @@ bool CZone::Check(int nX, int nY, BYTE byType)
 {
 	if (!m_data) return false;
 
-	int nOffsetX = nX - (m_nZoneX * 8192);
-	int nOffsetY = nY - (m_nZoneY * 8192);
+	int nOffsetX = (nX - m_nAnchorX) / 32;
+	int nOffsetY = (nY - m_nAnchorY) / 32;
 
-	if (nOffsetX < 0 || nOffsetX >= 8192 || nOffsetY < 0 || nOffsetY >= 8192)
+	if (nOffsetX < 0 || nOffsetX >= KSM_WIDTH || nOffsetY < 0 || nOffsetY >= KSM_WIDTH)
 	{
 		printf(KRED "CZone::Check Call to wrong Zone (%d %d)\n" KNRM, nOffsetX, nOffsetY);
 		return false;
 	}
 
-	int nZoneX = nOffsetX / 32;
-	int nZoneY = nOffsetY / 32;
+	char* data = m_data + ((nOffsetX + nOffsetY * KSM_WIDTH) * KSM_CELL_SIZE);
 
-	char* data = m_data + ((nZoneX + nZoneY * 256) * 4);
+	WORD wMainType =	((WORD*)data)[0];
+	WORD wSubType =		((WORD*)data)[1];
 
 	switch (byType)
 	{
 		case ZT_MONSTER:
-			return data[0] == 0 && data[1] == 0 && !(data[2] & ZONE_TWOWAY_PORTAL);
+			return !wMainType && !(wSubType & ZONE_TWOWAY_PORTAL); //data[0] == 0 && data[1] == 0 && !(data[2] & ZONE_TWOWAY_PORTAL);
 		case ZT_SAFEZONE:
-			return data[0] != 0 || data[1] != 0 || (data[2] & ZONE_TWOWAY_PORTAL);
+			return wMainType || (wSubType & ZONE_TWOWAY_PORTAL);
 		case ZT_CASTLE:
-			return data[2] == ZONE_CASTLE;
+			return wSubType == ZONE_CASTLE;
 		case ZT_TOWN:
-			return data[2] == ZONE_TOWN;
+			return wSubType == ZONE_TOWN;
 		case ZT_PKFREE:
-			return data[2] == ZONE_PK_FREE;
+			return wSubType == ZONE_PK_FREE;
 	}
 
 	return false;

@@ -6,8 +6,15 @@
 `define `[`MONSTER_WALK_TIME`](#CMonster_8h_1a689452730e78553fb130430444bfc605)            | 
 `define `[`GEAR_NUM`](#CPlayer_8h_1ac2937dbb016e4437d5968d8d0aa230ad)            | 
 `define `[`GEAR_VISIBLE_NUM`](#CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43)            | 
+`define `[`ITEMTELEPORT_SPREAD`](#CItemTeleport_8cpp_1a6dc574b58efc9343be55a5512c3709bc)            | 
 `define `[`TILE_LEN`](#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16)            | 
-`define `[`MAP_LEN`](#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841)            | 
+`define `[`ZONE_LEN`](#CMap_8h_1ae22f41e367b754418baa5a4a3f264ca9)            | 
+`define `[`KSM_WIDTH`](#CZone_8h_1aec138258fe2f35694f1e8543253b5a56)            | 
+`define `[`KSM_CELL_SIZE`](#CZone_8h_1a4030a22cb3af9e4fcd9b5d0b799c34dc)            | 
+`define `[`KSM_HEADER_SIZE`](#CZone_8h_1aefad18939d0adc4bc626995c09f7f222)            | 
+`define `[`KSM_TOTAL_CELLS_SIZE`](#CZone_8h_1ab25e6d52b9d4b44ab7645f384013894a)            | 
+`define `[`KSM_TOTAL_SIZE`](#CZone_8h_1aac04854d5b8f1507064f1c85b9c37df0)            | 
+`enum `[`TELEPORT`](#CItemTeleport_8h_1a041cbfc9d31c82a29012d10a8ebf3259)            | 
 `public int `[`main`](#DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()`            | 
 `public int `[`main`](#MainServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()`            | 
 `class `[`CAccount`](#classCAccount) | 
@@ -22,7 +29,9 @@
 `class `[`CItemGeneral`](#classCItemGeneral) | 
 `class `[`CItemOrnament`](#classCItemOrnament) | 
 `class `[`CItemPet`](#classCItemPet) | 
+`class `[`CItemRefresh`](#classCItemRefresh) | 
 `class `[`CItemRide`](#classCItemRide) | 
+`class `[`CItemTeleport`](#classCItemTeleport) | 
 `class `[`CItemTransform`](#classCItemTransform) | 
 `class `[`CItemWeapon`](#classCItemWeapon) | 
 `class `[`CItemYinyang`](#classCItemYinyang) | 
@@ -36,8 +45,8 @@
 `class `[`CParty`](#classCParty) | Class representation of ingame Party. Group of Players playing together.
 `class `[`CPlayer`](#classCPlayer) | 
 `class `[`CServer`](#classCServer) | 
-`class `[`CTile`](#classCTile) | 
-`class `[`IAppearable`](#classIAppearable) | 
+`class `[`CTile`](#classCTile) | Represents square tile of 1024x1024 cells. Keeps track of all dynamic objects on that area.
+`class `[`CZone`](#classCZone) | Represents square zone of 8192x8192 cells. Encapsulates one .KSM (Kal Server Map) file per instance.
 `struct `[`CItemInfo`](#structCItemInfo) | 
 `struct `[`CMacro`](#structCMacro) | 
 `struct `[`CMonsterInfo`](#structCMonsterInfo) | 
@@ -53,9 +62,34 @@
 
 #### `define `[`GEAR_VISIBLE_NUM`](#CPlayer_8h_1afe2cd4d1aad191fa9c2f5f1ae8b49a43) 
 
+#### `define `[`ITEMTELEPORT_SPREAD`](#CItemTeleport_8cpp_1a6dc574b58efc9343be55a5512c3709bc) 
+
 #### `define `[`TILE_LEN`](#CMap_8h_1abcef8203a5d63d217f2eee1303fb4b16) 
 
-#### `define `[`MAP_LEN`](#CMap_8h_1a680a225f3d8c6064c7d49883d0e25841) 
+#### `define `[`ZONE_LEN`](#CMap_8h_1ae22f41e367b754418baa5a4a3f264ca9) 
+
+#### `define `[`KSM_WIDTH`](#CZone_8h_1aec138258fe2f35694f1e8543253b5a56) 
+
+#### `define `[`KSM_CELL_SIZE`](#CZone_8h_1a4030a22cb3af9e4fcd9b5d0b799c34dc) 
+
+#### `define `[`KSM_HEADER_SIZE`](#CZone_8h_1aefad18939d0adc4bc626995c09f7f222) 
+
+#### `define `[`KSM_TOTAL_CELLS_SIZE`](#CZone_8h_1ab25e6d52b9d4b44ab7645f384013894a) 
+
+#### `define `[`KSM_TOTAL_SIZE`](#CZone_8h_1aac04854d5b8f1507064f1c85b9c37df0) 
+
+#### `enum `[`TELEPORT`](#CItemTeleport_8h_1a041cbfc9d31c82a29012d10a8ebf3259) 
+
+ Values                         | Descriptions                                
+--------------------------------|---------------------------------------------
+NARO            | 
+CARGO            | 
+GEUM            | 
+PUB            | 
+TEMP            | 
+PRIEST            | 
+CHEONJI            | 
+HONDEL            | 
 
 #### `public int `[`main`](#DBServer_2main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4)`()` 
 
@@ -135,17 +169,20 @@
 `public inline virtual BYTE `[`GetLevel`](#classCCharacter_1a377cc0f6a658e0416c742ccdcad4372f)`() const` | 
 `public inline virtual WORD `[`GetHit`](#classCCharacter_1a56435a6058690cffe37840e76eeeca87)`() const` | 
 `public inline virtual WORD `[`GetDodge`](#classCCharacter_1afff27b3e1caa3764f7a23f0d927e5af7)`() const` | 
-`public inline virtual WORD `[`GetDefense`](#classCCharacter_1a6cccec4a70a9534265aff8c70ee10d5f)`() const` | 
+`public inline virtual WORD `[`GetDefense`](#classCCharacter_1a9ec02921a5e7286d0a09ca33cbff156b)`(BYTE byType) const` | 
 `public inline virtual BYTE `[`GetAbsorb`](#classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e)`() const` | 
 `public inline virtual WORD `[`GetMinAttack`](#classCCharacter_1a7e9ccca9b9c5515fb358829cd1ca3db6)`() const` | 
 `public inline virtual WORD `[`GetMaxAttack`](#classCCharacter_1a72aca8cd8b2f435ea57c842fa6c06991)`() const` | 
 `public inline virtual WORD `[`GetMinMagic`](#classCCharacter_1ae5f14202b5ee6c43930462b7c9632d30)`() const` | 
 `public inline virtual WORD `[`GetMaxMagic`](#classCCharacter_1a1fc2bd31eea1bc2907077a5dd8e9fdf8)`() const` | 
 `public inline virtual WORD `[`GetResist`](#classCCharacter_1ad1b2b1bc32824f8b446e04e59079caab)`(BYTE byResist) const` | 
+`public inline virtual WORD `[`GetSize`](#classCCharacter_1a109680868eaafda26341c7b07f4abf23)`() const` | 
 `public WORD `[`GetAttack`](#classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a)`() const` | 
 `public WORD `[`GetMagic`](#classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a)`() const` | 
-`public bool `[`CheckHit`](#classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e)`(CCharacter * pTarget) const` | 
-`public DWORD `[`GetFinalDamage`](#classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31)`(CCharacter * pAttacker,DWORD dwDamage)` | 
+`public virtual bool `[`CanAttack`](#classCCharacter_1aa1c9b59cfacc095884265e95eee69194)`(CCharacter * pTarget) const` | 
+`public virtual bool `[`CheckHit`](#classCCharacter_1aaf781230de62a807fcdcb79022777006)`(CCharacter * pTarget,int nAdd) const` | 
+`public inline virtual bool `[`CheckBlock`](#classCCharacter_1a398efeea83df4f2349a38737c11f8158)`(CCharacter * pAttacker) const` | 
+`public DWORD `[`GetFinalDamage`](#classCCharacter_1a957de429305b2f9de1e524491c729e54)`(CCharacter * pAttacker,DWORD dwDamage,BYTE byType)` | 
 `public DWORD `[`GetFatalDamage`](#classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1)`(DWORD dwFinalDamage,BYTE & byType)` | 
 `public inline __int64 `[`GetGState`](#classCCharacter_1abb9fb45114752bd3e127c79e32d3b5f4)`() const` | 
 `public inline __int64 `[`GetMState`](#classCCharacter_1aa0a340e1becaead14f794ff013f39cae)`() const` | 
@@ -173,11 +210,11 @@
 `public void `[`SendPacketInSight`](#classCCharacter_1a9f56b301fe16b09c71c27d5cd0f569cc)`(Packet & packet)` | 
 `public void `[`SetDirection`](#classCCharacter_1aae7b164533ebd3eb340a73e8bd52a482)`(int nX,int nY)` | 
 `public inline void `[`SetDirection`](#classCCharacter_1ad10316950dde5427e21eeed010f8922c)`(CCharacter * pCharacter)` | 
-`public inline bool `[`IsNormal`](#classCCharacter_1aafda97f59c31a5213d2c3891137f03ca)`()` | 
+`public inline bool `[`IsNormal`](#classCCharacter_1afcb034bf778707a7eff06c464277039f)`() const` | 
 `public inline virtual void `[`Damage`](#classCCharacter_1ac83eb913462cc822b7a8603a1e78fd97)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` | 
 `public inline virtual void `[`Die`](#classCCharacter_1af5ed7b39fc9af23953936bbf7d4190b4)`()` | 
 `public BYTE `[`GetMoveAction`](#classCCharacter_1a60939bf801ffa3abc0799338445b953e)`(CCharacter * pCharacter,char byX,char byY)` | 
-`public int `[`GetDistance`](#classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb)`(CCharacter * pCharacter)` | 
+`public int `[`GetDistance`](#classCCharacter_1a05f71e08c02d84c7358fe927ca56f49d)`(CCharacter * pCharacter) const` | 
 `protected int `[`m_nID`](#classCCharacter_1a5100b377fbde4fe13ee4bed308139519) | 
 `protected WORD `[`m_wStrAdd`](#classCCharacter_1a1bb083b5de32db494e01c80e20e682d1) | 
 `protected WORD `[`m_wHthAdd`](#classCCharacter_1a6dfef75d0df714aac08bd03625228ab7) | 
@@ -258,7 +295,7 @@
 
 #### `public inline virtual WORD `[`GetDodge`](#classCCharacter_1afff27b3e1caa3764f7a23f0d927e5af7)`() const` 
 
-#### `public inline virtual WORD `[`GetDefense`](#classCCharacter_1a6cccec4a70a9534265aff8c70ee10d5f)`() const` 
+#### `public inline virtual WORD `[`GetDefense`](#classCCharacter_1a9ec02921a5e7286d0a09ca33cbff156b)`(BYTE byType) const` 
 
 #### `public inline virtual BYTE `[`GetAbsorb`](#classCCharacter_1a7e86accfee142376c3799f59aaaa0b7e)`() const` 
 
@@ -272,13 +309,19 @@
 
 #### `public inline virtual WORD `[`GetResist`](#classCCharacter_1ad1b2b1bc32824f8b446e04e59079caab)`(BYTE byResist) const` 
 
+#### `public inline virtual WORD `[`GetSize`](#classCCharacter_1a109680868eaafda26341c7b07f4abf23)`() const` 
+
 #### `public WORD `[`GetAttack`](#classCCharacter_1a013683c064c423fd17bb13e5b5ba7e1a)`() const` 
 
 #### `public WORD `[`GetMagic`](#classCCharacter_1a9445d97edb6bf4787086ba0a6ebcdb8a)`() const` 
 
-#### `public bool `[`CheckHit`](#classCCharacter_1a8a1656e01b2954e83053997e72b1eb6e)`(CCharacter * pTarget) const` 
+#### `public virtual bool `[`CanAttack`](#classCCharacter_1aa1c9b59cfacc095884265e95eee69194)`(CCharacter * pTarget) const` 
 
-#### `public DWORD `[`GetFinalDamage`](#classCCharacter_1a67f5afb0f1522a993a2fd3d264675b31)`(CCharacter * pAttacker,DWORD dwDamage)` 
+#### `public virtual bool `[`CheckHit`](#classCCharacter_1aaf781230de62a807fcdcb79022777006)`(CCharacter * pTarget,int nAdd) const` 
+
+#### `public inline virtual bool `[`CheckBlock`](#classCCharacter_1a398efeea83df4f2349a38737c11f8158)`(CCharacter * pAttacker) const` 
+
+#### `public DWORD `[`GetFinalDamage`](#classCCharacter_1a957de429305b2f9de1e524491c729e54)`(CCharacter * pAttacker,DWORD dwDamage,BYTE byType)` 
 
 #### `public DWORD `[`GetFatalDamage`](#classCCharacter_1ae9c0dcc3311ba9e68217404cfb0f85b1)`(DWORD dwFinalDamage,BYTE & byType)` 
 
@@ -334,7 +377,7 @@
 
 #### `public inline void `[`SetDirection`](#classCCharacter_1ad10316950dde5427e21eeed010f8922c)`(CCharacter * pCharacter)` 
 
-#### `public inline bool `[`IsNormal`](#classCCharacter_1aafda97f59c31a5213d2c3891137f03ca)`()` 
+#### `public inline bool `[`IsNormal`](#classCCharacter_1afcb034bf778707a7eff06c464277039f)`() const` 
 
 #### `public inline virtual void `[`Damage`](#classCCharacter_1ac83eb913462cc822b7a8603a1e78fd97)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` 
 
@@ -342,7 +385,7 @@
 
 #### `public BYTE `[`GetMoveAction`](#classCCharacter_1a60939bf801ffa3abc0799338445b953e)`(CCharacter * pCharacter,char byX,char byY)` 
 
-#### `public int `[`GetDistance`](#classCCharacter_1af6bbcd6066f784060eb9d6f800e0a2eb)`(CCharacter * pCharacter)` 
+#### `public int `[`GetDistance`](#classCCharacter_1a05f71e08c02d84c7358fe927ca56f49d)`(CCharacter * pCharacter) const` 
 
 #### `protected int `[`m_nID`](#classCCharacter_1a5100b377fbde4fe13ee4bed308139519) 
 
@@ -633,13 +676,13 @@ class CItemGeneral
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
 `public inline  `[`CItemGeneral`](#classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` | 
-`public bool `[`Use`](#classCItemGeneral_1a03f509f4da265b293553930570d0eef1)`(CPlayer * pPlayer)` | 
+`public bool `[`Use`](#classCItemGeneral_1a41ac30786b18006a1c143b30c0bb8eb4)`(CPlayer * pPlayer)` | 
 
 ## Members
 
 #### `public inline  `[`CItemGeneral`](#classCItemGeneral_1aca253e109d4a77cc669174ca78cc90fa)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
 
-#### `public bool `[`Use`](#classCItemGeneral_1a03f509f4da265b293553930570d0eef1)`(CPlayer * pPlayer)` 
+#### `public bool `[`Use`](#classCItemGeneral_1a41ac30786b18006a1c143b30c0bb8eb4)`(CPlayer * pPlayer)` 
 
 # class `CItemOrnament` 
 
@@ -690,6 +733,26 @@ class CItemPet
 
 #### `public void `[`PutOff`](#classCItemPet_1a8d029571677633f9bc5f241211604cc2)`(CPlayer * pPlayer)` 
 
+# class `CItemRefresh` 
+
+```
+class CItemRefresh
+  : public CItemGeneral
+```  
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  `[`CItemRefresh`](#classCItemRefresh_1aface0d243a742c48a140a2f6d2388fa8)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` | 
+`public bool `[`Use`](#classCItemRefresh_1abc9fb77a79144d9f01240e4a6ec7ad25)`(CPlayer * pPlayer)` | 
+
+## Members
+
+#### `public inline  `[`CItemRefresh`](#classCItemRefresh_1aface0d243a742c48a140a2f6d2388fa8)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
+
+#### `public bool `[`Use`](#classCItemRefresh_1abc9fb77a79144d9f01240e4a6ec7ad25)`(CPlayer * pPlayer)` 
+
 # class `CItemRide` 
 
 ```
@@ -718,6 +781,26 @@ class CItemRide
 #### `public void `[`PutOff`](#classCItemRide_1a13d46d91096135d1ccf2e4341267a3fc)`(CPlayer * pPlayer)` 
 
 #### `public bool `[`Use`](#classCItemRide_1a391f7f19c2f3f35bf5a27d64fcfecc5e)`(CPlayer * pPlayer)` 
+
+# class `CItemTeleport` 
+
+```
+class CItemTeleport
+  : public CItemGeneral
+```  
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public inline  `[`CItemTeleport`](#classCItemTeleport_1a13aafc70a585587a017807feb7aed820)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` | 
+`public bool `[`Use`](#classCItemTeleport_1ab79e41c5eded7010075ff8e42a0148f1)`(CPlayer * pPlayer)` | 
+
+## Members
+
+#### `public inline  `[`CItemTeleport`](#classCItemTeleport_1a13aafc70a585587a017807feb7aed820)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
+
+#### `public bool `[`Use`](#classCItemTeleport_1ab79e41c5eded7010075ff8e42a0148f1)`(CPlayer * pPlayer)` 
 
 # class `CItemTransform` 
 
@@ -754,12 +837,18 @@ class CItemWeapon
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
 `public  `[`CItemWeapon`](#classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` | 
+`public inline WORD `[`GetAttackSpeed`](#classCItemWeapon_1a7b61754d6f4e1ffc3550b0ee1ac064f3)`() const` | 
+`public inline WORD `[`GetRange`](#classCItemWeapon_1a43fa26612c536558143deed270c5698b)`() const` | 
 `public void `[`PutOn`](#classCItemWeapon_1a94194adc4794ea181c21d9f56215af73)`(CPlayer * pPlayer)` | 
 `public void `[`PutOff`](#classCItemWeapon_1a2270510bc5c35fb8471bdff4c158a9f8)`(CPlayer * pPlayer)` | 
 
 ## Members
 
 #### `public  `[`CItemWeapon`](#classCItemWeapon_1a6d0e99ed4e946a04c36f786dd9477c22)`(ITEMINFO_DESC & desc,CItemInfo * pMacro)` 
+
+#### `public inline WORD `[`GetAttackSpeed`](#classCItemWeapon_1a7b61754d6f4e1ffc3550b0ee1ac064f3)`() const` 
+
+#### `public inline WORD `[`GetRange`](#classCItemWeapon_1a43fa26612c536558143deed270c5698b)`() const` 
 
 #### `public void `[`PutOn`](#classCItemWeapon_1a94194adc4794ea181c21d9f56215af73)`(CPlayer * pPlayer)` 
 
@@ -839,7 +928,7 @@ class CMonster
 `public inline WORD `[`GetAgi`](#classCMonster_1a54207d4061d825c5702b1d2edf00acc1)`() const` | 
 `public WORD `[`GetHit`](#classCMonster_1ae2baaa85bbc125cdcd97b87d6e2a4018)`() const` | 
 `public WORD `[`GetDodge`](#classCMonster_1a8a259592a5dfb88fc087f0561b252f7d)`() const` | 
-`public inline WORD `[`GetDefense`](#classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915)`() const` | 
+`public inline WORD `[`GetDefense`](#classCMonster_1a791be6bc0cb0b56486cae92b4398db89)`(BYTE byType) const` | 
 `public inline BYTE `[`GetAbsorb`](#classCMonster_1a4c89df0e2e869953f069c025ff72affe)`() const` | 
 `public DWORD `[`GetMaxHP`](#classCMonster_1a524e9af6974fae1133f6696bbc6b4b07)`() const` | 
 `public WORD `[`GetMaxMP`](#classCMonster_1ae4af787fa0bca32d846f1710e1b788bf)`() const` | 
@@ -857,17 +946,14 @@ class CMonster
 `public inline WORD `[`GetAttackSpeed`](#classCMonster_1a57f3ffe3d5cc777f141722234cc63053)`() const` | 
 `public inline WORD `[`GetCloseSight`](#classCMonster_1aefd1e77d3ae282cf9c16c6513e31eccd)`() const` | 
 `public inline WORD `[`GetFarSight`](#classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513)`() const` | 
-`public inline WORD `[`GetSize`](#classCMonster_1a0a3adc8c44ad84ddc2cd4dda8a55969b)`() const` | 
-`public inline BYTE `[`GetAIS`](#classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156)`() const` | 
-`public inline void `[`SetAIS`](#classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae)`(BYTE byState)` | 
+`public inline WORD `[`GetSize`](#classCMonster_1a43151e7805dab9ec7979a4d72b17d358)`() const` | 
 `public void `[`SetTarget`](#classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09)`(CPlayer * pPlayer)` | 
 `public inline CPlayer * `[`GetTarget`](#classCMonster_1a9882ba63a0c0d7e73ec92db540deac93)`() const` | 
 `public virtual void `[`Tick`](#classCMonster_1a729a91a7d77275414420ca0b33c61698)`()` | 
 `public inline virtual void `[`AI`](#classCMonster_1ade33da94e0ab0cf8cd2745a7eb8c0058)`(DWORD dwNow)` | 
 `public void `[`Move`](#classCMonster_1a50baf7e342893c3fc492d3cc1edae898)`(char byX,char byY,BYTE byType)` | 
 `public void `[`Attack`](#classCMonster_1a3da2c9537b0a47d96779d05f61685268)`(CPlayer * pTarget)` | 
-`public void `[`Chase`](#classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa)`()` | 
-`public void `[`Walk`](#classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca)`()` | 
+`public bool `[`Chase`](#classCMonster_1ae490f08e7bfe5554be953ca8b29b7100)`()` | 
 `public void `[`Damage`](#classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` | 
 `public void `[`ScanSight`](#classCMonster_1a4564ee9d1505a874aefc283e1e620b07)`()` | 
 `public void `[`OnWalk`](#classCMonster_1a32fa534488bc60df3006fd2f50b2be18)`()` | 
@@ -903,7 +989,7 @@ class CMonster
 
 #### `public WORD `[`GetDodge`](#classCMonster_1a8a259592a5dfb88fc087f0561b252f7d)`() const` 
 
-#### `public inline WORD `[`GetDefense`](#classCMonster_1aa1ad1bed3fc2c42eab1b13352f2a4915)`() const` 
+#### `public inline WORD `[`GetDefense`](#classCMonster_1a791be6bc0cb0b56486cae92b4398db89)`(BYTE byType) const` 
 
 #### `public inline BYTE `[`GetAbsorb`](#classCMonster_1a4c89df0e2e869953f069c025ff72affe)`() const` 
 
@@ -939,11 +1025,7 @@ class CMonster
 
 #### `public inline WORD `[`GetFarSight`](#classCMonster_1ab70ab33fddbd8b75951316ab6fb2a513)`() const` 
 
-#### `public inline WORD `[`GetSize`](#classCMonster_1a0a3adc8c44ad84ddc2cd4dda8a55969b)`() const` 
-
-#### `public inline BYTE `[`GetAIS`](#classCMonster_1aabe8f2c67ccdfc1c5f85c4212c31a156)`() const` 
-
-#### `public inline void `[`SetAIS`](#classCMonster_1a098b2dd0fcc7a5a02a2b429d7a59ccae)`(BYTE byState)` 
+#### `public inline WORD `[`GetSize`](#classCMonster_1a43151e7805dab9ec7979a4d72b17d358)`() const` 
 
 #### `public void `[`SetTarget`](#classCMonster_1ab3bd3e1c4ce30e20e508d9710a303f09)`(CPlayer * pPlayer)` 
 
@@ -957,9 +1039,7 @@ class CMonster
 
 #### `public void `[`Attack`](#classCMonster_1a3da2c9537b0a47d96779d05f61685268)`(CPlayer * pTarget)` 
 
-#### `public void `[`Chase`](#classCMonster_1a44be0928b50fc6535db6d36ad50ca7fa)`()` 
-
-#### `public void `[`Walk`](#classCMonster_1a20c26245c67099e29f1e0d4c64ad0dca)`()` 
+#### `public bool `[`Chase`](#classCMonster_1ae490f08e7bfe5554be953ca8b29b7100)`()` 
 
 #### `public void `[`Damage`](#classCMonster_1a55b2fbb18cec0f6e079f30d2eb524496)`(CCharacter * pAttacker,DWORD & dwDamage,BYTE & byType)` 
 
@@ -1075,6 +1155,7 @@ Class representation of ingame Party. Group of Players playing together.
 `public Access `[`m_Access`](#classCParty_1ac3e5b32446a861d0c6995821bcfa3f24) | Keeps track if instance is busy or not.
 `public  `[`CParty`](#classCParty_1a872fa5aa5fd489176e7292b6710c2fac)`(CPlayer * pLeader,CPlayer * pPlayer)` | Basic party constructor. Takes two players which start a new party. 
 `public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` | Basic destructor. Removes party from global party list before destruction.
+`public void `[`Teleport`](#classCParty_1a05f3b32e5c3a3eb0b4dd6622b557ad73)`(int nX,int nY,int nSpread)` | Teleports all party members to given position. Given spread value, it will randomize position in certain distance. 
 `public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` | Retrieves party ID assigned while creation. Party IDs are assigned starting from 1 up to MAX INT value. 
 `public inline int `[`GetSize`](#classCParty_1ad1f129c94a89a24cfa47c9be9b9f8713)`() const` | #### Returns
 `public bool `[`IsHead`](#classCParty_1a7c9f05fdf9bb4010b2158c96383d8fe0)`(CPlayer * pPlayer)` | Finds out whether player is currently a leader or not. Leadership may change during party lifetime. 
@@ -1107,6 +1188,16 @@ Basic party constructor. Takes two players which start a new party.
 #### `public  `[`~CParty`](#classCParty_1af644bea4e9858a9f6611da9530d67068)`()` 
 
 Basic destructor. Removes party from global party list before destruction.
+
+#### `public void `[`Teleport`](#classCParty_1a05f3b32e5c3a3eb0b4dd6622b557ad73)`(int nX,int nY,int nSpread)` 
+
+Teleports all party members to given position. Given spread value, it will randomize position in certain distance. 
+#### Parameters
+* `nX` X map coordinate. 
+
+* `nY` Y map coordinate. 
+
+* `nSpread` Distance around X and Y.
 
 #### `public inline int `[`GetID`](#classCParty_1a16b86dbcb785c1a1a27ccff53a065f66)`() const` 
 
@@ -1216,7 +1307,7 @@ class CPlayer
 `public inline BYTE `[`GetLevel`](#classCPlayer_1ad10ef4ef34dd4e1035d94e9240a5c09b)`() const` | 
 `public WORD `[`GetHit`](#classCPlayer_1a81798f3557fcdf8494da043e3c1b6c82)`() const` | 
 `public WORD `[`GetDodge`](#classCPlayer_1a578c2e4f1ed228c4685e425995e910ac)`() const` | 
-`public inline WORD `[`GetDefense`](#classCPlayer_1ac7f7759cf31aec584fcd2025df813abb)`() const` | 
+`public WORD `[`GetDefense`](#classCPlayer_1ad85bbb2de0adf0ac6cce72b207bb2583)`(BYTE byType) const` | 
 `public inline BYTE `[`GetAbsorb`](#classCPlayer_1aae6df796a50ca12187e3e8b6c9913ac7)`() const` | 
 `public DWORD `[`GetMaxHP`](#classCPlayer_1a076c69138624fb583d71fa3cc934d40e)`() const` | 
 `public WORD `[`GetMaxMP`](#classCPlayer_1a0d60b187885fb7fae265ec9765787cdf)`() const` | 
@@ -1225,6 +1316,7 @@ class CPlayer
 `public WORD `[`GetMinMagic`](#classCPlayer_1a02aa68f148233dc6b2583679d2e09e85)`() const` | 
 `public WORD `[`GetMaxMagic`](#classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b)`() const` | 
 `public WORD `[`GetResist`](#classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a)`(BYTE byResist) const` | 
+`public inline WORD `[`GetSize`](#classCPlayer_1a210b68fc20059faf22ee6db112059564)`() const` | 
 `public inline __int64 `[`GetExp`](#classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b)`() const` | 
 `public inline BYTE `[`GetGrade`](#classCPlayer_1a04d9afd2b1373b1b1faa47956ff59496)`() const` | 
 `public inline std::string `[`GetGuildName`](#classCPlayer_1a80103fc73f68c01bf2ca828ca21b8b06)`() const` | 
@@ -1262,12 +1354,13 @@ class CPlayer
 `public void `[`GameStart`](#classCPlayer_1a6be7062c85dcdbbdee4f1e50f4240c3f)`()` | 
 `public void `[`GameRestart`](#classCPlayer_1ade947d3c70f95c6b0d06f1910a0c4570)`()` | 
 `public bool `[`CanMove`](#classCPlayer_1a266c70cd463694f6b6a85df3879abaea)`()` | 
+`public bool `[`CanAttack`](#classCPlayer_1aa0d84ab2dfc47ffc72482a9aca7d2fa4)`(CCharacter * pTarget) const` | 
 `public void `[`OnMove`](#classCPlayer_1a09cd92ba2e8c02fc988e131451b71947)`(char byX,char byY,char byZ,char byType)` | 
 `public void `[`Rest`](#classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5)`(BYTE byType)` | 
 `public void `[`ProcessMsg`](#classCPlayer_1a88c5bae35d7e2c53454b4f51024ede89)`(char * szMsg)` | 
 `public void `[`ChatCommand`](#classCPlayer_1ad521bb1c30a2c4a898a780b9c56d1937)`(char * szCommand)` | 
 `public void `[`UpdateProperty`](#classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133)`(BYTE byProperty,__int64 n64Amount)` | 
-`public void `[`Teleport`](#classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262)`(int nX,int,int nZ)` | 
+`public void `[`Teleport`](#classCPlayer_1a097558aaa187c826ec56582625a985ae)`(int nX,int nY,int nSpread,int nZ)` | 
 `public void `[`OnTeleport`](#classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf)`(BYTE byAnswer,int nZ)` | 
 `public void `[`InsertItem`](#classCPlayer_1a8950f3ae31c929fe3ef291cc19de7deb)`(WORD wIndex,int nNum,BYTE byLogType,bool bOwn,bool bForceSingular,BYTE byPrefix,BYTE byXAttack,BYTE byXMagic,BYTE byXHit,BYTE byEBlow,int nInfo,BYTE byXDodge,BYTE byXDefense,FUSION_DESC * pFuse,BYTE byShot,WORD wPerforation,int nGongLeft,int nGongRight)` | 
 `public bool `[`MergeItem`](#classCPlayer_1a9e6e45ebe10f4ed34ba5a8431c7c5faf)`(WORD wIndex,int nNum,BYTE byLogType,bool bOwn)` | 
@@ -1278,6 +1371,7 @@ class CPlayer
 `public void `[`Die`](#classCPlayer_1aea5393068e04bd1f5ee2f37f28650de5)`()` | 
 `public void `[`Revival`](#classCPlayer_1a6388bcc9a284184363be8d01f83db44f)`()` | 
 `public void `[`Attack`](#classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15)`(CCharacter * pTarget)` | 
+`public bool `[`CheckBlock`](#classCPlayer_1a3a02754b59bc6283583797ea15ebbfe7)`(CCharacter * pAttacker) const` | 
 `public bool `[`RemoveItem`](#classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd)`(CItem * pItem,int nNum,BYTE byLogType)` | 
 `public void `[`RemoveItem`](#classCPlayer_1a2c5a636b4bca0d2843199ea09f0accfa)`(WORD wIndex,int nNum,BYTE byLogType)` | 
 `public void `[`SaveAllProperty`](#classCPlayer_1aaa8c88a78b3562a82459de23e6b9ad77)`()` | 
@@ -1334,7 +1428,7 @@ class CPlayer
 
 #### `public WORD `[`GetDodge`](#classCPlayer_1a578c2e4f1ed228c4685e425995e910ac)`() const` 
 
-#### `public inline WORD `[`GetDefense`](#classCPlayer_1ac7f7759cf31aec584fcd2025df813abb)`() const` 
+#### `public WORD `[`GetDefense`](#classCPlayer_1ad85bbb2de0adf0ac6cce72b207bb2583)`(BYTE byType) const` 
 
 #### `public inline BYTE `[`GetAbsorb`](#classCPlayer_1aae6df796a50ca12187e3e8b6c9913ac7)`() const` 
 
@@ -1351,6 +1445,8 @@ class CPlayer
 #### `public WORD `[`GetMaxMagic`](#classCPlayer_1a57ee4479d9479c05e417fecd8db4f72b)`() const` 
 
 #### `public WORD `[`GetResist`](#classCPlayer_1a49683c0d44dd50bf2fd04da12c35f22a)`(BYTE byResist) const` 
+
+#### `public inline WORD `[`GetSize`](#classCPlayer_1a210b68fc20059faf22ee6db112059564)`() const` 
 
 #### `public inline __int64 `[`GetExp`](#classCPlayer_1acca893ea6247ff70bc6e6867ab4e766b)`() const` 
 
@@ -1426,6 +1522,8 @@ class CPlayer
 
 #### `public bool `[`CanMove`](#classCPlayer_1a266c70cd463694f6b6a85df3879abaea)`()` 
 
+#### `public bool `[`CanAttack`](#classCPlayer_1aa0d84ab2dfc47ffc72482a9aca7d2fa4)`(CCharacter * pTarget) const` 
+
 #### `public void `[`OnMove`](#classCPlayer_1a09cd92ba2e8c02fc988e131451b71947)`(char byX,char byY,char byZ,char byType)` 
 
 #### `public void `[`Rest`](#classCPlayer_1a94fc77afb40ef82347dba19d2f5bf6f5)`(BYTE byType)` 
@@ -1436,7 +1534,7 @@ class CPlayer
 
 #### `public void `[`UpdateProperty`](#classCPlayer_1a8f8e7e0a865b2ffafe7c2b6dbd810133)`(BYTE byProperty,__int64 n64Amount)` 
 
-#### `public void `[`Teleport`](#classCPlayer_1a5a4785a0fba2383ab4a293f0a15a5262)`(int nX,int,int nZ)` 
+#### `public void `[`Teleport`](#classCPlayer_1a097558aaa187c826ec56582625a985ae)`(int nX,int nY,int nSpread,int nZ)` 
 
 #### `public void `[`OnTeleport`](#classCPlayer_1aa99497fd4a25d00c58c1679916fe05cf)`(BYTE byAnswer,int nZ)` 
 
@@ -1457,6 +1555,8 @@ class CPlayer
 #### `public void `[`Revival`](#classCPlayer_1a6388bcc9a284184363be8d01f83db44f)`()` 
 
 #### `public void `[`Attack`](#classCPlayer_1a6b6dbcc48f145d2731ba99653d383d15)`(CCharacter * pTarget)` 
+
+#### `public bool `[`CheckBlock`](#classCPlayer_1a3a02754b59bc6283583797ea15ebbfe7)`(CCharacter * pAttacker) const` 
 
 #### `public bool `[`RemoveItem`](#classCPlayer_1a01ccc12f76a762f0024d1dc6a54bf6cd)`(CItem * pItem,int nNum,BYTE byLogType)` 
 
@@ -1507,72 +1607,194 @@ class CPlayer
 
 # class `CTile` 
 
+Represents square tile of 1024x1024 cells. Keeps track of all dynamic objects on that area.
+
 ## Summary
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public inline  `[`CTile`](#classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b)`()` | 
-`public void `[`Add`](#classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b)`(CCharacter * pCharacter)` | 
-`public void `[`Remove`](#classCTile_1a70bd90fe9bf75fd5240a024716f08e8a)`(CCharacter * pCharacter)` | 
-`public inline void `[`Lock`](#classCTile_1ab3fd197f9c845168067def319945ebbd)`()` | 
-`public inline void `[`Unlock`](#classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3)`()` | 
-`public void `[`GetCharacterListAround`](#classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f)`(CCharacter * pCharacter,int nDistance,CharacterList & list)` | 
-`public void `[`GetPlayerListAround`](#classCTile_1a06c572865aef65b63a2665f93ee1560b)`(CCharacter * pCharacter,int nDistance,PlayerList & list)` | 
-`public void `[`GetMonsterListAround`](#classCTile_1a500887d419a5fa9b93f2885a82180eb2)`(CCharacter * pCharacter,int nDistance,MonsterList & list)` | 
-`public void `[`SendPacket`](#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111)`(CCharacter * pCharacter,Packet & packet)` | 
-`public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` | 
-`public void `[`ExchangeMoveActionWithPlayers`](#classCTile_1a6f71e25bfc3f826639300abc127fdd25)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` | 
-`public void `[`ExchangeMoveActionWithMonsters`](#classCTile_1ae7f50d3589419005ffb900182fd3d488)`(CPlayer * pPlayer,char byX,char byY)` | 
-`public void `[`ExchangeMoveActionWithNPCs`](#classCTile_1a30da262666aa379fa7f436496e8150c7)`(CPlayer * pPlayer,char byX,char byY)` | 
+`public inline  `[`CTile`](#classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b)`()` | Basic constructor.
+`public void `[`Add`](#classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b)`(CCharacter * pCharacter)` | Adds character to tile. Gets called when player enters this tile or enters game. 
+`public void `[`Remove`](#classCTile_1a70bd90fe9bf75fd5240a024716f08e8a)`(CCharacter * pCharacter)` | Removes character from tile. Gets called when player enters another tile or quits the game completely. 
+`public inline void `[`Lock`](#classCTile_1ab3fd197f9c845168067def319945ebbd)`()` | Locks access to instance.
+`public inline void `[`Unlock`](#classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3)`()` | Unlocks access to instance
+`public void `[`GetCharacterListAround`](#classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f)`(CCharacter * pCharacter,int nDistance,CharacterList & list)` | Retrieves all characters around certain character on a tile. Grants access to each one, so it is a **MUST** to release it after usage. 
+`public void `[`GetPlayerListAround`](#classCTile_1a06c572865aef65b63a2665f93ee1560b)`(CCharacter * pCharacter,int nDistance,PlayerList & list)` | Retrieves all players around certain character on a tile. Grants access to each one, so it is a **MUST** to release it after usage. 
+`public void `[`GetMonsterListAround`](#classCTile_1a500887d419a5fa9b93f2885a82180eb2)`(CCharacter * pCharacter,int nDistance,MonsterList & list)` | Retrieves all monsters around certain character on a tile. Grants access to each one, so it is a **MUST** to release it after usage. 
+`public void `[`SendPacket`](#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111)`(CCharacter * pCharacter,Packet & packet)` | Sends packet to all players on tile within sight of certain character. 
+`public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` | Distributes appear/pet appear/disappear/move packets to players nearby. Decides who to send depending on character kind. 
+`public void `[`ExchangeMoveActionWithPlayers`](#classCTile_1a6f71e25bfc3f826639300abc127fdd25)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` | Exchanges appear/pet appear/disappear/move packets with players nearby. Decides what to send depending on distance between objects. 
+`public void `[`ExchangeMoveActionWithMonsters`](#classCTile_1ae7f50d3589419005ffb900182fd3d488)`(CPlayer * pPlayer,char byX,char byY)` | Exchanges appear/pet appear/disappear/move packets with monsters nearby. Decides what to send depending on distance between objects. 
+`public void `[`ExchangeMoveActionWithNPCs`](#classCTile_1a30da262666aa379fa7f436496e8150c7)`(CPlayer * pPlayer,char byX,char byY)` | Exchanges appear/pet appear/disappear/move packets with NPCs nearby. Decides what to send depending on distance between objects. 
 
 ## Members
 
 #### `public inline  `[`CTile`](#classCTile_1a80f91c7e0977f6f6bceae1fb79024b6b)`()` 
 
+Basic constructor.
+
 #### `public void `[`Add`](#classCTile_1ae1d1eba417f121bd5a1b3bf7f656898b)`(CCharacter * pCharacter)` 
+
+Adds character to tile. Gets called when player enters this tile or enters game. 
+#### Parameters
+* `pCharacter` Object to add.
 
 #### `public void `[`Remove`](#classCTile_1a70bd90fe9bf75fd5240a024716f08e8a)`(CCharacter * pCharacter)` 
 
+Removes character from tile. Gets called when player enters another tile or quits the game completely. 
+#### Parameters
+* `pCharacter` Object to remove.
+
 #### `public inline void `[`Lock`](#classCTile_1ab3fd197f9c845168067def319945ebbd)`()` 
+
+Locks access to instance.
 
 #### `public inline void `[`Unlock`](#classCTile_1aa79119f95d52b30ed0b3e4e2418ee8a3)`()` 
 
+Unlocks access to instance
+
 #### `public void `[`GetCharacterListAround`](#classCTile_1a001742dc06c5ca432e0bd1e8f7df4c9f)`(CCharacter * pCharacter,int nDistance,CharacterList & list)` 
+
+Retrieves all characters around certain character on a tile. Grants access to each one, so it is a **MUST** to release it after usage. 
+#### Parameters
+* `pCharacter` Character to find objects around it. 
+
+* `nDistance` Max distance from character. 
+
+* `list` Empty list that will get populated with found characters.
 
 #### `public void `[`GetPlayerListAround`](#classCTile_1a06c572865aef65b63a2665f93ee1560b)`(CCharacter * pCharacter,int nDistance,PlayerList & list)` 
 
+Retrieves all players around certain character on a tile. Grants access to each one, so it is a **MUST** to release it after usage. 
+#### Parameters
+* `pCharacter` Character to find players around it. 
+
+* `nDistance` Max distance from character. 
+
+* `list` Empty list that will get populated with found players.
+
 #### `public void `[`GetMonsterListAround`](#classCTile_1a500887d419a5fa9b93f2885a82180eb2)`(CCharacter * pCharacter,int nDistance,MonsterList & list)` 
+
+Retrieves all monsters around certain character on a tile. Grants access to each one, so it is a **MUST** to release it after usage. 
+#### Parameters
+* `pCharacter` Character to find monsters around it. 
+
+* `nDistance` Max distance from character. 
+
+* `list` Empty list that will get populated with found monsters.
 
 #### `public void `[`SendPacket`](#classCTile_1aa9c2599bc4e1e6f951bb887d30aba111)`(CCharacter * pCharacter,Packet & packet)` 
 
+Sends packet to all players on tile within sight of certain character. 
+#### Parameters
+* `pCharacter` Character to send packet around it. 
+
+* `packet` Packet to be sent.
+
 #### `public void `[`SendMoveAction`](#classCTile_1a34f85c8e4a1be51229b723fcadb72aa4)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` 
+
+Distributes appear/pet appear/disappear/move packets to players nearby. Decides who to send depending on character kind. 
+#### Parameters
+* `pCharacter` Character to exchange packets with. 
+
+* `byX` X coordinate movement delta. 
+
+* `byY` Y coordinate movement delta. 
+
+* `createPacket` Pre-generated appear packet for distribution. 
+
+* `petPacket` Pre-generated pet appear packet for distribution. 
+
+* `deletePacket` Pre-generated disappear packet for distribution. 
+
+* `movePacket` Pre-generated move packet for distribution.
 
 #### `public void `[`ExchangeMoveActionWithPlayers`](#classCTile_1a6f71e25bfc3f826639300abc127fdd25)`(CCharacter * pCharacter,char byX,char byY,Packet & createPacket,Packet & petPacket,Packet & deletePacket,Packet & movePacket)` 
 
+Exchanges appear/pet appear/disappear/move packets with players nearby. Decides what to send depending on distance between objects. 
+#### Parameters
+* `pCharacter` Character to exchange packets with. 
+
+* `byX` X coordinate movement delta. 
+
+* `byY` Y coordinate movement delta. 
+
+* `createPacket` Pre-generated appear packet for distribution. 
+
+* `petPacket` Pre-generated pet appear packet for distribution. 
+
+* `deletePacket` Pre-generated disappear packet for distribution. 
+
+* `movePacket` Pre-generated move packet for distribution.
+
 #### `public void `[`ExchangeMoveActionWithMonsters`](#classCTile_1ae7f50d3589419005ffb900182fd3d488)`(CPlayer * pPlayer,char byX,char byY)` 
+
+Exchanges appear/pet appear/disappear/move packets with monsters nearby. Decides what to send depending on distance between objects. 
+#### Parameters
+* `pPlayer` Player to exchange packets with. 
+
+* `byX` X coordinate movement delta. 
+
+* `byY` Y coordinate movement delta.
 
 #### `public void `[`ExchangeMoveActionWithNPCs`](#classCTile_1a30da262666aa379fa7f436496e8150c7)`(CPlayer * pPlayer,char byX,char byY)` 
 
-# class `IAppearable` 
+Exchanges appear/pet appear/disappear/move packets with NPCs nearby. Decides what to send depending on distance between objects. 
+#### Parameters
+* `pPlayer` Player to exchange packets with. 
+
+* `byX` X coordinate movement delta. 
+
+* `byY` Y coordinate movement delta.
+
+# class `CZone` 
+
+Represents square zone of 8192x8192 cells. Encapsulates one .KSM (Kal Server Map) file per instance.
 
 ## Summary
 
  Members                        | Descriptions                                
 --------------------------------|---------------------------------------------
-`public virtual Packet `[`GenerateCreatePacket`](#classIAppearable_1ac0262a965a30119375a1a48d626ad6f3)`(bool bHero)` | 
-`public virtual Packet `[`GeneratePetPacket`](#classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c)`()` | 
-`public virtual Packet `[`GenerateDeletePacket`](#classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6)`()` | 
-`public virtual Packet `[`GenerateMovePacket`](#classIAppearable_1a2294d79323944687a5a16ac097d1de88)`(BYTE byType,char byX,char byY,char byZ)` | 
+`public  `[`CZone`](#classCZone_1a4c64e50a14487f26be0aad93c9e8db19)`(int nZoneX,int nZoneY)` | Declares zone X & Y for further loading from file: n_00X_00Y.ksm. 
+`public inline  `[`~CZone`](#classCZone_1a75025deee91dd73ae426684166cb92a1)`()` | Destructor that deallocates .KSM data if exists.
+`public bool `[`Load`](#classCZone_1aeb1f1a05c2792822c3e453e2faa58638)`()` | Loads data from .KSM file. Deallocates previous data if any. NOT thread-safe, so do not reload after server start. 
+`public bool `[`Check`](#classCZone_1a67fd3fc015cae984f5d934212d62a7e4)`(int nX,int nY,BYTE byType)` | Tests certain cell (X, Y) for zone type. Available tests:
 
 ## Members
 
-#### `public virtual Packet `[`GenerateCreatePacket`](#classIAppearable_1ac0262a965a30119375a1a48d626ad6f3)`(bool bHero)` 
+#### `public  `[`CZone`](#classCZone_1a4c64e50a14487f26be0aad93c9e8db19)`(int nZoneX,int nZoneY)` 
 
-#### `public virtual Packet `[`GeneratePetPacket`](#classIAppearable_1ad4e9dcc462129e5d8ab8540d72f3738c)`()` 
+Declares zone X & Y for further loading from file: n_00X_00Y.ksm. 
+#### Parameters
+* `nZoneX` X zone coordinate (WorldX / 8192). 
 
-#### `public virtual Packet `[`GenerateDeletePacket`](#classIAppearable_1ab99bd86b8ca6e019049e27bde091d7c6)`()` 
+* `nZoneY` Y zone coordinate (WorldY / 8192).
 
-#### `public virtual Packet `[`GenerateMovePacket`](#classIAppearable_1a2294d79323944687a5a16ac097d1de88)`(BYTE byType,char byX,char byY,char byZ)` 
+#### `public inline  `[`~CZone`](#classCZone_1a75025deee91dd73ae426684166cb92a1)`()` 
+
+Destructor that deallocates .KSM data if exists.
+
+#### `public bool `[`Load`](#classCZone_1aeb1f1a05c2792822c3e453e2faa58638)`()` 
+
+Loads data from .KSM file. Deallocates previous data if any. NOT thread-safe, so do not reload after server start. 
+#### Returns
+false if file does not exist or file size mismatches, true otherwise
+
+#### `public bool `[`Check`](#classCZone_1a67fd3fc015cae984f5d934212d62a7e4)`(int nX,int nY,BYTE byType)` 
+
+Tests certain cell (X, Y) for zone type. Available tests:
+
+* ZT_MONSTER: area free for monsters for walk and chase;
+
+* ZT_SAFEZONE: area with entry prohibition for monsters;
+
+* ZT_CASTLE: castle siege area;
+
+* ZT_TOWN: city/town area;
+
+* ZT_PKFREE: area with entry prohibition for assasins. 
+#### Returns
+false if prohibited, true otherwise
 
 # struct `CItemInfo` 
 
@@ -1604,6 +1826,8 @@ struct CItemInfo
 `public int `[`m_nBuffId`](#structCItemInfo_1afd3262a03d0fa3cc25b343d6f102c448) | 
 `public int `[`m_nBuffTime`](#structCItemInfo_1a475df8ea73d83cd8a0bb1373c7da8fe0) | 
 `public int `[`m_nBuffValue`](#structCItemInfo_1a55716f963c98983b29f86d15d74f11e9) | 
+`public WORD `[`m_wAttackSpeed`](#structCItemInfo_1a09a882345fa8394eb74e810fa1a2465a) | 
+`public WORD `[`m_wRange`](#structCItemInfo_1a1b336b764676b28d844de7a41d53110c) | 
 `public WORD `[`m_wDefense`](#structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98) | 
 `public WORD `[`m_wHit`](#structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed) | 
 `public WORD `[`m_wDodge`](#structCItemInfo_1a5709beccfc3a9fe9a73c7921ab997a91) | 
@@ -1615,6 +1839,7 @@ struct CItemInfo
 `public WORD `[`m_wResistPalsy`](#structCItemInfo_1a7c8cc72fca71a28fb52fa34829dac0a3) | 
 `public DWORD `[`m_dwHP`](#structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f) | 
 `public DWORD `[`m_dwMP`](#structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3) | 
+`public int `[`m_nTeleport`](#structCItemInfo_1aa2502047d88ffbbbfd67cae7cc6d6658) | 
 `public WORD `[`m_wMinAttack`](#structCItemInfo_1ab5dc077635bdab3db04a0075477f8237) | 
 `public WORD `[`m_wMaxAttack`](#structCItemInfo_1a06c9e0c51e956b5d16b055a683f5058e) | 
 `public WORD `[`m_wMinMagic`](#structCItemInfo_1a5ac42935c959abf4e0aa16ce2a45137c) | 
@@ -1666,6 +1891,10 @@ struct CItemInfo
 
 #### `public int `[`m_nBuffValue`](#structCItemInfo_1a55716f963c98983b29f86d15d74f11e9) 
 
+#### `public WORD `[`m_wAttackSpeed`](#structCItemInfo_1a09a882345fa8394eb74e810fa1a2465a) 
+
+#### `public WORD `[`m_wRange`](#structCItemInfo_1a1b336b764676b28d844de7a41d53110c) 
+
 #### `public WORD `[`m_wDefense`](#structCItemInfo_1a29883d0a4939508980ecb89a32cbeb98) 
 
 #### `public WORD `[`m_wHit`](#structCItemInfo_1a22b9c583d90fc8a6e95eba4d60a4b3ed) 
@@ -1687,6 +1916,8 @@ struct CItemInfo
 #### `public DWORD `[`m_dwHP`](#structCItemInfo_1aabaeaf2061db64a150a05ba9bf44339f) 
 
 #### `public DWORD `[`m_dwMP`](#structCItemInfo_1ac53394d540206014ee89d2aa2d0245b3) 
+
+#### `public int `[`m_nTeleport`](#structCItemInfo_1aa2502047d88ffbbbfd67cae7cc6d6658) 
 
 #### `public WORD `[`m_wMinAttack`](#structCItemInfo_1ab5dc077635bdab3db04a0075477f8237) 
 
@@ -1746,7 +1977,7 @@ struct CMonsterInfo
 `public WORD `[`m_wDex`](#structCMonsterInfo_1ab1807b81fe8094f6865a5d8a77d17d35) | 
 `public DWORD `[`m_dwHP`](#structCMonsterInfo_1a69c5f25dd2d7c3f6deb51a699503c04f) | 
 `public DWORD `[`m_dwMP`](#structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5) | 
-`public WORD `[`m_wDefense`](#structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d) | 
+`public WORD `[`m_wDefense`](#structCMonsterInfo_1a1fd73643476380c69bd6cc9c6ab74812) | 
 `public WORD `[`m_wHit`](#structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4) | 
 `public WORD `[`m_wDodge`](#structCMonsterInfo_1a6f71e397f1739739ed5e3cbd174f3bd1) | 
 `public WORD `[`m_wAbsorb`](#structCMonsterInfo_1a0ae2b56523913590649148f335b7c4d3) | 
@@ -1800,7 +2031,7 @@ struct CMonsterInfo
 
 #### `public DWORD `[`m_dwMP`](#structCMonsterInfo_1af7f153f9283f6f054561e72947b37ec5) 
 
-#### `public WORD `[`m_wDefense`](#structCMonsterInfo_1a7e867ef24ad2b177fed5e16f59ad200d) 
+#### `public WORD `[`m_wDefense`](#structCMonsterInfo_1a1fd73643476380c69bd6cc9c6ab74812) 
 
 #### `public WORD `[`m_wHit`](#structCMonsterInfo_1a530d7d3f47411f6ec37caf0f72f6e7f4) 
 
@@ -1840,7 +2071,10 @@ struct CMonsterInfo
 `public WORD `[`wTileY`](#structMapInfo_1a3a5692bd2b8adfd6c1f0cedf7d78ec1a) | 
 `public WORD `[`wOffsetX`](#structMapInfo_1ae77c7f414d52c8a3ee3904002e20727b) | 
 `public WORD `[`wOffsetY`](#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d) | 
+`public WORD `[`wZoneX`](#structMapInfo_1a927975fcd72b751fe6f2e5bfbd2a927e) | 
+`public WORD `[`wZoneY`](#structMapInfo_1ad01330bf6cc1f3490d994c7820be838d) | 
 `public inline bool `[`equalTile`](#structMapInfo_1af521faa869e28cf4084e13ed0d50478b)`(MapInfo & mapInfo)` | 
+`public inline bool `[`equalZone`](#structMapInfo_1ae1149cacce1743d3fe3d8d771588afca)`(MapInfo & mapInfo)` | 
 
 ## Members
 
@@ -1852,6 +2086,12 @@ struct CMonsterInfo
 
 #### `public WORD `[`wOffsetY`](#structMapInfo_1a8713aa23c30689f52612c1ee3cc24a7d) 
 
+#### `public WORD `[`wZoneX`](#structMapInfo_1a927975fcd72b751fe6f2e5bfbd2a927e) 
+
+#### `public WORD `[`wZoneY`](#structMapInfo_1ad01330bf6cc1f3490d994c7820be838d) 
+
 #### `public inline bool `[`equalTile`](#structMapInfo_1af521faa869e28cf4084e13ed0d50478b)`(MapInfo & mapInfo)` 
+
+#### `public inline bool `[`equalZone`](#structMapInfo_1ae1149cacce1743d3fe3d8d771588afca)`(MapInfo & mapInfo)` 
 
 Generated by [Moxygen](https://sourcey.com/moxygen)

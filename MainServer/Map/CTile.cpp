@@ -140,7 +140,6 @@ void CTile::SendPacket(CCharacter *pCharacter, Packet &packet)
 		CPlayer *pPlayer = (CPlayer*)a.second;
 
 		if (sqrt(pow(pPlayer->GetX() - pCharacter->GetX(), 2) + pow(pPlayer->GetY() - pCharacter->GetY(), 2)) < MAX_PLAYER_SIGHT) {
-			//printf("Sent to %d.\n", pPlayer->GetID());
 			pPlayer->SendPacket(packet);
 		}
 

@@ -12,6 +12,8 @@ https://github.com/lafreak/Bango/wiki/Getting-started
 ## Documentation
 - [CNPC](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-cnpc)
 - [CParty](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-cparty)
+- [CTile](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-ctile)
+- [CZone](https://github.com/lafreak/Bango/blob/master/doc/API.md#class-czone)
 
 ## Progress
 
