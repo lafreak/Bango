@@ -584,7 +584,7 @@ void CMonster::Attack(CPlayer *pTarget)
 	WriteInSight(S2C_ATTACK, "ddddb", GetID(), pTarget->GetID(), dwDamage, dwExplosiveBlow, byType);
 }
 
-void CMonster::Chase()
+bool CMonster::Chase()
 {
 	int nDistance = GetDistance(m_pTarget) - GetRange();
 
@@ -595,6 +595,10 @@ void CMonster::Chase()
 	char dx = nStep * cos(fAngle);
 	char dy = nStep * sin(fAngle);
 
+	//
+	if (CMap::CheckZone(GetX() + dx, GetY() + dy, ZT_SAFEZONE))
+		return false;
+
 	if (byType)
 	{
 		Move(dx, dy, MT_RUN | MTEX_MOVEEND);
@@ -603,23 +607,8 @@ void CMonster::Chase()
 	{
 		Move(dx, dy, MT_RUN);
 	}
-}
 
-void CMonster::Walk()
-{
-	WORD wAngle = rand() % 360;
-	char dx = MAX_MONSTER_WALK_STEP * cos(wAngle * M_PI / 180.0);
-	char dy = MAX_MONSTER_WALK_STEP * sin(wAngle * M_PI / 180.0);
-
-	if ((rand() % MONSTER_WALK_TIME) == 0)
-	{
-		Move(dx, dy, MT_WALK | MTEX_MOVEEND);
-		//m_byAIState = AIS_IDLE;
-	}
-	else
-	{
-		Move(dx, dy, MT_WALK);
-	}
+	return true;
 }
 
 void CMonster::Damage(CCharacter * pAttacker, DWORD & dwDamage, BYTE & byType)
@@ -676,6 +665,12 @@ void CMonster::OnWalk()
 	char dx = MAX_MONSTER_WALK_STEP * cos(wAngle * M_PI / 180.0);
 	char dy = MAX_MONSTER_WALK_STEP * sin(wAngle * M_PI / 180.0);
 
+	if (CMap::CheckZone(GetX() + dx, GetY() + dy, ZT_SAFEZONE))
+	{
+		SetTimer(std::bind(&CMonster::ScanSight, this), MONSTER_WALK_FREQUENCY * 1000);
+		return;
+	}
+
 	if ((rand() % MONSTER_WALK_TIME) == 0)
 	{
 		Move(dx, dy, MT_WALK | MTEX_MOVEEND);
@@ -702,8 +697,13 @@ void CMonster::OnChase()
 	}
 	else if (nDistance > 1)
 	{
-		Chase();
-		if (nDistance <= 32)
+		if (!Chase())
+		{
+			m_pTarget->Unlock();
+			SetTarget(NULL);
+			return;
+		}
+		else if (nDistance <= 32)
 		{
 			SetTimer(std::bind(&CMonster::OnForceAttack, this), GetRunSpeed());
 		}

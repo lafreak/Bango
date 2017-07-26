@@ -91,8 +91,7 @@ public:
 	virtual void AI(DWORD dwNow) { Lock(); ExecuteTimer(dwNow); Unlock(); }
 	void Move(char byX, char byY, BYTE byType);
 	void Attack(CPlayer *pTarget);
-	void Chase();
-	void Walk();
+	bool Chase();
 	void Damage(CCharacter *pAttacker, DWORD& dwDamage, BYTE& byType) override;
 	
 	// Timer
