@@ -21,7 +21,7 @@ bool CMainSocket::Start(WORD wPort)
     serv_addr.sin_port = htons(wPort);
 
     if (bind(CMainSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
-    	printf(KRED "Bind failed.\n" KNRM);
+    	printf(KRED "Bind network address failed. DBServer already running?\n" KNRM);
     	return false;
     }
 
