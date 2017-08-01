@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <dbserver>
-    <hostname>localhost</hostname>
+    <hostname>dbserver</hostname>
     <port>2999</port>
   </dbserver>
   <mainserver>
