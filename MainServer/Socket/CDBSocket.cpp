@@ -2,6 +2,8 @@
 #include "../CServer.h"
 #include "../Item/CItem.h"
 
+#include <netdb.h>
+
 SOCKET CDBSocket::g_pDBSocket = INVALID_SOCKET;
 
 bool CDBSocket::Connect(WORD wPort)
@@ -45,8 +47,15 @@ bool CDBSocket::Connect(std::string szHostname, WORD wPort)
 	struct sockaddr_in serv_addr;
 	memset(&serv_addr, 0, sizeof(sockaddr_in));
 
+	struct hostent *he;
+	if ((he = gethostbyname(szHostname.c_str())) == NULL) {
+		printf(KRED "Could not resolve hostname %s.\n" KNRM, szHostname.c_str());
+		return false;
+	}
+
 	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_addr.s_addr = inet_addr(szHostname.c_str());// INADDR_ANY;
+	memcpy(&serv_addr.sin_addr, he->h_addr_list[0], he->h_length); // What if h_addr_list has no elements?
+	//serv_addr.sin_addr.s_addr = inet_addr(szHostname.c_str());// INADDR_ANY;
 	serv_addr.sin_port = htons(wPort);
 
 	if (connect(CDBSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
