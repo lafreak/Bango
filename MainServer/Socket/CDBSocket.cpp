@@ -44,17 +44,17 @@ bool CDBSocket::Connect(std::string szHostname, WORD wPort)
 		return false;
 	}
 
-	struct sockaddr_in serv_addr;
-	memset(&serv_addr, 0, sizeof(sockaddr_in));
-
 	struct hostent *he;
 	if ((he = gethostbyname(szHostname.c_str())) == NULL) {
 		printf(KRED "Could not resolve hostname %s.\n" KNRM, szHostname.c_str());
 		return false;
 	}
 
+	struct sockaddr_in serv_addr;
+	memset(&serv_addr, 0, sizeof(sockaddr_in));
+
 	serv_addr.sin_family = AF_INET;
-	memcpy(&serv_addr.sin_addr, he->h_addr_list[0], he->h_length); // What if h_addr_list has no elements?
+	memcpy(&serv_addr.sin_addr, he->h_addr_list[0], he->h_length);
 	//serv_addr.sin_addr.s_addr = inet_addr(szHostname.c_str());// INADDR_ANY;
 	serv_addr.sin_port = htons(wPort);
 
