@@ -15,15 +15,45 @@ bool CDBSocket::Connect(WORD wPort)
 	struct sockaddr_in serv_addr;
 	memset(&serv_addr, 0, sizeof(sockaddr_in));
 
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = INADDR_ANY;
-    serv_addr.sin_port = htons(wPort);
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = INADDR_ANY;
+	serv_addr.sin_port = htons(wPort);
 
-    if (connect(CDBSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
-    	printf(KRED "Failed to connect to DB Server.\n" KNRM);
-    	return false;
-    }
-    
+	if (connect(CDBSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
+		printf(KRED "Failed to connect to DB Server.\n" KNRM);
+		return false;
+	}
+
+	printf("Connected to DBServer.\n");
+
+	pthread_t t;
+	pthread_create(&t, NULL, &CDBSocket::Await, NULL);
+
+	CDBSocket::Write(S2D_MAX_IID, "");
+
+	return true;
+}
+
+bool CDBSocket::Connect(std::string szHostname, WORD wPort)
+{
+	CDBSocket::g_pDBSocket = socket(AF_INET, SOCK_STREAM, 0);
+	if (CDBSocket::g_pDBSocket <= INVALID_SOCKET) {
+		printf(KRED "Error creating socket.\n" KNRM);
+		return false;
+	}
+
+	struct sockaddr_in serv_addr;
+	memset(&serv_addr, 0, sizeof(sockaddr_in));
+
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = inet_addr(szHostname.c_str());// INADDR_ANY;
+	serv_addr.sin_port = htons(wPort);
+
+	if (connect(CDBSocket::g_pDBSocket, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <= SOCKET_ERROR) {
+		printf(KRED "Failed to connect to DB Server [%s][%d].\n" KNRM, szHostname.c_str(), wPort);
+		return false;
+	}
+
 	printf("Connected to DBServer.\n");
 
 	pthread_t t;
@@ -56,7 +86,7 @@ PVOID CDBSocket::Await(PVOID param)
 
 		// Cut buffer into packets
 		char *p = (char*)&buffer;
-		while (nLen > 0 && nLen >= *(WORD*)p) 
+		while (nLen > 0 && nLen >= *(WORD*)p)
 		{
 			/*
 			Packet *packet = new Packet;
@@ -93,136 +123,136 @@ void CDBSocket::Process(Packet& packet)
 
 	switch (packet.byType)
 	{
-		case D2S_LOGIN:
-		{
-			BYTE byAnswer=0;
-			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
+	case D2S_LOGIN:
+	{
+		BYTE byAnswer = 0;
+		int nClientID = 0;
+		char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
 
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) 
-				break;
+		CClient *pClient = CServer::FindClient(nClientID);
+		if (!pClient)
+			break;
 
-			pClient->OnLogin(p);
+		pClient->OnLogin(p);
+		pClient->m_Access.Release();
+		break;
+	}
+
+	case D2S_SEC_LOGIN:
+	{
+		int nClientID = 0;
+		BYTE byAnswer = 0;
+		CSocket::ReadPacket(packet.data, "db", &nClientID, &byAnswer);
+
+		CClient *pClient = CServer::FindClient(nClientID);
+		if (pClient) {
+			pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, byAnswer);
+			pClient->m_Access.Release();
+		}
+
+		break;
+	}
+
+	case D2S_PLAYER_INFO:
+	{
+		int nClientID = 0;
+		char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
+
+		CClient *pClient = CServer::FindClient(nClientID);
+		if (!pClient)
+			break;
+
+		BYTE byAuth = 0;
+		int nExpTime = 0;
+		BYTE byUnknwon = 0;
+
+		pClient->Write(S2C_PLAYERINFO, "bbdm", byAuth, byUnknwon, nExpTime,
+			p, ((char*)&packet + packet.wSize) - p);
+		//printf("S2C_PLAYERINFO sent.\n");
+
+		pClient->m_Access.Release();
+
+		break;
+	}
+
+	case D2S_ANS_NEWPLAYER:
+	{
+		int nClientID = 0;
+		char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
+
+		CClient *pClient = CServer::FindClient(nClientID);
+		if (!pClient)
+			break;
+
+		pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)&packet + packet.wSize) - p);
+
+		pClient->m_Access.Release();
+		break;
+	}
+
+	case D2S_LOADPLAYER:
+	{
+		int nClientID = 0;
+		BYTE byMessage = 0;
+		char* p = CSocket::ReadPacket(packet.data, "db", &nClientID, &byMessage);
+
+		CClient *pClient = CServer::FindClient(nClientID);
+		if (!pClient)
+			break;
+
+		if (byMessage == 1) {
+			pClient->Write(S2C_MESSAGE, "b", MSG_NOTEXISTPLAYER);
 			pClient->m_Access.Release();
 			break;
 		}
 
-		case D2S_SEC_LOGIN:
-		{
-			int nClientID=0;
-			BYTE byAnswer=0;
-			CSocket::ReadPacket(packet.data, "db", &nClientID, &byAnswer);
+		p = pClient->OnLoadPlayer(p);
+		pClient->OnLoadItems(p);
 
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (pClient) {
-				pClient->Write(S2C_SECOND_LOGIN, "bb", SL_RESULT_MSG, byAnswer);
+		pClient->m_Access.Release();
+		break;
+	}
+
+	/*
+			case D2S_LOADITEMS:
+			{
+
+				int nClientID=0;
+
+				char* p = CSocket::ReadPacket(packet.data, "d", &nClientID);
+
+				CClient *pClient = CServer::FindClient(nClientID);
+				if (!pClient) break;
+
+				//printf("Packet LOADITEMS received, size: %d\n", packet.wSize);
+				pClient->OnLoadItems(p);
+
 				pClient->m_Access.Release();
-			}
 
-			break;
-		}
-
-		case D2S_PLAYER_INFO:
-		{
-			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
-
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) 
-				break;
-
-			BYTE byAuth=0;
-			int nExpTime=0;
-			BYTE byUnknwon=0;
-
-			pClient->Write(S2C_PLAYERINFO, "bbdm", byAuth, byUnknwon, nExpTime, 
-				p, ((char*)&packet + packet.wSize) - p);
-			//printf("S2C_PLAYERINFO sent.\n");
-
-			pClient->m_Access.Release();
-
-			break;
-		}
-
-		case D2S_ANS_NEWPLAYER:
-		{
-			int nClientID=0;
-			char *p = CSocket::ReadPacket(packet.data, "d", &nClientID);
-
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) 
-				break;
-
-			pClient->Write(S2C_ANS_NEWPLAYER, "m", p, ((char*)&packet + packet.wSize) - p);
-
-			pClient->m_Access.Release();
-			break;
-		}
-
-		case D2S_LOADPLAYER:
-		{
-			int nClientID=0;
-			BYTE byMessage=0;
-			char* p= CSocket::ReadPacket(packet.data, "db", &nClientID, &byMessage);
-
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) 
-				break;
-
-			if (byMessage == 1) {
-				pClient->Write(S2C_MESSAGE, "b", MSG_NOTEXISTPLAYER);
-				pClient->m_Access.Release();
 				break;
 			}
+	*/
 
-			p = pClient->OnLoadPlayer(p);
-			pClient->OnLoadItems(p);
+	case D2S_MAX_IID:
+	{
+		CSocket::ReadPacket(packet.data, "d", &CItem::g_nMaxIID);
+		break;
+	}
 
-			pClient->m_Access.Release();
+	case D2S_SHORTCUT:
+	{
+		int nClientID = 0;
+		char* p = CSocket::ReadPacket(packet.data, "d", &nClientID);
+
+		CClient *pClient = CServer::FindClient(nClientID);
+		if (!pClient)
 			break;
-		}
 
-/*
-		case D2S_LOADITEMS:
-		{
+		pClient->Write(S2C_SHORTCUT, "bm", 1, p, packet.wSize - (p - (char*)&packet));
 
-			int nClientID=0;
-
-			char* p = CSocket::ReadPacket(packet.data, "d", &nClientID);
-
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) break;
-
-			//printf("Packet LOADITEMS received, size: %d\n", packet.wSize);
-			pClient->OnLoadItems(p);
-
-			pClient->m_Access.Release();
-
-			break;
-		}
-*/
-
-		case D2S_MAX_IID:
-		{
-			CSocket::ReadPacket(packet.data, "d", &CItem::g_nMaxIID);
-			break;
-		}
-
-		case D2S_SHORTCUT:
-		{
-			int nClientID=0;
-			char* p= CSocket::ReadPacket(packet.data, "d", &nClientID);
-
-			CClient *pClient = CServer::FindClient(nClientID);
-			if (!pClient) 
-				break;
-
-			pClient->Write(S2C_SHORTCUT, "bm", 1, p, packet.wSize - (p - (char*)&packet));
-
-			pClient->m_Access.Release();
-			break;
-		}
+		pClient->m_Access.Release();
+		break;
+	}
 	}
 
 	//delete packet;

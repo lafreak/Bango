@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,6 +26,7 @@ class CDBSocket
 
 public:
 	static bool Connect(WORD wPort);
+	static bool Connect(std::string szHostname, WORD wPort);
 	static bool Close();
 	static PVOID Await(PVOID packet);
 	static PVOID Process(PVOID packet);

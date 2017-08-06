@@ -19,7 +19,10 @@ int main()
 
 	srand(time(NULL));
 
-	if (!CDBSocket::Connect(mainconf.wDBPort))
+	//if (!CDBSocket::Connect(mainconf.wDBPort))
+	//	return 1;
+
+	if (!CDBSocket::Connect(mainconf.szDBHostname, mainconf.wDBPort))
 		return 1;
 
 	if (!CMacroDB::Initialize())

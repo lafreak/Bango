@@ -79,6 +79,10 @@ BYTE CConfig::Read(MAINCONFIG& mainconf)
 	if (pEle)
 		mainconf.wDBPort = pEle->GetText() ? atoi(pEle->GetText()) : 0;
 
+	pEle = pDBSrv->FirstChildElement("hostname");
+	if (pEle)
+		mainconf.szDBHostname = std::string(pEle->GetText());
+
 	XMLElement *pMainSrv = pRoot->FirstChildElement("mainserver");
 	if (!pMainSrv) {
 		printf("Cannot find MainServer Listen configuration.\n");

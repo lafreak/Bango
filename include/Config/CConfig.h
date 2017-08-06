@@ -21,6 +21,7 @@ struct DBCONFIG
 
 struct MAINCONFIG
 {
+	std::string szDBHostname;
 	WORD wDBPort;
 	WORD wMainPort;
 };

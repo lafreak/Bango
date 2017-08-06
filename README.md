@@ -85,7 +85,7 @@ https://github.com/lafreak/Bango/wiki/Getting-started
 ###### Map
 - [x] Cut map into smaller tiles
 - [x] Search objects in certain distance
-- [ ] Safezones
+- [x] Safezones
 
 ###### Socket
 - [x] Receive
