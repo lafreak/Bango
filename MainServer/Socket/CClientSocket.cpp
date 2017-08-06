@@ -241,13 +241,25 @@ void CClientSocket::Accept_Poll()
 						if (errno != EWOULDBLOCK) {
 							printf(KRED "recv() failed for %d.\n" KNRM, fds[i].fd);
 							close_conn = true;
+
+							pClient->m_Access.Release();
+
+							CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetCID());
+							CServer::Remove(pClient);
 						}
+						else
+						{
+							pClient->m_Access.Release();
+						}
+
 						break;
 					}
 					// Connection closed by client?
 					else if (nread == 0) {
 						printf("Connection closed by %d.\n", fds[i].fd);
 						close_conn = true;
+
+						pClient->m_Access.Release();
 
 						CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetCID());
 						CServer::Remove(pClient);
@@ -261,8 +273,6 @@ void CClientSocket::Accept_Poll()
 					pClient->Process(buffer);
 
 				} while (true);
-
-				pClient->m_Access.Release();
 
 				if (close_conn) {
 					close(fds[i].fd);
