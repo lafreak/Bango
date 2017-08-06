@@ -35,7 +35,7 @@ int main()
 	if (!CNPC::LoadNPC())
 		return 1;
 
-	if (!CClientSocket::Start(mainconf.wMainPort))
+	if (!CClientSocket::Start_Poll(mainconf.wMainPort))
 		return 1;
 
 	if (!CServer::Start())
@@ -43,7 +43,7 @@ int main()
 
 	printf(KGRN "MainServer started on port %d.\n" KNRM, mainconf.wMainPort);
 
-	CClientSocket::Accept();
+	CClientSocket::Accept_Poll();
 
 	return 0;
 }

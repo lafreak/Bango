@@ -21,6 +21,8 @@ typedef void				*PVOID;
 #define SOCKET_ERROR		-1
 #define THREAD_SUCCESS		0
 
+#define POLL_FOREVER -1
+
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"

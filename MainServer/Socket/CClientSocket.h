@@ -4,6 +4,9 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/poll.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
 #include <netinet/in.h>
 #include <string>
 #include <stdio.h>
@@ -28,6 +31,10 @@ public:
 	static void Close(int);
 	static void Accept();
 	static PVOID Await(PVOID client);
+
+	// Threadless
+	static bool Start_Poll(WORD wPort);
+	static void Accept_Poll();
 
 	static void DebugRawPacket(Packet& packet);
 };
