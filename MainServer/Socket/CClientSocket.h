@@ -35,6 +35,11 @@ public:
 	// Threadless
 	static bool Start_Poll(WORD wPort);
 	static void Accept_Poll();
+	static void Poll();
+
+	static void OnNewConnection(SOCKET connection);
+	static void OnCloseConnection(SOCKET connection);
+	static void OnIncomingPacket(SOCKET connection, Packet& packet);
 
 	static void DebugRawPacket(Packet& packet);
 };

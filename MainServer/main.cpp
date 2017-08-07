@@ -43,7 +43,8 @@ int main()
 
 	printf(KGRN "MainServer started on port %d.\n" KNRM, mainconf.wMainPort);
 
-	CClientSocket::Accept_Poll();
+	//CClientSocket::Accept_Poll();
+	CClientSocket::Poll();
 
 	return 0;
 }

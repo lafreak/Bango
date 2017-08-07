@@ -1,8 +1,11 @@
 #include "CClientSocket.h"
 #include "CDBSocket.h"
+#include "CPollService.h"
+
 #include "../Macro/CMacroDB.h"
 #include "../Map/CMap.h"
 #include "../GameCharacter/CNPC.h"
+
 
 SOCKET CClientSocket::g_pSocket = INVALID_SOCKET;
 
@@ -304,6 +307,44 @@ void CClientSocket::Accept_Poll()
 		if (fds[i].fd >= 0)
 			close(fds[i].fd);
 	}
+}
+
+void CClientSocket::Poll()
+{
+	CPollService service(CClientSocket::g_pSocket);
+
+	service.AddNewConnectionHandler		(&CClientSocket::OnNewConnection);
+	service.AddCloseConnectionHandler	(&CClientSocket::OnCloseConnection);
+	service.AddIncomingPacketHandler	(&CClientSocket::OnIncomingPacket);
+
+	while (service.Poll() == POLLSERVICE_OK) {}
+}
+
+void CClientSocket::OnNewConnection(SOCKET connection)
+{
+	printf("OnNewConnection [%d]\n", connection);
+
+	auto pClient = new CClient(connection);
+	CServer::Add(pClient);
+}
+
+void CClientSocket::OnCloseConnection(SOCKET connection)
+{
+	printf("OnCloseConnection [%d]\n", connection);
+
+	auto pClient = CServer::FindClient(connection); // Could be made without FindClient.
+	CDBSocket::Write(S2D_DISCONNECT, "d", pClient->GetCID());
+	pClient->m_Access.Release();
+	CServer::Remove(pClient);
+}
+
+void CClientSocket::OnIncomingPacket(SOCKET connection, Packet & packet)
+{
+	DebugRawPacket(packet);
+
+	auto pClient = CServer::FindClient(connection);
+	pClient->Process(packet); // Why does it copy packet?
+	pClient->m_Access.Release();
 }
 
 PVOID CClientSocket::Await(PVOID param)
