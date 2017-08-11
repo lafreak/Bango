@@ -7,8 +7,9 @@ ConnectionPool_T 	CDatabase::g_pConnectionPool = NULL;
 
 bool CDatabase::Connect(std::string szHostname, std::string szPort, std::string szUsername, std::string szPassword, std::string szSchema)
 {
-	std::string szUrl = "mysql://"+szHostname+":"+szPort+"/"+szSchema+"?user="+szUsername+"&password="+szPassword;
-	
+	//std::string szUrl = "mysql://"+szHostname+":"+szPort+"/"+szSchema+"?user="+szUsername+"&password="+szPassword;
+	std::string szUrl = "mysql://"+szUsername+":"+szPassword+"@"+szHostname+":"+szPort+"/"+szSchema;
+
 	CDatabase::g_pUrl = URL_new(szUrl.c_str());
 	CDatabase::g_pConnectionPool = ConnectionPool_new(CDatabase::g_pUrl);
 	
