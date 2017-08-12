@@ -8,4 +8,4 @@ RUN ./BUILD
 WORKDIR /bango/bin
 
 # sleep to wait for mysql to become ready
-CMD sleep 10 && ./DBServer
+CMD sleep 15 && ./DBServer
