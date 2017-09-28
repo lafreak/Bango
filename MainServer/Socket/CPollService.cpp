@@ -88,6 +88,7 @@ BYTE CPollService::Poll()
 
 		bool should_erase = false;
 
+		/*
 		while (true)
 		{
 			PACKETBUFFER buffer;
@@ -129,9 +130,113 @@ BYTE CPollService::Poll()
 				p += *(WORD*)p;
 			}
 
-			if (nLen != 0) {
+			if (nLen != 0)
 				printf(KRED "ERROR: Some data was left after reading: %d.\n" KNRM, nLen);
+		}
+		*/
+
+		PACKETBUFFER buffer;
+		memset(&buffer, 0, sizeof(PACKETBUFFER));
+
+		WORD wOffset = 0;
+
+		while (true)
+		{
+			char* p = (char*)&buffer + wOffset;
+
+			int nLen = recv((*it).fd, p, sizeof(PACKETBUFFER) - wOffset, 0);
+			//
+			if (nLen == 0) {
+				m_fnOnCloseConnection((*it).fd);
+				close((*it).fd);
+				should_erase = true;
+				break;
 			}
+
+			if (nLen < 0 && errno != EWOULDBLOCK) {
+				printf("recv() error.\n");
+				return POLLSERVICE_RECVERROR;
+			}
+
+			if (nLen < 0)
+				break;
+
+			if (nLen > MAX_PACKET_LENGTH) {
+				printf(KRED "Buffer nLen exceeded MAX_PACKET_LENGTH.\n");
+				continue;
+			}
+			//
+
+			// Gather more data.
+			if (nLen >= sizeof(PACKETBUFFER) - wOffset)
+				continue;
+
+			if (wOffset)
+			{
+				p = (char*)&buffer;
+				nLen += wOffset;
+
+				for (int i = 0; i < nLen; i++)
+					printf("%d ", (BYTE)p[i]);
+				printf("\n");
+			}
+
+			if (nLen > *(WORD*)p)
+			{
+				char* pCut = p;
+
+				int i = 0;
+				while (nLen > 0 && nLen >= *(WORD*)pCut && *(WORD*)pCut > 0)
+				{
+					Packet packet;
+					memset(&packet, 0, sizeof(Packet));
+					memcpy(&packet, (char*)pCut, *(WORD*)pCut);
+					m_fnOnIncomingPacket((*it).fd, packet);
+
+					nLen -= *(WORD*)pCut;
+					pCut = ((char*)pCut) + *(WORD*)pCut;
+
+					i++;
+				}
+
+				//printf("Packet cut into %d pieces.\n", i);
+
+				if (nLen < 0)
+				{
+					memset(&buffer, 0, sizeof(PACKETBUFFER));
+					memcpy(&buffer, (char*)pCut, -nLen);
+					wOffset = -nLen;
+
+					for (int i = 0; i < wOffset; i++)
+						printf("%d ", (BYTE)pCut[i]);
+					printf("\n");
+
+					printf("-- ^ %d -- data is added to next buffer v.\n", -nLen);
+
+					continue;
+				}
+
+				// Cut
+				// And maybe recv missing
+			}
+
+			else if (nLen < *(WORD*)p)
+			{
+				// Recv missing
+			}
+
+			else
+			{
+				Packet packet;
+				memset(&packet, 0, sizeof(Packet));
+				memcpy(&packet, p, *(WORD*)p);
+
+				m_fnOnIncomingPacket((*it).fd, packet);
+				// Simple process
+			}
+
+			wOffset = 0;
+			memset(&buffer, 0, sizeof(PACKETBUFFER));
 		}
 
 		printf("while(true) ended\n");
