@@ -134,8 +134,8 @@ static WORD FIND_NEED_PU_EX(WORD cur, BYTE add) {
 	return needPU;
 }
 
-static int g_denoHP[] = { 10, 14, 13, 13 };
-static int g_denoMP[] = { 13, 10, 12, 12 };
+static int g_denoHP[] = { 10, 14, 13, 13, 14 };
+static int g_denoMP[] = { 13, 10, 12, 12, 10 };
 
 // (struct) /////////////////////////////////////////////////////////
 struct DATE_TIME
@@ -207,6 +207,7 @@ static BASEPROPERTY g_baseproperty[] = {
 		8, 10, 18, 16, 8, 170, 140,		// mage
 		14, 10, 8, 10, 18, 160, 160,	// archer
 		14, 10, 8, 10, 18, 160, 160,	// thief
+		8, 10, 20, 14, 8, 170, 140,		// shaman??
 };
 //#endif
 
@@ -221,7 +222,7 @@ static BASEPROPERTY g_baseproperty[] = {
 #define MAX_INVENTORY 60
 #define MAX_INVENTORYEX 72
 #define MAX_STORAGE 100
-#define CLASS_NUM 3
+#define CLASS_NUM 4//3
 #define BOOSTDECMP 6
 #define MAX_BULLETININFO 20
 #define NULL_CHECK( value) if( value == 0) return
@@ -1135,6 +1136,8 @@ enum PLAYER_CLASS
 	PC_MAGE,
 	PC_ARCHER,
 	PC_THIEF,
+
+	PC_SHAMAN,
 	//PC_ASSASSIN,
 	//PC_TALISMAN,
 	//PC_SPIRITKNIGHT,

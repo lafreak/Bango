@@ -41,7 +41,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"repair", 		ISC_REPAIR },
 	{"necklace", 	ISC_NECKLACE },
 	{"resistnecklace2", ISC_RESISTNECKLACE2 },
-	{"cocoon", 		ISC_COCOON },	
+	{"cocoon", 		ISC_COCOON },
 	{"mask", 		ISC_MASK },
 	{"standard", 	ISC_STANDARD },
 	{"dagger",		ISC_DAGGER },
@@ -64,6 +64,7 @@ KeyMap CMacroDB::g_mKey = {
 	{"mage", 		PC_MAGE },
 	{"archer", 		PC_ARCHER },
 	{"thief", 		PC_THIEF },
+	{"shaman",		PC_SHAMAN },
 
 	// Item Specialty
 	{"hp",			CItemInfo::R_HP },
