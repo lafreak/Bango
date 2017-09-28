@@ -1206,22 +1206,22 @@
     </item>
     <item index="469" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="470" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="604800" value="0"/>
+            <buff id="1020" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="471" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="1296000" value="0"/>
+            <buff id="1020" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="472" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="2592000" value="0"/>
+            <buff id="1020" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="473" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
@@ -2475,7 +2475,7 @@
     </item>
     <item index="1139" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="1296000" value="0"/>
+            <buff id="1020" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="1140" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
@@ -2579,7 +2579,7 @@
     <item index="1168" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1169" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1170" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
@@ -2885,7 +2885,7 @@
     <item index="1293" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="1294" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1295" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
@@ -4126,7 +4126,7 @@
     </item>
     <item index="1939" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="343" time="86400" value="0"/>
+            <buff id="1022" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="1940" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
@@ -4192,12 +4192,12 @@
     <item index="1944" class="general" subclass="etc" plural="1" buy="0"/>
     <item index="1965" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="604800" value="0"/>
+            <buff id="1020" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="1966" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="2592000" value="0"/>
+            <buff id="1020" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="1971" class="general" subclass="charm" use="1" plural="1" cooltime="2000" buy="0" effect="4">
@@ -4254,6 +4254,7 @@
     <item index="1990" class="general" subclass="etc" plural="1" cooltime="2000" buy="0" sell="0"/>
     <item index="1991" class="general" subclass="etc" plural="1" cooltime="2000" buy="0" sell="0"/>
     <item index="2003" class="general" subclass="etc" plural="1" cooltime="2000" buy="0" sell="0"/>
+    <item index="1992" class="general" subclass="etc" use="1" plural="1" reqclass="all" reqlevel="1" cooltime="100" buy="0"/>
     <item index="1941" class="IFSymbol" subclass="etc" use="1">
         <specialty/>
     </item>
@@ -4270,6 +4271,11 @@
     <item index="1958" class="general" subclass="charm" use="1" plural="1" cooltime="1000" effect="7">
         <specialty>
             <buff id="361" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="1959" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="2004" class="LimitedPet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
@@ -4800,7 +4806,7 @@
     </item>
     <item index="2162" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="2163" class="weapon" subclass="sword" level="1" wear="1" reqclass="knight" reqlevel="1" range="30" buy="0" sell="100" endurance="40">
@@ -5041,7 +5047,7 @@
     </item>
     <item index="2411" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="43200" value="0"/>
+            <buff id="1020" time="43200" value="0"/>
         </specialty>
     </item>
     <item index="2412" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
@@ -5130,7 +5136,7 @@
     </item>
     <item index="2414" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="386" time="604800" value="0"/>
+            <buff id="1023" time="604800" value="0"/>
         </specialty>
     </item>
     <item index="2427" class="general" subclass="etc" buy="0" sell="100000" plural="1"/>
@@ -5344,7 +5350,7 @@
     </item>
     <item index="2488" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="1296000" value="0"/>
+            <buff id="1020" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="2489" class="general" subclass="charm" use="1" plural="1" buy="0" sell="0">
@@ -6981,7 +6987,7 @@
     <item index="3204" class="mstone" subclass="protect" plural="1" buy="0" sell="0"/>
     <item index="3205" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="3206" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="20">
@@ -7005,16 +7011,6 @@
         </specialty>
     </item>
     <item index="3300" class="general" subclass="lottery" level="6" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
-    <item index="3301" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="500000" sell="0"/>
-    <item index="3302" class="ornament" subclass="resistnecklace2" level="60" wear="1" buy="0" sell="0" endurance="20">
-        <specialty hp="1200"/>
-    </item>
-    <item index="3303" class="ornament" subclass="resistnecklace2" level="60" wear="1" buy="0" sell="0" endurance="20">
-        <specialty mp="1200"/>
-    </item>
-    <item index="3304" class="ornament" subclass="resistnecklace2" level="60" wear="1" buy="0" sell="0" endurance="20">
-        <specialty hp="800" mp="650"/>
-    </item>
     <item index="3379" class="general" subclass="lottery" level="1" plural="1" use="1" buy="0" sell="0"/>
     <item index="3215" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2400">
         <specialty>
@@ -7119,6 +7115,9 @@
     <item index="3393" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
         <specialty/>
     </item>
+    <item index="3370" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
+        <specialty/>
+    </item>
     <item index="3398" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
         <specialty/>
     </item>
@@ -7126,6 +7125,12 @@
         <specialty/>
     </item>
     <item index="3395" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="3371" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="3372" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
         <specialty/>
     </item>
     <item index="3396" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
@@ -7143,6 +7148,8 @@
     <item index="3407" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="3408" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="3409" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="3410" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="3411" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="3412" class="ride" subclass="etc" cooltime="5000" use="1" buy="0" sell="0">
         <specialty>
             <buff id="498" time="0" value="1"/>
@@ -7188,6 +7195,12 @@
         <specialty>
             <buff id="498" time="0" value="9"/>
         </specialty>
+    </item>
+    <item index="3422" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="3423" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
     </item>
     <item index="3424" class="weapon" subclass="sword" level="17" wear="1" reqclass="knight" reqlevel="1" range="24" buy="0" sell="0" endurance="18">
         <specialty attackspeed="700" minattack="45" maxattack="65" hit="29"/>
@@ -7240,6 +7253,10 @@
     <item index="3440" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
         <specialty/>
     </item>
+    <item index="3441" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0"/>
+    <item index="3442" class="defense" subclass="cost" wear="1" reqclass="archer" reqlevel="1" buy="0" sell="0"/>
+    <item index="3443" class="defense" subclass="cost" wear="1" reqclass="mage" reqlevel="1" buy="0" sell="0"/>
+    <item index="3444" class="defense" subclass="cost" wear="1" reqclass="thief" reqlevel="1" buy="0" sell="0"/>
     <item index="4156" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
         <specialty>
             <buff id="498" time="1209600" value="12"/>
@@ -7287,8 +7304,8 @@
     <item index="3453" class="general" subclass="lottery" level="5" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
     <item index="3454" class="general" subclass="lottery" level="6" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
     <item index="3455" class="general" subclass="lottery" level="7" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
-    <item index="4000" class="weapon" subclass="sword" level="33" wear="1" reqclass="knight" reqlevel="30" range="24" buy="0" sell="0" endurance="30">
-        <specialty attackspeed="700" minattack="72" maxattack="96" hit="48"/>
+    <item index="4000" class="weapon" subclass="sword" level="33" wear="1" reqclass="knight" reqlevel="25" range="24" buy="0" sell="0" endurance="30">
+        <specialty attackspeed="700" minattack="104" maxattack="146" hit="70"/>
     </item>
     <item index="4001" class="defense" subclass="upperarmor" level="32" wear="1" reqclass="knight" reqlevel="5" buy="0" sell="0" endurance="15">
         <specialty defense="27" dodge="5" absorb="3"/>
@@ -7305,8 +7322,8 @@
     <item index="4005" class="defense" subclass="lowerarmor" level="32" wear="1" reqclass="knight" reqlevel="25" buy="0" sell="0" endurance="13">
         <specialty defense="17" dodge="14"/>
     </item>
-    <item index="4006" class="weapon" subclass="bow" level="33" wear="1" reqclass="archer" reqlevel="30" range="176" buy="0" sell="0" endurance="30">
-        <specialty attackspeed="800" minattack="60" maxattack="83" hit="44"/>
+    <item index="4006" class="weapon" subclass="bow" level="33" wear="1" reqclass="archer" reqlevel="25" range="176" buy="0" sell="0" endurance="30">
+        <specialty attackspeed="800" minattack="65" maxattack="93" hit="60"/>
     </item>
     <item index="4007" class="defense" subclass="upperarmor" level="32" wear="1" reqclass="archer" reqlevel="5" buy="0" sell="0" endurance="15">
         <specialty defense="24" dodge="3" absorb="1"/>
@@ -7323,8 +7340,8 @@
     <item index="4011" class="defense" subclass="lowerarmor" level="32" wear="1" reqclass="archer" reqlevel="25" buy="0" sell="0" endurance="13">
         <specialty defense="12" dodge="19"/>
     </item>
-    <item index="4012" class="weapon" subclass="wand" level="33" wear="1" reqclass="mage" reqlevel="30" range="18" buy="0" sell="0" endurance="30">
-        <specialty attackspeed="1000" minattack="52" maxattack="59" minmagic="79" maxmagic="103" hit="43"/>
+    <item index="4012" class="weapon" subclass="wand" level="33" wear="1" reqclass="mage" reqlevel="25" range="18" buy="0" sell="0" endurance="30">
+        <specialty attackspeed="1000" minattack="78" maxattack="85" minmagic="117" maxmagic="146" hit="43"/>
     </item>
     <item index="4013" class="defense" subclass="upperarmor" level="32" wear="1" reqclass="mage" reqlevel="5" buy="0" sell="0" endurance="15">
         <specialty defense="16" dodge="8" resistfire="4" resistice="4" resistlitning="4"/>
@@ -7341,8 +7358,8 @@
     <item index="4017" class="defense" subclass="lowerarmor" level="32" wear="1" reqclass="mage" reqlevel="25" buy="0" sell="0" endurance="13">
         <specialty defense="8" dodge="16"/>
     </item>
-    <item index="4018" class="weapon" subclass="dagger" level="33" wear="1" reqclass="thief" reqlevel="30" range="24" buy="0" sell="0" endurance="30">
-        <specialty attackspeed="500" minattack="86" maxattack="115" hit="48"/>
+    <item index="4018" class="weapon" subclass="dagger" level="33" wear="1" reqclass="thief" reqlevel="25" range="24" buy="0" sell="0" endurance="30">
+        <specialty attackspeed="500" minattack="95" maxattack="140" hit="65"/>
     </item>
     <item index="4019" class="defense" subclass="upperarmor" level="32" wear="1" reqclass="thief" reqlevel="5" buy="0" sell="0" endurance="15">
         <specialty defense="21" dodge="4" absorb="1"/>
@@ -7376,6 +7393,27 @@
             <buff id="498" time="0" value="6"/>
         </specialty>
     </item>
+    <item index="4041" class="ride" subclass="etc" cooltime="5000" use="1" buy="3000000">
+        <specialty>
+            <buff id="498" time="0" value="6"/>
+        </specialty>
+    </item>
+    <item index="4029" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="4030" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="4031" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="4032" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="4033" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="4034" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
     <item index="4035" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="2400">
         <specialty>
             <buff id="5" time="3600" value="10"/>
@@ -7386,16 +7424,28 @@
             <buff id="6" time="3600" value="10"/>
         </specialty>
     </item>
+    <item index="4037" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="18">
+        <specialty>
+            <buff id="32" time="86400" value="0"/>
+        </specialty>
+    </item>
+    <item index="4038" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="370" time="86400" value="0"/>
+        </specialty>
+    </item>
+    <item index="4039" class="general" subclass="etc" plural="1" buy="0" effect="17"/>
     <item index="4040" class="general" subclass="etc" use="1" plural="1" cooltime="1000" buy="0" effect="21">
         <specialty>
             <buff id="99" time="2592000" value="0"/>
         </specialty>
     </item>
     <item index="4100" class="general" subclass="etc" use="1" plural="1" cooltime="1000" sell="0" buy="0"/>
-    <item index="3457" class="general" subclass="etc" use="1" buy="0" sell="0">
+    <item index="3457" class="general" subclass="etc" use="1" buy="0" sell="0" plural="1">
         <specialty/>
     </item>
     <item index="3458" class="general" subclass="lottery" level="3" plural="1" use="1" buy="0" sell="0"/>
+    <item index="3465" class="general" subclass="lottery" level="7" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
     <item index="3459" class="general" subclass="lottery" level="1" plural="1" use="1" buy="0" sell="0"/>
     <item index="3460" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
         <specialty/>
@@ -7461,6 +7511,9 @@
             <teleport v1="184159" v2="3" v3="832"/>
         </specialty>
     </item>
+    <item index="4155" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
     <item index="4101" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>
     <item index="4102" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" sell="0"/>
     <item index="4106" class="general" subclass="etc" use="1" plural="1" sell="0" buy="0"/>
@@ -7469,8 +7522,45 @@
     <item index="4109" class="general" subclass="etc" use="1" plural="1" sell="0" buy="0"/>
     <item index="4110" class="general" subclass="etc" use="1" plural="1" sell="0" buy="0"/>
     <item index="4111" class="general" subclass="lottery" level="4" use="1" plural="1" cooltime="100" buy="0" sell="0"/>
+    <item index="3441" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0"/>
+    <item index="3442" class="defense" subclass="cost" wear="1" reqclass="archer" reqlevel="1" buy="0" sell="0"/>
+    <item index="3443" class="defense" subclass="cost" wear="1" reqclass="mage" reqlevel="1" buy="0" sell="0"/>
+    <item index="3444" class="defense" subclass="cost" wear="1" reqclass="thief" reqlevel="1" buy="0" sell="0"/>
     <item index="4134" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="4135" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="4136" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
+        <specialty>
+            <refresh property="hp" amount="1000"/>
+        </specialty>
+    </item>
+    <item index="4137" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
+        <specialty>
+            <refresh property="mp" amount="500"/>
+        </specialty>
+    </item>
+    <item index="4138" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
+        <specialty>
+            <buff id="470" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="4139" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
+        <specialty>
+            <buff id="471" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="4140" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
+        <specialty>
+            <buff id="472" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="4141" class="general" subclass="etc" use="1" buy="0" sell="0" plural="1">
+        <specialty/>
+    </item>
+    <item index="4142" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="4143" class="general" subclass="lottery" level="7" plural="1" use="1" buy="0" sell="0"/>
+    <item index="4144" class="general" subclass="etc" use="1" buy="0" sell="0" cooltime="3000" plural="1">
+        <specialty/>
+    </item>
     <item index="4145" class="general" subclass="etc" use="1" buy="0" sell="0">
         <specialty/>
     </item>
@@ -7508,14 +7598,19 @@
             <buff id="498" time="0" value="15"/>
         </specialty>
     </item>
+    <item index="4154" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1020" time="604800" value="0"/>
+        </specialty>
+    </item>
     <item index="4200" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="4908" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="503" time="1296000" value="0"/>
+            <buff id="1021" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="5000" class="weapon" subclass="sword" level="62" wear="1" reqclass="knight" reqlevel="60" range="30" buy="0" sell="0" endurance="34">
@@ -8387,6 +8482,9 @@
     <item index="5305" class="general" subclass="etc" use="1" plural="1" cooltime="600000" buy="0" sell="0" effect="1">
         <specialty/>
     </item>
+    <item index="5306" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
     <item index="5289" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
         <specialty/>
     </item>
@@ -8399,7 +8497,7 @@
     </item>
     <item index="5295" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="503" time="1296000" value="0"/>
+            <buff id="1021" time="1296000" value="0"/>
         </specialty>
     </item>
     <item index="5296" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
@@ -8413,6 +8511,45 @@
         </specialty>
     </item>
     <item index="5298" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="5299" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="5300" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1052" time="86400" value="0"/>
+        </specialty>
+    </item>
+    <item index="5301" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1005" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="5302" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1060" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="5321" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1068" time="86400" value="0"/>
+        </specialty>
+    </item>
+    <item index="5324" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1021" time="1296000" value="0"/>
+        </specialty>
+    </item>
+    <item index="5325" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1005" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="5326" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1004" time="1296000" value="0"/>
+        </specialty>
+    </item>
+    <item index="5327" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
     <item index="5310" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
         <specialty/>
     </item>
@@ -8433,6 +8570,9 @@
     <item index="5317" class="general" subclass="lottery" level="11" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
     <item index="5318" class="general" subclass="lottery" level="12" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
     <item index="5319" class="general" subclass="lottery" level="2" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
+    <item index="5320" class="general" subclass="lottery" level="3" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
+    <item index="5322" class="general" subclass="lottery" level="13" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
+    <item index="5323" class="general" subclass="lottery" level="14" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
     <item index="6000" class="defense" subclass="cost" wear="1" reqclass="knight" reqlevel="1" buy="0" sell="0">
         <specialty hth="5"/>
     </item>
@@ -8554,6 +8694,88 @@
     <item index="6050" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
     <item index="6051" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
     <item index="6052" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="6081" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6054" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6055" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6056" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6057" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6058" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6059" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6060" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6061" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6062" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6063" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6064" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6065" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6066" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6067" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6068" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6069" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6070" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6071" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6072" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6073" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6074" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6075" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6076" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="6077" class="defense" subclass="cost" wear="1" reqclass="shaman" reqlevel="1" buy="0" sell="0">
+        <specialty wis="5"/>
+    </item>
+    <item index="6078" class="defense" subclass="cost" wear="1" reqclass="shaman" reqlevel="1" buy="0" sell="0" level="1">
+        <specialty wis="10"/>
+    </item>
+    <item index="6079" class="defense" subclass="cost" wear="1" reqclass="shaman" reqlevel="1" buy="0" sell="0" level="1"/>
+    <item index="6080" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
     <item index="4302" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="4303" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0">
         <specialty/>
@@ -8643,7 +8865,7 @@
     </item>
     <item index="4326" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
         <specialty>
-            <buff id="30" time="86400" value="0"/>
+            <buff id="1020" time="86400" value="0"/>
         </specialty>
     </item>
     <item index="4327" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
@@ -8662,6 +8884,40 @@
         </specialty>
     </item>
     <item index="4330" class="general" subclass="etc" use="1" plural="1" buy="0" sell="0"/>
+    <item index="7000" class="general" subclass="SlotExtend" use="1" plural="1" buy="0" sell="0"/>
+    <item index="7001" class="general" subclass="SlotExtend" use="1" plural="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7002" class="general" subclass="SlotExtend" use="1" plural="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7003" class="general" subclass="SlotExtend" use="1" plural="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7004" class="general" subclass="SlotExtend" use="1" plural="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7005" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7100" class="general" subclass="etc" buy="0" sell="0"/>
+    <item index="7101" class="general" subclass="etc" buy="0"/>
+    <item index="7102" class="general" subclass="equipbox" use="1" plural="1" cooltime="100" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7103" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7104" class="general" subclass="etc" use="1" plural="1">
+        <specialty>
+            <buff id="452" time="432000" value="0"/>
+        </specialty>
+    </item>
+    <item index="7105" class="general" subclass="mslot" buy="0" sell="0"/>
+    <item index="7106" class="mstone" subclass="clear" buy="0" sell="0"/>
+    <item index="7107" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="7108" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="7109" class="gather" subclass="chiwoomirrorjewel" plural="0" buy="0" sell="0" wear="1"/>
     <item index="4500" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0"/>
     <item index="4501" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0"/>
     <item index="4502" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0"/>
@@ -8714,4 +8970,846 @@
     <item index="4549" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="4550" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
     <item index="4551" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="7110" class="general" subclass="lottery" level="1" plural="1" use="1" buy="0" sell="0"/>
+    <item index="7112" class="general" subclass="lottery" level="2" plural="1" use="1" buy="0" sell="0"/>
+    <item index="7113" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="9"/>
+        </specialty>
+    </item>
+    <item index="7114" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="7115" class="general" subclass="etc" plural="1" buy="0" sell="0"/>
+    <item index="7116" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7117" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
+    <item index="7118" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
+    <item index="7119" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
+    <item index="7120" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1"/>
+    <item index="7121" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7123" class="general" subclass="lottery" level="5" use="1" plural="1" cooltime="100" buy="0" sell="0" effect="6"/>
+    <item index="7124" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="7125" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="7126" class="ride" subclass="etc" cooltime="5000" use="1" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="7"/>
+        </specialty>
+    </item>
+    <item index="7127" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="7128" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1021" time="1296000" value="0"/>
+        </specialty>
+    </item>
+    <item index="7129" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1005" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="7130" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1004" time="1296000" value="0"/>
+        </specialty>
+    </item>
+    <item index="7131" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="7132" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" sell="1" effect="1">
+        <specialty>
+            <buff id="423" time="2592000" value="0"/>
+        </specialty>
+    </item>
+    <item index="7134" class="general" subclass="etc" plural="1" cooltime="100" buy="0" sell="0" use="1">
+        <specialty/>
+    </item>
+    <item index="4600" class="ride" subclass="etc" use="1" cooltime="5000" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="6"/>
+        </specialty>
+    </item>
+    <item index="4601" class="general" subclass="refresh" plural="1" use="1" cooltime="1300" buy="0" effect="1">
+        <specialty>
+            <refresh property="hp" amount="300"/>
+        </specialty>
+    </item>
+    <item index="4602" class="gather" subclass="chiwoomirrormoney" plural="0" wear="1" buy="0"/>
+    <item index="4615" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" effect="1">
+        <specialty>
+            <refresh property="hp" amount="500"/>
+        </specialty>
+    </item>
+    <item index="4616" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="11">
+        <specialty>
+            <buff id="59" time="100" value="0"/>
+        </specialty>
+    </item>
+    <item index="4617" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" effect="10">
+        <specialty>
+            <buff id="58" time="100" value="0"/>
+        </specialty>
+    </item>
+    <item index="4618" class="general" subclass="etc" use="1" plural="1" cooltime="1300" buy="0" effect="1">
+        <specialty>
+            <buff id="494" time="1296000" value="0"/>
+        </specialty>
+    </item>
+    <item index="4619" class="ride" subclass="etc" use="1" cooltime="5000" buy="0">
+        <specialty>
+            <buff id="498" time="0" value="7"/>
+        </specialty>
+    </item>
+    <item index="4624" class="general" subclass="etc" use="1" plural="1" reqclass="all" reqlevel="1" level="65" cooltime="1300" buy="0" effect="1">
+        <specialty>
+            <buff id="423" time="2592000" value="0"/>
+        </specialty>
+    </item>
+    <item index="4625" class="general" subclass="etc" use="1" plural="1" reqclass="all" reqlevel="1" level="65" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1020" time="2592000" value="0"/>
+        </specialty>
+    </item>
+    <item index="4626" class="general" subclass="etc" use="1" plural="1" reqclass="all" reqlevel="1" level="65" cooltime="2000" buy="0" effect="20">
+        <specialty>
+            <buff id="31" time="2592000" value="0"/>
+        </specialty>
+    </item>
+    <item index="4627" class="general" subclass="etc" use="1" plural="1" reqclass="all" reqlevel="1" level="65" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="370" time="2592000" value="0"/>
+        </specialty>
+    </item>
+    <item index="4628" class="general" subclass="etc" use="1" plural="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1005" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="4630" class="general" subclass="etc" use="1" plural="1" reqclass="all" reqlevel="1" buy="0"/>
+    <item index="4631" class="pet" subclass="egg" reqclass="all" reqlevel="1" level="1" wear="1" buy="0"/>
+    <item index="4632" class="pet" subclass="egg" level="1" wear="1" reqclass="all" reqlevel="1" buy="0" sell="0"/>
+    <item index="4635" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0"/>
+    <item index="4637" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0"/>
+    <item index="7199" class="ornament" subclass="trinket" wear="1" buy="0" sell="3000" endurance="10">
+        <specialty wis="1" hp="20" mp="300"/>
+    </item>
+    <item index="7200" class="weapon" subclass="soul" level="1" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="4" sell="1" endurance="4">
+        <specialty attackspeed="1000" minattack="1" maxattack="9" minmagic="2" maxmagic="14" hit="12"/>
+    </item>
+    <item index="7201" class="weapon" subclass="soul" level="5" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="180" sell="45" endurance="6">
+        <specialty attackspeed="1000" minattack="6" maxattack="15" minmagic="10" maxmagic="24" hit="16"/>
+    </item>
+    <item index="7202" class="weapon" subclass="soul" level="9" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="1650" sell="412" endurance="12">
+        <specialty attackspeed="1000" minattack="12" maxattack="22" minmagic="19" maxmagic="37" hit="20"/>
+    </item>
+    <item index="7203" class="weapon" subclass="soul" level="13" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="3120" sell="780" endurance="7">
+        <specialty attackspeed="1000" minattack="18" maxattack="30" minmagic="28" maxmagic="51" hit="21"/>
+    </item>
+    <item index="7204" class="weapon" subclass="soul" level="17" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="6973" sell="1743" endurance="18">
+        <specialty attackspeed="1000" minattack="23" maxattack="35" minmagic="40" maxmagic="68" hit="26"/>
+    </item>
+    <item index="7205" class="weapon" subclass="soul" level="25" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="14680" sell="3670" endurance="12">
+        <specialty attackspeed="1000" minattack="33" maxattack="48" minmagic="57" maxmagic="95" hit="35"/>
+    </item>
+    <item index="7206" class="weapon" subclass="soul" level="29" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="27120" sell="6780" endurance="24">
+        <specialty attackspeed="1000" minattack="40" maxattack="56" minmagic="69" maxmagic="111" hit="39"/>
+    </item>
+    <item index="7207" class="weapon" subclass="soul" level="37" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="51320" sell="13158" endurance="18">
+        <specialty attackspeed="1000" minattack="54" maxattack="74" minmagic="90" maxmagic="142" hit="46"/>
+    </item>
+    <item index="7208" class="weapon" subclass="soul" level="40" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="159092" sell="52000" endurance="36">
+        <specialty attackspeed="1000" minattack="23" maxattack="47" minmagic="81" maxmagic="231" hit="42" int="4" dex="1"/>
+    </item>
+    <item index="7209" class="weapon" subclass="soul" level="40" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="159092" sell="49716" endurance="20">
+        <specialty attackspeed="1000" minattack="70" maxattack="94" minmagic="116" maxmagic="177" hit="50" dex="1"/>
+    </item>
+    <item index="7210" class="weapon" subclass="soul" level="40" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="296401" sell="49716" endurance="20">
+        <specialty attackspeed="1000" minattack="77" maxattack="102" minmagic="127" maxmagic="194" hit="50" dex="1"/>
+    </item>
+    <item index="7211" class="weapon" subclass="soul" level="48" wear="1" reqclass="shaman" reqlevel="45" range="18" buy="296401" sell="97500" endurance="27">
+        <specialty attackspeed="1000" minattack="83" maxattack="116" minmagic="113" maxmagic="273" hit="57" int="3" dex="1" mp="100"/>
+    </item>
+    <item index="7212" class="weapon" subclass="soul" level="48" wear="1" reqclass="shaman" reqlevel="45" range="18" buy="355681" sell="97500" endurance="27">
+        <specialty attackspeed="1000" minattack="84" maxattack="121" minmagic="98" maxmagic="237" hit="61" dex="2" wis="5" mp="240" hp="89"/>
+    </item>
+    <item index="7213" class="weapon" subclass="soul" level="48" wear="1" reqclass="shaman" reqlevel="45" range="18" buy="355681" sell="97500" endurance="27">
+        <specialty attackspeed="1000" minattack="73" maxattack="112" minmagic="105" maxmagic="290" hit="57" int="3" dex="2" mp="180"/>
+    </item>
+    <item index="7214" class="weapon" subclass="soul" level="48" wear="1" reqclass="shaman" reqlevel="45" range="18" buy="355681" sell="97500" endurance="27">
+        <specialty attackspeed="1000" minattack="80" maxattack="123" minmagic="114" maxmagic="319" hit="57" int="3" dex="2" mp="180" hp="99"/>
+    </item>
+    <item index="7215" class="weapon" subclass="soul" level="50" wear="1" reqclass="shaman" reqlevel="50" range="18" buy="355681" sell="117000" endurance="30">
+        <specialty attackspeed="1000" minattack="98" maxattack="131" minmagic="134" maxmagic="273" hit="60" int="4" dex="2" hp="135"/>
+    </item>
+    <item index="7216" class="weapon" subclass="soul" level="50" wear="1" reqclass="shaman" reqlevel="50" range="18" buy="0" sell="117000" endurance="30">
+        <specialty attackspeed="1000" minattack="100" maxattack="142" minmagic="105" maxmagic="237" hit="64" dex="2" wis="6" mp="240" hp="110"/>
+    </item>
+    <item index="7217" class="weapon" subclass="soul" level="50" wear="1" reqclass="shaman" reqlevel="50" range="18" buy="0" sell="117000" endurance="30">
+        <specialty attackspeed="1000" minattack="79" maxattack="123" minmagic="119" maxmagic="290" hit="60" int="4" dex="2" mp="180"/>
+    </item>
+    <item index="7218" class="weapon" subclass="soul" level="50" wear="1" reqclass="shaman" reqlevel="50" range="18" buy="0" sell="117000" endurance="30">
+        <specialty attackspeed="1000" minattack="86" maxattack="135" minmagic="131" maxmagic="319" hit="60" int="4" dex="2" mp="180" hp="123"/>
+    </item>
+    <item index="7219" class="weapon" subclass="soul" level="53" wear="1" reqclass="shaman" reqlevel="53" range="18" buy="0" sell="198900" endurance="30">
+        <specialty attackspeed="1000" minattack="107" maxattack="142" minmagic="154" maxmagic="297" hit="64" int="4" dex="2" wis="0"/>
+    </item>
+    <item index="7220" class="weapon" subclass="soul" level="53" wear="1" reqclass="shaman" reqlevel="53" range="18" buy="0" sell="198900" endurance="30">
+        <specialty attackspeed="1000" minattack="118" maxattack="155" minmagic="168" maxmagic="315" hit="62" int="5" dex="2" mp="240" hp="136"/>
+    </item>
+    <item index="7221" class="weapon" subclass="soul" level="53" wear="1" reqclass="shaman" reqlevel="53" range="18" buy="0" sell="198900" endurance="30">
+        <specialty attackspeed="1000" minattack="95" maxattack="127" minmagic="119" maxmagic="242" hit="66" dex="3" wis="7" mp="180"/>
+    </item>
+    <item index="7222" class="weapon" subclass="soul" level="53" wear="1" reqclass="shaman" reqlevel="53" range="18" buy="0" sell="198900" endurance="30">
+        <specialty attackspeed="1000" minattack="130" maxattack="171" minmagic="185" maxmagic="347" hit="62" int="5" dex="3" mp="240" hp="152"/>
+    </item>
+    <item index="7223" class="weapon" subclass="soul" level="56" wear="1" reqclass="shaman" reqlevel="56" range="18" buy="0" sell="397800" endurance="30">
+        <specialty attackspeed="1000" minattack="122" maxattack="160" minmagic="198" maxmagic="339" hit="66" int="5" dex="3" wis="1"/>
+    </item>
+    <item index="7224" class="weapon" subclass="soul" level="56" wear="1" reqclass="shaman" reqlevel="56" range="18" buy="0" sell="397800" endurance="30">
+        <specialty attackspeed="1000" minattack="135" maxattack="176" minmagic="218" maxmagic="363" hit="64" int="6" dex="3" mp="300" hp="168"/>
+    </item>
+    <item index="7225" class="weapon" subclass="soul" level="56" wear="1" reqclass="shaman" reqlevel="56" range="18" buy="0" sell="397800" endurance="30">
+        <specialty attackspeed="1000" minattack="108" maxattack="143" minmagic="158" maxmagic="290" hit="68" dex="4" wis="8" mp="240"/>
+    </item>
+    <item index="7226" class="weapon" subclass="soul" level="56" wear="1" reqclass="shaman" reqlevel="56" range="18" buy="0" sell="397800" endurance="30">
+        <specialty attackspeed="1000" minattack="149" maxattack="194" minmagic="240" maxmagic="399" hit="64" int="6" dex="4" mp="300" hp="187"/>
+    </item>
+    <item index="7227" class="weapon" subclass="soul" level="59" wear="1" reqclass="shaman" reqlevel="59" range="18" buy="0" sell="795600" endurance="30">
+        <specialty attackspeed="1000" minattack="136" maxattack="177" minmagic="267" maxmagic="436" hit="69" int="7" dex="4" wis="1" mp="120"/>
+    </item>
+    <item index="7228" class="weapon" subclass="soul" level="59" wear="1" reqclass="shaman" reqlevel="59" range="18" buy="0" sell="795600" endurance="30">
+        <specialty attackspeed="1000" minattack="152" maxattack="197" minmagic="287" maxmagic="460" hit="67" int="9" dex="4" mp="360" hp="208"/>
+    </item>
+    <item index="7229" class="weapon" subclass="soul" level="59" wear="1" reqclass="shaman" reqlevel="59" range="18" buy="0" sell="795600" endurance="30">
+        <specialty attackspeed="1000" minattack="122" maxattack="160" minmagic="228" maxmagic="387" hit="81" dex="4" wis="11" mp="420"/>
+    </item>
+    <item index="7230" class="weapon" subclass="soul" level="59" wear="1" reqclass="shaman" reqlevel="59" range="18" buy="0" sell="795600" endurance="30">
+        <specialty attackspeed="1000" minattack="167" maxattack="216" minmagic="316" maxmagic="506" hit="67" int="9" dex="4" mp="360" hp="231"/>
+    </item>
+    <item index="7231" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="170" maxattack="219" minmagic="347" maxmagic="508" hit="72" int="8" dex="5" wis="2" mp="180"/>
+    </item>
+    <item index="7232" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="186" maxattack="240" minmagic="382" maxmagic="559" hit="72" int="8" dex="5" wis="2" mp="180" hp="257"/>
+    </item>
+    <item index="7233" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="210" maxattack="220" minmagic="413" maxmagic="534" hit="70" int="20" dex="6" mp="404"/>
+    </item>
+    <item index="7234" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="210" maxattack="220" minmagic="413" maxmagic="534" hth="1" hit="74" dex="6" wis="14" hp="285"/>
+    </item>
+    <item index="7235" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hit="74" int="25" dex="7" mp="505"/>
+    </item>
+    <item index="7236" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hth="2" hit="74" dex="7" wis="14" hp="317"/>
+    </item>
+    <item index="7237" class="weapon" subclass="soul" level="65" wear="1" reqclass="shaman" reqlevel="65" range="18" buy="0" sell="3182400" endurance="34">
+        <specialty attackspeed="1000" minattack="189" maxattack="242" minmagic="416" maxmagic="593" hth="4" hit="75" int="20" dex="8" wis="2" mp="240"/>
+    </item>
+    <item index="7238" class="weapon" subclass="soul" level="65" wear="1" reqclass="shaman" reqlevel="65" range="18" buy="0" sell="3182400" endurance="34">
+        <specialty attackspeed="1000" minattack="209" maxattack="266" minmagic="458" maxmagic="652" hth="4" hit="75" int="25" dex="8" wis="2" mp="240" hp="334"/>
+    </item>
+    <item index="7239" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="515" maxmagic="858" hit="78" int="40" dex="9" mp="631"/>
+    </item>
+    <item index="7240" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="515" maxmagic="858" hth="5" hit="78" dex="9" wis="15" hp="352"/>
+    </item>
+    <item index="7241" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="644" maxmagic="901" hit="78" int="45" dex="11" mp="789"/>
+    </item>
+    <item index="7242" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="644" maxmagic="901" hth="6" hit="78" dex="11" wis="20" hp="391"/>
+    </item>
+    <item index="7243" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="297" maxattack="376" minmagic="695" maxmagic="948" hit="79" int="50" dex="13" mp="986"/>
+    </item>
+    <item index="7244" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="245" maxattack="376" minmagic="695" maxmagic="948" hth="10" hit="83" dex="13" wis="27" hp="435"/>
+    </item>
+    <item index="7245" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="40">
+        <specialty attackspeed="1000" minattack="321" maxattack="406" minmagic="730" maxmagic="994" hit="81" int="55" dex="15" mp="1233"/>
+    </item>
+    <item index="7246" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="40">
+        <specialty attackspeed="1000" minattack="267" maxattack="406" minmagic="730" maxmagic="994" hth="12" hit="85" dex="15" wis="35" hp="483"/>
+    </item>
+    <item index="7247" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="356" maxattack="450" minmagic="848" maxmagic="1146" hit="82" int="60" dex="15" mp="1541"/>
+    </item>
+    <item index="7248" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="296" maxattack="450" minmagic="848" maxmagic="1146" hth="15" hit="86" dex="15" wis="36" hp="537"/>
+    </item>
+    <item index="7249" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="367" maxattack="462" minmagic="869" maxmagic="1169" hit="84" int="65" dex="17" mp="1926"/>
+    </item>
+    <item index="7250" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="305" maxattack="462" minmagic="869" maxmagic="1169" hth="20" hit="88" dex="17" wis="45" hp="596"/>
+    </item>
+    <item index="7251" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="425" maxattack="535" minmagic="1012" maxmagic="1352" hit="85" int="70" dex="17" mp="2408"/>
+    </item>
+    <item index="7252" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="356" maxattack="535" minmagic="1012" maxmagic="1352" hth="20" hit="89" dex="17" wis="45" hp="662"/>
+    </item>
+    <item index="7253" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="509" maxattack="641" minmagic="1213" maxmagic="1621" hit="87" int="75" dex="19" mp="3010"/>
+    </item>
+    <item index="7254" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="428" maxattack="641" minmagic="1213" maxmagic="1621" hth="28" hit="91" dex="19" wis="56" hp="736"/>
+    </item>
+    <item index="7270" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="189" maxattack="198" minmagic="372" maxmagic="481" hit="70" int="20" dex="6" mp="390"/>
+    </item>
+    <item index="7271" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="189" maxattack="198" minmagic="372" maxmagic="481" hth="1" hit="74" dex="6" wis="14" hp="205"/>
+    </item>
+    <item index="7272" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="199" maxattack="254" minmagic="463" maxmagic="772" hit="78" int="40" dex="9" mp="611"/>
+    </item>
+    <item index="7273" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="241" maxattack="254" minmagic="463" maxmagic="772" hth="5" hit="78" dex="9" wis="15" hp="302"/>
+    </item>
+    <item index="7274" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="267" maxattack="338" minmagic="626" maxmagic="854" hit="79" int="50" dex="13" mp="906"/>
+    </item>
+    <item index="7275" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="221" maxattack="338" minmagic="626" maxmagic="854" hth="10" hit="83" dex="13" wis="27" hp="405"/>
+    </item>
+    <item index="7276" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="320" maxattack="405" minmagic="763" maxmagic="1032" hit="82" int="60" dex="15" mp="1501"/>
+    </item>
+    <item index="7277" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="266" maxattack="405" minmagic="763" maxmagic="1032" hth="15" hit="86" dex="15" wis="36" hp="507"/>
+    </item>
+    <item index="7278" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="383" maxattack="482" minmagic="911" maxmagic="1217" hit="85" int="70" dex="17" mp="2368"/>
+    </item>
+    <item index="7279" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="320" maxattack="482" minmagic="911" maxmagic="1217" hth="20" hit="89" dex="17" wis="45" hp="642"/>
+    </item>
+    <item index="7280" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hit="74" int="25" dex="7" mp="505"/>
+    </item>
+    <item index="7281" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hth="2" hit="74" dex="7" wis="14" hp="317"/>
+    </item>
+    <item index="7282" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="515" maxmagic="858" hit="78" int="40" dex="9" mp="631"/>
+    </item>
+    <item index="7283" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="515" maxmagic="858" hth="5" hit="78" dex="9" wis="15" hp="352"/>
+    </item>
+    <item index="7284" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="40">
+        <specialty attackspeed="1000" minattack="297" maxattack="376" minmagic="695" maxmagic="948" hit="79" int="50" dex="13" mp="986"/>
+    </item>
+    <item index="7285" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="40">
+        <specialty attackspeed="1000" minattack="245" maxattack="376" minmagic="695" maxmagic="948" hth="10" hit="83" dex="13" wis="27" hp="435"/>
+    </item>
+    <item index="7286" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="356" maxattack="450" minmagic="848" maxmagic="1146" hit="82" int="60" dex="15" mp="1541"/>
+    </item>
+    <item index="7287" class="weapon" subclass="soul" level="80" wear="1" reqclass="shaman" reqlevel="80" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="296" maxattack="450" minmagic="848" maxmagic="1146" hth="15" hit="86" dex="15" wis="36" hp="537"/>
+    </item>
+    <item index="7288" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="425" maxattack="535" minmagic="1012" maxmagic="1352" hit="85" int="70" dex="17" mp="2408"/>
+    </item>
+    <item index="7289" class="weapon" subclass="soul" level="90" wear="1" reqclass="shaman" reqlevel="91" range="18" buy="0" sell="10501920" endurance="40">
+        <specialty attackspeed="1000" minattack="356" maxattack="535" minmagic="1012" maxmagic="1352" hth="20" hit="89" dex="17" wis="45" hp="662"/>
+    </item>
+    <item index="7290" class="weapon" subclass="soul" level="45" wear="1" reqclass="shaman" reqlevel="40" range="18" buy="0" sell="78000" endurance="30">
+        <specialty attackspeed="1000" hth="2" minattack="85" maxattack="97" minmagic="136" maxmagic="176" hp="150" hit="58"/>
+    </item>
+    <item index="7300" class="defense" subclass="helmet" level="8" wear="1" reqclass="Shaman" reqlevel="1" buy="36" sell="12" endurance="3">
+        <specialty defense="3" dodge="4"/>
+    </item>
+    <item index="7301" class="defense" subclass="helmet" level="16" wear="1" reqclass="shaman" reqlevel="1" buy="478" sell="159" endurance="5">
+        <specialty defense="4" dodge="5" resistfire="2" resistice="2" resistlitning="2"/>
+    </item>
+    <item index="7302" class="defense" subclass="helmet" level="24" wear="1" reqclass="shaman" reqlevel="1" buy="1860" sell="620" endurance="8">
+        <specialty defense="6" dodge="5" resistfire="3" resistice="3" resistlitning="3"/>
+    </item>
+    <item index="7303" class="defense" subclass="helmet" level="32" wear="1" reqclass="shaman" reqlevel="1" buy="9018" sell="3006" endurance="11">
+        <specialty defense="10" dodge="7" resistfire="4" resistice="4" resistlitning="4"/>
+    </item>
+    <item index="7304" class="defense" subclass="helmet" level="42" wear="1" reqclass="shaman" reqlevel="1" buy="57517" sell="19172" endurance="14">
+        <specialty defense="13" dodge="7" resistfire="5" resistice="5" resistlitning="5" resistcurse="2" resistpalsy="2"/>
+    </item>
+    <item index="7305" class="defense" subclass="helmet" level="46" wear="1" reqclass="shaman" reqlevel="39" buy="89072" sell="29300" endurance="14">
+        <specialty defense="14" dodge="10" resistfire="5" resistice="5" resistlitning="5" resistcurse="3" resistpalsy="3"/>
+    </item>
+    <item index="7306" class="defense" subclass="helmet" level="50" wear="1" reqclass="shaman" reqlevel="48" buy="215689" sell="70950" endurance="14">
+        <specialty defense="19" dodge="12" hth="1" resistfire="6" resistice="6" resistlitning="6" resistcurse="3" resistpalsy="3"/>
+    </item>
+    <item index="7307" class="defense" subclass="helmet" level="55" wear="1" reqclass="shaman" reqlevel="53" buy="0" sell="140000" endurance="14">
+        <specialty defense="23" dodge="14" hth="2" resistfire="7" resistice="7" resistlitning="7" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7308" class="defense" subclass="helmet" level="60" wear="1" reqclass="shaman" reqlevel="58" buy="0" sell="280000" endurance="14">
+        <specialty defense="31" dodge="16" hth="2" int="3" resistfire="8" resistice="8" resistlitning="8" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7309" class="defense" subclass="helmet" level="65" wear="1" reqclass="shaman" reqlevel="63" buy="0" sell="280000" endurance="14">
+        <specialty defense="30" dodge="18" hth="2" int="4" absorb="1" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7310" class="defense" subclass="helmet" level="70" wear="1" reqclass="shaman" reqlevel="68" buy="0" sell="420000" endurance="14">
+        <specialty defense="32" dodge="19" hth="2" int="6" hp="25" absorb="2" mp="72" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7311" class="defense" subclass="helmet" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="508200" endurance="14">
+        <specialty defense="35" dodge="20" hth="3" int="7" str="0" wis="3" hp="45" dex="0" absorb="3" mp="99" resistfire="11" resistice="11" resistlitning="11" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7312" class="defense" subclass="helmet" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="462000" endurance="14">
+        <specialty defense="38" dodge="21" hth="4" int="8" str="0" wis="4" hp="45" dex="0" absorb="4" mp="135" resistfire="12" resistice="12" resistlitning="12" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7313" class="defense" subclass="upperarmor" level="8" wear="1" reqclass="shaman" reqlevel="1" buy="80" sell="26" endurance="5">
+        <specialty defense="4" dodge="3"/>
+    </item>
+    <item index="7314" class="defense" subclass="upperarmor" level="16" wear="1" reqclass="shaman" reqlevel="1" buy="1063" sell="354" endurance="8">
+        <specialty defense="7" dodge="5" resistfire="3" resistice="3" resistlitning="3"/>
+    </item>
+    <item index="7315" class="defense" subclass="upperarmor" level="24" wear="1" reqclass="shaman" reqlevel="1" buy="4135" sell="1378" endurance="12">
+        <specialty defense="10" dodge="7" resistfire="4" resistice="4" resistlitning="4"/>
+    </item>
+    <item index="7316" class="defense" subclass="upperarmor" level="32" wear="1" reqclass="shaman" reqlevel="1" buy="20040" sell="6680" endurance="15">
+        <specialty defense="12" dodge="8" resistfire="5" resistice="5" resistlitning="5"/>
+    </item>
+    <item index="7317" class="defense" subclass="upperarmor" level="42" wear="1" reqclass="shaman" reqlevel="1" buy="126539" sell="42179" endurance="20">
+        <specialty defense="17" dodge="8" resistfire="6" resistice="6" resistlitning="6" resistcurse="3" resistpalsy="3"/>
+    </item>
+    <item index="7318" class="defense" subclass="upperarmor" level="46" wear="1" reqclass="shaman" reqlevel="43" buy="160208" sell="52700" endurance="24">
+        <specialty defense="18" dodge="19" resistfire="6" resistice="6" resistlitning="6" resistcurse="3" resistpalsy="3"/>
+    </item>
+    <item index="7319" class="defense" subclass="upperarmor" level="50" wear="1" reqclass="shaman" reqlevel="50" buy="392161" sell="129000" endurance="24">
+        <specialty defense="24" dodge="23" hth="2" int="6" resistfire="7" resistice="7" resistlitning="7" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7320" class="defense" subclass="upperarmor" level="55" wear="1" reqclass="shaman" reqlevel="55" buy="0" sell="260000" endurance="24">
+        <specialty defense="30" dodge="27" hth="3" int="8" resistfire="8" resistice="8" resistlitning="8" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7321" class="defense" subclass="upperarmor" level="60" wear="1" reqclass="shaman" reqlevel="60" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="31" hth="3" int="8" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7322" class="defense" subclass="upperarmor" level="65" wear="1" reqclass="shaman" reqlevel="65" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="35" hth="3" int="10" absorb="2" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7323" class="defense" subclass="upperarmor" level="70" wear="1" reqclass="shaman" reqlevel="70" buy="0" sell="780000" endurance="24">
+        <specialty defense="42" dodge="39" hth="4" int="11" absorb="3" resistfire="11" resistice="11" resistlitning="11" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7324" class="defense" subclass="upperarmor" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="943800" endurance="24">
+        <specialty defense="49" dodge="49" hth="2" int="27" str="0" wis="3" hp="130" dex="0" absorb="4" mp="333" resistfire="13" resistice="13" resistlitning="13" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7325" class="defense" subclass="upperarmor" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="858000" endurance="24">
+        <specialty defense="54" dodge="55" hth="3" int="32" str="0" wis="4" hp="180" dex="0" absorb="5" mp="432" resistfire="14" resistice="14" resistlitning="14" resistcurse="10" resistpalsy="10"/>
+    </item>
+    <item index="7326" class="defense" subclass="lowerarmor" level="8" wear="1" reqclass="shaman" reqlevel="1" buy="24" sell="8" endurance="4">
+        <specialty defense="1" dodge="5"/>
+    </item>
+    <item index="7327" class="defense" subclass="lowerarmor" level="16" wear="1" reqclass="shaman" reqlevel="1" buy="318" sell="106" endurance="7">
+        <specialty defense="2" dodge="9"/>
+    </item>
+    <item index="7328" class="defense" subclass="lowerarmor" level="24" wear="1" reqclass="shaman" reqlevel="1" buy="1240" sell="413" endurance="10">
+        <specialty defense="3" dodge="12"/>
+    </item>
+    <item index="7329" class="defense" subclass="lowerarmor" level="32" wear="1" reqclass="shaman" reqlevel="1" buy="6011" sell="2003" endurance="13">
+        <specialty defense="5" dodge="16"/>
+    </item>
+    <item index="7330" class="defense" subclass="lowerarmor" level="42" wear="1" reqclass="shaman" reqlevel="1" buy="32612" sell="10870" endurance="17">
+        <specialty defense="8" dodge="20" resistfire="2" resistice="2" resistlitning="2"/>
+    </item>
+    <item index="7331" class="defense" subclass="lowerarmor" level="46" wear="1" reqclass="shaman" reqlevel="41" buy="135280" sell="44500" endurance="20">
+        <specialty defense="13" dodge="20" resistfire="4" resistice="4" resistlitning="4" resistcurse="3" resistpalsy="3"/>
+    </item>
+    <item index="7332" class="defense" subclass="lowerarmor" level="50" wear="1" reqclass="shaman" reqlevel="49" buy="329415" sell="108360" endurance="20">
+        <specialty defense="17" dodge="25" hth="1" resistfire="4" resistice="4" resistlitning="4" resistcurse="3" resistpalsy="3"/>
+    </item>
+    <item index="7333" class="defense" subclass="lowerarmor" level="55" wear="1" reqclass="shaman" reqlevel="54" buy="0" sell="220000" endurance="20">
+        <specialty defense="21" dodge="30" hth="2" resistfire="4" resistice="4" resistlitning="4" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7334" class="defense" subclass="lowerarmor" level="60" wear="1" reqclass="shaman" reqlevel="59" buy="0" sell="440000" endurance="20">
+        <specialty defense="27" dodge="35" hth="2" int="3" resistfire="5" resistice="5" resistlitning="5" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7335" class="defense" subclass="lowerarmor" level="65" wear="1" reqclass="shaman" reqlevel="64" buy="0" sell="440000" endurance="20">
+        <specialty defense="28" dodge="40" hth="2" int="5" absorb="2" resistfire="6" resistice="6" resistlitning="6" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7336" class="defense" subclass="lowerarmor" level="70" wear="1" reqclass="shaman" reqlevel="69" buy="0" sell="660000" endurance="20">
+        <specialty defense="31" dodge="45" hth="3" int="5" absorb="4" resistfire="7" resistice="7" resistlitning="7" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7337" class="defense" subclass="lowerarmor" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="798600" endurance="20">
+        <specialty defense="35" dodge="49" hth="2" int="15" str="0" wis="4" hp="90" dex="0" absorb="4" mp="135" resistfire="8" resistice="8" resistlitning="8" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7338" class="defense" subclass="lowerarmor" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="726000" endurance="20">
+        <specialty defense="38" dodge="53" hth="3" int="16" str="0" wis="5" hp="120" dex="0" absorb="5" mp="162" resistfire="9" resistice="9" resistlitning="9" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7339" class="defense" subclass="gauntlet" level="8" wear="1" reqclass="shaman" reqlevel="1" buy="20" sell="6" endurance="2">
+        <specialty defense="1" dodge="2"/>
+    </item>
+    <item index="7340" class="defense" subclass="gauntlet" level="16" wear="1" reqclass="shaman" reqlevel="1" buy="265" sell="88" endurance="4">
+        <specialty defense="3" dodge="3"/>
+    </item>
+    <item index="7341" class="defense" subclass="gauntlet" level="24" wear="1" reqclass="shaman" reqlevel="1" buy="1033" sell="344" endurance="6">
+        <specialty defense="5" dodge="4" resistfire="2" resistice="2" resistlitning="2"/>
+    </item>
+    <item index="7342" class="defense" subclass="gauntlet" level="32" wear="1" reqclass="shaman" reqlevel="1" buy="5009" sell="1669" endurance="9">
+        <specialty defense="8" dodge="7" resistfire="3" resistice="3" resistlitning="3"/>
+    </item>
+    <item index="7343" class="defense" subclass="gauntlet" level="42" wear="1" reqclass="shaman" reqlevel="1" buy="31634" sell="10544" endurance="12">
+        <specialty defense="12" dodge="7" resistfire="4" resistice="4" resistlitning="4" resistcurse="2" resistpalsy="2"/>
+    </item>
+    <item index="7344" class="defense" subclass="gauntlet" level="46" wear="1" reqclass="shaman" reqlevel="35" buy="66272" sell="21800" endurance="10">
+        <specialty defense="14" dodge="8" resistfire="5" resistice="5" resistlitning="5" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7345" class="defense" subclass="gauntlet" level="50" wear="1" reqclass="shaman" reqlevel="46" buy="160786" sell="52890" endurance="10">
+        <specialty defense="19" dodge="10" wis="1" resistfire="5" resistice="5" resistlitning="5" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7346" class="defense" subclass="gauntlet" level="55" wear="1" reqclass="shaman" reqlevel="51" buy="0" sell="100000" endurance="10">
+        <specialty defense="23" dodge="12" wis="2" resistfire="6" resistice="6" resistlitning="6" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7347" class="defense" subclass="gauntlet" level="60" wear="1" reqclass="shaman" reqlevel="56" buy="0" sell="200000" endurance="10">
+        <specialty defense="31" dodge="14" int="3" wis="2" resistfire="7" resistice="7" resistlitning="7" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7348" class="defense" subclass="gauntlet" level="65" wear="1" reqclass="shaman" reqlevel="61" buy="0" sell="200000" endurance="10">
+        <specialty defense="30" dodge="17" int="5" wis="2" absorb="1" resistfire="8" resistice="8" resistlitning="8" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7349" class="defense" subclass="gauntlet" level="70" wear="1" reqclass="shaman" reqlevel="66" buy="0" sell="300000" endurance="10">
+        <specialty defense="32" dodge="19" int="5" wis="3" hp="45" absorb="2" mp="54" resistfire="9" resistice="9" resistlitning="9" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7350" class="defense" subclass="gauntlet" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="363000" endurance="10">
+        <specialty defense="34" dodge="21" hth="2" int="6" str="0" wis="4" hp="65" dex="0" absorb="3" mp="72" resistfire="10" resistice="10" resistlitning="10" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7351" class="defense" subclass="gauntlet" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="330000" endurance="10">
+        <specialty defense="36" dodge="23" hth="3" int="7" str="0" wis="5" hp="85" dex="0" absorb="4" mp="99" resistfire="11" resistice="11" resistlitning="11" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7352" class="defense" subclass="boots" level="8" wear="1" reqclass="shaman" reqlevel="1" buy="44" sell="14" endurance="3">
+        <specialty defense="2" dodge="6"/>
+    </item>
+    <item index="7353" class="defense" subclass="boots" level="16" wear="1" reqclass="shaman" reqlevel="1" buy="584" sell="194" endurance="5">
+        <specialty defense="3" dodge="8"/>
+    </item>
+    <item index="7354" class="defense" subclass="boots" level="24" wear="1" reqclass="shaman" reqlevel="1" buy="2274" sell="758" endurance="8">
+        <specialty defense="6" dodge="12"/>
+    </item>
+    <item index="7355" class="defense" subclass="boots" level="32" wear="1" reqclass="shaman" reqlevel="1" buy="11021" sell="3673" endurance="11">
+        <specialty defense="9" dodge="14" resistfire="2" resistice="2" resistlitning="2"/>
+    </item>
+    <item index="7356" class="defense" subclass="boots" level="42" wear="1" reqclass="shaman" reqlevel="1" buy="70299" sell="23433" endurance="15">
+        <specialty defense="12" dodge="18" resistfire="3" resistice="3" resistlitning="3" resistcurse="2" resistpalsy="2"/>
+    </item>
+    <item index="7357" class="defense" subclass="boots" level="46" wear="1" reqclass="shaman" reqlevel="37" buy="77824" sell="25600" endurance="12">
+        <specialty defense="16" dodge="18" resistfire="4" resistice="4" resistlitning="4" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7358" class="defense" subclass="boots" level="50" wear="1" reqclass="shaman" reqlevel="47" buy="188237" sell="61920" endurance="12">
+        <specialty defense="21" dodge="21" wis="1" resistfire="4" resistice="4" resistlitning="4" resistcurse="4" resistpalsy="4"/>
+    </item>
+    <item index="7359" class="defense" subclass="boots" level="55" wear="1" reqclass="shaman" reqlevel="52" buy="0" sell="120000" endurance="12">
+        <specialty defense="27" dodge="24" wis="2" resistfire="4" resistice="4" resistlitning="4" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7360" class="defense" subclass="boots" level="60" wear="1" reqclass="shaman" reqlevel="57" buy="0" sell="240000" endurance="12">
+        <specialty defense="36" dodge="27" int="3" wis="2" resistfire="5" resistice="5" resistlitning="5" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7361" class="defense" subclass="boots" level="65" wear="1" reqclass="shaman" reqlevel="62" buy="0" sell="240000" endurance="12">
+        <specialty defense="35" dodge="30" int="5" wis="2" absorb="1" resistfire="6" resistice="6" resistlitning="6" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7362" class="defense" subclass="boots" level="70" wear="1" reqclass="shaman" reqlevel="67" buy="0" sell="360000" endurance="12">
+        <specialty defense="36" dodge="33" int="5" wis="3" hp="25" absorb="2" mp="72" resistfire="7" resistice="7" resistlitning="7" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7363" class="defense" subclass="boots" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="435600" endurance="12">
+        <specialty defense="37" dodge="36" hth="2" int="6" str="0" wis="4" hp="45" dex="0" absorb="3" mp="108" resistfire="8" resistice="8" resistlitning="8" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7364" class="defense" subclass="boots" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="396000" endurance="12">
+        <specialty defense="38" dodge="39" hth="3" int="7" str="0" wis="5" hp="65" dex="0" absorb="4" mp="135" resistfire="9" resistice="9" resistlitning="9" resistcurse="10" resistpalsy="10"/>
+    </item>
+    <item index="7380" class="defense" subclass="helmet" level="60" wear="1" reqclass="shaman" reqlevel="58" buy="0" sell="280000" endurance="14">
+        <specialty defense="31" dodge="15" hth="2" int="3" resistfire="8" resistice="8" resistlitning="8" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7381" class="defense" subclass="upperarmor" level="60" wear="1" reqclass="shaman" reqlevel="60" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="30" hth="3" int="8" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7382" class="defense" subclass="lowerarmor" level="60" wear="1" reqclass="shaman" reqlevel="59" buy="0" sell="440000" endurance="20">
+        <specialty defense="27" dodge="34" hth="2" int="3" resistfire="5" resistice="5" resistlitning="5" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7383" class="defense" subclass="gauntlet" level="60" wear="1" reqclass="shaman" reqlevel="56" buy="0" sell="200000" endurance="10">
+        <specialty defense="31" dodge="13" int="3" wis="2" resistfire="7" resistice="7" resistlitning="7" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7384" class="defense" subclass="boots" level="60" wear="1" reqclass="shaman" reqlevel="57" buy="0" sell="240000" endurance="12">
+        <specialty defense="36" dodge="26" int="3" wis="2" resistfire="5" resistice="5" resistlitning="5" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7385" class="defense" subclass="helmet" level="65" wear="1" reqclass="shaman" reqlevel="63" buy="0" sell="280000" endurance="14">
+        <specialty defense="30" dodge="17" hth="2" int="4" absorb="1" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7386" class="defense" subclass="upperarmor" level="65" wear="1" reqclass="shaman" reqlevel="65" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="34" hth="3" int="10" absorb="2" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7387" class="defense" subclass="lowerarmor" level="65" wear="1" reqclass="shaman" reqlevel="64" buy="0" sell="440000" endurance="20">
+        <specialty defense="28" dodge="39" hth="2" int="5" absorb="2" resistfire="6" resistice="6" resistlitning="6" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7388" class="defense" subclass="gauntlet" level="65" wear="1" reqclass="shaman" reqlevel="61" buy="0" sell="200000" endurance="10">
+        <specialty defense="30" dodge="16" int="5" wis="2" absorb="1" resistfire="8" resistice="8" resistlitning="8" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7389" class="defense" subclass="boots" level="65" wear="1" reqclass="shaman" reqlevel="62" buy="0" sell="240000" endurance="12">
+        <specialty defense="35" dodge="29" int="5" wis="2" absorb="1" resistfire="6" resistice="6" resistlitning="6" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7390" class="defense" subclass="helmet" level="70" wear="1" reqclass="shaman" reqlevel="68" buy="0" sell="420000" endurance="14">
+        <specialty defense="32" dodge="18" hth="2" int="6" hp="25" absorb="2" mp="72" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7391" class="defense" subclass="upperarmor" level="70" wear="1" reqclass="shaman" reqlevel="70" buy="0" sell="780000" endurance="24">
+        <specialty defense="42" dodge="38" hth="4" int="11" absorb="3" resistfire="11" resistice="11" resistlitning="11" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7392" class="defense" subclass="lowerarmor" level="70" wear="1" reqclass="shaman" reqlevel="69" buy="0" sell="660000" endurance="20">
+        <specialty defense="31" dodge="44" hth="3" int="5" absorb="4" resistfire="7" resistice="7" resistlitning="7" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7393" class="defense" subclass="gauntlet" level="70" wear="1" reqclass="shaman" reqlevel="66" buy="0" sell="300000" endurance="10">
+        <specialty defense="32" dodge="18" int="5" wis="3" hp="45" absorb="2" mp="54" resistfire="9" resistice="9" resistlitning="9" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7394" class="defense" subclass="boots" level="70" wear="1" reqclass="shaman" reqlevel="67" buy="0" sell="360000" endurance="12">
+        <specialty defense="36" dodge="32" int="5" wis="3" hp="25" absorb="2" mp="72" resistfire="7" resistice="7" resistlitning="7" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7395" class="defense" subclass="helmet" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="508200" endurance="14">
+        <specialty defense="35" dodge="19" hth="3" int="7" str="0" wis="3" hp="45" dex="0" absorb="3" mp="99" resistfire="11" resistice="11" resistlitning="11" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7396" class="defense" subclass="upperarmor" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="943800" endurance="24">
+        <specialty defense="49" dodge="48" hth="2" int="27" str="0" wis="3" hp="130" dex="0" absorb="4" mp="333" resistfire="13" resistice="13" resistlitning="13" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7397" class="defense" subclass="lowerarmor" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="798600" endurance="20">
+        <specialty defense="35" dodge="48" hth="2" int="15" str="0" wis="4" hp="90" dex="0" absorb="4" mp="135" resistfire="8" resistice="8" resistlitning="8" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7398" class="defense" subclass="gauntlet" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="363000" endurance="10">
+        <specialty defense="34" dodge="20" hth="2" int="6" str="0" wis="4" hp="65" dex="0" absorb="3" mp="72" resistfire="10" resistice="10" resistlitning="10" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7399" class="defense" subclass="boots" level="80" wear="1" reqclass="shaman" reqlevel="80" buy="0" sell="435600" endurance="12">
+        <specialty defense="37" dodge="35" hth="2" int="6" str="0" wis="4" hp="45" dex="0" absorb="3" mp="108" resistfire="8" resistice="8" resistlitning="8" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7400" class="defense" subclass="helmet" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="462000" endurance="14">
+        <specialty defense="38" dodge="20" hth="4" int="8" str="0" wis="4" hp="45" dex="0" absorb="4" mp="135" resistfire="12" resistice="12" resistlitning="12" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7401" class="defense" subclass="upperarmor" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="858000" endurance="24">
+        <specialty defense="54" dodge="54" hth="3" int="32" str="0" wis="4" hp="180" dex="0" absorb="5" mp="432" resistfire="14" resistice="14" resistlitning="14" resistcurse="10" resistpalsy="10"/>
+    </item>
+    <item index="7402" class="defense" subclass="lowerarmor" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="726000" endurance="20">
+        <specialty defense="38" dodge="52" hth="3" int="16" str="0" wis="5" hp="120" dex="0" absorb="5" mp="162" resistfire="9" resistice="9" resistlitning="9" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7403" class="defense" subclass="gauntlet" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="330000" endurance="10">
+        <specialty defense="36" dodge="22" hth="3" int="7" str="0" wis="5" hp="85" dex="0" absorb="4" mp="99" resistfire="11" resistice="11" resistlitning="11" resistcurse="9" resistpalsy="9"/>
+    </item>
+    <item index="7404" class="defense" subclass="boots" level="90" wear="1" reqclass="shaman" reqlevel="91" buy="0" sell="396000" endurance="12">
+        <specialty defense="38" dodge="38" hth="3" int="7" str="0" wis="5" hp="65" dex="0" absorb="4" mp="135" resistfire="9" resistice="9" resistlitning="9" resistcurse="10" resistpalsy="10"/>
+    </item>
+    <item index="7405" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="210" maxattack="220" minmagic="413" maxmagic="534" hit="70" int="20" dex="6" mp="404"/>
+    </item>
+    <item index="7406" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="210" maxattack="220" minmagic="413" maxmagic="534" hth="1" hit="74" dex="6" wis="14" hp="285"/>
+    </item>
+    <item index="7407" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hit="74" int="25" dex="7" mp="505"/>
+    </item>
+    <item index="7408" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hth="2" hit="74" dex="7" wis="14" hp="317"/>
+    </item>
+    <item index="7409" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="515" maxmagic="858" hit="78" int="40" dex="9" mp="631"/>
+    </item>
+    <item index="7410" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="515" maxmagic="858" hth="5" hit="78" dex="9" wis="15" hp="352"/>
+    </item>
+    <item index="7411" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="644" maxmagic="901" hit="78" int="45" dex="11" mp="789"/>
+    </item>
+    <item index="7412" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="644" maxmagic="901" hth="6" hit="78" dex="11" wis="20" hp="391"/>
+    </item>
+    <item index="7413" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="297" maxattack="376" minmagic="695" maxmagic="948" hit="79" int="50" dex="13" mp="986"/>
+    </item>
+    <item index="7414" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="245" maxattack="376" minmagic="695" maxmagic="948" hth="10" hit="83" dex="13" wis="27" hp="435"/>
+    </item>
+    <item index="7415" class="defense" subclass="helmet" level="60" wear="1" reqclass="shaman" reqlevel="58" buy="0" sell="280000" endurance="14">
+        <specialty defense="31" dodge="16" hth="2" int="3" resistfire="8" resistice="8" resistlitning="8" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7416" class="defense" subclass="helmet" level="65" wear="1" reqclass="shaman" reqlevel="63" buy="0" sell="280000" endurance="14">
+        <specialty defense="30" dodge="18" hth="2" int="4" absorb="1" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7417" class="defense" subclass="helmet" level="70" wear="1" reqclass="shaman" reqlevel="68" buy="0" sell="420000" endurance="14">
+        <specialty defense="32" dodge="19" hth="2" int="6" hp="25" absorb="2" mp="72" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7418" class="defense" subclass="upperarmor" level="60" wear="1" reqclass="shaman" reqlevel="60" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="31" hth="3" int="8" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7419" class="defense" subclass="upperarmor" level="65" wear="1" reqclass="shaman" reqlevel="65" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="35" hth="3" int="10" absorb="2" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7420" class="defense" subclass="upperarmor" level="70" wear="1" reqclass="shaman" reqlevel="70" buy="0" sell="780000" endurance="24">
+        <specialty defense="42" dodge="39" hth="4" int="11" absorb="3" resistfire="11" resistice="11" resistlitning="11" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7421" class="defense" subclass="lowerarmor" level="60" wear="1" reqclass="shaman" reqlevel="59" buy="0" sell="440000" endurance="20">
+        <specialty defense="27" dodge="35" hth="2" int="3" resistfire="5" resistice="5" resistlitning="5" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7422" class="defense" subclass="lowerarmor" level="65" wear="1" reqclass="shaman" reqlevel="64" buy="0" sell="440000" endurance="20">
+        <specialty defense="28" dodge="40" hth="2" int="5" absorb="2" resistfire="6" resistice="6" resistlitning="6" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7423" class="defense" subclass="lowerarmor" level="70" wear="1" reqclass="shaman" reqlevel="69" buy="0" sell="660000" endurance="20">
+        <specialty defense="31" dodge="45" hth="3" int="5" absorb="4" resistfire="7" resistice="7" resistlitning="7" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7424" class="defense" subclass="gauntlet" level="60" wear="1" reqclass="shaman" reqlevel="56" buy="0" sell="200000" endurance="10">
+        <specialty defense="31" dodge="14" int="3" wis="2" resistfire="7" resistice="7" resistlitning="7" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7425" class="defense" subclass="gauntlet" level="65" wear="1" reqclass="shaman" reqlevel="61" buy="0" sell="200000" endurance="10">
+        <specialty defense="30" dodge="17" int="5" wis="2" absorb="1" resistfire="8" resistice="8" resistlitning="8" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7426" class="defense" subclass="gauntlet" level="70" wear="1" reqclass="shaman" reqlevel="66" buy="0" sell="300000" endurance="10">
+        <specialty defense="32" dodge="19" int="5" wis="3" hp="45" absorb="2" mp="54" resistfire="9" resistice="9" resistlitning="9" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7427" class="defense" subclass="boots" level="60" wear="1" reqclass="shaman" reqlevel="57" buy="0" sell="240000" endurance="12">
+        <specialty defense="36" dodge="27" int="3" wis="2" resistfire="5" resistice="5" resistlitning="5" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7428" class="defense" subclass="boots" level="65" wear="1" reqclass="shaman" reqlevel="62" buy="0" sell="240000" endurance="12">
+        <specialty defense="35" dodge="30" int="5" wis="2" absorb="1" resistfire="6" resistice="6" resistlitning="6" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7429" class="defense" subclass="boots" level="70" wear="1" reqclass="shaman" reqlevel="67" buy="0" sell="360000" endurance="12">
+        <specialty defense="36" dodge="33" int="5" wis="3" hp="25" absorb="2" mp="72" resistfire="7" resistice="7" resistlitning="7" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7430" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="210" maxattack="220" minmagic="413" maxmagic="534" hit="70" int="20" dex="6" mp="404"/>
+    </item>
+    <item index="7431" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="210" maxattack="220" minmagic="413" maxmagic="534" hth="1" hit="74" dex="6" wis="14" hp="285"/>
+    </item>
+    <item index="7432" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hit="74" int="25" dex="7" mp="505"/>
+    </item>
+    <item index="7433" class="weapon" subclass="soul" level="62" wear="1" reqclass="shaman" reqlevel="60" range="18" buy="0" sell="1591200" endurance="32">
+        <specialty attackspeed="1000" minattack="220" maxattack="231" minmagic="432" maxmagic="586" hth="2" hit="74" dex="7" wis="14" hp="317"/>
+    </item>
+    <item index="7434" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="515" maxmagic="858" hit="78" int="40" dex="9" mp="631"/>
+    </item>
+    <item index="7435" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="515" maxmagic="858" hth="5" hit="78" dex="9" wis="15" hp="352"/>
+    </item>
+    <item index="7436" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="221" maxattack="282" minmagic="644" maxmagic="901" hit="78" int="45" dex="11" mp="789"/>
+    </item>
+    <item index="7437" class="weapon" subclass="soul" level="70" wear="1" reqclass="shaman" reqlevel="70" range="18" buy="0" sell="6364800" endurance="36">
+        <specialty attackspeed="1000" minattack="268" maxattack="282" minmagic="644" maxmagic="901" hth="6" hit="78" dex="11" wis="20" hp="391"/>
+    </item>
+    <item index="7438" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="297" maxattack="376" minmagic="695" maxmagic="948" hit="79" int="50" dex="13" mp="986"/>
+    </item>
+    <item index="7439" class="weapon" subclass="soul" level="75" wear="1" reqclass="shaman" reqlevel="75" range="18" buy="0" sell="9547200" endurance="38">
+        <specialty attackspeed="1000" minattack="245" maxattack="376" minmagic="695" maxmagic="948" hth="10" hit="83" dex="13" wis="27" hp="435"/>
+    </item>
+    <item index="7440" class="defense" subclass="helmet" level="60" wear="1" reqclass="shaman" reqlevel="58" buy="0" sell="280000" endurance="14">
+        <specialty defense="31" dodge="16" hth="2" int="3" resistfire="8" resistice="8" resistlitning="8" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7441" class="defense" subclass="helmet" level="65" wear="1" reqclass="shaman" reqlevel="63" buy="0" sell="280000" endurance="14">
+        <specialty defense="30" dodge="18" hth="2" int="4" absorb="1" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7442" class="defense" subclass="helmet" level="70" wear="1" reqclass="shaman" reqlevel="68" buy="0" sell="420000" endurance="14">
+        <specialty defense="32" dodge="19" hth="2" int="6" hp="25" absorb="2" mp="72" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7443" class="defense" subclass="upperarmor" level="60" wear="1" reqclass="shaman" reqlevel="60" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="31" hth="3" int="8" resistfire="9" resistice="9" resistlitning="9" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7444" class="defense" subclass="upperarmor" level="65" wear="1" reqclass="shaman" reqlevel="65" buy="0" sell="520000" endurance="24">
+        <specialty defense="39" dodge="35" hth="3" int="10" absorb="2" resistfire="10" resistice="10" resistlitning="10" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7445" class="defense" subclass="upperarmor" level="70" wear="1" reqclass="shaman" reqlevel="70" buy="0" sell="780000" endurance="24">
+        <specialty defense="42" dodge="39" hth="4" int="11" absorb="3" resistfire="11" resistice="11" resistlitning="11" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7446" class="defense" subclass="lowerarmor" level="60" wear="1" reqclass="shaman" reqlevel="59" buy="0" sell="440000" endurance="20">
+        <specialty defense="27" dodge="35" hth="2" int="3" resistfire="5" resistice="5" resistlitning="5" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7447" class="defense" subclass="lowerarmor" level="65" wear="1" reqclass="shaman" reqlevel="64" buy="0" sell="440000" endurance="20">
+        <specialty defense="28" dodge="40" hth="2" int="5" absorb="2" resistfire="6" resistice="6" resistlitning="6" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7448" class="defense" subclass="lowerarmor" level="70" wear="1" reqclass="shaman" reqlevel="69" buy="0" sell="660000" endurance="20">
+        <specialty defense="31" dodge="45" hth="3" int="5" absorb="4" resistfire="7" resistice="7" resistlitning="7" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7449" class="defense" subclass="gauntlet" level="60" wear="1" reqclass="shaman" reqlevel="56" buy="0" sell="200000" endurance="10">
+        <specialty defense="31" dodge="14" int="3" wis="2" resistfire="7" resistice="7" resistlitning="7" resistcurse="5" resistpalsy="5"/>
+    </item>
+    <item index="7450" class="defense" subclass="gauntlet" level="65" wear="1" reqclass="shaman" reqlevel="61" buy="0" sell="200000" endurance="10">
+        <specialty defense="30" dodge="17" int="5" wis="2" absorb="1" resistfire="8" resistice="8" resistlitning="8" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7451" class="defense" subclass="gauntlet" level="70" wear="1" reqclass="shaman" reqlevel="66" buy="0" sell="300000" endurance="10">
+        <specialty defense="32" dodge="19" int="5" wis="3" hp="45" absorb="2" mp="54" resistfire="9" resistice="9" resistlitning="9" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7452" class="defense" subclass="boots" level="60" wear="1" reqclass="shaman" reqlevel="57" buy="0" sell="240000" endurance="12">
+        <specialty defense="36" dodge="27" int="3" wis="2" resistfire="5" resistice="5" resistlitning="5" resistcurse="6" resistpalsy="6"/>
+    </item>
+    <item index="7453" class="defense" subclass="boots" level="65" wear="1" reqclass="shaman" reqlevel="62" buy="0" sell="240000" endurance="12">
+        <specialty defense="35" dodge="30" int="5" wis="2" absorb="1" resistfire="6" resistice="6" resistlitning="6" resistcurse="7" resistpalsy="7"/>
+    </item>
+    <item index="7454" class="defense" subclass="boots" level="70" wear="1" reqclass="shaman" reqlevel="67" buy="0" sell="360000" endurance="12">
+        <specialty defense="36" dodge="33" int="5" wis="3" hp="25" absorb="2" mp="72" resistfire="7" resistice="7" resistlitning="7" resistcurse="8" resistpalsy="8"/>
+    </item>
+    <item index="7500" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0" level="1" reqclass="all" reqlevel="1"/>
+    <item index="7501" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0" level="15" reqclass="all" reqlevel="15"/>
+    <item index="7502" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0" level="30" reqclass="all" reqlevel="30"/>
+    <item index="7503" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0" level="40" reqclass="all" reqlevel="40"/>
+    <item index="7504" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0" level="50" reqclass="all" reqlevel="50"/>
+    <item index="7505" class="general" subclass="etc" use="1" plural="1" cooltime="100" buy="0" sell="0" level="60" reqclass="all" reqlevel="60"/>
+    <item index="7506" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
+        <specialty>
+            <refresh property="hp" amount="300"/>
+        </specialty>
+    </item>
+    <item index="7507" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
+        <specialty>
+            <refresh property="hp" amount="500"/>
+        </specialty>
+    </item>
+    <item index="7508" class="ride" subclass="etc" cooltime="5000" use="1" buy="3000000">
+        <specialty>
+            <buff id="498" time="0" value="6"/>
+        </specialty>
+    </item>
+    <item index="7509" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0">
+        <specialty>
+            <buff id="6" time="3600" value="10"/>
+        </specialty>
+    </item>
+    <item index="7510" class="general" subclass="charm" use="1" plural="1" cooltime="1000" buy="0" sell="0" effect="11">
+        <specialty>
+            <buff id="59" time="100" value="0"/>
+        </specialty>
+    </item>
+    <item index="7511" class="general" subclass="refresh" use="1" plural="1" cooltime="1300" buy="0" sell="0" effect="1">
+        <specialty>
+            <buff id="475" time="3600" value="0"/>
+        </specialty>
+    </item>
+    <item index="7512" class="pet" subclass="egg" wear="1" buy="0" sell="0" level="1" reqclass="all" reqlevel="1"/>
+    <item index="7060" class="general" subclass="etc" use="1" plural="1" reqclass="shaman" reqlevel="1" cooltime="2000" buy="0" effect="19">
+        <specialty>
+            <buff id="1019" time="86400" value="0"/>
+        </specialty>
+    </item>
+    <item index="4230" class="general" subclass="etc" use="1" buy="0" sell="0">
+        <specialty/>
+    </item>
+    <item index="4231" class="weapon" subclass="soul" level="29" wear="1" reqclass="shaman" reqlevel="1" range="18" buy="27120" sell="6780" endurance="24">
+        <specialty attackspeed="1000" minattack="40" maxattack="56" minmagic="63" maxmagic="101" hit="39"/>
+    </item>
+    <item index="4232" class="defense" subclass="helmet" level="32" wear="1" reqclass="shaman" reqlevel="5" buy="9018" sell="3006" endurance="11">
+        <specialty defense="10" dodge="7" resistfire="4" resistice="4" resistlitning="4"/>
+    </item>
+    <item index="4233" class="defense" subclass="upperarmor" level="16" wear="1" reqclass="shaman" reqlevel="10" buy="1063" sell="354" endurance="8">
+        <specialty defense="7" dodge="5" resistfire="3" resistice="3" resistlitning="3"/>
+    </item>
+    <item index="4234" class="defense" subclass="lowerarmor" level="16" wear="1" reqclass="shaman" reqlevel="15" buy="318" sell="106" endurance="7">
+        <specialty defense="2" dodge="9"/>
+    </item>
+    <item index="4235" class="defense" subclass="gauntlet" level="16" wear="1" reqclass="shaman" reqlevel="20" buy="265" sell="88" endurance="4">
+        <specialty defense="3" dodge="3"/>
+    </item>
+    <item index="4236" class="defense" subclass="boots" level="16" wear="1" reqclass="shaman" reqlevel="25" buy="584" sell="194" endurance="5">
+        <specialty defense="3" dodge="8"/>
+    </item>
+    <item index="4237" class="weapon" subclass="soul" level="33" wear="1" reqclass="shaman" reqlevel="25" range="18" buy="0" sell="0" endurance="30">
+        <specialty attackspeed="1000" minattack="54" maxattack="74" minmagic="90" maxmagic="142" hit="39"/>
+    </item>
+    <item index="4332" class="general" subclass="etc" use="1" cooltime="1000" reqclass="shaman" reqlevel="6" buy="300000" sell="0" endurance="1">
+        <specialty>
+            <buff id="104" time="3600" value="0"/>
+        </specialty>
+    </item>
 </itemlist>
