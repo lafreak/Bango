@@ -1,11 +1,18 @@
-language: cpp
 sudo: required
-dist: trusty
+
+services:
+  - docker
+
 compiler:
-- g++
-os:
-- linux
+    - g++
+
 before_install:
-- sudo apt-get update
-- sudo apt-get install libzdb-dev
-script: ./BUILD
+ - docker-compose down && docker-compose up -d --build
+
+script:
+ - sleep 10 && docker exec -i -t bango_mysql_1 bash /tmp/import.sh
+ - sleep 25 # wait until everything is ready
+ - git clone https://github.com/lafreak/BangoLightClient.git
+ - cd BangoLightClient
+ - make
+ - timeout 30 ./bango 127.0.0.1 3000 bot4 passwd || true
