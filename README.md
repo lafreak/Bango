@@ -1,6 +1,8 @@
 # Bango [![Build Status](https://travis-ci.org/lafreak/Bango.svg?branch=master)](https://travis-ci.org/lafreak/Bango)
 KalOnline MMORPG Server Emulator written in C++ for Linux 64bit OS.  
 
+> NOTE: This emulator is discontinued. For more up to date version visit: [https://github.com/lafreak/bango-sdk](https://github.com/lafreak/bango-sdk) 
+
 ## Quick installation
 Install MySQL Server: `sudo apt-get install mysql-server`  
 Install Libzdb: `sudo apt-get install libzdb-dev`  
